@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "title": "Harp Chord System — JSON reference",
+  "source": "handout.tex (2-page lever harp chord handout)",
+
+  "how_to_use": {
+    "purpose": "This is the machine-readable version of a 2-page lever harp handout. Load this file at the start of any chat about the harp chord system so you do not need to re-learn the notation from prose each time.",
+    "what_this_contains": [
+      "Page 1 HarpChords table: 14 finger patterns × 7 starting degrees → named chord (section: chords_by_pattern_and_degree)",
+      "Page 1 trefoil + cycle tables: 3 diatonic cycles (2nds, 3rds, 4ths), each with 7 edges labeled for both directions (section: cycles)",
+      "Page 2 Jazz Progressions: two-handed voicings that walk each cycle (section: jazz_progressions)",
+      "Page 2 Stacked Chords: two-handed sonorities indexed by LH figure (section: stacked_chords)",
+      "Notation key, interval-from-tonic alphabet, and figure-parsing rules (section: conventions)"
+    ],
+    "critical_distinctions": [
+      "FIGURE vs PATTERN. A pattern is just an interval sequence (e.g. '33', '333', '434'). A figure is a pattern with a starting-degree prefix (e.g. '133' = start on degree 1, then intervals 3,3). In the HarpChords table, row labels are bare patterns. Everywhere else, strings like '133' or '5333' are full figures.",
+      "Two figures producing the same chord is normal. Pattern 233 and pattern 434 give identical pitch-class sets at every starting degree — 434 is just 233 with its middle note displaced up one octave. The handout lists both because they are different physical fingerings.",
+      "CW vs CCW. Each cycle is a closed loop of 7 diatonic chords that starts and ends at I. CW and CCW are the two directions of traversal. Every edge has a CW-label AND a CCW-label — these describe the mood of the same edge in each direction."
+    ],
+    "latex_for_notation_files": "The `latex` field on each chord renders through the handout's \\rn macro and is the string to use verbatim in ABC, LilyPond, MEI, or MusicXML chord annotations."
+  },
+
+  "conventions": {
+    "roman_numeral_case": {
+      "uppercase": "major quality (I, IV, V)",
+      "lowercase": "minor quality (ii, iii, vi)",
+      "note": "Quality is implied by case alone; never write 'Im' or 'iim' — use 'i' and 'ii'."
+    },
+    "quality_suffixes": {
+      "": "plain triad (quality from case)",
+      "Δ": "major 7th",
+      "7": "dominant 7th (with uppercase) OR minor 7th (with lowercase)",
+      "6": "major 6th",
+      "m6": "minor 6th",
+      "°": "diminished",
+      "ø7": "half-diminished 7th",
+      "q": "quartal triad",
+      "q7": "quartal 7th",
+      "s2": "sus2",
+      "s4": "sus4",
+      "s4+8": "sus4 with octave doubling",
+      "+8": "octave doubling (of root)"
+    },
+    "inversion_superscripts": {
+      "¹": "first inversion (3rd in bass)",
+      "²": "second inversion (5th in bass)",
+      "³": "third inversion (7th in bass)"
+    },
+    "interval_alphabet_from_tonic": {
+      "1": "unison (tonic)",
+      "2": "2nd above",
+      "3": "3rd above",
+      "4": "4th above",
+      "5": "5th above",
+      "6": "6th above",
+      "7": "7th above",
+      "8": "octave (8th)",
+      "9": "9th",
+      "A": "10th",
+      "B": "11th",
+      "C": "12th",
+      "D": "13th",
+      "E": "14th",
+      "F": "15th (two octaves)",
+      "G": "16th",
+      "H": "17th"
+    },
+    "figure_parsing": {
+      "definition": "A figure is a string of characters from the interval alphabet. The FIRST character is the starting scale degree; each SUBSEQUENT character is the interval (inclusive) from the previous finger to the next finger.",
+      "span_formula": "span = 1 + Σ(interval − 1) per interval; intervals are inclusive on both ends.",
+      "examples": [
+        {"figure": "133", "parse": "start degree 1; then interval 3, then interval 3", "span": 5, "fingers": 3, "chord_in_C": "I (C-E-G)"},
+        {"figure": "933", "parse": "start degree 9 (i.e. scale-degree 2 one octave up); intervals 3, 3", "span": 5, "fingers": 3, "chord_in_C": "ii one octave up (D-F-A)"},
+        {"figure": "5333", "parse": "start degree 5; intervals 3, 3, 3", "span": 7, "fingers": 4, "chord_in_C": "V7 (G-B-D-F)"},
+        {"figure": "1233", "parse": "start degree 1; intervals 2, 3, 3", "span": 6, "fingers": 4, "chord_in_C": "IΔ¹ (C-D-F-A read as Dm7/C)"},
+        {"figure": "1433", "parse": "start degree 1; intervals 4, 3, 3", "span": 8, "fingers": 4, "chord_in_C": "Is4+8 (C-F-A-C)"}
+      ]
+    },
+    "lh_rh_figure_pair_notation": {
+      "definition": "When two figures appear together (e.g. '133 933' or '433 A43'), the LEFT figure is the Left Hand (LH) and the RIGHT figure is the Right Hand (RH).",
+      "examples": [
+        {"pair": "133 933", "meaning": "LH=I(str 1), RH=ii(str 9)"},
+        {"pair": "433 A43", "meaning": "LH=IV(str 4), RH=vi¹(str 10)"},
+        {"pair": "5333 D43", "meaning": "LH=V7(str 5), RH=ii¹(str 13)"}
+      ]
+    },
+    "nd_marker": "A dash (—) in the HarpChords table means non-diatonic: that pattern starting on that degree produces a chord outside the key's diatonic set."
+  },
+
+  "instrument": {
+    "type": "lever_harp",
+    "strings": 33,
+    "storage_tuning": "Eb",
+    "accessible_keys": ["Eb", "Bb", "F", "C", "G", "D", "A", "E"],
+    "lever_raise_order_from_storage": ["Eb", "Bb", "F", "C", "G", "D", "A", "E"],
+    "hands": {
+      "max_fingers_per_hand": 4,
+      "no_pinky": true,
+      "lh_plays_bottom": true,
+      "rh_plays_top": true,
+      "hands_do_not_cross": true
+    },
+    "chord_structure": "All 28-framework chords are continuous ascending stacks of thirds split between hands at a midpoint; LH plays bottom, RH plays top."
+  },
+
+  "patterns": [
+    {"id": "24",  "intervals": [2,4],       "fingers": 2, "span": 5},
+    {"id": "33",  "intervals": [3,3],       "fingers": 2, "span": 5},
+    {"id": "34",  "intervals": [3,4],       "fingers": 2, "span": 6},
+    {"id": "42",  "intervals": [4,2],       "fingers": 2, "span": 5},
+    {"id": "43",  "intervals": [4,3],       "fingers": 2, "span": 6},
+    {"id": "44",  "intervals": [4,4],       "fingers": 2, "span": 7},
+    {"id": "233", "intervals": [2,3,3],     "fingers": 3, "span": 6},
+    {"id": "323", "intervals": [3,2,3],     "fingers": 3, "span": 6},
+    {"id": "332", "intervals": [3,3,2],     "fingers": 3, "span": 6},
+    {"id": "333", "intervals": [3,3,3],     "fingers": 3, "span": 7},
+    {"id": "334", "intervals": [3,3,4],     "fingers": 3, "span": 8},
+    {"id": "433", "intervals": [4,3,3],     "fingers": 3, "span": 8},
+    {"id": "434", "intervals": [4,3,4],     "fingers": 3, "span": 9},
+    {"id": "444", "intervals": [4,4,4],     "fingers": 3, "span": 10}
+  ],
+
+  "_note_on_chords_by_pattern_and_degree": "Each entry gives the Roman numeral name for a pattern starting at each of the 7 scale degrees (Ionian mode = degree-1 column, Dorian = degree-2, etc.). The value is null for non-diatonic cells (shown as — in the handout). Every entry has notes_in_key for all 8 accessible keys.",
+
+  "chords_by_pattern_and_degree": {
+    "24": {
+      "1": {"roman": "Is2",  "latex": "\\rn{I}{s2}",  "scale_degrees": [1,2,5],       "notes_in_key": {"Eb":["Eb","F","Bb"],"Bb":["Bb","C","F"],"F":["F","G","C"],"C":["C","D","G"],"G":["G","A","D"],"D":["D","E","A"],"A":["A","B","E"],"E":["E","F#","B"]}},
+      "2": {"roman": "iis2", "latex": "\\rn{ii}{s2}", "scale_degrees": [2,3,6],       "notes_in_key": {"Eb":["F","G","C"],"Bb":["C","D","G"],"F":["G","A","D"],"C":["D","E","A"],"G":["A","B","E"],"D":["E","F#","B"],"A":["B","C#","F#"],"E":["F#","G#","C#"]}},
+      "3": null,
+      "4": {"roman": "IVs2", "latex": "\\rn{IV}{s2}", "scale_degrees": [4,5,1],       "notes_in_key": {"Eb":["Ab","Bb","Eb"],"Bb":["Eb","F","Bb"],"F":["Bb","C","F"],"C":["F","G","C"],"G":["C","D","G"],"D":["G","A","D"],"A":["D","E","A"],"E":["A","B","E"]}},
+      "5": {"roman": "Vs2",  "latex": "\\rn{V}{s2}",  "scale_degrees": [5,6,2],       "notes_in_key": {"Eb":["Bb","C","F"],"Bb":["F","G","C"],"F":["C","D","G"],"C":["G","A","D"],"G":["D","E","A"],"D":["A","B","E"],"A":["E","F#","B"],"E":["B","C#","F#"]}},
+      "6": {"roman": "vis2", "latex": "\\rn{vi}{s2}", "scale_degrees": [6,7,3],       "notes_in_key": {"Eb":["C","D","G"],"Bb":["G","A","D"],"F":["D","E","A"],"C":["A","B","E"],"G":["E","F#","B"],"D":["B","C#","F#"],"A":["F#","G#","C#"],"E":["C#","D#","G#"]}},
+      "7": null
+    },
+    "33": {
+      "1": {"roman": "I",    "latex": "\\rn{I}{}",   "scale_degrees": [1,3,5],       "notes_in_key": {"Eb":["Eb","G","Bb"],"Bb":["Bb","D","F"],"F":["F","A","C"],"C":["C","E","G"],"G":["G","B","D"],"D":["D","F#","A"],"A":["A","C#","E"],"E":["E","G#","B"]}},
+      "2": {"roman": "ii",   "latex": "\\rn{ii}{}",  "scale_degrees": [2,4,6],       "notes_in_key": {"Eb":["F","Ab","C"],"Bb":["C","Eb","G"],"F":["G","Bb","D"],"C":["D","F","A"],"G":["A","C","E"],"D":["E","G","B"],"A":["B","D","F#"],"E":["F#","A","C#"]}},
+      "3": {"roman": "iii",  "latex": "\\rn{iii}{}", "scale_degrees": [3,5,7],       "notes_in_key": {"Eb":["G","Bb","D"],"Bb":["D","F","A"],"F":["A","C","E"],"C":["E","G","B"],"G":["B","D","F#"],"D":["F#","A","C#"],"A":["C#","E","G#"],"E":["G#","B","D#"]}},
+      "4": {"roman": "IV",   "latex": "\\rn{IV}{}",  "scale_degrees": [4,6,1],       "notes_in_key": {"Eb":["Ab","C","Eb"],"Bb":["Eb","G","Bb"],"F":["Bb","D","F"],"C":["F","A","C"],"G":["C","E","G"],"D":["G","B","D"],"A":["D","F#","A"],"E":["A","C#","E"]}},
+      "5": {"roman": "V",    "latex": "\\rn{V}{}",   "scale_degrees": [5,7,2],       "notes_in_key": {"Eb":["Bb","D","F"],"Bb":["F","A","C"],"F":["C","E","G"],"C":["G","B","D"],"G":["D","F#","A"],"D":["A","C#","E"],"A":["E","G#","B"],"E":["B","D#","F#"]}},
+      "6": {"roman": "vi",   "latex": "\\rn{vi}{}",  "scale_degrees": [6,1,3],       "notes_in_key": {"Eb":["C","Eb","G"],"Bb":["G","Bb","D"],"F":["D","F","A"],"C":["A","C","E"],"G":["E","G","B"],"D":["B","D","F#"],"A":["F#","A","C#"],"E":["C#","E","G#"]}},
+      "7": {"roman": "vii°", "latex": "\\rn{vii}{°}","scale_degrees": [7,2,4],       "notes_in_key": {"Eb":["D","F","Ab"],"Bb":["A","C","Eb"],"F":["E","G","Bb"],"C":["B","D","F"],"G":["F#","A","C"],"D":["C#","E","G"],"A":["G#","B","D"],"E":["D#","F#","A"]}}
+    },
+    "34": {
+      "1": {"roman": "vi¹",   "latex": "\\rn{vi}{}\\inv{1}",   "scale_degrees": [6,1,3], "notes_in_key": {"Eb":["C","Eb","G"],"Bb":["G","Bb","D"],"F":["D","F","A"],"C":["A","C","E"],"G":["E","G","B"],"D":["B","D","F#"],"A":["F#","A","C#"],"E":["C#","E","G#"]}},
+      "2": {"roman": "vii°¹", "latex": "\\rn{vii}{°}\\inv{1}", "scale_degrees": [7,2,4], "notes_in_key": {"Eb":["D","F","Ab"],"Bb":["A","C","Eb"],"F":["E","G","Bb"],"C":["B","D","F"],"G":["F#","A","C"],"D":["C#","E","G"],"A":["G#","B","D"],"E":["D#","F#","A"]}},
+      "3": {"roman": "I¹",    "latex": "\\rn{I}{}\\inv{1}",    "scale_degrees": [1,3,5], "notes_in_key": {"Eb":["Eb","G","Bb"],"Bb":["Bb","D","F"],"F":["F","A","C"],"C":["C","E","G"],"G":["G","B","D"],"D":["D","F#","A"],"A":["A","C#","E"],"E":["E","G#","B"]}},
+      "4": {"roman": "ii¹",   "latex": "\\rn{ii}{}\\inv{1}",   "scale_degrees": [2,4,6], "notes_in_key": {"Eb":["F","Ab","C"],"Bb":["C","Eb","G"],"F":["G","Bb","D"],"C":["D","F","A"],"G":["A","C","E"],"D":["E","G","B"],"A":["B","D","F#"],"E":["F#","A","C#"]}},
+      "5": {"roman": "iii¹",  "latex": "\\rn{iii}{}\\inv{1}",  "scale_degrees": [3,5,7], "notes_in_key": {"Eb":["G","Bb","D"],"Bb":["D","F","A"],"F":["A","C","E"],"C":["E","G","B"],"G":["B","D","F#"],"D":["F#","A","C#"],"A":["C#","E","G#"],"E":["G#","B","D#"]}},
+      "6": {"roman": "IV¹",   "latex": "\\rn{IV}{}\\inv{1}",   "scale_degrees": [4,6,1], "notes_in_key": {"Eb":["Ab","C","Eb"],"Bb":["Eb","G","Bb"],"F":["Bb","D","F"],"C":["F","A","C"],"G":["C","E","G"],"D":["G","B","D"],"A":["D","F#","A"],"E":["A","C#","E"]}},
+      "7": {"roman": "V¹",    "latex": "\\rn{V}{}\\inv{1}",    "scale_degrees": [5,7,2], "notes_in_key": {"Eb":["Bb","D","F"],"Bb":["F","A","C"],"F":["C","E","G"],"C":["G","B","D"],"G":["D","F#","A"],"D":["A","C#","E"],"A":["E","G#","B"],"E":["B","D#","F#"]}}
+    },
+    "42": {
+      "1": {"roman": "Is4",  "latex": "\\rn{I}{s4}",  "scale_degrees": [1,4,5],       "notes_in_key": {"Eb":["Eb","Ab","Bb"],"Bb":["Bb","Eb","F"],"F":["F","Bb","C"],"C":["C","F","G"],"G":["G","C","D"],"D":["D","G","A"],"A":["A","D","E"],"E":["E","A","B"]}},
+      "2": {"roman": "iis4", "latex": "\\rn{ii}{s4}", "scale_degrees": [2,5,6],       "notes_in_key": {"Eb":["F","Bb","C"],"Bb":["C","F","G"],"F":["G","C","D"],"C":["D","G","A"],"G":["A","D","E"],"D":["E","A","B"],"A":["B","E","F#"],"E":["F#","B","C#"]}},
+      "3": {"roman": "iiis4","latex": "\\rn{iii}{s4}","scale_degrees": [3,6,7],       "notes_in_key": {"Eb":["G","C","D"],"Bb":["D","G","A"],"F":["A","D","E"],"C":["E","A","B"],"G":["B","E","F#"],"D":["F#","B","C#"],"A":["C#","F#","G#"],"E":["G#","C#","D#"]}},
+      "4": null,
+      "5": {"roman": "Vs4",  "latex": "\\rn{V}{s4}",  "scale_degrees": [5,1,2],       "notes_in_key": {"Eb":["Bb","Eb","F"],"Bb":["F","Bb","C"],"F":["C","F","G"],"C":["G","C","D"],"G":["D","G","A"],"D":["A","D","E"],"A":["E","A","B"],"E":["B","E","F#"]}},
+      "6": {"roman": "vis4", "latex": "\\rn{vi}{s4}", "scale_degrees": [6,2,3],       "notes_in_key": {"Eb":["C","F","G"],"Bb":["G","C","D"],"F":["D","G","A"],"C":["A","D","E"],"G":["E","A","B"],"D":["B","E","F#"],"A":["F#","B","C#"],"E":["C#","F#","G#"]}},
+      "7": null
+    },
+    "43": {
+      "1": {"roman": "IV²",  "latex": "\\rn{IV}{}\\inv{2}",  "scale_degrees": [4,6,1], "notes_in_key": {"Eb":["Ab","C","Eb"],"Bb":["Eb","G","Bb"],"F":["Bb","D","F"],"C":["F","A","C"],"G":["C","E","G"],"D":["G","B","D"],"A":["D","F#","A"],"E":["A","C#","E"]}},
+      "2": {"roman": "V²",   "latex": "\\rn{V}{}\\inv{2}",   "scale_degrees": [5,7,2], "notes_in_key": {"Eb":["Bb","D","F"],"Bb":["F","A","C"],"F":["C","E","G"],"C":["G","B","D"],"G":["D","F#","A"],"D":["A","C#","E"],"A":["E","G#","B"],"E":["B","D#","F#"]}},
+      "3": {"roman": "vi²",  "latex": "\\rn{vi}{}\\inv{2}",  "scale_degrees": [6,1,3], "notes_in_key": {"Eb":["C","Eb","G"],"Bb":["G","Bb","D"],"F":["D","F","A"],"C":["A","C","E"],"G":["E","G","B"],"D":["B","D","F#"],"A":["F#","A","C#"],"E":["C#","E","G#"]}},
+      "4": {"roman": "vii°²","latex": "\\rn{vii}{°}\\inv{2}","scale_degrees": [7,2,4], "notes_in_key": {"Eb":["D","F","Ab"],"Bb":["A","C","Eb"],"F":["E","G","Bb"],"C":["B","D","F"],"G":["F#","A","C"],"D":["C#","E","G"],"A":["G#","B","D"],"E":["D#","F#","A"]}},
+      "5": {"roman": "I²",   "latex": "\\rn{I}{}\\inv{2}",   "scale_degrees": [1,3,5], "notes_in_key": {"Eb":["Eb","G","Bb"],"Bb":["Bb","D","F"],"F":["F","A","C"],"C":["C","E","G"],"G":["G","B","D"],"D":["D","F#","A"],"A":["A","C#","E"],"E":["E","G#","B"]}},
+      "6": {"roman": "ii²",  "latex": "\\rn{ii}{}\\inv{2}",  "scale_degrees": [2,4,6], "notes_in_key": {"Eb":["F","Ab","C"],"Bb":["C","Eb","G"],"F":["G","Bb","D"],"C":["D","F","A"],"G":["A","C","E"],"D":["E","G","B"],"A":["B","D","F#"],"E":["F#","A","C#"]}},
+      "7": {"roman": "iii²", "latex": "\\rn{iii}{}\\inv{2}", "scale_degrees": [3,5,7], "notes_in_key": {"Eb":["G","Bb","D"],"Bb":["D","F","A"],"F":["A","C","E"],"C":["E","G","B"],"G":["B","D","F#"],"D":["F#","A","C#"],"A":["C#","E","G#"],"E":["G#","B","D#"]}}
+    },
+    "44": {
+      "1": null,
+      "2": {"roman": "iiq",  "latex": "\\rn{ii}{q}",  "scale_degrees": [2,5,1],       "notes_in_key": {"Eb":["F","Bb","Eb"],"Bb":["C","F","Bb"],"F":["G","C","F"],"C":["D","G","C"],"G":["A","D","G"],"D":["E","A","D"],"A":["B","E","A"],"E":["F#","B","E"]}},
+      "3": {"roman": "iiiq", "latex": "\\rn{iii}{q}", "scale_degrees": [3,6,2],       "notes_in_key": {"Eb":["G","C","F"],"Bb":["D","G","C"],"F":["A","D","G"],"C":["E","A","D"],"G":["B","E","A"],"D":["F#","B","E"],"A":["C#","F#","B"],"E":["G#","C#","F#"]}},
+      "4": null,
+      "5": {"roman": "Vq",   "latex": "\\rn{V}{q}",   "scale_degrees": [5,1,4],       "notes_in_key": {"Eb":["Bb","Eb","Ab"],"Bb":["F","Bb","Eb"],"F":["C","F","Bb"],"C":["G","C","F"],"G":["D","G","C"],"D":["A","D","G"],"A":["E","A","D"],"E":["B","E","A"]}},
+      "6": {"roman": "viq",  "latex": "\\rn{vi}{q}",  "scale_degrees": [6,2,5],       "notes_in_key": {"Eb":["C","F","Bb"],"Bb":["G","C","F"],"F":["D","G","C"],"C":["A","D","G"],"G":["E","A","D"],"D":["B","E","A"],"A":["F#","B","E"],"E":["C#","F#","B"]}},
+      "7": {"roman": "viiq", "latex": "\\rn{vii}{q}", "scale_degrees": [7,3,6],       "notes_in_key": {"Eb":["D","G","C"],"Bb":["A","D","G"],"F":["E","A","D"],"C":["B","E","A"],"G":["F#","B","E"],"D":["C#","F#","B"],"A":["G#","C#","F#"],"E":["D#","G#","C#"]}}
+    },
+    "233": {
+      "1": {"roman": "ii⁷³",   "latex": "\\rn{ii}{7}\\inv{3}",   "scale_degrees": [1,2,4,6],  "notes_in_key": {"Eb":["Eb","F","Ab","C"],"Bb":["Bb","C","Eb","G"],"F":["F","G","Bb","D"],"C":["C","D","F","A"],"G":["G","A","C","E"],"D":["D","E","G","B"],"A":["A","B","D","F#"],"E":["E","F#","A","C#"]}},
+      "2": {"roman": "iii⁷³",  "latex": "\\rn{iii}{7}\\inv{3}",  "scale_degrees": [2,3,5,7],  "notes_in_key": {"Eb":["F","G","Bb","D"],"Bb":["C","D","F","A"],"F":["G","A","C","E"],"C":["D","E","G","B"],"G":["A","B","D","F#"],"D":["E","F#","A","C#"],"A":["B","C#","E","G#"],"E":["F#","G#","B","D#"]}},
+      "3": {"roman": "IVΔ³",   "latex": "\\rn{IV}{Δ}\\inv{3}",   "scale_degrees": [3,4,6,1],  "notes_in_key": {"Eb":["G","Ab","C","Eb"],"Bb":["D","Eb","G","Bb"],"F":["A","Bb","D","F"],"C":["E","F","A","C"],"G":["B","C","E","G"],"D":["F#","G","B","D"],"A":["C#","D","F#","A"],"E":["G#","A","C#","E"]}},
+      "4": {"roman": "V⁷³",    "latex": "\\rn{V}{7}\\inv{3}",    "scale_degrees": [4,5,7,2],  "notes_in_key": {"Eb":["Ab","Bb","D","F"],"Bb":["Eb","F","A","C"],"F":["Bb","C","E","G"],"C":["F","G","B","D"],"G":["C","D","F#","A"],"D":["G","A","C#","E"],"A":["D","E","G#","B"],"E":["A","B","D#","F#"]}},
+      "5": {"roman": "vi⁷³",   "latex": "\\rn{vi}{7}\\inv{3}",   "scale_degrees": [5,6,1,3],  "notes_in_key": {"Eb":["Bb","C","Eb","G"],"Bb":["F","G","Bb","D"],"F":["C","D","F","A"],"C":["G","A","C","E"],"G":["D","E","G","B"],"D":["A","B","D","F#"],"A":["E","F#","A","C#"],"E":["B","C#","E","G#"]}},
+      "6": {"roman": "viiø⁷³", "latex": "\\rn{vii}{ø7}\\inv{3}", "scale_degrees": [6,7,2,4],  "notes_in_key": {"Eb":["C","D","F","Ab"],"Bb":["G","A","C","Eb"],"F":["D","E","G","Bb"],"C":["A","B","D","F"],"G":["E","F#","A","C"],"D":["B","C#","E","G"],"A":["F#","G#","B","D"],"E":["C#","D#","F#","A"]}},
+      "7": {"roman": "IΔ³",    "latex": "\\rn{I}{Δ}\\inv{3}",    "scale_degrees": [7,1,3,5],  "notes_in_key": {"Eb":["D","Eb","G","Bb"],"Bb":["A","Bb","D","F"],"F":["E","F","A","C"],"C":["B","C","E","G"],"G":["F#","G","B","D"],"D":["C#","D","F#","A"],"A":["G#","A","C#","E"],"E":["D#","E","G#","B"]}}
+    },
+    "323": {
+      "1": {"roman": "IVΔ²",   "latex": "\\rn{IV}{Δ}\\inv{2}",   "scale_degrees": [1,3,4,6],  "notes_in_key": {"Eb":["Eb","G","Ab","C"],"Bb":["Bb","D","Eb","G"],"F":["F","A","Bb","D"],"C":["C","E","F","A"],"G":["G","B","C","E"],"D":["D","F#","G","B"],"A":["A","C#","D","F#"],"E":["E","G#","A","C#"]}},
+      "2": {"roman": "V⁷²",    "latex": "\\rn{V}{7}\\inv{2}",    "scale_degrees": [2,4,5,7],  "notes_in_key": {"Eb":["F","Ab","Bb","D"],"Bb":["C","Eb","F","A"],"F":["G","Bb","C","E"],"C":["D","F","G","B"],"G":["A","C","D","F#"],"D":["E","G","A","C#"],"A":["B","D","E","G#"],"E":["F#","A","B","D#"]}},
+      "3": {"roman": "vi⁷²",   "latex": "\\rn{vi}{7}\\inv{2}",   "scale_degrees": [3,5,6,1],  "notes_in_key": {"Eb":["G","Bb","C","Eb"],"Bb":["D","F","G","Bb"],"F":["A","C","D","F"],"C":["E","G","A","C"],"G":["B","D","E","G"],"D":["F#","A","B","D"],"A":["C#","E","F#","A"],"E":["G#","B","C#","E"]}},
+      "4": {"roman": "viiø⁷²", "latex": "\\rn{vii}{ø7}\\inv{2}", "scale_degrees": [4,6,7,2],  "notes_in_key": {"Eb":["Ab","C","D","F"],"Bb":["Eb","G","A","C"],"F":["Bb","D","E","G"],"C":["F","A","B","D"],"G":["C","E","F#","A"],"D":["G","B","C#","E"],"A":["D","F#","G#","B"],"E":["A","C#","D#","F#"]}},
+      "5": {"roman": "IΔ²",    "latex": "\\rn{I}{Δ}\\inv{2}",    "scale_degrees": [5,7,1,3],  "notes_in_key": {"Eb":["Bb","D","Eb","G"],"Bb":["F","A","Bb","D"],"F":["C","E","F","A"],"C":["G","B","C","E"],"G":["D","F#","G","B"],"D":["A","C#","D","F#"],"A":["E","G#","A","C#"],"E":["B","D#","E","G#"]}},
+      "6": {"roman": "ii⁷²",   "latex": "\\rn{ii}{7}\\inv{2}",   "scale_degrees": [6,1,2,4],  "notes_in_key": {"Eb":["C","Eb","F","Ab"],"Bb":["G","Bb","C","Eb"],"F":["D","F","G","Bb"],"C":["A","C","D","F"],"G":["E","G","A","C"],"D":["B","D","E","G"],"A":["F#","A","B","D"],"E":["C#","E","F#","A"]}},
+      "7": {"roman": "iii⁷²",  "latex": "\\rn{iii}{7}\\inv{2}",  "scale_degrees": [7,2,3,5],  "notes_in_key": {"Eb":["D","F","G","Bb"],"Bb":["A","C","D","F"],"F":["E","G","A","C"],"C":["B","D","E","G"],"G":["F#","A","B","D"],"D":["C#","E","F#","A"],"A":["G#","B","C#","E"],"E":["D#","F#","G#","B"]}}
+    },
+    "332": {
+      "1": {"roman": "I6",    "latex": "\\rn{I}{6}",           "scale_degrees": [1,3,5,6], "notes_in_key": {"Eb":["Eb","G","Bb","C"],"Bb":["Bb","D","F","G"],"F":["F","A","C","D"],"C":["C","E","G","A"],"G":["G","B","D","E"],"D":["D","F#","A","B"],"A":["A","C#","E","F#"],"E":["E","G#","B","C#"]}},
+      "2": {"roman": "ii6",   "latex": "\\rn{ii}{6}",          "scale_degrees": [2,4,6,7], "notes_in_key": {"Eb":["F","Ab","C","D"],"Bb":["C","Eb","G","A"],"F":["G","Bb","D","E"],"C":["D","F","A","B"],"G":["A","C","E","F#"],"D":["E","G","B","C#"],"A":["B","D","F#","G#"],"E":["F#","A","C#","D#"]}},
+      "3": {"roman": "IΔ¹",   "latex": "\\rn{I}{Δ}\\inv{1}",   "scale_degrees": [3,5,7,1], "notes_in_key": {"Eb":["G","Bb","D","Eb"],"Bb":["D","F","A","Bb"],"F":["A","C","E","F"],"C":["E","G","B","C"],"G":["B","D","F#","G"],"D":["F#","A","C#","D"],"A":["C#","E","G#","A"],"E":["G#","B","D#","E"]}},
+      "4": {"roman": "IV6",   "latex": "\\rn{IV}{6}",          "scale_degrees": [4,6,1,2], "notes_in_key": {"Eb":["Ab","C","Eb","F"],"Bb":["Eb","G","Bb","C"],"F":["Bb","D","F","G"],"C":["F","A","C","D"],"G":["C","E","G","A"],"D":["G","B","D","E"],"A":["D","F#","A","B"],"E":["A","C#","E","F#"]}},
+      "5": {"roman": "V6",    "latex": "\\rn{V}{6}",           "scale_degrees": [5,7,2,3], "notes_in_key": {"Eb":["Bb","D","F","G"],"Bb":["F","A","C","D"],"F":["C","E","G","A"],"C":["G","B","D","E"],"G":["D","F#","A","B"],"D":["A","C#","E","F#"],"A":["E","G#","B","C#"],"E":["B","D#","F#","G#"]}},
+      "6": {"roman": "IVΔ¹",  "latex": "\\rn{IV}{Δ}\\inv{1}",  "scale_degrees": [6,1,3,4], "notes_in_key": {"Eb":["C","Eb","G","Ab"],"Bb":["G","Bb","D","Eb"],"F":["D","F","A","Bb"],"C":["A","C","E","F"],"G":["E","G","B","C"],"D":["B","D","F#","G"],"A":["F#","A","C#","D"],"E":["C#","E","G#","A"]}},
+      "7": {"roman": "V⁷¹",   "latex": "\\rn{V}{7}\\inv{1}",   "scale_degrees": [7,2,4,5], "notes_in_key": {"Eb":["D","F","Ab","Bb"],"Bb":["A","C","Eb","F"],"F":["E","G","Bb","C"],"C":["B","D","F","G"],"G":["F#","A","C","D"],"D":["C#","E","G","A"],"A":["G#","B","D","E"],"E":["D#","F#","A","B"]}}
+    },
+    "333": {
+      "1": {"roman": "IΔ",    "latex": "\\rn{I}{Δ}",    "scale_degrees": [1,3,5,7], "notes_in_key": {"Eb":["Eb","G","Bb","D"],"Bb":["Bb","D","F","A"],"F":["F","A","C","E"],"C":["C","E","G","B"],"G":["G","B","D","F#"],"D":["D","F#","A","C#"],"A":["A","C#","E","G#"],"E":["E","G#","B","D#"]}},
+      "2": {"roman": "ii7",   "latex": "\\rn{ii}{7}",   "scale_degrees": [2,4,6,1], "notes_in_key": {"Eb":["F","Ab","C","Eb"],"Bb":["C","Eb","G","Bb"],"F":["G","Bb","D","F"],"C":["D","F","A","C"],"G":["A","C","E","G"],"D":["E","G","B","D"],"A":["B","D","F#","A"],"E":["F#","A","C#","E"]}},
+      "3": {"roman": "iii7",  "latex": "\\rn{iii}{7}",  "scale_degrees": [3,5,7,2], "notes_in_key": {"Eb":["G","Bb","D","F"],"Bb":["D","F","A","C"],"F":["A","C","E","G"],"C":["E","G","B","D"],"G":["B","D","F#","A"],"D":["F#","A","C#","E"],"A":["C#","E","G#","B"],"E":["G#","B","D#","F#"]}},
+      "4": {"roman": "IVΔ",   "latex": "\\rn{IV}{Δ}",   "scale_degrees": [4,6,1,3], "notes_in_key": {"Eb":["Ab","C","Eb","G"],"Bb":["Eb","G","Bb","D"],"F":["Bb","D","F","A"],"C":["F","A","C","E"],"G":["C","E","G","B"],"D":["G","B","D","F#"],"A":["D","F#","A","C#"],"E":["A","C#","E","G#"]}},
+      "5": {"roman": "V7",    "latex": "\\rn{V}{7}",    "scale_degrees": [5,7,2,4], "notes_in_key": {"Eb":["Bb","D","F","Ab"],"Bb":["F","A","C","Eb"],"F":["C","E","G","Bb"],"C":["G","B","D","F"],"G":["D","F#","A","C"],"D":["A","C#","E","G"],"A":["E","G#","B","D"],"E":["B","D#","F#","A"]}},
+      "6": {"roman": "vi7",   "latex": "\\rn{vi}{7}",   "scale_degrees": [6,1,3,5], "notes_in_key": {"Eb":["C","Eb","G","Bb"],"Bb":["G","Bb","D","F"],"F":["D","F","A","C"],"C":["A","C","E","G"],"G":["E","G","B","D"],"D":["B","D","F#","A"],"A":["F#","A","C#","E"],"E":["C#","E","G#","B"]}},
+      "7": {"roman": "viiø7", "latex": "\\rn{vii}{ø7}", "scale_degrees": [7,2,4,6], "notes_in_key": {"Eb":["D","F","Ab","C"],"Bb":["A","C","Eb","G"],"F":["E","G","Bb","D"],"C":["B","D","F","A"],"G":["F#","A","C","E"],"D":["C#","E","G","B"],"A":["G#","B","D","F#"],"E":["D#","F#","A","C#"]}}
+    },
+    "334": {
+      "1": {"roman": "I+8",    "latex": "\\rn{I}{+8}",    "scale_degrees": [1,3,5,1], "notes_in_key": {"Eb":["Eb","G","Bb","Eb"],"Bb":["Bb","D","F","Bb"],"F":["F","A","C","F"],"C":["C","E","G","C"],"G":["G","B","D","G"],"D":["D","F#","A","D"],"A":["A","C#","E","A"],"E":["E","G#","B","E"]}},
+      "2": {"roman": "ii+8",   "latex": "\\rn{ii}{+8}",   "scale_degrees": [2,4,6,2], "notes_in_key": {"Eb":["F","Ab","C","F"],"Bb":["C","Eb","G","C"],"F":["G","Bb","D","G"],"C":["D","F","A","D"],"G":["A","C","E","A"],"D":["E","G","B","E"],"A":["B","D","F#","B"],"E":["F#","A","C#","F#"]}},
+      "3": {"roman": "iii+8",  "latex": "\\rn{iii}{+8}",  "scale_degrees": [3,5,7,3], "notes_in_key": {"Eb":["G","Bb","D","G"],"Bb":["D","F","A","D"],"F":["A","C","E","A"],"C":["E","G","B","E"],"G":["B","D","F#","B"],"D":["F#","A","C#","F#"],"A":["C#","E","G#","C#"],"E":["G#","B","D#","G#"]}},
+      "4": {"roman": "IV+8",   "latex": "\\rn{IV}{+8}",   "scale_degrees": [4,6,1,4], "notes_in_key": {"Eb":["Ab","C","Eb","Ab"],"Bb":["Eb","G","Bb","Eb"],"F":["Bb","D","F","Bb"],"C":["F","A","C","F"],"G":["C","E","G","C"],"D":["G","B","D","G"],"A":["D","F#","A","D"],"E":["A","C#","E","A"]}},
+      "5": {"roman": "V+8",    "latex": "\\rn{V}{+8}",    "scale_degrees": [5,7,2,5], "notes_in_key": {"Eb":["Bb","D","F","Bb"],"Bb":["F","A","C","F"],"F":["C","E","G","C"],"C":["G","B","D","G"],"G":["D","F#","A","D"],"D":["A","C#","E","A"],"A":["E","G#","B","E"],"E":["B","D#","F#","B"]}},
+      "6": {"roman": "vi+8",   "latex": "\\rn{vi}{+8}",   "scale_degrees": [6,1,3,6], "notes_in_key": {"Eb":["C","Eb","G","C"],"Bb":["G","Bb","D","G"],"F":["D","F","A","D"],"C":["A","C","E","A"],"G":["E","G","B","E"],"D":["B","D","F#","B"],"A":["F#","A","C#","F#"],"E":["C#","E","G#","C#"]}},
+      "7": {"roman": "vii+8",  "latex": "\\rn{vii}{+8}",  "scale_degrees": [7,2,4,7], "notes_in_key": {"Eb":["D","F","Ab","D"],"Bb":["A","C","Eb","A"],"F":["E","G","Bb","E"],"C":["B","D","F","B"],"G":["F#","A","C","F#"],"D":["C#","E","G","C#"],"A":["G#","B","D","G#"],"E":["D#","F#","A","D#"]}}
+    },
+    "433": {
+      "1": {"roman": "IV²+8", "latex": "\\rn{IV}{}\\inv{2}\\rp\\osf{8}", "scale_degrees": [1,4,6,1], "notes_in_key": {"Eb":["Eb","Ab","C","Eb"],"Bb":["Bb","Eb","G","Bb"],"F":["F","Bb","D","F"],"C":["C","F","A","C"],"G":["G","C","E","G"],"D":["D","G","B","D"],"A":["A","D","F#","A"],"E":["E","A","C#","E"]}},
+      "2": {"roman": "V²+8",  "latex": "\\rn{V}{}\\inv{2}\\rp\\osf{8}",  "scale_degrees": [2,5,7,2], "notes_in_key": {"Eb":["F","Bb","D","F"],"Bb":["C","F","A","C"],"F":["G","C","E","G"],"C":["D","G","B","D"],"G":["A","D","F#","A"],"D":["E","A","C#","E"],"A":["B","E","G#","B"],"E":["F#","B","D#","F#"]}},
+      "3": null,
+      "4": null,
+      "5": {"roman": "I²+8",  "latex": "\\rn{I}{}\\inv{2}\\rp\\osf{8}",  "scale_degrees": [5,1,3,5], "notes_in_key": {"Eb":["Bb","Eb","G","Bb"],"Bb":["F","Bb","D","F"],"F":["C","F","A","C"],"C":["G","C","E","G"],"G":["D","G","B","D"],"D":["A","D","F#","A"],"A":["E","A","C#","E"],"E":["B","E","G#","B"]}},
+      "6": null,
+      "7": null
+    },
+    "434": {
+      "1": {"roman": "ii⁷³",   "latex": "\\rn{ii}{7}\\inv{3}",   "scale_degrees": [1,4,6,2],  "notes_in_key": {"Eb":["Eb","Ab","C","F"],"Bb":["Bb","Eb","G","C"],"F":["F","Bb","D","G"],"C":["C","F","A","D"],"G":["G","C","E","A"],"D":["D","G","B","E"],"A":["A","D","F#","B"],"E":["E","A","C#","F#"]}, "note": "Same pitch-class set as pattern 233 at degree 1; different physical voicing (middle note up an octave)."},
+      "2": {"roman": "iii⁷³",  "latex": "\\rn{iii}{7}\\inv{3}",  "scale_degrees": [2,5,7,3],  "notes_in_key": {"Eb":["F","Bb","D","G"],"Bb":["C","F","A","D"],"F":["G","C","E","A"],"C":["D","G","B","E"],"G":["A","D","F#","B"],"D":["E","A","C#","F#"],"A":["B","E","G#","C#"],"E":["F#","B","D#","G#"]}},
+      "3": {"roman": "IVΔ³",   "latex": "\\rn{IV}{Δ}\\inv{3}",   "scale_degrees": [3,6,1,4],  "notes_in_key": {"Eb":["G","C","Eb","Ab"],"Bb":["D","G","Bb","Eb"],"F":["A","D","F","Bb"],"C":["E","A","C","F"],"G":["B","E","G","C"],"D":["F#","B","D","G"],"A":["C#","F#","A","D"],"E":["G#","C#","E","A"]}},
+      "4": {"roman": "V⁷³",    "latex": "\\rn{V}{7}\\inv{3}",    "scale_degrees": [4,7,2,5],  "notes_in_key": {"Eb":["Ab","D","F","Bb"],"Bb":["Eb","A","C","F"],"F":["Bb","E","G","C"],"C":["F","B","D","G"],"G":["C","F#","A","D"],"D":["G","C#","E","A"],"A":["D","G#","B","E"],"E":["A","D#","F#","B"]}},
+      "5": {"roman": "vi⁷³",   "latex": "\\rn{vi}{7}\\inv{3}",   "scale_degrees": [5,1,3,6],  "notes_in_key": {"Eb":["Bb","Eb","G","C"],"Bb":["F","Bb","D","G"],"F":["C","F","A","D"],"C":["G","C","E","A"],"G":["D","G","B","E"],"D":["A","D","F#","B"],"A":["E","A","C#","F#"],"E":["B","E","G#","C#"]}},
+      "6": {"roman": "viiø⁷³", "latex": "\\rn{vii}{ø7}\\inv{3}", "scale_degrees": [6,2,4,7],  "notes_in_key": {"Eb":["C","F","Ab","D"],"Bb":["G","C","Eb","A"],"F":["D","G","Bb","E"],"C":["A","D","F","B"],"G":["E","A","C","F#"],"D":["B","E","G","C#"],"A":["F#","B","D","G#"],"E":["C#","F#","A","D#"]}},
+      "7": {"roman": "IΔ³",    "latex": "\\rn{I}{Δ}\\inv{3}",    "scale_degrees": [7,3,5,1],  "notes_in_key": {"Eb":["D","G","Bb","Eb"],"Bb":["A","D","F","Bb"],"F":["E","A","C","F"],"C":["B","E","G","C"],"G":["F#","B","D","G"],"D":["C#","F#","A","D"],"A":["G#","C#","E","A"],"E":["D#","G#","B","E"]}}
+    },
+    "444": {
+      "1": null,
+      "2": {"roman": "iiq7",  "latex": "\\rn{ii}{q7}",  "scale_degrees": [2,5,1,4], "notes_in_key": {"Eb":["F","Bb","Eb","Ab"],"Bb":["C","F","Bb","Eb"],"F":["G","C","F","Bb"],"C":["D","G","C","F"],"G":["A","D","G","C"],"D":["E","A","D","G"],"A":["B","E","A","D"],"E":["F#","B","E","A"]}},
+      "3": {"roman": "iiiq7", "latex": "\\rn{iii}{q7}", "scale_degrees": [3,6,2,5], "notes_in_key": {"Eb":["G","C","F","Bb"],"Bb":["D","G","C","F"],"F":["A","D","G","C"],"C":["E","A","D","G"],"G":["B","E","A","D"],"D":["F#","B","E","A"],"A":["C#","F#","B","E"],"E":["G#","C#","F#","B"]}},
+      "4": null,
+      "5": null,
+      "6": {"roman": "viq7",  "latex": "\\rn{vi}{q7}",  "scale_degrees": [6,2,5,1], "notes_in_key": {"Eb":["C","F","Bb","Eb"],"Bb":["G","C","F","Bb"],"F":["D","G","C","F"],"C":["A","D","G","C"],"G":["E","A","D","G"],"D":["B","E","A","D"],"A":["F#","B","E","A"],"E":["C#","F#","B","E"]}},
+      "7": {"roman": "viiq7", "latex": "\\rn{vii}{q7}", "scale_degrees": [7,3,6,2], "notes_in_key": {"Eb":["D","G","C","F"],"Bb":["A","D","G","C"],"F":["E","A","D","G"],"C":["B","E","A","D"],"G":["F#","B","E","A"],"D":["C#","F#","B","E"],"A":["G#","C#","F#","B"],"E":["D#","G#","C#","F#"]}}
+    }
+  },
+
+  "cycles": {
+    "2nds": {
+      "color": "cyan",
+      "step_interval": 2,
+      "traversal_cw":  ["I", "ii",   "iii", "IV",  "V",   "vi",   "vii°", "I"],
+      "traversal_ccw": ["I", "vii°", "vi",  "V",   "IV",  "iii",  "ii",   "I"],
+      "edges": [
+        {"from": "I",    "to": "ii",   "cw_label": "Cloudy",    "ccw_label": "Grounding"},
+        {"from": "ii",   "to": "iii",  "cw_label": "Deepening", "ccw_label": "Easing"},
+        {"from": "iii",  "to": "IV",   "cw_label": "Warming",   "ccw_label": "Cooling"},
+        {"from": "IV",   "to": "V",    "cw_label": "Tensing",   "ccw_label": "Calming"},
+        {"from": "V",    "to": "vi",   "cw_label": "Deceptive", "ccw_label": "Pivoting"},
+        {"from": "vi",   "to": "vii°", "cw_label": "Darkening", "ccw_label": "Reposing"},
+        {"from": "vii°", "to": "I",    "cw_label": "Releasing", "ccw_label": "Fracturing"}
+      ]
+    },
+    "3rds": {
+      "color": "red",
+      "step_interval": 3,
+      "traversal_cw":  ["I", "iii", "V",    "vii°", "ii",  "IV",  "vi",   "I"],
+      "traversal_ccw": ["I", "vi",  "IV",   "ii",   "vii°","V",   "iii",  "I"],
+      "edges": [
+        {"from": "I",    "to": "iii",  "cw_label": "Drifting",     "ccw_label": "Homecoming"},
+        {"from": "iii",  "to": "V",    "cw_label": "Galvanizing",  "ccw_label": "Retreating"},
+        {"from": "V",    "to": "vii°", "cw_label": "Fraying",      "ccw_label": "Steadying"},
+        {"from": "vii°", "to": "ii",   "cw_label": "Tilting",      "ccw_label": "Curdling"},
+        {"from": "ii",   "to": "IV",   "cw_label": "Gladdening",   "ccw_label": "Shading"},
+        {"from": "IV",   "to": "vi",   "cw_label": "Grieving",     "ccw_label": "Consoling"},
+        {"from": "vi",   "to": "I",    "cw_label": "Triumphing",   "ccw_label": "Brooding"}
+      ]
+    },
+    "4ths": {
+      "color": "yellow",
+      "step_interval": 4,
+      "traversal_cw":  ["I", "IV",  "vii°", "iii", "vi",  "ii",  "V",  "I"],
+      "traversal_ccw": ["I", "V",   "ii",   "vi",  "iii", "vii°","IV", "I"],
+      "edges": [
+        {"from": "I",    "to": "IV",   "cw_label": "Exploring",  "ccw_label": "Landing"},
+        {"from": "IV",   "to": "vii°", "cw_label": "Alarming",   "ccw_label": "Quieting"},
+        {"from": "vii°", "to": "iii",  "cw_label": "Despairing", "ccw_label": "Rooting"},
+        {"from": "iii",  "to": "vi",   "cw_label": "Accepting",  "ccw_label": "Reverting"},
+        {"from": "vi",   "to": "ii",   "cw_label": "Wandering",  "ccw_label": "Dreaming"},
+        {"from": "ii",   "to": "V",    "cw_label": "Lifting",    "ccw_label": "Stepping"},
+        {"from": "V",    "to": "I",    "cw_label": "Resolving",  "ccw_label": "Lofting"}
+      ]
+    }
+  },
+
+  "jazz_progressions": {
+    "description": "Two-handed voicings that walk each cycle. LH plays the 'from' chord, RH plays the 'to' chord (or vice versa depending on voicing). Each cycle has two verses: verse 1 uses simple two-hand triads, verse 2 enriches with 7ths, suspensions, added tones, and inversions.",
+    "format_note": "Each entry: {lh_roman, lh_figure, rh_roman, rh_figure, cycle, cw_label, ccw_label, verse}. The figures parse by figure_parsing rules in conventions.",
+    "entries": [
+      {"cycle": "2nds", "verse": 1, "lh_roman": "ii",    "lh_figure": "133",  "rh_roman": "I",    "rh_figure": "933",  "cw_label": "Cloudy",    "ccw_label": "Grounding"},
+      {"cycle": "2nds", "verse": 1, "lh_roman": "iii",   "lh_figure": "233",  "rh_roman": "ii",   "rh_figure": "A33",  "cw_label": "Deepening", "ccw_label": "Easing"},
+      {"cycle": "2nds", "verse": 1, "lh_roman": "IV",    "lh_figure": "333",  "rh_roman": "iii",  "rh_figure": "B33",  "cw_label": "Warming",   "ccw_label": "Cooling"},
+      {"cycle": "2nds", "verse": 1, "lh_roman": "V",     "lh_figure": "433",  "rh_roman": "IV",   "rh_figure": "C33",  "cw_label": "Tensing",   "ccw_label": "Calming"},
+      {"cycle": "2nds", "verse": 1, "lh_roman": "vi",    "lh_figure": "533",  "rh_roman": "V",    "rh_figure": "D33",  "cw_label": "Deceptive", "ccw_label": "Pivoting"},
+      {"cycle": "2nds", "verse": 1, "lh_roman": "vii°",  "lh_figure": "633",  "rh_roman": "vi",   "rh_figure": "E33",  "cw_label": "Darkening", "ccw_label": "Reposing"},
+      {"cycle": "2nds", "verse": 1, "lh_roman": "I",     "lh_figure": "733",  "rh_roman": "vii°", "rh_figure": "F33",  "cw_label": "Releasing", "ccw_label": "Fracturing"},
+
+      {"cycle": "2nds", "verse": 2, "lh_roman": "ii7",   "lh_figure": "133",  "rh_roman": "I",    "rh_figure": "9333", "cw_label": "Cloudy",    "ccw_label": "Grounding"},
+      {"cycle": "2nds", "verse": 2, "lh_roman": "iii",   "lh_figure": "224",  "rh_roman": "iis2", "rh_figure": "A33",  "cw_label": "Deepening", "ccw_label": "Easing"},
+      {"cycle": "2nds", "verse": 2, "lh_roman": "IV",    "lh_figure": "342",  "rh_roman": "iiis4","rh_figure": "B33",  "cw_label": "Warming",   "ccw_label": "Cooling"},
+      {"cycle": "2nds", "verse": 2, "lh_roman": "V7",    "lh_figure": "1433", "rh_roman": "IV²+8","rh_figure": "C333", "cw_label": "Tensing",   "ccw_label": "Calming"},
+      {"cycle": "2nds", "verse": 2, "lh_roman": "vi",    "lh_figure": "5334", "rh_roman": "V+8",  "rh_figure": "D33",  "cw_label": "Deceptive", "ccw_label": "Pivoting"},
+      {"cycle": "2nds", "verse": 2, "lh_roman": "viiø7", "lh_figure": "633",  "rh_roman": "vi",   "rh_figure": "E333", "cw_label": "Darkening", "ccw_label": "Reposing"},
+      {"cycle": "2nds", "verse": 2, "lh_roman": "I+8",   "lh_figure": "733",  "rh_roman": "vii°", "rh_figure": "F334", "cw_label": "Releasing", "ccw_label": "Fracturing"},
+
+      {"cycle": "3rds", "verse": 1, "lh_roman": "iii¹",  "lh_figure": "133",  "rh_roman": "I",    "rh_figure": "743",  "cw_label": "Drifting",     "ccw_label": "Homecoming"},
+      {"cycle": "3rds", "verse": 1, "lh_roman": "V",     "lh_figure": "333",  "rh_roman": "iii",  "rh_figure": "C33",  "cw_label": "Galvanizing",  "ccw_label": "Retreating"},
+      {"cycle": "3rds", "verse": 1, "lh_roman": "vii°",  "lh_figure": "533",  "rh_roman": "V",    "rh_figure": "E33",  "cw_label": "Fraying",      "ccw_label": "Steadying"},
+      {"cycle": "3rds", "verse": 1, "lh_roman": "ii",    "lh_figure": "733",  "rh_roman": "vii°", "rh_figure": "G33",  "cw_label": "Tilting",      "ccw_label": "Curdling"},
+      {"cycle": "3rds", "verse": 1, "lh_roman": "IV",    "lh_figure": "233",  "rh_roman": "ii",   "rh_figure": "B33",  "cw_label": "Gladdening",   "ccw_label": "Shading"},
+      {"cycle": "3rds", "verse": 1, "lh_roman": "vi",    "lh_figure": "433",  "rh_roman": "IV",   "rh_figure": "D33",  "cw_label": "Grieving",     "ccw_label": "Consoling"},
+      {"cycle": "3rds", "verse": 1, "lh_roman": "I",     "lh_figure": "633",  "rh_roman": "vi",   "rh_figure": "F33",  "cw_label": "Triumphing",   "ccw_label": "Brooding"},
+
+      {"cycle": "3rds", "verse": 2, "lh_roman": "iii7",  "lh_figure": "1332", "rh_roman": "I6",   "rh_figure": "A333", "cw_label": "Drifting",     "ccw_label": "Homecoming"},
+      {"cycle": "3rds", "verse": 2, "lh_roman": "V",     "lh_figure": "534",  "rh_roman": "iii²", "rh_figure": "C33",  "cw_label": "Galvanizing",  "ccw_label": "Retreating"},
+      {"cycle": "3rds", "verse": 2, "lh_roman": "vii°",  "lh_figure": "544",  "rh_roman": "Vq",   "rh_figure": "E33",  "cw_label": "Fraying",      "ccw_label": "Steadying"},
+      {"cycle": "3rds", "verse": 2, "lh_roman": "ii",    "lh_figure": "6233", "rh_roman": "viiø⁷¹","rh_figure": "G33", "cw_label": "Tilting",      "ccw_label": "Curdling"},
+      {"cycle": "3rds", "verse": 2, "lh_roman": "IV",    "lh_figure": "2444", "rh_roman": "iiq7", "rh_figure": "B33",  "cw_label": "Gladdening",   "ccw_label": "Shading"},
+      {"cycle": "3rds", "verse": 2, "lh_roman": "vi",    "lh_figure": "143",  "rh_roman": "IV¹",  "rh_figure": "D33",  "cw_label": "Grieving",     "ccw_label": "Consoling"},
+      {"cycle": "3rds", "verse": 2, "lh_roman": "I",     "lh_figure": "5434", "rh_roman": "vi⁷³", "rh_figure": "F33",  "cw_label": "Triumphing",   "ccw_label": "Brooding"},
+
+      {"cycle": "4ths", "verse": 1, "lh_roman": "IV",    "lh_figure": "133",  "rh_roman": "I",    "rh_figure": "B33",  "cw_label": "Exploring",   "ccw_label": "Landing"},
+      {"cycle": "4ths", "verse": 1, "lh_roman": "vii°",  "lh_figure": "433",  "rh_roman": "IV",   "rh_figure": "E33",  "cw_label": "Alarming",    "ccw_label": "Quieting"},
+      {"cycle": "4ths", "verse": 1, "lh_roman": "iii",   "lh_figure": "733",  "rh_roman": "vii°", "rh_figure": "H33",  "cw_label": "Despairing",  "ccw_label": "Rooting"},
+      {"cycle": "4ths", "verse": 1, "lh_roman": "vi",    "lh_figure": "333",  "rh_roman": "iii",  "rh_figure": "D33",  "cw_label": "Accepting",   "ccw_label": "Reverting"},
+      {"cycle": "4ths", "verse": 1, "lh_roman": "ii",    "lh_figure": "633",  "rh_roman": "vi",   "rh_figure": "G33",  "cw_label": "Wandering",   "ccw_label": "Dreaming"},
+      {"cycle": "4ths", "verse": 1, "lh_roman": "V",     "lh_figure": "233",  "rh_roman": "ii",   "rh_figure": "C33",  "cw_label": "Lifting",     "ccw_label": "Stepping"},
+      {"cycle": "4ths", "verse": 1, "lh_roman": "I",     "lh_figure": "533",  "rh_roman": "V",    "rh_figure": "F33",  "cw_label": "Resolving",   "ccw_label": "Lofting"},
+
+      {"cycle": "4ths", "verse": 2, "lh_roman": "IVΔ",   "lh_figure": "133",  "rh_roman": "I",    "rh_figure": "B333", "cw_label": "Exploring",   "ccw_label": "Landing"},
+      {"cycle": "4ths", "verse": 2, "lh_roman": "viiø7", "lh_figure": "433",  "rh_roman": "IV",   "rh_figure": "E333", "cw_label": "Alarming",    "ccw_label": "Quieting"},
+      {"cycle": "4ths", "verse": 2, "lh_roman": "iii",   "lh_figure": "7334", "rh_roman": "vii+8","rh_figure": "H33",  "cw_label": "Despairing",  "ccw_label": "Rooting"},
+      {"cycle": "4ths", "verse": 2, "lh_roman": "vi",    "lh_figure": "342",  "rh_roman": "iiis4","rh_figure": "D33",  "cw_label": "Accepting",   "ccw_label": "Reverting"},
+      {"cycle": "4ths", "verse": 2, "lh_roman": "ii",    "lh_figure": "6333", "rh_roman": "vi7",  "rh_figure": "G33",  "cw_label": "Wandering",   "ccw_label": "Dreaming"},
+      {"cycle": "4ths", "verse": 2, "lh_roman": "V",     "lh_figure": "2333", "rh_roman": "ii7",  "rh_figure": "C33",  "cw_label": "Lifting",     "ccw_label": "Stepping"},
+      {"cycle": "4ths", "verse": 2, "lh_roman": "I",     "lh_figure": "5332", "rh_roman": "V6",   "rh_figure": "F33",  "cw_label": "Resolving",   "ccw_label": "Lofting"}
+    ]
+  },
+
+  "stacked_chords": {
+    "description": "Single-chord two-handed sonorities — LH and RH played together as one chord, not as a transition. Sorted by LH. Each entry has a 'mood' label describing the resulting sonority.",
+    "entries": [
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "ii",    "rh_figure": "933",  "mood": "Warm"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "ii7",   "rh_figure": "9333", "mood": "Ethereal"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "iii¹",  "rh_figure": "743",  "mood": "Soft"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "IV²",   "rh_figure": "634",  "mood": "Hazy"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "V",     "rh_figure": "533",  "mood": "Bright"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "V⁷¹",   "rh_figure": "7332", "mood": "Bluesy"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "vi",    "rh_figure": "633",  "mood": "Pastoral"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "vii°",  "rh_figure": "733",  "mood": "Piercing"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "Is2",   "rh_figure": "824",  "mood": "Open"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "Is4",   "rh_figure": "842",  "mood": "Suspended"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "IΔ",    "rh_figure": "8333", "mood": "Radiant"},
+      {"lh_roman": "I",    "lh_figure": "133",  "rh_roman": "I+8",   "rh_figure": "8334", "mood": "Chiming"},
+      {"lh_roman": "IΔ",   "lh_figure": "1333", "rh_roman": "I",     "rh_figure": "833",  "mood": "Anchored"},
+      {"lh_roman": "IΔ",   "lh_figure": "1333", "rh_roman": "ii",    "rh_figure": "933",  "mood": "Lush"},
+      {"lh_roman": "IΔ",   "lh_figure": "1333", "rh_roman": "iii",   "rh_figure": "A33",  "mood": "Airy"},
+      {"lh_roman": "IΔ",   "lh_figure": "1333", "rh_roman": "IV",    "rh_figure": "B33",  "mood": "Shimmer"},
+      {"lh_roman": "IΔ",   "lh_figure": "1333", "rh_roman": "V¹",    "rh_figure": "943",  "mood": "Soulful"},
+      {"lh_roman": "IΔ",   "lh_figure": "1333", "rh_roman": "V⁷²",   "rh_figure": "9323", "mood": "Poised"},
+      {"lh_roman": "IΔ",   "lh_figure": "1333", "rh_roman": "vii°",  "rh_figure": "733",  "mood": "Crystalline"},
+      {"lh_roman": "ii",   "lh_figure": "233",  "rh_roman": "I",     "rh_figure": "833",  "mood": "Plain"},
+      {"lh_roman": "ii",   "lh_figure": "233",  "rh_roman": "iii",   "rh_figure": "A33",  "mood": "Mournful"},
+      {"lh_roman": "ii",   "lh_figure": "233",  "rh_roman": "IV¹",   "rh_figure": "843",  "mood": "Modal"},
+      {"lh_roman": "ii",   "lh_figure": "233",  "rh_roman": "V²",    "rh_figure": "734",  "mood": "Floating"},
+      {"lh_roman": "ii",   "lh_figure": "233",  "rh_roman": "vi",    "rh_figure": "633",  "mood": "Rich"},
+      {"lh_roman": "ii",   "lh_figure": "233",  "rh_roman": "ii+8",  "rh_figure": "9334", "mood": "Pealing"},
+      {"lh_roman": "ii7",  "lh_figure": "2333", "rh_roman": "I",     "rh_figure": "833",  "mood": "Introspective"},
+      {"lh_roman": "ii7",  "lh_figure": "2333", "rh_roman": "IV",    "rh_figure": "B33",  "mood": "Open jazz"},
+      {"lh_roman": "ii7",  "lh_figure": "2333", "rh_roman": "V",     "rh_figure": "C33",  "mood": "Hinting"},
+      {"lh_roman": "iii",  "lh_figure": "333",  "rh_roman": "I",     "rh_figure": "833",  "mood": "Thoughtful"},
+      {"lh_roman": "iii",  "lh_figure": "333",  "rh_roman": "IV",    "rh_figure": "B33",  "mood": "Dark"},
+      {"lh_roman": "iii",  "lh_figure": "333",  "rh_roman": "V¹",    "rh_figure": "943",  "mood": "Ancient"},
+      {"lh_roman": "iii",  "lh_figure": "333",  "rh_roman": "vi¹",   "rh_figure": "834",  "mood": "Pensive"},
+      {"lh_roman": "iii",  "lh_figure": "333",  "rh_roman": "vii°",  "rh_figure": "733",  "mood": "Strained"},
+      {"lh_roman": "iii",  "lh_figure": "333",  "rh_roman": "iii+8", "rh_figure": "A334", "mood": "Tolling"},
+      {"lh_roman": "iii7", "lh_figure": "3333", "rh_roman": "ii",    "rh_figure": "933",  "mood": "Layered"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "I",     "rh_figure": "833",  "mood": "Spacious"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "ii",    "rh_figure": "933",  "mood": "Dreamy"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "iii",   "rh_figure": "A33",  "mood": "Elegant"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "IΔ",    "rh_figure": "8333", "mood": "Glowing"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "IVs2",  "rh_figure": "B24",  "mood": "Hollow"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "V",     "rh_figure": "C33",  "mood": "Lifting"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "vi¹",   "rh_figure": "A43",  "mood": "Comforting"},
+      {"lh_roman": "IV",   "lh_figure": "433",  "rh_roman": "IV+8",  "rh_figure": "B334", "mood": "Ringing"},
+      {"lh_roman": "IVΔ",  "lh_figure": "4333", "rh_roman": "ii²",   "rh_figure": "B34",  "mood": "Sparkling"},
+      {"lh_roman": "IVΔ",  "lh_figure": "4333", "rh_roman": "iii",   "rh_figure": "A33",  "mood": "Prismatic"},
+      {"lh_roman": "IVΔ",  "lh_figure": "4333", "rh_roman": "V",     "rh_figure": "C33",  "mood": "Gleaming"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "I²",    "rh_figure": "A34",  "mood": "Unresolved"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "ii",    "rh_figure": "933",  "mood": "Punchy"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "iii",   "rh_figure": "A33",  "mood": "Bouncy"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "IV",    "rh_figure": "B33",  "mood": "Coasting"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "Vq",    "rh_figure": "C44",  "mood": "Modern"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "Vs2",   "rh_figure": "C24",  "mood": "Airborne"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "Vs4",   "rh_figure": "C42",  "mood": "Urgent"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "vi",    "rh_figure": "D33",  "mood": "Velvety"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "vii°¹", "rh_figure": "B43",  "mood": "Sharp"},
+      {"lh_roman": "V",    "lh_figure": "533",  "rh_roman": "V+8",   "rh_figure": "C334", "mood": "Sonorous"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "I",     "rh_figure": "F33",  "mood": "Commanding"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "ii¹",   "rh_figure": "D43",  "mood": "Sultry"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "ii7",   "rh_figure": "G333", "mood": "Smooth"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "IV",    "rh_figure": "B33",  "mood": "Pending"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "IVΔ",   "rh_figure": "B333", "mood": "Hip"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "IΔ",    "rh_figure": "F333", "mood": "Leading"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "V",     "rh_figure": "C33",  "mood": "Thunderous"},
+      {"lh_roman": "V7",   "lh_figure": "5333", "rh_roman": "vi",    "rh_figure": "D33",  "mood": "Exotic"},
+      {"lh_roman": "vi",   "lh_figure": "633",  "rh_roman": "I¹",    "rh_figure": "C43",  "mood": "Gentle"},
+      {"lh_roman": "vi",   "lh_figure": "633",  "rh_roman": "ii²",   "rh_figure": "B34",  "mood": "Sprawling"},
+      {"lh_roman": "vi",   "lh_figure": "633",  "rh_roman": "iii",   "rh_figure": "A33",  "mood": "Somber"},
+      {"lh_roman": "vi",   "lh_figure": "633",  "rh_roman": "IV",    "rh_figure": "B33",  "mood": "Wistful"},
+      {"lh_roman": "vi",   "lh_figure": "633",  "rh_roman": "V",     "rh_figure": "C33",  "mood": "Haunting"},
+      {"lh_roman": "vi",   "lh_figure": "633",  "rh_roman": "vii°",  "rh_figure": "E33",  "mood": "Mysterious"},
+      {"lh_roman": "vi",   "lh_figure": "633",  "rh_roman": "vi+8",  "rh_figure": "D334", "mood": "Resonant"},
+      {"lh_roman": "vi7",  "lh_figure": "6333", "rh_roman": "I",     "rh_figure": "F33",  "mood": "Cradling"},
+      {"lh_roman": "vi7",  "lh_figure": "6333", "rh_roman": "V",     "rh_figure": "C33",  "mood": "Pointing"},
+      {"lh_roman": "vii°", "lh_figure": "733",  "rh_roman": "IV",    "rh_figure": "B33",  "mood": "Tangled"},
+      {"lh_roman": "vii°", "lh_figure": "733",  "rh_roman": "vii+8", "rh_figure": "E334", "mood": "Twinkling"},
+      {"lh_roman": "viiø7","lh_figure": "7333", "rh_roman": "vi",    "rh_figure": "D33",  "mood": "Turbulent"}
+    ]
+  }
+}

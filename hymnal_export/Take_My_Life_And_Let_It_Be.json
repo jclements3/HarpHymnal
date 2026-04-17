@@ -1,0 +1,4488 @@
+{
+  "title": "Take My Life And Let It Be",
+  "abc_source": "X: 234\nT: Take My Life And Let It Be\n%%combinevoices 1\nC: Words: Frances R. Havergal, 1874.  Music: 'Mozart' Wolfgang Amadeus Mozart (1756-1791). \nC: Setting: composite found in \"Hymnal and Liturgies of the Moravian Church\", 1920.\nC: copyright: public domain.  This score is a part of the Open Hymnal Project, 2008 Revision.\nS: Music source: Hymnal and Liturgies of the Moravian Church, 1920 Hymn 471.\nS: setting very similar to \"The Coronation Hymnal\", American Baptist Publication Society, 1894 Hymn 182.\nM: 3/4 % time signature\nL: 1/4 % default length\n%%staves (S1V1 S1V2) | (S2V1 S2V2) \nV: S1V1 clef=treble \n%%MIDI beat 127 125 110 1\nV: S1V2 \n%%MIDI beat 127 125 110 1\nV: S2V1 clef=bass \n%%MIDI beat 127 125 110 1\nV: S2V2 \n%%MIDI beat 127 125 110 1\nK: G % key signature\n%\n%%MIDI program 1 0 % Piano 1\n%%MIDI program 2 0 % Piano 1\n%%MIDI program 3 0 % Piano 1\n%%MIDI program 4 0 % Piano 1\n%\n% 1\n[V: S1V1] [Q:1/4=140] G2 G | F2 D | c2 c | B3 | d2 B | (d c) A | G2 B/A/ | A3 |\nw: 1.~Take my life, and let it be con- se- cra- * ted, Lord, to * Thee. \nw: 2.~Take my hands, and let them move at the im- * pulse of Thy * love. \nw: 3.~Take my voice, and let me sing al- ways, on- * ly, for my * King. \nw: 4.~Take my sil- ver and my gold; not a mite * would I with- * hold. \nw: 5.~Take my will, and make it Thine; it shall be * no long- er * mine. \n[V: S1V2]  D2 D | D2 D | D2 F | G3 | G2 G | E2 D | D2 G/F/ | F3 |\n[V: S2V1]  B,2 B, | A,2 F, | (F, A,) D | D3 | D2 D | A,2 D | B,2 D | D3 |\n[V: S2V2]  (G,, B,,) G,, | D,2 D, | (D, F,) D, | G,3 | B,2 G, | A,2 F, | G,2 G, | D,3 |\n% 9\n[V: S1V1]  G2 G | (F3/2 E/) D | c2 c | B3 | !sintro!d2 B | (A c) e | G2 F | G3 !eintro!|]\nw: Take my mo- * ments and my days; let them flow * in cease- less praise. \nw: Take my feet, * and let them be swift and beau- * ti- ful for Thee. \nw: Take my lips, * and let them be filled with mess- * a- ges from Thee. \nw: Take my in- * tell- ect, and use e- very pow'r * as Thou shalt choose. \nw: Take my heart, * it is Thine own; it shall be * Thy ro- yal throne. \n[V: S1V2]  G2 G | (F3/2 E/) D | D2 D | D3 | (D G) =F | E2 E | D2 C | B,3 |]\n[V: S2V1]  (B, D) B, | (C3/2 B,/) A,/G,/ | F,/G,/A,/B,/ C/A,/ | G,3 | B,2 D | C2 A, | B,2 A, | G,3 |]\n[V: S2V2]  (G, B,) G, | (A,3/2 G,/) F,/E,/ | D,/E,/F,/G,/ A,/F,/ | G,3 | G,2 ^G, | A,2 C, | D,2 D, | G,,3 |]\n% 18\nW: 6.Take my love, my Lord, I pour at Thy feet its treasure store.\nW: Take myself, and I will be ever, only, all for Thee. \n\n%%newpage\n\n% PAGE LAYOUT\n%\n%%pagewidth\t21.6000cm\n%%pageheight\t27.9000cm\n%%scale\t\t0.750000\n%%staffsep\t1.60000cm\n%%exprabove\tfalse\n%%measurebox\tfalse\n%%header \"CONSECRATION\t\t235\"\n%%footer Ps 25:1-22, Jer 31:9-14, Ex 13:21, Ps 119:105\t\t11 11 11 11\n%OHSCRIP Ps 25:1-22, Jer 31:9-14, Ex 13:21, Ps 119:105\n%OHTOPICS {Bread (of Life/Daily Bread)}, {Calmness}, {Children (see also God's Children - the Faithful) [2]}, {Christian Life}, {Comfort}, {Discipleship}, {God, Care of}, {God, Majesty &amp; Power of [3]}, {Grace [2]}, {Guidance}, {Humility}, {Invitation (Faithful's to God)}, {Kindness, God's}, {Peace}, {Presence}, {Trust}\n%OHCATEGORY CONSECRATION\n%OHMETRICAL 11 11 11 11\n%OHCOMPLEXITY 2\n%OHCOMPOSER Silcher, Friedrich (1789-1860)\n%OHARRANGER Snell, Donna\n%OHAUTHOR von Hausmann, Julie Katharina (1826-1901)\n%OHTRANSLATOR Horstmann, Julius Herman Edward (1869-1954)\n%%postscript /st { moveto -8 0 rmoveto 0 8 rlineto 4 0 rlineto stroke } def\n%%postscript /nd { moveto -8 0 rmoveto 0 8 rlineto -4 0 rlineto stroke } def\n%%deco sintro 6 st 6 0 0 \n%%deco eintro 6 nd 6 0 0 \n",
+  "metadata": {
+    "composer": "'Mozart' Wolfgang Amadeus Mozart (1756-1791) composite found in \"Hymnal and Liturgies of the Moravian Church\", 1920",
+    "lyricist": "Frances R. Havergal, 1874",
+    "tune_name": null,
+    "year": "1756",
+    "words_year": "1874",
+    "music_year": "1756",
+    "copyright": "public domain.  This score is a part of the Open Hymnal Project, 2008 Revision.",
+    "origin": null,
+    "meter_name": null,
+    "c_lines": [
+      "Words: Frances R. Havergal, 1874.  Music: 'Mozart' Wolfgang Amadeus Mozart (1756-1791).",
+      "Setting: composite found in \"Hymnal and Liturgies of the Moravian Church\", 1920.",
+      "copyright: public domain.  This score is a part of the Open Hymnal Project, 2008 Revision."
+    ],
+    "z_lines": []
+  },
+  "music": {
+    "key_header": "G major",
+    "key_detected": "G major",
+    "key_root": "G",
+    "mode": "major",
+    "modal_name": "ionian",
+    "tonic_override_applied": false,
+    "meter": "3/4",
+    "meter_num": 3,
+    "meter_den": 4,
+    "unit_note_length": "1/4 % default length",
+    "total_bars": 16,
+    "total_ql": 48.0
+  },
+  "voices": {
+    "S1V1": [
+      {
+        "offset_ql": 0.0,
+        "bar": 1,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 2.0,
+        "bar": 1,
+        "beat": 3.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 3.0,
+        "bar": 2,
+        "beat": 1.0,
+        "pitch": "F#4",
+        "midi": 66,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 5.0,
+        "bar": 2,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 6.0,
+        "bar": 3,
+        "beat": 1.0,
+        "pitch": "C5",
+        "midi": 72,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 8.0,
+        "bar": 3,
+        "beat": 3.0,
+        "pitch": "C5",
+        "midi": 72,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 9.0,
+        "bar": 4,
+        "beat": 1.0,
+        "pitch": "B4",
+        "midi": 71,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 12.0,
+        "bar": 5,
+        "beat": 1.0,
+        "pitch": "D5",
+        "midi": 74,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 14.0,
+        "bar": 5,
+        "beat": 3.0,
+        "pitch": "B4",
+        "midi": 71,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 15.0,
+        "bar": 6,
+        "beat": 1.0,
+        "pitch": "D5",
+        "midi": 74,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 16.0,
+        "bar": 6,
+        "beat": 2.0,
+        "pitch": "C5",
+        "midi": 72,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 17.0,
+        "bar": 6,
+        "beat": 3.0,
+        "pitch": "A4",
+        "midi": 69,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 18.0,
+        "bar": 7,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 20.0,
+        "bar": 7,
+        "beat": 3.0,
+        "pitch": "B4",
+        "midi": 71,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 20.5,
+        "bar": 7,
+        "beat": 3.5,
+        "pitch": "A4",
+        "midi": 69,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 21.0,
+        "bar": 8,
+        "beat": 1.0,
+        "pitch": "A4",
+        "midi": 69,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 24.0,
+        "bar": 9,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 26.0,
+        "bar": 9,
+        "beat": 3.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 27.0,
+        "bar": 10,
+        "beat": 1.0,
+        "pitch": "F#4",
+        "midi": 66,
+        "duration_ql": 1.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 28.5,
+        "bar": 10,
+        "beat": 2.5,
+        "pitch": "E4",
+        "midi": 64,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 29.0,
+        "bar": 10,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 30.0,
+        "bar": 11,
+        "beat": 1.0,
+        "pitch": "C5",
+        "midi": 72,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 32.0,
+        "bar": 11,
+        "beat": 3.0,
+        "pitch": "C5",
+        "midi": 72,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 33.0,
+        "bar": 12,
+        "beat": 1.0,
+        "pitch": "B4",
+        "midi": 71,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 36.0,
+        "bar": 13,
+        "beat": 1.0,
+        "pitch": "D5",
+        "midi": 74,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 38.0,
+        "bar": 13,
+        "beat": 3.0,
+        "pitch": "B4",
+        "midi": 71,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 39.0,
+        "bar": 14,
+        "beat": 1.0,
+        "pitch": "A4",
+        "midi": 69,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 40.0,
+        "bar": 14,
+        "beat": 2.0,
+        "pitch": "C5",
+        "midi": 72,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 41.0,
+        "bar": 14,
+        "beat": 3.0,
+        "pitch": "E5",
+        "midi": 76,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 42.0,
+        "bar": 15,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 44.0,
+        "bar": 15,
+        "beat": 3.0,
+        "pitch": "F#4",
+        "midi": 66,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 45.0,
+        "bar": 16,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      }
+    ],
+    "S1V2": [
+      {
+        "offset_ql": 0.0,
+        "bar": 1,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 2.0,
+        "bar": 1,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 3.0,
+        "bar": 2,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 5.0,
+        "bar": 2,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 6.0,
+        "bar": 3,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 8.0,
+        "bar": 3,
+        "beat": 3.0,
+        "pitch": "F#4",
+        "midi": 66,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 9.0,
+        "bar": 4,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 12.0,
+        "bar": 5,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 14.0,
+        "bar": 5,
+        "beat": 3.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 15.0,
+        "bar": 6,
+        "beat": 1.0,
+        "pitch": "E4",
+        "midi": 64,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 17.0,
+        "bar": 6,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 18.0,
+        "bar": 7,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 20.0,
+        "bar": 7,
+        "beat": 3.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 20.5,
+        "bar": 7,
+        "beat": 3.5,
+        "pitch": "F#4",
+        "midi": 66,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 21.0,
+        "bar": 8,
+        "beat": 1.0,
+        "pitch": "F#4",
+        "midi": 66,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 24.0,
+        "bar": 9,
+        "beat": 1.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 26.0,
+        "bar": 9,
+        "beat": 3.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 27.0,
+        "bar": 10,
+        "beat": 1.0,
+        "pitch": "F#4",
+        "midi": 66,
+        "duration_ql": 1.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 28.5,
+        "bar": 10,
+        "beat": 2.5,
+        "pitch": "E4",
+        "midi": 64,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 29.0,
+        "bar": 10,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 30.0,
+        "bar": 11,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 32.0,
+        "bar": 11,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 33.0,
+        "bar": 12,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 36.0,
+        "bar": 13,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 37.0,
+        "bar": 13,
+        "beat": 2.0,
+        "pitch": "G4",
+        "midi": 67,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 38.0,
+        "bar": 13,
+        "beat": 3.0,
+        "pitch": "F4",
+        "midi": 65,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 39.0,
+        "bar": 14,
+        "beat": 1.0,
+        "pitch": "E4",
+        "midi": 64,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 41.0,
+        "bar": 14,
+        "beat": 3.0,
+        "pitch": "E4",
+        "midi": 64,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 42.0,
+        "bar": 15,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 44.0,
+        "bar": 15,
+        "beat": 3.0,
+        "pitch": "C4",
+        "midi": 60,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 45.0,
+        "bar": 16,
+        "beat": 1.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      }
+    ],
+    "S2V1": [
+      {
+        "offset_ql": 0.0,
+        "bar": 1,
+        "beat": 1.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 2.0,
+        "bar": 1,
+        "beat": 3.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 3.0,
+        "bar": 2,
+        "beat": 1.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 5.0,
+        "bar": 2,
+        "beat": 3.0,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 6.0,
+        "bar": 3,
+        "beat": 1.0,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 7.0,
+        "bar": 3,
+        "beat": 2.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 8.0,
+        "bar": 3,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 9.0,
+        "bar": 4,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 12.0,
+        "bar": 5,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 14.0,
+        "bar": 5,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 15.0,
+        "bar": 6,
+        "beat": 1.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 17.0,
+        "bar": 6,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 18.0,
+        "bar": 7,
+        "beat": 1.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 20.0,
+        "bar": 7,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 21.0,
+        "bar": 8,
+        "beat": 1.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 24.0,
+        "bar": 9,
+        "beat": 1.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 25.0,
+        "bar": 9,
+        "beat": 2.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 26.0,
+        "bar": 9,
+        "beat": 3.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 27.0,
+        "bar": 10,
+        "beat": 1.0,
+        "pitch": "C4",
+        "midi": 60,
+        "duration_ql": 1.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 28.5,
+        "bar": 10,
+        "beat": 2.5,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 29.0,
+        "bar": 10,
+        "beat": 3.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 29.5,
+        "bar": 10,
+        "beat": 3.5,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 30.0,
+        "bar": 11,
+        "beat": 1.0,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 30.5,
+        "bar": 11,
+        "beat": 1.5,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 31.0,
+        "bar": 11,
+        "beat": 2.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 31.5,
+        "bar": 11,
+        "beat": 2.5,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 32.0,
+        "bar": 11,
+        "beat": 3.0,
+        "pitch": "C4",
+        "midi": 60,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 32.5,
+        "bar": 11,
+        "beat": 3.5,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 33.0,
+        "bar": 12,
+        "beat": 1.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 36.0,
+        "bar": 13,
+        "beat": 1.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 38.0,
+        "bar": 13,
+        "beat": 3.0,
+        "pitch": "D4",
+        "midi": 62,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 39.0,
+        "bar": 14,
+        "beat": 1.0,
+        "pitch": "C4",
+        "midi": 60,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 41.0,
+        "bar": 14,
+        "beat": 3.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 42.0,
+        "bar": 15,
+        "beat": 1.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 44.0,
+        "bar": 15,
+        "beat": 3.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 45.0,
+        "bar": 16,
+        "beat": 1.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      }
+    ],
+    "S2V2": [
+      {
+        "offset_ql": 0.0,
+        "bar": 1,
+        "beat": 1.0,
+        "pitch": "G2",
+        "midi": 43,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 1.0,
+        "bar": 1,
+        "beat": 2.0,
+        "pitch": "B2",
+        "midi": 47,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 2.0,
+        "bar": 1,
+        "beat": 3.0,
+        "pitch": "G2",
+        "midi": 43,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 3.0,
+        "bar": 2,
+        "beat": 1.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 5.0,
+        "bar": 2,
+        "beat": 3.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 6.0,
+        "bar": 3,
+        "beat": 1.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 7.0,
+        "bar": 3,
+        "beat": 2.0,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 8.0,
+        "bar": 3,
+        "beat": 3.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 9.0,
+        "bar": 4,
+        "beat": 1.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 12.0,
+        "bar": 5,
+        "beat": 1.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 14.0,
+        "bar": 5,
+        "beat": 3.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 15.0,
+        "bar": 6,
+        "beat": 1.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 17.0,
+        "bar": 6,
+        "beat": 3.0,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 18.0,
+        "bar": 7,
+        "beat": 1.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 20.0,
+        "bar": 7,
+        "beat": 3.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 21.0,
+        "bar": 8,
+        "beat": 1.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 24.0,
+        "bar": 9,
+        "beat": 1.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 25.0,
+        "bar": 9,
+        "beat": 2.0,
+        "pitch": "B3",
+        "midi": 59,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 26.0,
+        "bar": 9,
+        "beat": 3.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 27.0,
+        "bar": 10,
+        "beat": 1.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 1.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 28.5,
+        "bar": 10,
+        "beat": 2.5,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 29.0,
+        "bar": 10,
+        "beat": 3.0,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 29.5,
+        "bar": 10,
+        "beat": 3.5,
+        "pitch": "E3",
+        "midi": 52,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 30.0,
+        "bar": 11,
+        "beat": 1.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 30.5,
+        "bar": 11,
+        "beat": 1.5,
+        "pitch": "E3",
+        "midi": 52,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 31.0,
+        "bar": 11,
+        "beat": 2.0,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 31.5,
+        "bar": 11,
+        "beat": 2.5,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 32.0,
+        "bar": 11,
+        "beat": 3.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 32.5,
+        "bar": 11,
+        "beat": 3.5,
+        "pitch": "F#3",
+        "midi": 54,
+        "duration_ql": 0.5,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 33.0,
+        "bar": 12,
+        "beat": 1.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 36.0,
+        "bar": 13,
+        "beat": 1.0,
+        "pitch": "G3",
+        "midi": 55,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 38.0,
+        "bar": 13,
+        "beat": 3.0,
+        "pitch": "G#3",
+        "midi": 56,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 39.0,
+        "bar": 14,
+        "beat": 1.0,
+        "pitch": "A3",
+        "midi": 57,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 41.0,
+        "bar": 14,
+        "beat": 3.0,
+        "pitch": "C3",
+        "midi": 48,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 42.0,
+        "bar": 15,
+        "beat": 1.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 2.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 44.0,
+        "bar": 15,
+        "beat": 3.0,
+        "pitch": "D3",
+        "midi": 50,
+        "duration_ql": 1.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      },
+      {
+        "offset_ql": 45.0,
+        "bar": 16,
+        "beat": 1.0,
+        "pitch": "G2",
+        "midi": 43,
+        "duration_ql": 3.0,
+        "is_rest": false,
+        "tied_next": false,
+        "fermata": false
+      }
+    ]
+  },
+  "extra_voices": {},
+  "beats": [
+    {
+      "offset_ql": 0.0,
+      "bar": 1,
+      "beat": 1,
+      "S": "G4",
+      "A": "D4",
+      "T": "B3",
+      "B": "G2",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 1.0,
+      "bar": 1,
+      "beat": 2,
+      "S": "G4",
+      "A": "D4",
+      "T": "B3",
+      "B": "B2",
+      "rn_raw": "I6",
+      "rn_clean": "I6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 2.0,
+      "bar": 1,
+      "beat": 3,
+      "S": "G4",
+      "A": "D4",
+      "T": "B3",
+      "B": "G2",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 3.0,
+      "bar": 2,
+      "beat": 1,
+      "S": "F#4",
+      "A": "D4",
+      "T": "A3",
+      "B": "D3",
+      "rn_raw": "V",
+      "rn_clean": "V",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 4.0,
+      "bar": 2,
+      "beat": 2,
+      "S": "F#4",
+      "A": "D4",
+      "T": "A3",
+      "B": "D3",
+      "rn_raw": "V",
+      "rn_clean": "V",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 5.0,
+      "bar": 2,
+      "beat": 3,
+      "S": "D4",
+      "A": "D4",
+      "T": "F#3",
+      "B": "D3",
+      "rn_raw": "V",
+      "rn_clean": "V",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 6.0,
+      "bar": 3,
+      "beat": 1,
+      "S": "C5",
+      "A": "D4",
+      "T": "F#3",
+      "B": "D3",
+      "rn_raw": "V7",
+      "rn_clean": "V7",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 7.0,
+      "bar": 3,
+      "beat": 2,
+      "S": "C5",
+      "A": "D4",
+      "T": "A3",
+      "B": "F#3",
+      "rn_raw": "V65",
+      "rn_clean": "V65",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 8.0,
+      "bar": 3,
+      "beat": 3,
+      "S": "C5",
+      "A": "F#4",
+      "T": "D4",
+      "B": "D3",
+      "rn_raw": "V7",
+      "rn_clean": "V7",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 9.0,
+      "bar": 4,
+      "beat": 1,
+      "S": "B4",
+      "A": "G4",
+      "T": "D4",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 10.0,
+      "bar": 4,
+      "beat": 2,
+      "S": "B4",
+      "A": "G4",
+      "T": "D4",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 11.0,
+      "bar": 4,
+      "beat": 3,
+      "S": "B4",
+      "A": "G4",
+      "T": "D4",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 12.0,
+      "bar": 5,
+      "beat": 1,
+      "S": "D5",
+      "A": "G4",
+      "T": "D4",
+      "B": "B3",
+      "rn_raw": "I6",
+      "rn_clean": "I6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 13.0,
+      "bar": 5,
+      "beat": 2,
+      "S": "D5",
+      "A": "G4",
+      "T": "D4",
+      "B": "B3",
+      "rn_raw": "I6",
+      "rn_clean": "I6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 14.0,
+      "bar": 5,
+      "beat": 3,
+      "S": "B4",
+      "A": "G4",
+      "T": "D4",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 15.0,
+      "bar": 6,
+      "beat": 1,
+      "S": "D5",
+      "A": "E4",
+      "T": "A3",
+      "B": "A3",
+      "rn_raw": "v54",
+      "rn_clean": "V54",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 16.0,
+      "bar": 6,
+      "beat": 2,
+      "S": "C5",
+      "A": "E4",
+      "T": "A3",
+      "B": "A3",
+      "rn_raw": "ii",
+      "rn_clean": "ii",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 17.0,
+      "bar": 6,
+      "beat": 3,
+      "S": "A4",
+      "A": "D4",
+      "T": "D4",
+      "B": "F#3",
+      "rn_raw": "V6",
+      "rn_clean": "V6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 18.0,
+      "bar": 7,
+      "beat": 1,
+      "S": "G4",
+      "A": "D4",
+      "T": "B3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 19.0,
+      "bar": 7,
+      "beat": 2,
+      "S": "G4",
+      "A": "D4",
+      "T": "B3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 20.0,
+      "bar": 7,
+      "beat": 3,
+      "S": "B4",
+      "A": "G4",
+      "T": "D4",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 21.0,
+      "bar": 8,
+      "beat": 1,
+      "S": "A4",
+      "A": "F#4",
+      "T": "D4",
+      "B": "D3",
+      "rn_raw": "V",
+      "rn_clean": "V",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 22.0,
+      "bar": 8,
+      "beat": 2,
+      "S": "A4",
+      "A": "F#4",
+      "T": "D4",
+      "B": "D3",
+      "rn_raw": "V",
+      "rn_clean": "V",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 23.0,
+      "bar": 8,
+      "beat": 3,
+      "S": "A4",
+      "A": "F#4",
+      "T": "D4",
+      "B": "D3",
+      "rn_raw": "V",
+      "rn_clean": "V",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 24.0,
+      "bar": 9,
+      "beat": 1,
+      "S": "G4",
+      "A": "G4",
+      "T": "B3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 25.0,
+      "bar": 9,
+      "beat": 2,
+      "S": "G4",
+      "A": "G4",
+      "T": "D4",
+      "B": "B3",
+      "rn_raw": "I6",
+      "rn_clean": "I6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 26.0,
+      "bar": 9,
+      "beat": 3,
+      "S": "G4",
+      "A": "G4",
+      "T": "B3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 27.0,
+      "bar": 10,
+      "beat": 1,
+      "S": "F#4",
+      "A": "F#4",
+      "T": "C4",
+      "B": "A3",
+      "rn_raw": "viio6",
+      "rn_clean": "viio6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 28.0,
+      "bar": 10,
+      "beat": 2,
+      "S": "F#4",
+      "A": "F#4",
+      "T": "C4",
+      "B": "A3",
+      "rn_raw": "viio6",
+      "rn_clean": "viio6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 29.0,
+      "bar": 10,
+      "beat": 3,
+      "S": "D4",
+      "A": "D4",
+      "T": "A3",
+      "B": "F#3",
+      "rn_raw": "V6",
+      "rn_clean": "V6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 30.0,
+      "bar": 11,
+      "beat": 1,
+      "S": "C5",
+      "A": "D4",
+      "T": "F#3",
+      "B": "D3",
+      "rn_raw": "V7",
+      "rn_clean": "V7",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 31.0,
+      "bar": 11,
+      "beat": 2,
+      "S": "C5",
+      "A": "D4",
+      "T": "A3",
+      "B": "F#3",
+      "rn_raw": "V65",
+      "rn_clean": "V65",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 32.0,
+      "bar": 11,
+      "beat": 3,
+      "S": "C5",
+      "A": "D4",
+      "T": "C4",
+      "B": "A3",
+      "rn_raw": "v43",
+      "rn_clean": "V43",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 33.0,
+      "bar": 12,
+      "beat": 1,
+      "S": "B4",
+      "A": "D4",
+      "T": "G3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 34.0,
+      "bar": 12,
+      "beat": 2,
+      "S": "B4",
+      "A": "D4",
+      "T": "G3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 35.0,
+      "bar": 12,
+      "beat": 3,
+      "S": "B4",
+      "A": "D4",
+      "T": "G3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 36.0,
+      "bar": 13,
+      "beat": 1,
+      "S": "D5",
+      "A": "D4",
+      "T": "B3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 37.0,
+      "bar": 13,
+      "beat": 2,
+      "S": "D5",
+      "A": "G4",
+      "T": "B3",
+      "B": "G3",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 38.0,
+      "bar": 13,
+      "beat": 3,
+      "S": "B4",
+      "A": "F4",
+      "T": "D4",
+      "B": "G#3",
+      "rn_raw": "#io7",
+      "rn_clean": "#Io7",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 39.0,
+      "bar": 14,
+      "beat": 1,
+      "S": "A4",
+      "A": "E4",
+      "T": "C4",
+      "B": "A3",
+      "rn_raw": "ii",
+      "rn_clean": "ii",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 40.0,
+      "bar": 14,
+      "beat": 2,
+      "S": "C5",
+      "A": "E4",
+      "T": "C4",
+      "B": "A3",
+      "rn_raw": "ii",
+      "rn_clean": "ii",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 41.0,
+      "bar": 14,
+      "beat": 3,
+      "S": "E5",
+      "A": "E4",
+      "T": "A3",
+      "B": "C3",
+      "rn_raw": "ii6",
+      "rn_clean": "ii6",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 42.0,
+      "bar": 15,
+      "beat": 1,
+      "S": "G4",
+      "A": "D4",
+      "T": "B3",
+      "B": "D3",
+      "rn_raw": "I64",
+      "rn_clean": "I64",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 43.0,
+      "bar": 15,
+      "beat": 2,
+      "S": "G4",
+      "A": "D4",
+      "T": "B3",
+      "B": "D3",
+      "rn_raw": "I64",
+      "rn_clean": "I64",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 44.0,
+      "bar": 15,
+      "beat": 3,
+      "S": "F#4",
+      "A": "C4",
+      "T": "A3",
+      "B": "D3",
+      "rn_raw": "v7",
+      "rn_clean": "V7",
+      "is_nct": true
+    },
+    {
+      "offset_ql": 45.0,
+      "bar": 16,
+      "beat": 1,
+      "S": "G4",
+      "A": "B3",
+      "T": "G3",
+      "B": "G2",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 46.0,
+      "bar": 16,
+      "beat": 2,
+      "S": "G4",
+      "A": "B3",
+      "T": "G3",
+      "B": "G2",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    },
+    {
+      "offset_ql": 47.0,
+      "bar": 16,
+      "beat": 3,
+      "S": "G4",
+      "A": "B3",
+      "T": "G3",
+      "B": "G2",
+      "rn_raw": "I",
+      "rn_clean": "I",
+      "is_nct": false
+    }
+  ],
+  "regions": {
+    "smoothed": [
+      {
+        "start_bar": 1,
+        "start_beat": 1,
+        "end_bar": 1,
+        "end_beat": 1,
+        "rn": "I",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 1,
+        "start_beat": 2,
+        "end_bar": 1,
+        "end_beat": 2,
+        "rn": "I6",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 1,
+        "start_beat": 3,
+        "end_bar": 1,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 2,
+        "start_beat": 1,
+        "end_bar": 2,
+        "end_beat": 3,
+        "rn": "V",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 3,
+        "start_beat": 1,
+        "end_bar": 3,
+        "end_beat": 1,
+        "rn": "V7",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 3,
+        "start_beat": 2,
+        "end_bar": 3,
+        "end_beat": 2,
+        "rn": "V65",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 3,
+        "start_beat": 3,
+        "end_bar": 3,
+        "end_beat": 3,
+        "rn": "V7",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 4,
+        "start_beat": 1,
+        "end_bar": 4,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 5,
+        "start_beat": 1,
+        "end_bar": 5,
+        "end_beat": 2,
+        "rn": "I6",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 5,
+        "start_beat": 3,
+        "end_bar": 6,
+        "end_beat": 1,
+        "rn": "I",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 6,
+        "start_beat": 2,
+        "end_bar": 6,
+        "end_beat": 2,
+        "rn": "ii",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 6,
+        "start_beat": 3,
+        "end_bar": 6,
+        "end_beat": 3,
+        "rn": "V6",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 7,
+        "start_beat": 1,
+        "end_bar": 7,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 8,
+        "start_beat": 1,
+        "end_bar": 8,
+        "end_beat": 3,
+        "rn": "V",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 9,
+        "start_beat": 1,
+        "end_bar": 9,
+        "end_beat": 1,
+        "rn": "I",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 9,
+        "start_beat": 2,
+        "end_bar": 9,
+        "end_beat": 2,
+        "rn": "I6",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 9,
+        "start_beat": 3,
+        "end_bar": 9,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 10,
+        "start_beat": 1,
+        "end_bar": 10,
+        "end_beat": 2,
+        "rn": "viio6",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 10,
+        "start_beat": 3,
+        "end_bar": 10,
+        "end_beat": 3,
+        "rn": "V6",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 11,
+        "start_beat": 1,
+        "end_bar": 11,
+        "end_beat": 1,
+        "rn": "V7",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 11,
+        "start_beat": 2,
+        "end_bar": 11,
+        "end_beat": 2,
+        "rn": "V65",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 11,
+        "start_beat": 3,
+        "end_bar": 11,
+        "end_beat": 3,
+        "rn": "V43",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 12,
+        "start_beat": 1,
+        "end_bar": 13,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 6
+      },
+      {
+        "start_bar": 14,
+        "start_beat": 1,
+        "end_bar": 14,
+        "end_beat": 2,
+        "rn": "ii",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 14,
+        "start_beat": 3,
+        "end_bar": 14,
+        "end_beat": 3,
+        "rn": "ii6",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 15,
+        "start_beat": 1,
+        "end_bar": 15,
+        "end_beat": 2,
+        "rn": "I64",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 15,
+        "start_beat": 3,
+        "end_bar": 15,
+        "end_beat": 3,
+        "rn": "V7",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 16,
+        "start_beat": 1,
+        "end_bar": 16,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      }
+    ],
+    "per_bar": [
+      {
+        "start_bar": 1,
+        "start_beat": 1,
+        "end_bar": 1,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 2,
+        "start_beat": 1,
+        "end_bar": 2,
+        "end_beat": 3,
+        "rn": "V",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 3,
+        "start_beat": 1,
+        "end_bar": 3,
+        "end_beat": 3,
+        "rn": "V7",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 4,
+        "start_beat": 1,
+        "end_bar": 4,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 5,
+        "start_beat": 1,
+        "end_bar": 5,
+        "end_beat": 3,
+        "rn": "I6",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 6,
+        "start_beat": 1,
+        "end_bar": 6,
+        "end_beat": 3,
+        "rn": "ii",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 7,
+        "start_beat": 1,
+        "end_bar": 7,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 8,
+        "start_beat": 1,
+        "end_bar": 8,
+        "end_beat": 3,
+        "rn": "V",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 9,
+        "start_beat": 1,
+        "end_bar": 9,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 10,
+        "start_beat": 1,
+        "end_bar": 10,
+        "end_beat": 3,
+        "rn": "viio6",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 11,
+        "start_beat": 1,
+        "end_bar": 11,
+        "end_beat": 3,
+        "rn": "V7",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 12,
+        "start_beat": 1,
+        "end_bar": 13,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 6
+      },
+      {
+        "start_bar": 14,
+        "start_beat": 1,
+        "end_bar": 14,
+        "end_beat": 3,
+        "rn": "ii",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 15,
+        "start_beat": 1,
+        "end_bar": 15,
+        "end_beat": 3,
+        "rn": "I64",
+        "length_beats": 3
+      },
+      {
+        "start_bar": 16,
+        "start_beat": 1,
+        "end_bar": 16,
+        "end_beat": 3,
+        "rn": "I",
+        "length_beats": 3
+      }
+    ],
+    "per_halfbar": [
+      {
+        "start_bar": 1,
+        "start_beat": 1,
+        "end_bar": 1,
+        "end_beat": 1,
+        "rn": "I",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 1,
+        "start_beat": 2,
+        "end_bar": 1,
+        "end_beat": 2,
+        "rn": "I6",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 2,
+        "start_beat": 1,
+        "end_bar": 2,
+        "end_beat": 2,
+        "rn": "V",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 3,
+        "start_beat": 1,
+        "end_bar": 3,
+        "end_beat": 1,
+        "rn": "V7",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 3,
+        "start_beat": 2,
+        "end_bar": 3,
+        "end_beat": 2,
+        "rn": "V65",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 4,
+        "start_beat": 1,
+        "end_bar": 4,
+        "end_beat": 2,
+        "rn": "I",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 5,
+        "start_beat": 1,
+        "end_bar": 5,
+        "end_beat": 2,
+        "rn": "I6",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 6,
+        "start_beat": 1,
+        "end_bar": 6,
+        "end_beat": 1,
+        "rn": "V54",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 6,
+        "start_beat": 2,
+        "end_bar": 6,
+        "end_beat": 2,
+        "rn": "ii",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 7,
+        "start_beat": 1,
+        "end_bar": 7,
+        "end_beat": 2,
+        "rn": "I",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 8,
+        "start_beat": 1,
+        "end_bar": 8,
+        "end_beat": 2,
+        "rn": "V",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 9,
+        "start_beat": 1,
+        "end_bar": 9,
+        "end_beat": 1,
+        "rn": "I",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 9,
+        "start_beat": 2,
+        "end_bar": 9,
+        "end_beat": 2,
+        "rn": "I6",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 10,
+        "start_beat": 1,
+        "end_bar": 10,
+        "end_beat": 2,
+        "rn": "viio6",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 11,
+        "start_beat": 1,
+        "end_bar": 11,
+        "end_beat": 1,
+        "rn": "V7",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 11,
+        "start_beat": 2,
+        "end_bar": 11,
+        "end_beat": 2,
+        "rn": "V65",
+        "length_beats": 1
+      },
+      {
+        "start_bar": 12,
+        "start_beat": 1,
+        "end_bar": 13,
+        "end_beat": 2,
+        "rn": "I",
+        "length_beats": 4
+      },
+      {
+        "start_bar": 14,
+        "start_beat": 1,
+        "end_bar": 14,
+        "end_beat": 2,
+        "rn": "ii",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 15,
+        "start_beat": 1,
+        "end_bar": 15,
+        "end_beat": 2,
+        "rn": "I64",
+        "length_beats": 2
+      },
+      {
+        "start_bar": 16,
+        "start_beat": 1,
+        "end_bar": 16,
+        "end_beat": 2,
+        "rn": "I",
+        "length_beats": 2
+      }
+    ]
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ending_marker": "cadence",
+      "start_ql": 0,
+      "end_ql": 12
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7
+      ],
+      "ending_marker": "cadence",
+      "start_ql": 12,
+      "end_ql": 21
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9
+      ],
+      "ending_marker": "cadence",
+      "start_ql": 21,
+      "end_ql": 27
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "ending_marker": "cadence",
+      "start_ql": 27,
+      "end_ql": 36
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "ending_marker": "cadence",
+      "start_ql": 36,
+      "end_ql": 48
+    }
+  ],
+  "lyrics": {
+    "verse_count": 5,
+    "verses": {
+      "1": {
+        "raw_text": "Take my life, and let it be consecrated, Lord, to Thee. Take my moments and my days; let them flow in ceaseless praise.",
+        "syllables": [
+          {
+            "text": "Take",
+            "note_offset_ql": 0.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 2.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "life,",
+            "note_offset_ql": 3.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 5.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "let",
+            "note_offset_ql": 6.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "it",
+            "note_offset_ql": 8.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "be",
+            "note_offset_ql": 9.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "con",
+            "note_offset_ql": 12.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "se",
+            "note_offset_ql": 14.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "cra",
+            "note_offset_ql": 15.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 16.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "ted,",
+            "note_offset_ql": 17.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Lord,",
+            "note_offset_ql": 18.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "to",
+            "note_offset_ql": 20.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 20.5,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "Thee.",
+            "note_offset_ql": 21.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Take",
+            "note_offset_ql": 24.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 26.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "mo",
+            "note_offset_ql": 27.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 28.5,
+            "note_pitch": "E4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "ments",
+            "note_offset_ql": 29.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 30.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 32.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "days;",
+            "note_offset_ql": 33.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "let",
+            "note_offset_ql": 36.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "them",
+            "note_offset_ql": 38.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "flow",
+            "note_offset_ql": 39.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 40.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "in",
+            "note_offset_ql": 41.0,
+            "note_pitch": "E5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "cease",
+            "note_offset_ql": 42.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "less",
+            "note_offset_ql": 44.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "praise.",
+            "note_offset_ql": 45.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          }
+        ]
+      },
+      "2": {
+        "raw_text": "Take my hands, and let them move at the impulse of Thy love. Take my feet, and let them be swift and beautiful for Thee.",
+        "syllables": [
+          {
+            "text": "Take",
+            "note_offset_ql": 0.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 2.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "hands,",
+            "note_offset_ql": 3.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 5.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "let",
+            "note_offset_ql": 6.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "them",
+            "note_offset_ql": 8.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "move",
+            "note_offset_ql": 9.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "at",
+            "note_offset_ql": 12.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "the",
+            "note_offset_ql": 14.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "im",
+            "note_offset_ql": 15.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 16.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "pulse",
+            "note_offset_ql": 17.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "of",
+            "note_offset_ql": 18.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Thy",
+            "note_offset_ql": 20.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 20.5,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "love.",
+            "note_offset_ql": 21.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Take",
+            "note_offset_ql": 24.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 26.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "feet,",
+            "note_offset_ql": 27.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 28.5,
+            "note_pitch": "E4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 29.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "let",
+            "note_offset_ql": 30.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "them",
+            "note_offset_ql": 32.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "be",
+            "note_offset_ql": 33.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "swift",
+            "note_offset_ql": 36.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 38.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "beau",
+            "note_offset_ql": 39.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 40.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "ti",
+            "note_offset_ql": 41.0,
+            "note_pitch": "E5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "ful",
+            "note_offset_ql": 42.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "for",
+            "note_offset_ql": 44.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Thee.",
+            "note_offset_ql": 45.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          }
+        ]
+      },
+      "3": {
+        "raw_text": "Take my voice, and let me sing always, only, for my King. Take my lips, and let them be filled with messa- ges from Thee.",
+        "syllables": [
+          {
+            "text": "Take",
+            "note_offset_ql": 0.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 2.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "voice,",
+            "note_offset_ql": 3.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 5.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "let",
+            "note_offset_ql": 6.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "me",
+            "note_offset_ql": 8.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "sing",
+            "note_offset_ql": 9.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "al",
+            "note_offset_ql": 12.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "ways,",
+            "note_offset_ql": 14.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "on",
+            "note_offset_ql": 15.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 16.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "ly,",
+            "note_offset_ql": 17.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "for",
+            "note_offset_ql": 18.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 20.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 20.5,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "King.",
+            "note_offset_ql": 21.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Take",
+            "note_offset_ql": 24.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 26.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "lips,",
+            "note_offset_ql": 27.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 28.5,
+            "note_pitch": "E4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 29.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "let",
+            "note_offset_ql": 30.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "them",
+            "note_offset_ql": 32.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "be",
+            "note_offset_ql": 33.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "filled",
+            "note_offset_ql": 36.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "with",
+            "note_offset_ql": 38.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "mess",
+            "note_offset_ql": 39.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 40.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "a",
+            "note_offset_ql": 41.0,
+            "note_pitch": "E5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "ges",
+            "note_offset_ql": 42.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "from",
+            "note_offset_ql": 44.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Thee.",
+            "note_offset_ql": 45.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          }
+        ]
+      },
+      "4": {
+        "raw_text": "Take my silver and my gold; not a mite would I withhold. Take my intellect, and use every pow'r as Thou shalt choose.",
+        "syllables": [
+          {
+            "text": "Take",
+            "note_offset_ql": 0.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 2.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "sil",
+            "note_offset_ql": 3.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "ver",
+            "note_offset_ql": 5.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 6.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 8.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "gold;",
+            "note_offset_ql": 9.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "not",
+            "note_offset_ql": 12.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "a",
+            "note_offset_ql": 14.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "mite",
+            "note_offset_ql": 15.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 16.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "would",
+            "note_offset_ql": 17.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "I",
+            "note_offset_ql": 18.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "with",
+            "note_offset_ql": 20.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 20.5,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "hold.",
+            "note_offset_ql": 21.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Take",
+            "note_offset_ql": 24.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 26.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "in",
+            "note_offset_ql": 27.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "",
+            "note_offset_ql": 28.5,
+            "note_pitch": "E4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "tell",
+            "note_offset_ql": 29.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "ect,",
+            "note_offset_ql": 30.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 32.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "use",
+            "note_offset_ql": 33.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "e",
+            "note_offset_ql": 36.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "very",
+            "note_offset_ql": 38.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "pow'r",
+            "note_offset_ql": 39.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 40.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "as",
+            "note_offset_ql": 41.0,
+            "note_pitch": "E5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Thou",
+            "note_offset_ql": 42.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "shalt",
+            "note_offset_ql": 44.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "choose.",
+            "note_offset_ql": 45.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          }
+        ]
+      },
+      "5": {
+        "raw_text": "Take my will, and make it Thine; it shall be no longer mine. Take my heart, it is Thine own; it shall be Thy royal throne.",
+        "syllables": [
+          {
+            "text": "Take",
+            "note_offset_ql": 0.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 2.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "will,",
+            "note_offset_ql": 3.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "and",
+            "note_offset_ql": 5.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "make",
+            "note_offset_ql": 6.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "it",
+            "note_offset_ql": 8.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Thine;",
+            "note_offset_ql": 9.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "it",
+            "note_offset_ql": 12.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "shall",
+            "note_offset_ql": 14.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "be",
+            "note_offset_ql": 15.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 16.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "no",
+            "note_offset_ql": 17.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "long",
+            "note_offset_ql": 18.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "er",
+            "note_offset_ql": 20.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 20.5,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "mine.",
+            "note_offset_ql": 21.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Take",
+            "note_offset_ql": 24.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "my",
+            "note_offset_ql": 26.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "heart,",
+            "note_offset_ql": 27.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 28.5,
+            "note_pitch": "E4",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "it",
+            "note_offset_ql": 29.0,
+            "note_pitch": "D4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "is",
+            "note_offset_ql": 30.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "Thine",
+            "note_offset_ql": 32.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "own;",
+            "note_offset_ql": 33.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "it",
+            "note_offset_ql": 36.0,
+            "note_pitch": "D5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "shall",
+            "note_offset_ql": 38.0,
+            "note_pitch": "B4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "be",
+            "note_offset_ql": 39.0,
+            "note_pitch": "A4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "",
+            "note_offset_ql": 40.0,
+            "note_pitch": "C5",
+            "is_melisma_start": false,
+            "continues_previous": true,
+            "joins_next": false
+          },
+          {
+            "text": "Thy",
+            "note_offset_ql": 41.0,
+            "note_pitch": "E5",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "ro",
+            "note_offset_ql": 42.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": true
+          },
+          {
+            "text": "yal",
+            "note_offset_ql": 44.0,
+            "note_pitch": "F#4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          },
+          {
+            "text": "throne.",
+            "note_offset_ql": 45.0,
+            "note_pitch": "G4",
+            "is_melisma_start": false,
+            "continues_previous": false,
+            "joins_next": false
+          }
+        ]
+      }
+    }
+  },
+  "harmony": {
+    "roman_numerals_per_bar": [
+      {
+        "bar": 1,
+        "rn": "I",
+        "duration_beats": 3
+      },
+      {
+        "bar": 2,
+        "rn": "V",
+        "duration_beats": 3
+      },
+      {
+        "bar": 3,
+        "rn": "V7",
+        "duration_beats": 3
+      },
+      {
+        "bar": 4,
+        "rn": "I",
+        "duration_beats": 3
+      },
+      {
+        "bar": 5,
+        "rn": "I6",
+        "duration_beats": 3
+      },
+      {
+        "bar": 6,
+        "rn": "ii",
+        "duration_beats": 3
+      },
+      {
+        "bar": 7,
+        "rn": "I",
+        "duration_beats": 3
+      },
+      {
+        "bar": 8,
+        "rn": "V",
+        "duration_beats": 3
+      },
+      {
+        "bar": 9,
+        "rn": "I",
+        "duration_beats": 3
+      },
+      {
+        "bar": 10,
+        "rn": "viio6",
+        "duration_beats": 3
+      },
+      {
+        "bar": 11,
+        "rn": "V7",
+        "duration_beats": 3
+      },
+      {
+        "bar": 12,
+        "rn": "I",
+        "duration_beats": 6
+      },
+      {
+        "bar": 14,
+        "rn": "ii",
+        "duration_beats": 3
+      },
+      {
+        "bar": 15,
+        "rn": "I64",
+        "duration_beats": 3
+      },
+      {
+        "bar": 16,
+        "rn": "I",
+        "duration_beats": 3
+      }
+    ],
+    "harp_chord_assignments": [
+      {
+        "bar": 1,
+        "rn": "I",
+        "melody": "G4",
+        "contour": "descending",
+        "lh_roman": "I",
+        "lh_figure": "5332",
+        "rh_roman": "V6",
+        "rh_figure": "F33",
+        "mood": "Lofting",
+        "source": "jazz_progressions",
+        "method": "4ths-CCW",
+        "harmonic_substitution": null,
+        "requested_rn": "I",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "533",
+            "rh_roman": "V",
+            "rh_figure": "F33",
+            "mood": "Lofting",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 2,
+        "rn": "V",
+        "melody": "F#4",
+        "contour": "ascending",
+        "lh_roman": "V",
+        "lh_figure": "533",
+        "rh_roman": "iii",
+        "rh_figure": "A33",
+        "mood": "Bouncy",
+        "source": "stacked_chords",
+        "method": "stacked",
+        "harmonic_substitution": null,
+        "requested_rn": "V",
+        "alternates": [
+          {
+            "lh_roman": "V",
+            "lh_figure": "533",
+            "rh_roman": "Vs4",
+            "rh_figure": "C42",
+            "mood": "Urgent",
+            "source": "stacked_chords"
+          },
+          {
+            "lh_roman": "V",
+            "lh_figure": "533",
+            "rh_roman": "vi",
+            "rh_figure": "D33",
+            "mood": "Velvety",
+            "source": "stacked_chords"
+          }
+        ]
+      },
+      {
+        "bar": 3,
+        "rn": "V7",
+        "melody": "C5",
+        "contour": "descending",
+        "lh_roman": "I",
+        "lh_figure": "5332",
+        "rh_roman": "V6",
+        "rh_figure": "F33",
+        "mood": "Resolving",
+        "source": "jazz_progressions",
+        "method": "4ths-CW",
+        "harmonic_substitution": null,
+        "requested_rn": "V7",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "533",
+            "rh_roman": "V",
+            "rh_figure": "F33",
+            "mood": "Resolving",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 4,
+        "rn": "I",
+        "melody": "B4",
+        "contour": "ascending",
+        "lh_roman": "I",
+        "lh_figure": "133",
+        "rh_roman": "vi",
+        "rh_figure": "633",
+        "mood": "Pastoral",
+        "source": "stacked_chords",
+        "method": "stacked",
+        "harmonic_substitution": null,
+        "requested_rn": "I",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "133",
+            "rh_roman": "ii7",
+            "rh_figure": "9333",
+            "mood": "Ethereal",
+            "source": "stacked_chords"
+          },
+          {
+            "lh_roman": "I",
+            "lh_figure": "133",
+            "rh_roman": "I\u0394",
+            "rh_figure": "8333",
+            "mood": "Radiant",
+            "source": "stacked_chords"
+          }
+        ]
+      },
+      {
+        "bar": 5,
+        "rn": "I6",
+        "melody": "D5",
+        "contour": "ascending",
+        "lh_roman": "ii7",
+        "lh_figure": "133",
+        "rh_roman": "I",
+        "rh_figure": "9333",
+        "mood": "Cloudy",
+        "source": "jazz_progressions",
+        "method": "2nds-CW",
+        "harmonic_substitution": null,
+        "requested_rn": "I6",
+        "alternates": [
+          {
+            "lh_roman": "ii",
+            "lh_figure": "133",
+            "rh_roman": "I",
+            "rh_figure": "933",
+            "mood": "Cloudy",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 6,
+        "rn": "ii",
+        "melody": "D5",
+        "contour": "descending",
+        "lh_roman": "ii7",
+        "lh_figure": "133",
+        "rh_roman": "I",
+        "rh_figure": "9333",
+        "mood": "Grounding",
+        "source": "jazz_progressions",
+        "method": "2nds-CCW",
+        "harmonic_substitution": null,
+        "requested_rn": "ii",
+        "alternates": [
+          {
+            "lh_roman": "ii",
+            "lh_figure": "133",
+            "rh_roman": "I",
+            "rh_figure": "933",
+            "mood": "Grounding",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 7,
+        "rn": "I",
+        "melody": "G4",
+        "contour": "ascending",
+        "lh_roman": "I",
+        "lh_figure": "5332",
+        "rh_roman": "V6",
+        "rh_figure": "F33",
+        "mood": "Lofting",
+        "source": "jazz_progressions",
+        "method": "4ths-CCW",
+        "harmonic_substitution": null,
+        "requested_rn": "I",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "533",
+            "rh_roman": "V",
+            "rh_figure": "F33",
+            "mood": "Lofting",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 8,
+        "rn": "V",
+        "melody": "A4",
+        "contour": "descending",
+        "lh_roman": "I",
+        "lh_figure": "5332",
+        "rh_roman": "V6",
+        "rh_figure": "F33",
+        "mood": "Resolving",
+        "source": "jazz_progressions",
+        "method": "4ths-CW",
+        "harmonic_substitution": null,
+        "requested_rn": "V",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "533",
+            "rh_roman": "V",
+            "rh_figure": "F33",
+            "mood": "Resolving",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 9,
+        "rn": "I",
+        "melody": "G4",
+        "contour": "descending",
+        "lh_roman": "I+8",
+        "lh_figure": "733",
+        "rh_roman": "vii\u00b0",
+        "rh_figure": "F334",
+        "mood": "Fracturing",
+        "source": "jazz_progressions",
+        "method": "2nds-CCW",
+        "harmonic_substitution": null,
+        "requested_rn": "I",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "733",
+            "rh_roman": "vii\u00b0",
+            "rh_figure": "F33",
+            "mood": "Fracturing",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 10,
+        "rn": "viio6",
+        "melody": "F#4",
+        "contour": "ascending",
+        "lh_roman": "vii\u00b0",
+        "lh_figure": "544",
+        "rh_roman": "Vq",
+        "rh_figure": "E33",
+        "mood": "Steadying",
+        "source": "jazz_progressions",
+        "method": "3rds-CCW",
+        "harmonic_substitution": null,
+        "requested_rn": "viio6",
+        "alternates": [
+          {
+            "lh_roman": "vii\u00b0",
+            "lh_figure": "533",
+            "rh_roman": "V",
+            "rh_figure": "E33",
+            "mood": "Steadying",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 11,
+        "rn": "V7",
+        "melody": "C5",
+        "contour": "descending",
+        "lh_roman": "I",
+        "lh_figure": "5332",
+        "rh_roman": "V6",
+        "rh_figure": "F33",
+        "mood": "Resolving",
+        "source": "jazz_progressions",
+        "method": "4ths-CW",
+        "harmonic_substitution": null,
+        "requested_rn": "V7",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "533",
+            "rh_roman": "V",
+            "rh_figure": "F33",
+            "mood": "Resolving",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 12,
+        "rn": "I",
+        "melody": "B4",
+        "contour": "descending",
+        "lh_roman": "ii7",
+        "lh_figure": "133",
+        "rh_roman": "I",
+        "rh_figure": "9333",
+        "mood": "Cloudy",
+        "source": "jazz_progressions",
+        "method": "2nds-CW",
+        "harmonic_substitution": null,
+        "requested_rn": "I",
+        "alternates": [
+          {
+            "lh_roman": "ii",
+            "lh_figure": "133",
+            "rh_roman": "I",
+            "rh_figure": "933",
+            "mood": "Cloudy",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 14,
+        "rn": "ii",
+        "melody": "A4",
+        "contour": "descending",
+        "lh_roman": "ii7",
+        "lh_figure": "133",
+        "rh_roman": "I",
+        "rh_figure": "9333",
+        "mood": "Grounding",
+        "source": "jazz_progressions",
+        "method": "2nds-CCW",
+        "harmonic_substitution": null,
+        "requested_rn": "ii",
+        "alternates": [
+          {
+            "lh_roman": "ii",
+            "lh_figure": "133",
+            "rh_roman": "I",
+            "rh_figure": "933",
+            "mood": "Grounding",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 15,
+        "rn": "I64",
+        "melody": "G4",
+        "contour": "descending",
+        "lh_roman": "I",
+        "lh_figure": "133",
+        "rh_roman": "ii7",
+        "rh_figure": "9333",
+        "mood": "Ethereal",
+        "source": "stacked_chords",
+        "method": "stacked",
+        "harmonic_substitution": null,
+        "requested_rn": "I64",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "133",
+            "rh_roman": "I+8",
+            "rh_figure": "8334",
+            "mood": "Chiming",
+            "source": "stacked_chords"
+          },
+          {
+            "lh_roman": "I+8",
+            "lh_figure": "733",
+            "rh_roman": "vii\u00b0",
+            "rh_figure": "F334",
+            "mood": "Releasing",
+            "source": "jazz_progressions"
+          }
+        ]
+      },
+      {
+        "bar": 16,
+        "rn": "I",
+        "melody": "G4",
+        "contour": "static",
+        "lh_roman": "I",
+        "lh_figure": "133",
+        "rh_roman": "ii7",
+        "rh_figure": "9333",
+        "mood": "Ethereal",
+        "source": "stacked_chords",
+        "method": "stacked",
+        "harmonic_substitution": null,
+        "requested_rn": "I",
+        "alternates": [
+          {
+            "lh_roman": "I",
+            "lh_figure": "133",
+            "rh_roman": "I+8",
+            "rh_figure": "8334",
+            "mood": "Chiming",
+            "source": "stacked_chords"
+          },
+          {
+            "lh_roman": "I+8",
+            "lh_figure": "733",
+            "rh_roman": "vii\u00b0",
+            "rh_figure": "F334",
+            "mood": "Releasing",
+            "source": "jazz_progressions"
+          }
+        ]
+      }
+    ]
+  }
+}

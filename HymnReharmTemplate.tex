@@ -1,0 +1,294 @@
+% ═══════════════════════════════════════════════════════════════════════════════
+%  HYMN REHARM TEMPLATE — Harp Chord System jazz lead sheet
+%  ───────────────────────────────────────────────────────────────────────────
+%  How to use:
+%    1. Copy this file, rename to <HymnName>_JazzLeadSheet.tex.
+%    2. Fill in every «PLACEHOLDER» (they are wrapped in guillemets — search
+%       for « to find them). Header fields, phrase banners, bar cells, lyrics.
+%    3. For each beat, assemble the fraction with:
+%         \fracA{LH-rom}{LH-qual}{LH-fig}{RH-rom}{RH-qual}{RH-fig}
+%       every tuple MUST be one of the 118 entries (42 jazz_progressions
+%       + 76 stacked_chords) in HarpChordSystem.json. Validate by code
+%       before typesetting.
+%    4. Choose edge-label color by source:
+%         \edgeY = 4ths cycle (yellow)    \edgeR = 3rds (red)
+%         \edgeC = 2nds (cyan)            \edgeS = stacked-chord mood (accent)
+%    5. Phrase banner color = cycle color: leafyellow / leafred / leafcyan.
+%       Use \edgeS only on stacked entries; never on cycle edges.
+%    6. Compile:    pdflatex -interaction=nonstopmode <file>.tex
+%       Verify:     pdftoppm -r 110 -f 1 -l 1 <file>.pdf page1 -png && view
+%       Deliver:    copy to /mnt/user-data/outputs/ and present_files.
+%
+%  Hard rules:
+%    • Strictly diatonic to the hymn’s key — no tritone subs, no ♭II7,
+%      no modal interchange, no altered dominants with real ♭9 pitches.
+%    • Jazz color comes from UNEXPECTED legal voicings: quartal (Vq),
+%      sus (Vs4, Is2), +8 octave doublings, 7th-chord inversions,
+%      stacked moods (Pealing, Sultry, Urgent, Radiant, Commanding).
+%    • Contour drives direction: melody ascending → CW edges;
+%      descending → CCW edges. Oscillating → either, match by feel.
+% ═══════════════════════════════════════════════════════════════════════════════
+
+\documentclass[letterpaper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[letterpaper, margin=0.35in]{geometry}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{microtype}
+\usepackage{amssymb}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mathptmx}
+\renewcommand{\familydefault}{\sfdefault}
+
+% ───── colors (verbatim from HarpChordSystem.tex) ─────
+\definecolor{rhcol}{HTML}{1F4E79}
+\definecolor{lhcol}{HTML}{7B2B2B}
+\definecolor{desccol}{HTML}{2A3342}
+\definecolor{flavcol}{HTML}{6B7A8F}
+\definecolor{bandcol}{HTML}{F0F4F8}
+\definecolor{leafred}{RGB}{220,75,75}
+\definecolor{leafyellow}{RGB}{190,155,30}
+\definecolor{leafcyan}{RGB}{40,180,190}
+\definecolor{paper}{HTML}{F4ECD8}
+\definecolor{ink}{HTML}{1A1612}
+\definecolor{accent}{HTML}{8B6F47}
+
+% ───── chord macros — verbatim from HarpChordSystem.tex ─────
+\newcommand{\osf}[1]{{\fontfamily{pplj}\selectfont #1}}
+\newcommand{\Ro}[1]{{\fontfamily{ppl}\fontseries{b}\selectfont #1}}
+\newcommand{\rp}{{\raisebox{0.55ex}{\footnotesize$+$}}}
+\newcommand{\halfdim}{$^{\scriptstyle\varnothing}$}
+\newcommand{\inv}[1]{$^{\osf{#1}}$}
+\newcommand{\nd}{\rule[0.42ex]{4.5mm}{0.55pt}}
+
+\newcommand{\rn}[2]{\Ro{#1}\rndq{#2}}
+\newcommand{\rndq}[1]{\rndqparse{#1}}
+\newcommand{\rndqparse}[1]{%
+\def\tmp{#1}%
+\def\tmpA{m7}\def\tmpB{m6}\def\tmpC{m}%
+\def\tmpD{q7}\def\tmpE{q}%
+\def\tmpF{s4+8}\def\tmpG{s4}\def\tmpH{s2}%
+\def\tmpI{+8}%
+\def\tmpJ{D}\def\tmpK{o7}\def\tmpL{o}%
+\def\tmpM{7}\def\tmpN{6}%
+\def\tmpO{m7i}\def\tmpP{m7ii}\def\tmpQ{m7iii}%
+\def\tmpR{o7i}\def\tmpS{o7ii}%
+\def\tmpT{7i}\def\tmpU{7ii}\def\tmpV{7iii}%
+\def\tmpW{oi}\def\tmpX{oii}%
+\ifx\tmp\tmpA $m$\osf{7}\else
+\ifx\tmp\tmpB $m$\osf{6}\else
+\ifx\tmp\tmpC $m$\else
+\ifx\tmp\tmpD $q$\osf{7}\else
+\ifx\tmp\tmpE $q$\else
+\ifx\tmp\tmpF $s$\osf{4}\rp\osf{8}\else
+\ifx\tmp\tmpG $s$\osf{4}\else
+\ifx\tmp\tmpH $s$\osf{2}\else
+\ifx\tmp\tmpI \rp\osf{8}\else
+\ifx\tmp\tmpJ $\Delta$\else
+\ifx\tmp\tmpK \halfdim\osf{7}\else
+\ifx\tmp\tmpL $^\circ$\else
+\ifx\tmp\tmpM \osf{7}\else
+\ifx\tmp\tmpN \osf{6}\else
+\ifx\tmp\tmpO $m$\osf{7}\inv{1}\else
+\ifx\tmp\tmpP $m$\osf{7}\inv{2}\else
+\ifx\tmp\tmpQ $m$\osf{7}\inv{3}\else
+\ifx\tmp\tmpR \halfdim\osf{7}\inv{1}\else
+\ifx\tmp\tmpS \halfdim\osf{7}\inv{2}\else
+\ifx\tmp\tmpT \osf{7}\inv{1}\else
+\ifx\tmp\tmpU \osf{7}\inv{2}\else
+\ifx\tmp\tmpV \osf{7}\inv{3}\else
+\ifx\tmp\tmpW $^\circ$\inv{1}\else
+\ifx\tmp\tmpX $^\circ$\inv{2}\else
+#1%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+}
+
+% ───── stacked LH/RH fraction (tight) ─────
+% \fracA{LH-rom}{LH-qual}{LH-fig}{RH-rom}{RH-qual}{RH-fig}
+\newcommand{\fracA}[6]{%
+\renewcommand{\arraystretch}{0.7}%
+\begin{tabular}{@{}c@{}}
+{\color{rhcol}\fontsize{9.5}{10}\selectfont\rn{#4}{#5}}\[-0.5ex]
+{\color{ink}\rule{9mm}{0.4pt}}\[-0.5ex]
+{\color{lhcol}\fontsize{9.5}{10}\selectfont\rn{#1}{#2}}\[-0.2ex]
+{\color{flavcol}\fontsize{5.5}{6.5}\selectfont\ttfamily #3,/,#6}
+\end{tabular}%
+}
+
+% ───── edge / mood labels (tight) ─────
+\newcommand{\edgeY}[1]{{\color{leafyellow!70!black}\fontsize{6}{7}\selectfont\itshape #1}}
+\newcommand{\edgeR}[1]{{\color{leafred}\fontsize{6}{7}\selectfont\itshape #1}}
+\newcommand{\edgeC}[1]{{\color{leafcyan!70!black}\fontsize{6}{7}\selectfont\itshape #1}}
+\newcommand{\edgeS}[1]{{\color{accent}\fontsize{6}{7}\selectfont\itshape #1}}
+
+\newcommand{\mel}[1]{{\color{ink}\fontsize{7.5}{8.5}\selectfont\ttfamily\bfseries #1}}
+\newcommand{\barn}[1]{{\color{accent}\fontsize{6}{7}\selectfont\bfseries #1}}
+
+% ───── phrase banner (tight) ─────
+\newcommand{\phrasebanner}[4]{%
+\par\vspace{0.8mm}%
+\noindent\colorbox{#1!18}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\hspace{1mm}{\color{#1!60!black}\fontsize{8.5}{10}\selectfont\bfseries\scshape #2}%
+\hspace{2.5mm}{\color{desccol}\fontsize{8.5}{10}\selectfont\itshape #3}%
+\hfill%
+\colorbox{#1!80!black}{\color{white}\hspace{1mm}\fontsize{6.5}{8}\selectfont\bfseries #4\hspace{1mm}}%
+\hspace{1mm}%
+}}%
+\par\vspace{0.3mm}%
+}
+
+% ───── lyrics row (tight) ─────
+% \lyricsrow{v1 text}{v2 text}
+\newcommand{\lyricsrow}[2]{%
+\vspace{-0.3mm}%
+\noindent\colorbox{white!60!paper}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+\fontsize{9}{10.5}\selectfont\itshape\color{ink}%
+\hspace{2mm}\makebox[7mm][l]{\color{accent}\ttfamily\upshape\bfseries v.1}%
+#1\hfill%
+\makebox[7mm][r]{\color{accent}\ttfamily\upshape\bfseries v.2}%
+#2\hspace{2mm}%
+}}%
+}
+
+\pagestyle{empty}
+\pagecolor{paper}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ─── HEADER ────────────────────────────────────────────────────────────────
+\noindent
+\begin{minipage}[b]{0.28\linewidth}
+\fontsize{7}{9}\selectfont\ttfamily\color{desccol}
+\textbf{Words:} «LYRICIST, YEAR»\
+\textbf{Music:} «COMPOSER / ARRANGER, YEAR»\
+\textbf{Tune:} «TUNE NAME» — Key of «KEY»\
+\textbf{Meter:} «METER» \quad \raisebox{0.2ex}{$\bullet$} \quad $q$=«BPM»
+\end{minipage}\hfill
+\begin{minipage}[b]{0.44\linewidth}
+\centering
+{\color{accent}\fontsize{7}{8.5}\selectfont\ttfamily HARP CHORD SYSTEM $\cdot$ JAZZ REHARM}\[0.2mm]
+{\fontsize{22}{24}\selectfont\itshape\rmfamily\bfseries «HYMN TITLE»}\[0mm]
+{\color{desccol}\fontsize{8.5}{10}\selectfont\itshape stacked LH/RH fractions along cycle edges}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.26\linewidth}
+\raggedleft
+\fontsize{7}{9}\selectfont\ttfamily\color{desccol}
+\textbf{Lead Sheet No.\ «N»}\
+«TOTAL BARS» bars \raisebox{0.2ex}{$\bullet$} «NUM PHRASES» phrases\
+CW ascents, CCW descents\
+Strictly within the 118-chord vocabulary
+\end{minipage}
+
+\vspace{0.3mm}
+\noindent{\color{ink}\rule{\linewidth}{0.8pt}}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% PHRASE TEMPLATES
+% ───────────────────────────────────────────────────────────────────────────
+% Duplicate and edit one of the four templates below for each phrase in the
+% hymn. Pick the template whose number-of-bars matches the phrase. Adjust
+% the phrase banner color to match the cycle (leafyellow / leafred / leafcyan).
+% For N bars, each column is (1/N)\linewidth minus a hair for table rules.
+% ═══════════════════════════════════════════════════════════════════════════════
+
+% ─── PHRASE EXAMPLE: 4 bars, 4ths CCW ──────────────────────────────────────
+\phrasebanner{leafyellow}{Phrase «A» $\cdot$ bars «1–4»}{«strategy description, e.g. melody plunges an octave — harmony drifts away from home»}{«4ths CCW»}
+
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{0.95}
+\noindent\begin{tabular}{@{}|>{\centering\arraybackslash}p{0.2425\linewidth}|>{\centering\arraybackslash}p{0.2425\linewidth}|>{\centering\arraybackslash}p{0.2425\linewidth}|>{\centering\arraybackslash}p{0.2425\linewidth}|@{}}
+\hline
+\barn{bar «1»} & \barn{bar «2»} & \barn{bar «3»} & \barn{bar «4»} \
+\edgeS{«label»}\hspace{3mm}\edgeY{«label»} &
+\edgeY{«label»}\hspace{3mm}\edgeY{«label»} &
+\edgeY{«label»}\hspace{3mm}\edgeY{«label»} &
+\edgeY{«label»}\hspace{3mm}\edgeY{«label»} \
+\fracA{«LHrom»}{«Lq»}{«Lfig»}{«RHrom»}{«Rq»}{«Rfig»}\hspace{2mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+\fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{2mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+\fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{2mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+\fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{2mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} \
+\mel{«notes»} & \mel{«notes»} & \mel{«notes»} & \mel{«notes»} \
+\hline
+\end{tabular}
+
+\lyricsrow{«verse 1 text for this phrase»}{«verse 2 text for this phrase»}
+
+% ─── PHRASE EXAMPLE: 3 bars, 4ths CW ───────────────────────────────────────
+% \phrasebanner{leafyellow}{Phrase «B» $\cdot$ bars «5–7»}{«strategy»}{«4ths CW»}
+% \noindent\begin{tabular}{@{}|>{\centering\arraybackslash}p{0.3233\linewidth}|>{\centering\arraybackslash}p{0.3233\linewidth}|>{\centering\arraybackslash}p{0.3233\linewidth}|@{}}
+% \hline
+% \barn{bar «5»} & \barn{bar «6»} & \barn{bar «7»} \
+% \edgeS{«»}\hspace{5mm}\edgeS{«»} & \edgeS{«»}\hspace{5mm}\edgeS{«»} & \edgeY{«»}\hspace{5mm}\edgeS{«»} \
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{3mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{3mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{3mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} \
+% \mel{«»} & \mel{«»} & \mel{«»} \
+% \hline
+% \end{tabular}
+% \lyricsrow{«»}{«»}
+
+% ─── PHRASE EXAMPLE: 5 bars, 3rds CCW ──────────────────────────────────────
+% \phrasebanner{leafred}{Phrase «C» $\cdot$ bars «8–12»}{«strategy»}{«3rds CCW»}
+% \noindent\begin{tabular}{@{}|>{\centering\arraybackslash}p{0.194\linewidth}|>{\centering\arraybackslash}p{0.194\linewidth}|>{\centering\arraybackslash}p{0.194\linewidth}|>{\centering\arraybackslash}p{0.194\linewidth}|>{\centering\arraybackslash}p{0.194\linewidth}|@{}}
+% \hline
+% \barn{«8»} & \barn{«9»} & \barn{«10»} & \barn{«11»} & \barn{«12»} \
+% \edgeS{«»},\edgeR{«»} & \edgeR{«»},\edgeS{«»} & \edgeS{«»},\edgeR{«»} & \edgeS{«»},\edgeR{«»} & \edgeS{«»},\edgeS{«»} \
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{0.5mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{0.5mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{0.5mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{0.5mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»}\hspace{0.5mm}\fracA{«»}{«»}{«»}{«»}{«»}{«»} \
+% \mel{«»} & \mel{«»} & \mel{«»} & \mel{«»} & \mel{«»} \
+% \hline
+% \end{tabular}
+% \lyricsrow{«»}{«»}
+
+% ─── PHRASE EXAMPLE: 8 bars, 4ths CW (cadence) ─────────────────────────────
+% For dense cadence phrases, use narrower columns. 8 bars: 0.121\linewidth each.
+% \phrasebanner{leafyellow}{Phrase «D» $\cdot$ bars «13–20»}{«final cadence strategy»}{«4ths CW»}
+% \noindent\begin{tabular}{@{}|>{\centering\arraybackslash}p{0.121\linewidth}|>{\centering\arraybackslash}p{0.121\linewidth}|>{\centering\arraybackslash}p{0.121\linewidth}|>{\centering\arraybackslash}p{0.121\linewidth}|>{\centering\arraybackslash}p{0.121\linewidth}|>{\centering\arraybackslash}p{0.121\linewidth}|>{\centering\arraybackslash}p{0.121\linewidth}|>{\centering\arraybackslash}p{0.121\linewidth}|@{}}
+% \hline
+% \barn{«13»} & \barn{«14»} & \barn{«15»} & \barn{«16»} & \barn{«17»} & \barn{«18»} & \barn{«19»} & \barn{«20»} \
+% \edgeS{«»},\edgeS{«»} & \edgeS{«»},\edgeY{«»} & \edgeS{«»},\edgeS{«»} & \edgeY{«»},\edgeY{«»} & \edgeS{«»},\edgeS{«»} & \edgeS{«»},\edgeS{«»} & \edgeS{«»},\edgeS{«»} & \edgeS{«»} \
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»},\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»},\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»},\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»},\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»},\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»},\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»},\fracA{«»}{«»}{«»}{«»}{«»}{«»} &
+% \fracA{«»}{«»}{«»}{«»}{«»}{«»} \
+% \mel{«»} & \mel{«»} & \mel{«»} & \mel{«»} & \mel{«»} & \mel{«»} & \mel{«»} & \mel{«»} \
+% \hline
+% \end{tabular}
+% \lyricsrow{«»}{«»}
+
+% ═══════════════════════════════════════════════════════════════════════════════
+% LEGEND (keep verbatim; only the beat-count number in the final line changes)
+% ═══════════════════════════════════════════════════════════════════════════════
+\vspace{1mm}
+\noindent{\color{ink}\rule{\linewidth}{0.6pt}}\[0.3mm]
+\noindent\begin{minipage}[t]{0.32\linewidth}
+{\fontsize{6.5}{8}\selectfont\ttfamily\color{accent}\bfseries READING THE FRACTIONS}\[-0.3mm]
+{\fontsize{7.5}{9}\selectfont
+Each beat shows {\color{rhcol}\textbf{\textit{RH}}} over {\color{lhcol}\textbf{\textit{LH}}} — one stacked sonority. Figure pair below (e.g.\ \texttt{133,/,8333}) is {\color{lhcol}LH string+intervals} over {\color{rhcol}RH string+intervals}. LH plays bottom stack, RH top.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+{\fontsize{6.5}{8}\selectfont\ttfamily\color{accent}\bfseries CYCLES & DIRECTION}\[-0.3mm]
+{\fontsize{7.5}{9}\selectfont
+\textcolor{leafyellow!80!black}{\textbf{4ths}} = strong resolutions (\textit{Resolving, Lifting}). \textcolor{leafred}{\textbf{3rds}} = mediant drift (\textit{Drifting, Brooding}). \textcolor{leafcyan!80!black}{\textbf{2nds}} = stepwise moods (\textit{Cloudy, Warming}). CW fwd, CCW reverse — same edges, opposite mood.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+{\fontsize{6.5}{8}\selectfont\ttfamily\color{accent}\bfseries REHARM STRATEGY}\[-0.3mm]
+{\fontsize{7.5}{9}\selectfont
+Contour drives direction: melody falling $\to$ CCW (leaving home); rising $\to$ CW (homeward). Unexpected voicings (\textit{Urgent, Sultry, Pealing}, \textbf{I}$\Delta$ over plain \textbf{I}) supply jazz color inside the 118.}
+\end{minipage}
+
+\vspace{0.8mm}
+\noindent{\color{accent}\fontsize{6.5}{8}\selectfont\ttfamily
+«N» beats $\cdot$ every fraction validated against the 118 $\cdot$ {\color{rhcol}RH blue}, {\color{lhcol}LH red}, {\color{leafyellow!80!black}4ths yellow}, {\color{leafred}3rds red}, {\color{leafcyan!80!black}2nds cyan}}
+
+\end{document}
