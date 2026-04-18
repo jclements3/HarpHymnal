@@ -1,0 +1,213 @@
+{
+  "title": "Look Down, O Lord, From Heaven Behold",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1524",
+  "music": "from Erfurt Enchiridion, 1524 Karl August Haupt, 1869",
+  "tune": "Ach Gott vom Himmel",
+  "lyrics": {
+    "v1": "Look down, O Lord, from heav&#39;n behold, And let thy pity waken! How few the flock within thy fold, Neglected and forsaken! Almost thou&#39;lt seek for faith in vain, And those who should thy truth maintain Thy Word from us have taken.",
+    "v2": "With frauds which they themselves invent Thy truth they have confounded; Their hearts are not with one consent On thy pure doctrine grounded; And, whilst they gleam with outward show, They lead thy people to and fro, In error&#39;s maze astounded.",
+    "v3": "God surely will uproot all those With vain deceits who store us, With haughty tongue who God oppose, And say, &quot;Who&#39;ll stand before us? By right or might we will prevail; What we determine cannot fail, For who can lord it o&#39;er us?&quot;",
+    "v4": "For this, saith God, I will arise, These wolves my flock are rending; I&#39;ve heard my people&#39;s bitter sighs To heav&#39;n my throne ascending: Now will I up, and set at rest Each weary soul by fraud opprest, The poor with might defending.",
+    "v5": "The silver sev&#39;n times tried is pure From all adultera- tion; So, through God&#39;s word, shall men endure Each trial and temptation: Its worth gleams brighter through the cross, And, puri- fied from human dross, It shines through every nation."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Look down, O Lord, from heav&#39;n behold, And let thy pit",
+        "v2": "With frauds which they themselves invent Thy truth they have"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "y waken! How few the flock",
+        "v2": "confounded; Their hearts are not"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "within thy fold, Neglected and",
+        "v2": "with one consent On thy pure doc"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "forsaken! Almost thou&#39;lt seek",
+        "v2": "trine grounded; And, whilst they gleam"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody rises — rests on a fermata",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "for faith in vain, And those who should",
+        "v2": "with outward show, They lead thy peo"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "thy truth maintain Thy Word from us have taken.",
+        "v2": "ple to and fro, In error&#39;s maze astounded."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iv4",
+      "mel": "C5",
+      "lh_rom": "ii7ii",
+      "lh_qual": "",
+      "lh_fig": "6323",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "i",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "iv4",
+      "mel": "C5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "iv",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "III",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 14
+}

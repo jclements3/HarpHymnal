@@ -1,0 +1,491 @@
+{
+  "title": "See, The Lord Ascends In Triumph",
+  "key": "A major",
+  "key_root": "A",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Christopher Wordsworth, 1862",
+  "music": "Henry Thomas Smart, 1868",
+  "tune": "Rex Gloriae",
+  "lyrics": {
+    "v1": "See, the Lord ascends in triumph; see the King in royal state, Riding on the clouds, His chariot, To His heav&#39;nly palace gate. Hark! the choirs of angel voices Joyful alleluias sing, And the portals high are lifted To receive their heav&#39;nly King. Holy Ghost, Illumina- tor, shed Thy beams upon our eyes, Help us to look up with Stephen, and to see beyond the skies, Where the Son of Man in glory Standing is at God&#39;s right hand, Beck&#39;ning on His martyr army, succoring His faithful band.",
+    "v2": "Who is this that comes in glory, with the trump of jubilee? Lord of battles, God of armies, He has gained the victory. He Who on the cross did suffer, He who from the grave arose, He has vanquished sin and Satan, He by death has spoiled His foes. See Him, Who is gone before us, Heav&#39;nly mansions to prepare, See Him, who is ever pleading For us with prevailing prayer, See Him, who with sound of trumpet, and with His angelic train, Summoning the world to judgment, on the clouds will come again.",
+    "v3": "While He lifts His hands in blessing, He is parted from His friends While their eager eyes behold Him, He upon the cloud ascends; He Who walked with God and pleased Him, preaching truth and doom to come, He, our Enoch, is translated to His everlasting home. Raise us up from earth to Heaven, give us wings of faith and love, Gales of holy aspira- tions wafting us to realms above; That, with hearts and minds uplifted, we with Christ our Lord may dwell, Where He sits enthroned in glory in His heav&#39;nly Cita- del.",
+    "v4": "Now our heav&#39;nly Aaron enters, with His blood, within the veil; Joshua now is come to Canaan, and the kings before Him quail; Now He plants the tribes of Israel in their promised resting place; Now our great Eli- jah offers double portion of His grace. So at last, when He appeareth, we from out our graves may spring, With our youth renewed like eagles, flocking round our Heav&#39;nly King. Caught up on the clouds of Heaven, and may meet Him in the air, Rise to realms where He is reigning, and may reign for ever there.",
+    "v5": "He has raised our human nature in the clouds to God&#39;s right hand; There we sit in heav&#39;nly places, there with Him in glory stand: Jesus reigns, adored by angels; man with God is on the throne; Mighty Lord, in Thine ascension we by faith behold our own. Glory be to God the Father, Glory be to God the Son, Dying, ris&#39;n, ascending for us, who the heav&#39;nly realm has won; Glory to the Holy Spirit, To One God in Persons Three; Glory both in earth and Heaven, glory, endless glory, be."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "See, the Lord ascends in triumph; see the King in royal state,",
+        "v2": "Who is this that comes in glory, with the trump of jubilee?"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Riding on the clouds, His chariot, To His heav&#39;nly palace gate. Hark! the choirs of angel voices Joyful alleluias sing, And the portals",
+        "v2": "Lord of battles, God of armies, He has gained the victory. He Who on the cross did suffer, He who from the grave arose, He has vanquished"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "high are lifted To receive their heav&#39;nly King.",
+        "v2": "sin and Satan, He by death has spoiled His foes."
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Holy Ghost, Illuminator, shed Thy beams upon our eyes, Help us to look",
+        "v2": "See Him, Who is gone before us, Heav&#39;nly mansions to prepare, See Him, who is"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "up with Stephen, and to see beyond the skies, Where the Son of Man in glory",
+        "v2": "ever pleading For us with prevailing prayer, See Him, who with sound of trumpet,"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Standing is at God&#39;s right hand, Beck&#39;ning on His martyr army, succoring His faithful band.",
+        "v2": "and with His angelic train, Summoning the world to judgment, on the clouds will come again."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "I6",
+      "mel": "C#5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I64",
+      "mel": "C#5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "C#5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vii°6",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Steadying",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "F#4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "iii",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V64",
+      "mel": "D5",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I6",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I",
+      "mel": "C#5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 15,
+      "rn": "I6",
+      "mel": "E5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "V6",
+      "mel": "E5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "V6",
+      "mel": "B4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 21,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 22,
+      "rn": "iii",
+      "mel": "E5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 24,
+      "rn": "V64",
+      "mel": "G#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 25,
+      "rn": "IV",
+      "mel": "F#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "Vii",
+      "rh_qual": "",
+      "rh_fig": "943",
+      "mood": "Curling",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 26,
+      "rn": "IV6",
+      "mel": "F#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 27,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 28,
+      "rn": "vi64",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 29,
+      "rn": "I6",
+      "mel": "G#4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 30,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 31,
+      "rn": "iii",
+      "mel": "E5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 32,
+      "rn": "I64",
+      "mel": "C#5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 32
+}

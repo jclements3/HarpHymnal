@@ -1,0 +1,328 @@
+{
+  "title": "Be Still My Soul",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Katharina A. von Schlegel, 1752",
+  "music": "Jean Sibelius, 1899 from Jean Sibelius, 1900",
+  "tune": "Finlandia",
+  "lyrics": {
+    "v1": "Be still, my soul: the Lord is on thy side. Bear patiently the cross of grief or pain. Leave to thy God to order and provide; In every change, He faithful will remain. Be still, my soul: thy best, thy heav&#39;nly Friend Through thorny ways leads to a joyful end.",
+    "v2": "Be still, my soul: thy God doth undertake To guide the future, as He has the past. Thy hope, thy confidence let nothing shake; All now mysterious shall be bright at last. Be still, my soul: the waves and winds still know His voice Who ruled them while He dwelt below.",
+    "v3": "Be still, my soul: when dearest friends depart, And all is darkened in the vale of tears, Then shalt thou better know His love, His heart, Who comes to soothe thy sorrow and thy fears. Be still, my soul: thy Jesus can repay From His own fullness all He takes away.",
+    "v4": "Be still, my soul: the hour is hast&#39;ning on When we shall be forever with the Lord. When disa- ppointment, grief and fear are gone, Sorrow forgot, love&#39;s purest joys restored. Be still, my soul: when change and tears are past All safe and blessèd we shall meet at last.",
+    "v5": "Be still, my soul: begin the song of praise On earth, believing, to Thy Lord on high; Acknowledge Him in all thy words and ways, So shall He view thee with a well pleased eye. Be still, my soul: the Sun of life divine Through passing clouds shall but more brightly shine."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Be still, my soul: the Lord is on thy side.",
+        "v2": "Be still, my soul: thy God doth undertake"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Bear patiently the cross of grief or",
+        "v2": "To guide the future, as He has the"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "pain. Leave to thy God to order and provide; In every",
+        "v2": "past. Thy hope, thy confidence let nothing shake; All now my"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "change, He faithful will remain. Be still, my soul: thy best, thy heav&#39;nly Friend Through",
+        "v2": "sterious shall be bright at last. Be still, my soul: the waves and winds still know His"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        23,
+        24
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "thorny ways leads",
+        "v2": "voice Who ruled them"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV64",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV64",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I6",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "iii",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "vi",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "ii",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 22,
+      "rn": "I64",
+      "mel": "A4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 23,
+      "rn": "ii7",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 24,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 24
+}

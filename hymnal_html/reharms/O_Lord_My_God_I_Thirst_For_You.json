@@ -1,0 +1,229 @@
+{
+  "title": "O Lord, My God, I Thirst For You",
+  "key": "e minor",
+  "key_root": "E",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Anthony Robertson, 2010",
+  "music": "traditional English Ralph Vaughan Williams, 1906",
+  "tune": "Kingsfold",
+  "lyrics": {
+    "v1": "O Lord, my God, I thirst for You, I long to see your face, Just as the hunted deer is stressed I falter in the race; My heart cries out, my tears run down, I am in deep distress, &#39;Where is your God?&#39; men say to me, They taunt me and oppress.",
+    "v2": "Lord, when will I be helped by You, I struggle day and night? O hear my prayer, enable me to stand in your great might; I look back on those days gone by when, Lord, You were so near, when in your house with festive throng I praised your Name so dear.",
+    "v3": "So why am I cast down, O Lord, and why should I feel low? You are my God, my Savior strong, Your praise from me shall flow; I think of all your works, O Lord, Your saving pow&#39;r of old, So when beset and overwhelmed, I will your strength take hold.",
+    "v4": "Your loving\\- kindness fills my days, Your song at night I sing, And when my fears assail again to You I&#39;ll tightly cling; My hope is fixed on God, my Rock, His own He won&#39;t forget; Be still my soul, my face will shine And I will praise Him yet."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "O Lord, my God, I thirst for You,",
+        "v2": "Lord, when will I be helped by You,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "I long to see your face, Just as the hunted deer is stressed I falter in the race;",
+        "v2": "I struggle day and night? O hear my prayer, enable me to stand in your great might;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "My heart cries out, my tears run down, I am in deep distress, &#39;Where is your God?&#39; men say to me,",
+        "v2": "I look back on those days gone by when, Lord, You were so near, when in your house with festive throng"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "They taunt me and oppress.",
+        "v2": "I praised your Name so dear."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III6",
+      "mel": "D4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "III54",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "III54",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iv",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

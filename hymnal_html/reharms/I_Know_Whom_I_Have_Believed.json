@@ -1,0 +1,292 @@
+{
+  "title": "I Know Whom I Have Believed",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Daniel Webster Whittle (a.k.a. Elias Nathan), 1883",
+  "music": "James McGranahan, 1892",
+  "tune": "I Know Whom I Have Believed",
+  "lyrics": {
+    "v1": "I know not why God&#39;s wondrous grace To me He hath made known, Nor why, unworthy, Christ in love Redeemed me for His own. But I know Whom I have believèd, And am persuaded that He is able To keep that which I&#39;ve committed Unto Him against that day.",
+    "v2": "I know not how this saving faith To me He did impart, Nor how believing in His Word Wrought peace within my heart. But I know Whom I have believèd, And am persuaded that He is able To keep that which I&#39;ve committed Unto Him against that day.",
+    "v3": "I know not how the Spirit moves, Convincing us of sin, Revealing Jesus through the Word, Crea- ting faith in Him. But I know Whom I have believèd, And am persuaded that He is able To keep that which I&#39;ve committed Unto Him against that day.",
+    "v4": "I know not what of good or ill May be reserved for me, Of weary ways or golden days, Before His face I see. But I know Whom I have believèd, And am persuaded that He is able To keep that which I&#39;ve committed Unto Him against that day.",
+    "v5": "I know not when my Lord may come, At night or noonday fair, Nor if I walk the vale with Him, Or meet Him in the air. But I know Whom I have believèd, And am persuaded that He is able To keep that which I&#39;ve committed Unto Him against that day."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "I know not why God&#39;s wondrous grace",
+        "v2": "I know not how this saving faith"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "To me He hath made known, Nor why, unwor",
+        "v2": "To me He did impart, Nor how believ"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "thy, Christ in love Redeemed me for His own.",
+        "v2": "ing in His Word Wrought peace within my heart."
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "But I know Whom I have believèd, And",
+        "v2": "But I know Whom I have believèd, And"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "am persuaded that He is able",
+        "v2": "am persuaded that He is able"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "To keep that which I&#39;ve committed",
+        "v2": "To keep that which I&#39;ve committed"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Unto Him against that day.",
+        "v2": "Unto Him against that day."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Fraying",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V7",
+      "mel": "A-4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 6,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "E-4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 10,
+      "rn": "IV52",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V7",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "IV",
+      "mel": "E-4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "IV52",
+      "mel": "D5",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

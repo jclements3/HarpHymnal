@@ -1,0 +1,186 @@
+{
+  "title": "Jesus Loves Me",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Anna B. Warner, 1860",
+  "music": "by William B. Bradbury, 1862 William B. Bradbury, 1866",
+  "tune": "untitled",
+  "lyrics": {
+    "v1": "Jesus loves me! This I know, For the Bible tells me so. Little ones to Him belong; They are weak, but He is strong. Yes, Jesus loves me! Yes, Jesus loves me! Yes, Jesus loves me! The Bible tells me so.",
+    "v2": "Jesus loves me! He who died Heaven&#39;s gate to open wide; He will wash away my sin, Let His little child come in. Yes, Jesus loves me! Yes, Jesus loves me! Yes, Jesus loves me! The Bible tells me so.",
+    "v3": "Jesus loves me! He will stay Close beside me all the way; Thou hast bled and died for me, I will henceforth live for Thee. Yes, Jesus loves me! Yes, Jesus loves me! Yes, Jesus loves me! The Bible tells me so."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Jesus loves me! This I know, For the Bible tells me so. Little",
+        "v2": "Jesus loves me! He who died Heaven&#39;s gate to open wide; He will"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "ones to Him belong; They are weak, but He is strong.",
+        "v2": "wash away my sin, Let His little child come in."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Yes, Jesus loves me! Yes, Je",
+        "v2": "Yes, Jesus loves me! Yes, Je"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "sus loves me! Yes, Jesus loves me! The Bible tells me so.",
+        "v2": "sus loves me! Yes, Jesus loves me! The Bible tells me so."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I4",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "IV64",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 13
+}

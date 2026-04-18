@@ -1,0 +1,318 @@
+{
+  "title": "My Jesus, As Thou Wilt",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Benjamin Schmolck, circa 1704",
+  "music": "or &#39;Weber&#39; Carl M. von Weber, 1821",
+  "tune": "Jewett",
+  "lyrics": {
+    "v1": "My Jesus, as Thou wilt! Oh, may Thy will be mine! Into Thy hand of love I would my all resign; Through sorrow, or through joy, conduct me as Thine own, And help me still to say, my Lord, Thy will be done!",
+    "v2": "My Jesus, as Thou wilt! If needy here and poor, Give me Thy people&#39;s bread, their portion rich and sure. The manna of Thy Word Let my soul feed upon; And if all else should fail, my Lord, thy will be done!",
+    "v3": "My Jesus, as Thou wilt! Though seen through many&#39;a tear, Let not my star of hope grow dim or disappear; Since Thou on earth hast wept, and sorrowed oft alone, If I must weep with Thee, my Lord, Thy will be done!",
+    "v4": "My Jesus, as Thou wilt! All shall be well for me; Each changing future scene I gladly trust with Thee: Straight to my home above I travel calmly on, And sing, in life or death, my Lord, Thy will be done!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "My Jesus, as Thou wilt! Oh, may Thy",
+        "v2": "My Jesus, as Thou wilt! If needy"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "will be mine! Into Thy hand of love I",
+        "v2": "here and poor, Give me Thy people&#39;s bread, their"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "would my all resign; Through sorrow,",
+        "v2": "portion rich and sure. The manna"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "or through joy, conduct me",
+        "v2": "of Thy Word Let my soul"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "as Thine own, And help me still to say, my",
+        "v2": "feed upon; And if all else should fail, my"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Lord, Thy will be done!",
+        "v2": "Lord, thy will be done!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I64",
+      "mel": "B-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV64",
+      "mel": "E-5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "B-4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "I6",
+      "mel": "B-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "IV",
+      "mel": "E-5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 15,
+      "rn": "I4",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 16
+}

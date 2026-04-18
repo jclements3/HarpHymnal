@@ -1,0 +1,200 @@
+{
+  "title": "My Hope Is Built",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Edward Mote, circa 1834",
+  "music": "John Bacchus Dykes, 1861",
+  "tune": "Melita",
+  "lyrics": {
+    "v1": "My hope is built on nothing less Than Jesus&#39; blood and righteousness. I dare not trust the sweetest frame, But wholly trust in Jesus&#39; Name. On Christ the solid Rock I stand, All other ground is sinking sand.",
+    "v2": "When darkness veils His lovely face, I rest on His unchanging grace. In every high and stormy gale, My anchor holds within the veil. Rock I stand, All other ground is sinking sand.",
+    "v3": "His oath, His cove- nant, His blood, Support me in the whelming flood. When all around my soul gives way, He then is all my hope and stay. Rock I stand, All other ground is sinking sand.",
+    "v4": "When He shall come with trumpet sound, Oh may I then in Him be found. Dressed in His righteousness alone, Faultless to stand before the throne. Rock I stand, All other ground is sinking sand."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "My hope is built on nothing less Than Jesus&#39; blood",
+        "v2": "When darkness veils His lovely face, I rest on His"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "and righteousness. I dare not trust the sweetest frame,",
+        "v2": "unchanging grace. In every high and stormy gale,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "But wholly trust in Jesus&#39; Name. On Christ the solid Rock I stand, All other ground is sinking sand.",
+        "v2": "My anchor holds within the veil. Rock I stand, All other ground is sinking sand."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V6",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vii°6",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iii",
+      "mel": "E4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV",
+      "mel": "F4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V65",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I64",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

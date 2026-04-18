@@ -1,0 +1,213 @@
+{
+  "title": "Rejoice, O Pilgrim Throng",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Edward H. Plumptre, 1865",
+  "music": "Arthur H. Messiter, 1883",
+  "tune": "Marion",
+  "lyrics": {
+    "v1": "Rejoice, O pilgrim throng! Rejoice, give thanks, and sing; Your festal banner wave on high, The cross of Christ your King. Rejoice, rejoice, rejoice, Give thanks and sing.",
+    "v2": "With all the angel choirs, With all the saints on earth, Pour out the strains of joy and bliss, True rapture, noblest mirth. Rejoice, rejoice, rejoice, Give thanks and sing.",
+    "v3": "With voice as full and strong As ocean&#39;s surging praise, Send forth the hymns our fathers loved, The psalms of ancient days. Rejoice, rejoice, rejoice, Give thanks and sing.",
+    "v4": "Still lift your standard high, Still march in firm array, As warriors through the darkness toil, Till dawns the golden day. Rejoice, rejoice, rejoice, Give thanks and sing.",
+    "v5": "Yes, on through life&#39;s long path, Still chanting as ye go; From youth to age, by night and day, In gladness and in woe. Rejoice, rejoice, rejoice, Give thanks and sing."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Rejoice, O pilgrim throng!",
+        "v2": "With all the angel choirs,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Rejoice, give thanks, and sing; Your festal ban",
+        "v2": "With all the saints on earth, Pour out the strains"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ner wave on high, The cross of Christ your King. Rejoice, rejoice,",
+        "v2": "of joy and bliss, True rapture, noblest mirth. Rejoice, rejoice,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "rejoice, Give thanks and sing.",
+        "v2": "rejoice, Give thanks and sing."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "iii43",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii6",
+      "mel": "D4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I52",
+      "mel": "C5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "I64",
+      "mel": "C5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

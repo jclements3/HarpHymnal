@@ -1,0 +1,225 @@
+{
+  "title": "In His Temple Now Behold Him",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "6/8",
+  "bpm": 100,
+  "words": "verses 1-3, Henry J. Pye, 1851. verse 4, William Cooke, 1853",
+  "music": "Henry Purcell, circa 1692 Ernest Hawkins, 1843",
+  "tune": "Westminster Abbey",
+  "lyrics": {
+    "v1": "In His temple now behold Him, See the long expected Lord; Ancient prophets had foretold Him; God has now fulfilled His word. Now to praise Him, His redeemèd Shall break forth with one accord.",
+    "v2": "In the arms of her who bore Him, Virgin pure, behold Him lie, While his agèd saints adore Him Ere in faith and hope they die. Hallelujah! Hallelujah! Lo, th&#39;incarnate God most high.",
+    "v3": "Jesus, by Thy presentation, Thou, who didst for us endure, Make us see our great salvation, Seal us with Thy promise sure. And present us in Thy glory To Thy Father, cleansed and pure.",
+    "v4": "Prince and Author of salvation, Be Thy boundless love our theme! Jesus, praise to Thee be given By the world Thou didst redeem. With the Father and the Spirit, Lord of majesty supreme!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "In His temple now behold Him, See the long ex",
+        "v2": "In the arms of her who bore Him, Virgin pure, be"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "pected Lord; Ancient prophets had foretold Him;",
+        "v2": "hold Him lie, While his agèd saints adore Him"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "God has now fulfilled His word. Now to praise Him, His redeemèd",
+        "v2": "Ere in faith and hope they die. Hallelujah! Hallelujah!"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Shall break forth with one accord.",
+        "v2": "Lo, th&#39;incarnate God most high."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV6",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "F#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV6",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "ii7",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "vi",
+      "mel": "G#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "F#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 12
+}

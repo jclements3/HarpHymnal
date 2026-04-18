@@ -1,0 +1,287 @@
+{
+  "title": "Of The Father&#39;s Love Begotten",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Aurelius Prudentius Clemens, 5th Century Verses 1, 4-8 translated by John Mason Neale, 1854. Verses 2-3, 9 translated by Henry Williams Baker, 1859",
+  "music": "or &#39;Corde Natus&#39; Latin Plainsong, 13th Century, 1892",
+  "tune": "Divinum Mysterium",
+  "lyrics": {
+    "v1": "Of the Father&#39;s love begotten Ere the worlds began to be, He is Alpha and Omega, He the source, the ending He, Of the things that are, that have been, And that future years shall see, Evermore and evermore!",
+    "v2": "At His Word they were crea- ted; He commanded; it was done: Heav&#39;n and earth and depths of ocean In their threefold order one; All that grows beneath the shining Of the moon and burning sun, Evermore and evermore!",
+    "v3": "He is found in human fashion, Death and sorrow here to know, That the race of Adam&#39;s children, Doomed by law to endless woe, May not henceforth die and perish In the dreadful gulf below, Evermore and evermore!",
+    "v4": "Oh that birth forever blessèd! When the virgin, full of grace, By the Holy Ghost conceiving, Bare the Savior of our race; And the Babe, the world&#39;s Redeemer, First revealed His sacred face, Evermore and evermore!",
+    "v5": "O ye heights of heav&#39;n adore Him; Angel hosts, His praises sing; Pow&#39;rs, dominions, bow before Him, and extol our God and King: Let no tongue on earth be silent, Every voice in concert ring, Evermore and evermore!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Of the Father&#39;s love begotten Ere the worlds began to be,",
+        "v2": "At His Word they were created; He commanded; it was done:"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "He is Alpha and",
+        "v2": "Heav&#39;n and earth and depths"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Omega, He the source, the ending He, Of the things that are, that have been, And",
+        "v2": "of ocean In their threefold order one; All that grows beneath the shining Of"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "that future years shall see, Evermore and evermore!",
+        "v2": "the moon and burning sun, Evermore and evermore!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "I4",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Gladdening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV",
+      "mel": "B-4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "vi",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "ii",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 20,
+      "rn": "I7",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 21,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 21
+}

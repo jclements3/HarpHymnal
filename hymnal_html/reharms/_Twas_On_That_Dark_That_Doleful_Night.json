@@ -1,0 +1,282 @@
+{
+  "title": "&#39;Twas On That Dark, That Doleful Night",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Isaac Watts, 1709",
+  "music": "John Bacchus Dykes, 1861",
+  "tune": "St. Cross",
+  "lyrics": {
+    "v1": "&#39;Twas on that dark, that doleful night When pow&#39;rs of earth and hell arose Against the Son of God&#39;s delight, And friends betrayed Him to His foes:",
+    "v2": "Before the mournful scene began, He took the bread, and blessed, and brake: What love through all His actions ran! What wondrous words of grace He spake!",
+    "v3": "&quot;This is My body, broke for sin; Receive and eat the living food:&quot; Then took the cup, and blessed the wine; &quot;&#39;Tis the new cov&#39;nant in My blood.&quot;",
+    "v4": "For us His flesh with nails was torn, He bore the scourge, He felt the thorn; And justice poured upon His head Its heavy vengeance in our stead.",
+    "v5": "For us His vital blood was spilt, To buy the pardon of our guilt, When, for black crimes of biggest size, He gave His soul a sacrifice."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "&#39;Twas on that dark, that doleful night When pow&#39;rs of",
+        "v2": "Before the mournful scene began, He took the"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "earth and hell arose Against the Son of God&#39;s de",
+        "v2": "bread, and blessed, and brake: What love through all His actions"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "light, And friends be",
+        "v2": "ran! What wondrous"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "trayed Him to His foes:",
+        "v2": "words of grace He spake!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "III64",
+      "mel": "C5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "III6",
+      "mel": "C5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 7,
+      "rn": "III64",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "III",
+      "mel": "F4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "iiø7",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "i64",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

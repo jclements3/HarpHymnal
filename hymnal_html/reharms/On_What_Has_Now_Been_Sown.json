@@ -1,0 +1,251 @@
+{
+  "title": "On What Has Now Been Sown",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "John Newton, 1779",
+  "music": "John Darwall, 1770",
+  "tune": "Darwall`s 148th",
+  "lyrics": {
+    "v1": "On what has now been sown Thy blessing, Lord, bestow; The pow&#39;r is Thine alone To make it spring and grow. Do Thou in grace the harvest raise, And Thou alone shalt have the praise.",
+    "v2": "To Thee our wants are known, From Thee are all our pow&#39;rs; Accept what is Thine own And pardon what is ours. Our praises, Lord, and prayers receive And to Thy Word a blessing give.",
+    "v3": "Oh, grant that each of us Now met before Thee here May meet together thus When Thou and Thine appear And follow Thee to Heav&#39;n, our home. E&#39;en so, Amen, Lord Jesus, come!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "On what has now been sown Thy blessing, Lord, bestow; The pow&#39;r is Thine",
+        "v2": "To Thee our wants are known, From Thee are all our pow&#39;rs; Accept what is"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "alone To make it spring and",
+        "v2": "Thine own And pardon what is"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "grow. Do Thou in",
+        "v2": "ours. Our praises,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "grace the harvest raise, And Thou alone",
+        "v2": "Lord, and prayers receive And to Thy Word"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "shalt have the praise.",
+        "v2": "a blessing give."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "F#4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I64",
+      "mel": "C#5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "F#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Fraying",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vii°",
+      "mel": "A4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "ii6",
+      "mel": "E5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I",
+      "mel": "C#5",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 14
+}

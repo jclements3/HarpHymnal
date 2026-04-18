@@ -1,0 +1,188 @@
+{
+  "title": "Did You Think To Pray?",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Mary A. Pepper Kidder, 1876",
+  "music": "or &#39;Did You Think To Pray&#39; William Oscar Perkins, 1876 William Oscar Perkins, 1876",
+  "tune": "Stockbridge",
+  "lyrics": {
+    "v1": "Ere you left your room this morning, Did you think to pray? In the name of Christ our Savior, Did you sue for loving favor, As a shield today? O how praying rests the weary! Prayer will change the night to day; So when life seems dark and dreary, Don&#39;t forget to pray.",
+    "v2": "When you met with great temptation, Did you think to pray? By His dying love and merit, Did you claim the Holy Spirit As your guide and stay? change the night to day; So when life seems dark and dreary, Don&#39;t forget to pray.",
+    "v3": "When your heart was filled with anger, Did you think to pray? Did you plead for grace, my brother, That you might forgive another Who had crossed your way? change the night to day; So when life seems dark and dreary, Don&#39;t forget to pray.",
+    "v4": "When sore trials came upon you, Did you think to pray? When your soul was bowed in sorrow, Balm of Gilead did you borrow At the gates of day? change the night to day; So when life seems dark and dreary, Don&#39;t forget to pray."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Ere you left your room this morning, Did you think to pray? In",
+        "v2": "When you met with great temptation, Did you think to pray? By"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "the name of Christ our Savior, Did you sue for loving favor, As a shield today?",
+        "v2": "His dying love and merit, Did you claim the Holy Spirit As your guide and stay?"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "O how praying rests the weary! Prayer will change the night to day; So when life seems dark and drea",
+        "v2": "change the night to day; So when life seems dark and drea"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "ry, Don&#39;t forget to pray.",
+        "v2": "ry, Don&#39;t forget to pray."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "vi6",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "IV7",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "vi6",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 14
+}

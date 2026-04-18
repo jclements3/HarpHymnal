@@ -1,0 +1,146 @@
+{
+  "title": "Abide, O Dearest Jesus",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Joshua Stegmann, 1628",
+  "music": "Melchior Vulpius, 1609",
+  "tune": "Christus der ist mein Leben",
+  "lyrics": {
+    "v1": "Abide, O dearest Jesus, Among us with Thy grace, That Satan may not harm us, Nor we to sin give place.",
+    "v2": "Abide, O dear Redeemer, Among us with Thy Word, And thus now and hereafter True peace and joy afford.",
+    "v3": "Abide with heav&#39;nly brightness Among us, precious Light; Thy truth direct, and keep us From error&#39;s gloomy night.",
+    "v4": "Abide with richest blessings Among us, bounteous Lord; Let us in grace and wisdom Grow daily through Thy Word.",
+    "v5": "Abide with Thy protection Among us, Lord, our Strength, Lest world and Satan fell us And overcome at length."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — rests on a fermata",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Abide, O dearest Jesus, Among us with",
+        "v2": "Abide, O dear Redeemer, Among us with"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Thy grace, That Satan may not harm us, Nor we to sin give place.",
+        "v2": "Thy Word, And thus now and hereafter True peace and joy afford."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "A-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I7",
+      "mel": "B-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV52",
+      "mel": "E-5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Cooling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iii32",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I52",
+      "mel": "D4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

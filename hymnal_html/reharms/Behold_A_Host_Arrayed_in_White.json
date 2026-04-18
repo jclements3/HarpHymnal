@@ -1,0 +1,389 @@
+{
+  "title": "Behold, A Host, Arrayed in White",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "6/4",
+  "bpm": 100,
+  "words": "Hans Adolf Brorson, circa 1760.  Translation composite",
+  "music": "or &#39;Great White Host&#39; traditional Norwegian, 17th cent Edvard Grieg, 1907",
+  "tune": "Den Store Hvide Flok",
+  "lyrics": {
+    "v1": "Behold a host, arrayed in white, Like thousand snow clad mountains bright, With palms they stand. Who is this band Before the throne of light? Lo, these are they of glorious fame Who from the great affliction came And in the flood of Jesus&#39; blood Are cleansed from guilt and blame. Now gathered in the holy place Their voices they in worship raise, Their anthems swell where God doth dwell, Mid angels song of praise.",
+    "v2": "Despised and scorned, they sojourned here; But now, how glorious they appear! Those martyrs stand a priestly band, God&#39;s throne forever near. So oft, in troubled days gone by, In anguish they would weep and sigh. At home above the God of Love For aye their tears shall dry. They now enjoy their Sabbath rest, The paschal banquet of the blest; The Lamb, their Lord, at festal board Himself is Host and Guest.",
+    "v3": "Then hail, ye mighty legions, yea, All hail! Now safe and blest for aye, And praise the Lord, who with His Word Sustained you on the way. Ye did the joys of earth disdain, Ye toiled and sowed in tears and pain. Farewell, now bring your sheaves and sing Salvation&#39;s glad refrain. Swing high your palms, lift up your song, Yea, make it myriad voices strong. Eternally shall praise to Thee, God, and the Lamb belong."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Behold a host, arrayed in white, Like thousand snow clad mountains bright, With palms they stand.",
+        "v2": "Despised and scorned, they sojourned here; But now, how glorious they appear! Those martyrs stand"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Who is this band Before the throne of light?",
+        "v2": "a priestly band, God&#39;s throne forever near."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Lo, these are they of glorious fame Who from the great affliction came And in the",
+        "v2": "So oft, in troubled days gone by, In anguish they would weep and sigh. At home a"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "flood of Jesus&#39; blood Are cleansed from guilt and",
+        "v2": "bove the God of Love For aye their tears shall"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        17,
+        18
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "blame. Now gathered in the holy",
+        "v2": "dry. They now enjoy their Sabbath"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        19,
+        20,
+        21
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "place Their voices they in worship raise, Their an",
+        "v2": "rest, The paschal banquet of the blest; The Lamb,"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        22,
+        23,
+        24
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "thems swell where God doth dwell, Mid angels song",
+        "v2": "their Lord, at festal board Himself is Host"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "ii43",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "vi7",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iii",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "ii43",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "vi7",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iii",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V7",
+      "mel": "E-4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "IV43",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "ii",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "vi7",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 21,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 22,
+      "rn": "iii",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 23,
+      "rn": "vi",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 24,
+      "rn": "V7",
+      "mel": "F4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 24
+}

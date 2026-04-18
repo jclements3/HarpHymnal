@@ -1,0 +1,270 @@
+{
+  "title": "If God Had Not Been on Our Side",
+  "key": "f♯ minor",
+  "key_root": "F#",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1524.  Translation composite",
+  "music": "from Walter&#39;s Geistliche Gesangbüchlein, 1524 Michael Praetorius, 1610",
+  "tune": "Wär Gott nicht mit uns diese Zeit (1524)",
+  "lyrics": {
+    "v1": "If God had not been on our side And had not come to aid us, The foes with all their pow&#39;r and pride Would surely have dismayed us; For we, His flock, would have to fear The threat of men both far and near Who rise in might against us.",
+    "v2": "Their furious wrath, did God permit, Would surely have consumed us And as a deep and yawning pit With life and limb entombed us. Like men o&#39;er whom dark waters roll Their wrath would have engulfed our soul And, like a flood, o&#39;erwhelmed us.",
+    "v3": "Blest be the Lord, who foiled their threat That they could not devour us; Our souls, like birds, escaped their net, They could not overpow&#39;r us. The snare is broken we are free! Our help is ever, Lord, in Thee, Who madest earth and heaven."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "If God had not been on our side And had not come to aid us, The foes with",
+        "v2": "Their furious wrath, did God permit, Would surely have consumed us And as a"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "all their pow&#39;r and pride Would surely have dismayed us; For we, His",
+        "v2": "deep and yawning pit With life and limb entombed us. Like men o&#39;er"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "flock, would have to fear The threat of men both far and near Who rise in might against us.",
+        "v2": "whom dark waters roll Their wrath would have engulfed our soul And, like a flood, o&#39;erwhelmed us."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "iv",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iv7",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iv4",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "iv",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iv7",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III52",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i7",
+      "mel": null,
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V7",
+      "mel": "G#4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "i43",
+      "mel": "F#4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iiø43",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 18,
+      "rn": "i6",
+      "mel": "F#4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 18
+}

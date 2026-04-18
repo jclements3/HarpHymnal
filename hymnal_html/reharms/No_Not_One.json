@@ -1,0 +1,293 @@
+{
+  "title": "No, Not One!",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Johnson Oatman, Jr, 1894",
+  "music": "George Crawford Hugg, 1894",
+  "tune": "No, Not One",
+  "lyrics": {
+    "v1": "There&#39;s not a friend like the lowly Jesus, No, not one! no, not one! None else could heal all our soul&#39;s diseases, No, not one! no, not one! Jesus knows all about our struggles, He will guide till the day is done; There&#39;s not a friend like the lowly Jesus, No, not one! no, not one!",
+    "v2": "No friend like Him is so high and holy, No, not one! no, not one! And yet no friend is so meek and lowly, No, not one! no, not one! Jesus knows all about our struggles, He will guide till the day is done; There&#39;s not a friend like the lowly Jesus, No, not one! no, not one!",
+    "v3": "There&#39;s not an hour that He is not near us, No, not one! no, not one! No night so dark but His love can cheer us, No, not one! no, not one! Jesus knows all about our struggles, He will guide till the day is done; There&#39;s not a friend like the lowly Jesus, No, not one! no, not one!",
+    "v4": "Did ever saint find this friend forsake him? No, not one! no, not one! Or sinner find that He would not take him? No, not one! no, not one! Jesus knows all about our struggles, He will guide till the day is done; There&#39;s not a friend like the lowly Jesus, No, not one! no, not one!",
+    "v5": "Was e&#39;er a gift like the Savior given? No, not one! no, not one! Will He refuse us a home in heaven? No, not one! no, not one! Jesus knows all about our struggles, He will guide till the day is done; There&#39;s not a friend like the lowly Jesus, No, not one! no, not one!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "There&#39;s not a friend like the lowly Jesus, No, not one!",
+        "v2": "No friend like Him is so high and holy, No, not one!"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "no, not one! None else could heal all our soul&#39;s diseases, No, not one!",
+        "v2": "no, not one! And yet no friend is so meek and lowly, No, not one!"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "no, not one! Jesus knows all a",
+        "v2": "no, not one! Jesus knows all a"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "bout our struggles, He will guide till the",
+        "v2": "bout our struggles, He will guide till the"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "day is done; There&#39;s not a friend like the",
+        "v2": "day is done; There&#39;s not a friend like the"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "lowly Jesus, No, not one! no, not one!",
+        "v2": "lowly Jesus, No, not one! no, not one!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "iii",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi6",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "iii",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "vi4",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

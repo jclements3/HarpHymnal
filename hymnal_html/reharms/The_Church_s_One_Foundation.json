@@ -1,0 +1,257 @@
+{
+  "title": "The Church&#39;s One Foundation",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Samuel John Stone, 1866",
+  "music": "Samuel Sebastian Wesley, 1864",
+  "tune": "Aurelia",
+  "lyrics": {
+    "v1": "The Church&#39;s one foundation Is Jesus Christ her Lord, She is His new crea- tion By water and the Word. From heav&#39;n He came and sought her To be His holy bride; With His own blood He bought her And for her life He died.",
+    "v2": "She is from every nation, Yet one o&#39;er all the earth; Her charter of salvation, One Lord, one faith, one birth; One holy Name she blesses, Partakes one holy food, And to one hope she presses, With every grace endued.",
+    "v3": "The Church shall never perish! Her dear Lord to defend, To guide, sustain, and cherish, Is with her to the end: Though there be those who hate her, And false sons in her pale, Against or foe or traitor She ever shall prevail.",
+    "v4": "Though with a scornful wonder Men see her sore oppressed, By schisms rent asunder, By here- sies distressed: Yet saints their watch are keeping, Their cry goes up, &#39;How long?&#39; And soon the night of weeping Shall be the morn of song!",
+    "v5": "&#39;Mid toil and tribu- lation, And tumult of her war, She waits the consummation Of peace forevermore; Till, with the vision glorious, Her longing eyes are blest, And the great Church victorious Shall be the Church at rest."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "The Church&#39;s one foundation Is Jesus Christ her Lord,",
+        "v2": "She is from every nation, Yet one o&#39;er all the earth;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "She is His new creation By water and the Word. From heav&#39;n He came and sought her To be His holy bride; With His own blood",
+        "v2": "Her charter of salvation, One Lord, one faith, one birth; One holy Name she blesses, Partakes one holy food, And to one hope"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "He bought her And for her life He died.",
+        "v2": "she presses, With every grace endued."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "I6",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V64",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iii7",
+      "mel": "C#5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV",
+      "mel": "B4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "vi",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii",
+      "mel": "F#4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V6",
+      "mel": "E4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "C#4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

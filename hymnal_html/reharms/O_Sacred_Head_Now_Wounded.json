@@ -1,0 +1,219 @@
+{
+  "title": "O Sacred Head, Now Wounded",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Bernard of Clairvaux, 1153",
+  "music": "or &#39;Herzlich Tut Mich Verlangen&#39; Hans Leo Hassler, 1601",
+  "tune": "Passion Chorale",
+  "lyrics": {
+    "v1": "O sacred Head, now wounded, with grief and shame weighed down, Now scornfully surrounded with thorns, Thine only crown; O sacred Head, what glory, what bliss till now was Thine! Yet, though despised and gory, I joy to call Thee mine.",
+    "v2": "What Thou, my Lord, hast suffered, was all for sinners&#39; gain; Mine, mine was the transgression, but Thine the deadly pain. Lo, here I fall, my Savior! &#39;Tis I deserve Thy place; Look on me with Thy favor, vouchsafe to me Thy grace.",
+    "v3": "Men mock and taunt and jeer Thee, Thou noble countenance, Though mighty worlds shall fear Thee and flee before Thy glance. How art thou pale with anguish, with sore abuse and scorn! How doth Thy visage languish that once was bright as morn!",
+    "v4": "Now from Thy cheeks has vanished their color once so fair; From Thy red lips is banished the splendor that was there. Grim death, with cruel rigor, hath robbed Thee of Thy life; Thus Thou hast lost Thy vigor, Thy strength in this sad strife.",
+    "v5": "My burden in Thy Passion, Lord, Thou hast borne for me, For it was my transgression which brought this woe on Thee. I cast me down before Thee, wrath were my rightful lot; Have mercy, I implore Thee; Redeemer, spurn me not!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "O sacred Head, now wounded, with grief and shame weighed down, Now scornfully surrounded with thorns, Thine only crown; O sacred Head, what glory,",
+        "v2": "What Thou, my Lord, hast suffered, was all for sinners&#39; gain; Mine, mine was the transgression, but Thine the deadly pain. Lo, here I fall, my Savior!"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "what bliss till now was Thine! Yet, though despised and gory, I joy to call Thee mine.",
+        "v2": "&#39;Tis I deserve Thy place; Look on me with Thy favor, vouchsafe to me Thy grace."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "I52",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "vi",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 6,
+      "rn": "I52",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vi",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "ii",
+      "mel": "B4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "vi",
+      "mel": "F4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "V64",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

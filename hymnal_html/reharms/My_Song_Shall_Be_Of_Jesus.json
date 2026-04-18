@@ -1,0 +1,293 @@
+{
+  "title": "My Song Shall Be Of Jesus",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Fanny J. Crosby, 1875",
+  "music": "Kenneth W. Paxton, 1998 Kenneth W. Paxton, 1998",
+  "tune": "Sondance",
+  "lyrics": {
+    "v1": "My song shall be of Jesus, His Mercy crowns my days He fills my cup with blessings and tunes my heart to praise My song shall be of Jesus the precious Lamb of God Who gave Himself my ransom and bought me with His blood",
+    "v2": "My song shall be of Jesus, while sitting at His feet He calls to mind His goodness, and makes my joy complete; My song shall be of Jesus, whatever ills befall, I&#39;ll sing the grace that saves me, and triumphs over all.",
+    "v3": "My song shall be of Jesus, when pressing on my way To where my home shines glorious in pure and perfect day. And when my soul shall enter the many mansions fair, A song of praise to Jesus I&#39;ll sing forever there."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "My song shall be of Jesus, His Mercy crowns my days He fills my cup with bless",
+        "v2": "My song shall be of Jesus, while sitting at His feet He calls to mind His good"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "ings and tunes my heart to praise My song shall be of Je",
+        "v2": "ness, and makes my joy complete; My song shall be of Je"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "sus the precious Lamb",
+        "v2": "sus, whatever ills"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "of God Who gave Himself my ransom and bought",
+        "v2": "befall, I&#39;ll sing the grace that saves me, and tri"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I64",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iii",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I43",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V52",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I43",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I64",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "iii",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V7",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "iii7",
+      "mel": "D4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii7",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V7",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 16
+}

@@ -1,0 +1,239 @@
+{
+  "title": "My Faith Looks Up To Thee",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Ray Palmer, 1830.  Music and",
+  "music": "Lowell Mason, 1832 composite Lowell Mason, 1859 and C. C. Converse, 1867",
+  "tune": "Olivet",
+  "lyrics": {
+    "v1": "My faith looks up to Thee, Thou Lamb of Calvary, Savior divine! Now hear me while I pray, take all my guilt away, O let me from this day be wholly Thine!",
+    "v2": "May Thy rich grace impart Strength to my fainting heart, my zeal inspire! As Thou hast died for me, O may my love to Thee, Pure warm, and changeless be, a living fire!",
+    "v3": "While life&#39;s dark maze I tread, And griefs around me spread, be Thou my Guide; Bid darkness turn to day, wipe sorrow&#39;s tears away, Nor let me ever stray from Thee aside.",
+    "v4": "When ends life&#39;s transient dream, When death&#39;s cold sullen stream over me roll; Blest Savior, then in love, fear and distrust remove; O bear me safe above, a ransomed soul!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "My faith looks up to Thee,",
+        "v2": "May Thy rich grace impart"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Thou Lamb of Calvary, Savior di",
+        "v2": "Strength to my fainting heart, my zeal in"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "vine! Now hear me",
+        "v2": "spire! As Thou hast"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "while I pray, take all my guilt away, O let me from this day be",
+        "v2": "died for me, O may my love to Thee, Pure warm, and changeless be, a"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "wholly Thine!",
+        "v2": "living fire!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V6",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "V65",
+      "mel": "G4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "vi",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 14
+}

@@ -1,0 +1,200 @@
+{
+  "title": "How Shall We Answer Terror&#39;s Cry?",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Richard W. Adams, 2001",
+  "music": "John Bacchus Dykes, 1861",
+  "tune": "Melita",
+  "lyrics": {
+    "v1": "How shall we answer terror&#39;s cry, The cunning blade, the flaming sky? When murderous spite knocks down our door And violence breaks upon our shore, O let us come and look to You To know Your will what shall we do?",
+    "v2": "When Satan whispers, &#39;Hate your foe, Now take your vengeance draw the bow,&#39; Protect us from the tempter&#39;s guile, The lying voice, the evil smile. O let us come in trust to You, To hear the word we know is true.",
+    "v3": "When executioners hung You high You turned Your prayer up to the sky, And pled the Father to forgive, You asked that cruel men might live. O let us Your example take, And pray for sinners as we ache.",
+    "v4": "We pray that You their hearts will turn; And light a holy fire to burn Their dross away, so they may be Like gold refined, eternally. O let us pray that they become, Like us, with You forever one."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "How shall we answer terror&#39;s cry, The cunning blade,",
+        "v2": "When Satan whispers, &#39;Hate your foe, Now take your ven"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "the flaming sky? When murderous spite knocks down our door",
+        "v2": "geance draw the bow,&#39; Protect us from the tempter&#39;s guile,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "And violence breaks upon our shore, O let us come and look to You To know Your will what shall we do?",
+        "v2": "The lying voice, the evil smile. O let us come in trust to You, To hear the word we know is true."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V6",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vii°6",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iii",
+      "mel": "E4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV",
+      "mel": "F4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V65",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I64",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

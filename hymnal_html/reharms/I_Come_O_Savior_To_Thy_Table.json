@@ -1,0 +1,293 @@
+{
+  "title": "I Come, O Savior, To Thy Table",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Friedrich C. Heyder, 1710.  Translation composite",
+  "music": "from &quot;Evangelical Lutheran Hymn-Book&quot;, 1931",
+  "tune": "Ich Sterbe Täglich",
+  "lyrics": {
+    "v1": "I come, O Savior, to Thy table, For weak and weary is my soul; Thou, Bread of Life, alone art able To satisfy and make me whole: Lord, may Thy body and Thy blood Be for my soul the highest good!",
+    "v2": "Oh, grant that I in manner worthy May now approach Thy heav&#39;nly board And, as I lowly bow before Thee, Look only unto Thee, O Lord! Lord, may Thy body and Thy blood Be for my soul the highest good!",
+    "v3": "Unworthy though I am, O Savior, Because I have a sinful heart, Yet Thou Thy lamb wilt banish never, For Thou my faithful Shepherd art: Lord, may Thy body and Thy blood Be for my soul the highest good!",
+    "v4": "Oh, let me loathe all sin forever As death and poison to my soul That I through willful sinning never May see Thy judgment take its toll! Lord, may Thy body and Thy blood Be for my soul the highest good!",
+    "v5": "Thy heart is filled with fervent yearning That sinners may salvation see Who, Lord, to Thee in faith are turning; So I, a sinner, come to Thee. Lord, may Thy body and Thy blood Be for my soul the highest good!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "I come, O Savior, to Thy table, For",
+        "v2": "Oh, grant that I in manner worthy May"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "weak and weary is my soul; Thou, Bread of Life, alone art able To",
+        "v2": "now approach Thy heav&#39;nly board And, as I lowly bow before Thee, Look"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "satisfy and make me whole: Lord, may Thy",
+        "v2": "only unto Thee, O Lord! Lord, may Thy"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "body and Thy blood Be",
+        "v2": "body and Thy blood Be"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        14,
+        15
+      ],
+      "strategy": "melody rises — rests on a fermata",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "for my soul the highest good!",
+        "v2": "for my soul the highest good!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": null,
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iii7",
+      "mel": "D4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V4",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iii",
+      "mel": null,
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii7",
+      "mel": "G4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V4",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": null,
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii6",
+      "mel": "A4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V64",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "V62",
+      "mel": "F4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "vi6",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 15
+}

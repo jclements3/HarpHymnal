@@ -1,0 +1,294 @@
+{
+  "title": "Savior When In Dust To Thee",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Robert Grant, 1815",
+  "music": "Joseph Parry, 1879",
+  "tune": "Aberystwyth (Parry)",
+  "lyrics": {
+    "v1": "Savior, when in dust to Thee Low we bow th&#39;adoring knee, When, repentant, to the skies Scarce we lift our weeping eyes, O by all the pains and woes Suffered once for man below, Bending from Thy throne on high, Hear our peni- tential cry!",
+    "v2": "By Thy helpless infant years, By Thy life of want and tears, By Thy days of sore distress In the savage wilderness, By the dread mysterious hour Of th&#39;insulting tempter&#39;s pow&#39;r, Turn, O turn a fav&#39;ring eye, Hear our peni- tential cry!",
+    "v3": "By the sacred griefs that wept O&#39;er the grave where Laz&#39;rus slept, By the boding tears that flowed Over Salem&#39;s loved abode, By the anguished sigh that told Treachery lurked within Thy fold, From Thy seat above the sky, Hear our peni- tential cry!",
+    "v4": "By Thine hour of dire despair, By Thine agony of prayer, By the cross, the nail, the thorn, Piercing spear, and torturing scorn, By the gloom that veiled the skies O&#39;er the dreadful sacrifice, Listen to our humble cry, Hear our peni- tential cry!",
+    "v5": "By Thy deep expiring groan, By the sad sepulchral stone, By the vault whose dark abode Held in vain the rising God, O from earth to heaven restored, Mighty, reascended Lord, Listen, listen to the sigh Of our peni- tential cry!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Savior, when in dust to Thee Low we bow th&#39;adoring knee, When, repentant,",
+        "v2": "By Thy helpless infant years, By Thy life of want and tears, By Thy days of"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "to the skies Scarce we lift our weeping eyes,",
+        "v2": "sore distress In the savage wilderness,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "O by all the pains and woes Suffered once for",
+        "v2": "By the dread mysterious hour Of th&#39;insulting"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "man below, Bending from Thy throne on high,",
+        "v2": "tempter&#39;s pow&#39;r, Turn, O turn a fav&#39;ring eye,"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Hear our penitential cry!",
+        "v2": "Hear our penitential cry!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "i64",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "i6",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 6,
+      "rn": "i64",
+      "mel": "F4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i4",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "III",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 13,
+      "rn": "III6",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 15,
+      "rn": "i6",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "i64",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

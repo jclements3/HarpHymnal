@@ -1,0 +1,236 @@
+{
+  "title": "Now Thank We All Our God",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Rinkart, c.1636. Translated Catherine Winkworth, 1856",
+  "music": "Johann Crüger, 1647",
+  "tune": "Nun Danket",
+  "lyrics": {
+    "v1": "Now thank we all our God, with heart and hands and voices, Who wondrous things has done, in Whom this world rejoices; Who from our mothers&#39; arms has blessed us on our way With countless gifts of love, and still is ours today.",
+    "v2": "O may this bounteous God through all our life be near us, With ever joyful hearts and blessed peace to cheer us; And keep us in His grace, and guide us when perplexed; And free us from all ills, in this world and the next!",
+    "v3": "All praise and thanks to God the Father now be given; The Son and Him Who reigns with Them in highest Heaven; The one eternal God, Whom earth and Heav&#39;n adore; For thus it was, is now, and shall be evermore."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Now thank we all our God, with heart and",
+        "v2": "O may this bounteous God through all our"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "hands and voices, Who wondrous things has done, in Whom",
+        "v2": "life be near us, With ever joyful hearts and bless"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "this world rejoices; Who from our mothers&#39; arms has blessed",
+        "v2": "ed peace to cheer us; And keep us in His grace, and guide"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "us on our way With countless gifts",
+        "v2": "us when perplexed; And free us from"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "of love, and still is ours today.",
+        "v2": "all ills, in this world and the next!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V64",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii7",
+      "mel": "G4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Haunting",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

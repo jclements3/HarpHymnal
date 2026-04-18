@@ -1,0 +1,280 @@
+{
+  "title": "Jerusalem the Golden",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Bernard of Cluny, 1146",
+  "music": "Alexander C. Ewing, 1853",
+  "tune": "Ewing",
+  "lyrics": {
+    "v1": "Jeru- salem the golden, with milk and honey blest, Beneath thy contemplation sink heart and voice oppressed. I know not, O I know not, what joys await us there, What radiancy of glory, what bliss beyond compare.",
+    "v2": "They stand, those halls of Zion, all jubilant with song, And bright with many&#39;an angel, and all the martyr throng; The Prince is ever in them, the daylight is serene. The pastures of the blessèd are decked in glorious sheen.",
+    "v3": "There is the throne of David, and there, from care released, The shout of them that triumph, the song of them that feast; And they are with their Leader, who conquered in the fight, And won for them forever their gleaming robes of white.",
+    "v4": "O sweet and blessèd country, the home of God&#39;s elect! O sweet and blessèd country, that eager hearts expect! Jesus, in mercy bring us to that dear land of rest, Who art, with God the Father, and Spirit, ever blessed.",
+    "v5": "Brief life is here our portion, brief sorrow, short lived care; The life that knows no ending, the tearless life, is there. O happy retribution! Short toil, eternal rest; For mortals and for sinners, a mansion with the blest."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Jerusalem the golden, with milk and hon",
+        "v2": "They stand, those halls of Zion, all jubilant"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "ey blest, Beneath thy con",
+        "v2": "with song, And bright with man"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "templation sink heart and voice oppressed. I know not, O",
+        "v2": "y&#39;an angel, and all the martyr throng; The Prince is ev"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "I know not, what joys await",
+        "v2": "er in them, the daylight is"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "us there, What radiancy",
+        "v2": "serene. The pastures of"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "of glory, what bliss beyond compare.",
+        "v2": "the blessèd are decked in glorious sheen."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "vi",
+      "mel": "G#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Cooling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iii6",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "C4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "iii",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Fraying",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "viio64",
+      "mel": "A4",
+      "lh_rom": "iii7ii",
+      "lh_qual": "",
+      "lh_fig": "7323",
+      "rh_rom": "viiø7iii",
+      "rh_qual": "",
+      "rh_fig": "D233",
+      "mood": "Despairing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iii6",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

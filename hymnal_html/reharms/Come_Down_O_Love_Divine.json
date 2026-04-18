@@ -1,0 +1,307 @@
+{
+  "title": "Come Down, O Love Divine",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Bianco of Siena d. 1434",
+  "music": "Ralph Vaughan Williams, 1906 Ralph Vaughan Williams, 1906",
+  "tune": "Down Ampney",
+  "lyrics": {
+    "v1": "Come down, O love divine, seek Thou this soul of mine, And visit it with Thine own ardor glowing. O Comforter, draw near, within my heart appear, And kindle it, Thy holy flame bestowing.",
+    "v2": "O let it freely burn, til earthly passions turn To dust and ashes in its heat consuming; And let Thy glorious light shine ever on my sight, And clothe me round, the while my path illuming.",
+    "v3": "Let holy charity mine outward vesture be, And lowliness become mine inner clothing; True lowliness of heart, which takes the humbler part, And o&#39;er its own shortcomings weeps with loathing.",
+    "v4": "And so the yearning strong, with which the soul will long, Shall far outpass the pow&#39;r of human telling; For none can guess its grace, till he become the place Wherein the Holy Spirit makes His dwelling."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Come down, O love divine,",
+        "v2": "O let it freely burn,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "seek Thou this soul of mine, And",
+        "v2": "til earthly passions turn To"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "visit it with Thine own ardor glowing.",
+        "v2": "dust and ashes in its heat consuming;"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "O Comforter, draw near, within my heart ap",
+        "v2": "And let Thy glorious light shine ever on my"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "pear, And kindle it, Thy",
+        "v2": "sight, And clothe me round, the"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        17,
+        18
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "holy flame bestowing.",
+        "v2": "while my path illuming."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "vi",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "iiiø7",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I6",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 17,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 18
+}

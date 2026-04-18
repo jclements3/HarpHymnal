@@ -1,0 +1,214 @@
+{
+  "title": "Awake, My Soul, And With The Sun",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Thomas Ken, 1674",
+  "music": "Genevan Psalter, attr. Louis Bourgeois, c. 1551 Sternhold and Hopkins&#39; Psalter, 1561",
+  "tune": "Old 100th",
+  "lyrics": {
+    "v1": "Awake, my soul, and with the sun Thy daily stage of duty run; Shake off dull sloth, and joyful rise, To pay thy morning sacrifice.",
+    "v2": "Thy precious time misspent, redeem, Each present day thy last esteem, Improve thy talent with due care; For the great day thyself prepare.",
+    "v3": "By influence of Light divine Let thy own light to others shine. Reflect all Heaven&#39;s propitious ways In ardent love, and cheerful praise.",
+    "v4": "In conversation be sincere; Keep conscience as the noontide clear; Think how all seeing God thy ways And all thy secret thoughts surveys.",
+    "v5": "Wake, and lift up thyself, my heart, And with the angels bear thy part, Who all night long unwearied sing High praise to the eternal King."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Awake, my soul, and with the sun",
+        "v2": "Thy precious time misspent, redeem,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Thy daily stage of duty run;",
+        "v2": "Each present day thy last esteem,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Shake off dull sloth, and joyful rise, To",
+        "v2": "Improve thy talent with due care; For"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "pay thy morning sacrifice.",
+        "v2": "the great day thyself prepare."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 13
+}

@@ -1,0 +1,199 @@
+{
+  "title": "Rock of Ages",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "6/4",
+  "bpm": 100,
+  "words": "Augustus Montague Toplady, 1776",
+  "music": "Thomas Hastings, 1830",
+  "tune": "Toplady",
+  "lyrics": {
+    "v1": "Rock of Ages, cleft for me, Let me hide myself in Thee; Let the water and the blood, From Thy wounded side which flowed, Be of sin the double cure; Save from wrath and make me pure.",
+    "v2": "Not the labor of my hands Can fulfill Thy law&#39;s demands; Could my zeal no respite know, Could my tears forever flow, All for sin could not atone; Thou must save, and Thou alone.",
+    "v3": "Nothing in my hand I bring, Simply to the cross I cling; Naked, come to Thee for dress; Helpless look to Thee for grace; Foul, I to the fountain fly; Wash me, Savior, or I die.",
+    "v4": "While I draw this fleeting breath, When mine eyes shall close in death, When I soar to worlds unknown, See Thee on Thy judgment throne, Rock of Ages, cleft for me, Let me hide myself in Thee."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Rock of Ages, cleft for me, Let me hide myself in Thee;",
+        "v2": "Not the labor of my hands Can fulfill Thy law&#39;s demands;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Let the water and the blood,",
+        "v2": "Could my zeal no respite know,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "From Thy wounded side which flowed,",
+        "v2": "Could my tears forever flow,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Be of sin the double cure; Save from wrath and make me pure.",
+        "v2": "All for sin could not atone; Thou must save, and Thou alone."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "I6",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 12
+}

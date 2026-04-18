@@ -1,0 +1,445 @@
+{
+  "title": "May God Bestow on Us His Grace",
+  "key": "e minor",
+  "key_root": "E",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1524",
+  "music": "adapted from older German hymn by Martin Luther. Found in Erfurt Enchiridion, 1524",
+  "tune": "Es Wollt uns Gott Genædig",
+  "lyrics": {
+    "v1": "May God bestow on us His grace, With blessings rich provide us, And may the brightness of His face To life eternal guide us That we His saving health may know, His gracious will and pleasure, And also to the heathen show Christ&#39;s riches without measure And unto God convert them.",
+    "v2": "Thine over all shall be the praise And thanks of every nation, And all the world with joy shall raise The voice of exultation; For Thou shalt judge the earth, O Lord, Nor suffer sin to flourish; Thy people&#39;s pasture is Thy Word Their souls to feed and nourish, In righteous paths to keep them.",
+    "v3": "Oh, let the people praise Thy worth, In all good works increasing; The land shall plenteous fruit bring forth, Thy Word is rich in blessing. May God the Father, God the Son, And God the Spirit bless us! Let all the world praise Him alone, Let solemn awe possess us. Now let our hearts say, Amen."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "May God bestow on us His",
+        "v2": "Thine over all shall be the"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "grace, With blessings rich provide us,",
+        "v2": "praise And thanks of every nation,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "And may the brightness of His face To life eternal guide",
+        "v2": "And all the world with joy shall raise The voice of exulta"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "us That we His saving health may know, His gracious will and pleasure, And also",
+        "v2": "tion; For Thou shalt judge the earth, O Lord, Nor suffer sin to flourish; Thy people&#39;s"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        21,
+        22
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "to the heathen show Christ&#39;s",
+        "v2": "pasture is Thy Word Their"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "riches without measure And unto God convert them.",
+        "v2": "souls to feed and nourish, In righteous paths to keep them."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": null,
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "III52",
+      "mel": "D5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "#IIIo6",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "iv7",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "i6",
+      "mel": null,
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "Vo6",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "3333",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Floating",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "III6",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "iv7",
+      "mel": "G4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Haunting",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "iv6",
+      "mel": "E4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "i6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "III",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "ii°6",
+      "mel": "C5",
+      "lh_rom": "IΔiii",
+      "lh_qual": "",
+      "lh_fig": "7233",
+      "rh_rom": "viiø7iii",
+      "rh_qual": "",
+      "rh_fig": "D233",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "III6",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "i62",
+      "mel": "E5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 21,
+      "rn": "iv",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iiiii",
+      "rh_qual": "",
+      "rh_fig": "743",
+      "mood": "Prismatic",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 22,
+      "rn": "iv6",
+      "mel": "E4",
+      "lh_rom": "ii6",
+      "lh_qual": "",
+      "lh_fig": "2332",
+      "rh_rom": "vii",
+      "rh_qual": "",
+      "rh_fig": "834",
+      "mood": "Dark",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 23,
+      "rn": "iv4",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 24,
+      "rn": "iv52",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 25,
+      "rn": "V",
+      "mel": null,
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 26,
+      "rn": "iv7",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 27,
+      "rn": "i6",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 27
+}

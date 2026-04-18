@@ -1,0 +1,249 @@
+{
+  "title": "I Am Jesus&#39; Little Lamb",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Henrietta L. von Hayn, 1778",
+  "music": "from Bruder Choral-Buch, 1784",
+  "tune": "Weil Ich Jesu Schäflein Bin",
+  "lyrics": {
+    "v1": "I am Jesus&#39; little lamb, Ever glad at heart I am; For my Shepherd gently guides me, Knows my need, and well provides me, Loves me ev&#39;ry day the same, Even calls me by my name.",
+    "v2": "Day by day, at home, away, Jesus is my Staff and Stay. When I hunger, Jesus feeds me, Into pleasant pastures leads me; When I thirst, He bids me go Where the quiet waters flow.",
+    "v3": "Who so happy as I am, Even now the Shepherd&#39;s lamb? And when my short life is ended, By His angel host attended, He shall fold me to His breast, There within His arms to rest."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "I am Jesus&#39; little lamb,",
+        "v2": "Day by day, at home, away,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Ever glad at heart I am;",
+        "v2": "Jesus is my Staff and Stay."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "For my Shepherd gently guides me, Knows my need, and",
+        "v2": "When I hunger, Jesus feeds me, Into pleasant"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "well provides me, Loves me ev&#39;ry",
+        "v2": "pastures leads me; When I thirst, He"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "day the same, Even calls me by my name.",
+        "v2": "bids me go Where the quiet waters flow."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I74",
+      "mel": "F4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V7",
+      "mel": "C5",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Arched",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

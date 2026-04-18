@@ -1,0 +1,292 @@
+{
+  "title": "The Lily of the Valley",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "6/8",
+  "bpm": 100,
+  "words": "C. W. Fry, 1881",
+  "music": "or &#39;The Lily of the Valley&#39; William S. Hays, 1881 Ira D. Sankey, 1887",
+  "tune": "Salvation",
+  "lyrics": {
+    "v1": "I&#39;ve found a friend in Jesus, He&#39;s everything to me, He&#39;s the fairest of ten thousand to my soul; The Lily of the Valley, in Him alone I see All I need to cleanse and make me fully whole. In sorrow He&#39;s my comfort, in trouble He&#39;s my stay; He tells me every care on Him to roll. He&#39;s the Lily of the Valley, the Bright and Morning Star, He&#39;s the fairest of ten thousand to my soul.",
+    "v2": "He all my grief has taken, and all my sorrows borne; In temptation He&#39;s my strong and mighty tow&#39;r; I&#39;ll all for Him forsake now, I&#39;ll all my idols tear From my heart for now He keeps me by His pow&#39;r. Though all the world forsake me, and Satan tempt me sore, Through Jesus I shall safely reach the goal. He&#39;s the Lily of the Valley, the Bright and Morning Star, He&#39;s the fairest of ten thousand to my soul.",
+    "v3": "He&#39;ll never, never leave me, nor yet forsake me here, So I live by faith and do His blessed will; A wall of fire about me, I&#39;ve nothing now to fear, With His manna He my hungry soul shall fill. When crown&#39;d at last in glory, I&#39;ll see His blessed face, Where rivers of delight shall ever roll. He&#39;s the Lily of the Valley, the Bright and Morning Star, He&#39;s the fairest of ten thousand to my soul."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "I&#39;ve found a friend in Jesus, He&#39;s everything to me, He&#39;s the fairest of ten thousand to",
+        "v2": "He all my grief has taken, and all my sorrows borne; In temptation He&#39;s my strong and might"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "my soul; The Lily of the Val",
+        "v2": "y tow&#39;r; I&#39;ll all for Him forsake"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ley, in Him alone I see All I need to cleanse and make me fully whole. In sorrow He&#39;s my comfort, in trouble He&#39;s my",
+        "v2": "now, I&#39;ll all my idols tear From my heart for now He keeps me by His pow&#39;r. Though all the world forsake me, and Satan tempt me"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "stay; He tells me every care on Him to",
+        "v2": "sore, Through Jesus I shall safely reach the"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "roll. He&#39;s the Lily of the Valley, the Bright and Morning Star, He&#39;s the fairest of ten thousand",
+        "v2": "goal. He&#39;s the Lily of the Valley, the Bright and Morning Star, He&#39;s the fairest of ten thousand"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "I6",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "G4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I7",
+      "mel": "G4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "IV",
+      "mel": "F4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 15,
+      "rn": "IV4",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

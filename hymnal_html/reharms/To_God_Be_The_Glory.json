@@ -1,0 +1,523 @@
+{
+  "title": "To God Be The Glory",
+  "key": "A♭ major",
+  "key_root": "A-",
+  "mode": "major",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "Fanny Crosby, 1875",
+  "music": "William Howard Doane, 1875",
+  "tune": "To God Be The Glory",
+  "lyrics": {
+    "v1": "To God be the glory, great things He has done; So loved He the world that He gave us His Son Who yielded His life an atonement for sin, And opened the life gate that all may go in. Praise the Lord, praise the Lord, Let the earth hear His voice! Praise the Lord, praise the Lord, Let the people rejoice! O come to the Father, through Jesus the Son, And give Him the glory, great things He has done.",
+    "v2": "O perfect redemption, the purchase of blood, To every believer the promise of God; The vilest offender who truly believes, That moment from Jesus a pardon receives. Praise the Lord, praise the Lord, Let the earth hear His voice! Praise the Lord, praise the Lord, Let the people rejoice! O come to the Father, through Jesus the Son, And give Him the glory, great things He has done.",
+    "v3": "Great things He has taught us, great things He has done, And great our rejoicing through Jesus the Son; But purer, and higher, and greater will be Our wonder, our transport, when Jesus we see. Praise the Lord, praise the Lord, Let the earth hear His voice! Praise the Lord, praise the Lord, Let the people rejoice! O come to the Father, through Jesus the Son, And give Him the glory, great things He has done."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "To God be the glory,",
+        "v2": "O perfect redemption,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "great things He has done;",
+        "v2": "the purchase of blood,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "So loved He the world that",
+        "v2": "To every believer"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "He gave us His Son Who yield",
+        "v2": "the promise of God; The vil"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ed His life an atonement for sin,",
+        "v2": "est offender who truly believes,"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "And opened the life gate that all may",
+        "v2": "That moment from Jesus a pardon"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "go in. Praise the Lord, praise the Lord, Let the earth hear His voice!",
+        "v2": "receives. Praise the Lord, praise the Lord, Let the earth hear His voice!"
+      }
+    },
+    {
+      "label": "H",
+      "bars": [
+        21,
+        22,
+        23
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Praise the Lord, praise the Lord, Let the people",
+        "v2": "Praise the Lord, praise the Lord, Let the people"
+      }
+    },
+    {
+      "label": "I",
+      "bars": [
+        24,
+        25
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "rejoice! O come",
+        "v2": "rejoice! O come"
+      }
+    },
+    {
+      "label": "J",
+      "bars": [
+        26,
+        27,
+        28
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "to the Father, through Jesus the Son,",
+        "v2": "to the Father, through Jesus the Son,"
+      }
+    },
+    {
+      "label": "K",
+      "bars": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "And give Him the glory, great things He has done.",
+        "v2": "And give Him the glory, great things He has done."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V7",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I6",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV52",
+      "mel": "D-5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "ii",
+      "mel": "F4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V7",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii6",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I64",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "V7",
+      "mel": "B-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 23,
+      "rn": "V7",
+      "mel": "D-5",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 24,
+      "rn": "V64",
+      "mel": "D-5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Fraying",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 25,
+      "rn": "V7",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 27,
+      "rn": "I6",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 28,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 29,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 30,
+      "rn": "ii6",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 31,
+      "rn": "I64",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 32,
+      "rn": "V7",
+      "mel": "B-4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 32
+}

@@ -1,0 +1,132 @@
+{
+  "title": "All Praise To Thee, My God, This Night",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Thomas Ken, circa 1674",
+  "music": "Thomas Tallis, circa 1567",
+  "tune": "Tallis` Canon",
+  "lyrics": {
+    "v1": "All praise to Thee, my God, this night, For all the blessings of the light! Keep me, O keep me, King of kings, Beneath Thine own almighty wings.",
+    "v2": "Forgive me, Lord, for Thy dear Son, The ill that I this day have done, That with the world, myself, and Thee, I, ere I sleep, at peace may be.",
+    "v3": "Teach me to live, that I may dread The grave as little as my bed. Teach me to die, that so I may Rise glorious at the judgment day.",
+    "v4": "O may my soul on Thee repose, And with sweet sleep mine eyelids close, Sleep that may me more vig&#39;rous make To serve my God when I awake.",
+    "v5": "When in the night I sleepless lie, My soul with heav&#39;nly thoughts supply; Let no ill dreams disturb my rest, No pow&#39;rs of darkness me molest."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "All praise to Thee, my God, this night, For all the bless",
+        "v2": "Forgive me, Lord, for Thy dear Son, The ill that I"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "ings of the light! Keep me, O keep",
+        "v2": "this day have done, That with the world,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "me, King of kings, Beneath Thine own almighty wings.",
+        "v2": "myself, and Thee, I, ere I sleep, at peace may be."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii7",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Ethereal",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii7",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Ethereal",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "633",
+      "mood": "Pastoral",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 7,
+      "rn": "I6",
+      "mel": "D4",
+      "lh_rom": "iii¹",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "743",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "iii",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "iii+8",
+      "rh_qual": "",
+      "rh_fig": "A334",
+      "mood": "Tolling",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

@@ -1,0 +1,348 @@
+{
+  "title": "We Now Implore God the Holy Ghost",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "v.1 ancient German.  verses 2-4 Martin Luther, 1524.  Translation composite",
+  "music": "ancient German found in Walter&#39;s Geistliche Gesangbüchlein, 1524",
+  "tune": "Nun Bitten wir den Heiligen Geist",
+  "lyrics": {
+    "v1": "We now implore God the Holy Ghost For the true faith, which we need the most, That in our last moments He may befriend us And, as homeward we journey, attend us. Lord, have mercy.",
+    "v2": "Shine in our hearts, O most precious Light, That we Jesus Christ may know aright, Clinging to our Savior, whose blood hath bought us. Who again to our homeland hath brought us. Lord, have mercy.",
+    "v3": "Thou sacred Love, grace on us bestow, Set our hearts with heav&#39;nly fire aglow That with hearts united we love each other, Of one mind, in peace with ev&#39;ry brother. Lord, have mercy!",
+    "v4": "Thou highest Comfort in ev&#39;ry need, Grant that neither shame nor death we heed, That e&#39;en then our courage may never fail us When the Foe shall accuse and assail us. Lord, have mercy!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "We now implore God",
+        "v2": "Shine in our hearts, O"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "the Holy Ghost",
+        "v2": "most precious Light,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "For the true faith, which we need the most,",
+        "v2": "That we Jesus Christ may know aright,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "That in our last moments He may befriend us And, as home",
+        "v2": "Clinging to our Savior, whose blood hath bought us. Who again"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "ward we journey, attend",
+        "v2": "to our homeland hath brought"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        17,
+        18,
+        19,
+        20
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "us. Lord, have mercy.",
+        "v2": "us. Lord, have mercy."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "I6",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "viio6",
+      "mel": "E4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I6",
+      "mel": "F4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "viio6",
+      "mel": "E4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "iii",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I6",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "ii",
+      "mel": "D4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "V",
+      "mel": "C4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 20
+}

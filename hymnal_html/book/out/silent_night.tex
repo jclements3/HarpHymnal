@@ -1,0 +1,29 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[letterpaper, margin=0.6in]{geometry}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{center}{\Large\itshape Silent Night}\\[2mm]
+{\small\ttfamily Piano score — lilypond-book pipeline test}\end{center}
+
+\vspace{4mm}
+
+\begin{quote}
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{10/lily-2dcea7ac-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+}
+\end{quote}
+
+\end{document}

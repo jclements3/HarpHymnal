@@ -1,0 +1,185 @@
+{
+  "title": "All Praise to Jesus&#39; Hallowed Name",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "verse 1, ancient German.  verses 2-7, Martin Luther, 1524",
+  "music": "ancient German found in Walter&#39;s Geistliche Gesangbüchlein, 1524 Karl August Haupt, 1869",
+  "tune": "Gelobet Seist Du",
+  "lyrics": {
+    "v1": "All praise to Jesus&#39; hallowed Name Who of virgin pure became True man for us! The angels sing As the glad news to earth they bring. Hallelujah!",
+    "v2": "Th&#39;Eternal Father&#39;s only Son For a manger leaves His throne Disguised in our poor flesh and blood See now the everlasting Good.",
+    "v3": "He whom the world could not inwrap Yonder lies in Mary&#39;s lap; He is become an infant small, Who by His might upholdeth all.",
+    "v4": "Th&#39;Eternal Light, come down from heav&#39;n, Hath to us new sunshine giv&#39;n; It shineth in the midst of night, And maketh us the sons of light.",
+    "v5": "The Father&#39;s Son, God ever\\- blest, In the world became a guest; He leads us from this vale of tears, And makes us in his kingdom heirs."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "All praise to Jesus&#39; hallowed Name Who of vir",
+        "v2": "Th&#39;Eternal Father&#39;s only Son For a man"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "gin pure became True man for us!",
+        "v2": "ger leaves His throne Disguised in our"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The angels sing As the glad news",
+        "v2": "poor flesh and blood See now the ev"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "to earth they bring. Hallelujah!",
+        "v2": "erlasting Good."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I6",
+      "mel": "D5",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 10
+}

@@ -1,0 +1,225 @@
+{
+  "title": "Jesus Sinners Doth Receive",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Erdmann Neumeister, 1718",
+  "music": "from Neu-verfertigtes Darmstädtiches Gesang-Buch, 1699",
+  "tune": "Meinen Jesum Lass` Ich Nicht (Darmstadt)",
+  "lyrics": {
+    "v1": "Jesus sinners doth receive; Well may we this saying ponder Who in sin&#39;s delusions live, And from God and Heaven wander: Here is hope for all who grieve\\- Jesus sinners doth receive.",
+    "v2": "We deserve but grief and shame,\\- Yet His words, rich grace revealing, Pardon, peace, and life proclaim; Here their ills have perfect healing Who with humble hearts believe\\- Jesus sinners doth receive.",
+    "v3": "As the shepherd seeks to find His lost sheep that from Him strayeth, So hath Christ each soul in mind, And for its salvation prayeth; Fain He&#39;d have each wand&#39;rer live: Jesus sinners doth receive.",
+    "v4": "Come, then, all by guilt oppressed, Jesus calls, and He would make you God&#39;s own children, pure and blest, And to glory He would take you; Think on this, and well believe Jesus sinners doth receive.",
+    "v5": "Savior, now I come to Thee: Great my sins, a weary burden! Wilt Thou mercy show to me? Can I hope to find a pardon? I will trust: my soul relieve! Me, a sinner, Lord, receive!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Jesus sinners doth receive;",
+        "v2": "We deserve but grief and shame,\\"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Well may we this saying ponder Who in",
+        "v2": "Yet His words, rich grace revealing, Pardon,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "sin&#39;s delusions live, And from",
+        "v2": "peace, and life proclaim; Here their"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "God and Heaven wander:",
+        "v2": "ills have perfect healing"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Here is hope for all who grieve\\",
+        "v2": "Who with humble hearts believe\\"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Jesus sinners doth receive.",
+        "v2": "Jesus sinners doth receive."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I6",
+      "mel": "F#4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V6",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 13
+}

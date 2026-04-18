@@ -1,0 +1,280 @@
+{
+  "title": "Gentle Mary Laid Her Child",
+  "key": "A major",
+  "key_root": "A",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Joseph S. Cook, 1919",
+  "music": "13th Century spring carol; first published in the Swedish Piae Cantones, 1582",
+  "tune": "Tempus Adest Floridum",
+  "lyrics": {
+    "v1": "Gentle Mary laid her Child lowly in a manger; There He lay, the undefiled, to the world a Stranger: Such a Babe in such a place, can He be the Savior? Ask the saved of all the race who have found His favor.",
+    "v2": "Angels sang about His birth; wise men sought and found Him; Heaven&#39;s star shone brightly forth, glory all around Him: Shepherds saw the wondrous sight, heard the angels singing; All the plains were lit that night, all the hills were ringing.",
+    "v3": "Gentle Mary laid her Child lowly in a manger; He is still the undefiled, but no more a stranger: Son of God, of humble birth, beautiful the story; Praise His Name in all the earth, hail the King of glory!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Gentle Mary laid her Child lowly in a",
+        "v2": "Angels sang about His birth; wise men sought and"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "manger; There He lay, the undefiled, to the world a",
+        "v2": "found Him; Heaven&#39;s star shone brightly forth, glory all a"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Stranger: Such a Babe in such a place, can He be the Savior?",
+        "v2": "round Him: Shepherds saw the wondrous sight, heard the angels singing;"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Ask the saved of all the race who have found His",
+        "v2": "All the plains were lit that night, all the hills were"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        16,
+        17
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "favor.",
+        "v2": "ringing."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I6",
+      "mel": "F#4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I6",
+      "mel": "F#4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I6",
+      "mel": "E5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi",
+      "mel": "C#5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "IV",
+      "mel": "F#4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I6",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I6",
+      "mel": "E5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "vi",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 17
+}

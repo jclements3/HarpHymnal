@@ -1,0 +1,239 @@
+{
+  "title": "As With Gladness Men of Old",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "William Chatterton Dix, 1860",
+  "music": "or &#39;Treuer Heiland, Wir Sind Heir&#39; Conrad Kocher, 1838. Abridged by William Henry Monk, 1861 Conrad Kocher, 1838, alt. by William Henry Monk, 1861, alt. for",
+  "tune": "Dix",
+  "lyrics": {
+    "v1": "As with gladness, men of old Did the guiding star behold As with joy they hailed its light Leading onward, beaming bright So, most glorious Lord, may we Evermore be led to Thee.",
+    "v2": "As with joyful steps they sped To that lowly manger bed There to bend the knee before Him whom Heav&#39;n and earth adore; So may we with willing feet Ever seek Thy mercy seat.",
+    "v3": "As they offered gifts most rare At that manger rude and bare; So may we with holy joy, Pure and free from sin&#39;s alloy, All our costliest treasures bring, Christ, to Thee, our heav&#39;nly King.",
+    "v4": "Holy Jesus, ev&#39;ry day Keep us in the narrow way; And, when earthly things are past, Bring our ransomed souls at last Where they need no star to guide, Where no clouds Thy glory hide.",
+    "v5": "In the heav&#39;nly country bright, Need they no crea- ted light; Thou its Light, its Joy, its Crown, Thou its Sun which goes not down; There forever may we sing Alleluias to our King!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "As with gladness, men of old",
+        "v2": "As with joyful steps they sped"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Did the guiding star behold As with joy they hailed its light",
+        "v2": "To that lowly manger bed There to bend the knee before"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Leading onward, beaming bright So, most glorious Lord, may we",
+        "v2": "Him whom Heav&#39;n and earth adore; So may we with willing feet"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Evermore be led to Thee.",
+        "v2": "Ever seek Thy mercy seat."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV6",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Alarming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I64",
+      "mel": "D4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV6",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Alarming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I64",
+      "mel": "D4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 9,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V6",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I4",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

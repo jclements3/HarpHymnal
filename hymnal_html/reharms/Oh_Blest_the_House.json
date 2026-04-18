@@ -1,0 +1,146 @@
+{
+  "title": "Oh, Blest the House",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Christoph C. L. von Pfeil, 1735",
+  "music": "from Klug&#39;s Geistliche Lieder, 1533",
+  "tune": "Wo Gott Zum Haus",
+  "lyrics": {
+    "v1": "Oh blest the house, whate&#39;er befall, Where Jesus Christ is All in All; Yea, if He were not dwelling there, How poor and dark and void it were!",
+    "v2": "Oh blest that house where faith ye find, And all within have set their mind To trust their God and serve Him still, And do in all His holy will.",
+    "v3": "Blest, where their prayers shall daily rise As fragrant incense to the skies, While in their lives the world is taught That forms without the heart are naught.",
+    "v4": "Blest, where the busy hands fulfil Their proper task with ready skill, While through their different works ye see One spirit run of unity.",
+    "v5": "Blest such a house, it prospers well, In peace and joy the parents dwell, And in their children&#39;s lot is shown How richly God can bless His own."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Oh blest the house, whate&#39;er befall, Where Jesus",
+        "v2": "Oh blest that house where faith ye find, And all with"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Christ is All in All; Yea, if He were not dwelling",
+        "v2": "in have set their mind To trust their God and serve Him"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "there, How poor and dark and void it were!",
+        "v2": "still, And do in all His holy will."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V6",
+      "mel": "A-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 9
+}

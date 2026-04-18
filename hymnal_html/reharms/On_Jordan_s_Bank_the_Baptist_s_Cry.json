@@ -1,0 +1,306 @@
+{
+  "title": "On Jordan&#39;s Bank the Baptist&#39;s Cry",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "Charles Coffin, 1736. st. 1-3 translated by John Chandler, 1837; st 4-5 translator unknown",
+  "music": "Michael Praetorius, 1609 George Ratcliffe Woodward for",
+  "tune": "Puer Nobis Nascitur",
+  "lyrics": {
+    "v1": "On Jordan&#39;s bank the Baptist&#39;s cry Announces that the Lord is nigh; Come, then, and hearken, for he brings Glad tidings from the King of kings!",
+    "v2": "Then cleansed be every breast from sin; Make straight the way for God within; Prepare we in our hearts a home, Where such a mighty Guest may come.",
+    "v3": "For Thou art our Salvation, Lord, Our Refuge, and our great Reward. Without Thy grace our souls must fade And wither like a flow&#39;r decayed.",
+    "v4": "Stretch forth Thine hand, to heal our sore, And make us rise and fall no more; Once more upon Thy people shine, And fill the world with love divine.",
+    "v5": "To Him Who left the throne of Heav&#39;n To save mankind, all praise be giv&#39;n; Like praise be to the Father done, And Holy Spirit, Three in One."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "On Jordan&#39;s bank",
+        "v2": "Then cleansed be ev"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "the Baptist&#39;s cry",
+        "v2": "ery breast from sin;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Announces that the Lord",
+        "v2": "Make straight the way for God"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "is nigh; Come, then, and hearken, for",
+        "v2": "within; Prepare we in our hearts"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "he brings Glad tidings from",
+        "v2": "a home, Where such a might"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "the King of kings!",
+        "v2": "y Guest may come."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV64",
+      "mel": "D5",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V6",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "IV6",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "ii",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 15,
+      "rn": "I6",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "C#4",
+      "lh_rom": "IV6",
+      "lh_qual": "",
+      "lh_fig": "4332",
+      "rh_rom": "IΔi",
+      "rh_qual": "",
+      "rh_fig": "A332",
+      "mood": "Lifted",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

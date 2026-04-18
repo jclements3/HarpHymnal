@@ -1,0 +1,471 @@
+{
+  "title": "The Bridegroom Soon Will Call Us",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "Johann Walther, 1552",
+  "music": "or &#39;Ich will ein Neues Singen&#39; or &#39;Praetorius 7&#39; from Musae Sionae, 1855",
+  "tune": "Act Gott Vom Himmelreiche",
+  "lyrics": {
+    "v1": "The Bridegroom soon will call us, Come, all ye wedding guests! May not His voice appall us, While slumber binds our breasts; May all our lamps be burning, And oil be found in store, That we, with Him returning, May open find the door.",
+    "v2": "There shall we see delighted Our dear Redeemer&#39;s face, Who leads our souls benighted To glory by His grace; The patriarchs shall meet us, The prophets&#39; holy band, Apostles, martyrs, greet us In that celestial land.",
+    "v3": "They will not blush to own us As brothers, sisters dear, Love ever will be shown us When we with them appear; We all shall come before Him, Who for us Man became, As Lord and God adore Him, And ever bless His Name.",
+    "v4": "Our Father, rich in blessing, Will give us crowns of gold And, to His bosom pressing, Impart a bliss untold, Will welcome with embraces Of never ending love, And deck us with His graces In blissful realms above.",
+    "v5": "In yonder home shall never Be silent music&#39;s voice; With hearts and lips forever We shall in God rejoice; The angels shall adore Him, All saints shall sing His praise, And bring with joy before Him Their sweetest heav&#39;nly lays."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The Bridegroom soon will call us, Come, all",
+        "v2": "There shall we see delighted Our dear"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "ye wedding guests!",
+        "v2": "Redeemer&#39;s face,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "May not His voice appall us, While slum",
+        "v2": "Who leads our souls benighted To glo"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ber binds our breasts;",
+        "v2": "ry by His grace;"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16,
+        17
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "May all our lamps be burn",
+        "v2": "The patriarchs shall meet"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ing, And oil be found in store,",
+        "v2": "us, The prophets&#39; holy band,"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        22,
+        23,
+        24
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "That we, with Him return",
+        "v2": "Apostles, martyrs, greet"
+      }
+    },
+    {
+      "label": "H",
+      "bars": [
+        25,
+        26
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "ing, May o",
+        "v2": "us In that"
+      }
+    },
+    {
+      "label": "I",
+      "bars": [
+        27,
+        28
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "pen find the door.",
+        "v2": "celestial land."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "vi",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V7",
+      "mel": "B4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "F#4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V",
+      "mel": "F#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "iii",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Rooting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "viio6",
+      "mel": "C5",
+      "lh_rom": "IΔiii",
+      "lh_qual": "",
+      "lh_fig": "7233",
+      "rh_rom": "viiø7iii",
+      "rh_qual": "",
+      "rh_fig": "D233",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "IV",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 23,
+      "rn": "ii",
+      "mel": "G4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 24,
+      "rn": "V",
+      "mel": "F#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 25,
+      "rn": "vi6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 26,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 28,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 28
+}

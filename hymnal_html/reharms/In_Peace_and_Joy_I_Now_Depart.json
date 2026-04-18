@@ -1,0 +1,239 @@
+{
+  "title": "In Peace and Joy I Now Depart",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1524",
+  "music": "from Walter&#39;s Geistliche Gesangbüchlein, 1524 Michael Praetorius, 1610",
+  "tune": "Mit Fried und Freud ich Far Dahin",
+  "lyrics": {
+    "v1": "In peace and joy I now depart At God&#39;s disposing; For full of comfort is my heart, Soft reposing. So the Lord hath promised me, And death is but a slumber.",
+    "v2": "&#39;Tis Christ that wrought this work for me, My faithful Savior, Whom Thou hast made mine eyes to see By Thy favor. Now I know He is my Life, My Help in need and dying.",
+    "v3": "Him Thou hast unto all set forth Their great Salvation And to His kingdom called the earth, Every nation, By Thy dear and wholesome Word, In every place resounding.",
+    "v4": "He is the Hope and saving Light Of lands benighted; By Him are they who dwelt in night Fed and lighted. He is Israel&#39;s Praise and Bliss, Their Joy, Reward, and Glory."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "In peace and joy I now depart At",
+        "v2": "&#39;Tis Christ that wrought this work for me, My"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "God&#39;s disposing; For full of comfort is my heart, Soft re",
+        "v2": "faithful Savior, Whom Thou hast made mine eyes to see By Thy"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "posing. So the Lord",
+        "v2": "favor. Now I know"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "hath promised me, And death is but a slum",
+        "v2": "He is my Life, My Help in need and dy"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "ii°",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Despairing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "3333",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Floating",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iv64",
+      "mel": "C5",
+      "lh_rom": "ii7ii",
+      "lh_qual": "",
+      "lh_fig": "6323",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "III",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "i7",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "i52",
+      "mel": "C4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 13
+}

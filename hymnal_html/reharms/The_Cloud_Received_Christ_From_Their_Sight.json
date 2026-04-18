@@ -1,0 +1,268 @@
+{
+  "title": "The Cloud Received Christ From Their Sight",
+  "key": "A♭ major",
+  "key_root": "A-",
+  "mode": "major",
+  "meter": "3/2",
+  "bpm": 100,
+  "words": "Brian J. Dumont, 09 Dec 2008",
+  "music": "Carl G. Gläser, 1828 Lowell Mason, 1839",
+  "tune": "Azmon",
+  "lyrics": {
+    "v1": "The cloud received Christ from their sight. They stood, their mouths agape. Reminded of the things He taught His people still do wait.",
+    "v2": "The cloud kept safe God&#39;s people as Through the dry sea they trod, And led them through the wilderness; They truly walked with God!",
+    "v3": "On Sinai&#39;s height the cloud did rest To make a home below. The Ark first then His written Word His presence now would show.",
+    "v4": "Appearing on the mercy seat within the inmost place, the Temple showed God&#39;s promises to save our fallen race.",
+    "v5": "On mountain high Christ&#39;s face did shine like sun, a blazing light. The cloud once more appeared on earth a truly fearful sight."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The cloud received",
+        "v2": "The cloud kept safe"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Christ from their sight. They stood, their mouths",
+        "v2": "God&#39;s people as Through the dry sea"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "agape. Reminded of",
+        "v2": "they trod, And led them through"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "the things He taught His people still",
+        "v2": "the wilderness; They truly walked"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "do wait.",
+        "v2": "with God!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "V",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "I",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "V7",
+      "mel": "B-4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "IV",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I64",
+      "mel": "A-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V7",
+      "mel": "B-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 16
+}

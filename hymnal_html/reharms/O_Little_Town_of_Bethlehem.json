@@ -1,0 +1,218 @@
+{
+  "title": "O Little Town of Bethlehem",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Phillips Brooks, 1867",
+  "music": "Lewis H. Redner, 1868",
+  "tune": "St. Louis",
+  "lyrics": {
+    "v1": "O little town of Bethlehem, how still we see thee lie! Above thy deep and dreamless sleep the silent stars go by. Yet in thy dark streets shineth the everlasting Light; The hopes and fears of all the years are met in thee tonight.",
+    "v2": "For Christ is born of Mary, and gathered all above, While mortals sleep, the angels keep their watch of wond&#39;ring love. O morning stars together, proclaim the holy birth, And praises sing to God the King, and peace to men on earth!",
+    "v3": "How silently, how silently, the wondrous Gift is giv&#39;n; So God imparts to human hearts the blessings of His Heav&#39;n. No ear may hear His coming, but in this world of sin, Where meek souls will receive Him still, the dear Christ enters in.",
+    "v4": "Where children pure and happy pray to the blessèd Child, Where misery cries out to Thee, Son of the mother mild; Where charity stands watching and faith holds wide the door, The dark night wakes, the glory breaks, and Christmas comes once more.",
+    "v5": "O holy Child of Bethlehem, descend to us, we pray; Cast out our sin, and enter in, be born in us today. We hear the Christmas angels the great glad tidings tell; O come to us, abide with us, our Lord Emmanu- el!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "O little town of Bethlehem, how still we see thee lie!",
+        "v2": "For Christ is born of Mary, and gathered all above,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Above thy deep and dreamless sleep the silent stars go by.",
+        "v2": "While mortals sleep, the angels keep their watch of wond&#39;ring love."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Yet in thy dark streets shineth the everlasting Light; The hopes and fears of all the years are met in thee tonight.",
+        "v2": "O morning stars together, proclaim the holy birth, And praises sing to God the King, and peace to men on earth!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "ii6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi7",
+      "mel": "C5",
+      "lh_rom": "ii7ii",
+      "lh_qual": "",
+      "lh_fig": "6323",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "iii53",
+      "mel": "F4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IVii+8",
+      "rh_qual": "",
+      "rh_fig": "8433",
+      "mood": "Rustling",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "iii",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

@@ -1,0 +1,293 @@
+{
+  "title": "Jesus Christ, Our Blessed Savior",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "John Hus (1369-1415). Expanded by Martin Luther, 1524 Translator v.4,6 by Richard Massie Other verses unknown",
+  "music": "from Walter&#39;s Geistliche Gesangbüchlein, 1524 Von Tucher, 1848",
+  "tune": "Jesus Christus Unser Heiland, Der Von Uns (Walter)",
+  "lyrics": {
+    "v1": "Jesus Christ, our Blessed Savior, Turned away God&#39;s wrath forever; Suff&#39;ring pains no tongue can tell, He saved us from the pains of hell.",
+    "v2": "To remind us that, to save us He hath died, His flesh He gave us With this bread, a quick&#39;ning food, And with this wine, His precious blood.",
+    "v3": "Whoso to this board repaireth, Take good heed how He prepareth; Death instead of life shall He Receive who comes unworthily.",
+    "v4": "Praise the Father, God in heaven, Who such dainty food hath given, And for misdeeds thou hast done Gave to die His beloved Son.",
+    "v5": "Thou shalt hold with faith unshaken, That this food is to be taken By the sick who are distressed, By those whose heart is sin\\- oppressed."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Jesus Christ, our",
+        "v2": "To remind us"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Blessed Savior,",
+        "v2": "that, to save us"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Turned away God&#39;s wrath forev",
+        "v2": "He hath died, His flesh He gave"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "er; Suff&#39;ring pains no",
+        "v2": "us With this bread, a"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "tongue can tell,",
+        "v2": "quick&#39;ning food,"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "He saved us from the pains of hell.",
+        "v2": "And with this wine, His precious blood."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "i64",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "III6",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "III52",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i7",
+      "mel": "A4",
+      "lh_rom": "vi7",
+      "lh_qual": "",
+      "lh_fig": "6333",
+      "rh_rom": "viiø7iii",
+      "rh_qual": "",
+      "rh_fig": "D233",
+      "mood": "Bluesy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 9,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "III52",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "i7",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V6",
+      "mel": "C5",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "3333",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Floating",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "III43",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "i7",
+      "mel": "A4",
+      "lh_rom": "vi7",
+      "lh_qual": "",
+      "lh_fig": "6333",
+      "rh_rom": "viiø7iii",
+      "rh_qual": "",
+      "rh_fig": "D233",
+      "mood": "Bluesy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

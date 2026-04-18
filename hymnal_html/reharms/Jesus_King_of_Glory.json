@@ -1,0 +1,402 @@
+{
+  "title": "Jesus, King of Glory",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "W. Hope Davison, 1880",
+  "music": "Franz Joseph Haydn, 1774 John Bacchus Dykes, 1868",
+  "tune": "St. Alban",
+  "lyrics": {
+    "v1": "Jesus, King of glory, throned above the sky, Jesus, tender Savior, hear Thy children cry. Pardon our transgressions, cleanse us from our sin, By Thy Spirit help us heav&#39;nly life to win. Jesus, King of glory, throned above the sky, Jesus, tender Savior, hear Thy children cry.",
+    "v2": "On this day of gladness, Bending low the knee In thine earthly temple, Lord, we worship thee; Celebrate thy goodness, Mercy, grace, and truth, All thy loving guidance Of our heedless youth. glory, throned above the sky, Jesus, tender Savior, hear Thy children cry.",
+    "v3": "For the little children Who have come to thee; For the glad, bright spirits Who thy glory see; For the loved ones resting In thy dear embrace; For the pure and holy Who behold thy face, glory, throned above the sky, Jesus, tender Savior, hear Thy children cry.",
+    "v4": "Help us ever steadfast in the faith to be: In Thy Church&#39;s conflicts fighting valiantly. Loving Savior, strengthen these weak hearts of ours, Through Thy cross to conquer crafty evil powers. glory, throned above the sky, Jesus, tender Savior, hear Thy children cry.",
+    "v5": "When the shadows lengthen, show us, Lord, Thy way; Through the darkness lead us to the heav&#39;nly day; When our course is finished, ended all the strife, Grant us, with the faithful, palms and crowns of life. glory, throned above the sky, Jesus, tender Savior, hear Thy children cry."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Jesus, King of glory,",
+        "v2": "On this day of gladness,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "throned above the sky, Jesus, tender",
+        "v2": "Bending low the knee In thine earthly"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Savior, hear Thy children",
+        "v2": "temple, Lord, we worship"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "cry. Pardon our transgressions, cleanse us from our sin,",
+        "v2": "thee; Celebrate thy goodness, Mercy, grace, and truth,"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "By Thy Spirit help us",
+        "v2": "All thy loving guidance"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "heav&#39;nly life to win.",
+        "v2": "Of our heedless youth."
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        17,
+        18
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Jesus, King of glory,",
+        "v2": "glory,"
+      }
+    },
+    {
+      "label": "H",
+      "bars": [
+        19,
+        20,
+        21
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "throned above the sky, Jesus, tender",
+        "v2": "throned above the sky, Jesus, tender"
+      }
+    },
+    {
+      "label": "I",
+      "bars": [
+        22,
+        23,
+        24
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Savior, hear Thy children cry.",
+        "v2": "Savior, hear Thy children cry."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV6",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "ii6",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I6",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi6",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I6",
+      "mel": "D5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "ii6",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 21,
+      "rn": "IV6",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 22,
+      "rn": "ii6",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 23,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 24,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 24
+}

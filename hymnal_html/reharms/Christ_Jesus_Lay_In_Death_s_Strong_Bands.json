@@ -1,0 +1,305 @@
+{
+  "title": "Christ Jesus Lay In Death&#39;s Strong Bands",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1524",
+  "music": "or &#39;Torgau&#39; from Walter&#39;s Geistliche Gesangbüchlein, 1524",
+  "tune": "Christ lag in Tobes Banden",
+  "lyrics": {
+    "v1": "Christ Jesus lay in death&#39;s strong bands, For our offenses given; But now at God&#39;s right hand He stands, And brings us life from Heaven. Wherefore let us joyful be, And sing to God right thankfully Loud songs of Alleluia! Alleluia!",
+    "v2": "No son of man could conquer Death, Such mischief sin had wrought us, For innocence dwelt not on earth, And therefore Death had brought us Into thralldom from of old And ever grew more strong and bold And kept us in his bondage. Alleluia!",
+    "v3": "But Jesus Christ, God&#39;s only Son, To our low state descended, The cause of Death He has undone, His power forever ended, Ruined all his right and claim And left him nothing but the name, His sting is lost forever. Alleluia!",
+    "v4": "It was a strange and dreadful strife When life and death contended; The victory remained with life; The reign of death was ended. Stripped of power, no more it reigns, An empty form alone remains Death&#39;s sting is lost forever! Alleluia!",
+    "v5": "Here the true Paschal Lamb we see, Whom God so freely gave us; He died on the accursed tree So strong His love! to save us. See, His blood doth mark our door; Faith points to it, Death passes o&#39;er, And Satan cannot harm us. Alleluia!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Christ Jesus lay in death&#39;s strong bands, For our of",
+        "v2": "No son of man could conquer Death, Such mischief"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "fenses given; But now at",
+        "v2": "sin had wrought us, For inno"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "God&#39;s right hand He stands, And brings us",
+        "v2": "cence dwelt not on earth, And therefore"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "life from Heaven. Wherefore let us",
+        "v2": "Death had brought us Into thralldom"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "joyful be, And sing to God right",
+        "v2": "from of old And ever grew more"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "thankfully Loud songs of Alleluia! Alleluia!",
+        "v2": "strong and bold And kept us in his bondage. Alleluia!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iv",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "iv",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III6",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "3333",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Floating",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 13,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "i6",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 15
+}

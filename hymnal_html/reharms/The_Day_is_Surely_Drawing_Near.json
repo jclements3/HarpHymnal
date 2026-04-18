@@ -1,0 +1,334 @@
+{
+  "title": "The Day is Surely Drawing Near",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Bartholomäus Ringwaldt, 1565",
+  "music": "from Klug&#39;s Geistliche Lieder, Wittenberg, 1533",
+  "tune": "Es ist Gewisslich an der Zeit",
+  "lyrics": {
+    "v1": "The day is surely drawing near, When God&#39;s Son, the Anointed, Shall with great majesty appear, As Judge of all appointed. All mirth and laughter then shall cease When flames on flames will still increase, As Scripture truly teacheth.",
+    "v2": "A trumpet loud shall then resound, And all the earth be shaken; Then all who in their graves are found Shall from their sleep awaken. But all that live shall in that hour, By the Almighty&#39;s boundless pow&#39;r Be changed at His commanding.",
+    "v3": "A book is opened then to all, A record truly telling What each hath done, both great and small, When he on earth was dwelling; And every heart be clearly seen, And all be known as they have been, In thoughts and words and actions.",
+    "v4": "Then woe to those who scorned the Lord, And sought but carnal pleasures, Who here despised His precious Word, And loved their earthly treasures! With shame and trembling they will stand, And at the Judge&#39;s stern command To Satan be delivered.",
+    "v5": "O Jesus, who my debt didst pay And for my sin wast smitten Within the Book of Life, oh, may My name be also written! I will not doubt; I trust in Thee, From Satan Thou hast made me free And from all condemnation."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "The day is surely drawing near, When",
+        "v2": "A trumpet loud shall then resound, And"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "God&#39;s Son, the Anointed,",
+        "v2": "all the earth be shaken;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Shall with great majesty ap",
+        "v2": "Then all who in their graves are"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "pear, As Judge of all appointed. All mirth and laughter then shall",
+        "v2": "found Shall from their sleep awaken. But all that live shall in that"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "cease When flames on flames will",
+        "v2": "hour, By the Almighty&#39;s"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "still increase, As Scripture truly teacheth.",
+        "v2": "boundless pow&#39;r Be changed at His commanding."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I6",
+      "mel": null,
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi7",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "vi7",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iii",
+      "mel": null,
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV7",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Cooling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iii43",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I52",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V",
+      "mel": null,
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii",
+      "mel": "G4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I4",
+      "mel": "G4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "viiø43",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 18
+}

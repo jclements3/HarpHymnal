@@ -1,0 +1,145 @@
+{
+  "title": "Hallelujah, What a Savior!",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Philip Paul Bliss, 1875",
+  "music": "Philip Paul Bliss, 1875",
+  "tune": "Hallelujah What a Savior",
+  "lyrics": {
+    "v1": "Man of Sorrows! what a name For the Son of God, who came Ruined sinners to reclaim. Hallelujah! What a Savior!",
+    "v2": "Bearing shame and scoffing rude, In my place condemned He stood; Sealed my pardon with His blood.",
+    "v3": "Guilty, vile, and helpless we; Spotless Lamb of God was He; &quot;Full atonement!&quot; can it be?",
+    "v4": "Lifted up was He to die; &quot;It is finished!&quot; was His cry; Now in Heav&#39;n exalted high.",
+    "v5": "When He comes, our glorious King, All His ransomed home to bring, Then anew His song we&#39;ll sing:"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Man of Sorrows! what a name For the Son of",
+        "v2": "Bearing shame and scoffing rude, In my place con"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "God, who came Ruined sinners",
+        "v2": "demned He stood; Sealed my pardon"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "to reclaim. Hallelujah! What a Savior!",
+        "v2": "with His blood."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V4",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "Vii",
+      "rh_qual": "",
+      "rh_fig": "943",
+      "mood": "Curling",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

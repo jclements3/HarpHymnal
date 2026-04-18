@@ -1,0 +1,319 @@
+{
+  "title": "Alleluia, Alleluia! Hearts to Heaven and Voices Raise",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Christopher Wordsworth, 1865",
+  "music": "Ludwig van Beethoven, 1824",
+  "tune": "Ode to Joy",
+  "lyrics": {
+    "v1": "Alleluia, alleluia! Hearts to Heav&#39;n and voices raise: Sing to God a hymn of gladness, sing to God a hymn of praise. He, who on the cross a Victim, for the world&#39;s salvation bled, Jesus Christ, the King of glory, now is risen from the dead.",
+    "v2": "Now the iron bars are broken, Christ from death to life is born, Glorious life, and life immortal, on the holy Easter morn. Christ has triumphed, and we conquer by His mighty enterprise: We with Him to life eternal by His resurrection rise.",
+    "v3": "Christ is risen, Christ, the first fruits of the holy harvest field, Which will all its full abundance at His second coming yield: Then the golden ears of harvest will their heads before Him wave, Ripened by His glorious sunshine from the furrows of the grave.",
+    "v4": "Christ is risen, we are risen! Shed upon us heav&#39;nly grace, Rain and dew and gleams of glory from the brightness of Thy face; That we, with our hearts in Heaven, here on earth may fruitful be, And by angel hands be gathered, and be ever, Lord, with Thee.",
+    "v5": "Alleluia, alleluia! Glory be to God on high; Alleluia! to the Savior who has gained the victory; Alleluia! to the Spirit, fount of love and sanctity: Alleluia, alleluia! to the Triune Majesty."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Alleluia, alleluia!",
+        "v2": "Now the iron bars are broken,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Hearts to Heav&#39;n and voices raise:",
+        "v2": "Christ from death to life is born,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Sing to God a hymn of gladness, sing to God a hymn of praise.",
+        "v2": "Glorious life, and life immortal, on the holy Easter morn."
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "He, who on the cross a Victim,",
+        "v2": "Christ has triumphed, and we conquer"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "for the world&#39;s salvation bled, Jesus Christ, the",
+        "v2": "by His mighty enterprise: We with Him to"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "King of glory, now is risen from the dead.",
+        "v2": "life eternal by His resurrection rise."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V7",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I64",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "ii6",
+      "mel": "D5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 9,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I64",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii6",
+      "mel": "D5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

@@ -1,0 +1,224 @@
+{
+  "title": "Go To Dark Gethsemane",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "James Montgomery, 1820",
+  "music": "or &#39;Petra&#39; Richard Redhead, 1853",
+  "tune": "Gethsemane",
+  "lyrics": {
+    "v1": "Go to dark Gethsemane, ye that feel the tempter&#39;s pow&#39;r; Your Redeemer&#39;s conflict see, watch with Him one bitter hour, Turn not from His griefs away; learn from Jesus Christ to pray.",
+    "v2": "Follow to the judgment hall, view the Lord of Life arraigned; O the wormwood and the gall! O the pangs His soul sustained! Shun not suff&#39;ring, shame, or loss; learn from Christ to bear the cross.",
+    "v3": "Calv&#39;ry&#39;s mournful mountain climb; there, adoring at His feet, Mark that mira- cle of time, God&#39;s own sacrifice complete. &quot;It is finished!&quot; hear Him cry; learn from Jesus Christ to die.",
+    "v4": "Early hasten to the tomb where they laid His breathless clay; All is soli- tude and gloom. Who has taken Him away? Christ is ris&#39;n! He meets our eyes; Savior, teach us so to rise."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Go to dark Gethsemane,",
+        "v2": "Follow to the judgment hall,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ye that feel the tempter&#39;s pow&#39;r;",
+        "v2": "view the Lord of Life arraigned;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Your Redeemer&#39;s conflict see,",
+        "v2": "O the wormwood and the gall!"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "watch with Him one bitter hour, Turn not from His",
+        "v2": "O the pangs His soul sustained! Shun not suff&#39;ring,"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "griefs away; learn from Jesus Christ to pray.",
+        "v2": "shame, or loss; learn from Christ to bear the cross."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I6",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I6",
+      "mel": "E-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V7",
+      "mel": "E-4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Arched",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

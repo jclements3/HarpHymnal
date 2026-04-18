@@ -1,0 +1,216 @@
+{
+  "title": "Guide Me, O Thou Great Jehovah",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "William Williams, 1745",
+  "music": "John Hughes, 1907",
+  "tune": "Cwm Rhondda",
+  "lyrics": {
+    "v1": "Guide me, O Thou great Jehovah, Pilgrim through this barren land. I am weak, but Thou art mighty; Hold me with Thy pow&#39;rful hand. Bread of Heaven, Bread of Heaven, Feed me till I want no more; Feed me till I want no more.",
+    "v2": "Open now the crystal fountain, Whence the healing stream doth flow; Let the fire and cloudy pillar Lead me all my journey through. Strong Deliv&#39;rer, strong Deliv&#39;rer, Be Thou still my Strength and Shield; Be Thou still my Strength and Shield.",
+    "v3": "Lord, I trust Thy mighty power, Wondrous are Thy works of old; Thou deliver&#39;st Thine from thralldom, Who for naught themselves had sold: Thou didst conquer, Thou didst conquer, Sin, and Satan and the grave, Sin, and Satan and the grave.",
+    "v4": "When I tread the verge of Jordan, Bid my anxious fears subside; Death of deaths, and hell&#39;s destruction, Land me safe on Canaan&#39;s side. Songs of praises, songs of praises, I will ever give to Thee; I will ever give to Thee.",
+    "v5": "Musing on my habitation, Musing on my heav&#39;nly home, Fills my soul with holy longings: Come, my Jesus, quickly come; Vanity is all I see; Lord, I long to be with Thee! Lord, I long to be with Thee!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Guide me, O Thou great Jehovah, Pilgrim through this barren land.",
+        "v2": "Open now the crystal fountain, Whence the healing stream doth flow;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "I am weak, but Thou art mighty; Hold me with Thy pow&#39;rful hand. Bread of Heaven, Bread of Heaven,",
+        "v2": "Let the fire and cloudy pillar Lead me all my journey through. Strong Deliv&#39;rer, strong Deliv&#39;rer,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Feed me till I want no more; Feed me till I want no more.",
+        "v2": "Be Thou still my Strength and Shield; Be Thou still my Strength and Shield."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I4",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vi",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I6",
+      "mel": "D5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 14
+}

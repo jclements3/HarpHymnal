@@ -1,0 +1,536 @@
+{
+  "title": "The Lord&#39;s My Shepherd",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "3/2",
+  "bpm": 100,
+  "words": "Psalm 23 from the Scottish Psalter, 1650 alt. by James Leith Macbeth Bain, 1915",
+  "music": "or &#39;Brother James` Air&#39; James Leith Macbeth Bain, 1915",
+  "tune": "Marosa",
+  "lyrics": {
+    "v1": "The Lord&#39;s my shepherd I&#39;ll not want, He makes me down to lie In pastures green He leadeth me The quiet waters by. He leadeth me, He leadeth me, The quiet waters by, In pastures green He leadeth me The quiet waters by.",
+    "v2": "My soul He doth restore again, And me to walk doth make. Within the paths of blessedness, E&#39;en for His Own Name&#39;s sake; His Own Name&#39;s sake, His Own Name&#39;s sake, E&#39;en for His Own Name&#39;s sake; Within the paths of blessedness, E&#39;en for His Own Name&#39;s sake.",
+    "v3": "Yea, though I walk in death&#39;s dark vale, Yet will I fear no ill, For Thou art with me, and Thy rod And staff me comfort still; I&#39;ll fear no ill, I&#39;ll fear no ill, Yet will I fear no ill, For Thou art with me, and Thy rod And staff me comfort still.",
+    "v4": "My table Thou hast furnished well In presence of my foes; My head Thou dost with oil anoint, And my cup overflows; It overflows, It overflows, And my cup overflows; My head Thou dost with oil anoint, And my cup overflows.",
+    "v5": "Goodness and mercy all my days Will surely follow me: And in my Father&#39;s heart always My dwelling place shall be; My dwelling place, My dwelling place, My dwelling place shall be, And in my Father&#39;s heart always My dwelling place shall be."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The Lord&#39;s my shepherd I&#39;ll not want,",
+        "v2": "My soul He doth restore again,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "He makes me down",
+        "v2": "And me to walk"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "to lie",
+        "v2": "doth make."
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody rises — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "In pastures green",
+        "v2": "Within the paths"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "He leadeth me",
+        "v2": "of blessedness,"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "The quiet wa",
+        "v2": "E&#39;en for His Own"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ters by.",
+        "v2": "Name&#39;s sake;"
+      }
+    },
+    {
+      "label": "H",
+      "bars": [
+        17,
+        18
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "He leadeth me,",
+        "v2": "His Own Name&#39;s sake,"
+      }
+    },
+    {
+      "label": "I",
+      "bars": [
+        19,
+        20
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "He leadeth me,",
+        "v2": "His Own Name&#39;s sake,"
+      }
+    },
+    {
+      "label": "J",
+      "bars": [
+        21,
+        22
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "The quiet wa",
+        "v2": "E&#39;en for His Own"
+      }
+    },
+    {
+      "label": "K",
+      "bars": [
+        23,
+        24
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ters by,",
+        "v2": "Name&#39;s sake;"
+      }
+    },
+    {
+      "label": "L",
+      "bars": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "In pastures green He leadeth me",
+        "v2": "Within the paths of blessedness,"
+      }
+    },
+    {
+      "label": "M",
+      "bars": [
+        29,
+        30
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "The quiet wa",
+        "v2": "E&#39;en for His Own"
+      }
+    },
+    {
+      "label": "N",
+      "bars": [
+        31,
+        32,
+        33
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ters by.",
+        "v2": "Name&#39;s sake."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "IV6",
+      "mel": "D5",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V43",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "C#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "IV6",
+      "mel": "D5",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V43",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V7",
+      "mel": "C#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 21,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 22,
+      "rn": "V42",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 23,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 24,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 28,
+      "rn": "IV6",
+      "mel": "D5",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 29,
+      "rn": "V43",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 30,
+      "rn": "IV",
+      "mel": "D4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 31,
+      "rn": "V7",
+      "mel": "C#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 32,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 33
+}

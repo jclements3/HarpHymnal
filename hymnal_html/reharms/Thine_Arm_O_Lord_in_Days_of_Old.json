@@ -1,0 +1,241 @@
+{
+  "title": "Thine Arm, O Lord, in Days of Old",
+  "key": "e minor",
+  "key_root": "E",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Edward H. Plumptre, 1864",
+  "music": "traditional English Ralph Vaughan Williams, 1906",
+  "tune": "Kingsfold",
+  "lyrics": {
+    "v1": "Thine arm, O Lord, in days of old, was strong to heal and save; It triumphed o&#39;er disease and death, o&#39;er darkness and the grave. To Thee they went, the blind, the dumb, the palsied and the lame, The leper with his tainted life, the sick with fevered frame.",
+    "v2": "And lo! Thy touch brought life and health, gave speech, and strength and sight; And youth renewed and fear relieved owned Thee, the Lord of light; And now, O Lord, be near to bless, Almighty as of yore, In crowded street, by restless couch, as by Gennesaret&#39;s shore.",
+    "v3": "Be Thou our great Deliverer still, Thou Lord of life and death; Restore and quicken, soothe and bless, with Thine almighty breath. To hands that work and eyes that see, give wisdom&#39;s heavenly lore, That whole and sick, and weak and strong, may praise Thee evermore."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Thine arm, O Lord, in days of old,",
+        "v2": "And lo! Thy touch brought life and health,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "was strong to heal and save; It triumphed o&#39;er disease and death, o&#39;er darkness and the grave.",
+        "v2": "gave speech, and strength and sight; And youth renewed and fear relieved owned Thee, the Lord of light;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "To Thee they went, the blind, the dumb, the palsied and the lame, The leper with his tainted life,",
+        "v2": "And now, O Lord, be near to bless, Almighty as of yore, In crowded street, by restless couch,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "the sick with fevered frame.",
+        "v2": "as by Gennesaret&#39;s shore."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III6",
+      "mel": "D4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "III54",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "III54",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iv",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

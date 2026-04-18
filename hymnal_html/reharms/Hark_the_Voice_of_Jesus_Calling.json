@@ -1,0 +1,294 @@
+{
+  "title": "Hark, the Voice of Jesus Calling",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Daniel March, 1868",
+  "music": "Joseph Barnby, 1883",
+  "tune": "Galilean",
+  "lyrics": {
+    "v1": "Hark, the voice of Jesus calling, &quot;Who will go and work today? Fields are ripe and harvests waiting, Who will bear the sheaves away?&quot; Long and loud the Master calls us, Rich reward He offers free; Who will answer, gladly saying, &quot;Here am I, send me, send me?&quot;",
+    "v2": "If you cannot cross the ocean, And the distant lands explore, You can find the lost around you, You can help them at your door; If you cannot give your thousands, You can give the widow&#39;s mite; What you truly give for Jesus, Will be precious in His sight.",
+    "v3": "If you cannot speak like angels, If you cannot preach like Paul, You can tell the love of Jesus, You can say He died for all. If you cannot rouse the wicked, With the judgment&#39;s dread alarms, You can lead the little children To the Savior&#39;s waiting arms.",
+    "v4": "If you cannot be the watchman, Standing high on Zion&#39;s wall, Pointing out the path to heaven, Off&#39;ring life and peace to all, With your prayers and with your bounties You can do what heav&#39;n demands; You can be like faithful Aaron, Holding up the prophet&#39;s hands.",
+    "v5": "If among the older people, You may not be apt to teach, &quot;Feed My lambs,&quot; said Christ, our Shepherd, &quot;Place the food within their reach.&quot; And it may be that the children You have led with trembling hand, Will be found among your jewels, When you reach the better land."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Hark, the voice of Jesus calling, &quot;Who will go and work today? Fields are ripe and",
+        "v2": "If you cannot cross the ocean, And the distant lands explore, You can find the"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "harvests waiting, Who will bear the sheaves away?&quot;",
+        "v2": "lost around you, You can help them at your door;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Long and loud the Master calls us,",
+        "v2": "If you cannot give your thousands,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Rich reward He offers free; Who will answer,",
+        "v2": "You can give the widow&#39;s mite; What you truly"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "gladly saying, &quot;Here am I, send me, send me?&quot;",
+        "v2": "give for Jesus, Will be precious in His sight."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "ii7",
+      "mel": "A4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Haunting",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 9,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V64",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "ii7",
+      "mel": "A4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Haunting",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

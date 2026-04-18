@@ -1,0 +1,158 @@
+{
+  "title": "The Winds and Billows Loudly Roar",
+  "key": "f minor",
+  "key_root": "F",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Christopher Wordsworth, 1865",
+  "music": "or &#39;Morning Song&#39; John Wyeth, 1813",
+  "tune": "Consolation",
+  "lyrics": {
+    "v1": "The winds and billows loudly roar We flounder in the deep Our bark is frail, far off the shore, And Jesus is asleep.",
+    "v2": "&quot;Save us, we perish, Lord,&quot; they cry; To Thee we fly for aid; &quot;Awake! awake!&quot; they say; but why So faithless and afraid?",
+    "v3": "His head is pillow&#39;d on the stern, As Man He is asleep; As God He all things does discern, And endless vigils keep.",
+    "v4": "He does the ele- ments control; By His Almighty Will. The angry waves their surges roll; And at His Word are still.",
+    "v5": "O ye, who in the Church&#39;s Bark O&#39;er life&#39;s rough ocean sail, When all around is drear and dark, and human efforts fail,"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "The winds and billows loudly roar",
+        "v2": "&quot;Save us, we perish, Lord,&quot; they cry;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "We flounder in the deep Our bark is frail, far off the shore,",
+        "v2": "To Thee we fly for aid; &quot;Awake! awake!&quot; they say; but why"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "And Jesus is asleep.",
+        "v2": "So faithless and afraid?"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "V",
+      "mel": "C4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "iv",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V6",
+      "mel": "C4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "III6",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iv",
+      "mel": "A-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "C4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

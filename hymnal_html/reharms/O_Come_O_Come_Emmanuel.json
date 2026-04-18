@@ -1,0 +1,310 @@
+{
+  "title": "O Come O Come Emmanuel",
+  "key": "e minor",
+  "key_root": "E",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "various, 1851",
+  "music": "15th Century French processional, 1917",
+  "tune": "Veni Emmanuel",
+  "lyrics": {
+    "v1": "O come, O come, Emmanu- el, And ransom captive Israel, That mourns in lonely exile here Until the Son of God appear. Rejoice! Rejoice! Emmanu- el shall come to thee, O Israel.",
+    "v2": "O come, Thou Wisdom from on high, Who orderest all things mighti- ly; To us the path of knowledge show, And teach us in her ways to go. Rejoice! Rejoice! Emmanu- el shall come to thee, O Israel.",
+    "v3": "O come, Thou Rod of Jesse, free Thine own from Satan&#39;s tyranny; From depths of hell Thy people save, And give them vict&#39;ry ov&#39;r the grave. Rejoice! Rejoice! Emmanu- el shall come to thee, O Israel.",
+    "v4": "O come, Thou Dayspring, come and cheer Our spirits by Thine advent here; Disperse the gloomy clouds of night, And death&#39;s dark shadows put to flight. Rejoice! Rejoice! Emmanu- el shall come to thee, O Israel.",
+    "v5": "O come, Thou Key of David, come, And open wide our heav&#39;nly home; Make safe the way that leads on high, And close the path to misery. Rejoice! Rejoice! Emmanu- el shall come to thee, O Israel."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "O come, O come, Emmanuel, And ransom captive Israel,",
+        "v2": "O come, Thou Wisdom from on high, Who orderest all things mightily;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "That mourns in lonely exile here Until the Son",
+        "v2": "To us the path of knowledge show, And teach us in"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "of God appear. Rejoice! Rejoice!",
+        "v2": "her ways to go. Rejoice! Rejoice!"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Emmanuel",
+        "v2": "Emmanuel"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        17,
+        18,
+        19
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "shall come to thee, O Israel.",
+        "v2": "shall come to thee, O Israel."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "ii7ii",
+      "lh_qual": "",
+      "lh_fig": "6323",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iv6",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "VIIo",
+      "mel": "F#4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iv7",
+      "mel": "E4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "III6",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "3333",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Floating",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 15,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 18,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 19
+}

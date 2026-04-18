@@ -1,0 +1,158 @@
+{
+  "title": "To Shepherds As They Watched By Night",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1543. translated by Richard Massie, 1854",
+  "music": "traditional German from Schumann&#39;s Geistliche Lieder, Leipzig, 1539",
+  "tune": "Vom Himmel Hoch",
+  "lyrics": {
+    "v1": "To shepherds as they watched by night Appeared a host of angels bright; Behold the tender Babe, they said, In yonder lowly manger laid.",
+    "v2": "At Bethlehem, in David&#39;s town, As Micah did of old make known; &#39;Tis Jesus Christ, your Lord and King, Who doth to all salvation bring.",
+    "v3": "Oh, then rejoice that through His Son God is with sinners now at one; Made like yourselves of flesh and blood, Your Brother is th&#39;eternal God.",
+    "v4": "What harm can sin and death then do? The true God now abides with you. Let hell and Satan rage and chafe, Christ is your Brother ye are safe.",
+    "v5": "Not one He will or can forsake Who Him his confidence doth make. Let all his wiles the Tempter try, You may his utmost pow&#39;rs defy."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "To shepherds as they watched by night",
+        "v2": "At Bethlehem, in David&#39;s town,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Appeared a host of angels bright;",
+        "v2": "As Micah did of old make known;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Behold the tender Babe, they said, In yonder lowly manger laid.",
+        "v2": "&#39;Tis Jesus Christ, your Lord and King, Who doth to all salvation bring."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "vi7",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "F#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi7",
+      "mel": "C#5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV62",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I4",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

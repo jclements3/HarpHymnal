@@ -1,0 +1,304 @@
+{
+  "title": "What Child Is This?",
+  "key": "e minor",
+  "key_root": "E",
+  "mode": "minor",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "William Chatterton Dix, 1865",
+  "music": "16th Century English Traditional, 1871",
+  "tune": "Greensleeves",
+  "lyrics": {
+    "v1": "What Child is this who, laid to rest On Mary&#39;s lap is sleeping? Whom angels greet with anthems sweet, While shepherds watch are keeping? This, this is Christ the King, Whom shepherds guard and angels sing; Haste, haste, to bring Him laud, The Babe, the Son of Mary.",
+    "v2": "Why lies He in such mean estate, Where ox and ass are feeding? Good Christians, fear, for sinners here The silent Word is pleading. Nails, spear shall pierce Him through, The cross be borne for me, for you. Hail, hail the Word made flesh, The Babe, the Son of Mary.",
+    "v3": "So bring Him incense, gold and myrrh, Come peasant, king to own Him; The King of kings salvation brings, Let loving hearts enthrone Him. Raise, raise a song on high, The virgin sings her lullaby. Joy, joy for Christ is born, The Babe, the Son of Mary."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "What Child is this who, laid to rest On Mary&#39;s lap",
+        "v2": "Why lies He in such mean estate, Where ox and ass"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "is sleeping? Whom angels greet",
+        "v2": "are feeding? Good Christians, fear,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "with anthems sweet, While shepherds watch",
+        "v2": "for sinners here The silent Word"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "are keeping? This, this",
+        "v2": "is pleading. Nails, spear"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "is Christ the King, Whom shepherds guard",
+        "v2": "shall pierce Him through, The cross be borne"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "and angels sing; Haste, haste, to bring Him laud, The Babe, the Son of Mary.",
+        "v2": "for me, for you. Hail, hail the Word made flesh, The Babe, the Son of Mary."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "iii7iii",
+      "lh_qual": "",
+      "lh_fig": "2233",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "3333",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Floating",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

@@ -1,0 +1,269 @@
+{
+  "title": "Joy to the World",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "2/4",
+  "bpm": 100,
+  "words": "Isaac Watts, 1719",
+  "music": "pieced together, 1741",
+  "tune": "Antioch",
+  "lyrics": {
+    "v1": "Joy to the world, the Lord is come! Let earth receive her King; Let ev&#39;ry heart prepare Him room, And Heav&#39;n and nature sing, And Heav&#39;n and nature sing, And Heav&#39;n, and Heav&#39;n, and nature sing.",
+    "v2": "Joy to the earth, the Savior reigns! Let men their songs employ; While fields and floods, rocks, hills and plains Repeat the sounding joy, Repeat the sounding joy, Repeat, repeat, the sounding joy.",
+    "v3": "No more let sins and sorrows grow, Nor thorns infest the ground; He comes to make His blessings flow Far as the curse is found, Far as the curse is found, Far as, far as, the curse is found.",
+    "v4": "He rules the world with truth and grace, And makes the nations prove The glories of His righteousness, And wonders of His love, And wonders of His love, And wonders, wonders, of His love."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Joy to the world, the Lord is come! Let",
+        "v2": "Joy to the earth, the Savior reigns! Let"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "earth receive her King; Let",
+        "v2": "men their songs employ; While"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "ev&#39;ry heart pre",
+        "v2": "fields and floods, rocks,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "pare Him room, And",
+        "v2": "hills and plains Re"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Heav&#39;n and nature sing, And Heav&#39;n and nature sing, And Heav&#39;n, and",
+        "v2": "peat the sounding joy, Repeat the sounding joy, Repeat, re"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        17,
+        18,
+        19
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Heav&#39;n, and nature sing.",
+        "v2": "peat, the sounding joy."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I64",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "B4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V",
+      "mel": "C#5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "I64",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 18,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 19,
+      "rn": "I6",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 19
+}

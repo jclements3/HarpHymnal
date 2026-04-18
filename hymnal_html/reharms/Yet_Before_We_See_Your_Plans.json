@@ -1,0 +1,307 @@
+{
+  "title": "Yet Before We See Your Plans",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Brian J. Dumont, 2012",
+  "music": "attr. William Moore, 1825 Gregory L. Paul, 2013",
+  "tune": "Holy Manna",
+  "lyrics": {
+    "v1": "Yet before we see Your plans, Lord; While the path is still unknown Bless us Lord to shout Your praises, May Your work through us be shown. Give us faith to trust Your mercy, Make us confident to be Called and holy as Your Church who Shout and sing Your victory.",
+    "v2": "Marching round the walls of Jer&#39;- cho Went Your trumpeted parade. Cele- brating Your great triumph E&#39;en before it was displayed. Give us faith to trust Your mercy, Make us confident to be Called and holy as Your Church who Shout and sing Your victory.",
+    "v3": "With four armies bearing on them King Jehoshaphat would send First the band to sing your praises, Thus Your glory to extend. Give us faith to trust Your mercy, Make us confident to be Called and holy as Your Church who Shout and sing Your victory.",
+    "v4": "On that night before He died The Lord to You would raise a hymn He would sing Your praise and mercy E&#39;en before the battle grim. Give us faith to trust Your mercy, Make us confident to be Called and holy as Your Church who Shout and sing Your victory.",
+    "v5": "And we lowly helpless few harassed and fettered by our sin More than conquerors in Christ for He did our salvation win. Give us faith to trust Your mercy, Make us confident to be Called and holy as Your Church who Shout and sing Your victory."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Yet before we see Your plans, Lord; While the path is still unknown",
+        "v2": "Marching round the walls of Jer&#39;cho Went Your trumpeted parade."
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Bless us Lord to shout Your praises, May Your work through us be shown.",
+        "v2": "Celebrating Your great triumph E&#39;en before it was displayed."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Give us faith to trust Your mercy, Make us confi",
+        "v2": "Give us faith to trust Your mercy, Make us confi"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "dent to be Called and holy",
+        "v2": "dent to be Called and holy"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "as Your Church who Shout and sing Your victory.",
+        "v2": "as Your Church who Shout and sing Your victory."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "ii6",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V6",
+      "mel": "C4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "IV7",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "ii6",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V6",
+      "mel": "C4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV7",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV7",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I7",
+      "mel": "A4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "IV7",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii6",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V6",
+      "mel": "C4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "IV7",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 16
+}

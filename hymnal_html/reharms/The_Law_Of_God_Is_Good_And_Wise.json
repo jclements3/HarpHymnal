@@ -1,0 +1,186 @@
+{
+  "title": "The Law Of God Is Good And Wise",
+  "key": "e minor",
+  "key_root": "E",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Matthias Loy, 1863",
+  "music": "from Klug&#39;s Geistliche Lieder, 1543",
+  "tune": "Erhalt Uns, Herr, bei deinem Wort",
+  "lyrics": {
+    "v1": "The law of God is good and wise, And sets His will before our eyes, Shows us the way of righteousness, And dooms to death when we transgress.",
+    "v2": "Its light of holiness imparts The knowledge of our sinful hearts, That we may see our lost estate And seek deliv&#39;rance ere too late.",
+    "v3": "To those who help in Christ have found And would in works of love abound It shows what deeds are His delight And should be done as good and right.",
+    "v4": "When men the offered help disdain And willfully in sin remain, Its terror in their ear resounds And keeps their wickedness in bounds.",
+    "v5": "The law is good, but since the fall Its holiness condemns us all; It dooms us for our sin to die And has no pow&#39;r to justify."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "The law of God is good and wise, And",
+        "v2": "Its light of holiness imparts The"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "sets His will before our eyes, Shows us the way of righteous",
+        "v2": "knowledge of our sinful hearts, That we may see our lost e"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "ness, And dooms to death when we transgress.",
+        "v2": "state And seek deliv&#39;rance ere too late."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iv",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "III",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iv",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "i",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 10
+}

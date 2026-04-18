@@ -1,0 +1,294 @@
+{
+  "title": "Despair Not, O Heart",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "2/4",
+  "bpm": 100,
+  "words": "Aurelius Clemens Prudentius (348-413), 1909",
+  "music": "or &#39;Jam Moesta&#39; or &#39;Despair Not O Heart&#39; or &#39;Med Sorgen Og Klagen&#39;, 1918",
+  "tune": "Iam Moesta",
+  "lyrics": {
+    "v1": "Despair not, O heart, in thy sorrow, But hope from God&#39;s promises borrow Beware in thy sorrow, of sinning For death is of life the beginning.",
+    "v2": "The body is shrouded in mourning; The garlands, the casket adorning, Are emblems of hope that betoken, O Death, that thy power is broken.",
+    "v3": "A dearly belov&#39;d one hath left us; God hath in His Wisdom bereft us; But He will not leave us forsaken,- We know that the dead shall awaken.",
+    "v4": "When dawneth the glori- ous morrow, This body that we view with sorrow, A glorified form shall be given, Restored to its spirit in heaven.",
+    "v5": "The seed that in springtime is planted, Is hid in the ground, but if granted A measure of sunshine and showers, Will spring into fruitage and flowers;"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Despair not, O heart,",
+        "v2": "The body is shroud"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "in thy sorrow,",
+        "v2": "ed in mourning;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "But hope from God&#39;s pro",
+        "v2": "The garlands, the cas"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "mises borrow Beware in thy sorrow, of sinning For death",
+        "v2": "ket adorning, Are emblems of hope that betoken, O Death,"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "is of life the beginning.",
+        "v2": "that thy power is broken."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "ii65",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Curdling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "viio6",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Steadying",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V7",
+      "mel": "G4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "vi",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "ii6",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "vi",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "ii64",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V5",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V7",
+      "mel": "B-4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

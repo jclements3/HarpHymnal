@@ -1,0 +1,210 @@
+{
+  "title": "Praise God From Whom All Blessings Flow",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Thomas Ken, 1674",
+  "music": "Genevan Psalter, attr. Louis Bourgeois, c. 1551 Sternhold and Hopkins&#39; Psalter, 1561",
+  "tune": "Old 100th",
+  "lyrics": {
+    "v1": "Praise God, from Whom all blessings flow; Praise Him, all creatures here below; Praise Him above, ye heav&#39;nly host; Praise Father, Son, and Holy Ghost."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Praise God, from Whom all blessings flow;",
+        "v2": ""
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Praise Him, all creatures here below;",
+        "v2": ""
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Praise Him above, ye heav&#39;nly host; Praise",
+        "v2": ""
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Father, Son, and Holy Ghost.",
+        "v2": ""
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "5334",
+      "rh_rom": "V+8",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5332",
+      "rh_rom": "V6",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "IVΔ",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "B333",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "1433",
+      "rh_rom": "IV²+8",
+      "rh_qual": "",
+      "rh_fig": "C333",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "IVΔ",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "B333",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "533",
+      "mood": "Bright",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 13
+}

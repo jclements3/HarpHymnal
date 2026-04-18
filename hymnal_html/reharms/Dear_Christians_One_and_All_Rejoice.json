@@ -1,0 +1,322 @@
+{
+  "title": "Dear Christians, One and All Rejoice",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1523",
+  "music": "from Klug&#39;s Geistliche Lieder, Wittenberg, 1533 Michael Praetorius, 1610",
+  "tune": "Es ist Gewisslich an der Zeit",
+  "lyrics": {
+    "v1": "Dear Christians, one and all rejoice, With exultation springing, And with united heart and voice And holy rapture singing, Proclaim the wonders God hath done, How his right arm the vict&#39;ry won; Right dearly it hath cost him.",
+    "v2": "Fast bound in Satan&#39;s chains I lay. Death brooded darkly o&#39;er me; Sin was my torment night and day, Therein my mother bore me. Deeper and deeper still I fell, Life was become a living hell, So firmly sin possessed me.",
+    "v3": "My good works could avail me naught, For they with sin were stainéd; Freewill against God&#39;s judgment fought, And dead to good remainéd. Grief drove me to despair, and I Had nothing left me but to die, To hell I fast was sinking.",
+    "v4": "God saw, in his eternal grace, My sorrow out of measure; He thought upon his tenderness To save was his good pleasure. He turn&#39;d to me a Father&#39;s heart\\- Not small the cost to heal my smart He gave his best and dearest.",
+    "v5": "He spake to his beloved Son: &#39;Tis time to take compassion; Then go, bright jewel of my crown, And bring to man salvation; From sin and sorrow set him free, Slay bitter death for him, that he May live with thee forever."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Dear Christians, one and all rejoice, With",
+        "v2": "Fast bound in Satan&#39;s chains I lay. Death"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "exultation springing,",
+        "v2": "brooded darkly o&#39;er me;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "And with united heart and",
+        "v2": "Sin was my torment night and"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "voice And holy rapture singing, Proclaim the wonders God hath",
+        "v2": "day, Therein my mother bore me. Deeper and deeper still I"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "done, How his right arm the vict&#39;ry won; Right dearly it hath cost him.",
+        "v2": "fell, Life was become a living hell, So firmly sin possessed me."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "vi",
+      "mel": null,
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "vi7",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I62",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V7",
+      "mel": "A4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi",
+      "mel": null,
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV32",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "vi",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iii64",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I52",
+      "mel": "A4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "vii°6",
+      "mel": null,
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Quieting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I4",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "vii°32",
+      "mel": "G4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "I52",
+      "mel": "D5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 18,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 18
+}

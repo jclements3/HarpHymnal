@@ -1,0 +1,177 @@
+{
+  "title": "Lord, Enthroned in Heavenly Splendor",
+  "key": "g minor",
+  "key_root": "G",
+  "mode": "minor",
+  "meter": "6/4",
+  "bpm": 100,
+  "words": "George H. Bourne, 1874",
+  "music": "William Owen, 1852",
+  "tune": "Bryn Calfaria",
+  "lyrics": {
+    "v1": "Lord, enthroned in heav&#39;nly splendor, First begotten from the dead, You alone, our strong Defender, Now lift up Your people&#39;s head. Alleluia! Alleluia! Alleluia! Jesus, true and living Bread! Jesus, true and living Bread!",
+    "v2": "Here our humblest homage pay we, Here in loving reference bow; Here for faith&#39;s discernment pray we, Lest we fail to know You now. Alleluia! Alleluia! Alleluia! Thou art here, we ask not how. Thou art here, we ask not how.",
+    "v3": "Though the lowliest form doth veil Thee As of old in Bethlehem, Here as there Thine angels hail Thee, Branch and Flow&#39;r of Jesse&#39;s stem. Alleluia! Alleluia! Alleluia! We in worship join with them. We in worship join with them.",
+    "v4": "Paschal Lamb, Your offering finished Once for all when You were slain, In its fullness undiminished Shall forevermore remain. Alleluia! Alleluia! Alleluia! Cleansing souls from every stain. Cleansing souls from every stain.",
+    "v5": "Great High Priest of our profession, Through the veil Thou wentest in, By Thy mighty intercession, Grace and peace for us to win. Alleluia! Alleluia! Alleluia! Jesus, true and living Bread! Jesus, true and living Bread!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Lord, enthroned in heav&#39;nly splendor, First begotten from the dead,",
+        "v2": "Here our humblest homage pay we, Here in loving reference bow;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "You alone, our strong Defender, Now lift up Your people&#39;s head.",
+        "v2": "Here for faith&#39;s discernment pray we, Lest we fail to know You now."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Alleluia! Alleluia! Alleluia!",
+        "v2": "Alleluia! Alleluia! Alleluia!"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Jesus, true and living Bread! Jesus, true and living Bread!",
+        "v2": "Thou art here, we ask not how. Thou art here, we ask not how."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V6",
+      "mel": "A4",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "3333",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Floating",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "iv7",
+      "mel": "E-5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "i6",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 15,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 15
+}

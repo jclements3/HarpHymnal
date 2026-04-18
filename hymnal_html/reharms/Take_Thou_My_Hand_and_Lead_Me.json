@@ -1,0 +1,189 @@
+{
+  "title": "Take Thou My Hand and Lead Me",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Julie Katharina von Hausmann, 1862",
+  "music": "Friedrich Silcher, 1842 Donna Snell, circa 1975",
+  "tune": "So Nimm Denn Meine Hände",
+  "lyrics": {
+    "v1": "Take Thou my hand, and lead me o&#39;er life&#39;s rough way, with Heav&#39;nly Manna feed me from day to day. Alone my footsteps falter and straggle wide, Lord who my life canst alter be Thou my guide.",
+    "v2": "Take Thou my heart and hide it in folds of grace Though pain or woe betide it to know Thy face Draw, Lord, of Thy good pleasure Thy child to Thee, And grant me faith&#39;s full measure though naught I see.",
+    "v3": "Though oft I think Thou hidest Thy wondrous might, Still to my goal Thou guidest me through dark night, Take, then, my hands and lead me till life is o&#39;er, With heav&#39;nly manna feed me forevermore."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Take Thou my hand, and lead me o&#39;er life&#39;s rough way,",
+        "v2": "Take Thou my heart and hide it in folds of grace"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "with Heav&#39;nly Manna feed me from day to day.",
+        "v2": "Though pain or woe betide it to know Thy face"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Alone my footsteps falter and straggle wide, Lord who my life canst alter",
+        "v2": "Draw, Lord, of Thy good pleasure Thy child to Thee, And grant me faith&#39;s full measure"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "be Thou my guide.",
+        "v2": "though naught I see."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V6",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "vi6",
+      "mel": "F5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 13,
+      "rn": "V42",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "ii6",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

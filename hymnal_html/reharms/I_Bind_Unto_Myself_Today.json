@@ -1,0 +1,269 @@
+{
+  "title": "I Bind Unto Myself Today",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "attributed to St. Patrick of Ireland (circa 387-466). Paraphrased by Cecil F. Alexander, 1889",
+  "music": "Charles V. Stanford, 1902",
+  "tune": "St. Patricks Breastplate",
+  "lyrics": {
+    "v1": "I bind unto myself today The strong Name of the Trinity, By invocation of the same The Three in One and One in Three.",
+    "v2": "I bind this day to me forever By power of faith, Christ&#39;s incarnation; His baptism in the Jordan river, His death on Cross for my salvation;",
+    "v3": "I bind unto myself the power Of the great love of cheru- bim; The sweet &quot;Well done&quot; in judgment hour, The service of the sera- phim,",
+    "v4": "I bind unto myself today The virtues of the star lit heaven, The glorious sun&#39;s life giving ray, The whiteness of the moon at even,",
+    "v5": "I bind unto myself today The power of God to hold and lead, His eye to watch, His might to stay, His ear to hearken to my need."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "I bind unto myself today",
+        "v2": "I bind this day to me forever"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The strong Name of the Tri",
+        "v2": "By power of faith, Christ&#39;s in"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "nity, By invocation of the same The Three in One",
+        "v2": "carnation; His baptism in the Jordan river, His death on Cross"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "and One in",
+        "v2": "for my sal"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "iii",
+      "mel": "D4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi64",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "iii",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "ii6",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 9,
+      "rn": "V7",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I4",
+      "mel": "B-3",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "vi",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I4",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V6",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Stepping",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "ii",
+      "mel": "G4",
+      "lh_rom": "ii6",
+      "lh_qual": "",
+      "lh_fig": "2332",
+      "rh_rom": "vii",
+      "rh_qual": "",
+      "rh_fig": "834",
+      "mood": "Dark",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

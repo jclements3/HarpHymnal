@@ -1,0 +1,218 @@
+{
+  "title": "All Glory, Laud, and Honor",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Theodulf of Orleans, circa 820, 1851",
+  "music": "or &#39;St. Theodulph&#39; Melchior Teschner, 1615 Presbyterian Hymnal, 1911",
+  "tune": "Valet Will Ich Dir Geben",
+  "lyrics": {
+    "v1": "All glory, laud and honor, To Thee, Redeemer, King, To Whom the lips of children Made sweet hosannas ring. Thou art the King of Israel, Thou David&#39;s royal Son, Who in the Lord&#39;s Name comest, The King and Blessed One.",
+    "v2": "All glory, laud and honor, To Thee, Redeemer, King, To Whom the lips of children Made sweet hosannas ring. The company of angels Are praising Thee on High, And mortal men and all things Created make reply.",
+    "v3": "All glory, laud and honor, To Thee, Redeemer, King, To Whom the lips of children Made sweet hosannas ring. The people of the Hebrews With palms before Thee went; Our prayer and praise and anthems Before Thee we present.",
+    "v4": "All glory, laud and honor, To Thee, Redeemer, King, To Whom the lips of children Made sweet hosannas ring. To Thee, before Thy passion, They sang their hymns of praise; To Thee, now high exalted, Our melody we raise.",
+    "v5": "All glory, laud and honor, To Thee, Redeemer, King, To Whom the lips of children Made sweet hosannas ring. Thou didst accept their praises; Accept the prayers we bring, Who in all good delightest, Thou good and gracious King."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "All glory, laud and honor,",
+        "v2": "All glory, laud and honor,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "To Thee, Redeemer, King, To Whom the lips of children",
+        "v2": "To Thee, Redeemer, King, To Whom the lips of children"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Made sweet hosannas ring. Thou art the King of Israel, Thou David&#39;s royal Son, Who in the Lord&#39;s Name comest, The King and Blessed One.",
+        "v2": "Made sweet hosannas ring. The company of angels Are praising Thee on High, And mortal men and all things Created make reply."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V43",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "E5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V43",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "E5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Cooling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "iii",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 13,
+      "rn": "V6",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

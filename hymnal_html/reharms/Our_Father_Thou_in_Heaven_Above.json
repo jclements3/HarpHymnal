@@ -1,0 +1,280 @@
+{
+  "title": "Our Father Thou in Heaven Above",
+  "key": "c minor",
+  "key_root": "C",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1539",
+  "music": "attr. Martin Luther, found in Valentin Schumann&#39;s Geistliche Lieder, Leipzig, 1539",
+  "tune": "Vater Unser im Himmelreich",
+  "lyrics": {
+    "v1": "Our Father, Thou in heav&#39;n above, Who biddest us to dwell in love, As brethren of one family, To cry in ev&#39;ry need to Thee, Teach us no thoughtless word to say, But from our inmost heart to pray.",
+    "v2": "Thy name be hallowed. Help us, Lord, In puri- ty to keep Thy Word, That to the glory of Thy Name We walk before Thee free from blame. Let no false doctrine us pervert; All poor, deluded souls convert.",
+    "v3": "Thy kingdom come. Thine let it be In time and in eternity. Let Thy good Spirit e&#39;er be nigh Our hearts with graces to supply. Break Satan&#39;s pow&#39;r, defeat his rage; Preserve Thy Church from age to age.",
+    "v4": "Thy gracious will on earth be done As &#39;tis in heav&#39;n before Thy throne; Obedience in our weal and woe And patience in all grief bestow. Curb flesh and blood and ev&#39;ry ill That sets itself against Thy will.",
+    "v5": "Give us this day our daily bread And let us all be clothed and fed. From war and strife be our Defense, From famine and from pestilence, That we may live in godly peace, Free from all care and avarice."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Our Father, Thou in heav&#39;n a",
+        "v2": "Thy name be hallowed. Help us,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "bove, Who biddest us to dwell in love, As brethren",
+        "v2": "Lord, In purity to keep Thy Word, That to the"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "of one family, To cry in ev&#39;ry need to Thee,",
+        "v2": "glory of Thy Name We walk before Thee free from blame."
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Teach us no thoughtless word to say, But",
+        "v2": "Let no false doctrine us pervert; All"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        14,
+        15
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "from our inmost heart to pray.",
+        "v2": "poor, deluded souls convert."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "C4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "III",
+      "mel": "E-5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iv6",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "iv",
+      "mel": "C5",
+      "lh_rom": "iii7iii",
+      "lh_qual": "",
+      "lh_fig": "2233",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "III",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "V",
+      "mel": "A-4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "i",
+      "mel": "E-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 15
+}

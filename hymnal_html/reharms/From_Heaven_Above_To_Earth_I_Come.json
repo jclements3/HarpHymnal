@@ -1,0 +1,158 @@
+{
+  "title": "From Heaven Above To Earth I Come",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1535. translated by Catherine Winkworth, 1855",
+  "music": "traditional German from Schumann&#39;s Geistliche Lieder, Leipzig, 1539",
+  "tune": "Vom Himmel Hoch",
+  "lyrics": {
+    "v1": "From Heaven above to earth I come, To bear good news to every home; Glad tidings of great joy I bring, Whereof I now will say and sing.",
+    "v2": "To you, this night, is born a Child Of Mary, chosen mother mild; This tender Child of lowly birth, Shall be the joy of all your earth.",
+    "v3": "&#39;Tis Christ our God, Who far on high Had heard your sad and bitter cry; Himself will your Salvation be, Himself from sin will make you free.",
+    "v4": "He brings those blessings long ago Prepared by God for all below; That in His heavenly kingdom blest You may with us forever rest.",
+    "v5": "These are the tokens ye shall mark, The swaddling clothes and manger dark; There shall ye find the young Child laid, By Whom the heav&#39;ns and earth were made."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "From Heaven above to earth I come,",
+        "v2": "To you, this night, is born a Child"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "To bear good news to every home;",
+        "v2": "Of Mary, chosen mother mild;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Glad tidings of great joy I bring, Whereof I now will say and sing.",
+        "v2": "This tender Child of lowly birth, Shall be the joy of all your earth."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "vi7",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "F#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi7",
+      "mel": "C#5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV62",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I4",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

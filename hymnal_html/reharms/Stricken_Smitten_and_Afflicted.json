@@ -1,0 +1,280 @@
+{
+  "title": "Stricken, Smitten, and Afflicted",
+  "key": "g minor",
+  "key_root": "G",
+  "mode": "minor",
+  "meter": "6/4",
+  "bpm": 100,
+  "words": "Thomas Kelly, 1804",
+  "music": "or &#39;Wo Ist Jesus, Mein Verlangen&#39;  from Geistliches Volkslied, 1850",
+  "tune": "O Mein Jesu, Ich Muss Sterben",
+  "lyrics": {
+    "v1": "Stricken, smitten, and afflicted, See Him dying on the tree! &#39;Tis the Christ by man rejected; Yes, my soul, &#39;tis He, &#39;tis He! &#39;Tis the long expected prophet, David&#39;s Son, yet David&#39;s Lord; Proofs I see sufficient of it: &#39;Tis a true and faithful Word.",
+    "v2": "Tell me, ye who hear Him groaning, Was there ever grief like His? Friends through fear His cause disowning, Foes insulting his distress: Many hands were raised to wound Him, None would interpose to save; But the deepest stroke that pierced Him Was the stroke that Justice gave.",
+    "v3": "Ye who think of sin but lightly, Nor suppose the evil great, Here may view its nature rightly, Here its guilt may esti- mate. Mark the Sacrifice appointed! See Who bears the awful load! &#39;Tis the Word, the Lord&#39;s Anointed, Son of Man, and Son of God.",
+    "v4": "Here we have a firm foundation, Here the refuge of the lost. Christ the Rock of our salvation, Christ the Name of which we boast. Lamb of God for sinners wounded! Sacrifice to cancel guilt! None shall ever be confounded Who on Him their hope have built."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Stricken, smitten, and afflicted, See Him dying on the tree!",
+        "v2": "Tell me, ye who hear Him groaning, Was there ever grief like His?"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "&#39;Tis the Christ by man rejected; Yes, my soul, &#39;tis He, &#39;tis He!",
+        "v2": "Friends through fear His cause disowning, Foes insulting his distress:"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "&#39;Tis the long expected prophet, David&#39;s Son, yet",
+        "v2": "Many hands were raised to wound Him, None would inter"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "David&#39;s Lord; Proofs I see su",
+        "v2": "pose to save; But the deepest"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "fficient of it: &#39;Tis a true and faithful Word.",
+        "v2": "stroke that pierced Him Was the stroke that Justice gave."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "iv",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Curdling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "iio6",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iv",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Curdling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iio6",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III54",
+      "mel": "E-5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "iio6",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

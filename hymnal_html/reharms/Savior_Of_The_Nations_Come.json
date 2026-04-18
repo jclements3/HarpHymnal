@@ -1,0 +1,145 @@
+{
+  "title": "Savior Of The Nations Come",
+  "key": "g minor",
+  "key_root": "G",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Ambrose of Milan, c. 397.  Translated to German by Martin Luther, 1524 Translated from German to English by William M. Reynolds, 1851",
+  "music": "from Walter&#39;s Geistliche Gesangbüchlein, 1524",
+  "tune": "Nun Komm, Der Heiden Heiland",
+  "lyrics": {
+    "v1": "Savior of the nations, come; Virgin&#39;s Son, here make Thy home! Marvel now, O heav&#39;n and earth, That the Lord chose such a birth.",
+    "v2": "Not by human flesh and blood; By the Spirit of our God Was the Word of God made flesh, Woman&#39;s offspring, pure and fresh.",
+    "v3": "Wondrous birth! O wondrous Child Of the virgin undefiled! Though by all the world disowned, Still to be in heaven enthroned.",
+    "v4": "From the Father forth He came And returneth to the same, Captive leading death and hell High the song of triumph swell!",
+    "v5": "Thou, the Father&#39;s only Son, Hast o&#39;er sin the vict&#39;ry won. Boundless shall Thy kingdom be; When shall we its glories see?"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Savior of the nations, come;",
+        "v2": "Not by human flesh and blood;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Virgin&#39;s Son, here make Thy home! Marvel now, O heav&#39;n and earth,",
+        "v2": "By the Spirit of our God Was the Word of God made flesh,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "That the Lord chose such a birth.",
+        "v2": "Woman&#39;s offspring, pure and fresh."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "iio6",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iv",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

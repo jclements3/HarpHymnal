@@ -1,0 +1,346 @@
+{
+  "title": "Fear Not, O Little Flock",
+  "key": "g minor",
+  "key_root": "G",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Attr. to King Gustavus Adolphus of Sweden (1594-1632), Jacob Fabricius (1593-1654) or Johann M. Altenburg (1584-1640)",
+  "music": "traditional German, 1490",
+  "tune": "Kommt her zu mir, spricht Gottes Sohn",
+  "lyrics": {
+    "v1": "Fear not, O little flock, the foe Who madly seeks your overthrow; Dread not his rage and pow&#39;r; What though your courage sometimes faints, His seeming triumph o&#39;er God&#39;s saints Lasts but one little hour.",
+    "v2": "Be of good cheer; your cause belongs To Him who can avenge your wrongs; Leave it to Him our Lord. Though hidden yet from all our eyes, He sees the Gideon who shall rise; To save us, and His word.",
+    "v3": "As true as God&#39;s own word is true, Not earth nor hell with all their crew Against us shall prevail. A jest and by\\- word are they grown; God is with us, we are His own, Our vict&#39;ry cannot fail.",
+    "v4": "Amen, Lord Jesus, grant our prayer! Great Captain, now Thine arm make bare; Fight for us once again. So shall thy saints and martyrs raise A mighty chorus to Thy praise, World without end. Amen."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Fear not, O little flock, the foe",
+        "v2": "Be of good cheer; your cause belongs"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Who madly seeks your overthrow;",
+        "v2": "To Him who can avenge your wrongs;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Dread not his rage and pow&#39;r;",
+        "v2": "Leave it to Him our Lord."
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "What though your cou",
+        "v2": "Though hidden yet"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "rage sometimes faints, His seeming triumph o&#39;er God&#39;s",
+        "v2": "from all our eyes, He sees the Gideon who shall"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        16,
+        17,
+        18
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "saints Lasts but one little",
+        "v2": "rise; To save us, and His"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III52",
+      "mel": null,
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "i52",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iv",
+      "mel": null,
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iiiii",
+      "rh_qual": "",
+      "rh_fig": "743",
+      "mood": "Prismatic",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "iv7",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III7",
+      "mel": null,
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "VII4",
+      "mel": "C5",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "III52",
+      "mel": null,
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 14,
+      "rn": "III64",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "V4",
+      "mel": null,
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Rooting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "VII",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 18
+}

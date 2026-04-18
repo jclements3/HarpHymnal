@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Piano-score preview — Silent Night</title>
+<style>
+  body { font-family: sans-serif; margin: 20px; background: #f4ecd8; }
+  h1 { font-family: Palatino, serif; font-style: italic; }
+  #paper { background: white; padding: 20px; border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  #paper img, #paper object { width: 100%; height: auto; display: block; }
+  details { margin-top: 20px; }
+  pre { background: #2b2722; color: #d8ccb0; padding: 12px;
+    border-radius: 4px; overflow-x: auto; font-size: 11px; }
+</style>
+</head>
+<body>
+<h1>Piano-score preview — phase 1 (v0.1 grand chord)</h1>
+<p>Prototype output from <code>tools/build_piano_score.py</code> →
+<code>lilypond</code>. Melody + RH chord-fraction fill on the treble staff,
+LH pedal-pluck + chord-fraction on the bass.</p>
+<div id="paper">
+  <object type="image/svg+xml" data="silent_night.svg"></object>
+</div>
+<p style="margin-top: 12px;">
+  <a href="silent_night.midi" download>↓ download silent_night.midi</a>
+  &nbsp;—&nbsp;open with any MIDI player to hear the current arrangement.
+</p>
+<details>
+<summary>LilyPond source</summary>
+<pre id="ly-src"></pre>
+</details>
+<script>
+  fetch('silent_night.ly').then(r => r.text())
+    .then(t => { document.getElementById('ly-src').textContent = t; });
+</script>
+</body>
+</html>

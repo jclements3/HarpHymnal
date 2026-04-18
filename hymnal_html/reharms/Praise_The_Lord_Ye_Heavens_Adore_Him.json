@@ -1,0 +1,292 @@
+{
+  "title": "Praise The Lord, Ye Heavens Adore Him",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "verses 1-2, unknown, 1796. verse 3 Edward Osler, 1836",
+  "music": "or &#39;Austrian Hymn&#39; Franz Joseph Haydn, 1797",
+  "tune": "Austria (Haydn)",
+  "lyrics": {
+    "v1": "Praise the Lord, ye heav&#39;ns, adore Him; Praise Him, angels in the height. Sun and moon, rejoice before Him; Praise Him, all ye stars of light. Praise the Lord, for He hath spoken; Worlds His mighty voice obeyed. Laws which never shall be broken For their guidance He hath made.",
+    "v2": "Praise the Lord, for He is glorious; Never shall His promise fail. God hath made His saints victorious; Sin and death shall not prevail. Praise the God of our salvation; Hosts on high, His pow&#39;r proclaim. Heav&#39;n and earth and all crea- tion, Laud and magnify His name.",
+    "v3": "Worship, honor, glory, blessing, Lord, we offer unto Thee. Young and old, Thy praise expressing, In glad homage bend the knee. All the saints in Heav&#39;n adore Thee; We would bow before Thy throne. As Thine angels serve before Thee, So on earth Thy will be done."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Praise the Lord, ye heav&#39;ns, adore Him;",
+        "v2": "Praise the Lord, for He is glorious;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Praise Him, angels in the height. Sun and moon, rejoice before Him;",
+        "v2": "Never shall His promise fail. God hath made His saints victorious;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Praise Him, all ye stars of light. Praise the Lord, for",
+        "v2": "Sin and death shall not prevail. Praise the God of"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "He hath spoken; Worlds His mighty voice obeyed. Laws which never",
+        "v2": "our salvation; Hosts on high, His pow&#39;r proclaim. Heav&#39;n and earth and"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "shall be broken For their guidance He hath made.",
+        "v2": "all creation, Laud and magnify His name."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V65",
+      "mel": "B-4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV64",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "Vii",
+      "rh_qual": "",
+      "rh_fig": "943",
+      "mood": "Curling",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "vi",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V65",
+      "mel": "B-4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV7",
+      "mel": "B-4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Cooling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "iii",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I6",
+      "mel": "F5",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V42",
+      "mel": "G4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I64",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 16
+}

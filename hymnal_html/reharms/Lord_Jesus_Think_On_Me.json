@@ -1,0 +1,107 @@
+{
+  "title": "Lord Jesus Think On Me",
+  "key": "f minor",
+  "key_root": "F",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Synesius of Cyrene, circa 430, 1876",
+  "music": "William Daman&#39;s Psalter, 1579",
+  "tune": "Southwell",
+  "lyrics": {
+    "v1": "Lord Jesus, think on me And purge away my sin; From earthborn passions set me free And make me pure within.",
+    "v2": "Lord Jesus, think on me, With many&#39;a care oppressed; Let me Thy loving servant be And taste Thy promised rest.",
+    "v3": "Lord Jesus, think on me Amid the battle&#39;s strife; In all my pain and misery Be Thou my Health and Life.",
+    "v4": "Lord Jesus, think on me Nor let me go astray; Through darkness and perplexity Point Thou the heav&#39;nly way.",
+    "v5": "Lord Jesus, think on me When floods the tempest high; When on doth rush the enemy, O Savior, be Thou nigh!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Lord Jesus, think on me",
+        "v2": "Lord Jesus, think on me,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "And purge away my sin; From earthborn passions set me free And make me pure within.",
+        "v2": "With many&#39;a care oppressed; Let me Thy loving servant be And taste Thy promised rest."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

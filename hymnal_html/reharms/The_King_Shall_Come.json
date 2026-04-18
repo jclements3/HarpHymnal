@@ -1,0 +1,158 @@
+{
+  "title": "The King Shall Come",
+  "key": "f minor",
+  "key_root": "F",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Unknown author, 1907",
+  "music": "or &#39;Morning Song&#39; John Wyeth, 1813",
+  "tune": "Consolation",
+  "lyrics": {
+    "v1": "The King shall come when morning dawns, And light triumphant breaks; When beauty gilds the eastern hills, And life to joy awakes.",
+    "v2": "Not as of old a little child To bear, and fight, and die, But crowned with glory like the sun That lights the morning sky.",
+    "v3": "O brighter than the rising morn When He, victorious, rose, And left the lonesome place of death, Despite the rage of foes.",
+    "v4": "O brighter than that glorious morn Shall this fair morning be, When Christ, our King, in beauty comes, And we His face shall see.",
+    "v5": "The King shall come when morning dawns, And earth&#39;s dark night is past; O haste the rising of that morn, The day that aye shall last."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "The King shall come when morning dawns,",
+        "v2": "Not as of old a little child"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "And light triumphant breaks; When beauty gilds the eastern hills,",
+        "v2": "To bear, and fight, and die, But crowned with glory like the sun"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "And life to joy awakes.",
+        "v2": "That lights the morning sky."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "V",
+      "mel": "C4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "iv",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V6",
+      "mel": "C4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "III6",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iv",
+      "mel": "A-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "C4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

@@ -1,0 +1,106 @@
+{
+  "title": "We Give Thee But Thine Own",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "William W. How, 1864",
+  "music": "William H. Monk (1823-1889)",
+  "tune": "Energy",
+  "lyrics": {
+    "v1": "We give Thee but Thine own, Whate&#39;er the gift may be; All that we have is Thine alone, A trust, O Lord, from Thee.",
+    "v2": "May we Thy bounties thus As stewards true receive, And gladly, as Thou blessest us, To Thee our firstfruits give.",
+    "v3": "O hearts are bruised and dead, And homes are bare and cold, And lambs for whom the Shepherd bled Are straying from the fold.",
+    "v4": "To comfort and to bless, To find a balm for woe, To tend the lone and fatherless Is angels&#39; work below.",
+    "v5": "The captive to release, To God the lost to bring, To teach the way of life and peace? It is a Christlike thing."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "We give Thee but Thine own,",
+        "v2": "May we Thy bounties thus"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Whate&#39;er the gift may be; All that we have is Thine alone,",
+        "v2": "As stewards true receive, And gladly, as Thou blessest us,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "A trust, O Lord, from Thee.",
+        "v2": "To Thee our firstfruits give."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

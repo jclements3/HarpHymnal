@@ -1,0 +1,351 @@
+{
+  "title": "To Jordan Came Our Lord, The Christ",
+  "key": "a minor",
+  "key_root": "A",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1541",
+  "music": "Johann Walter, 1524 composite",
+  "tune": "Christ, Unser Herr",
+  "lyrics": {
+    "v1": "To Jordan came our Lord the Christ, To do God&#39;s pleasure willing, And there was by Saint John baptized, All righteousness fulfilling; There did He consecrate a bath To wash away transgression, And quench the bitterness of death By His own blood and passion; He would a new life give us.",
+    "v2": "So hear ye all, and well perceive What God doth call baptism, And what a Christian should believe Who error shuns and schism: That we should water use, the Lord Declareth it His pleasure; Not simple water, but the Word And Spirit without measure; He is the true Baptizer.",
+    "v3": "To show us this, He hath His Word With signs and symbols given; On Jordan&#39;s banks was plainly heard The Father&#39;s voice from Heaven: &quot;This is My well\\- beloved Son, In whom My soul delighteth; Hear Him.&quot; Yea, hear Him every one Whom He Himself inviteth, Hear and obey His teaching.",
+    "v4": "In tender manhood Jesus straight To holy Jordan wendeth; The Holy Ghost from Heaven&#39;s gate In dovelike shape descendeth; That thus the truth be not denied, Nor should our faith e&#39;er waver, That the Three Persons all preside, At baptism&#39;s holy laver, And dwell with the believer.",
+    "v5": "Thus Jesus His disciples sent: Go teach ye every nation, That lost in sin they must repent; And flee from condemnation: He that believes and is baptized, Obtains a mighty blessing; A newborn man, no more he dies, Eternal life possessing, A joyful heir of Heaven."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "To Jordan came our Lord the",
+        "v2": "So hear ye all, and well per"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Christ, To do God&#39;s pleasure willing, And there was by Saint John bap",
+        "v2": "ceive What God doth call baptism, And what a Christian should be"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "tized, All righteousness fulfilling; There did He consecrate a",
+        "v2": "lieve Who error shuns and schism: That we should water use, the"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "bath To wash away transgression,",
+        "v2": "Lord Declareth it His pleasure;"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        16,
+        17
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "And quench the bitterness of",
+        "v2": "Not simple water, but the"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "death By His own blood and passion; He would a",
+        "v2": "Word And Spirit without measure; He is the"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        22,
+        23
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "new life give us.",
+        "v2": "true Baptizer."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "iv",
+      "mel": "D4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "iv",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "iv",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "i7",
+      "mel": "E4",
+      "lh_rom": "vi7",
+      "lh_qual": "",
+      "lh_fig": "6333",
+      "rh_rom": "viiø7iii",
+      "rh_qual": "",
+      "rh_fig": "D233",
+      "mood": "Bluesy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 13,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iiø43",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Tilting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "iv74",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "III",
+      "mel": null,
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "iio4",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Tilting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "iv52",
+      "mel": "G4",
+      "lh_rom": "ii7ii",
+      "lh_qual": "",
+      "lh_fig": "6323",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 21,
+      "rn": "i6",
+      "mel": null,
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 22,
+      "rn": "i",
+      "mel": "E5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 23
+}

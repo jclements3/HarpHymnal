@@ -1,0 +1,158 @@
+{
+  "title": "We Know Thee Who Thou Art",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "William Bright, 1865",
+  "music": "John Pyke Hullah, 1868",
+  "tune": "Sellinge",
+  "lyrics": {
+    "v1": "We know Thee who Thou art, Lord Jesus, Mary&#39;s Son; We know the yearnings of Thy heart To end Thy work begun.",
+    "v2": "That sacred fount of grace, &#39;Mid all the bliss of Heav&#39;n, Has joy whene&#39;er we seek Thy face, And kneel to be forgiv&#39;n.",
+    "v3": "Brought home from ways perverse, At peace Thine arms within, We pray Thee, shield us from the curse Of falling back to sin.",
+    "v4": "We dare not ask to live Henceforth from trials free; But oh! when next they tempt us, give More strength to cling to Thee.",
+    "v5": "We know Thee who Thou art, Our own redeeming Lord; Be Thou by will, and mind, and heart, Accepted, loved, adored."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "We know Thee who Thou art, Lord Jesus, Ma",
+        "v2": "That sacred fount of grace, &#39;Mid all the bliss"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ry&#39;s Son; We know the yearn",
+        "v2": "of Heav&#39;n, Has joy whene&#39;er"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "ings of Thy heart To end Thy work begun.",
+        "v2": "we seek Thy face, And kneel to be forgiv&#39;n."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V65",
+      "mel": "D5",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Arched",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "V7",
+      "mel": "F#4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 7,
+      "rn": "I6",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

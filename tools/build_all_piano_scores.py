@@ -29,10 +29,22 @@ def slug_from_title(title):
     return s.lower()
 
 
+def canonical_slug(s):
+    """Collapse non-alphanumeric runs to a single underscore, lowercased."""
+    return re.sub(r'[^A-Za-z0-9]+', '_', s).strip('_').lower()
+
+
 def main():
     exports = sorted(glob.glob(str(EXPORT_DIR / '*.json')))
     if not exports:
         sys.exit(f'No exports found in {EXPORT_DIR}')
+
+    # Pre-index reharms by canonical slug (their filenames use collapsed
+    # underscores; export filenames use per-char underscores, so direct
+    # pairing misses ~120 hymns).
+    reharm_by_slug = {}
+    for rp in glob.glob(str(REHARM_DIR / '*.json')):
+        reharm_by_slug[canonical_slug(Path(rp).stem)] = Path(rp)
 
     log = open(LOG_PATH, 'w')
     log.write(f'# Batch piano-score run — {time.strftime("%Y-%m-%d %H:%M:%S")}\n')
@@ -53,9 +65,10 @@ def main():
             continue
 
         slug = slug_from_title(title)
-        # Reharm JSON basename matches export JSON basename (Title_With_Underscores.json).
-        reharm_path = REHARM_DIR / Path(export_path).name
-        if not reharm_path.exists():
+        # Match reharm via canonical slug (export filename convention
+        # doesn't match reharm filename convention).
+        reharm_path = reharm_by_slug.get(canonical_slug(title))
+        if reharm_path is None:
             log.write(f'[{i:03d}] SKIP  {slug} — no reharm JSON\n')
             log.flush()
             fail += 1

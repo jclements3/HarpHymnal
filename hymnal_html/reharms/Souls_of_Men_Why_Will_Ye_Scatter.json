@@ -1,0 +1,331 @@
+{
+  "title": "Souls of Men! Why Will Ye Scatter",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Frederick William Faber, 1862",
+  "music": "traditional Dutch found in, 1710",
+  "tune": "In Babilone",
+  "lyrics": {
+    "v1": "Souls of men! why will ye scatter Like a crowd of frightened sheep? Foolish hearts! why will ye wander From a love so true and deep? Was there ever kinder shepherd Half so gentle, half so sweet, As the Savior who would have us Come and gather round His feet?",
+    "v2": "It is God: His love looks mighty, But is mighti&#39;r than it seems; &#39;Tis our Father: and His fondness Goes far out beyond our dreams. There&#39;s a wideness in God&#39;s mercy, Like the wideness of the sea; There&#39;s a kindness in His justice, Which is more than liberty.",
+    "v3": "There is no place where earth&#39;s sorrows Are more felt than up in Heav&#39;n; There is no place where earth&#39;s failings Have such wondrous judgment giv&#39;n. There is welcome for the sinner, Grace poured out as in a flood There is mercy with the Savior; There is healing in His blood.",
+    "v4": "There is grace enough for thousands Of new worlds as great as this; There is room for fresh crea- tions In that upper home of bliss. For the love of God is broader Than the measure of man&#39;s mind; And the heart of the Eternal Is most wonderfully kind.",
+    "v5": "There is plentiful redemption In Christ&#39;s blood that has been shed; There is joy for all the members In the sorrows of the Head. Not just all we owe to Jesus; It is something more than all; Greater good because of evil, Larger mercy through the fall."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Souls of men! why will ye scatter",
+        "v2": "It is God: His love looks mighty,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Like a crowd of frightened sheep?",
+        "v2": "But is mighti&#39;r than it seems;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Foolish hearts! why will ye wander",
+        "v2": "&#39;Tis our Father: and His fondness"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "From a love so true and deep?",
+        "v2": "Goes far out beyond our dreams."
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Was there ever kinder shepherd Half so gentle,",
+        "v2": "There&#39;s a wideness in God&#39;s mercy, Like the wideness"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        12,
+        13
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "half so sweet, As the Savior",
+        "v2": "of the sea; There&#39;s a kindness"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "who would have us Come and gather round His feet?",
+        "v2": "in His justice, Which is more than liberty."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "ii7",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Curdling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "viio6",
+      "mel": "F#4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii7",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Curdling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "viio6",
+      "mel": "F#4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV6",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "V6",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "IV",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "ii7",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Curdling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "viio6",
+      "mel": "F#4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

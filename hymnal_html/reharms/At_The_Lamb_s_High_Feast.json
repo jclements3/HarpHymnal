@@ -1,0 +1,145 @@
+{
+  "title": "At The Lamb&#39;s High Feast",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Latin, circa 6th Century, 1849",
+  "music": "Czech, Kirchengeseng, 1566 Brian J. Dumont, 31 Dec 2009",
+  "tune": "Sonne der Gerechtigkeit",
+  "lyrics": {
+    "v1": "At the Lamb&#39;s high feast we sing, Praise to our victorious King, Who has washed us in the tide Flowing from his piercèd side; Alleluia!",
+    "v2": "Praise we Him, whose love divine Gives His sacred blood for wine, Gives His body for the feast, Christ the Victim, Christ the Priest. Alleluia!",
+    "v3": "Where the Paschal blood is poured, Death&#39;s dark angel sheathes his sword; Israel&#39;s hosts triumphant go Through the wave that drowns the foe. Alleluia!",
+    "v4": "Praise we Christ, whose blood was shed, Paschal Victim, Paschal Bread; With sinceri- ty and love Eat we Manna from above. Alleluia!",
+    "v5": "Mighty Victim from the sky, Hell&#39;s fierce pow&#39;rs beneath Thee lie; Thou hast conquered in the fight, Thou hast brought us life and light; Alleluia!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "At the Lamb&#39;s high feast we",
+        "v2": "Praise we Him, whose love di"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "sing, Praise to our victorious King, Who has washed us in the tide Flowing from his piercèd side; Allelu",
+        "v2": "vine Gives His sacred blood for wine, Gives His body for the feast, Christ the Victim, Christ the Priest. Allelu"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "ii",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Gladdening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV64",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Cooling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iii",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 6,
+      "rn": "I6",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV4",
+      "mel": "E4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 7
+}

@@ -1,0 +1,276 @@
+{
+  "title": "O The Deep, Deep Love of Jesus",
+  "key": "f minor",
+  "key_root": "F",
+  "mode": "minor",
+  "meter": "8/4",
+  "bpm": 100,
+  "words": "S. Trevor Francis, 1875",
+  "music": "or &#39;Ton-Y-Botel&#39; Thomas J. Williams, 1890",
+  "tune": "Ebenezer",
+  "lyrics": {
+    "v1": "O the deep, deep love of Jesus, vast, unmeasured, boundless, free! Rolling as a mighty ocean in its fullness over me! Underneath me, all around me, is the current of Thy love Leading onward, leading homeward to Thy glorious rest above!",
+    "v2": "O the deep, deep love of Jesus, spread His praise from shore to shore! How He loveth, ever loveth, changeth never, nevermore! How He watches o&#39;er His loved ones, died to call them all His own; How for them He intercedeth, watcheth o&#39;er them from the throne!",
+    "v3": "O the deep, deep love of Jesus, love of every love the best! &#39;Tis an ocean full of blessing, &#39;tis a haven giving rest! O the deep, deep love of Jesus, &#39;tis a heav&#39;n of heav&#39;ns to me; And it lifts me up to glory, for it lifts me up to Thee!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "O the deep, deep love of Jesus,",
+        "v2": "O the deep, deep love of Jesus,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "vast, unmeasured, boundless, free!",
+        "v2": "spread His praise from shore to shore!"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Rolling as a mighty ocean",
+        "v2": "How He loveth, ever loveth,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "in its fullness over me!",
+        "v2": "changeth never, nevermore!"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Underneath me, all around me,",
+        "v2": "How He watches o&#39;er His loved ones,"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "is the current of Thy love",
+        "v2": "died to call them all His own;"
+      }
+    },
+    {
+      "label": "G",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Leading onward, leading homeward",
+        "v2": "How for them He intercedeth,"
+      }
+    },
+    {
+      "label": "H",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "to Thy glorious rest above!",
+        "v2": "watcheth o&#39;er them from the throne!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "i",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "i",
+      "mel": "A-4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V",
+      "mel": "A-4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

@@ -1,0 +1,175 @@
+{
+  "title": "Open Now Thy Gates of Beauty",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Benjamin Schmolck, 1730",
+  "music": "or &#39;Neander&#39; Joachim Neander, 1680",
+  "tune": "Unser Herrscher",
+  "lyrics": {
+    "v1": "Open now thy gates of beauty, Zion, let me enter there, Where my soul in joyful duty Waits for Him Who answers prayer. Oh, how blessèd is this place, Filled with solace, light and grace!",
+    "v2": "Lord, my God, I come before Thee, Come Thou also unto me; Where we find Thee and adore Thee, There a heav&#39;n on earth must be. To my heart, oh, enter Thou, Let it be Thy temple now!",
+    "v3": "Here Thy praise is gladly chanted, Here Thy seed is duly sown; Let my soul, where it is planted, Bring forth precious sheaves alone, So that all I hear may be Fruitful unto life in me.",
+    "v4": "Thou my faith increase and quicken, Let me keep Thy gift divine, Howsoe&#39;er temptations thicken; May Thy Word still o&#39;er me shine As my guiding star through life, As my comfort in my strife.",
+    "v5": "Speak, O God, and I will hear Thee, Let Thy will be done indeed; May I undisturbed draw near Thee While Thou dost Thy people feed. Here of life the fountain flows, Here is balm for all our woes."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Open now thy gates of beauty, Zion, let me enter there,",
+        "v2": "Lord, my God, I come before Thee, Come Thou also unto me;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Where my soul in joyful duty Waits for Him Who answers prayer.",
+        "v2": "Where we find Thee and adore Thee, There a heav&#39;n on earth must be."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Oh, how blessèd is this place, Filled with solace, light and grace!",
+        "v2": "To my heart, oh, enter Thou, Let it be Thy temple now!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B-3",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "vi",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vi",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi",
+      "mel": "B-4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii6",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 12
+}

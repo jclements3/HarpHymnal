@@ -1,0 +1,187 @@
+{
+  "title": "&#39;Take Up Thy Cross&#39;, the Savior Said",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Charles W. Everest, 1833",
+  "music": "George Rhau, 1544",
+  "tune": "Nun Lasst Uns Den Leib Begraben",
+  "lyrics": {
+    "v1": "&quot;Take up thy cross,&quot; the Savior said, &quot;If thou wouldst My disciple be; Deny thyself, the world forsake, And humbly follow after Me.&quot;",
+    "v2": "Take up thy cross, let not its weight Fill thy weak spirit with alarm; His strength shall bear thy spirit up, And brace thy heart and nerve thine arm.",
+    "v3": "Take up thy cross, nor heed the shame, Nor let thy foolish pride rebel; Thy Lord for thee the cross endured, And saved thy soul from death and hell.",
+    "v4": "Take up thy cross then in His strength, And calmly sin&#39;s wild deluge brave, &#39;Twill guide thee to a better home, It points to glory o&#39;er the grave.",
+    "v5": "Take up thy cross and follow Christ, Nor think til death to lay it down; For only those who bear the cross May hope to wear the glorious crown."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "&quot;Take up thy cross,&quot; the Savior said, &quot;If thou wouldst My dis",
+        "v2": "Take up thy cross, let not its weight Fill thy weak spirit"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "ciple be; Deny thyself, the world forsake, And humbly follow after Me.&quot;",
+        "v2": "with alarm; His strength shall bear thy spirit up, And brace thy heart and nerve thine arm."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "iii",
+      "mel": "F#4",
+      "lh_rom": "IVΔiii",
+      "lh_qual": "",
+      "lh_fig": "3233",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Warming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V6",
+      "mel": "A4",
+      "lh_rom": "vi7iii",
+      "lh_qual": "",
+      "lh_fig": "5233",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "viio6",
+      "mel": "B4",
+      "lh_rom": "viiø7ii",
+      "lh_qual": "",
+      "lh_fig": "4323",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Quieting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV",
+      "mel": "E4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "ii",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 10
+}

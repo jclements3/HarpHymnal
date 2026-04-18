@@ -1,0 +1,217 @@
+{
+  "title": "Come Thou Fount Of Every Blessing",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "Robert Robinson, 1758",
+  "music": "Asahel Nettleton, 1812",
+  "tune": "Nettleton",
+  "lyrics": {
+    "v1": "Come, Thou Fount of every blessing, Tune my heart to sing Thy grace; Streams of mercy, never ceasing, Call for songs of loudest praise. Teach me some melodious sonnet, Sung by flaming tongues above. Praise the mount! I&#39;m fixed upon it, Mount of Thy redeeming love.",
+    "v2": "Sorr&#39;wing I shall be in spirit, Till released from flesh and sin, Yet from what I do inherit, Here Thy praises I&#39;ll begin; Here I raise my Ebene- zer; Here by Thy great help I&#39;ve come; And I hope, by Thy good pleasure, Safely to arrive at home.",
+    "v3": "Jesus sought me when a stranger, Wand&#39;ring from the fold of God; He, to rescue me from danger, Interposed His precious blood; How His kindness yet pursues me Mortal tongue can never tell, Clothed in flesh, till death shall loose me I cannot proclaim it well.",
+    "v4": "O to grace how great a debtor Daily I&#39;m constrained to be! Let Thy goodness, like a fetter, Bind my wand&#39;ring heart to Thee. Prone to wander, Lord, I feel it, Prone to leave the God I love; Here&#39;s my heart, O take and seal it, Seal it for Thy courts above.",
+    "v5": "O that day when freed from sinning, I shall see Thy lovely face; Clothèd then in blood washed linen How I&#39;ll sing Thy sovereign grace; Come, my Lord, no longer tarry, Take my ransomed soul away; Send thine angels now to carry Me to realms of endless day."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Come, Thou Fount of every blessing, Tune my heart to",
+        "v2": "Sorr&#39;wing I shall be in spirit, Till released from"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "sing Thy grace; Streams of mercy, never ceasing, Call for songs of",
+        "v2": "flesh and sin, Yet from what I do inherit, Here Thy praises"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "loudest praise. Teach me some melodious sonnet, Sung by flaming",
+        "v2": "I&#39;ll begin; Here I raise my Ebenezer; Here by Thy great"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "tongues above. Praise the mount! I&#39;m fixed upon it, Mount of Thy redeeming love.",
+        "v2": "help I&#39;ve come; And I hope, by Thy good pleasure, Safely to arrive at home."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 9,
+      "rn": "I6",
+      "mel": "B-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "IV64",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

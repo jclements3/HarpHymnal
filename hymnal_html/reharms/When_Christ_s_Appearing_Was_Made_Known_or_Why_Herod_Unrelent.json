@@ -1,0 +1,146 @@
+{
+  "title": "The Star Proclaims the King is Here",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Coelius Sedulius, c. 450. German version by M. Luther, 1543.  English translation by John Mason Neale, 1852",
+  "music": "from Klug&#39;s Geistliche Lieder, Wittenberg, 1533",
+  "tune": "Wo Gott Zum Haus",
+  "lyrics": {
+    "v1": "The star proclaims the King is here; But, Herod, why this senseless fear? He takes no realms of earth away Who gives the realms of heav&#39;nly day.",
+    "v2": "The wiser Magi see from far And follow on His guiding star; And led by light, to light they press And by their gifts their God confess.",
+    "v3": "Within the Jordan&#39;s crystal flood In meekness stands the Lamb of God And, sinless, sanctifies the wave, Mankind from sin to cleanse and save.",
+    "v4": "At Cana first His pow&#39;r is shown; His might the blushing waters own And, changing as He speaks the word, Flow wine, obedient to their Lord.",
+    "v5": "All glory, Jesus, be to Thee For this Thy glad epiphany; Whom with the Father we adore And Holy Ghost forevermore."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The star proclaims the King is here; But, Herod,",
+        "v2": "The wiser Magi see from far And follow"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "why this senseless fear? He takes no realms of earth a",
+        "v2": "on His guiding star; And led by light, to light they"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "way Who gives the realms of heav&#39;nly day.",
+        "v2": "press And by their gifts their God confess."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V6",
+      "mel": "A-4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "E-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "vi",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 9
+}

@@ -1,0 +1,238 @@
+{
+  "title": "Now Rest Beneath Night&#39;s Shadow",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Paul Gerhardt, 1648.  Translation composite before 1941",
+  "music": "or &#39;Nun ruhen alle Wälder&#39; or &#39;O Welt, Ich Muss Dich Lassen&#39; Heinrich Isaac, 1490 Johann Sebastian Bach, 1734",
+  "tune": "Innsbruck",
+  "lyrics": {
+    "v1": "Now rest beneath night&#39;s shadow The woodland, field, and meadow, The world in slumber lies; But Thou, my heart, awake thee, To prayer and song betake thee; Let praise to thy Crea- tor rise.",
+    "v2": "The radiant sun hath vanished, His golden rays are banished By night, the foe of day; But Christ, the Sun of gladness, Dispelling all my sadness, Within my heart holds constant sway.",
+    "v3": "The rule of day is over And shining jewels cover The heaven&#39;s boundless blue. Thus I shall shine in heaven, Where crowns of gold are given To all who faithful prove and true.",
+    "v4": "To rest my body hasteth, Aside its garments casteth, Types of mortality; These I put off and ponder How Christ will give me yonder A robe of glorious majesty.",
+    "v5": "Lord Jesus, who dost love me, Oh, spread Thy wings above me And shield me from alarm! Though evil would assail me, Thy mercy will not fail me: I rest in Thy protecting arm."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Now rest beneath night&#39;s shadow",
+        "v2": "The radiant sun hath vanished,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The woodland, field, and meadow, The world in slum",
+        "v2": "His golden rays are banished By night, the foe"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "ber lies; But Thou, my heart,",
+        "v2": "of day; But Christ, the Sun"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "awake thee, To prayer and song",
+        "v2": "of gladness, Dispelling all"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "betake thee; Let praise to thy Creator rise.",
+        "v2": "my sadness, Within my heart holds constant sway."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "vi",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iii",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V42",
+      "mel": "D4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 6,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iii6",
+      "mel": "B4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "ii",
+      "mel": "D5",
+      "lh_rom": "ii7ii",
+      "lh_qual": "",
+      "lh_fig": "6323",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "vi",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 10,
+      "rn": "vi52",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "iii",
+      "mel": "D4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "vi",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 12
+}

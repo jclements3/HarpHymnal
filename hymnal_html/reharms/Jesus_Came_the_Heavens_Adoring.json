@@ -1,0 +1,188 @@
+{
+  "title": "Jesus Came, the Heavens Adoring",
+  "key": "b minor",
+  "key_root": "B",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Godfrey Thring, 1864",
+  "music": "from Geistreiches Gesangbuch Darmstadt, Germany, 1698",
+  "tune": "Sieh, hier bin ich, Ehrenkoenig",
+  "lyrics": {
+    "v1": "Jesus came, the heav&#39;ns adoring, Came with peace from realms on high; Jesus came for man&#39;s redemption, Lowly came on earth to die. Alleluia! Alleluia! Came in deep humili- ty.",
+    "v2": "Jesus comes again in mercy, When our hearts are bowed with care; Jesus comes again in answer To an earnest, heartfelt prayer; Alleluia! Alleluia! Comes to save us from despair.",
+    "v3": "Jesus comes to hearts rejoicing, Bringing news of sins forgiv&#39;n; Jesus comes in sounds of gladness, Leading souls redeemed to Heav&#39;n; Alleluia! Alleluia! Now the gate of death is riv&#39;n.",
+    "v4": "Jesus comes in joy and sorrow, Shares alike our hopes and fears; Jesus comes, whate&#39;er befalls us, Glads our hearts, and dries our tears; Alleluia! Alleluia! Cheering e&#39;en our failing years.",
+    "v5": "Jesus comes on clouds triumphant, When the heav&#39;ns shall pass away; Jesus comes again in glory; Let us then our homage pay, Alleluia! Alleluia! Till the dawn of endless day."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Jesus came, the heav&#39;ns adoring, Came with peace from realms on high; Jesus came for man&#39;s redemption, Lowly came on",
+        "v2": "Jesus comes again in mercy, When our hearts are bowed with care; Jesus comes again in answer To an earnest,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        8,
+        9
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "earth to die. Alleluia!",
+        "v2": "heartfelt prayer; Alleluia!"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Alleluia! Came in deep humility.",
+        "v2": "Alleluia! Comes to save us from despair."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iv7",
+      "mel": "G4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Haunting",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "iv",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "III",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "F#4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V4",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Galvanizing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V",
+      "mel": "C#5",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

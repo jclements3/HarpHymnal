@@ -1,0 +1,145 @@
+{
+  "title": "The Gospel Shows The Father&#39;s Grace",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "6/4",
+  "bpm": 100,
+  "words": "Matthias Loy, 1863",
+  "music": "from Cantionale Germanicum, Dresden, 1628",
+  "tune": "Herr Jesu Christ, Dict Zu Uns Wend",
+  "lyrics": {
+    "v1": "The Gospel shows the Father&#39;s grace, Who sent his Son to save our race, Proclaims how Jesus lived and died That man might thus be justified.",
+    "v2": "It sets the Lamb before our eyes, Who made th&#39;atoning sacrifice, And calls the souls with guilt oppressed To come and find eternal rest.",
+    "v3": "It brings the Savior&#39;s righteousness Our souls to robe in royal dress; From all our guilt it brings release And gives the troubled conscience peace.",
+    "v4": "It is the pow&#39;r of God to save From sin and Satan and the grave; It works the faith, which firmly clings To all the treasures which it brings.",
+    "v5": "It bears to all the tidings glad And bids their hearts no more be sad; The heavy laden souls it cheers And banishes their guilty fears."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "The Gospel shows the Father&#39;s grace, Who sent his Son",
+        "v2": "It sets the Lamb before our eyes, Who made th&#39;aton"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "to save our race, Proclaims how Je",
+        "v2": "ing sacrifice, And calls the souls"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "sus lived and died That man might thus be justified.",
+        "v2": "with guilt oppressed To come and find eternal rest."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

@@ -1,0 +1,362 @@
+{
+  "title": "Hark! The Herald Angels Sing",
+  "key": "F major",
+  "key_root": "F",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Charles Wesley, 1739",
+  "music": "from &#39;Festgesang&#39; Felix Mendelssohn, 1840 William H. Cummings, 1857",
+  "tune": "Mendelssohn",
+  "lyrics": {
+    "v1": "Hark! The herald angels sing, &quot;Glory to the newborn King; Peace on earth, and mercy mild, God and sinners reconciled!&quot; Joyful, all ye nations rise, Join the triumph of the skies; With th&#39;angelic host proclaim, &quot;Christ is born in Bethlehem!&quot; Hark! the herald angels sing, &quot;Glory to the newborn King!&quot;",
+    "v2": "Christ, by highest Heav&#39;n adored; Christ the everlasting Lord; Late in time, behold Him come, Offspring of a virgin&#39;s womb. Veiled in flesh the Godhead see; Hail th&#39;incarnate Dei- ty, Pleased with us in flesh to dwell, Jesus our Emmanu- el. Hark! the herald angels sing, &quot;Glory to the newborn King!&quot;",
+    "v3": "Hail the heav&#39;nly Prince of Peace! Hail the Sun of Righteousness! Light and life to all He brings, Ris&#39;n with healing in His wings. Mild He lays His glory by, Born that man no more may die. Born to raise the sons of earth, Born to give them second birth. Hark! the herald angels sing, &quot;Glory to the newborn King!&quot;",
+    "v4": "Come, Desire of nations, come, Fix in us Thy humble home; Rise, the woman&#39;s conqu&#39;ring Seed, Bruise in us the serpent&#39;s head. Now display Thy saving power, Ruined nature now restore; Now in mystic union join Thine to ours, and ours to Thine. Hark! the herald angels sing, &quot;Glory to the newborn King!&quot;",
+    "v5": "Adam&#39;s likeness, Lord, efface, Stamp Thine image in its place: Second Adam from above, Reinstate us in Thy love. Let us Thee, though lost, regain, Thee, the Life, the inner man: O, to all Thyself impart, Formed in each believing heart. Hark! the herald angels sing, &quot;Glory to the newborn King!&quot;"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Hark! The herald angels sing, &quot;Glory to the newborn King;",
+        "v2": "Christ, by highest Heav&#39;n adored; Christ the everlasting Lord;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Peace on earth, and mercy mild, God and sinners reconciled!&quot;",
+        "v2": "Late in time, behold Him come, Offspring of a virgin&#39;s womb."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Joyful, all ye nations rise,",
+        "v2": "Veiled in flesh the Godhead see;"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Join the triumph of the skies;",
+        "v2": "Hail th&#39;incarnate Deity,"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14,
+        15
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "With th&#39;angelic host proclaim, &quot;Christ is born in",
+        "v2": "Pleased with us in flesh to dwell, Jesus our Em"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Bethlehem!&quot; Hark! the herald angels sing, &quot;Glory to the newborn King!&quot;",
+        "v2": "manuel. Hark! the herald angels sing, &quot;Glory to the newborn King!&quot;"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "I6",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I64",
+      "mel": "A4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "C4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi",
+      "mel": "F4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iii",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Homecoming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I7",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V65",
+      "mel": "B-4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "V",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "V65",
+      "mel": "B-4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii6",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V42",
+      "mel": "G4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I64",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "IV",
+      "mel": "D5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "ii",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "V6",
+      "mel": "G4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "I64",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 20
+}

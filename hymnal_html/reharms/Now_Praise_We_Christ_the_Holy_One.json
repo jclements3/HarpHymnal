@@ -1,0 +1,201 @@
+{
+  "title": "Now Praise We Christ, the Holy One",
+  "key": "e minor",
+  "key_root": "E",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Coelius Sedulius, circa 450.  Translated to German by Martin Luther, 1524 Translated from German to English by Richard Massie, 1854",
+  "music": "ancient Latin found in Erfurt Enchiridion, 1524 Michael Praetorius, 1609",
+  "tune": "Christum Wir Sollen Loben Schon",
+  "lyrics": {
+    "v1": "Now praise we Christ, the Holy One, The spotless virgin Mary&#39;s Son, Far as the blesséd sun doth shine E&#39;en to the world&#39;s remote confine",
+    "v2": "He, who Himself all things did make, A servant&#39;s form vouchsafed to take, That He as man mankind might win, And save His creatures from their sin.",
+    "v3": "The grace of God, th&#39;Almighty Lord, On the chaste mother was outpoured a virgin pure and undefiled In wondrous wise conceived a child.",
+    "v4": "The holy maid became th&#39;abode And temple of the living God; And she, who knew not man, was blest With God&#39;s own Word made mani- fest.",
+    "v5": "The noble mother bare a Son, For so did Gabriel&#39;s promise run, Whom John confessed and leapt with joy, Ere yet the mother knew her boy."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Now praise we Christ, the Holy",
+        "v2": "He, who Himself all things did"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "One, The spotless virgin Mary&#39;s Son, Far as the blesséd sun doth shine E&#39;en to the world&#39;s remote confine",
+        "v2": "make, A servant&#39;s form vouchsafed to take, That He as man mankind might win, And save His creatures from their sin."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "bVII",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "iv",
+      "mel": "E4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "bVII4",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "bVI",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iv5",
+      "mel": null,
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iiiii",
+      "rh_qual": "",
+      "rh_fig": "743",
+      "mood": "Prismatic",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 7,
+      "rn": "iv",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "III52",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "iv64",
+      "mel": "A4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 11,
+      "rn": "i6",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 11
+}

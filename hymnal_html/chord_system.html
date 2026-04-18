@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harp Chord System — Reference</title>
+<style>
+:root {
+  --rhcol: #1F4E79;
+  --lhcol: #7B2B2B;
+  --paper: #F4ECD8;
+  --ink: #1A1612;
+  --accent: #8B6F47;
+  --flavcol: #6B7A8F;
+  --leafred: rgb(220,75,75);
+  --leafyellow: rgb(190,155,30);
+  --leafcyan: rgb(40,180,190);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #2b2722;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+body { display: flex; min-height: 100vh; color: var(--ink); }
+
+nav#sidebar {
+  width: 220px; flex-shrink: 0;
+  background: #1f1c19; color: #d8ccb0;
+  position: sticky; top: 0; align-self: flex-start;
+  height: 100vh; overflow-y: auto; padding: 14px 10px;
+  border-right: 1px solid #000; font-size: 12px;
+}
+nav#sidebar h1 { font-size: 14px; margin: 0 0 10px 2px; color: #e8d8b4;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+nav#sidebar .back { display: block; margin-bottom: 12px; padding: 4px 8px;
+  color: #c8bc9c; text-decoration: none; border-radius: 3px;
+  background: #2d2924; }
+nav#sidebar .back:hover { background: #3a3429; color: #fff; }
+nav#sidebar ol { list-style: none; margin: 0; padding: 0; }
+nav#sidebar li { margin: 1px 0; }
+nav#sidebar a { display: block; padding: 4px 8px; color: #c8bc9c;
+  text-decoration: none; border-radius: 3px; }
+nav#sidebar a:hover { background: #2d2924; color: #f0e4c4; }
+
+main { flex: 1; padding: 24px; overflow-x: auto; }
+.sheet { background: var(--paper); max-width: 1100px; margin: 0 auto 24px auto;
+  padding: 20px 26px; border-radius: 4px; box-shadow: 0 3px 16px rgba(0,0,0,0.4); }
+.sheet h2 { font-family: "Palatino", "Book Antiqua", Georgia, serif;
+  font-style: italic; font-weight: 700; font-size: 22px; margin: 18px 0 6px 0;
+  color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 3px; }
+.sheet h2:first-child { margin-top: 0; }
+.sheet h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.7px;
+  color: var(--accent); margin: 14px 0 6px 0; }
+.sheet p, .sheet li { font-size: 13px; line-height: 1.45; margin: 4px 0;
+  color: var(--ink); }
+
+.subtitle { color: var(--flavcol); font-style: italic; font-size: 13px;
+  margin-top: -4px; margin-bottom: 6px; }
+
+.kv { display: grid; grid-template-columns: 140px 1fr; gap: 3px 12px;
+  font-size: 12px; margin: 6px 0; }
+.kv dt { color: var(--accent); font-family: ui-monospace, monospace; }
+.kv dd { margin: 0; }
+
+table.data { border-collapse: collapse; width: 100%; font-size: 12px;
+  margin: 6px 0 12px 0; }
+table.data th, table.data td { padding: 3px 6px; text-align: left;
+  border-bottom: 1px solid #d9cead; vertical-align: top; }
+table.data th { color: var(--accent); font-weight: 700; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--ink); }
+table.data td.fig, table.data td.num { font-family: ui-monospace, monospace; }
+table.data td.rn { font-family: "Palatino","Palatino Linotype","Book Antiqua",Georgia,serif;
+  font-weight: 700; font-style: normal;
+  font-feature-settings: "onum" 1; }
+table.data td.rh { color: var(--rhcol); }
+table.data td.lh { color: var(--lhcol); }
+table.data td.rn .num { font-style: normal; }
+table.data td.rn i { font-style: italic; font-weight: 700; }
+table.data td.rn sup { font-feature-settings: "onum" 1; }
+
+.cycle { border-left: 4px solid var(--cyc-color); padding-left: 10px;
+  margin: 8px 0 16px 0; }
+.cycle.twos   { --cyc-color: var(--leafcyan); }
+.cycle.thirds { --cyc-color: var(--leafred); }
+.cycle.fourths{ --cyc-color: var(--leafyellow); }
+.cycle .traversal { font-family: "Palatino","Palatino Linotype",Georgia,serif;
+  font-size: 12px; color: var(--flavcol); margin: 4px 0;
+  font-feature-settings: "onum" 1; }
+
+sup.inv { font-size: 65%; vertical-align: super; line-height: 0; }
+</style></head><body>
+<nav id="sidebar"><h1>Chord System</h1><a class="back" href="review.html">← Hymn review</a><ol><li><a href="#intro">Overview</a></li>
+<li><a href="#conventions">Conventions</a></li>
+<li><a href="#patterns">Finger patterns (14)</a></li>
+<li><a href="#cycles">Diatonic cycles (3)</a></li>
+<li><a href="#jazz">Jazz progressions (42)</a></li>
+<li><a href="#stacked">Stacked chords (76)</a></li></ol></nav>
+<main>
+<article class="sheet" id="intro"><h2>Harp Chord System — JSON reference</h2>
+<p>This is the machine-readable version of a 2-page lever harp handout. Load this file at the start of any chat about the harp chord system so you do not need to re-learn the notation from prose each time.</p>
+<h3>Sections</h3><ul>
+<li>Page 1 HarpChords table: 14 finger patterns × 7 starting degrees → named chord (section: chords_by_pattern_and_degree)</li>
+<li>Page 1 trefoil + cycle tables: 3 diatonic cycles (2nds, 3rds, 4ths), each with 7 edges labeled for both directions (section: cycles)</li>
+<li>Page 2 Jazz Progressions: two-handed voicings that walk each cycle (section: jazz_progressions)</li>
+<li>Page 2 Stacked Chords: two-handed sonorities indexed by LH figure (section: stacked_chords)</li>
+<li>Notation key, interval-from-tonic alphabet, and figure-parsing rules (section: conventions)</li>
+</ul>
+<h3>Critical distinctions</h3><ul>
+<li>FIGURE vs PATTERN. A pattern is just an interval sequence (e.g. &#x27;33&#x27;, &#x27;333&#x27;, &#x27;434&#x27;). A figure is a pattern with a starting-degree prefix (e.g. &#x27;133&#x27; = start on degree 1, then intervals 3,3). In the HarpChords table, row labels are bare patterns. Everywhere else, strings like &#x27;133&#x27; or &#x27;5333&#x27; are full figures.</li>
+<li>Two figures producing the same chord is normal. Pattern 233 and pattern 434 give identical pitch-class sets at every starting degree — 434 is just 233 with its middle note displaced up one octave. The handout lists both because they are different physical fingerings.</li>
+<li>CW vs CCW. Each cycle is a closed loop of 7 diatonic chords that starts and ends at I. CW and CCW are the two directions of traversal. Every edge has a CW-label AND a CCW-label — these describe the mood of the same edge in each direction.</li>
+</ul></article>
+<article class="sheet" id="conventions"><h2>Conventions</h2>
+<h3>Roman-numeral case</h3>
+<dl class="kv">
+<dt>uppercase</dt><dd>major quality (I, IV, V)</dd>
+<dt>lowercase</dt><dd>minor quality (ii, iii, vi)</dd>
+</dl>
+<p class="subtitle">Quality is implied by case alone; never write &#x27;Im&#x27; or &#x27;iim&#x27; — use &#x27;i&#x27; and &#x27;ii&#x27;.</p>
+<h3>Quality suffixes</h3>
+<table class="data"><tr><th>Suffix</th><th>Meaning</th></tr>
+<tr><td class="num"><i>(none)</i></td><td>plain triad (quality from case)</td></tr>
+<tr><td class="num">Δ</td><td>major 7th</td></tr>
+<tr><td class="num">7</td><td>dominant 7th (with uppercase) OR minor 7th (with lowercase)</td></tr>
+<tr><td class="num">6</td><td>major 6th</td></tr>
+<tr><td class="num">m6</td><td>minor 6th</td></tr>
+<tr><td class="num">°</td><td>diminished</td></tr>
+<tr><td class="num">ø7</td><td>half-diminished 7th</td></tr>
+<tr><td class="num">q</td><td>quartal triad</td></tr>
+<tr><td class="num">q7</td><td>quartal 7th</td></tr>
+<tr><td class="num">s2</td><td>sus2</td></tr>
+<tr><td class="num">s4</td><td>sus4</td></tr>
+<tr><td class="num">s4+8</td><td>sus4 with octave doubling</td></tr>
+<tr><td class="num">+8</td><td>octave doubling (of root)</td></tr>
+</table>
+<h3>Inversion superscripts</h3>
+<dl class="kv">
+<dt>¹</dt><dd>first inversion (3rd in bass)</dd>
+<dt>²</dt><dd>second inversion (5th in bass)</dd>
+<dt>³</dt><dd>third inversion (7th in bass)</dd>
+</dl>
+<h3>Interval-from-tonic alphabet</h3>
+<dl class="kv" style="grid-template-columns: repeat(4, auto 1fr); gap: 2px 10px;">
+<dt>1</dt><dd>unison (tonic)</dd>
+<dt>2</dt><dd>2nd above</dd>
+<dt>3</dt><dd>3rd above</dd>
+<dt>4</dt><dd>4th above</dd>
+<dt>5</dt><dd>5th above</dd>
+<dt>6</dt><dd>6th above</dd>
+<dt>7</dt><dd>7th above</dd>
+<dt>8</dt><dd>octave (8th)</dd>
+<dt>9</dt><dd>9th</dd>
+<dt>A</dt><dd>10th</dd>
+<dt>B</dt><dd>11th</dd>
+<dt>C</dt><dd>12th</dd>
+<dt>D</dt><dd>13th</dd>
+<dt>E</dt><dd>14th</dd>
+<dt>F</dt><dd>15th (two octaves)</dd>
+<dt>G</dt><dd>16th</dd>
+<dt>H</dt><dd>17th</dd>
+</dl>
+<h3>Figure parsing</h3>
+<p>A figure is a string of characters from the interval alphabet. The FIRST character is the starting scale degree; each SUBSEQUENT character is the interval (inclusive) from the previous finger to the next finger.</p>
+<p class="subtitle">span = 1 + Σ(interval − 1) per interval; intervals are inclusive on both ends.</p>
+<table class="data"><tr><th>Figure</th><th>Parse</th><th>Span</th><th>Fingers</th><th>In key of C</th></tr>
+<tr><td class="fig">133</td><td>start degree 1; then interval 3, then interval 3</td><td class="num">5</td><td class="num">3</td><td class="rn"><span class="num">I</span> (C-E-G)</td></tr>
+<tr><td class="fig">933</td><td>start degree 9 (i.e. scale-degree 2 one octave up); intervals 3, 3</td><td class="num">5</td><td class="num">3</td><td class="rn"><span class="num">ii</span> one octave up (D-F-A)</td></tr>
+<tr><td class="fig">5333</td><td>start degree 5; intervals 3, 3, 3</td><td class="num">7</td><td class="num">4</td><td class="rn"><span class="num">V</span>7 (G-B-D-F)</td></tr>
+<tr><td class="fig">1233</td><td>start degree 1; intervals 2, 3, 3</td><td class="num">6</td><td class="num">4</td><td class="rn"><span class="num">I</span>&#916;<sup class="inv">1</sup> (C-D-F-A read as D<i><i>m</i></i>7/C)</td></tr>
+<tr><td class="fig">1433</td><td>start degree 1; intervals 4, 3, 3</td><td class="num">8</td><td class="num">4</td><td class="rn"><span class="num">I</span><i>s</i>4+8 (C-F-A-C)</td></tr>
+</table>
+<h3>LH / RH figure-pair notation</h3>
+<p>When two figures appear together (e.g. &#x27;133 933&#x27; or &#x27;433 A43&#x27;), the LEFT figure is the Left Hand (LH) and the RIGHT figure is the Right Hand (RH).</p>
+<table class="data"><tr><th>Pair</th><th>Meaning</th></tr>
+<tr><td class="fig">133 933</td><td>LH=I(str 1), RH=ii(str 9)</td></tr>
+<tr><td class="fig">433 A43</td><td>LH=IV(str 4), RH=vi¹(str 10)</td></tr>
+<tr><td class="fig">5333 D43</td><td>LH=V7(str 5), RH=ii¹(str 13)</td></tr>
+</table>
+<p><b>Non-diatonic marker (—):</b> A dash (—) in the HarpChords table means non-diatonic: that pattern starting on that degree produces a chord outside the key&#x27;s diatonic set.</p></article>
+<article class="sheet" id="patterns"><h2>Finger patterns (14)</h2>
+<p>Each pattern is an interval sequence walked from a starting scale degree. <code>fingers</code> = notes per chord; <code>span</code> = total strings spanned.</p>
+<table class="data"><tr><th>ID</th><th>Intervals</th><th>Fingers</th><th>Span</th></tr>
+<tr><td class="fig">24</td><td class="num">2 · 4</td><td class="num">2</td><td class="num">5</td></tr>
+<tr><td class="fig">33</td><td class="num">3 · 3</td><td class="num">2</td><td class="num">5</td></tr>
+<tr><td class="fig">34</td><td class="num">3 · 4</td><td class="num">2</td><td class="num">6</td></tr>
+<tr><td class="fig">42</td><td class="num">4 · 2</td><td class="num">2</td><td class="num">5</td></tr>
+<tr><td class="fig">43</td><td class="num">4 · 3</td><td class="num">2</td><td class="num">6</td></tr>
+<tr><td class="fig">44</td><td class="num">4 · 4</td><td class="num">2</td><td class="num">7</td></tr>
+<tr><td class="fig">233</td><td class="num">2 · 3 · 3</td><td class="num">3</td><td class="num">6</td></tr>
+<tr><td class="fig">323</td><td class="num">3 · 2 · 3</td><td class="num">3</td><td class="num">6</td></tr>
+<tr><td class="fig">332</td><td class="num">3 · 3 · 2</td><td class="num">3</td><td class="num">6</td></tr>
+<tr><td class="fig">333</td><td class="num">3 · 3 · 3</td><td class="num">3</td><td class="num">7</td></tr>
+<tr><td class="fig">334</td><td class="num">3 · 3 · 4</td><td class="num">3</td><td class="num">8</td></tr>
+<tr><td class="fig">433</td><td class="num">4 · 3 · 3</td><td class="num">3</td><td class="num">8</td></tr>
+<tr><td class="fig">434</td><td class="num">4 · 3 · 4</td><td class="num">3</td><td class="num">9</td></tr>
+<tr><td class="fig">444</td><td class="num">4 · 4 · 4</td><td class="num">3</td><td class="num">10</td></tr>
+</table></article>
+<article class="sheet" id="cycles"><h2>Diatonic cycles (3)</h2>
+<p>Each cycle is a closed loop of 7 diatonic chords starting and ending at <span class="rn"><i>I</i></span>. CW and CCW are the two directions of traversal; every edge has a CW mood label and a CCW mood label.</p>
+<div class="cycle twos">
+<h3>2nds cycle  <span style="color:var(--flavcol);font-weight:400;">(step interval 2, color cyan)</span></h3>
+<div class="traversal"><b>CW:</b>&nbsp; <span class="num">I</span> → <span class="num">ii</span> → <span class="num">iii</span> → <span class="num">IV</span> → <span class="num">V</span> → <span class="num">vi</span> → <span class="num">vii</span><sup>&#176;</sup> → <span class="num">I</span></div>
+<div class="traversal"><b>CCW:</b> <span class="num">I</span> → <span class="num">vii</span><sup>&#176;</sup> → <span class="num">vi</span> → <span class="num">V</span> → <span class="num">IV</span> → <span class="num">iii</span> → <span class="num">ii</span> → <span class="num">I</span></div>
+<table class="data"><tr><th>From</th><th>To</th><th>CW label</th><th>CCW label</th></tr>
+<tr><td class="rn"><span class="num">I</span></td><td class="rn"><span class="num">ii</span></td><td>Cloudy</td><td>Grounding</td></tr>
+<tr><td class="rn"><span class="num">ii</span></td><td class="rn"><span class="num">iii</span></td><td>Deepening</td><td>Easing</td></tr>
+<tr><td class="rn"><span class="num">iii</span></td><td class="rn"><span class="num">IV</span></td><td>Warming</td><td>Cooling</td></tr>
+<tr><td class="rn"><span class="num">IV</span></td><td class="rn"><span class="num">V</span></td><td>Tensing</td><td>Calming</td></tr>
+<tr><td class="rn"><span class="num">V</span></td><td class="rn"><span class="num">vi</span></td><td>Deceptive</td><td>Pivoting</td></tr>
+<tr><td class="rn"><span class="num">vi</span></td><td class="rn"><span class="num">vii</span><sup>&#176;</sup></td><td>Darkening</td><td>Reposing</td></tr>
+<tr><td class="rn"><span class="num">vii</span><sup>&#176;</sup></td><td class="rn"><span class="num">I</span></td><td>Releasing</td><td>Fracturing</td></tr>
+</table></div>
+<div class="cycle thirds">
+<h3>3rds cycle  <span style="color:var(--flavcol);font-weight:400;">(step interval 3, color red)</span></h3>
+<div class="traversal"><b>CW:</b>&nbsp; <span class="num">I</span> → <span class="num">iii</span> → <span class="num">V</span> → <span class="num">vii</span><sup>&#176;</sup> → <span class="num">ii</span> → <span class="num">IV</span> → <span class="num">vi</span> → <span class="num">I</span></div>
+<div class="traversal"><b>CCW:</b> <span class="num">I</span> → <span class="num">vi</span> → <span class="num">IV</span> → <span class="num">ii</span> → <span class="num">vii</span><sup>&#176;</sup> → <span class="num">V</span> → <span class="num">iii</span> → <span class="num">I</span></div>
+<table class="data"><tr><th>From</th><th>To</th><th>CW label</th><th>CCW label</th></tr>
+<tr><td class="rn"><span class="num">I</span></td><td class="rn"><span class="num">iii</span></td><td>Drifting</td><td>Homecoming</td></tr>
+<tr><td class="rn"><span class="num">iii</span></td><td class="rn"><span class="num">V</span></td><td>Galvanizing</td><td>Retreating</td></tr>
+<tr><td class="rn"><span class="num">V</span></td><td class="rn"><span class="num">vii</span><sup>&#176;</sup></td><td>Fraying</td><td>Steadying</td></tr>
+<tr><td class="rn"><span class="num">vii</span><sup>&#176;</sup></td><td class="rn"><span class="num">ii</span></td><td>Tilting</td><td>Curdling</td></tr>
+<tr><td class="rn"><span class="num">ii</span></td><td class="rn"><span class="num">IV</span></td><td>Gladdening</td><td>Shading</td></tr>
+<tr><td class="rn"><span class="num">IV</span></td><td class="rn"><span class="num">vi</span></td><td>Grieving</td><td>Consoling</td></tr>
+<tr><td class="rn"><span class="num">vi</span></td><td class="rn"><span class="num">I</span></td><td>Triumphing</td><td>Brooding</td></tr>
+</table></div>
+<div class="cycle fourths">
+<h3>4ths cycle  <span style="color:var(--flavcol);font-weight:400;">(step interval 4, color yellow)</span></h3>
+<div class="traversal"><b>CW:</b>&nbsp; <span class="num">I</span> → <span class="num">IV</span> → <span class="num">vii</span><sup>&#176;</sup> → <span class="num">iii</span> → <span class="num">vi</span> → <span class="num">ii</span> → <span class="num">V</span> → <span class="num">I</span></div>
+<div class="traversal"><b>CCW:</b> <span class="num">I</span> → <span class="num">V</span> → <span class="num">ii</span> → <span class="num">vi</span> → <span class="num">iii</span> → <span class="num">vii</span><sup>&#176;</sup> → <span class="num">IV</span> → <span class="num">I</span></div>
+<table class="data"><tr><th>From</th><th>To</th><th>CW label</th><th>CCW label</th></tr>
+<tr><td class="rn"><span class="num">I</span></td><td class="rn"><span class="num">IV</span></td><td>Exploring</td><td>Landing</td></tr>
+<tr><td class="rn"><span class="num">IV</span></td><td class="rn"><span class="num">vii</span><sup>&#176;</sup></td><td>Alarming</td><td>Quieting</td></tr>
+<tr><td class="rn"><span class="num">vii</span><sup>&#176;</sup></td><td class="rn"><span class="num">iii</span></td><td>Despairing</td><td>Rooting</td></tr>
+<tr><td class="rn"><span class="num">iii</span></td><td class="rn"><span class="num">vi</span></td><td>Accepting</td><td>Reverting</td></tr>
+<tr><td class="rn"><span class="num">vi</span></td><td class="rn"><span class="num">ii</span></td><td>Wandering</td><td>Dreaming</td></tr>
+<tr><td class="rn"><span class="num">ii</span></td><td class="rn"><span class="num">V</span></td><td>Lifting</td><td>Stepping</td></tr>
+<tr><td class="rn"><span class="num">V</span></td><td class="rn"><span class="num">I</span></td><td>Resolving</td><td>Lofting</td></tr>
+</table></div></article>
+<article class="sheet" id="jazz"><h2>Jazz progressions (42)</h2>
+<p>Paired LH / RH voicings along the three diatonic cycles. CW ascends, CCW descends. Each row is one <i>edge</i> of one cycle.</p>
+<table class="data"><tr><th>Cycle</th><th>Verse</th><th>LH</th><th>LH fig</th><th>RH</th><th>RH fig</th><th>CW</th><th>CCW</th></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">I</span></td><td class="fig lh">133</td><td class="rn rh"><span class="num">ii</span></td><td class="fig rh">933</td><td>Cloudy</td><td>Grounding</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">I</span></td><td class="fig lh">133</td><td class="rn rh"><span class="num">iii</span></td><td class="fig rh">A33</td><td>Drifting</td><td>Homecoming</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">I</span></td><td class="fig lh">133</td><td class="rn rh"><span class="num">IV</span></td><td class="fig rh">B33</td><td>Exploring</td><td>Landing</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">ii</span></td><td class="fig lh">233</td><td class="rn rh"><span class="num">iii</span></td><td class="fig rh">A33</td><td>Deepening</td><td>Easing</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">iii</span></td><td class="fig lh">333</td><td class="rn rh"><span class="num">V</span></td><td class="fig rh">C33</td><td>Galvanizing</td><td>Retreating</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">IV</span></td><td class="fig lh">433</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig rh">E33</td><td>Alarming</td><td>Quieting</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">iii</span></td><td class="fig lh">333</td><td class="rn rh"><span class="num">IV</span></td><td class="fig rh">B33</td><td>Warming</td><td>Cooling</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">V</span></td><td class="fig lh">533</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig rh">E33</td><td>Fraying</td><td>Steadying</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">iii</span></td><td class="fig lh">333</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig rh">E33</td><td>Despairing</td><td>Rooting</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">IV</span></td><td class="fig lh">433</td><td class="rn rh"><span class="num">V</span></td><td class="fig rh">C33</td><td>Tensing</td><td>Calming</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">ii</span></td><td class="fig lh">233</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig rh">733</td><td>Tilting</td><td>Curdling</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">iii</span></td><td class="fig lh">333</td><td class="rn rh"><span class="num">vi</span></td><td class="fig rh">D33</td><td>Accepting</td><td>Reverting</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">V</span></td><td class="fig lh">533</td><td class="rn rh"><span class="num">vi</span></td><td class="fig rh">D33</td><td>Deceptive</td><td>Pivoting</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">ii</span></td><td class="fig lh">233</td><td class="rn rh"><span class="num">IV</span></td><td class="fig rh">B33</td><td>Gladdening</td><td>Shading</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">ii</span></td><td class="fig lh">233</td><td class="rn rh"><span class="num">vi</span></td><td class="fig rh">D33</td><td>Wandering</td><td>Dreaming</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">vi</span></td><td class="fig lh">633</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig rh">E33</td><td>Darkening</td><td>Reposing</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">IV</span></td><td class="fig lh">433</td><td class="rn rh"><span class="num">vi</span></td><td class="fig rh">D33</td><td>Grieving</td><td>Consoling</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">ii</span></td><td class="fig lh">233</td><td class="rn rh"><span class="num">V</span></td><td class="fig rh">C33</td><td>Lifting</td><td>Stepping</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig lh">733</td><td class="rn rh"><span class="num">I</span></td><td class="fig rh">F33</td><td>Releasing</td><td>Fracturing</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">vi</span></td><td class="fig lh">633</td><td class="rn rh"><span class="num">I</span></td><td class="fig rh">F33</td><td>Triumphing</td><td>Brooding</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">V</span></td><td class="fig lh">533</td><td class="rn rh"><span class="num">I</span></td><td class="fig rh">F33</td><td>Resolving</td><td>Lofting</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">ii</span>7iii</td><td class="fig lh">1233</td><td class="rn rh"><span class="num">I</span>&#916;iii</td><td class="fig rh">7233</td><td>Cloudy</td><td>Grounding</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">iii</span>7iii</td><td class="fig lh">2233</td><td class="rn rh"><span class="num">Ii</span></td><td class="fig rh">A34</td><td>Drifting</td><td>Homecoming</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">IV</span>&#916;ii</td><td class="fig lh">1323</td><td class="rn rh"><span class="num">I</span>&#916;iii</td><td class="fig rh">7233</td><td>Exploring</td><td>Landing</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">iii</span>7iii</td><td class="fig lh">2233</td><td class="rn rh"><span class="num">ii</span>7iii</td><td class="fig rh">8233</td><td>Deepening</td><td>Easing</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">V</span>7iii</td><td class="fig lh">4233</td><td class="rn rh"><span class="num">iiii</span></td><td class="fig rh">C34</td><td>Galvanizing</td><td>Retreating</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">vii</span><sup>&#248;</sup>7ii</td><td class="fig lh">4323</td><td class="rn rh"><span class="num">IV</span>&#916;iii</td><td class="fig rh">A233</td><td>Alarming</td><td>Quieting</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">IV</span>&#916;iii</td><td class="fig lh">3233</td><td class="rn rh"><span class="num">iii</span>7iii</td><td class="fig rh">9233</td><td>Warming</td><td>Cooling</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">vii</span><sup>&#248;</sup>7iii</td><td class="fig lh">6233</td><td class="rn rh"><span class="num">Vi</span></td><td class="fig rh">E34</td><td>Fraying</td><td>Steadying</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">iii</span>7ii</td><td class="fig lh">7323</td><td class="rn rh"><span class="num">vii</span><sup>&#248;</sup>7iii</td><td class="fig rh">D233</td><td>Despairing</td><td>Rooting</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">V</span>7iii</td><td class="fig lh">4233</td><td class="rn rh"><span class="num">IV</span>&#916;iii</td><td class="fig rh">A233</td><td>Tensing</td><td>Calming</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">ii</span>7iii</td><td class="fig lh">1233</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup>i</td><td class="fig rh">934</td><td>Tilting</td><td>Curdling</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">vi</span>7ii</td><td class="fig lh">3323</td><td class="rn rh"><span class="num">iii</span>7iii</td><td class="fig rh">9233</td><td>Accepting</td><td>Reverting</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">vi</span>7iii</td><td class="fig lh">5233</td><td class="rn rh"><span class="num">V</span>7iii</td><td class="fig rh">B233</td><td>Deceptive</td><td>Pivoting</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">IV</span>&#916;iii</td><td class="fig lh">3233</td><td class="rn rh"><span class="num">iii</span></td><td class="fig rh">B34</td><td>Gladdening</td><td>Shading</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">ii</span>7ii</td><td class="fig lh">6323</td><td class="rn rh"><span class="num">vi</span>7iii</td><td class="fig rh">C233</td><td>Wandering</td><td>Dreaming</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">vii</span><sup>&#248;</sup>7iii</td><td class="fig lh">6233</td><td class="rn rh"><span class="num">vi</span>7iii</td><td class="fig rh">C233</td><td>Darkening</td><td>Reposing</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">vi</span>7iii</td><td class="fig lh">5233</td><td class="rn rh"><span class="num">IVi</span></td><td class="fig rh">D34</td><td>Grieving</td><td>Consoling</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">V</span>7ii</td><td class="fig lh">2323</td><td class="rn rh"><span class="num">ii</span>7iii</td><td class="fig rh">8233</td><td>Lifting</td><td>Stepping</td></tr>
+<tr><td>2nds</td><td class="num"></td><td class="rn lh"><span class="num">I</span>&#916;iii</td><td class="fig lh">7233</td><td class="rn rh"><span class="num">vii</span><sup>&#248;</sup>7iii</td><td class="fig rh">D233</td><td>Releasing</td><td>Fracturing</td></tr>
+<tr><td>3rds</td><td class="num"></td><td class="rn lh"><span class="num">I</span>&#916;iii</td><td class="fig lh">7233</td><td class="rn rh"><span class="num">vii</span></td><td class="fig rh">F34</td><td>Triumphing</td><td>Brooding</td></tr>
+<tr><td>4ths</td><td class="num"></td><td class="rn lh"><span class="num">I</span>&#916;ii</td><td class="fig lh">5323</td><td class="rn rh"><span class="num">V</span>7iii</td><td class="fig rh">B233</td><td>Resolving</td><td>Lofting</td></tr>
+</table></article>
+<article class="sheet" id="stacked"><h2>Stacked chords (76)</h2>
+<p>Single-sonority two-handed voicings built by stacking an RH voicing over an LH voicing. Sorted by LH.</p>
+<table class="data"><tr><th>LH</th><th>LH fig</th><th>RH</th><th>RH fig</th><th>Mood</th></tr>
+<tr><td class="rn lh"><span class="num">I</span>6</td><td class="fig lh">1332</td><td class="rn rh"><span class="num">V</span>7i</td><td class="fig rh">7332</td><td>Warm</td></tr>
+<tr><td class="rn lh"><span class="num">I</span><i>s</i>2</td><td class="fig lh">124</td><td class="rn rh"><span class="num">vi</span><i>s</i>2</td><td class="fig rh">624</td><td>Soulful</td></tr>
+<tr><td class="rn lh"><span class="num">I</span><i>s</i>2</td><td class="fig lh">124</td><td class="rn rh"><span class="num">IVi</span></td><td class="fig rh">634</td><td>Mellow</td></tr>
+<tr><td class="rn lh"><span class="num">I</span><i>s</i>2</td><td class="fig lh">124</td><td class="rn rh"><span class="num">iiii</span></td><td class="fig rh">643</td><td>Velvety</td></tr>
+<tr><td class="rn lh"><span class="num">I</span><i>s</i>2</td><td class="fig lh">124</td><td class="rn rh"><span class="num">vii</span><sup>&#248;</sup>7iii</td><td class="fig rh">6233</td><td>Plush</td></tr>
+<tr><td class="rn lh"><span class="num">I</span><i>s</i>2</td><td class="fig lh">124</td><td class="rn rh"><span class="num">IV</span>&#916;i</td><td class="fig rh">6332</td><td>Sultry</td></tr>
+<tr><td class="rn lh"><span class="num">Iii</span></td><td class="fig lh">543</td><td class="rn rh"><span class="num">iii</span></td><td class="fig rh">B34</td><td>Pastoral</td></tr>
+<tr><td class="rn lh"><span class="num">Iii</span></td><td class="fig lh">543</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup>ii</td><td class="fig rh">B43</td><td>Bright</td></tr>
+<tr><td class="rn lh"><span class="num">Iii</span></td><td class="fig lh">543</td><td class="rn rh"><span class="num">vii</span><sup>&#248;</sup>7ii</td><td class="fig rh">B323</td><td>Radiant</td></tr>
+<tr><td class="rn lh"><span class="num">Ii</span></td><td class="fig lh">334</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup>i</td><td class="fig rh">934</td><td>Glowing</td></tr>
+<tr><td class="rn lh"><span class="num">I</span>&#916;</td><td class="fig lh">1333</td><td class="rn rh"><span class="num">ii</span>7iii</td><td class="fig rh">8233</td><td>Gilded</td></tr>
+<tr><td class="rn lh"><span class="num">I</span>&#916;ii</td><td class="fig lh">5323</td><td class="rn rh"><span class="num">iii</span></td><td class="fig rh">B34</td><td>Shimmering</td></tr>
+<tr><td class="rn lh"><span class="num">I</span>&#916;ii</td><td class="fig lh">5323</td><td class="rn rh"><span class="num">vii</span><sup>&#248;</sup>7ii</td><td class="fig rh">B323</td><td>Silvered</td></tr>
+<tr><td class="rn lh"><span class="num">I</span>&#916;iii</td><td class="fig lh">7233</td><td class="rn rh"><span class="num">iiii</span></td><td class="fig rh">D43</td><td>Crystalline</td></tr>
+<tr><td class="rn lh"><span class="num">I</span>&#916;iii</td><td class="fig lh">7233</td><td class="rn rh"><span class="num">ii</span>7ii</td><td class="fig rh">D323</td><td>Sparkling</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span></td><td class="fig lh">233</td><td class="rn rh"><span class="num">iiiii</span></td><td class="fig rh">743</td><td>Prismatic</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span></td><td class="fig lh">233</td><td class="rn rh"><span class="num">I</span>&#916;iii</td><td class="fig rh">7233</td><td>Halo</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span>6</td><td class="fig lh">2332</td><td class="rn rh"><span class="num">vii</span></td><td class="fig rh">834</td><td>Dark</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span>6</td><td class="fig lh">2332</td><td class="rn rh"><span class="num">IV</span>&#916;ii</td><td class="fig rh">8323</td><td>Nocturnal</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span>7</td><td class="fig lh">2333</td><td class="rn rh"><span class="num">iii</span>7iii</td><td class="fig rh">9233</td><td>Haunting</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span><i>q</i></td><td class="fig lh">244</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup>i</td><td class="fig rh">934</td><td>Mysterious</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span><i>q</i></td><td class="fig lh">244</td><td class="rn rh"><span class="num">iii</span><i>s</i>4</td><td class="fig rh">A42</td><td>Arcane</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span><i>s</i>2</td><td class="fig lh">224</td><td class="rn rh"><span class="num">Vi</span></td><td class="fig rh">734</td><td>Veiled</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span><i>s</i>2</td><td class="fig lh">224</td><td class="rn rh"><span class="num">iiiii</span></td><td class="fig rh">743</td><td>Foggy</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span><i>s</i>2</td><td class="fig lh">224</td><td class="rn rh"><span class="num">I</span>&#916;iii</td><td class="fig rh">7233</td><td>Shadowed</td></tr>
+<tr><td class="rn lh"><span class="num">ii</span><i>s</i>2</td><td class="fig lh">224</td><td class="rn rh"><span class="num">V</span>7i</td><td class="fig rh">7332</td><td>Wistful</td></tr>
+<tr><td class="rn lh"><span class="num">iii</span></td><td class="fig lh">333</td><td class="rn rh"><span class="num">IVii</span></td><td class="fig rh">843</td><td>Cascading</td></tr>
+<tr><td class="rn lh"><span class="num">iii</span></td><td class="fig lh">333</td><td class="rn rh"><span class="num">ii</span>7iii</td><td class="fig rh">8233</td><td>Pendular</td></tr>
+<tr><td class="rn lh"><span class="num">iii</span></td><td class="fig lh">333</td><td class="rn rh"><span class="num">IVii</span>+8</td><td class="fig rh">8433</td><td>Rustling</td></tr>
+<tr><td class="rn lh"><span class="num">iii</span>7</td><td class="fig lh">3333</td><td class="rn rh"><span class="num">IV</span>&#916;iii</td><td class="fig rh">A233</td><td>Floating</td></tr>
+<tr><td class="rn lh"><span class="num">iii</span><i>q</i></td><td class="fig lh">344</td><td class="rn rh"><span class="num">Ii</span></td><td class="fig rh">A34</td><td>Wafting</td></tr>
+<tr><td class="rn lh"><span class="num">iii</span><i>q</i></td><td class="fig lh">344</td><td class="rn rh"><span class="num">I</span>&#916;i</td><td class="fig rh">A332</td><td>Spinning</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span></td><td class="fig lh">433</td><td class="rn rh"><span class="num">Vii</span></td><td class="fig rh">943</td><td>Curling</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span></td><td class="fig lh">433</td><td class="rn rh"><span class="num">iii</span>7iii</td><td class="fig rh">9233</td><td>Ascending</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span>6</td><td class="fig lh">4332</td><td class="rn rh"><span class="num">I</span>&#916;i</td><td class="fig rh">A332</td><td>Lifted</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span><i>s</i>2</td><td class="fig lh">424</td><td class="rn rh"><span class="num">ii</span><i>s</i>2</td><td class="fig rh">924</td><td>Melting</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span><i>s</i>2</td><td class="fig lh">424</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup>i</td><td class="fig rh">934</td><td>Still</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span><i>s</i>2</td><td class="fig lh">424</td><td class="rn rh"><span class="num">Vii</span></td><td class="fig rh">943</td><td>Quiet</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span><i>s</i>2</td><td class="fig lh">424</td><td class="rn rh"><span class="num">iii</span>7iii</td><td class="fig rh">9233</td><td>Settled</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span><i>s</i>2</td><td class="fig lh">424</td><td class="rn rh"><span class="num">Vii</span>+8</td><td class="fig rh">9433</td><td>Anchored</td></tr>
+<tr><td class="rn lh"><span class="num">IVii</span></td><td class="fig lh">143</td><td class="rn rh"><span class="num">Vi</span></td><td class="fig rh">734</td><td>Poised</td></tr>
+<tr><td class="rn lh"><span class="num">IVii</span></td><td class="fig lh">143</td><td class="rn rh"><span class="num">iiiii</span></td><td class="fig rh">743</td><td>Thoughtful</td></tr>
+<tr><td class="rn lh"><span class="num">IVii</span></td><td class="fig lh">143</td><td class="rn rh"><span class="num">iii</span>7ii</td><td class="fig rh">7323</td><td>Breathing</td></tr>
+<tr><td class="rn lh"><span class="num">IVi</span></td><td class="fig lh">634</td><td class="rn rh"><span class="num">iiii</span></td><td class="fig rh">C34</td><td>Resonant</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span>&#916;</td><td class="fig lh">4333</td><td class="rn rh"><span class="num">V</span>7iii</td><td class="fig rh">B233</td><td>Autumnal</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span>&#916;iii</td><td class="fig lh">3233</td><td class="rn rh"><span class="num">Vii</span></td><td class="fig rh">943</td><td>Oceanic</td></tr>
+<tr><td class="rn lh"><span class="num">IV</span>&#916;iii</td><td class="fig lh">3233</td><td class="rn rh"><span class="num">V</span>7ii</td><td class="fig rh">9323</td><td>Tidal</td></tr>
+<tr><td class="rn lh"><span class="num">V</span></td><td class="fig lh">533</td><td class="rn rh"><span class="num">viii</span></td><td class="fig rh">A43</td><td>Misty</td></tr>
+<tr><td class="rn lh"><span class="num">V</span></td><td class="fig lh">533</td><td class="rn rh"><span class="num">IV</span>&#916;iii</td><td class="fig rh">A233</td><td>Frosted</td></tr>
+<tr><td class="rn lh"><span class="num">V</span>7</td><td class="fig lh">5333</td><td class="rn rh"><span class="num">vi</span>7iii</td><td class="fig rh">C233</td><td>Dewy</td></tr>
+<tr><td class="rn lh"><span class="num">V</span><i>q</i></td><td class="fig lh">544</td><td class="rn rh"><span class="num">iiii</span></td><td class="fig rh">C34</td><td>Dappled</td></tr>
+<tr><td class="rn lh"><span class="num">V</span><i>s</i>2</td><td class="fig lh">524</td><td class="rn rh"><span class="num">Ii</span></td><td class="fig rh">A34</td><td>Lush</td></tr>
+<tr><td class="rn lh"><span class="num">V</span><i>s</i>2</td><td class="fig lh">524</td><td class="rn rh"><span class="num">viii</span></td><td class="fig rh">A43</td><td>Rich</td></tr>
+<tr><td class="rn lh"><span class="num">V</span><i>s</i>2</td><td class="fig lh">524</td><td class="rn rh"><span class="num">IV</span>&#916;iii</td><td class="fig rh">A233</td><td>Spacious</td></tr>
+<tr><td class="rn lh"><span class="num">V</span><i>s</i>2</td><td class="fig lh">524</td><td class="rn rh"><span class="num">I</span>&#916;i</td><td class="fig rh">A332</td><td>Hollow</td></tr>
+<tr><td class="rn lh"><span class="num">V</span><i>s</i>4</td><td class="fig lh">542</td><td class="rn rh"><span class="num">iii</span><i>s</i>4</td><td class="fig rh">A42</td><td>Airy</td></tr>
+<tr><td class="rn lh"><span class="num">Vii</span></td><td class="fig lh">243</td><td class="rn rh"><span class="num">vii</span></td><td class="fig rh">834</td><td>Soft</td></tr>
+<tr><td class="rn lh"><span class="num">Vii</span></td><td class="fig lh">243</td><td class="rn rh"><span class="num">IVii</span></td><td class="fig rh">843</td><td>Open</td></tr>
+<tr><td class="rn lh"><span class="num">Vii</span></td><td class="fig lh">243</td><td class="rn rh"><span class="num">IV</span>&#916;ii</td><td class="fig rh">8323</td><td>Hazy</td></tr>
+<tr><td class="rn lh"><span class="num">Vi</span></td><td class="fig lh">734</td><td class="rn rh"><span class="num">IVi</span></td><td class="fig rh">D34</td><td>Woven</td></tr>
+<tr><td class="rn lh"><span class="num">Vi</span></td><td class="fig lh">734</td><td class="rn rh"><span class="num">IV</span>&#916;i</td><td class="fig rh">D332</td><td>Carved</td></tr>
+<tr><td class="rn lh"><span class="num">V</span>7iii</td><td class="fig lh">4233</td><td class="rn rh"><span class="num">viii</span></td><td class="fig rh">A43</td><td>Arched</td></tr>
+<tr><td class="rn lh"><span class="num">vi</span></td><td class="fig lh">633</td><td class="rn rh"><span class="num">vii</span><sup>&#176;</sup>ii</td><td class="fig rh">B43</td><td>Layered</td></tr>
+<tr><td class="rn lh"><span class="num">vi</span></td><td class="fig lh">633</td><td class="rn rh"><span class="num">V</span>7iii</td><td class="fig rh">B233</td><td>Tangled</td></tr>
+<tr><td class="rn lh"><span class="num">vi</span>7</td><td class="fig lh">6333</td><td class="rn rh"><span class="num">vii</span><sup>&#248;</sup>7iii</td><td class="fig rh">D233</td><td>Bluesy</td></tr>
+<tr><td class="rn lh"><span class="num">vi</span><i>q</i></td><td class="fig lh">644</td><td class="rn rh"><span class="num">IVi</span></td><td class="fig rh">D34</td><td>Jazzy</td></tr>
+<tr><td class="rn lh"><span class="num">vi</span><i>q</i></td><td class="fig lh">644</td><td class="rn rh"><span class="num">IV</span>&#916;i</td><td class="fig rh">D332</td><td>Modal</td></tr>
+<tr><td class="rn lh"><span class="num">vi</span><i>s</i>2</td><td class="fig lh">624</td><td class="rn rh"><span class="num">IV</span><i>s</i>2</td><td class="fig rh">B24</td><td>Pealing</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><i>q</i></td><td class="fig lh">744</td><td class="rn rh"><span class="num">Vi</span></td><td class="fig rh">E34</td><td>Ringing</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><i>q</i></td><td class="fig lh">744</td><td class="rn rh"><span class="num">V</span>7i</td><td class="fig rh">E332</td><td>Brass</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig lh">733</td><td class="rn rh"><span class="num">Iii</span></td><td class="fig rh">C43</td><td>Commanding</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig lh">733</td><td class="rn rh"><span class="num">vi</span>7iii</td><td class="fig rh">C233</td><td>Ancient</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><sup>&#176;</sup></td><td class="fig lh">733</td><td class="rn rh"><span class="num">Iii</span>+8</td><td class="fig rh">C433</td><td>Elegant</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><sup>&#248;</sup>7</td><td class="fig lh">7333</td><td class="rn rh"><span class="num">I</span>&#916;iii</td><td class="fig rh">E233</td><td>Ethereal</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><sup>&#248;</sup>7</td><td class="fig lh">7333</td><td class="rn rh"><span class="num">iiiii</span></td><td class="fig rh">E43</td><td>Dreamy</td></tr>
+<tr><td class="rn lh"><span class="num">vii</span><sup>&#248;</sup>7</td><td class="fig lh">7333</td><td class="rn rh"><span class="num">iii</span>7ii</td><td class="fig rh">E323</td><td>Mournful</td></tr>
+</table></article>
+</main></body></html>

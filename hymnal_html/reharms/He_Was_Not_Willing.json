@@ -1,0 +1,81 @@
+{
+  "title": "He Was Not Willing",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "6/8",
+  "bpm": 100,
+  "words": "Lucy R. Meyer, 1885.  Music and",
+  "music": "Lucy R. Meyer, 1885",
+  "tune": "He Was Not Willing",
+  "lyrics": {
+    "v1": "&quot;He was not willing that any should perish&quot;; Jesus enthroned in the glory above, Saw our poor fallen world, pitied our sorrows, Poured out His life for us, wonderful love! Perishing, perishing! Thronging our pathway, Hearts break with burdens too heavy to bear: Jesus would save, but there&#39;s no one to tell them, No one to lift them from sin and despair.",
+    "v2": "&quot;He was not willing that any should perish&quot;; Clothed in our flesh with its sorrow and pain, Came He to seek the lost, comfort the mourner, Heal the heart broken by sorrow and shame. Perishing, perishing! Harvest is passing, Reapers are few and the night draweth near: Jesus is calling thee, haste to the reaping, Thou shalt have souls, precious souls for thy hire.",
+    "v3": "Plenty for pleasure, but little for Jesus; Time for the world with its troubles and toys, No time for Jesus&#39; work, feeding the hungry, Lifting lost souls to eternity&#39;s joys. Perishing, perishing! Hark, how they call us; Bring us your Savior, oh, tell us of Him! We are so weary, so heavily laden, And with long weeping our eyes have grown dim.",
+    "v4": "&quot;He was not willing that any should perish&quot;; Am I His follower, and can I live Longer at ease with a soul going downward, Lost for the lack of the help I might give! Perishing, perishing! Thou wast not willing; Master, forgive, and inspire us anew; Banish our worldliness, help us to ever Live with eternity&#39;s values in view."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "&quot;He was not willing that any should perish&quot;; Jesus enthroned in the glory above, Saw our poor fallen world, pitied our sorrows, Poured out His life for us, wonderful love! Perishing, perishing! Thronging our pathway, Hearts break with burdens too heavy to bear: Jesus would save, but there&#39;s no one to tell them, No one to lift them from sin and despair.",
+        "v2": "&quot;He was not willing that any should perish&quot;; Clothed in our flesh with its sorrow and pain, Came He to seek the lost, comfort the mourner, Heal the heart broken by sorrow and shame. Perishing, perishing! Harvest is passing, Reapers are few and the night draweth near: Jesus is calling thee, haste to the reaping, Thou shalt have souls, precious souls for thy hire."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 8
+}

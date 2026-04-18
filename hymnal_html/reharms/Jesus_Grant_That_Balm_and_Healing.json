@@ -1,0 +1,256 @@
+{
+  "title": "Jesus Grant That Balm and Healing",
+  "key": "a minor",
+  "key_root": "A",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Johann Heermann, 1644.  Translation composite",
+  "music": "Johann Balthasar König, 1738",
+  "tune": "Der Am Kreuz",
+  "lyrics": {
+    "v1": "Jesus, grant that balm and healing In Thy holy wounds I find, Every hour that I am feeling, Pains of body and of mind. Should some evil thought within Tempt my treacherous heart to sin, Show the peril, and from sinning Keep me ere its first beginning.",
+    "v2": "Should some lust or sharp temptation Prove too strong for flesh and blood, Let me think upon Thy Passion, And the breach is soon made good. Or should Satan press me hard, Let me then be on my guard, Saying, &quot;Christ for me was wounded,&quot; That the tempter flee confounded.",
+    "v3": "If the world my heart entices On the broad and easy road With its mirth and luring vices, Let me think upon the load Thou didst carry and endure That I flee all thoughts impure, Banishing each wild emotion, Calm and blest in my devotion.",
+    "v4": "Every wound that pains or grieves me, By Thy stripes, Lord, is made whole; When I&#39;m faint, Thy cross revives me, Granting new life to my soul. Yea, Thy comfort renders sweet Every bitter cup I meet; For Thy all atoning Passion Has procured my soul&#39;s salvation.",
+    "v5": "O my God, my Rock and Tower, Grant that in Thy death I trust, Knowing death has lost his power Since Thou trodd&#39;st him in the dust. Savior, let Thine agony Ever help and comfort me; When I die, be my Protection, Light and Life and Resurrection."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Jesus, grant that balm and healing In Thy holy",
+        "v2": "Should some lust or sharp temptation Prove too strong for"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "wounds I find, Every hour that I am feeling, Pains of body",
+        "v2": "flesh and blood, Let me think upon Thy Passion, And the breach is"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "and of mind. Should some evil thought within",
+        "v2": "soon made good. Or should Satan press me hard,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Tempt my treacherous heart to sin, Show the peril, and from sinning",
+        "v2": "Let me then be on my guard, Saying, &quot;Christ for me was wounded,&quot;"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16,
+        17
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Keep me ere its first beginning.",
+        "v2": "That the tempter flee confounded."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "i",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i",
+      "mel": "B4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 17
+}

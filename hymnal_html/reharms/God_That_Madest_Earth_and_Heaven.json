@@ -1,0 +1,280 @@
+{
+  "title": "God, That Madest Earth and Heaven",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "verse 1, Reginald Heber, 1827. verse 2, William Mercer, 1864. verse 3, Richard Whately, 1838",
+  "music": "traditional Welsh, 1906",
+  "tune": "Ar Hyd Y Nos",
+  "lyrics": {
+    "v1": "God, that madest earth and Heaven, darkness and light; Who the day for toil hast given, for rest the night; May Thine angel guards defend us, Slumber sweet Thy mercy send us; Holy dreams and hopes attend us, all through the night.",
+    "v2": "And when morn again shall call us, to run life&#39;s way, May we still, whate&#39;er befall us, Thy will obey. From the pow&#39;r of evil hide us, In the narrow pathway guide us, Nor Thy smile be e&#39;er denied us all through the day.",
+    "v3": "Guard us waking, guard us sleeping, and when we die, May we in Thy mighty keeping all peaceful lie; When the last dread call shall wake us, Do not Thou, our God, forsake us, But to reign in glory take us with Thee on high."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "God, that madest earth and Heaven, darkness and light;",
+        "v2": "And when morn again shall call us, to run life&#39;s way,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Who the day for toil hast given, for rest the night;",
+        "v2": "May we still, whate&#39;er befall us, Thy will obey."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "May Thine angel guards defend us, Slumber sweet Thy mercy send us;",
+        "v2": "From the pow&#39;r of evil hide us, In the narrow pathway guide us,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Holy dreams and hopes attend us, all through the night.",
+        "v2": "Nor Thy smile be e&#39;er denied us all through the day."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "ii7",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V7",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5332",
+      "rh_rom": "V6",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "ii7",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V7",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5332",
+      "rh_rom": "V6",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV6",
+      "mel": "C5",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "1433",
+      "rh_rom": "IV²+8",
+      "rh_qual": "",
+      "rh_fig": "C333",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "V",
+      "mel": "E5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5332",
+      "rh_rom": "V6",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I6",
+      "mel": "C5",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "ii5",
+      "mel": "B4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "ii7",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "2333",
+      "rh_rom": "ii7",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "V7",
+      "mel": "E4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5332",
+      "rh_rom": "V6",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "I+8",
+      "rh_qual": "",
+      "rh_fig": "8334",
+      "mood": "Chiming",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

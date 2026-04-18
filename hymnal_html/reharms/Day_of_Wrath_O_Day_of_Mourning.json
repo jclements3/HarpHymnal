@@ -1,0 +1,253 @@
+{
+  "title": "Day of Wrath, O Day of Mourning",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Thomas of Celano, 13th Century, 1848",
+  "music": "John Bacchus Dykes, 1861",
+  "tune": "Dies Irae (Dykes)",
+  "lyrics": {
+    "v1": "Day of wrath, O day of mourning! See fulfilled the prophet&#39;s warning, Heav&#39;n and earth in ashes burning. Oh, what fear man&#39;s bosom rendeth When from Heav&#39;n the Judge descendeth On whose sentence all dependeth!",
+    "v2": "Wondrous sound the trumpet flingeth, Through earth&#39;s sepulchers it ringeth, All before the throne it bringeth. Death is struck and nature quaking; All crea- tion is awaking, To its Judge an answer making.",
+    "v3": "Lo, the book, exactly worded, Wherein all hath been recorded; Thence shall judgment be awarded. When the Judge His seat attaineth And each hidden deed arraigneth, Nothing una- venged remaineth.",
+    "v4": "What shall I, frail man, be pleading? Who for me be interceding When the just are mercy needing? King of majesty tremendous, Who dost free salvation send us, Fount of pity, then befriend us.",
+    "v5": "Think, good Jesus, my salvation Caused Thy wondrous incarnation; Leave me not to reprobation! Faint and weary Thou hast sought me, On the cross of suff&#39;ring bought me; Shall such grace be vainly brought me?"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Day of wrath, O day of mourning! See fulfilled the",
+        "v2": "Wondrous sound the trumpet flingeth, Through earth&#39;s sepul"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "prophet&#39;s warning, Heav&#39;n and earth in",
+        "v2": "chers it ringeth, All before the"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "ashes burning. Oh, what fear man&#39;s",
+        "v2": "throne it bringeth. Death is struck and"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "bosom rendeth When from Heav&#39;n the Judge descendeth On whose sentence all depend",
+        "v2": "nature quaking; All creation is awaking, To its Judge an answer ma"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "i6",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "iv",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Curdling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "iiø7",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Tilting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "iv",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V",
+      "mel": "E4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "bVI64",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "i6",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 12,
+      "rn": "i64",
+      "mel": "E4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "III",
+      "mel": "F4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 13
+}

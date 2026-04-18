@@ -1,0 +1,226 @@
+{
+  "title": "Every Morning Mercies New",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Greville Phillimore, 1863",
+  "music": "or &#39;Every Morning&#39; Edward J. Hopkins, 1872",
+  "tune": "Kelso",
+  "lyrics": {
+    "v1": "Ev&#39;ry morning mercies new Fall as fresh as morning dew; Ev&#39;ry morning let us pay Tribute with the early day: For Thy mercies, Lord, are sure; Thy compassion doth endure.",
+    "v2": "Still the greatness of Thy love Daily doth our sins remove; Daily, far as east from west, Lifts the burden from the breast; Gives unbought to those who pray Strength to stand in evil day.",
+    "v3": "Let our prayers each morn prevail, That these gifts may never fail; And, as we confess the sin And the tempter&#39;s pow&#39;r within, Feed us with the Bread of Life, Fit us for our daily strife.",
+    "v4": "As the morning light returns, As the sun with splendor burns, Teach us still to turn to Thee, Ever blessed Trinity, With our hands our hearts to raise, In unfailing prayer and praise."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Ev&#39;ry morning mercies new Fall as fresh as morning dew; Ev&#39;ry morning",
+        "v2": "Still the greatness of Thy love Daily doth our sins remove; Daily, far as"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "let us pay Tribute with the early day: For Thy mercies,",
+        "v2": "east from west, Lifts the burden from the breast; Gives unbought to"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Lord, are sure; Thy compassion doth endure.",
+        "v2": "those who pray Strength to stand in evil day."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii7",
+      "rh_qual": "",
+      "rh_fig": "9333",
+      "mood": "Ethereal",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "I64",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "633",
+      "mood": "Pastoral",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "I6",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5332",
+      "rh_rom": "V6",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5332",
+      "rh_rom": "V6",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I6",
+      "mel": "B-4",
+      "lh_rom": "iii7",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "I6",
+      "rh_qual": "",
+      "rh_fig": "A333",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iii6",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "224",
+      "rh_rom": "iis2",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "6333",
+      "rh_rom": "vi7",
+      "rh_qual": "",
+      "rh_fig": "G33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "vi6",
+      "mel": "B-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "5334",
+      "rh_rom": "V+8",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V65",
+      "mel": "E-5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "534",
+      "rh_rom": "iii²",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "iii",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "7334",
+      "rh_rom": "vii+8",
+      "rh_qual": "",
+      "rh_fig": "H33",
+      "mood": "Rooting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "vii°6",
+      "mel": "A4",
+      "lh_rom": "viiø7",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "E333",
+      "mood": "Reposing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "vi62",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vi+8",
+      "rh_qual": "",
+      "rh_fig": "D334",
+      "mood": "Resonant",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 12
+}

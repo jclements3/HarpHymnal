@@ -1,0 +1,253 @@
+{
+  "title": "Savior, Like A Shepherd Lead Us",
+  "key": "E♭ major",
+  "key_root": "E-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "attr. Dorothy Ann Thrupp, 1836",
+  "music": "William B. Bradbury, 1859",
+  "tune": "Bradbury",
+  "lyrics": {
+    "v1": "Savior, like a shepherd lead us, much we need Thy tender care; In Thy pleasant pastures feed us, for our use Thy folds prepare. Blessèd Jesus, blessèd Jesus! Thou hast bought us, Thine we are. Blessèd Jesus, blessèd Jesus! Thou hast bought us, Thine we are.",
+    "v2": "We are Thine, Thou dost befriend us, be the guardian of our way; Keep Thy flock, from sin defend us, seek us when we go astray. Blessèd Jesus, blessèd Jesus! Hear, O hear us when we pray. Blessèd Jesus, blessèd Jesus! Hear, O hear us when we pray.",
+    "v3": "Thou hast promised to receive us, poor and sinful though we be; Thou hast mercy to relieve us, grace to cleanse and pow&#39;r to free. Blessèd Jesus, blessèd Jesus! We will early turn to Thee. Blessèd Jesus, blessèd Jesus! We will early turn to Thee.",
+    "v4": "Early let us seek Thy favor, early let us do Thy will; Blessèd Lord and only Savior, with Thy love our bosoms fill. Blessèd Jesus, blessèd Jesus! Thou hast loved us, love us still. Blessèd Jesus, blessèd Jesus! Thou hast loved us, love us still."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Savior, like a shepherd lead us, much we need Thy tender care;",
+        "v2": "We are Thine, Thou dost befriend us, be the guardian of our way;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "In Thy pleasant pastures feed us, for our use Thy folds pre",
+        "v2": "Keep Thy flock, from sin defend us, seek us when we go a"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "pare. Blessèd Jesus, blessèd Jesus! Thou hast",
+        "v2": "stray. Blessèd Jesus, blessèd Jesus! Hear, O"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "bought us, Thine we are. Blessèd",
+        "v2": "hear us when we pray. Blessèd"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Jesus, blessèd Jesus! Thou hast",
+        "v2": "Jesus, blessèd Jesus! Hear, O"
+      }
+    },
+    {
+      "label": "F",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "bought us, Thine we are.",
+        "v2": "hear us when we pray."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "F4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 7,
+      "rn": "I4",
+      "mel": "F4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "V7",
+      "mel": "F4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

@@ -1,0 +1,199 @@
+{
+  "title": "Come, God Creator, Holy Ghost",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "variously ascribed to Ambrose, Gregory the Great, Charlemagne, or Rhabanus Maurus, 1524",
+  "music": "ancient Latin found in Erfurt Enchiridion, 1524 Johann Sebastian Bach",
+  "tune": "Komm, Gott Schoepfer Heiliger Geist",
+  "lyrics": {
+    "v1": "Come, God Crea- tor, Holy Ghost, And visit Thou these souls of men; Fill them with graces, as Thou dost, Thy creatures make pure again.",
+    "v2": "For Comforter Thy name we call. Sweet gift of God most high above, A holy unction to us all O Fount of life, Fire of love.",
+    "v3": "Our minds illumine and refresh, Deep in our hearts let love burn bright; Thou know&#39;st the weakness of our flesh; And strengthen us with Thy might.",
+    "v4": "Thou with Thy wondrous sev&#39;nfold gifts The finger art of God&#39;s right hand; The Father&#39;s Word Thou sendest swift On tongues of fire to each land.",
+    "v5": "Drive far from us our wily foe; Grant us Thy blesséd peace within, That in Thy footsteps we may go, And shun the dark ways of sin."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — rests on a fermata",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Come, God Creator, Holy Ghost, And",
+        "v2": "For Comforter Thy name we call. Sweet"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody rises — rests on a fermata",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "visit Thou these souls of men;",
+        "v2": "gift of God most high above,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Fill them with graces, as Thou dost, Thy",
+        "v2": "A holy unction to us all O"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        9,
+        10,
+        11
+      ],
+      "strategy": "melody falls — rests on a fermata",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "creatures make pure a",
+        "v2": "Fount of life, Fire of"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "IV52",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "E5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iii7",
+      "mel": null,
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Easing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "ii7",
+      "mel": "A4",
+      "lh_rom": "V7ii",
+      "lh_qual": "",
+      "lh_fig": "2323",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "vi6",
+      "mel": "A4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 11
+}

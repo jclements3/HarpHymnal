@@ -1,0 +1,244 @@
+{
+  "title": "The God of Abraham Praise",
+  "key": "f minor",
+  "key_root": "F",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Daniel ben Judah, circa 1400. Paraphrased by Thomas Olivers, circa 1765",
+  "music": "or &#39;Leoni&#39; Traditional Hebrew Meyer Lyon, 1780",
+  "tune": "Yigdal",
+  "lyrics": {
+    "v1": "The God of Abr&#39;ham praise, Who reigns enthroned above; Ancient of everlasting days, and God of Love; Jehovah, great I AM! by earth and Heav&#39;n confessed; I bow and bless the sacred Name forever blessed.",
+    "v2": "The God of Abr&#39;ham praise, at Whose supreme command From earth I rise and seek the joys at His right hand; I all on earth forsake, its wisdom, fame, and pow&#39;r; And Him my only Portion make, my Shield and Tow&#39;r.",
+    "v3": "The God of Abr&#39;ham praise, Whose all sufficient grace Shall guide me all my happy days, in all my ways. He calls a worm His friend, He calls Himself my God! And He shall save me to the end, thro&#39; Jesus&#39; blood.",
+    "v4": "He by Himself has sworn; I on His oath depend, I shall, on eagle wings upborne, to Heav&#39;n ascend. I shall behold His face; I shall His pow&#39;r adore, And sing the wonders of His grace forevermore.",
+    "v5": "Tho&#39; nature&#39;s strength decay, and earth and hell withstand, To Canaan&#39;s bounds I urge my way, at His command. The wat&#39;ry deep I pass, with Jesus in my view; And thro&#39; the howling wilderness my way pursue."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "The God of Abr&#39;ham praise, Who reigns enthroned",
+        "v2": "The God of Abr&#39;ham praise, at Whose supreme"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "above; Ancient of everlasting days,",
+        "v2": "command From earth I rise and seek the joys"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "and God of Love; Jehovah, great I AM! by earth and Heav&#39;n confessed; I bow and bless the sacred Name forever blessed.",
+        "v2": "at His right hand; I all on earth forsake, its wisdom, fame, and pow&#39;r; And Him my only Portion make, my Shield and Tow&#39;r."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "V",
+      "mel": "C4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "A-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "E-5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 5,
+      "rn": "III6",
+      "mel": "G4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "iv7",
+      "mel": "D-5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "VIø7",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "III6",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "iv7",
+      "mel": "F4",
+      "lh_rom": "iii7iii",
+      "lh_qual": "",
+      "lh_fig": "2233",
+      "rh_rom": "ii7iii",
+      "rh_qual": "",
+      "rh_fig": "8233",
+      "mood": "Deepening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V",
+      "mel": "C4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iv",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "i64",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 16,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

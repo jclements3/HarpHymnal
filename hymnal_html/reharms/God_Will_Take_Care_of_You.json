@@ -1,0 +1,170 @@
+{
+  "title": "God Will Take Care of You",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "6/8",
+  "bpm": 100,
+  "words": "Civilla Durfee Martin, 1905",
+  "music": "Walter Stillman Martin, 1905",
+  "tune": "Martin",
+  "lyrics": {
+    "v1": "Be not dismayed whate&#39;er betide, God will take care of you; Beneath His wings of love abide, God will take care of you. God will take care of you, through ev&#39;ry day, o&#39;er all the way; He will take care of you, God will take care of you.",
+    "v2": "Through days of toil when heart doth fail, God will take care of you; When dangers fierce your path assail, God will take care of you. God will take care of you, through ev&#39;ry day, o&#39;er all the way; He will take care of you, God will take care of you.",
+    "v3": "All you may need He will provide, God will take care of you; Nothing you ask will be denied, God will take care of you. God will take care of you, through ev&#39;ry day, o&#39;er all the way; He will take care of you, God will take care of you.",
+    "v4": "No matter what may be the test, God will take care of you; Lean, weary one, upon His breast, God will take care of you. God will take care of you, through ev&#39;ry day, o&#39;er all the way; He will take care of you, God will take care of you."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Be not dismayed whate&#39;er betide, God will take care of you;",
+        "v2": "Through days of toil when heart doth fail, God will take care of you;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Beneath His wings of love abide, God will take care of you.",
+        "v2": "When dangers fierce your path assail, God will take care of you."
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "God will take care of you, through ev&#39;ry day, o&#39;er all the way; He will take care of you, God will take care of you.",
+        "v2": "God will take care of you, through ev&#39;ry day, o&#39;er all the way; He will take care of you, God will take care of you."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "V7",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V7",
+      "mel": "F4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV",
+      "mel": "B-4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V7",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "ii6",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Lifting",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 8
+}

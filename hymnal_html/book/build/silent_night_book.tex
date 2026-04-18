@@ -1,0 +1,292 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[letterpaper, margin=0.45in]{geometry}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{rhcol}{HTML}{1F4E79}
+\definecolor{lhcol}{HTML}{7B2B2B}
+\definecolor{desccol}{HTML}{2A3342}
+\definecolor{flavcol}{HTML}{6B7A8F}
+\definecolor{bandcol}{HTML}{F0F4F8}
+\definecolor{leafred}{RGB}{220,75,75}
+\definecolor{leafyellow}{RGB}{190,155,30}
+\definecolor{leafcyan}{RGB}{40,180,190}
+\definecolor{paper}{HTML}{F4ECD8}
+\definecolor{ink}{HTML}{1A1612}
+\definecolor{accent}{HTML}{8B6F47}
+
+\newcommand{\osf}[1]{{\fontfamily{pplj}\selectfont #1}}
+\newcommand{\Ro}[1]{{\fontfamily{ppl}\fontseries{b}\selectfont #1}}
+\newcommand{\rp}{{\raisebox{0.55ex}{\footnotesize$+$}}}
+\newcommand{\halfdim}{$^{\scriptstyle\varnothing}$}
+\newcommand{\inv}[1]{$^{\osf{#1}}$}
+\newcommand{\nd}{\rule[0.42ex]{4.5mm}{0.55pt}}
+
+\newcommand{\rn}[2]{\Ro{#1}\rndq{#2}}
+\newcommand{\rndq}[1]{\rndqparse{#1}}
+\newcommand{\rndqparse}[1]{%
+\def\tmp{#1}%
+\def\tmpA{m7}\def\tmpB{m6}\def\tmpC{m}%
+\def\tmpD{q7}\def\tmpE{q}%
+\def\tmpF{s4+8}\def\tmpG{s4}\def\tmpH{s2}%
+\def\tmpI{+8}%
+\def\tmpJ{D}\def\tmpK{o7}\def\tmpL{o}%
+\def\tmpM{7}\def\tmpN{6}%
+\def\tmpO{m7i}\def\tmpP{m7ii}\def\tmpQ{m7iii}%
+\def\tmpR{o7i}\def\tmpS{o7ii}%
+\def\tmpT{7i}\def\tmpU{7ii}\def\tmpV{7iii}%
+\def\tmpW{oi}\def\tmpX{oii}%
+\ifx\tmp\tmpA $m$\osf{7}\else
+\ifx\tmp\tmpB $m$\osf{6}\else
+\ifx\tmp\tmpC $m$\else
+\ifx\tmp\tmpD $q$\osf{7}\else
+\ifx\tmp\tmpE $q$\else
+\ifx\tmp\tmpF $s$\osf{4}\rp\osf{8}\else
+\ifx\tmp\tmpG $s$\osf{4}\else
+\ifx\tmp\tmpH $s$\osf{2}\else
+\ifx\tmp\tmpI \rp\osf{8}\else
+\ifx\tmp\tmpJ $\Delta$\else
+\ifx\tmp\tmpK \halfdim\osf{7}\else
+\ifx\tmp\tmpL $^\circ$\else
+\ifx\tmp\tmpM \osf{7}\else
+\ifx\tmp\tmpN \osf{6}\else
+\ifx\tmp\tmpO $m$\osf{7}\inv{1}\else
+\ifx\tmp\tmpP $m$\osf{7}\inv{2}\else
+\ifx\tmp\tmpQ $m$\osf{7}\inv{3}\else
+\ifx\tmp\tmpR \halfdim\osf{7}\inv{1}\else
+\ifx\tmp\tmpS \halfdim\osf{7}\inv{2}\else
+\ifx\tmp\tmpT \osf{7}\inv{1}\else
+\ifx\tmp\tmpU \osf{7}\inv{2}\else
+\ifx\tmp\tmpV \osf{7}\inv{3}\else
+\ifx\tmp\tmpW $^\circ$\inv{1}\else
+\ifx\tmp\tmpX $^\circ$\inv{2}\else
+#1%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+}
+
+\newcommand{\fracA}[6]{%
+\renewcommand{\arraystretch}{0.7}%
+\begin{tabular}{@{}c@{}}
+{\color{rhcol}\fontsize{9.5}{10}\selectfont\rn{#4}{#5}}\\[-0.5ex]
+{\color{ink}\rule{9mm}{0.4pt}}\\[-0.5ex]
+{\color{lhcol}\fontsize{9.5}{10}\selectfont\rn{#1}{#2}}\\[-0.2ex]
+{\color{flavcol}\fontsize{5.5}{6.5}\selectfont\ttfamily #3\,/\,#6}
+\end{tabular}%
+}
+
+\newcommand{\barn}[1]{{\color{accent}\fontsize{6}{7}\selectfont\bfseries #1}}
+
+\pagestyle{empty}
+\pagecolor{paper}
+
+\usepackage{graphics}
+\begin{document}
+
+\noindent
+\begin{minipage}[b]{0.5\linewidth}
+\fontsize{7}{9}\selectfont\ttfamily\color{desccol}
+\textbf{Tune:} Silent Night\\
+\textbf{Meter:} 3/4 \quad\raisebox{0.2ex}{$\bullet$}\quad
+\textbf{Key:} ionian \quad\raisebox{0.2ex}{$\bullet$}\quad
+$q$=80
+\end{minipage}\hfill
+\begin{minipage}[b]{0.48\linewidth}
+\raggedleft
+{\fontsize{18}{22}\selectfont\itshape\rmfamily\bfseries Silent Night}
+\end{minipage}
+
+\vspace{1mm}
+\noindent{\color{ink}\rule{\linewidth}{0.6pt}}
+\vspace{2mm}
+
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{0.95}
+\noindent\begin{tabular}{@{}|c|c|c|c|@{}}
+\hline
+\barn{bar 1} & \barn{bar 2} & \barn{bar 3} & \barn{bar 4} \\
+\fracA{V}{}{533}{I}{}{F33} & \textit{\small (no chord)} & \fracA{I}{Dii}{5323}{V}{7iii}{B233} & \fracA{IV}{Dii}{1323}{I}{Diii}{7233} \\
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{38/lily-40570669-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{62/lily-4bb42141-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{46/lily-b225ec7a-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{a8/lily-3296d97b-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} \\
+\hline
+\hline
+\barn{bar 5} & \barn{bar 6} & \barn{bar 7} & \barn{bar 8} \\
+\fracA{I}{}{133}{IV}{}{B33} & \fracA{IV}{Dii}{1323}{I}{Diii}{7233} & \fracA{I}{}{133}{IV}{}{B33} & \fracA{V}{}{533}{I}{}{F33} \\
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{50/lily-35bc54fe-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{0f/lily-8d0742bf-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{50/lily-35bc54fe-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{38/lily-40570669-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} \\
+\hline
+\hline
+\barn{bar 9} & \barn{bar 10} & \barn{bar 11} & \barn{bar 12} \\
+\fracA{I}{Dii}{5323}{V}{7iii}{B233} & \fracA{I}{}{133}{IV}{}{B33} & \fracA{I}{}{133}{IV}{}{B33} & \fracA{I}{}{133}{IV}{}{B33} \\
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{3b/lily-ee196fc1-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{c7/lily-6e7d38da-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{b1/lily-3a7c5efa-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} &
+{%
+\parindent 0pt
+\noindent
+\ifx\preLilyPondExample \undefined
+\else
+  \expandafter\preLilyPondExample
+\fi
+\def\lilypondbook{}%
+\input{68/lily-6f0f8464-systems.tex}
+\ifx\postLilyPondExample \undefined
+\else
+  \expandafter\postLilyPondExample
+\fi
+} \\
+\hline
+\end{tabular}
+
+\end{document}

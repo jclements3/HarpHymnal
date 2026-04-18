@@ -1,0 +1,161 @@
+{
+  "title": "O Holy, Blessed Trinity",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Behm, 1608",
+  "music": "or &#39;Steht Auf, Ihr Lieben Kinderlein&#39; Nikolaus Hermann, 1558",
+  "tune": "O Heilige Dreifaltigkeit",
+  "lyrics": {
+    "v1": "O Holy, Blessed Trini- ty, Divine, Essential Unity, God Father, Son, and Holy Ghost, Be Thou this day my Guide and Host.",
+    "v2": "My soul and body keep from harm, O&#39;er all I have extend Thine arm, That Satan may not cause distress Nor bring me shame or wretchedness.",
+    "v3": "The Father&#39;s might shield me this day, The Son&#39;s pure wisdom cheer my way, The Holy Spirit&#39;s light divine Illume my heart&#39;s benighted shrine.",
+    "v4": "My Maker, strengthen Thou my heart, O my Redeemer, help impart, Blest Comforter, keep at my side That faith and love in me abide.",
+    "v5": "Lord, bless and keep Thou me as Thine; Lord, make Thy face upon me shine; Lord, lift Thy countenance on me And give me peace\\- sweet peace, from Thee."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "O Holy, Blessed Trinity, Divine,",
+        "v2": "My soul and body keep from harm, O&#39;er all"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Essential Unity, God Father, Son, and Holy Ghost, Be Thou this day my Guide and Host.",
+        "v2": "I have extend Thine arm, That Satan may not cause distress Nor bring me shame or wretchedness."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I4",
+      "mel": "D5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "V",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Deceptive",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi7",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "IV62",
+      "mel": "A4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "vi",
+      "mel": "F#4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Consoling",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "IV64",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I52",
+      "mel": "E4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 10
+}

@@ -1,0 +1,158 @@
+{
+  "title": "Rejoice, My Heart, Be Glad and Sing",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Paul Gerhardt, 1653.  Translation composite",
+  "music": "Johann Balthasar König, 1738",
+  "tune": "Ich Singe dir mit Herz",
+  "lyrics": {
+    "v1": "Rejoice, my heart, be glad and sing, A cheerful trust maintain; For God, the Source of everything, Thy Portion shall remain.",
+    "v2": "He is thy Treasure, He thy Joy, Thy Life and Light and Lord, Thy Counselor when doubts annoy, Thy Shield and great Reward.",
+    "v3": "Why spend the day in blank despair, In restless thought the night? On thy Crea- tor cast thy care; He makes thy burdens light.",
+    "v4": "Did not His love and truth and pow&#39;r Watch o&#39;er thy childhood day? Has He not oft in threat&#39;ning hour Turned dreaded ills away?",
+    "v5": "His wisdom never plans in vain, Ne&#39;er falters or mistakes; All that His counsels did ordain A happy ending makes."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Rejoice, my heart, be glad and sing, A cheerful trust",
+        "v2": "He is thy Treasure, He thy Joy, Thy Life and Light"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "maintain; For God, the Source of everything,",
+        "v2": "and Lord, Thy Counselor when doubts annoy,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Thy Portion shall remain.",
+        "v2": "Thy Shield and great Reward."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "vi",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Pivoting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V6",
+      "mel": "C5",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 4,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": "B-4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V",
+      "mel": "B-4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "I",
+      "mel": "C5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

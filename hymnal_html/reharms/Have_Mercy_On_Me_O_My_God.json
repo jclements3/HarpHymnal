@@ -1,0 +1,179 @@
+{
+  "title": "Have Mercy On Me, O My God",
+  "key": "d minor",
+  "key_root": "D",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Brian L. Penney, 2007",
+  "music": "Thomas Tallis, 1567",
+  "tune": "Third Mode Melody",
+  "lyrics": {
+    "v1": "Have mercy on me, O my God According to Your grace; According to Your tender Love Blot out transgressions great; For I acknowledge all my sin, Before my face they stand; Against You only have I sinned, There&#39;s evil on my hands.",
+    "v2": "O purge me now and I&#39;ll be clean, As clean and white as snow; O wash me in the Blood of Christ, Make me Your gladness know; Create in me a clean heart, Lord, Renew me thoroughly; Restore salvation&#39;s joy again, Uphold me tenderly."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Have mercy on me, O my God According to Your grace;",
+        "v2": "O purge me now and I&#39;ll be clean, As clean and white as snow;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "According to Your tender Love Blot out transgressions great;",
+        "v2": "O wash me in the Blood of Christ, Make me Your gladness know;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "For I acknowledge all my sin, Be",
+        "v2": "Create in me a clean heart, Lord, Re"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "fore my face they stand; Against You only have I sinned, There&#39;s evil on my hands.",
+        "v2": "new me thoroughly; Restore salvation&#39;s joy again, Uphold me tenderly."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "III",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "i",
+      "mel": "B-4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "iv",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Gladdening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "bVI",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 19,
+      "rn": "iv",
+      "mel": "F4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Dreaming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 20,
+      "rn": "i",
+      "mel": "D4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 20
+}

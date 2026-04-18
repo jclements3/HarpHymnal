@@ -1,0 +1,268 @@
+{
+  "title": "His Gifts",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Brian J. Dumont, 2011",
+  "music": "(Shaker dance) Joseph Brackett, 1848, alt Brian J. Dumont, 2011",
+  "tune": "Simple Gifts",
+  "lyrics": {
+    "v1": "It&#39;s His gift, this crea- tion, all the glory we see, It&#39;s the gift laid out for Adam and for Eve, But as they turned away from His world so bright, It would plunge us deep into fear of the Light. Life, life poured out on you and me He calls us to live and His Glory to see Our Lord calls us home with Him to be in His presence living eternally!",
+    "v2": "It&#39;s His gift, incarnation, He became us to be All the things our fallen race could never be. Our nature He would take and then justify, To the Law&#39;s demands Christ would fully comply. Life, life poured out on you and me He calls us to live and His Glory to see Our Lord calls us home with Him to be in His presence living eternally!",
+    "v3": "It&#39;s His gift, our redemption, bought and paid in His blood All God&#39;s wrath poured out in one tremendous flood. The ransom paid for all in His act of Grace meant to bring you into His loving embrace. Life, life poured out on you and me He calls us to live and His Glory to see Our Lord calls us home with Him to be in His presence living eternally!",
+    "v4": "It&#39;s His gift, resurrection Raised to life so that we May also with Him in glory always be. His new life is God&#39;s promise and guarantee of the gift He prepares for you and for me. Life, life poured out on you and me He calls us to live and His Glory to see Our Lord calls us home with Him to be in His presence living eternally!",
+    "v5": "It&#39;s His gift, His ascension we await His return. Not alone, yet for His nearer presence yearn. Christ leads us to the Father and makes our home Where we&#39;ll sing together around His Throne. Life, life poured out on you and me He calls us to live and His Glory to see Our Lord calls us home with Him to be in His presence living eternally!"
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "It&#39;s His gift, this creation, all the glory we see, It&#39;s the gift laid out for Adam and for Eve, But as they turned away",
+        "v2": "It&#39;s His gift, incarnation, He became us to be All the things our fallen race could never be. Our nature He would take"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "from His world so bright, It would plunge us deep into fear of the Light. Life, life",
+        "v2": "and then justify, To the Law&#39;s demands Christ would fully comply. Life, life"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        10,
+        11
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "poured out on you and me He calls us to live",
+        "v2": "poured out on you and me He calls us to live"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        12,
+        13,
+        14
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "and His Glory to see Our Lord calls us home with Him to be",
+        "v2": "and His Glory to see Our Lord calls us home with Him to be"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "in His presence living eternally!",
+        "v2": "in His presence living eternally!"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "V",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "I64",
+      "mel": "B4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I64",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "V",
+      "mel": "A4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "viii",
+      "rh_qual": "",
+      "rh_fig": "A43",
+      "mood": "Misty",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 7,
+      "rn": "V64",
+      "mel": "C5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Calming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "IV",
+      "mel": "G4",
+      "lh_rom": "V7iii",
+      "lh_qual": "",
+      "lh_fig": "4233",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Tensing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V7",
+      "mel": "D4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "I64",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "IV",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "I6",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 16
+}

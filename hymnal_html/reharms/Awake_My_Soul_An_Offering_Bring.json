@@ -1,0 +1,239 @@
+{
+  "title": "Awake My Soul, An Offering Bring",
+  "key": "g minor",
+  "key_root": "G",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Brian L. Penney, 2009",
+  "music": "Thomas Ravenscroft, 1611 (#22",
+  "tune": "Melismata 22",
+  "lyrics": {
+    "v1": "Awake my soul, an off&#39;- ring bring to Jesus our exalted King; Sing to Him Who reigns above incarnate fount of grace and love; Sing to Him Who reigns above incarnate fount of grace and love.",
+    "v2": "In awe we stand upon this ground, His wisdom and His pow&#39;r astound; All His wonders we behold, in heav&#39;n and earth His story&#39;s told; All His wonders we behold, in heav&#39;n and earth His story&#39;s told.",
+    "v3": "Then to this world, behold what grace! He comes to rescue Adam&#39;s race; Our Redeemer, our High Priest, from sin and death He brings release; Our Redeemer, our High Priest, from sin and death He brings release.",
+    "v4": "Awake my soul, arise and sing, eternal praise to Christ our King; In His Church, His Name confessed, we worship Him among the blessed; In His Church, His Name confessed, we worship Him among the blessed."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Awake my soul, an off&#39;ring bring to Jesus our exalted King; Sing to Him Who reigns above",
+        "v2": "In awe we stand upon this ground, His wisdom and His pow&#39;r astound; All His wonders we behold,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        7,
+        8
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "incarnate fount of grace and love;",
+        "v2": "in heav&#39;n and earth His story&#39;s told;"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        9,
+        10
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Sing to Him Who reigns above",
+        "v2": "All His wonders we behold,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        11,
+        12,
+        13
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "incarnate fount of grace and love.",
+        "v2": "in heav&#39;n and earth His story&#39;s told."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vi+8",
+      "rh_qual": "",
+      "rh_fig": "D334",
+      "mood": "Resonant",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "i7",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I¹",
+      "rh_qual": "",
+      "rh_fig": "C43",
+      "mood": "Gentle",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III",
+      "mel": "B-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "i",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "i64",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "III",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "i",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "III",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "5434",
+      "rh_rom": "vi⁷³",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "i64",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vi+8",
+      "rh_qual": "",
+      "rh_fig": "D334",
+      "mood": "Resonant",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 13,
+      "rn": "i",
+      "mel": "G4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I¹",
+      "rh_qual": "",
+      "rh_fig": "C43",
+      "mood": "Gentle",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 13
+}

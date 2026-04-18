@@ -1,0 +1,131 @@
+{
+  "title": "O Trinity of Blessed Light",
+  "key": "A major",
+  "key_root": "A",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Ambrose of Milan, 4th Century.  German version by M. Luther, 1543 English translation by John Mason Neale, 1852",
+  "music": "ancient Latin, 1916",
+  "tune": "O Lux Beata Trinitas",
+  "lyrics": {
+    "v1": "O Trini- ty of blessèd light, O Unity of princely might, The fiery sun now goes his way; Shed Thou within our hearts a ray.",
+    "v2": "To Thee our morning song of praise, To Thee our evening prayer we raise; O grant us with Thy saints on high To praise Thee through eternity.",
+    "v3": "All laud to God the Father be, All praise, eternal Son, to Thee, All glory, as is ever meet, To God the holy Para- clete."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "strategy": "melody circles — rests on a fermata",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "O Trinity of blessèd light, O Unity of princely might, The",
+        "v2": "To Thee our morning song of praise, To Thee our evening prayer we raise; O"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "fiery sun now goes his way; Shed Thou within our hearts a ray.",
+        "v2": "grant us with Thy saints on high To praise Thee through eternity."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "IV6",
+      "mel": "A4",
+      "lh_rom": "viiø7ii",
+      "lh_qual": "",
+      "lh_fig": "4323",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Alarming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "bvii°",
+      "mel": "G4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "733",
+      "mood": "Tilting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 3,
+      "rn": "ii64",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I6",
+      "mel": "A4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "IV6",
+      "mel": "D5",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Alarming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "bvii°",
+      "mel": "B4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "Iii",
+      "rh_qual": "",
+      "rh_fig": "C43",
+      "mood": "Commanding",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

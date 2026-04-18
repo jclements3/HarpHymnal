@@ -1,0 +1,161 @@
+{
+  "title": "Happy the Man Who Feareth God",
+  "key": "A major",
+  "key_root": "A",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Martin Luther, 1524",
+  "music": "from Walter&#39;s Geistliche Gesangbüchlein, 1524 Bartolomäus Gesius, 1605",
+  "tune": "Wo Gott Zum Haus (Walter)",
+  "lyrics": {
+    "v1": "Happy the man who feareth God, Whose feet His holy ways have trod; Thine own good hand shall nourish thee, And well and happy shalt thou be.",
+    "v2": "Thy wife shall, like a fruitful vine, Fill all thy house with clusters fine; Thy children all be fresh and sound, Like olive\\- plants thy table round.",
+    "v3": "Lo! to the man these blessings cleave Who in God&#39;s holy fear doth live; From him the ancient curse hath fled By Adam&#39;s race inherited.",
+    "v4": "Out of Mount Zion God shall send, And crown with joy thy latter end; That thou Jerusalem mayst see, In favor and prosperity.",
+    "v5": "He shall be with thee in thy ways, And give thee health and length of days Yea, thou shalt children&#39;s children see, And peace on Israel shall be."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Happy the man who feareth God, Whose feet His holy ways have trod;",
+        "v2": "Thy wife shall, like a fruitful vine, Fill all thy house with clusters fine;"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Thine own good hand shall nourish thee, And well and happy shalt",
+        "v2": "Thy children all be fresh and sound, Like olive\\plants thy ta"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "IV",
+      "mel": "F#4",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Shading",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "ii6",
+      "mel": "B4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "IV",
+      "mel": null,
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Alarming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "bvii°",
+      "mel": "F#4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Steadying",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "V",
+      "mel": "D5",
+      "lh_rom": "IΔii",
+      "lh_qual": "",
+      "lh_fig": "5323",
+      "rh_rom": "V7iii",
+      "rh_qual": "",
+      "rh_fig": "B233",
+      "mood": "Resolving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "I",
+      "mel": "E5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 10
+}

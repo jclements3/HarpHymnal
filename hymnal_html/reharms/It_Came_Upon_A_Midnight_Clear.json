@@ -1,0 +1,133 @@
+{
+  "title": "It Came Upon A Midnight Clear",
+  "key": "B♭ major",
+  "key_root": "B-",
+  "mode": "major",
+  "meter": "6/8",
+  "bpm": 100,
+  "words": "Edmund H. Sears, 1849",
+  "music": "Richard S. Willis, 1861",
+  "tune": "Carol",
+  "lyrics": {
+    "v1": "It came upon the midnight clear, That glorious song of old, From angels bending near the earth, To touch their harps of gold; &quot;Peace on the earth, good will to men, From Heaven&#39;s all gracious King.&quot; The world in solemn stillness lay, To hear the angels sing.",
+    "v2": "Still through the cloven skies they come With peaceful wings unfurled, And still their heavenly music floats O&#39;er all the weary world; Above its sad and lowly plains, They bend on hov&#39;ring wing, And ever over its Babel sounds The blessèd angels sing.",
+    "v3": "Yet with the woes of sin and strife The world has suffered long; Beneath the angel strain have rolled Two thousand years of wrong; And man, at war with man, hears not The love\\- song which they bring; O hush the noise, ye men of strife And hear the angels sing.",
+    "v4": "And ye, beneath life&#39;s crushing load, Whose forms are bending low, Who toil along the climbing way With painful steps and slow, Look now! for glad and golden hours Come swiftly on the wing. O rest beside the weary road, And hear the angels sing!",
+    "v5": "For lo! the days are hast&#39;ning on, By prophet\\- bards foretold, When with the ever circling years Comes round the age of gold; When peace shall over all the earth Its ancient splendors fling, And the whole world send back the song Which now the angels sing."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CCW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "It came upon the midnight clear, That glorious song of old,",
+        "v2": "Still through the cloven skies they come With peaceful wings unfurled,"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "From angels bending near the earth, To touch their harps of gold; &quot;Peace on the earth, good will to men, From Heaven&#39;s all gracious King.&quot; The world in solemn stillness lay, To hear the an",
+        "v2": "And still their heavenly music floats O&#39;er all the weary world; Above its sad and lowly plains, They bend on hov&#39;ring wing, And ever over its Babel sounds The blessèd an"
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "V7",
+      "mel": "F4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "V",
+      "rh_qual": "",
+      "rh_fig": "C33",
+      "mood": "Retreating",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "iii",
+      "mel": "D5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "vi6",
+      "mel": "D5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "I",
+      "mel": "F4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "I6",
+      "mel": "F4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

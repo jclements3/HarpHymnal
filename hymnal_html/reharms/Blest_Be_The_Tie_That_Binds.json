@@ -1,0 +1,132 @@
+{
+  "title": "Blest Be The Tie That Binds",
+  "key": "C major",
+  "key_root": "C",
+  "mode": "major",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "John Fawcett, 1782",
+  "music": "Lowell Mason, 1832",
+  "tune": "Boylston",
+  "lyrics": {
+    "v1": "Blest be the tie that binds Our hearts in Christian love; The fellowship of kindred minds Is like to that above.",
+    "v2": "Before our Father&#39;s throne We pour our ardent prayers; Our fears, our hopes, our aims are one Our comforts and our cares.",
+    "v3": "We share each other&#39;s woes, Our mutual burdens bear; And often for each other flows The sympathizing tear.",
+    "v4": "When we asunder part, It gives us inward pain; But we shall still be joined in heart, And hope to meet again.",
+    "v5": "This glorious hope revives Our courage by the way; While each in expectation lives, And longs to see the day."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "2nds CW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Blest be the tie that binds",
+        "v2": "Before our Father&#39;s throne"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "2nds CCW",
+      "cycle_color": "leafcyan",
+      "lyrics": {
+        "v1": "Our hearts in Christian love; The fellowship",
+        "v2": "We pour our ardent prayers; Our fears, our hopes,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody circles — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "of kindred minds Is like to that above.",
+        "v2": "our aims are one Our comforts and our cares."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "ii7iii",
+      "lh_qual": "",
+      "lh_fig": "1233",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Cloudy",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "ii",
+      "mel": "A4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "V",
+      "lh_qual": "",
+      "lh_fig": "533",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Lofting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 7,
+      "rn": "V43",
+      "mel": "B4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 8,
+      "rn": "V7",
+      "mel": "G4",
+      "lh_rom": "V7",
+      "lh_qual": "",
+      "lh_fig": "5333",
+      "rh_rom": "vi7iii",
+      "rh_qual": "",
+      "rh_fig": "C233",
+      "mood": "Dewy",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

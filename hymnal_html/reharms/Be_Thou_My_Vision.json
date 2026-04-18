@@ -1,0 +1,232 @@
+{
+  "title": "Be Thou My Vision",
+  "key": "g minor",
+  "key_root": "G",
+  "mode": "minor",
+  "meter": "3/4",
+  "bpm": 100,
+  "words": "Attr. Dallan Forgaill, 8th Century, 1905",
+  "music": "Traditional Irish Mark Hamilton Dewey, 2007",
+  "tune": "Slane",
+  "lyrics": {
+    "v1": "Be Thou my Vision, O Lord of my heart; Naught be all else to me, save that Thou art. Thou my best Thought, by day or by night, Waking or sleeping, Thy presence my light.",
+    "v2": "Be Thou my Wisdom, and Thou my true Word; I ever with Thee and Thou with me, Lord; Thou my great Father, and I Thy true son; Thou in me dwelling, and I with Thee one.",
+    "v3": "Be Thou my battle Shield, Sword for the fight; Be Thou my Dignity, Thou my Delight; Thou my soul&#39;s Shelter, Thou my high Tower: Raise Thou me heav&#39;nward, O Pow&#39;r of my pow&#39;r.",
+    "v4": "Riches I heed not, nor man&#39;s empty praise, Thou mine Inheri- tance, now and always: Thou and Thou only, be first in my heart, High King of Heaven, my Treasure Thou art.",
+    "v5": "High King of Heaven, my victory won, May I reach Heav&#39;ns joys, O bright Heaven&#39;s Sun! Heart of my own heart, whatever befall, Still be my Vision, O Ruler of all."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "Be Thou my Vision, O Lord of my heart; Naught be all else to me,",
+        "v2": "Be Thou my Wisdom, and Thou my true Word; I ever with Thee and"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "save that Thou art. Thou my best Thought, by day or by night, Waking or sleeping, Thy presence my light.",
+        "v2": "Thou with me, Lord; Thou my great Father, and I Thy true son; Thou in me dwelling, and I with Thee one."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "III64",
+      "mel": "E-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "III6",
+      "mel": "C4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "III64",
+      "mel": "E-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "bVI",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Landing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "III",
+      "mel": "F4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "bVI6",
+      "mel": "B-4",
+      "lh_rom": "viiø7ii",
+      "lh_qual": "",
+      "lh_fig": "4323",
+      "rh_rom": "IVΔiii",
+      "rh_qual": "",
+      "rh_fig": "A233",
+      "mood": "Alarming",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 9,
+      "rn": "bii°6",
+      "mel": "C5",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 10,
+      "rn": "III",
+      "mel": "C5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "bVI6",
+      "mel": "B-4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Grieving",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "i",
+      "mel": "C4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Darkening",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "bii°",
+      "mel": "C5",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Releasing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 15,
+      "rn": "III64",
+      "mel": "F4",
+      "lh_rom": "IVΔii",
+      "lh_qual": "",
+      "lh_fig": "1323",
+      "rh_rom": "IΔiii",
+      "rh_qual": "",
+      "rh_fig": "7233",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "bVI6",
+      "mel": "E-4",
+      "lh_rom": "IV",
+      "lh_qual": "",
+      "lh_fig": "433",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Alarming",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 16
+}

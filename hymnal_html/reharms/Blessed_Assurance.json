@@ -1,0 +1,78 @@
+{
+  "title": "Blessed Assurance",
+  "key": "D major",
+  "key_root": "D",
+  "mode": "major",
+  "meter": "9/8",
+  "bpm": 100,
+  "words": "Fanny Crosby, 1873",
+  "music": "or &#39;Assurance&#39; Phoebe P. Knapp, 1873",
+  "tune": "Blessed Assurance",
+  "lyrics": {
+    "v1": "Blessèd assurance, Jesus is mine! O what a foretaste of glory divine! Heir of salvation, purchase of God, Born of His Spirit, washed in His blood. This is my story, this is my song, Praising my Savior, all the day long; This is my story, this is my song, Praising my Savior, all the day long.",
+    "v2": "Perfect submission, perfect delight, Visions of rapture now burst on my sight; Angels descending bring from above Echoes of mercy, whispers of love. This is my story, this is my song, Praising my Savior, all the day long; This is my story, this is my song, Praising my Savior, all the day long.",
+    "v3": "Perfect submission, all is at rest I in my Savior am happy and blest, Watching and waiting, looking above, Filled with His goodness, lost in His love. This is my story, this is my song, Praising my Savior, all the day long; This is my story, this is my song, Praising my Savior, all the day long."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Blessèd assurance, Jesus is mine! O what a foretaste of glory divine! Heir of salvation, purchase of God,",
+        "v2": "Perfect submission, perfect delight, Visions of rapture now burst on my sight; Angels descending bring from above"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Born of His Spirit, washed in His blood. This is my story, this is my song,",
+        "v2": "Echoes of mercy, whispers of love. This is my story, this is my song,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Praising my Savior, all the day long; This is my story, this is my song, Praising my Savior, all the day long.",
+        "v2": "Praising my Savior, all the day long; This is my story, this is my song, Praising my Savior, all the day long."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "F#4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 8
+}

@@ -1,0 +1,132 @@
+{
+  "title": "My Neighbor",
+  "key": "G major",
+  "key_root": "G",
+  "mode": "major",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "John G. Fleischmann, 2007",
+  "music": "Thomas Tallis, circa 1567",
+  "tune": "Tallis` Canon",
+  "lyrics": {
+    "v1": "Unclean and battered, torn by sin, By things I do, my thoughts within, I lie there bloodied on life&#39;s road with death and sin my only load.",
+    "v2": "Across that road the world passed by turning a deaf ear to my cry, No help to give, they could not save and so they left me for my grave.",
+    "v3": "And, what of me, when I saw need? Did I my Savior&#39;s bidding heed? Too often on the other side I&#39;ve walked away because of pride.",
+    "v4": "Sin bleeds from me and stops my breath, in Adam all I know is death; My works are rags, my offerings vain, From dust I came in dust remain.",
+    "v5": "But in my need my Savior died, Not passing on the other side. Rebreathed His Spirit in my dust, bound up my wounds, declared me just."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3
+      ],
+      "strategy": "melody rises — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Unclean and battered, torn by sin, By things I do,",
+        "v2": "Across that road the world passed by turning a deaf"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        4,
+        5
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "my thoughts within, I lie there blood",
+        "v2": "ear to my cry, No help to give,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        6,
+        7,
+        8
+      ],
+      "strategy": "melody falls — closes home",
+      "cycle": "3rds CW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "ied on life&#39;s road with death and sin my only load.",
+        "v2": "they could not save and so they left me for my grave."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "I",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 2,
+      "rn": "I6",
+      "mel": "G4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "IV",
+      "rh_qual": "",
+      "rh_fig": "B33",
+      "mood": "Exploring",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "I",
+      "mel": "B4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 7,
+      "rn": "I6",
+      "mel": "D4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "iii",
+      "mel": "B4",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    }
+  ],
+  "total_bars": 8
+}

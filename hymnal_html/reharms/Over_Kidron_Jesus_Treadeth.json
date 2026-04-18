@@ -1,0 +1,309 @@
+{
+  "title": "Over Kidron Jesus Treadeth",
+  "key": "f minor",
+  "key_root": "F",
+  "mode": "minor",
+  "meter": "4/4",
+  "bpm": 100,
+  "words": "Thomas Hansen Kingo, 1689",
+  "music": "Ludvig Mathias Lindeman, 1913",
+  "tune": "Over Kedron Jesus Traeder",
+  "lyrics": {
+    "v1": "Over Kidron Jesus treadeth To His passion for us all; Every human eye be weeping, Tears of bitter grief let fall! Round His Spirit flock the foes, Place their shafts and bend their bows, Aiming at the Savior solely, While the world forsakes Him wholly.",
+    "v2": "David once, with heart afflicted, Crossed the Kidron&#39;s narrow strand, Clouds of gloom and grief about him When an exile from his land. But, O Jesus, blacker now Bends the cloud above Thy brow, Hasting to death&#39;s dreary portals For the shame and sin of mortals.",
+    "v3": "See how, anguish struck, He falleth Prostrate, and with struggling breath, Three times on His God He calleth, Praying that the bitter death And the cup of doom may go, Still He cries, in all His woe: &quot;Not My will, but Thine, O Father!&quot; And the angels round Him gather.",
+    "v4": "See how, in that hour of darkness, Battling with the evil pow&#39;r, Agonies untold assail Him, On His soul the arrows show&#39;r; All the garden flow&#39;rs are wet With the drops of bloody sweat, From His anguished frame distilling\\- World&#39;s redemption thus fulfilling!",
+    "v5": "But, O flow&#39;rs, so sadly watered By this pure and precious dew, In some blessed hour your blossoms &#39;Neath the olive shadows grew! Eden&#39;s garden did not bear Aught that can with you compare, For the blood, thus freely given, Makes my soul the heir of heaven."
+  },
+  "phrases": [
+    {
+      "label": "A",
+      "bars": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "Over Kidron Jesus treadeth To His passion for us all; Every human",
+        "v2": "David once, with heart afflicted, Crossed the Kidron&#39;s narrow strand, Clouds of gloom and"
+      }
+    },
+    {
+      "label": "B",
+      "bars": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "stacked",
+      "cycle_color": "accent",
+      "lyrics": {
+        "v1": "eye be weeping, Tears of bitter grief let fall! Round His Spirit",
+        "v2": "grief about him When an exile from his land. But, O Jesus,"
+      }
+    },
+    {
+      "label": "C",
+      "bars": [
+        10,
+        11,
+        12
+      ],
+      "strategy": "melody circles — breathes",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "flock the foes, Place their shafts and bend their bows,",
+        "v2": "blacker now Bends the cloud above Thy brow,"
+      }
+    },
+    {
+      "label": "D",
+      "bars": [
+        13,
+        14
+      ],
+      "strategy": "melody falls — breathes",
+      "cycle": "3rds CCW",
+      "cycle_color": "leafred",
+      "lyrics": {
+        "v1": "Aiming at the Savior solely,",
+        "v2": "Hasting to death&#39;s dreary portals"
+      }
+    },
+    {
+      "label": "E",
+      "bars": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "strategy": "melody rises — closes home",
+      "cycle": "4ths CW",
+      "cycle_color": "leafyellow",
+      "lyrics": {
+        "v1": "While the world forsakes Him wholly.",
+        "v2": "For the shame and sin of mortals."
+      }
+    }
+  ],
+  "assignments": [
+    {
+      "bar": 1,
+      "rn": "i",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 2,
+      "rn": "i6",
+      "mel": "A-4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 3,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Triumphing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 4,
+      "rn": "III6",
+      "mel": "C5",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Brooding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 5,
+      "rn": "i6",
+      "mel": "C5",
+      "lh_rom": "ii",
+      "lh_qual": "",
+      "lh_fig": "233",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Wandering",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 6,
+      "rn": "iv7",
+      "mel": "A-4",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "ii",
+      "rh_qual": "",
+      "rh_fig": "933",
+      "mood": "Grounding",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 8,
+      "rn": "III64",
+      "mel": "C5",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 9,
+      "rn": "III7",
+      "mel": "B-4",
+      "lh_rom": "I6",
+      "lh_qual": "",
+      "lh_fig": "1332",
+      "rh_rom": "V7i",
+      "rh_qual": "",
+      "rh_fig": "7332",
+      "mood": "Warm",
+      "source": "stacked_chords"
+    },
+    {
+      "bar": 10,
+      "rn": "III52",
+      "mel": "D-5",
+      "lh_rom": "I",
+      "lh_qual": "",
+      "lh_fig": "133",
+      "rh_rom": "iii",
+      "rh_qual": "",
+      "rh_fig": "A33",
+      "mood": "Drifting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 11,
+      "rn": "Vø43",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 12,
+      "rn": "i",
+      "mel": "E-5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vi",
+      "rh_qual": "",
+      "rh_fig": "D33",
+      "mood": "Reverting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 13,
+      "rn": "V",
+      "mel": "D-5",
+      "lh_rom": "iii7ii",
+      "lh_qual": "",
+      "lh_fig": "7323",
+      "rh_rom": "viiø7iii",
+      "rh_qual": "",
+      "rh_fig": "D233",
+      "mood": "Despairing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 14,
+      "rn": "III",
+      "mel": "A-4",
+      "lh_rom": "vii°",
+      "lh_qual": "",
+      "lh_fig": "733",
+      "rh_rom": "I",
+      "rh_qual": "",
+      "rh_fig": "F33",
+      "mood": "Fracturing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 16,
+      "rn": "iio6",
+      "mel": "C5",
+      "lh_rom": "iii",
+      "lh_qual": "",
+      "lh_fig": "333",
+      "rh_rom": "vii°",
+      "rh_qual": "",
+      "rh_fig": "E33",
+      "mood": "Despairing",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 17,
+      "rn": "V",
+      "mel": "G4",
+      "lh_rom": "vi7ii",
+      "lh_qual": "",
+      "lh_fig": "3323",
+      "rh_rom": "iii7iii",
+      "rh_qual": "",
+      "rh_fig": "9233",
+      "mood": "Accepting",
+      "source": "jazz_progressions"
+    },
+    {
+      "bar": 18,
+      "rn": "i",
+      "mel": "F4",
+      "lh_rom": "vi",
+      "lh_qual": "",
+      "lh_fig": "633",
+      "rh_rom": "vii°ii",
+      "rh_qual": "",
+      "rh_fig": "B43",
+      "mood": "Layered",
+      "source": "stacked_chords"
+    }
+  ],
+  "total_bars": 18
+}
