@@ -4,14 +4,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## STOP — read these first
 
-1. **`PLAN.md`** — living plan for the piano-score effort (current phase, style palette, playability rules, next actions).
-2. **`ISSUES.md`** — known bugs, bad-sounding moments, HarpChordSystem vocabulary gaps. Log new findings here rather than silently working around them.
-3. **`HARP_CHORD_SYSTEM.md`** — authoritative pedagogy of the 118-chord vocabulary. The user has re-taught this content across multiple sessions; it should not have to be re-taught.
+1. **`SDD.md`** — software design document: pipeline, grammar v4, directory layout.
+2. **`GRAMMAR.md`** — authoritative EBNF v4. Every script parses through `grammar/` primitives.
+3. **`ROADMAP.md`** — living plan (formerly `PLAN.md`).
+4. **`ISSUES.md`** — known bugs, bad-sounding moments, Trefoil vocabulary gaps.
+5. **`TREFOIL.md`** — pedagogy of the 118-fraction vocabulary (formerly `HARP_CHORD_SYSTEM.md`).
 
 **File precedence when docs disagree:**
-`HarpChordSystem.pdf` > `HarpChordSystem.tex` > `HARP_CHORD_SYSTEM.md` > `HarpChordSystem.json`
+`source/HarpChordSystem.tex` > `source/HarpTrefoil.tex` (byte-mirror) > `TREFOIL.md` > derived `data/trefoil/HarpTrefoil.json`
 
-The JSON was rebuilt from the TeX via `tools/rebuild_chord_system_json.py` — re-run that script whenever the TeX changes to re-derive a clean JSON (validator included in the script flags any drift).
+`source/HarpChordSystem.tex` is the canonical pedagogy — never modify. `source/HarpTrefoil.tex` is the new-brand byte-exact mirror; `tests/test_pool_fidelity.py` rejects drift. Derived JSON/PDF live under `data/trefoil/` and are rebuilt by `trefoil/rebuild.py`.
+
+## Directory layout (new)
+
+```
+source/        READ-ONLY canonical inputs (HarpChordSystem.tex, HarpTrefoil.tex, OpenHymnal.abc)
+grammar/       @dataclass types, parse/, emit/, validate/ — heart of the refactor
+trefoil/       the 118-fraction pool + 6 trefoil paths
+techniques/    18 pure-function operators (substitution/approach/voicing/placement)
+parsers/       ABC/... → grammar objects
+renderers/     grammar objects → LilyPond/LaTeX/HTML/ABC
+mapper/        RN + key + melody → best fraction
+reharm/        apply techniques to hymns
+drills/        generate drill pages procedurally
+cli/           command-line entry points (python -m cli.<name>)
+data/          generated artifacts (hymns/, reharms/, scores/, drills/, trefoil/)
+viewer/        web front-end
+tests/         pytest
+legacy/        old code and data, frozen — nothing new imports from here
+```
+
+Nothing in `legacy/` is ever modified; new scripts never import from `legacy.*`.
 
 ## Project purpose
 
