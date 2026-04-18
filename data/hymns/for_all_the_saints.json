@@ -1,0 +1,4057 @@
+{
+  "title": "For All The Saints",
+  "key": {
+    "root": "B",
+    "mode": "minor"
+  },
+  "meter": {
+    "beats": 4,
+    "unit": 4
+  },
+  "tempo": {
+    "value": 90,
+    "unit": 4
+  },
+  "bars": [
+    {
+      "melody": [
+        {
+          "kind": "rest",
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "ii\u25cb",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "ii\u25cb",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "E",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "i",
+        "quality": null,
+        "inversion": "\u00b9"
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "F",
+            "accidental": "\u266f",
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "F",
+            "accidental": "\u266f",
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "V",
+        "quality": "7",
+        "inversion": "\u00b9"
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "F",
+            "accidental": "\u266f",
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "E",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "i",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": "\u00b9"
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "VI",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "i",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "I",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "E",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "iv",
+        "quality": null,
+        "inversion": "\u00b9"
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "iv",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 4.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "VI",
+        "quality": null,
+        "inversion": "\u00b9"
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "rest",
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "I",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "E",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "iv",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 4.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "i",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "I",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "F",
+            "accidental": "\u266f",
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "F",
+            "accidental": "\u266f",
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "V",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "F",
+            "accidental": "\u266f",
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "E",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "I",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "VI",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "I",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "III",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "E",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "D",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "I",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 3.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 0.5,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "VI",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "C",
+            "accidental": null,
+            "octave": 5
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "B",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 1.0,
+          "ornaments": []
+        },
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "A",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 2.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "I",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    },
+    {
+      "melody": [
+        {
+          "kind": "note",
+          "pitch": {
+            "letter": "G",
+            "accidental": null,
+            "octave": 4
+          },
+          "duration": 4.0,
+          "ornaments": []
+        }
+      ],
+      "chord": {
+        "numeral": "VI",
+        "quality": null,
+        "inversion": null
+      },
+      "voicing": null,
+      "technique": null
+    }
+  ],
+  "phrases": [
+    {
+      "ibars": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "path": null
+    },
+    {
+      "ibars": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "path": null
+    },
+    {
+      "ibars": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "path": null
+    },
+    {
+      "ibars": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "path": null
+    }
+  ],
+  "verses": [
+    {
+      "syllables": [
+        {
+          "ibar": 1,
+          "inote": 0,
+          "text": "For",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 1,
+          "text": "all",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 2,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 0,
+          "text": "saints,",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 1,
+          "text": "who",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 0,
+          "text": "from",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 1,
+          "text": "their",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 2,
+          "text": "la",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 3,
+          "text": "bors",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 0,
+          "text": "rest,_",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 0,
+          "text": "Who",
+          "melisma": false
+        },
+        {
+          "ibar": 5,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 2,
+          "text": "Thee",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 0,
+          "text": "by",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 1,
+          "text": "faith",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 0,
+          "text": "be",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 1,
+          "text": "fore",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 2,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 3,
+          "text": "world",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 0,
+          "text": "con",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 9,
+          "inote": 0,
+          "text": "fessed,",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 1,
+          "text": "Thy",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 10,
+          "inote": 0,
+          "text": "Name,",
+          "melisma": false
+        },
+        {
+          "ibar": 10,
+          "inote": 1,
+          "text": "O",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 11,
+          "inote": 1,
+          "text": "Je",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 2,
+          "text": "sus,",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 3,
+          "text": "be",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 4,
+          "text": "for",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 5,
+          "text": "ev",
+          "melisma": false
+        },
+        {
+          "ibar": 12,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 12,
+          "inote": 1,
+          "text": "er",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 1,
+          "text": "blessed.",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 2,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 3,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 14,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 14,
+          "inote": 2,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 0,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 1,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 16,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 17,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 1,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 2,
+          "text": "ia!",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 0,
+          "text": "For",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 0,
+          "text": "Ev",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 1,
+          "text": "an",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 2,
+          "text": "gel",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 3,
+          "text": "ists,",
+          "melisma": false
+        },
+        {
+          "ibar": 20,
+          "inote": 0,
+          "text": "by",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 0,
+          "text": "whose",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 1,
+          "text": "blest",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 2,
+          "text": "word,",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 0,
+          "text": "Like",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 1,
+          "text": "four",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 0,
+          "text": "fold",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 1,
+          "text": "streams,",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 2,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 3,
+          "text": "gar",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 0,
+          "text": "den",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 25,
+          "inote": 0,
+          "text": "of",
+          "melisma": false
+        },
+        {
+          "ibar": 25,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 0,
+          "text": "Lord,",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 1,
+          "text": "Is",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 0,
+          "text": "fair",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 1,
+          "text": "and",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 2,
+          "text": "fruit",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 3,
+          "text": "ful,",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 4,
+          "text": "be",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 5,
+          "text": "Thy",
+          "melisma": false
+        },
+        {
+          "ibar": 28,
+          "inote": 0,
+          "text": "Name",
+          "melisma": false
+        },
+        {
+          "ibar": 28,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 29,
+          "inote": 0,
+          "text": "a",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 29,
+          "inote": 2,
+          "text": "dored.",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 3,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 30,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 1,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 30,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 31,
+          "inote": 0,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 1,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 2,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 32,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        }
+      ]
+    },
+    {
+      "syllables": [
+        {
+          "ibar": 1,
+          "inote": 0,
+          "text": "Thou",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 1,
+          "text": "wast",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 2,
+          "text": "their",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 0,
+          "text": "Rock,",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 1,
+          "text": "their",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 0,
+          "text": "For",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 1,
+          "text": "tress",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 2,
+          "text": "and",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 3,
+          "text": "their",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 0,
+          "text": "Might;_",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 0,
+          "text": "Thou,",
+          "melisma": false
+        },
+        {
+          "ibar": 5,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 2,
+          "text": "Lord,",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 0,
+          "text": "their",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 1,
+          "text": "Cap",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 0,
+          "text": "tain",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 1,
+          "text": "in",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 2,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 3,
+          "text": "well",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 0,
+          "text": "fought",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 9,
+          "inote": 0,
+          "text": "fight;_",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 1,
+          "text": "Thou,",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 10,
+          "inote": 0,
+          "text": "in",
+          "melisma": false
+        },
+        {
+          "ibar": 10,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 0,
+          "text": "dark",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 1,
+          "text": "ness",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 2,
+          "text": "drear,",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 3,
+          "text": "their",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 4,
+          "text": "one",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 5,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 12,
+          "inote": 0,
+          "text": "true",
+          "melisma": false
+        },
+        {
+          "ibar": 12,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 0,
+          "text": "Light.",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 1,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 3,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 14,
+          "inote": 1,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 2,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 0,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 15,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 16,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 0,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 1,
+          "text": "ia!",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 2,
+          "text": "For",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 0,
+          "text": "Mar",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 1,
+          "text": "tyrs,",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 0,
+          "text": "who",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 1,
+          "text": "with",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 2,
+          "text": "rap",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 3,
+          "text": "ture",
+          "melisma": false
+        },
+        {
+          "ibar": 20,
+          "inote": 0,
+          "text": "kin",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 0,
+          "text": "dled",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 1,
+          "text": "eye,",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 2,
+          "text": "Saw",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 0,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 1,
+          "text": "bright",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 0,
+          "text": "crown",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 1,
+          "text": "de",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 2,
+          "text": "scen",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 3,
+          "text": "ding",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 0,
+          "text": "from",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 25,
+          "inote": 0,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 25,
+          "inote": 1,
+          "text": "sky,",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 0,
+          "text": "And",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 1,
+          "text": "see",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 0,
+          "text": "ing,",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 1,
+          "text": "grasped",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 2,
+          "text": "it,",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 3,
+          "text": "Thee",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 4,
+          "text": "we",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 5,
+          "text": "glo",
+          "melisma": false
+        },
+        {
+          "ibar": 28,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 28,
+          "inote": 1,
+          "text": "ri",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 29,
+          "inote": 1,
+          "text": "fy.",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 2,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 3,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 30,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 2,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 0,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 1,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 32,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        }
+      ]
+    },
+    {
+      "syllables": [
+        {
+          "ibar": 1,
+          "inote": 0,
+          "text": "For",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 2,
+          "text": "A",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 0,
+          "text": "post",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 1,
+          "text": "les'",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 0,
+          "text": "glo",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 1,
+          "text": "rious",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 2,
+          "text": "com",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 3,
+          "text": "pa",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 0,
+          "text": "ny,_",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 0,
+          "text": "Who",
+          "melisma": false
+        },
+        {
+          "ibar": 5,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 2,
+          "text": "bear",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 0,
+          "text": "ing",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 1,
+          "text": "forth",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 0,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 1,
+          "text": "Cross",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 2,
+          "text": "o'er",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 3,
+          "text": "land",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 0,
+          "text": "and",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 9,
+          "inote": 0,
+          "text": "sea,_",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 1,
+          "text": "Shook",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 10,
+          "inote": 0,
+          "text": "all",
+          "melisma": false
+        },
+        {
+          "ibar": 10,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 0,
+          "text": "migh",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 1,
+          "text": "ty",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 2,
+          "text": "world,",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 3,
+          "text": "we",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 4,
+          "text": "sing",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 5,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 12,
+          "inote": 0,
+          "text": "to",
+          "melisma": false
+        },
+        {
+          "ibar": 12,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 0,
+          "text": "Thee:",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 1,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 3,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 14,
+          "inote": 1,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 2,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 0,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 15,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 16,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 0,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 1,
+          "text": "ia!",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 2,
+          "text": "O",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 0,
+          "text": "blest",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 1,
+          "text": "com",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 0,
+          "text": "mu",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 1,
+          "text": "nion,",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 2,
+          "text": "fel",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 3,
+          "text": "low",
+          "melisma": false
+        },
+        {
+          "ibar": 20,
+          "inote": 0,
+          "text": "ship",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 0,
+          "text": "di",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 1,
+          "text": "vine!",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 2,
+          "text": "We",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 0,
+          "text": "fee",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 1,
+          "text": "bly",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 0,
+          "text": "strug",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 1,
+          "text": "gle,",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 2,
+          "text": "they",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 3,
+          "text": "in",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 0,
+          "text": "glo",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 25,
+          "inote": 0,
+          "text": "ry",
+          "melisma": false
+        },
+        {
+          "ibar": 25,
+          "inote": 1,
+          "text": "shine;",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 26,
+          "inote": 1,
+          "text": "All",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 0,
+          "text": "are",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 1,
+          "text": "one",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 2,
+          "text": "in",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 3,
+          "text": "Thee,",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 4,
+          "text": "for",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 5,
+          "text": "all",
+          "melisma": false
+        },
+        {
+          "ibar": 28,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 28,
+          "inote": 1,
+          "text": "are",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 29,
+          "inote": 1,
+          "text": "Thine.",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 2,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 3,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 30,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 2,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 0,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 1,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 32,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        }
+      ]
+    },
+    {
+      "syllables": [
+        {
+          "ibar": 1,
+          "inote": 0,
+          "text": "The",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 1,
+          "text": "gol",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 2,
+          "text": "den",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 0,
+          "text": "eve",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 1,
+          "text": "ning",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 0,
+          "text": "bright",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 1,
+          "text": "ens",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 2,
+          "text": "in",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 3,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 0,
+          "text": "west;_",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 0,
+          "text": "Soon,",
+          "melisma": false
+        },
+        {
+          "ibar": 5,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 2,
+          "text": "soon",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 0,
+          "text": "to",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 1,
+          "text": "faith",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 0,
+          "text": "ful",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 1,
+          "text": "war",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 2,
+          "text": "riors",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 3,
+          "text": "comes",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 0,
+          "text": "their",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 9,
+          "inote": 0,
+          "text": "rest;_",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 1,
+          "text": "Sweet",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 10,
+          "inote": 0,
+          "text": "is",
+          "melisma": false
+        },
+        {
+          "ibar": 10,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 0,
+          "text": "calm",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 1,
+          "text": "of",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 2,
+          "text": "par",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 3,
+          "text": "a",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 4,
+          "text": "dise",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 5,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 12,
+          "inote": 0,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 12,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 0,
+          "text": "blessed.",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 1,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 3,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 14,
+          "inote": 1,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 2,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 0,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 15,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 16,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 0,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 1,
+          "text": "ia!",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 2,
+          "text": "O",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 0,
+          "text": "may",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 1,
+          "text": "Thy",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 0,
+          "text": "sol",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 1,
+          "text": "diers,",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 2,
+          "text": "faith",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 3,
+          "text": "ful,",
+          "melisma": false
+        },
+        {
+          "ibar": 20,
+          "inote": 0,
+          "text": "true",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 0,
+          "text": "and",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 1,
+          "text": "bold,",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 2,
+          "text": "Fight",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 0,
+          "text": "as",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 0,
+          "text": "saints",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 1,
+          "text": "who",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 2,
+          "text": "no",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 3,
+          "text": "bly",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 0,
+          "text": "fought",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 25,
+          "inote": 0,
+          "text": "of",
+          "melisma": false
+        },
+        {
+          "ibar": 25,
+          "inote": 1,
+          "text": "old,",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 0,
+          "text": "And",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 1,
+          "text": "win",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 0,
+          "text": "with",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 1,
+          "text": "them",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 2,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 3,
+          "text": "vic",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 4,
+          "text": "tor's",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 5,
+          "text": "crown",
+          "melisma": false
+        },
+        {
+          "ibar": 28,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 28,
+          "inote": 1,
+          "text": "of",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 29,
+          "inote": 1,
+          "text": "gold.",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 2,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 3,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 0,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 30,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 2,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 0,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 1,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 32,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        }
+      ]
+    },
+    {
+      "syllables": [
+        {
+          "ibar": 1,
+          "inote": 0,
+          "text": "But",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 1,
+          "text": "lo!",
+          "melisma": false
+        },
+        {
+          "ibar": 1,
+          "inote": 2,
+          "text": "there",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 0,
+          "text": "breaks",
+          "melisma": false
+        },
+        {
+          "ibar": 2,
+          "inote": 1,
+          "text": "a",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 0,
+          "text": "yet",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 1,
+          "text": "more",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 2,
+          "text": "glor",
+          "melisma": false
+        },
+        {
+          "ibar": 3,
+          "inote": 3,
+          "text": "ious",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 0,
+          "text": "day;",
+          "melisma": false
+        },
+        {
+          "ibar": 4,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 0,
+          "text": "The",
+          "melisma": false
+        },
+        {
+          "ibar": 5,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 5,
+          "inote": 2,
+          "text": "saints",
+          "melisma": false
+        },
+        {
+          "ibar": 6,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 6,
+          "inote": 1,
+          "text": "tri",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 0,
+          "text": "um",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 1,
+          "text": "phant",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 2,
+          "text": "rise",
+          "melisma": false
+        },
+        {
+          "ibar": 7,
+          "inote": 3,
+          "text": "in",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 0,
+          "text": "bright",
+          "melisma": false
+        },
+        {
+          "ibar": 8,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 9,
+          "inote": 0,
+          "text": "ar",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 1,
+          "text": "ray;",
+          "melisma": false
+        },
+        {
+          "ibar": 9,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 10,
+          "inote": 0,
+          "text": "The",
+          "melisma": false
+        },
+        {
+          "ibar": 10,
+          "inote": 1,
+          "text": "King",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 0,
+          "text": "of",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 11,
+          "inote": 2,
+          "text": "glo",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 3,
+          "text": "ry",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 4,
+          "text": "pass",
+          "melisma": false
+        },
+        {
+          "ibar": 11,
+          "inote": 5,
+          "text": "es",
+          "melisma": false
+        },
+        {
+          "ibar": 12,
+          "inote": 0,
+          "text": "on",
+          "melisma": false
+        },
+        {
+          "ibar": 12,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 0,
+          "text": "His",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 13,
+          "inote": 2,
+          "text": "way.",
+          "melisma": false
+        },
+        {
+          "ibar": 13,
+          "inote": 3,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 14,
+          "inote": 1,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 14,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 15,
+          "inote": 0,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 1,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 15,
+          "inote": 2,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 16,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 17,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 17,
+          "inote": 1,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 17,
+          "inote": 2,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 0,
+          "text": "ia!",
+          "melisma": false
+        },
+        {
+          "ibar": 18,
+          "inote": 1,
+          "text": "And",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 0,
+          "text": "when",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 2,
+          "text": "strife",
+          "melisma": false
+        },
+        {
+          "ibar": 19,
+          "inote": 3,
+          "text": "is",
+          "melisma": false
+        },
+        {
+          "ibar": 20,
+          "inote": 0,
+          "text": "fierce,",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 0,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 1,
+          "text": "war",
+          "melisma": false
+        },
+        {
+          "ibar": 21,
+          "inote": 2,
+          "text": "fare",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 0,
+          "text": "long,",
+          "melisma": false
+        },
+        {
+          "ibar": 22,
+          "inote": 1,
+          "text": "Steals",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 0,
+          "text": "on",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 1,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 2,
+          "text": "ear",
+          "melisma": false
+        },
+        {
+          "ibar": 23,
+          "inote": 3,
+          "text": "the",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 0,
+          "text": "dis",
+          "melisma": false
+        },
+        {
+          "ibar": 24,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 25,
+          "inote": 0,
+          "text": "tant",
+          "melisma": false
+        },
+        {
+          "ibar": 25,
+          "inote": 1,
+          "text": "tri",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 0,
+          "text": "umph",
+          "melisma": false
+        },
+        {
+          "ibar": 26,
+          "inote": 1,
+          "text": "song,",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 0,
+          "text": "And",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 1,
+          "text": "hearts",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 2,
+          "text": "are",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 3,
+          "text": "brave,",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 4,
+          "text": "a",
+          "melisma": false
+        },
+        {
+          "ibar": 27,
+          "inote": 5,
+          "text": "gain,",
+          "melisma": false
+        },
+        {
+          "ibar": 28,
+          "inote": 0,
+          "text": "and",
+          "melisma": false
+        },
+        {
+          "ibar": 28,
+          "inote": 1,
+          "text": "arms",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 29,
+          "inote": 1,
+          "text": "are",
+          "melisma": false
+        },
+        {
+          "ibar": 29,
+          "inote": 2,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 29,
+          "inote": 3,
+          "text": "strong.",
+          "melisma": false
+        },
+        {
+          "ibar": 30,
+          "inote": 0,
+          "text": "Al",
+          "melisma": false
+        },
+        {
+          "ibar": 30,
+          "inote": 1,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 30,
+          "inote": 2,
+          "text": "le",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 0,
+          "text": "",
+          "melisma": true
+        },
+        {
+          "ibar": 31,
+          "inote": 1,
+          "text": "lu",
+          "melisma": false
+        },
+        {
+          "ibar": 31,
+          "inote": 2,
+          "text": "ia,",
+          "melisma": false
+        },
+        {
+          "ibar": 32,
+          "inote": 0,
+          "text": "Al",
+          "melisma": false
+        }
+      ]
+    }
+  ],
+  "_abc_source": "X: 218\nT: For All The Saints\n%%combinevoices 1\nC: Words: William W. How, 1864. \nC: Music: 'Sine Nomine' Ralph Vaughan Williams, 1906.  Setting: \"The English Hymnal\", 1906.\nC: copyright: public domain.  This score is a part of the Open Hymnal Project, 2008 Revision.\nM: 4/4 % time signature\nL: 1/4 % default length\n%%staves (S1V1 S1V2) | (S2V1 S2V2) | (S3V1 S3V2) \n%%staffsep 0.62cm\nV: S1V1 clef=treble \n%%MIDI beat 127 125 110 1\nV: S1V2 \n%%MIDI beat 127 125 110 1\nV: S2V1 clef=treble \n%%MIDI beat 127 125 110 1\nV: S2V2 \n%%MIDI beat 127 125 110 1\nV: S3V1 clef=bass \n%%MIDI beat 127 125 110 1\nV: S3V2 \n%%MIDI beat 127 125 110 1\nK: G % key signature\n%\n%%MIDI program 1 0 % Piano 1\n%%MIDI program 2 0 % Piano 1\n%%MIDI program 3 0 % Piano 1\n%%MIDI program 4 0 % Piano 1\n%%MIDI program 5 0 % Piano 1\n%%MIDI program 6 0 % Piano 1\n%\n% 1\n[V: S1V1] [Q:1/4=130] z d B A | G3 D | E G A D | B3.- B |\nw: 1.~For all the saints, who from their la- bors rest,_\nw: 2.~Thou wast their Rock, their For- tress and their Might;_\nw: 3.~For the A- post- les' glo- rious com- pa- ny,_\nw: 9.~The gol- den eve- ning bright- ens in the west;_\nw: 10.~But lo! there breaks a yet more glor- ious day; The \n[V: S1V2]  x4 | x4 | x4 | x4 |\n[V: S2V1]  z [DGBd] [EGB] [CFA] | [E3G3] [G,D] | [G,E] [DG] [CEA] D | [D3G3B3].- [DGB] |\n[V: S2V2]  x4 | (B,2 C) x | x4 | x4 |\n[V: S3V1]  G,, B,, C, D, | (E, D, C,) B,, | G,3 [D,F,] | .(.(G, E, F,) G,) |\n[V: S3V2]  x4 | x4 | C, B,, A,, x | x4 |\n% 5\n[V: S1V1]  A2.- A G | F2 F2 | G A F E | D3.- D |\nw: Who Thee by faith be- fore the world con- fessed, Thy \nw: Thou, Lord, their Cap- tain in the well fought fight;_\nw: Who bear- ing forth the Cross o'er land and sea,_ \nw: Soon, soon to faith- ful war- riors comes their rest;_ \nw: saints * tri- um- phant rise in bright ar- ray; The \n[V: S1V2]  x4 | x4 | x4 | x4 |\n[V: S2V1]  A2.- A [EG] | [A,2E2F2] [A,2D2F2] | [G,DG] [A,DA] [B,DF] [G,^CE] | [F,3A,3D3].- [F,A,D] |\n[V: S2V2]  .([^C2E2] D) x | x4 | x4 | x4 |\n[V: S3V1]  .(.(A, A,,) B,,) ^C, | (D, E,) (D, ^C,) | B,, F,, G,, A,, | .(.(D, E, D,) =C,) |\n[V: S3V2]  x4 | x4 | x4 | x4 |\n% 9\n[V: S1V1]  G2 G.- G | d3 d | c d c/B/ A/G/ | A2\nw: Name, O * Je- sus, be for- ev- * er * blessed. \nw: Thou, in the dark- ness drear, their one * true * Light. \nw: Shook all the migh- ty world, we sing * to * Thee: \nw: Sweet is the calm of par- a- dise * the * blessed. \nw: King of * glo- ry pass- es on * His * way. \n[V: S1V2]  x4 | x4 | x4 | x2\n[V: S2V1]  [G,2G2] [G,2G2] | [D3G3B3d3] [GBd] | [CGc] [Ad] c/B/ A/G/ | [D2F2A2]\n[V: S2V2]  (D E) .(D C) | x4 | x2 [DG] D | x2\n[V: S3V1]  G,2 G,2 | [G,3B,3D3] [G,B,D] | [G,C] [A,D] [G,D] [G,D] | A,2\n[V: S3V2]  (B,, C,) .(B,, A,,) | (G,, A,, G,,) F,, | E,, F,, G,, B,, | (D, C,)\n% 13\n[V: S1V1]  !sintro!(d2 | e) d/c/ d2 | G3 (A/B/ | c) B A2 | G4 !eintro!|]\nw: Al- * le- * lu- ia, Al- * * le- lu- ia! \n[V: S1V2]  x2 | x4 | x4 | x4 | x4 |]\n[V: S2V1]  (d2 | e) d/c/ [G2d2] | G3 (A/B/ | [EGc]) [DGB] A2 | G4 |]\n[V: S2V2]  ([DG] [=FB]) | [E2G2] (D E/F/) | (G B, E) ([DG] | G) x ([DG] [CF]) | [B,4D4] |]\n[V: S3V1]  G,2 | G,2 G,2 | G,2 (G,2 | A,,) B,,/C,/ (D, D,,) | G,,4 |]\n[V: S3V2]  (B,, G,, | C,) A,, (B,, C,/D,/) | (E, D,) (C, B,,) | x4 | x4 |]\n% 17\n%%newpage\n%%header \"COMMUNION OF SAINTS\t\t218(2)\"\n%: For All The Saints\n%: (page 2 of 2)\n%%staves (S1V1 S1V2) | (S3V1 S3V2) \n%%staffsep 0.62cm\n[V: S1V1]  z d B A | G3 D | E G A D |\nw: 4.~For the Ev- an- gel- ists, by whose blest \nw: 5.~For Mar- tyrs, who with rap- ture kin- dled \nw: 6.~O blest com- mu- nion, fel- low- ship di- \nw: 7.~O may Thy sol- diers, faith- ful, true and \nw: 8.~And when the strife is fierce, the war- fare \n[V: S1V2]  x G G F | E3 D | C D C D |\n[V: S3V1]  z D E C | B,3 G, | G, G, G, F, |\n[V: S3V2]  G,, B,, C, D, | E,3 B,, | C, B,, A,, D, |\n% 21\n[V: S1V1]  B4 | A2 A G | F2 F2 | G A F E |\nw: word, Like four- fold streams, the gar- den of the \nw: eye, Saw the bright crown de- scen- ding from the \nw: vine! We fee- bly strug- gle, they in glo- ry \nw: bold, Fight as the saints who no- bly fought of \nw: long, Steals on the ear the dis- tant tri- umph \n[V: S1V2]  D4 | D2 D E | A,2 D2 | D D D ^C |\n[V: S3V1]  G,4 | A,2 B, ^C | D2 A,2 | B, A, B, G, |\n[V: S3V2]  G,,4 | F,2 F, E, | D,2 ^C,2 | B,, F,, G,, A,, |\n% 25\n[V: S1V1]  D3.- D | G2 G2 | d3 d | c d c/B/ A/G/ | A2\nw: Lord, Is fair and fruit- ful, be Thy Name * a- * dored. \nw: sky, And see- ing, grasped it, Thee we glo- * ri- * fy. \nw: shine; * All are one in Thee, for all * are * Thine. \nw: old, And win with them the vic- tor's crown * of * gold. \nw: song, And hearts are brave, a- gain, and arms * are * strong. \n[V: S1V2]  .(D3 A,) | D2 (D C) | B,2 G2 | G A G D | F2\n[V: S3V1]  F,3.- F, | G,2 G,2 | G,2 B,2 | C A, D D | D2\n[V: S3V2]  .(D,3 C,) | (B,, C,) (B,, A,,) | G,,2 (G, F,) | E, F, G, B,, | (D, C,)\n% 29\n[V: S1V1]  (d2 | e) d/c/ d2 | G3 (A/B/ | c) B A2 | G4 |]\nw: Al- * le- * lu- ia, Al- * * le- lu- ia! \n[V: S1V2]  (G =F | E) G (G ^F) | E2 (G =F | E) D (C D) | B,4 |]\n[V: S3V1]  (D2 | C) E D2 | (D C) (B, A,/G,/ | C) G, (G, F,) | G,4 |]\n[V: S3V2]  (B,,2 | C,) A,, B,,2 | E,2 (D,2 | C,) D, (E, D,) | G,,4 |]\nW:11.From earth's wide bounds, from ocean's farthest coast,\nW:Through gates of pearl streams in the countless host,\nW:And singing to Father, Son and Holy Ghost:\n\n%%newpage\n\n% PAGE LAYOUT\n%\n%%pagewidth\t21.6000cm\n%%pageheight\t27.9000cm\n%%scale\t\t0.750000\n%%staffsep\t1.60000cm\n%%exprabove\tfalse\n%%measurebox\tfalse\n%%header \"219\t\tCOMMUNION OF SAINTS\"\n%%footer Heb 11:1-2, 1Tim 6:12, Jude 1:3, 2Cor 6:4-6, 2Tim 1:3\t\t8 8 8 8 8 8\n%OHSCRIP Heb 11:1-2, 1Tim 6:12, Jude 1:3, 2Cor 6:4-6, 2Tim 1:3\n%OHTOPICS {Activity [2]}, {Calmness}, {Church on Earth (Church Militant)}, {Commitment}, {Compassion [3]}, {Courage in Affliction}, {Example, Of Other People}, {Faith}, {Faithfulness}, {Fellowship}, {Integrity [2]}, {Joy [1]}, {Kindness, Ours [3]}, {Loyalty}, {Missions [2,3]}, {Self Control (see also Law) [3]}, {Speech [3]}, {Terrorism}, {Truth}, {Zeal}\n%OHCATEGORY COMMUNION OF SAINTS\n%OHMETRICAL 8 8 8 8 8 8\n%OHCOMPLEXITY 1\n%OHCOMPOSER Hemy, Henri Frederick (1818-1888)\n%OHARRANGER Walton, James George (1821-1905)\n%OHAUTHOR Faber, Frederick William (1814-1863);Walton, James George (1821-1905)\n%OHTRANSLATOR none\n%%postscript /st { moveto -8 0 rmoveto 0 8 rlineto 4 0 rlineto stroke } def\n%%postscript /nd { moveto -8 0 rmoveto 0 8 rlineto -4 0 rlineto stroke } def\n%%deco sintro 6 st 6 0 0 \n%%deco eintro 6 nd 6 0 0 \n",
+  "_modal_name": "phrygian"
+}
