@@ -34,7 +34,7 @@ chord      = roman ;
 bichord    = chord, chord ;
 
 (* ------- Pool ------- *)
-ipool      = digit, digit, digit ;                      (* 001..118 *)
+ipool      = degree, digit, digit ;                     (* {degree}{rank:02d} — first digit = LH degree 1..7, last two = rank inside that degree; paths are the low ranks, reserve the high ranks, 118 entries total *)
 
 (* ------- Drill algebra ------- *)
 brace      = ipool, { ipool } | chord ;
@@ -131,7 +131,7 @@ The grammar is pure structure. Rendering choices live in `renderers/`:
 |---|---|---|
 | `bichord` | two chords | `I/V`, space, hrule |
 | `meter` | two numbers | `3/4`, `C`, `𝄵` |
-| `brace` | list of ipools | `{006\|015\|029}`, `{006,015,029}` |
+| `brace` | list of ipools | `{101\|102\|103}`, `{101,102,103}` |
 | `pedal_pos` | abstract state | `♭/♮/♯`, `↑/—/↓`, `up/mid/down` |
 | phrase's cycle color | derived from `path` | `leafblue`, `leafgreen`, via stylesheet |
 

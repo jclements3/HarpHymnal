@@ -262,44 +262,67 @@ def rebuild(tex_path: Path, prose_json_path: Path) -> dict:
     with open(prose_json_path, encoding='utf-8') as f:
         existing = json.load(f)
 
-    jazz_rows = extract_jazz_entries(tex)
-    pool_rows = extract_pool_entries(tex)
+    path_rows = extract_jazz_entries(tex)
+    reserve_rows = extract_pool_entries(tex)
 
     existing_sv = existing.get('schema_version')
     schema_version = existing_sv + 1 if isinstance(existing_sv, int) else 2
 
     rebuilt = {
         'schema_version': schema_version,
-        'title': existing.get('title', 'Harp Chord System — JSON reference'),
+        'title': existing.get('title', 'Harp Trefoil — JSON reference'),
         'source': 'HarpTrefoil.tex (byte-exact mirror of HarpChordSystem.tex) via trefoil/rebuild.py',
         '_rebuilt_from_tex': True,
         '_pedagogy_reference': 'See TREFOIL.md at repo root for the complete pedagogical model.',
-        'how_to_use': existing.get('how_to_use', {}),
+        '_vocabulary_model': (
+            'The pool is the full 118-fraction vocabulary. 42 path fractions '
+            'instantiate the six trefoil cycles (2nds/3rds/4ths × CW/CCW). '
+            '76 reserve fractions are coloristic voicings used for substitution '
+            'and variety. pool = paths ∪ reserve.'
+        ),
+        'how_to_use': _rewrite_prose(existing.get('how_to_use', {})),
         'conventions': existing.get('conventions', {}),
         'instrument': existing.get('instrument', {}),
         'patterns': existing.get('patterns', []),
         'chords_by_pattern_and_degree': existing.get('chords_by_pattern_and_degree', {}),
         'cycles': existing.get('cycles', {}),
-        'jazz_progressions': {
+        'paths': {
             'description': (
                 'Paired LH/RH voicings along the three diatonic cycles. '
-                'CW ascends, CCW descends. 42 entries (3 cycles × 14 rows).'
+                'CW ascends, CCW descends. 42 entries (3 cycles × 14 rows). '
+                'Together with the 76 reserve entries these form the 118-fraction pool.'
             ),
-            '_canonical_name': 'complex chord cycles',
-            'entries': [_jazz_row_to_dict(r) for r in jazz_rows],
+            '_canonical_name': 'trefoil paths',
+            'entries': [_jazz_row_to_dict(r) for r in path_rows],
         },
-        'stacked_chords': {
+        'reserve': {
             'description': (
                 'Single-sonority two-handed fractions (LH over RH). Each has '
-                'one mood name. 76 entries. Together with the 42 '
-                'jazz_progressions entries these form the 118 legal chord '
-                'fractions on the harp.'
+                'one mood name. 76 entries of coloristic voicings held in reserve '
+                'for substitution. Together with the 42 path entries these form '
+                'the 118-fraction pool.'
             ),
-            '_canonical_name': 'chord fractions pool',
-            'entries': [_pool_entry_to_dict(e, m) for e, m in pool_rows],
+            '_canonical_name': 'reserve fractions',
+            'entries': [_pool_entry_to_dict(e, m) for e, m in reserve_rows],
         },
     }
     return rebuilt
+
+
+def _rewrite_prose(obj):
+    """Rewrite legacy section names in pass-through prose so downstream
+    readers see the refactored vocabulary (pool / paths / reserve)."""
+    if isinstance(obj, str):
+        return (obj
+                .replace('jazz_progressions', 'paths')
+                .replace('stacked_chords', 'reserve')
+                .replace('Jazz Progressions', 'Trefoil Paths')
+                .replace('Stacked Chords', 'Reserve'))
+    if isinstance(obj, list):
+        return [_rewrite_prose(x) for x in obj]
+    if isinstance(obj, dict):
+        return {k: _rewrite_prose(v) for k, v in obj.items()}
+    return obj
 
 
 def write_rebuilt(rebuilt: dict, out_path: Path) -> None:

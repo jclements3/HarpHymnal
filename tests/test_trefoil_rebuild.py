@@ -3,9 +3,9 @@
 The rebuild reads ``source/HarpTrefoil.tex`` (the byte-exact mirror of
 the canonical ``HarpChordSystem.tex``) plus the existing
 ``source/HarpChordSystem.json`` for prose pass-through, and emits a
-grammar-native JSON at ``data/trefoil/HarpTrefoil.json``.  These tests
-verify counts, per-entry keys, and top-level schema parity with the
-reference JSON.
+grammar-native JSON at ``data/trefoil/HarpTrefoil.json``.  The pool
+splits into `paths` (42 cycle voicings) and `reserve` (76 coloristic).
+These tests verify counts, per-entry keys, and top-level schema.
 """
 from __future__ import annotations
 
@@ -30,7 +30,6 @@ PROSE_SRC = ROOT / 'source' / 'HarpChordSystem.json'
 
 @pytest.fixture(scope='module')
 def rebuilt() -> dict:
-    """Run the rebuild once and reuse across assertions."""
     assert TEX_SRC.is_file(), f"missing TeX source: {TEX_SRC}"
     assert PROSE_SRC.is_file(), f"missing prose JSON: {PROSE_SRC}"
     return rebuild(TEX_SRC, PROSE_SRC)
@@ -46,8 +45,8 @@ def reference() -> dict:
 
 def test_rebuild_runs_end_to_end(rebuilt):
     assert isinstance(rebuilt, dict)
-    assert 'jazz_progressions' in rebuilt
-    assert 'stacked_chords' in rebuilt
+    assert 'paths' in rebuilt
+    assert 'reserve' in rebuilt
 
 
 def test_write_rebuilt_round_trips(tmp_path, rebuilt):
@@ -56,52 +55,61 @@ def test_write_rebuilt_round_trips(tmp_path, rebuilt):
     assert out.is_file()
     back = json.loads(out.read_text(encoding='utf-8'))
     assert back['schema_version'] == rebuilt['schema_version']
-    assert len(back['jazz_progressions']['entries']) == 42
-    assert len(back['stacked_chords']['entries']) == 76
+    assert len(back['paths']['entries']) == 42
+    assert len(back['reserve']['entries']) == 76
 
 
 # ──────────────────────── Entry counts ────────────────────
 
-def test_jazz_progressions_count(rebuilt):
-    assert len(rebuilt['jazz_progressions']['entries']) == 42
+def test_paths_count(rebuilt):
+    assert len(rebuilt['paths']['entries']) == 42
 
 
-def test_stacked_chords_count(rebuilt):
-    assert len(rebuilt['stacked_chords']['entries']) == 76
+def test_reserve_count(rebuilt):
+    assert len(rebuilt['reserve']['entries']) == 76
+
+
+def test_pool_is_paths_plus_reserve(rebuilt):
+    """pool = paths ∪ reserve = 118 fractions total."""
+    total = len(rebuilt['paths']['entries']) + len(rebuilt['reserve']['entries'])
+    assert total == 118
 
 
 def test_cycle_breakdown(rebuilt):
-    """42 rows = 3 cycles × 14.  One-to-one on each cycle label."""
+    """42 path rows = 3 cycles × 14.  One-to-one on each cycle label."""
     by_cycle: dict[str, int] = {}
-    for e in rebuilt['jazz_progressions']['entries']:
+    for e in rebuilt['paths']['entries']:
         by_cycle[e['cycle']] = by_cycle.get(e['cycle'], 0) + 1
     assert by_cycle == {'2nds': 14, '3rds': 14, '4ths': 14}
 
 
 # ──────────────────────── Per-entry shape ─────────────────
 
-def test_jazz_entry_keys(rebuilt):
+def test_path_entry_keys(rebuilt):
     expected = {'cycle', 'lh_roman', 'lh_figure',
                 'rh_roman', 'rh_figure', 'cw_label', 'ccw_label'}
-    for e in rebuilt['jazz_progressions']['entries']:
-        assert set(e.keys()) == expected, f"unexpected jazz keys: {set(e.keys())}"
+    for e in rebuilt['paths']['entries']:
+        assert set(e.keys()) == expected, f"unexpected path keys: {set(e.keys())}"
 
 
-def test_pool_entry_keys(rebuilt):
+def test_reserve_entry_keys(rebuilt):
     expected = {'lh_roman', 'lh_figure', 'rh_roman', 'rh_figure', 'mood'}
-    for e in rebuilt['stacked_chords']['entries']:
-        assert set(e.keys()) == expected, f"unexpected pool keys: {set(e.keys())}"
+    for e in rebuilt['reserve']['entries']:
+        assert set(e.keys()) == expected, f"unexpected reserve keys: {set(e.keys())}"
 
 
-# ──────────────────────── Top-level key parity ────────────
+# ──────────────────────── Top-level keys ──────────────────
 
-def test_top_level_keys_match_reference(rebuilt, reference):
-    """The new JSON must be field-for-field at the top level with the ref."""
-    assert set(rebuilt.keys()) == set(reference.keys())
+def test_top_level_has_refactored_pool_sections(rebuilt):
+    """The rebuilt JSON carries the refactored section names and drops
+    the legacy `jazz_progressions` / `stacked_chords` keys."""
+    assert 'paths' in rebuilt
+    assert 'reserve' in rebuilt
+    assert 'jazz_progressions' not in rebuilt
+    assert 'stacked_chords' not in rebuilt
 
 
 def test_schema_version_bumped(rebuilt, reference):
-    """Schema version should increment by exactly 1 over the reference."""
     ref_sv = reference['schema_version']
     assert isinstance(ref_sv, int)
     assert rebuilt['schema_version'] == ref_sv + 1
@@ -110,20 +118,29 @@ def test_schema_version_bumped(rebuilt, reference):
 # ──────────────────────── Prose pass-through ──────────────
 
 def test_prose_sections_preserved(rebuilt, reference):
-    """Prose sections are copied verbatim from the reference JSON."""
-    for k in ('how_to_use', 'conventions', 'instrument', 'patterns',
+    """Conventions / patterns / cycles pass through verbatim from the
+    reference.  how_to_use is rewritten to match the new terminology
+    (tested separately below)."""
+    for k in ('conventions', 'instrument', 'patterns',
               'chords_by_pattern_and_degree', 'cycles'):
         assert rebuilt[k] == reference[k], f"{k} diverged from reference"
+
+
+def test_how_to_use_rewrites_legacy_section_names(rebuilt):
+    """Pass-through prose has legacy section names rewritten so downstream
+    readers see the refactored vocabulary."""
+    text = json.dumps(rebuilt['how_to_use'], ensure_ascii=False)
+    assert 'jazz_progressions' not in text
+    assert 'stacked_chords' not in text
 
 
 # ──────────────────────── Figure / Roman sanity ───────────
 
 def test_figures_are_valid_wire_format(rebuilt):
-    """Every figure must parse back through grammar.parse.parse_figure."""
     from grammar.parse import parse_figure
-    for e in rebuilt['jazz_progressions']['entries']:
+    for e in rebuilt['paths']['entries']:
         parse_figure(e['lh_figure'])
         parse_figure(e['rh_figure'])
-    for e in rebuilt['stacked_chords']['entries']:
+    for e in rebuilt['reserve']['entries']:
         parse_figure(e['lh_figure'])
         parse_figure(e['rh_figure'])

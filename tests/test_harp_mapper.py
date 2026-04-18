@@ -67,7 +67,7 @@ def test_pick_fraction_carries_ipool_and_source(pool: Pool):
     assert picks
     for p in picks:
         assert p.ipool in {e.ipool for e in pool.entries}
-        assert p.source in ('jazz_progressions', 'stacked_chords')
+        assert p.source in ('paths', 'reserve')
 
 
 # ──────────────────────────────────────────────────────────────────────────
@@ -77,9 +77,9 @@ def test_pick_fraction_carries_ipool_and_source(pool: Pool):
 def test_pick_transition_v_to_i_is_fourths_cycle(pool: Pool):
     picks = pick_transition(pool, 'V', 'I', 'C')
     assert picks, 'V → I is a 4ths cycle edge — expected at least one pick'
-    # All transition picks come from jazz_progressions with cycle == '4ths'.
+    # All transition picks come from the trefoil paths with cycle == '4ths'.
     for p in picks:
-        assert p.source == 'jazz_progressions'
+        assert p.source == 'paths'
         assert p.meta.get('cycle') == '4ths'
 
 

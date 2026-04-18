@@ -71,8 +71,15 @@ Terms in dependency order (smallest → largest). See the grammar in §4 for for
 - **chord** — a roman numeral (`I`, `V7`, `IΔ7`, `iii`, `vii○`). Names the chord independent of voicing.
 - **bichord** — two chords layered top-over-bottom (e.g. `iii/I`). Structurally `chord chord`; slash is a rendering choice.
 
-### 3.4 Pool reference
-- **ipool** — a zero-padded 3-digit index `001..118` identifying one curated fraction in the Harp Chord System pool. Label only; the structural atom is `shape` or `bishape`.
+### 3.4 Pool — paths + reserve
+The **pool** is the full 118-fraction vocabulary. It splits into two disjoint subsets:
+
+- **paths** (42 fractions) — the voicings that instantiate the six diatonic trefoil cycles (2nds / 3rds / 4ths × CW / CCW). Every trefoil walk uses only path fractions.
+- **reserve** (76 fractions) — coloristic single-sonority voicings held in reserve for substitution and variety. Not on any cycle.
+
+**pool = paths ∪ reserve.** Every fraction is in exactly one subset.
+
+- **ipool** — a 3-digit index identifying one fraction in the pool. First digit is the LH scale-degree (1..7); last two digits are the rank within that degree (01 = cleanest, ascending as more ornamented). Within each degree the path fractions occupy the lowest ranks; reserve fractions fill the rest. Label only; the structural atom is `shape` or `bishape`.
 
 ### 3.5 Drill algebra
 - **brace** — an alternation set: either a list of `ipool`s that realize the same chord, or a `chord` nonterminal.
@@ -103,7 +110,7 @@ Six diatonic cycles — three axes × two directions:
 
 ### 3.9 Index conventions
 Three cross-reference indices, consistently `i`-prefixed:
-- **ipool** — into the 118-chord pool
+- **ipool** — into the 118-fraction pool (paths + reserve)
 - **ibar** — 1-based position into `bars`
 - **inote** — 0-based position inside a bar's `melody`
 
@@ -308,10 +315,11 @@ The grammar in §4 maps onto the JSON shapes each pipeline stage produces. Key c
 - `assignments[*]` → one bar's `(chord | bichord, shape | bishape, technique)` triple.
 - `phrases[*]` → `phrase` with `cycle_color` derived from `path`.
 
-### `HarpChordSystem.json` → pool
-- `patterns[*]` → `intervals` productions (14 total).
-- `chords_by_pattern_and_degree[pattern_id][degree]` → a `shape` (single-hand) or `bishape` (two-hand).
-- Each pool entry has an `ipool` label computed by walking `patterns` in order × `degree` 1..7 and numbering the non-null entries 001..118.
+### `data/trefoil/HarpTrefoil.json` → pool
+- `paths.entries[*]` → the 42 trefoil-cycle voicings (each row carries `cycle` + `cw_label` / `ccw_label`). Together these walk the six cycles.
+- `reserve.entries[*]` → the 76 coloristic reserve voicings (each row carries `mood`).
+- `patterns[*]` → `intervals` productions (14 total); `chords_by_pattern_and_degree` is the pedagogy cross-reference table, not the pool itself.
+- Each pool entry is loaded as a typed `Bishape` by `trefoil.pool.load_pool()` and assigned an ipool `{degree}{rank:02d}` — first digit from the LH scale-degree, last two digits rank-within-degree (paths first, then reserve).
 
 ### Reference conventions
 - File slugs lowercase, collapse non-alnum runs to `_` (matches `tools/build_review_html.py::hymn_slug`). This is the slug used by `HarpHymnal.html`'s fetch-HEAD nav swap.

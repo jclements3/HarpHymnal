@@ -4,13 +4,14 @@
   "source": "HarpTrefoil.tex (byte-exact mirror of HarpChordSystem.tex) via trefoil/rebuild.py",
   "_rebuilt_from_tex": true,
   "_pedagogy_reference": "See TREFOIL.md at repo root for the complete pedagogical model.",
+  "_vocabulary_model": "The pool is the full 118-fraction vocabulary. 42 path fractions instantiate the six trefoil cycles (2nds/3rds/4ths × CW/CCW). 76 reserve fractions are coloristic voicings used for substitution and variety. pool = paths ∪ reserve.",
   "how_to_use": {
     "purpose": "This is the machine-readable version of a 2-page lever harp handout. Load this file at the start of any chat about the harp chord system so you do not need to re-learn the notation from prose each time.",
     "what_this_contains": [
       "Page 1 HarpChords table: 14 finger patterns × 7 starting degrees → named chord (section: chords_by_pattern_and_degree)",
       "Page 1 trefoil + cycle tables: 3 diatonic cycles (2nds, 3rds, 4ths), each with 7 edges labeled for both directions (section: cycles)",
-      "Page 2 Jazz Progressions: two-handed voicings that walk each cycle (section: jazz_progressions)",
-      "Page 2 Stacked Chords: two-handed sonorities indexed by LH figure (section: stacked_chords)",
+      "Page 2 Trefoil Paths: two-handed voicings that walk each cycle (section: paths)",
+      "Page 2 Reserve: two-handed sonorities indexed by LH figure (section: reserve)",
       "Notation key, interval-from-tonic alphabet, and figure-parsing rules (section: conventions)"
     ],
     "critical_distinctions": [
@@ -5320,9 +5321,9 @@
       ]
     }
   },
-  "jazz_progressions": {
-    "description": "Paired LH/RH voicings along the three diatonic cycles. CW ascends, CCW descends. 42 entries (3 cycles × 14 rows).",
-    "_canonical_name": "complex chord cycles",
+  "paths": {
+    "description": "Paired LH/RH voicings along the three diatonic cycles. CW ascends, CCW descends. 42 entries (3 cycles × 14 rows). Together with the 76 reserve entries these form the 118-fraction pool.",
+    "_canonical_name": "trefoil paths",
     "entries": [
       {
         "cycle": "2nds",
@@ -5704,9 +5705,9 @@
       }
     ]
   },
-  "stacked_chords": {
-    "description": "Single-sonority two-handed fractions (LH over RH). Each has one mood name. 76 entries. Together with the 42 jazz_progressions entries these form the 118 legal chord fractions on the harp.",
-    "_canonical_name": "chord fractions pool",
+  "reserve": {
+    "description": "Single-sonority two-handed fractions (LH over RH). Each has one mood name. 76 entries of coloristic voicings held in reserve for substitution. Together with the 42 path entries these form the 118-fraction pool.",
+    "_canonical_name": "reserve fractions",
     "entries": [
       {
         "lh_roman": "I6",

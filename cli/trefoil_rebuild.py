@@ -32,14 +32,15 @@ def main(argv: list[str] | None = None) -> int:
 
     rebuilt = rebuild(args.tex, args.prose)
 
-    jazz = rebuilt['jazz_progressions']['entries']
-    pool = rebuilt['stacked_chords']['entries']
+    paths = rebuilt['paths']['entries']
+    reserve = rebuilt['reserve']['entries']
     by_cycle: dict[str, int] = {}
-    for e in jazz:
+    for e in paths:
         by_cycle[e['cycle']] = by_cycle.get(e['cycle'], 0) + 1
 
-    print(f'Extracted {len(jazz)} jazz_progressions entries (expected 42)')
-    print(f'Extracted {len(pool)} stacked_chords entries (expected 76)')
+    print(f'Extracted {len(paths)} path entries (expected 42)')
+    print(f'Extracted {len(reserve)} reserve entries (expected 76)')
+    print(f'pool = paths ∪ reserve = {len(paths) + len(reserve)} fractions')
     print(f'Cycle breakdown: {by_cycle}')
 
     write_rebuilt(rebuilt, args.output)

@@ -10,7 +10,9 @@
 
 ## Elevator pitch
 
-The Harp Chord System is a strictly-diatonic chord vocabulary for lever harp, organized around a **trefoil** of 6 cycle paths. It has **~118 unique two-hand chord fractions**. Every song is a walk on the trefoil, starting from the tonic, with occasional trips into a complementary pool of fractions for variety.
+The Harp Chord System is a strictly-diatonic chord vocabulary for lever harp, organized around a **trefoil** of 6 cycle paths. It has **~118 unique two-hand chord fractions** — collectively called the **pool**. The pool splits into two disjoint subsets: **42 paths** (the fractions that walk the six trefoil cycles) and **76 reserve** (coloristic fractions held for substitution and variety). Every song is a walk on the trefoil, with occasional trips into the reserve for variety.
+
+**pool = paths ∪ reserve.**
 
 ---
 
@@ -67,16 +69,16 @@ Example (2nds cycle, edge `I ↔ ii`): `LH=I RH=ii  133 / 933  Cloudy / Groundin
 | 1 | **Patterns** | 1 (left) | 14 finger-spacing shapes × 7 scale-degree starting positions → 98 cells of named chords across 7 modes (Ionian → Locrian). The **chord terrain**. |
 | 2 | **Simple chord cycles** | 1 (right) | 3 cycles × 7 edges = 21 simple edges. Each row shows `from → to` chord pair + CW mood + CCW mood. **The skeleton of the 6 paths.** |
 | 3 | **Complex chord cycles** | 2 (top) | 42 two-hand voicings along the same 6 paths. Each row shows `LH chord`, `RH chord`, `LH figure / RH figure`, CW mood, CCW mood. **The walks rendered for playing.** |
-| 4 | **Chord fractions pool** | 2 (bottom) | 76 stacked single-sonority fractions. Each row shows `LH chord`, `RH chord`, `LH figure / RH figure`, mood name. **Curated best-of-the-rest fingerings.** |
+| 4 | **Reserve fractions** | 2 (bottom) | 76 stacked single-sonority fractions. Each row shows `LH chord`, `RH chord`, `LH figure / RH figure`, mood name. **Curated best-of-the-rest fingerings held in reserve for substitution.** |
 
-**The 118 count:** 42 (complex cycles) + 76 (pool) = 118 total entries, but only **109 unique physical fingerings**.
+**The 118 count:** 42 paths + 76 reserve = 118 total pool entries, but only **109 unique physical fingerings**.
 
 - The **complex cycles table** holds the curated **best fingering** for each cycle-edge transition — one winner per (cycle, edge, voicing richness). These 42 were selected out of the full playable universe.
-- The **pool table** holds the curated **best of the rest** — playable diatonic fingerings that didn't win a cycle-edge slot but are still strong enough to be part of the handout vocabulary.
-- **9 of the pool entries are duplicates of complex-cycle entries** (same `(LH-fig, RH-fig)` pair appearing in both tables). These are redundant — the pool includes those fingerings again instead of using the slot for a different fingering. That leaves **9 pool slots of design room** that could be filled with new, non-redundant fingerings.
-- The 118 is a **curated subset**, not every possible diatonic fingering. More pool entries could be added from the un-selected universe whenever more variety is wanted.
+- The **reserve table** holds the curated **best of the rest** — playable diatonic fingerings that didn't win a cycle-edge slot but are still strong enough to be part of the handout vocabulary.
+- **9 of the reserve entries are duplicates of path entries** (same `(LH-fig, RH-fig)` pair appearing in both tables). These are redundant — the reserve includes those fingerings again instead of using the slot for a different fingering. That leaves **9 reserve slots of design room** that could be filled with new, non-redundant fingerings.
+- The 118 is a **curated subset**, not every possible diatonic fingering. More reserve entries could be added from the un-selected universe whenever more variety is wanted.
 
-When a composition is running a pure cycle walk and it gets repetitious, reach into the pool for variety — same universe, different feeling.
+When a composition is running a pure cycle walk and it gets repetitious, reach into the reserve for variety — same pool, different feeling.
 
 ---
 
@@ -192,7 +194,7 @@ The 118 fractions are **strictly diatonic**. Explicitly excluded:
 
 ### Chromatic-bypass via substitution
 
-Some hymns (especially minor-key ones) need chromatic voicings the harp can't produce. The pipeline (`harp_mapper.py`) handles these by **substituting** a diatonic pool fraction in place of the impossible chromatic chord. Four strategies fire depending on context:
+Some hymns (especially minor-key ones) need chromatic voicings the harp can't produce. The pipeline (`harp_mapper.py`) handles these by **substituting** a diatonic pool fraction (path or reserve) in place of the impossible chromatic chord. Four strategies fire depending on context:
 
 | Strategy | When it fires |
 |---|---|
@@ -213,12 +215,12 @@ Each substitution records a `harmonic_substitution` field and preserves the orig
 2. **Analyze transitions** (`harp_mapper.py`) — for each bar, ask: does the motion `(prev_chord → this_chord)` match a documented cycle edge?
 3. **Pick a fraction:**
    - If yes: choose a **complex-cycle** entry for that edge. Direction (CW/CCW) is set by melodic contour.
-   - If no: choose a **pool** fraction whose roman numeral matches the bar's chord.
+   - If no: choose a **reserve** fraction whose roman numeral matches the bar's chord.
    - If the hymn demands chromatic: apply a substitution strategy; pick a diatonic fraction that works; record which strategy fired.
 4. **Export** (`export_hymn.py`) — produce a per-hymn comprehensive JSON with assignments + alternates.
 5. **Render** — `export_to_reharm.py` + `fill_template.py` produce a LaTeX lead sheet; `build_review_html.py` produces a browser-friendly review page.
 
-**Every rendered bar is one of three things:** a complex-cycle voicing (the hymn walked a path), a pool voicing (the hymn left the paths), or a substitution (the hymn demanded chromatic and the mapper translated it).
+**Every rendered bar is one of three things:** a path voicing (the hymn walked a trefoil cycle), a reserve voicing (the hymn left the paths for color), or a substitution (the hymn demanded chromatic and the mapper translated it to a diatonic pool fraction).
 
 ---
 
@@ -250,7 +252,9 @@ A validator script `tools/validate_chord_system.py` checks JSON figure↔roman c
 - **Fraction** — a two-hand chord voicing written as LH figure over RH figure.
 - **Figure** — a full string encoding a voicing: starting scale degree + interval sequence.
 - **Pattern** — just the interval sequence, without the starting-degree prefix. 14 patterns total.
-- **Pool** — the 76 stacked (single-chord) fractions, collectively. The off-path variety source.
+- **Pool** — the full 118-fraction vocabulary (paths + reserve), collectively.
+- **Paths** — the 42 fractions that walk the six trefoil cycles. On the paths.
+- **Reserve** — the 76 single-sonority fractions held off the paths. The variety source, tapped via substitution.
 - **Cycle** — one of three closed diatonic loops: 2nds, 3rds, 4ths.
 - **Path** — a cycle walked in one specific direction. There are 6 paths (3 × 2).
 - **Edge** — one step along a cycle (e.g. `ii ↔ I` in the 2nds cycle). 7 edges per cycle, 21 edges total across the 3 cycles.

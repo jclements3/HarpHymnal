@@ -11,7 +11,7 @@ surface is the same three functions plus helpers:
 
 All three return ``list[Pick]`` where ``Pick`` carries the ``Bishape`` grammar
 object, the LH/RH ``Roman`` chords, the pool index, the numeric score, the
-source bucket ('jazz_progressions' | 'stacked_chords'), the entry's ``meta``
+source bucket ('paths' | 'reserve'), the entry's ``meta``
 dict (mood/cw_label/ccw_label/cycle), and the substitution bookkeeping fields
 ``harmonic_substitution`` + ``requested_rn``.
 
@@ -49,7 +49,7 @@ class Pick:
     rh_chord: Roman
     ipool: str
     score: float
-    source: str                             # 'jazz_progressions' | 'stacked_chords'
+    source: str                             # 'paths' | 'reserve'
     meta: dict = field(default_factory=dict)
     harmonic_substitution: Optional[str] = None
     requested_rn: Optional[str] = None
@@ -474,7 +474,7 @@ def pick_fraction(pool: Pool, rn: str, key_root: str, melody: Optional[str] = No
 def pick_transition(pool: Pool, rn_from: str, rn_to: str, key_root: str,
                     melody_to: Optional[str] = None, mode: str = 'major',
                     contour: Optional[str] = None, top_n: int = 3) -> list[Pick]:
-    """Pick jazz-progression entries for the move ``rn_from → rn_to``.
+    """Pick path entries for the move ``rn_from → rn_to``.
 
     If the transition is not a cycle edge, falls back to ``pick_fraction(pool, rn_to, ...)``.
     Contour ('ascending'|'descending'|'static'|None) tilts CW vs CCW selection.
@@ -504,7 +504,7 @@ def pick_transition(pool: Pool, rn_from: str, rn_to: str, key_root: str,
 
     scored: list[tuple[float, PoolEntry, dict]] = []
     for e in pool.entries:
-        if e.source != 'jazz_progressions':
+        if e.source != 'paths':
             continue
         if e.meta.get('cycle') != cycle:
             continue
@@ -554,7 +554,7 @@ def pick_transition(pool: Pool, rn_from: str, rn_to: str, key_root: str,
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-#   High-level picker: substitution + cycle + stacked fallback in one call
+#   High-level picker: substitution + cycle + reserve fallback in one call
 # ═════════════════════════════════════════════════════════════════════════════
 
 def pick_with_substitution(pool: Pool, rn: str, key_root: str, *,
@@ -567,7 +567,7 @@ def pick_with_substitution(pool: Pool, rn: str, key_root: str, *,
                            ending_marker: Optional[str] = None,
                            v_duration_beats: Optional[float] = None,
                            top_n: int = 3) -> list[Pick]:
-    """Main entry point. Handles cycle edges, stacked fallback, and minor-V
+    """Main entry point. Handles cycle edges, reserve fallback, and minor-V
     substitution. Picks are annotated with ``harmonic_substitution`` /
     ``requested_rn`` for downstream renderers.
     """

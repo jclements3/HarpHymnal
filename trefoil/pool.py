@@ -1,13 +1,17 @@
 """The 118-fraction pool: load, index, look up.
 
-Wraps `data/trefoil/HarpTrefoil.json` behind a small grammar-native API.
-Every entry in the pool is a two-hand `Bishape` (LH Shape + RH Shape).
+The pool is the full 118-fraction vocabulary.  42 path fractions
+instantiate the six trefoil cycles (2nds/3rds/4ths × CW/CCW); 76 reserve
+fractions are coloristic voicings held in reserve for substitution and
+variety.  **pool = paths ∪ reserve**.
+
+Every entry is a two-hand `Bishape` (LH Shape + RH Shape).
 
 Canonical ipool scheme: three digits where the first digit is the LH
 scale-degree (1..7) and the last two digits are a rank inside that
 degree (01 = best-sounding / cleanest voicing, ascending as the entry
 becomes more ornamented or more compound).  Rank follows the TeX
-curation order (jazz_progressions entries first, then stacked_chords).
+curation order (path fractions first, then reserve).
 
     101..1NN  →  I-rooted fractions       (first digit = 1)
     201..2NN  →  ii-rooted                (first digit = 2)
@@ -43,12 +47,13 @@ DEFAULT_POOL_PATH = ROOT / 'data' / 'trefoil' / 'HarpTrefoil.json'
 class PoolEntry:
     """One of the 118 fractions, typed.
 
-    `source` is either 'jazz_progressions' (cycle-annotated) or
-    'stacked_chords' (single-sonority). The `meta` dict carries
-    source-specific fields verbatim: mood/cw_label/ccw_label/cycle.
+    `source` is either 'paths' (a trefoil-cycle voicing, cycle-annotated)
+    or 'reserve' (a coloristic voicing held for substitution). The `meta`
+    dict carries source-specific fields verbatim: mood / cw_label /
+    ccw_label / cycle.
     """
-    ipool: str                 # '001'..'118'
-    source: str                # 'jazz_progressions' | 'stacked_chords'
+    ipool: str                 # degree-prefixed, e.g. '101', '507'
+    source: str                # 'paths' | 'reserve'
     bishape: Bishape
     lh_chord: Roman
     rh_chord: Roman
@@ -106,16 +111,16 @@ class Pool:
 def load_pool(path: Path | str = DEFAULT_POOL_PATH) -> Pool:
     """Load and index `data/trefoil/HarpTrefoil.json` with degree-prefixed ipools.
 
-    Walks jazz_progressions then stacked_chords in document order, buckets
-    each entry by its LH scale-degree, and assigns ipool = `{degree}{rank:02d}`
-    where rank is 01-based position within the degree bucket.
+    Walks paths then reserve in document order, buckets each entry by
+    its LH scale-degree, and assigns ipool = `{degree}{rank:02d}` where
+    rank is 01-based position within the degree bucket.
     """
     data = json.loads(Path(path).read_text(encoding='utf-8'))
     raw_entries: list[tuple[dict, str]] = []
-    for raw in data['jazz_progressions']['entries']:
-        raw_entries.append((raw, 'jazz_progressions'))
-    for raw in data['stacked_chords']['entries']:
-        raw_entries.append((raw, 'stacked_chords'))
+    for raw in data['paths']['entries']:
+        raw_entries.append((raw, 'paths'))
+    for raw in data['reserve']['entries']:
+        raw_entries.append((raw, 'reserve'))
 
     rank_per_degree: dict[int, int] = {d: 0 for d in range(1, 8)}
     entries: list[PoolEntry] = []

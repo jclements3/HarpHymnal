@@ -8,7 +8,7 @@ A machine-consumable dataset of 294 hymns from the Open Hymnal, each exported as
 HarpHymnal/
 ├── README.md                    # this file
 ├── OpenHymnal.abc               # source ABC file (370 hymns, 27k lines)
-├── HarpChordSystem.json         # 118-chord vocabulary for the reharm mapper
+├── HarpChordSystem.json         # 118-fraction pool (paths + reserve) for the reharm mapper
 ├── HarpChordSystem.tex          # 2-page handout (LaTeX source)
 ├── HymnReharmTemplate.tex       # LaTeX template for lead sheets
 ├── tools/
@@ -129,7 +129,7 @@ Each file is self-contained. Relevant top-level keys:
       {"bar": 1, "rn": "I", "duration_beats": 2},
       …
     ],
-    "harp_chord_assignments": [            // from the 118-chord Harp Chord System
+    "harp_chord_assignments": [            // from the 118-fraction pool (paths + reserve)
       {
         "bar": 1,
         "rn": "I",                         // functional roman numeral
@@ -138,8 +138,8 @@ Each file is self-contained. Relevant top-level keys:
         "lh_roman": "I", "lh_figure": "133",      // the harp LH voicing
         "rh_roman": "iii", "rh_figure": "743",    // the harp RH voicing
         "mood": "Soft",                    // label from the handout
-        "source": "stacked_chords"|"jazz_progressions",
-        "method": "stacked"|"2nds-CW"|"3rds-CCW"|"4ths-CW"|"4ths-CCW"|…,
+        "source": "paths"|"reserve",
+        "method": "reserve"|"2nds-CW"|"3rds-CCW"|"4ths-CW"|"4ths-CCW"|…,
         "alternates": [                    // top 2 other candidates
           {...}, {...}
         ]
@@ -154,13 +154,13 @@ Each file is self-contained. Relevant top-level keys:
 
 1. `hymn_parser.py` reads the ABC source, splits into 4 voices (S1V1, S1V2, S2V1, S2V2), parses each with music21, samples beat-by-beat SATB, extracts cleaned roman numerals, and detects phrase boundaries from fermatas (preferred) or cadences (fallback: V/IV/ii → I, including modal cadences VII/bVII/III/v → i for minor hymns).
 
-2. `harp_mapper.py` takes a roman numeral plus the optional melody note and returns the top-scoring fractions from the 118-chord vocabulary. It handles minor keys by translating RNs to the relative major (the 118 are Ionian-labeled). Cycle-aware: detects whether an RN-to-RN transition is a 2nds / 3rds / 4ths cycle edge and picks jazz_progression entries accordingly, with CW/CCW direction inferred from melodic contour.
+2. `harp_mapper.py` takes a roman numeral plus the optional melody note and returns the top-scoring fractions from the 118-fraction pool (paths + reserve). It handles minor keys by translating RNs to the relative major (the pool entries are Ionian-labeled). Cycle-aware: detects whether an RN-to-RN transition is a 2nds / 3rds / 4ths cycle edge and picks path entries accordingly, with CW/CCW direction inferred from melodic contour.
 
 3. `export_hymn.py` combines both into a single JSON per hymn, preserving the original ABC source and adding structural/analytical layers on top.
 
 ## Harp Chord System constraints
 
-The 118-chord vocabulary is **strictly diatonic** — no tritone substitutions, no ♭II7, no modal interchange, no altered dominants with real ♭9 pitches. The mapper will correctly return low scores for out-of-vocabulary progressions (e.g., harmonic-minor V with chromatic leading tone). For minor-key hymns, the natural-minor `v` or `III` is used instead of the chromaticized `V`.
+The 118-fraction pool is **strictly diatonic** — no tritone substitutions, no ♭II7, no modal interchange, no altered dominants with real ♭9 pitches. The mapper will correctly return low scores for out-of-vocabulary progressions (e.g., harmonic-minor V with chromatic leading tone). For minor-key hymns, the natural-minor `v` or `III` is used instead of the chromaticized `V`.
 
 Melodic contour drives cycle direction:
 - Ascending melody → CW edges (Resolving, Lifting, Exploring, Triumphing)
@@ -191,7 +191,7 @@ Multi-line voice blocks (where `[V: X]` is on its own line and notes follow on s
 
 - **Shared refrains**: when an ABC melody line-group has only 1 `w:` line in a hymn where other groups have multiple verses, the single line is treated as a shared refrain and broadcast to every verse. This handles the common pattern where the chorus text is written once in the source.
 
-- **Harmonic-minor V substitution**: The 118-chord vocabulary is strictly diatonic, so a classical harmonic-minor V (with chromatic leading tone) cannot be represented. When a V chord appears in a minor-mode hymn, the mapper selects one of four substitution strategies based on context:
+- **Harmonic-minor V substitution**: The 118-fraction pool is strictly diatonic, so a classical harmonic-minor V (with chromatic leading tone) cannot be represented. When a V chord appears in a minor-mode hymn, the mapper selects one of four substitution strategies based on context:
   - `bVII_backdoor` — when preceded by IV (continues plagal pull)
   - `III_deceptive` — at fermata-marked final cadences (dramatic, Aeolian)
   - `pedal_i` — for brief V with tonic-compatible melody

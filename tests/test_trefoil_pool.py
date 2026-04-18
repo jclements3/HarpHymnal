@@ -104,26 +104,35 @@ def test_ipool_of_unknown_returns_none(pool: Pool):
     assert pool.ipool_of(unknown) is None
 
 
-def test_first_entries_per_degree_are_jazz(pool: Pool):
-    """The rank-01 entry in each degree bucket comes from jazz_progressions
-    (TeX ordering lists the cycle-path voicings first within each degree)."""
+def test_first_entries_per_degree_are_paths(pool: Pool):
+    """The rank-01 entry in each degree bucket comes from the trefoil paths
+    (TeX ordering lists the path voicings first within each degree)."""
     for d in '1234567':
         first = pool.get(f'{d}01')
-        assert first.source == 'jazz_progressions', \
-            f"degree {d} rank 01 should be a jazz entry, got {first.source}"
+        assert first.source == 'paths', \
+            f"degree {d} rank 01 should be a path entry, got {first.source}"
 
 
-def test_meta_carries_jazz_fields(pool: Pool):
-    jazz = pool.get('101')   # I-rooted rank-01 is a cycle entry
+def test_pool_equals_paths_plus_reserve(pool: Pool):
+    """pool = paths ∪ reserve: every entry is exactly one of the two, totalling 118."""
+    path_count    = sum(1 for e in pool.entries if e.source == 'paths')
+    reserve_count = sum(1 for e in pool.entries if e.source == 'reserve')
+    assert path_count == 42
+    assert reserve_count == 76
+    assert path_count + reserve_count == len(pool) == 118
+
+
+def test_meta_carries_cycle_fields_for_path_entries(pool: Pool):
+    jazz = pool.get('101')   # I-rooted rank-01 is a path entry
+    assert jazz.source == 'paths'
     assert 'cycle' in jazz.meta
     assert 'cw_label' in jazz.meta
     assert 'ccw_label' in jazz.meta
 
 
-def test_meta_carries_stacked_mood(pool: Pool):
-    # Find any stacked entry and check its mood field.
-    stacked = next(e for e in pool.entries if e.source == 'stacked_chords')
-    assert 'mood' in stacked.meta
+def test_meta_carries_mood_for_reserve_entries(pool: Pool):
+    reserve = next(e for e in pool.entries if e.source == 'reserve')
+    assert 'mood' in reserve.meta
 
 
 def test_figure_strings_round_trip(pool: Pool):
