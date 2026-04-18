@@ -4,227 +4,80 @@
 <meta charset="utf-8">
 <title>HarpHymnal — Diatonic Reharm Drills</title>
 <style>
-:root { --paper:#f4ecd8; --ink:#2b2722; --rhcol:#1F4E79; --lhcol:#7B2B2B;
-  --accent:#8b6f47; --muted:#9a8f73; --row:#eadfc1; --path:#3a2c1d; }
+:root { --paper:#f4ecd8; --ink:#2b2722; --accent:#8b6f47;
+  --muted:#6e6557; --row:#eadfc1; --path:#3a2c1d; }
 html,body { margin:0; background:#2b2722; color:var(--ink);
   font-family:-apple-system,"Segoe UI",Roboto,sans-serif; }
-main { max-width:1400px; margin:0 auto; padding:24px;
-  background:var(--paper); color:var(--ink); min-height:100vh; }
-h1 { font-family:Palatino,Georgia,serif; font-size:26px; margin:0 0 4px 0; }
-h1 .small { font-size:15px; color:var(--muted); font-style:italic; }
-h2 { font-family:Palatino,Georgia,serif; font-size:19px;
-  margin:24px 0 4px 0; color:var(--path); }
-.pathline { font-family:"Palatino Linotype",Palatino,serif;
-  font-size:16px; color:var(--accent); margin:0 0 10px 0; letter-spacing:0.5px; }
-.tag { display:inline-block; padding:2px 8px; font-size:11px;
-  font-weight:700; text-transform:uppercase; letter-spacing:0.5px;
-  border-radius:3px; background:var(--accent); color:#fff;
-  margin-right:6px; vertical-align:middle; }
-.tag.sub { background:#1F4E79; }
-.tag.app { background:#7B2B2B; }
-.tag.voi { background:#3d6b3d; }
-table { border-collapse:collapse; width:100%; margin:0 0 32px 0;
-  background:#fff8ec; font-family:"Palatino Linotype",Palatino,serif; }
-th, td { border:1px solid #cfc3a8; padding:7px 8px; text-align:left;
-  vertical-align:top; font-size:13.5px; }
-th { background:#e8d8b4; color:var(--path); font-weight:700;
-  font-size:12.5px; letter-spacing:0.3px; }
-th.tech { width:180px; }
-th.trans { font-family:"Palatino Linotype",Palatino,serif;
-  font-weight:700; text-align:center; }
-td.tech { background:var(--row); font-weight:600; }
-td.cell { font-size:14px; }
-td.dash { color:#aaa; text-align:center; font-style:italic; font-size:12px; }
-.rn { font-weight:700; }
-.arr { color:var(--accent); margin:0 2px; }
-.note { color:var(--muted); font-size:11.5px; font-style:italic;
-  display:block; margin-top:2px; }
-.legend { font-size:12px; color:var(--muted); margin:10px 0 28px 0;
-  border-left:3px solid var(--accent); padding:4px 10px; }
-.hdr { color:var(--rhcol); } .hdr2 { color:var(--lhcol); }
+main { max-width:1100px; margin:0 auto; padding:28px 24px;
+  background:var(--paper); min-height:100vh; }
+h1 { font-family:Palatino,Georgia,serif; margin:0 0 4px 0; font-size:26px; }
+h1 .small { font-size:14px; color:var(--muted); font-style:italic; }
+h2 { font-family:Palatino,Georgia,serif; margin:28px 0 4px 0;
+  font-size:20px; color:var(--path);
+  border-bottom:2px solid var(--accent); padding-bottom:4px; }
+.subtitle { color:var(--muted); font-style:italic; font-size:14px;
+  margin:2px 0 12px 0; }
+table { border-collapse:collapse; width:100%; margin:0 0 20px 0;
+  background:#fff8ec; }
+th, td { border:1px solid #cfc3a8; padding:8px 12px; vertical-align:top;
+  text-align:left; }
+th { background:#e8d8b4; color:var(--path); font-size:13px;
+  font-weight:700; letter-spacing:0.3px; text-transform:uppercase; }
+th.step { width:42px; text-align:center; }
+th.cmt  { width:44%; }
+td.step { text-align:center; font-weight:700; color:var(--accent);
+  font-family:Palatino,Georgia,serif; font-size:15px; background:var(--row); }
+td.abc  { font-family:"SF Mono",Menlo,Consolas,monospace; font-size:14px;
+  white-space:nowrap; overflow-x:auto; }
+td.cmt  { font-family:Palatino,Georgia,serif; font-size:14px;
+  color:var(--path); font-style:italic; }
 </style>
 </head>
 <body>
 <main>
 
-<h1>Diatonic Reharm Drills <span class="small">— everything in C major, diatonic only</span></h1>
+<h1>Diatonic Reharm Drills <span class="small">— key of C, diatonic only</span></h1>
 
-<p class="legend">
-Rows are reharm techniques (Substitution / Approach / Voicing).  Columns are chord-to-chord
-transitions along one trefoil path.  Cells show the concrete chord figure(s) to play as
-the reharm of that transition using that technique.  Empty cells (—) mean the technique
-doesn't apply naturally to that transition while staying inside the 7-note scale.
-</p>
-
-<h2><span class="tag">Path</span> 4ths Clockwise — the Dominant Cycle</h2>
-<p class="pathline">
-<span class="rn">I</span> <span class="arr">→</span>
-<span class="rn">IV</span> <span class="arr">→</span>
-<span class="rn">vii°</span> <span class="arr">→</span>
-<span class="rn">iii</span> <span class="arr">→</span>
-<span class="rn">vi</span> <span class="arr">→</span>
-<span class="rn">ii</span> <span class="arr">→</span>
-<span class="rn">V</span> <span class="arr">→</span>
-<span class="rn">I</span>
-</p>
+<h2>Third sub</h2>
+<p class="subtitle">Swap any chord with its diatonic 3rd-neighbor (I↔iii↔vi, ii↔IV↔vi, iii↔V↔vii°, etc.).</p>
 
 <table>
 <thead>
-<tr>
-  <th class="tech">Technique</th>
-  <th class="trans">I <span class="arr">→</span> IV</th>
-  <th class="trans">IV <span class="arr">→</span> vii°</th>
-  <th class="trans">vii° <span class="arr">→</span> iii</th>
-  <th class="trans">iii <span class="arr">→</span> vi</th>
-  <th class="trans">vi <span class="arr">→</span> ii</th>
-  <th class="trans">ii <span class="arr">→</span> V</th>
-  <th class="trans">V <span class="arr">→</span> I</th>
-</tr>
+<tr><th class="step">#</th><th>ABC</th><th class="cmt">Comment</th></tr>
 </thead>
 <tbody>
-
-<!-- SUBSTITUTION -->
-<tr><td class="tech"><span class="tag sub">Sub</span> Third sub<br><span class="note">swap for diatonic ±3rd</span></td>
-  <td class="cell">iii <span class="arr">→</span> IV <span class="note">or vi → IV</span></td>
-  <td class="cell">ii <span class="arr">→</span> vii° <span class="note">or vi → vii°</span></td>
-  <td class="cell">V <span class="arr">→</span> iii <span class="note">(V-substitute for vii°)</span></td>
-  <td class="cell">I <span class="arr">→</span> vi <span class="note">or V → vi</span></td>
-  <td class="cell">IV <span class="arr">→</span> ii</td>
-  <td class="cell">IV <span class="arr">→</span> V <span class="note">or vii° → V</span></td>
-  <td class="cell">vii° <span class="arr">→</span> I <span class="note">or iii → I</span></td>
+<tr>
+  <td class="step">1</td>
+  <td class="abc">[CEG] [EGB] [Ace]</td>
+  <td class="cmt">tonic family (I, iii, vi) — 3rd apart, 2 shared tones each pair</td>
 </tr>
-
-<tr><td class="tech"><span class="tag sub">Sub</span> Quality sub<br><span class="note">upgrade density / shape</span></td>
-  <td class="cell">IΔ7 <span class="arr">→</span> IVΔ7</td>
-  <td class="cell">IVΔ7 <span class="arr">→</span> viiø7</td>
-  <td class="cell">viiø7 <span class="arr">→</span> iiim7</td>
-  <td class="cell">iiim7 <span class="arr">→</span> vim7</td>
-  <td class="cell">vim7 <span class="arr">→</span> iim7</td>
-  <td class="cell">iim7 <span class="arr">→</span> V7</td>
-  <td class="cell">V7sus4 <span class="arr">→</span> V7 <span class="arr">→</span> IΔ7</td>
+<tr>
+  <td class="step">2</td>
+  <td class="abc">[CEG][EGB] | [CEG][Ace] | [EGB][Ace]</td>
+  <td class="cmt">swap-drill each tonic-family pair; ear the common tones</td>
 </tr>
-
-<tr><td class="tech"><span class="tag sub">Sub</span> Modal reframing<br><span class="note">treat target as tonic</span></td>
-  <td class="cell">center on IV <span class="note">(Lydian over F)</span></td>
-  <td class="cell">center on vii° <span class="note">(Locrian over B)</span></td>
-  <td class="cell">center on iii <span class="note">(Phrygian over E)</span></td>
-  <td class="cell">center on vi <span class="note">(Aeolian over A)</span></td>
-  <td class="cell">center on ii <span class="note">(Dorian over D)</span></td>
-  <td class="cell">center on V <span class="note">(Mixolydian over G)</span></td>
-  <td class="cell">center on I <span class="note">(Ionian — return home)</span></td>
+<tr>
+  <td class="step">3</td>
+  <td class="abc">[DFA][FAc] | [FAc][DFA]</td>
+  <td class="cmt">subdominant pair (ii / IV) — also a 3rd apart</td>
 </tr>
-
-<tr><td class="tech"><span class="tag sub">Sub</span> Deceptive sub<br><span class="note">V-function → unexpected resolution</span></td>
-  <td class="dash">—</td>
-  <td class="dash">—</td>
-  <td class="cell">vii° <span class="arr">→</span> I <span class="note">(vii° resolves up to I, not down to iii)</span></td>
-  <td class="dash">—</td>
-  <td class="dash">—</td>
-  <td class="dash">—</td>
-  <td class="cell">V <span class="arr">→</span> vi <span class="note">(classic deceptive cadence)</span></td>
+<tr>
+  <td class="step">4</td>
+  <td class="abc">[GBd][Bdf] | [Bdf][GBd]</td>
+  <td class="cmt">dominant pair (V / vii°) — also a 3rd apart</td>
 </tr>
-
-<!-- APPROACH -->
-<tr><td class="tech"><span class="tag app">App</span> Step approach<br><span class="note">±2nd into target</span></td>
-  <td class="cell">iii <span class="arr">→</span> IV <span class="note">(stepwise up)</span></td>
-  <td class="cell">vi <span class="arr">→</span> vii° <span class="note">(stepwise up)</span></td>
-  <td class="cell">ii <span class="arr">→</span> iii <span class="note">(stepwise up)</span></td>
-  <td class="cell">V <span class="arr">→</span> vi <span class="note">(stepwise up)</span></td>
-  <td class="cell">iii <span class="arr">→</span> ii <span class="note">(stepwise down)</span></td>
-  <td class="cell">IV <span class="arr">→</span> V <span class="note">(stepwise up)</span></td>
-  <td class="cell">vii° <span class="arr">→</span> I <span class="note">(leading-tone)</span></td>
+<tr>
+  <td class="step">5</td>
+  <td class="abc">[CEG][FAc][GBd][CEG] | [EGB][FAc][GBd][CEG] | [Ace][FAc][GBd][CEG]</td>
+  <td class="cmt">cadence I–IV–V–I, then sub I→iii, then I→vi</td>
 </tr>
-
-<tr><td class="tech"><span class="tag app">App</span> Third approach<br><span class="note">±3rd into target</span></td>
-  <td class="cell">ii <span class="arr">→</span> IV <span class="note">or vi → IV</span></td>
-  <td class="cell">V <span class="arr">→</span> vii° <span class="note">or ii → vii°</span></td>
-  <td class="cell">I <span class="arr">→</span> iii <span class="note">or V → iii</span></td>
-  <td class="cell">IV <span class="arr">→</span> vi <span class="note">or I → vi</span></td>
-  <td class="cell">IV <span class="arr">→</span> ii <span class="note">or vii° → ii</span></td>
-  <td class="cell">iii <span class="arr">→</span> V <span class="note">or vii° → V</span></td>
-  <td class="cell">iii <span class="arr">→</span> I <span class="note">or vi → I</span></td>
+<tr>
+  <td class="step">6</td>
+  <td class="abc">[CEG][FAc][Bdf][EGB][Ace][DFA][GBd][CEG] | [EGB][DFA][GBd][Ace][CEG][FAc][Bdf][EGB]</td>
+  <td class="cmt">4ths-CW path, then every chord subbed with a diatonic 3rd neighbor</td>
 </tr>
-
-<tr><td class="tech"><span class="tag app">App</span> Dominant approach<br><span class="note">V-of-target (diatonic only — V→I is the only true case)</span></td>
-  <td class="cell">I <span class="arr">→</span> IV <span class="note">(I is the diatonic V of IV, plagal context)</span></td>
-  <td class="cell">IV <span class="arr">→</span> vii° <span class="note">(IV → vii° is already the cycle move)</span></td>
-  <td class="cell">vii° <span class="arr">→</span> iii</td>
-  <td class="cell">iii <span class="arr">→</span> vi</td>
-  <td class="cell">vi <span class="arr">→</span> ii</td>
-  <td class="cell">ii <span class="arr">→</span> V</td>
-  <td class="cell">V7 <span class="arr">→</span> I <span class="note">full ii⁷-V⁷-IΔ⁷ back-cycle</span></td>
-</tr>
-
-<tr><td class="tech"><span class="tag app">App</span> Suspension approach<br><span class="note">sus resolves to target; diatonic-sus only</span></td>
-  <td class="cell">IVsus2 <span class="arr">→</span> IV <span class="note">(F-G-C → F-A-C)</span></td>
-  <td class="dash">— <span class="note">vii° has no stable sus</span></td>
-  <td class="cell">iiisus4 <span class="arr">→</span> iii <span class="note">(E-A-B → E-G-B)</span></td>
-  <td class="cell">visus4 <span class="arr">→</span> vi <span class="note">(A-D-E → A-C-E)</span></td>
-  <td class="cell">iisus4 <span class="arr">→</span> ii <span class="note">(D-G-A → D-F-A)</span></td>
-  <td class="cell">Vsus4 <span class="arr">→</span> V <span class="note">(G-C-D → G-B-D)</span></td>
-  <td class="cell">Isus4 <span class="arr">→</span> I <span class="note">(C-F-G → C-E-G)</span></td>
-</tr>
-
-<tr><td class="tech"><span class="tag app">App</span> Double approach<br><span class="note">bracket target from above + below</span></td>
-  <td class="cell">iii <span class="arr">→</span> V <span class="arr">→</span> IV <span class="note">(below / above / target)</span></td>
-  <td class="cell">vi <span class="arr">→</span> I <span class="note">→</span> vii° <span class="note">(-3 / +1 / tgt)</span></td>
-  <td class="cell">ii <span class="arr">→</span> IV <span class="arr">→</span> iii</td>
-  <td class="cell">V <span class="arr">→</span> vii° <span class="arr">→</span> vi</td>
-  <td class="cell">I <span class="arr">→</span> iii <span class="arr">→</span> ii</td>
-  <td class="cell">IV <span class="arr">→</span> vi <span class="arr">→</span> V</td>
-  <td class="cell">vii° <span class="arr">→</span> ii <span class="arr">→</span> I</td>
-</tr>
-
-<!-- VOICING -->
-<tr><td class="tech"><span class="tag voi">Voi</span> Inversion<br><span class="note">stepwise bass line</span></td>
-  <td class="cell">I⁰ <span class="arr">→</span> IV⁰ <span class="note">bass C → F (leap)</span></td>
-  <td class="cell">IV⁰ <span class="arr">→</span> vii°⁰ <span class="note">bass F → B (tritone)</span></td>
-  <td class="cell">vii°⁰ <span class="arr">→</span> iii¹ <span class="note">bass B → G (smooth)</span></td>
-  <td class="cell">iii¹ <span class="arr">→</span> vi⁰ <span class="note">bass G → A</span></td>
-  <td class="cell">vi⁰ <span class="arr">→</span> ii¹ <span class="note">bass A → F</span></td>
-  <td class="cell">ii¹ <span class="arr">→</span> V⁰ <span class="note">bass F → G</span></td>
-  <td class="cell">V⁰ <span class="arr">→</span> I⁰ <span class="note">bass G → C (authentic)</span></td>
-</tr>
-
-<tr><td class="tech"><span class="tag voi">Voi</span> Density<br><span class="note">triad / 7th / 9th options</span></td>
-  <td class="cell">I / IΔ7 / IΔ9 <span class="arr">→</span> IV / IVΔ7 / IVΔ9</td>
-  <td class="cell">IV <span class="arr">→</span> vii° / viiø7</td>
-  <td class="cell">vii° / viiø7 <span class="arr">→</span> iii / iiim7 / iiim9</td>
-  <td class="cell">iii <span class="arr">→</span> vi / vim7 / vim9</td>
-  <td class="cell">vi <span class="arr">→</span> ii / iim7 / iim9</td>
-  <td class="cell">ii / iim7 <span class="arr">→</span> V / V7 / V9</td>
-  <td class="cell">V / V7 <span class="arr">→</span> I / IΔ7 / IΔ9 / I⁶</td>
-</tr>
-
-<tr><td class="tech"><span class="tag voi">Voi</span> Stacking<br><span class="note">upper-structure triad / bichord</span></td>
-  <td class="cell">iii/I <span class="arr">→</span> vi/IV <span class="note">(3rd above root)</span></td>
-  <td class="cell">vi/IV <span class="arr">→</span> ii/vii°</td>
-  <td class="cell">ii/vii° <span class="arr">→</span> V/iii</td>
-  <td class="cell">V/iii <span class="arr">→</span> I/vi</td>
-  <td class="cell">I/vi <span class="arr">→</span> IV/ii</td>
-  <td class="cell">IV/ii <span class="arr">→</span> vii°/V</td>
-  <td class="cell">vii°/V <span class="arr">→</span> iii/I</td>
-</tr>
-
-<tr><td class="tech"><span class="tag voi">Voi</span> Pedal<br><span class="note">hold a bass note; label chord/pedal</span></td>
-  <td class="cell">I/I <span class="arr">→</span> IV/I <span class="note">(tonic pedal C)</span></td>
-  <td class="cell">IV/V <span class="arr">→</span> vii°/V <span class="note">(dominant pedal G)</span></td>
-  <td class="cell">vii°/I <span class="arr">→</span> iii/I <span class="note">(tonic pedal C)</span></td>
-  <td class="cell">iii/I <span class="arr">→</span> vi/I <span class="note">(tonic pedal C)</span></td>
-  <td class="cell">vi/V <span class="arr">→</span> ii/V <span class="note">(dominant pedal G)</span></td>
-  <td class="cell">ii/V <span class="arr">→</span> V/V <span class="note">(dominant pedal G)</span></td>
-  <td class="cell">V/I <span class="arr">→</span> I/I <span class="note">(tonic pedal C)</span></td>
-</tr>
-
 </tbody>
 </table>
-
-<p class="legend">
-<strong>Notation.</strong>  Upper-case = major, lower-case = minor, ° = diminished, ø = half-dim,
-Δ = major-7, superscript digits = inversion (⁰ root, ¹ 1st inv, ²  2nd).
-<span class="hdr">RH / LH</span> chord fractions written as <em>top/bottom</em> (stacking row).
-Pedal row shows <em>chord/pedal</em> — the right of the slash is the sustained bass note.
-</p>
 
 </main>
 </body>
