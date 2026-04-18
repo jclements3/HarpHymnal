@@ -22,3 +22,6 @@ venv/
 
 # Scratch archives (reference only, not source)
 samples/files (1).zip
+
+# Claude Code agent worktrees (scratch, managed by the CLI)
+.claude/
