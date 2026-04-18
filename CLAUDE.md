@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## STOP — read these first
+
+1. **`PLAN.md`** — living plan for the piano-score effort (current phase, style palette, playability rules, next actions).
+2. **`ISSUES.md`** — known bugs, bad-sounding moments, HarpChordSystem vocabulary gaps. Log new findings here rather than silently working around them.
+3. **`HARP_CHORD_SYSTEM.md`** — authoritative pedagogy of the 118-chord vocabulary. The user has re-taught this content across multiple sessions; it should not have to be re-taught.
+
+**File precedence when docs disagree:**
+`HarpChordSystem.pdf` > `HarpChordSystem.tex` > `HARP_CHORD_SYSTEM.md` > `HarpChordSystem.json`
+
+The JSON was rebuilt from the TeX via `tools/rebuild_chord_system_json.py` — re-run that script whenever the TeX changes to re-derive a clean JSON (validator included in the script flags any drift).
+
 ## Project purpose
 
 HarpHymnal is a **data-pipeline project**, not an application. It turns one large ABC source file (`OpenHymnal.abc`, 370 hymns) into 294 self-contained JSON records (`hymnal_export/*.json`) that carry enough structural information to rebuild grand-staff / SSAATTBB / organ-pedal / lead-sheet renderings downstream. There is no server, test suite, or build system — just a small set of Python scripts run from the command line.

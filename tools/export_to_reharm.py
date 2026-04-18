@@ -112,7 +112,7 @@ def _latex_escape_proper(s):
     return s  # Never called directly; use latex_escape_v2 below
 
 
-def latex_escape_v2(s):
+def _latex_escape_impl(s):
     """LaTeX-safe escape in the correct order.
 
     Order:
@@ -122,11 +122,6 @@ def latex_escape_v2(s):
     This order matters: if we did unicode first, we'd introduce \ { } chars
     that would then be escaped into gibberish.
     """
-    if not s:
-        return ''
-
-    # Step 1: escape raw LaTeX specials
-    # Order within this step: backslash first, then the rest
     s = s.replace('\\', r'\textbackslash{}')
     for ch, repl in [
         ('&', r'\&'), ('%', r'\%'), ('$', r'\$'), ('#', r'\#'),
@@ -134,8 +129,6 @@ def latex_escape_v2(s):
         ('~', r'\textasciitilde{}'), ('^', r'\textasciicircum{}'),
     ]:
         s = s.replace(ch, repl)
-
-    # Step 2: unicode map
     out = []
     for ch in s:
         if ch in UNICODE_MAP:
@@ -143,6 +136,38 @@ def latex_escape_v2(s):
         else:
             out.append(ch)
     return ''.join(out)
+
+
+def _html_escape_impl(s):
+    """HTML-safe escape. Leaves unicode as-is (UTF-8 native)."""
+    return (s.replace('&', '&amp;')
+             .replace('<', '&lt;')
+             .replace('>', '&gt;')
+             .replace('"', '&quot;')
+             .replace("'", '&#39;'))
+
+
+ESCAPE_MODE = 'latex'   # 'latex' | 'html' | 'none'
+
+
+def latex_escape_v2(s):
+    """Dispatch escape based on module-level ESCAPE_MODE. Name preserved for callers."""
+    if not s:
+        return ''
+    if ESCAPE_MODE == 'html':
+        return _html_escape_impl(s)
+    if ESCAPE_MODE == 'none':
+        return s
+    return _latex_escape_impl(s)
+
+
+def _format_key_display(key_detected):
+    """Format a key name with mode-appropriate accidentals."""
+    if not key_detected:
+        return key_detected
+    if ESCAPE_MODE in ('html', 'none'):
+        return key_detected.replace('-', '\u266D').replace('#', '\u266F')
+    return key_detected.replace('-', r'$\flat$').replace('#', r'$\sharp$')
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -499,9 +524,7 @@ def export_to_reharm(exp):
 
     # ─── Header fields
     key_detected = music.get('key_detected', '')
-    # Format: "B- major" from export. Convert to "B♭ major" for display?
-    # The template uses plain text here; accidentals done with $\flat$.
-    key_display = key_detected.replace('-', r'$\flat$').replace('#', r'$\sharp$')
+    key_display = _format_key_display(key_detected)
 
     meter_str = music.get('meter', '4/4')
     bpm = music.get('bpm', 100)
@@ -631,12 +654,16 @@ def export_to_reharm(exp):
 #   CLI
 # ═════════════════════════════════════════════════════════════════════════════
 def main():
+    global ESCAPE_MODE
     ap = argparse.ArgumentParser(description='Convert export JSON to reharm JSON')
     ap.add_argument('input', nargs='?', help='Export JSON file (or dir if --all)')
     ap.add_argument('-o', '--output', help='Output file (default: stdout for single)')
     ap.add_argument('--all', action='store_true', help='Batch-convert directory')
     ap.add_argument('--out-dir', help='Output directory for --all mode')
+    ap.add_argument('--escape', choices=('latex', 'html', 'none'), default='latex',
+                    help='String-escape mode for user-visible fields (default: latex)')
     args = ap.parse_args()
+    ESCAPE_MODE = args.escape
 
     if args.all:
         if not args.input or not args.out_dir:

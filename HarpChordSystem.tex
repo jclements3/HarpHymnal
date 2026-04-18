@@ -1,25 +1,24 @@
 \documentclass[letterpaper,12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[letterpaper, landscape, margin=0.25in]{geometry}
+\usepackage{booktabs}
 \usepackage{array}
 \usepackage[table]{xcolor}
+\usepackage{longtable}
 \usepackage{microtype}
+\usepackage{multirow}
+\usepackage{multicol}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{helvet}
-\usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usetikzlibrary{arrows.meta,bending}
 \renewcommand{\familydefault}{\sfdefault}
 
-\tikzset{
-chord/.style={
-circle, draw=none, fill=#1, text=white,
-font=\bfseries\fontsize{22}{24}\selectfont\rmfamily, inner sep=2pt, minimum size=1.8cm},
-lbl/.style={font=\fontsize{12}{13.5}\selectfont\itshape,
-text width=3.0cm, align=center},
-}
-
 \definecolor{headerbg}{HTML}{2C3E50}
+\definecolor{altrow}{HTML}{F0F4F8}
 \definecolor{rhcol}{HTML}{1F4E79}
 \definecolor{lhcol}{HTML}{7B2B2B}
 \definecolor{desccol}{HTML}{2A3342}
@@ -28,6 +27,7 @@ text width=3.0cm, align=center},
 \definecolor{leafred}{RGB}{220,75,75}
 \definecolor{leafyellow}{RGB}{190,155,30}
 \definecolor{leafcyan}{RGB}{40,180,190}
+\definecolor{ctrcolor}{RGB}{220,140,40}
 % Rainbow mode colors for HarpChords columns
 \definecolor{mode1}{HTML}{E8D5D5}  % Ionian — warm rose
 \definecolor{mode2}{HTML}{E8DDD0}  % Dorian — peach
@@ -43,6 +43,17 @@ text width=3.0cm, align=center},
 \definecolor{hdr5}{HTML}{4080A0}   % Mixolydian header
 \definecolor{hdr6}{HTML}{5050A0}   % Aeolian header
 \definecolor{hdr7}{HTML}{8050A0}   % Locrian header
+
+\tikzset{
+  chord/.style={
+    circle, draw=white, line width=4pt, fill=#1, text=white,
+    font=\bfseries\fontsize{24}{26}\selectfont, inner sep=3pt, minimum size=2.2cm},
+  lbl/.style={font=\fontsize{8}{9}\selectfont\itshape,
+              text width=2.0cm, align=center},
+}
+
+% Save the trefoil into a box so we can reuse it inside an overlay node
+\newsavebox{\trefoilbox}
 
 % ── chord notation macros ─────────────────────────────────────────────────────
 \newcommand{\osf}[1]{{\fontfamily{pplj}\selectfont #1}}
@@ -66,6 +77,9 @@ text width=3.0cm, align=center},
 \def\tmpR{ø7i}\def\tmpS{ø7ii}%
 \def\tmpT{7i}\def\tmpU{7ii}\def\tmpV{7iii}%
 \def\tmpW{°i}\def\tmpX{°ii}%
+% Extensions for inversions on maj7, halfdim-7 third inv, and combined ii+8
+\def\tmpAA{Δi}\def\tmpAB{Δii}\def\tmpAC{Δiii}%
+\def\tmpAD{ø7iii}\def\tmpAE{ii+8}%
 \ifx\tmp\tmpA $m$\osf{7}\else
 \ifx\tmp\tmpB $m$\osf{6}\else
 \ifx\tmp\tmpC $m$\else
@@ -90,39 +104,92 @@ text width=3.0cm, align=center},
 \ifx\tmp\tmpV \osf{7}\inv{3}\else
 \ifx\tmp\tmpW $^\circ$\inv{1}\else
 \ifx\tmp\tmpX $^\circ$\inv{2}\else
+\ifx\tmp\tmpAA $\Delta$\inv{1}\else
+\ifx\tmp\tmpAB $\Delta$\inv{2}\else
+\ifx\tmp\tmpAC $\Delta$\inv{3}\else
+\ifx\tmp\tmpAD \halfdim\osf{7}\inv{3}\else
+\ifx\tmp\tmpAE \inv{2}\rp\osf{8}\else
 #1%
-\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
 }
 
+% Stacked-chord entry macro (page 2)
 \newcounter{rowct}
+\newcounter{rowidx}
+\def\cycnum{0}
+\newcommand{\setcyc}[1]{\gdef\cycnum{#1}\setcounter{rowidx}{0}}
+\setlength{\fboxsep}{1.5mm}
+\newcommand{\se}[7]{%
+  \stepcounter{rowct}%
+  \ifodd\value{rowct}\def\rowbg{white}\else\def\rowbg{bandcol}\fi%
+  \noindent\colorbox{\rowbg}{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}%
+      \noindent
+      \makebox[10mm][r]{%
+        \renewcommand{\arraystretch}{0.8}%
+        \begin{tabular}{@{}r@{}}%
+          {\color{rhcol}\rn{#1}{#2}}\\[-1.5pt]%
+          {\color{lhcol}\rn{#3}{#4}}%
+        \end{tabular}%
+      }\hspace{3mm}%
+      \begin{minipage}[c]{\dimexpr\linewidth-14mm\relax}%
+        {\fontsize{12}{13}\selectfont\color{desccol}#5}\\[-1pt]%
+        {\fontsize{12}{13}\selectfont\color{flavcol}\osf{#6}\ \ \osf{#7}}%
+      \end{minipage}%
+    \end{minipage}%
+  }%
+  \par
+}
 
-% Transition row — chord pair | forward | reverse, banded
+% Transition row (page 3) — chord pair | forward | reverse, banded
 % \tx{ch1-rom}{ch1-qual}{ch2-rom}{ch2-qual}{forward-label}{reverse-label}
 \newcommand{\tx}[6]{%
-\stepcounter{rowct}%
-\ifodd\value{rowct}\else\rowcolor{bandcol}\fi%
-{\fontsize{15}{17}\selectfont{\color{rhcol}\rn{#1}{#2}},$\leftrightarrow$,{\color{lhcol}\rn{#3}{#4}}} &
-{\fontsize{11}{13}\selectfont\color{desccol}#5} &
-{\fontsize{11}{13}\selectfont\itshape\color{flavcol}#6} \
+  \stepcounter{rowct}%
+  \ifodd\value{rowct}\else\rowcolor{bandcol}\fi%
+  {\fontsize{15}{17}\selectfont{\color{rhcol}\rn{#1}{#2}}\,$\leftrightarrow$\,{\color{lhcol}\rn{#3}{#4}}} &
+  {\fontsize{11}{13}\selectfont\color{desccol}#5} &
+  {\fontsize{11}{13}\selectfont\itshape\color{flavcol}#6} \\
+}
+% Per-column footer block (page 4) — sits below each cycle's entries
+\newcommand{\colfoot}[2]{%
+  \vspace{1mm}%
+  \noindent\colorbox{bandcol}{%
+    \begin{minipage}{\dimexpr\linewidth-2\fboxsep\relax}%
+      \setlength{\parskip}{0pt}%
+      \setlength{\parindent}{0pt}%
+      {\fontsize{12}{15}\selectfont\raggedright\color{desccol}%
+        \textbf{#1}\ #2\par%
+      }%
+    \end{minipage}%
+  }\par%
 }
 
-% Cycle header row: banded color, centered, all-caps
+% Cycle header row: banded color, centered, all-caps, matches page-3 style
 \newcommand{\cyc}[2]{%
-\stepcounter{rowct}%
-\cellcolor{#1}{\color{white}\bfseries\scshape #2 cycle} &
-\cellcolor{#1}{\color{white}\fontsize{8}{9}\selectfont\bfseries CW} &
-\cellcolor{#1}{\color{white}\fontsize{8}{9}\selectfont\itshape CCW} \
+  \stepcounter{rowct}%
+  \cellcolor{#1}{\color{white}\bfseries\scshape #2 cycle} &
+  \cellcolor{#1}{\color{white}\fontsize{8}{9}\selectfont\bfseries CW} &
+  \cellcolor{#1}{\color{white}\fontsize{8}{9}\selectfont\itshape CCW} \\
 }
 
-% Row fragment for the Jazz Progressions table (5 cells: LH, RH, Figure, CW, CCW).
-% Args: {RH-rom}{RH-qual}{LH-rom}{LH-qual}{CW}{CCW}{LHfig}{RHfig}
-\newcommand{\sexc}[8]{%
-{\color{lhcol}\rn{#3}{#4}} & {\color{rhcol}\rn{#1}{#2}} & {\color{flavcol}\osf{#7}\hspace{2mm}\osf{#8}} & {\color{desccol}#5} & {\itshape\color{flavcol}#6}}
+% Page-4 stacked-chord row — fraction + forward/reverse descriptions + LH/RH figures
+% \sex{RH-rom}{RH-qual}{LH-rom}{LH-qual}{forward}{reverse}{LHfig}{RHfig}
+% 6-cell row fragments for the 21-column multi-cycle layout.
+% Each cycle has its own row counter so the Id shows CN (e.g. 21, 31, 41) correctly.
+\newcounter{prow}
+% 5-cell row fragments (LH, RH, Figure, CW, CCW — Id removed)
+\newcommand{\sexcA}[8]{%
+  {\color{lhcol}\rn{#3}{#4}} & {\color{rhcol}\rn{#1}{#2}} & {\color{flavcol}\osf{#7}\hspace{2mm}\osf{#8}} & {\color{desccol}#5} & {\itshape\color{flavcol}#6}}
+\newcommand{\sexcB}[8]{%
+  {\color{lhcol}\rn{#3}{#4}} & {\color{rhcol}\rn{#1}{#2}} & {\color{flavcol}\osf{#7}\hspace{2mm}\osf{#8}} & {\color{desccol}#5} & {\itshape\color{flavcol}#6}}
+\newcommand{\sexcC}[8]{%
+  {\color{lhcol}\rn{#3}{#4}} & {\color{rhcol}\rn{#1}{#2}} & {\color{flavcol}\osf{#7}\hspace{2mm}\osf{#8}} & {\color{desccol}#5} & {\itshape\color{flavcol}#6}}
+\newcommand{\rowN}{\stepcounter{prow}{\fontsize{8}{9}\selectfont\color{flavcol}\theprow}}
 
-% Stacked-chord row fragment for the Stacked Chords table (4 cells: LH, RH, Figure, Name).
+% Page 2 stacked-chord tabular row fragment: outputs 4 cells (LH, RH, Figure, Name).
 % Args: {LH-rom}{LH-qual}{RH-rom}{RH-qual}{LH-fig}{RH-fig}{Name}
 \newcommand{\spt}[7]{%
-{\color{lhcol}\rn{#1}{#2}} & {\color{rhcol}\rn{#3}{#4}} & {\color{flavcol}\osf{#5}\hspace{1.5mm}\osf{#6}} & {\color{desccol}#7}%
+  {\color{lhcol}\rn{#1}{#2}} & {\color{rhcol}\rn{#3}{#4}} & {\color{flavcol}\osf{#5}\hspace{1.5mm}\osf{#6}} & {\color{desccol}#7}%
 }
 
 \pagestyle{empty}
@@ -137,6 +204,11 @@ text width=3.0cm, align=center},
 \fontsize{12}{14}\selectfont
 \setcounter{rowct}{0}
 
+% Mini colored-bar header macro for the practice framework
+\newcommand{\practice}[2]{%
+  \noindent\colorbox{#1}{\color{white}\textbf{\strut\ #2\ }}\par\vspace{0.3mm}%
+}
+
 % HarpChords table on the LEFT + cycles on the RIGHT
 \noindent\begin{minipage}[t]{0.70\linewidth}
 \setlength{\tabcolsep}{2pt}
@@ -144,183 +216,182 @@ text width=3.0cm, align=center},
 \fontsize{16}{19}\selectfont
 \arrayrulecolor{white}\setlength{\arrayrulewidth}{1pt}
 \begin{tabular}{@{}>{\bfseries}l
-
-> {\columncolor{mode1}}w{c}{23mm}
-> {\columncolor{mode2}}w{c}{23mm}
-> {\columncolor{mode3}}w{c}{23mm}
-> {\columncolor{mode4}}w{c}{23mm}
-> {\columncolor{mode5}}w{c}{23mm}
-> {\columncolor{mode6}}w{c}{23mm}
-> {\columncolor{mode7}}w{c}{23mm}}
-> &
-> \cellcolor{hdr1}{\color{white}\fontsize{12}{13}\selectfont Ionian} &
-> \cellcolor{hdr2}{\color{white}\fontsize{12}{13}\selectfont Dorian} &
-> \cellcolor{hdr3}{\color{white}\fontsize{12}{13}\selectfont Phrygian} &
-> \cellcolor{hdr4}{\color{white}\fontsize{12}{13}\selectfont Lydian} &
-> \cellcolor{hdr5}{\color{white}\fontsize{12}{13}\selectfont Mixolydian} &
-> \cellcolor{hdr6}{\color{white}\fontsize{12}{13}\selectfont Aeolian} &
-> \cellcolor{hdr7}{\color{white}\fontsize{12}{13}\selectfont Locrian} \
-> {\fontsize{14}{16}\selectfont$\looparrowright$\raisebox{0.3ex}{\footnotesize+}} &
-> \cellcolor{hdr1}{\color{white}\fontsize{20}{22}\selectfont\bfseries 1} &
-> \cellcolor{hdr2}{\color{white}\fontsize{20}{22}\selectfont\bfseries 2} &
-> \cellcolor{hdr3}{\color{white}\fontsize{20}{22}\selectfont\bfseries 3} &
-> \cellcolor{hdr4}{\color{white}\fontsize{20}{22}\selectfont\bfseries 4} &
-> \cellcolor{hdr5}{\color{white}\fontsize{20}{22}\selectfont\bfseries 5} &
-> \cellcolor{hdr6}{\color{white}\fontsize{20}{22}\selectfont\bfseries 6} &
-> \cellcolor{hdr7}{\color{white}\fontsize{20}{22}\selectfont\bfseries 7} \
-> \textbf{24} & \rn{I}{s2} & \rn{ii}{s2} & \nd & \rn{IV}{s2} & \rn{V}{s2} & \rn{vi}{s2} & \nd \
-> \hline
-> \textbf{33} & \rn{I}{} & \rn{ii}{} & \rn{iii}{} & \rn{IV}{} & \rn{V}{} & \rn{vi}{} & \rn{vii}{°} \
-> \hline
-> \textbf{34} & \rn{vi}{}\inv{1} & \rn{vii}{°}\inv{1} & \rn{I}{}\inv{1} & \rn{ii}{}\inv{1} & \rn{iii}{}\inv{1} & \rn{IV}{}\inv{1} & \rn{V}{}\inv{1} \
-> \hline
-> \textbf{42} & \rn{I}{s4} & \rn{ii}{s4} & \rn{iii}{s4} & \nd & \rn{V}{s4} & \rn{vi}{s4} & \nd \
-> \hline
-> \textbf{43} & \rn{IV}{}\inv{2} & \rn{V}{}\inv{2} & \rn{vi}{}\inv{2} & \rn{vii}{°}\inv{2} & \rn{I}{}\inv{2} & \rn{ii}{}\inv{2} & \rn{iii}{}\inv{2} \
-> \hline
-> \textbf{44} & \nd & \rn{ii}{q} & \rn{iii}{q} & \nd & \rn{V}{q} & \rn{vi}{q} & \rn{vii}{q} \
-> \hline
-> \textbf{233} & \rn{ii}{7}\inv{3} & \rn{iii}{7}\inv{3} & \rn{IV}{Δ}\inv{3} & \rn{V}{7}\inv{3} & \rn{vi}{7}\inv{3} & \rn{vii}{ø7}\inv{3} & \rn{I}{Δ}\inv{3} \
-> \hline
-> \textbf{323} & \rn{IV}{Δ}\inv{2} & \rn{V}{7}\inv{2} & \rn{vi}{7}\inv{2} & \rn{vii}{ø7}\inv{2} & \rn{I}{Δ}\inv{2} & \rn{ii}{7}\inv{2} & \rn{iii}{7}\inv{2} \
-> \hline
-> \textbf{332} & \rn{I}{6} & \rn{ii}{6} & \rn{I}{Δ}\inv{1} & \rn{IV}{6} & \rn{V}{6} & \rn{IV}{Δ}\inv{1} & \rn{V}{7}\inv{1} \
-> \hline
-> \textbf{333} & \rn{I}{Δ} & \rn{ii}{7} & \rn{iii}{7} & \rn{IV}{Δ} & \rn{V}{7} & \rn{vi}{7} & \rn{vii}{ø7} \
-> \hline
-> \textbf{334} & \rn{I}{+8} & \rn{ii}{+8} & \rn{iii}{+8} & \rn{IV}{+8} & \rn{V}{+8} & \rn{vi}{+8} & \rn{vii}{+8} \
-> \hline
-> \textbf{433} & \rn{IV}{}\inv{2}\rp\osf{8} & \rn{V}{}\inv{2}\rp\osf{8} & \nd & \nd & \rn{I}{}\inv{2}\rp\osf{8} & \nd & \nd \
-> \hline
-> \textbf{434} & \rn{ii}{7}\inv{3} & \rn{iii}{7}\inv{3} & \rn{IV}{Δ}\inv{3} & \rn{V}{7}\inv{3} & \rn{vi}{7}\inv{3} & \rn{vii}{ø7}\inv{3} & \rn{I}{Δ}\inv{3} \
-> \hline
-> \textbf{444} & \nd & \rn{ii}{q7} & \rn{iii}{q7} & \nd & \nd & \rn{vi}{q7} & \rn{vii}{q7} \
-> \hline
-> \end{tabular}
-> \par\vspace{1mm}
-> {\fontsize{11}{13}\selectfont
-> \setlength{\tabcolsep}{2pt}
-> \noindent
-> \begin{tabular}[t]{@{}%
-> {\raggedleft\arraybackslash}p{14mm}@{~=~}%
-> {\raggedright\arraybackslash}p{38mm}@{}}%
-> \multicolumn{2}{@{}l}{\bfseries Key} \[0.3mm]
-> Upper   & major (I,IV,V) \
-> Lower   & minor (ii,iii,vi) \
-> $\Delta$    & major 7th \
-> $^\circ$ & diminished \
-> $^{\scriptstyle\varnothing}$\osf{7} & half-diminished 7th \
-> \osf{7}    & dominant 7th \
-> $q$  & quartal \
-> $s$\osf{2} / $s$\osf{4}  & sus2 / sus4 \
-> \osf{6}/$m$\osf{6}    & major/minor 6th \
-> \rp\osf{8}  & octave doubling \
-> $^{\osf{1,2,3}}$ & inversion (bass tone) \
-> \nd & non-diatonic \
-> \end{tabular}%
-> \hspace{6mm}%
-> \begin{tabular}[t]{@{}%
-> {\raggedleft\arraybackslash}p{14mm}@{~=~}%
-> {\raggedright\arraybackslash}p{24mm}@{}}%
-> \multicolumn{2}{@{}l}{\bfseries Interval from Tonic} \[0.3mm]
-> \osf{2}–\osf{9} & intervals 2–9 \
-> \osf{A} & 10 \
-> \osf{B} & 11 \
-> \osf{C} & 12 \
-> \osf{D} & 13 \
-> \osf{E} & 14 \
-> \osf{F} & 15 \
-> \osf{G} & 16 \
-> \osf{H} & 17 \
-> \end{tabular}%
-> \hspace{3mm}%
-> \begin{tabular}[t]{@{}%
-> {\raggedleft\arraybackslash}p{18mm}@{~=~}%
-> {\raggedright\arraybackslash}p{56mm}@{}}%
-> \multicolumn{2}{@{}l}{\bfseries Creating the Chord Figure} \[0.3mm]
-> \osf{333}              & deg+intervals (3 fingers) \
-> \osf{5333}             & deg+intervals (4 fingers) \
-> \osf{5333}             & deg \osf{5}, three thirds $=$ \Ro{V}\osf{7} \
-> \osf{1233}             & deg \osf{1}, 2nd+2 thirds $=$ \Ro{I}$\Delta^{\osf{1}}$ \
-> \osf{1433}             & deg \osf{1}, 4th+2 thirds $=$ \Ro{I}$s$\osf{4}\rp\osf{8} \[2mm]
-> \multicolumn{2}{@{}l}{\bfseries LH / RH Figure Examples} \[0.3mm]
-> \osf{133,933}         & LH=\Ro{I}(str 1), RH=\Ro{ii}(str 9) \
-> \osf{433,A43}         & LH=\Ro{IV}(str 4), RH=\Ro{vi}\inv{1}(str 10) \
-> \osf{5333,D43}        & LH=\Ro{V}\osf{7}(str 5), RH=\Ro{ii}\inv{1}(str 13) \
-> \end{tabular}
-> }
-> \end{minipage}\hspace{3mm}%
-> \begin{minipage}[t]{0.30\linewidth}
-> \centering
-> \resizebox{80mm}{!}{%
-> \begin{tikzpicture}[scale=1.15, every node/.style={transform shape}]
+>{\columncolor{mode1}}w{c}{23mm}
+>{\columncolor{mode2}}w{c}{23mm}
+>{\columncolor{mode3}}w{c}{23mm}
+>{\columncolor{mode4}}w{c}{23mm}
+>{\columncolor{mode5}}w{c}{23mm}
+>{\columncolor{mode6}}w{c}{23mm}
+>{\columncolor{mode7}}w{c}{23mm}}
+ &
+\cellcolor{hdr1}{\color{white}\fontsize{12}{13}\selectfont Ionian} &
+\cellcolor{hdr2}{\color{white}\fontsize{12}{13}\selectfont Dorian} &
+\cellcolor{hdr3}{\color{white}\fontsize{12}{13}\selectfont Phrygian} &
+\cellcolor{hdr4}{\color{white}\fontsize{12}{13}\selectfont Lydian} &
+\cellcolor{hdr5}{\color{white}\fontsize{12}{13}\selectfont Mixolydian} &
+\cellcolor{hdr6}{\color{white}\fontsize{12}{13}\selectfont Aeolian} &
+\cellcolor{hdr7}{\color{white}\fontsize{12}{13}\selectfont Locrian} \\
+{\fontsize{14}{16}\selectfont$\looparrowright$\raisebox{0.3ex}{\footnotesize+}} &
+\cellcolor{hdr1}{\color{white}\fontsize{20}{22}\selectfont\bfseries 1} &
+\cellcolor{hdr2}{\color{white}\fontsize{20}{22}\selectfont\bfseries 2} &
+\cellcolor{hdr3}{\color{white}\fontsize{20}{22}\selectfont\bfseries 3} &
+\cellcolor{hdr4}{\color{white}\fontsize{20}{22}\selectfont\bfseries 4} &
+\cellcolor{hdr5}{\color{white}\fontsize{20}{22}\selectfont\bfseries 5} &
+\cellcolor{hdr6}{\color{white}\fontsize{20}{22}\selectfont\bfseries 6} &
+\cellcolor{hdr7}{\color{white}\fontsize{20}{22}\selectfont\bfseries 7} \\
+\textbf{24} & \rn{I}{s2} & \rn{ii}{s2} & \nd & \rn{IV}{s2} & \rn{V}{s2} & \rn{vi}{s2} & \nd \\
+\hline
+\textbf{33} & \rn{I}{} & \rn{ii}{} & \rn{iii}{} & \rn{IV}{} & \rn{V}{} & \rn{vi}{} & \rn{vii}{°} \\
+\hline
+\textbf{34} & \rn{vi}{}\inv{1} & \rn{vii}{°}\inv{1} & \rn{I}{}\inv{1} & \rn{ii}{}\inv{1} & \rn{iii}{}\inv{1} & \rn{IV}{}\inv{1} & \rn{V}{}\inv{1} \\
+\hline
+\textbf{42} & \rn{I}{s4} & \rn{ii}{s4} & \rn{iii}{s4} & \nd & \rn{V}{s4} & \rn{vi}{s4} & \nd \\
+\hline
+\textbf{43} & \rn{IV}{}\inv{2} & \rn{V}{}\inv{2} & \rn{vi}{}\inv{2} & \rn{vii}{°}\inv{2} & \rn{I}{}\inv{2} & \rn{ii}{}\inv{2} & \rn{iii}{}\inv{2} \\
+\hline
+\textbf{44} & \nd & \rn{ii}{q} & \rn{iii}{q} & \nd & \rn{V}{q} & \rn{vi}{q} & \rn{vii}{q} \\
+\hline
+\textbf{233} & \rn{ii}{7}\inv{3} & \rn{iii}{7}\inv{3} & \rn{IV}{Δ}\inv{3} & \rn{V}{7}\inv{3} & \rn{vi}{7}\inv{3} & \rn{vii}{ø7}\inv{3} & \rn{I}{Δ}\inv{3} \\
+\hline
+\textbf{323} & \rn{IV}{Δ}\inv{2} & \rn{V}{7}\inv{2} & \rn{vi}{7}\inv{2} & \rn{vii}{ø7}\inv{2} & \rn{I}{Δ}\inv{2} & \rn{ii}{7}\inv{2} & \rn{iii}{7}\inv{2} \\
+\hline
+\textbf{332} & \rn{I}{6} & \rn{ii}{6} & \rn{I}{Δ}\inv{1} & \rn{IV}{6} & \rn{V}{6} & \rn{IV}{Δ}\inv{1} & \rn{V}{7}\inv{1} \\
+\hline
+\textbf{333} & \rn{I}{Δ} & \rn{ii}{7} & \rn{iii}{7} & \rn{IV}{Δ} & \rn{V}{7} & \rn{vi}{7} & \rn{vii}{ø7} \\
+\hline
+\textbf{334} & \rn{I}{+8} & \rn{ii}{+8} & \rn{iii}{+8} & \rn{IV}{+8} & \rn{V}{+8} & \rn{vi}{+8} & \rn{vii}{+8} \\
+\hline
+\textbf{433} & \rn{IV}{}\inv{2}\rp\osf{8} & \rn{V}{}\inv{2}\rp\osf{8} & \nd & \nd & \rn{I}{}\inv{2}\rp\osf{8} & \nd & \nd \\
+\hline
+\textbf{434} & \rn{ii}{7}\inv{3} & \rn{iii}{7}\inv{3} & \rn{IV}{Δ}\inv{3} & \rn{V}{7}\inv{3} & \rn{vi}{7}\inv{3} & \rn{vii}{ø7}\inv{3} & \rn{I}{Δ}\inv{3} \\
+\hline
+\textbf{444} & \nd & \rn{ii}{q7} & \rn{iii}{q7} & \nd & \nd & \rn{vi}{q7} & \rn{vii}{q7} \\
+\hline
+\end{tabular}
+\par\vspace{1mm}
+{\fontsize{11}{13}\selectfont
+\setlength{\tabcolsep}{2pt}
+\noindent
+\begin{tabular}[t]{@{}%
+>{\raggedleft\arraybackslash}p{14mm}@{~=~}%
+>{\raggedright\arraybackslash}p{38mm}@{}}%
+\multicolumn{2}{@{}l}{\bfseries Key} \\[0.3mm]
+Upper   & major (I,IV,V) \\
+Lower   & minor (ii,iii,vi) \\
+$\Delta$    & major 7th \\
+$^\circ$ & diminished \\
+$^{\scriptstyle\varnothing}$\osf{7} & half-diminished 7th \\
+\osf{7}    & dominant 7th \\
+$q$  & quartal \\
+$s$\osf{2} / $s$\osf{4}  & sus2 / sus4 \\
+\osf{6}/$m$\osf{6}    & major/minor 6th \\
+\rp\osf{8}  & octave doubling \\
+$^{\osf{1,2,3}}$ & inversion (bass tone) \\
+\nd & non-diatonic \\
+\end{tabular}%
+\hspace{6mm}%
+\begin{tabular}[t]{@{}%
+>{\raggedleft\arraybackslash}p{14mm}@{~=~}%
+>{\raggedright\arraybackslash}p{24mm}@{}}%
+\multicolumn{2}{@{}l}{\bfseries Interval from Tonic} \\[0.3mm]
+\osf{2}--\osf{9} & intervals 2--9 \\
+\osf{A} & 10 \\
+\osf{B} & 11 \\
+\osf{C} & 12 \\
+\osf{D} & 13 \\
+\osf{E} & 14 \\
+\osf{F} & 15 \\
+\end{tabular}%
+\hspace{3mm}%
+\begin{tabular}[t]{@{}%
+>{\raggedleft\arraybackslash}p{18mm}@{~=~}%
+>{\raggedright\arraybackslash}p{56mm}@{}}%
+\multicolumn{2}{@{}l}{\bfseries Creating the Chord Figure} \\[0.3mm]
+\osf{333}              & deg+intervals (3 fingers) \\
+\osf{5333}             & deg+intervals (4 fingers) \\
+\osf{5333}             & deg \osf{5}, three thirds $=$ \Ro{V}\osf{7} \\
+\osf{1233}             & deg \osf{1}, 2nd+2 thirds $=$ \Ro{I}$\Delta^{\osf{1}}$ \\
+\osf{1433}             & deg \osf{1}, 4th+2 thirds $=$ \Ro{I}$s$\osf{4}\rp\osf{8} \\[2mm]
+\multicolumn{2}{@{}l}{\bfseries LH / RH Figure Examples} \\[0.3mm]
+\osf{133\,933}         & LH=\Ro{I}(str 1), RH=\Ro{ii}(str 9) \\
+\osf{433\,A43}         & LH=\Ro{IV}(str 4), RH=\Ro{vi}\inv{1}(str 10) \\
+\osf{5333\,D43}        & LH=\Ro{V}\osf{7}(str 5), RH=\Ro{ii}\inv{1}(str 13) \\
+\end{tabular}
+}
+\end{minipage}\hspace{3mm}%
+\begin{minipage}[t]{0.30\linewidth}
+\centering
+\resizebox{80mm}{!}{%
+\begin{tikzpicture}[scale=1.15, every node/.style={transform shape},
+    chord/.style={circle, draw=none, fill=#1, text=white,
+                  font=\bfseries\fontsize{22}{24}\selectfont\rmfamily,
+                  inner sep=2pt, minimum size=1.8cm}]
 
 % Top leaf (2nds, cyan)
 \draw[leafcyan!50, line width=15pt, line cap=round]
-plot[smooth, tension=1.0] coordinates {
-(0.203,0.366)(0.557,1.090)(0.856,1.826)(1.099,2.563)(1.281,3.292)
-(1.403,4.000)(1.466,4.679)(1.471,5.317)(1.421,5.906)(1.321,6.435)
-(1.175,6.898)(0.989,7.286)(0.771,7.595)(0.528,7.819)(0.269,7.955)
-(0.000,8.000)(-0.269,7.955)(-0.528,7.819)(-0.771,7.595)(-0.989,7.286)
-(-1.175,6.898)(-1.321,6.435)(-1.421,5.906)(-1.471,5.317)(-1.466,4.679)
-(-1.403,4.000)(-1.281,3.292)(-1.099,2.563)(-0.856,1.826)(-0.557,1.090)
-(-0.203,0.366)};
+  plot[smooth, tension=1.0] coordinates {
+  (0.203,0.366)(0.557,1.090)(0.856,1.826)(1.099,2.563)(1.281,3.292)
+  (1.403,4.000)(1.466,4.679)(1.471,5.317)(1.421,5.906)(1.321,6.435)
+  (1.175,6.898)(0.989,7.286)(0.771,7.595)(0.528,7.819)(0.269,7.955)
+  (0.000,8.000)(-0.269,7.955)(-0.528,7.819)(-0.771,7.595)(-0.989,7.286)
+  (-1.175,6.898)(-1.321,6.435)(-1.421,5.906)(-1.471,5.317)(-1.466,4.679)
+  (-1.403,4.000)(-1.281,3.292)(-1.099,2.563)(-0.856,1.826)(-0.557,1.090)
+  (-0.203,0.366)};
 
 % Lower-left leaf (4ths, yellow)
 \draw[leafyellow!55, line width=15pt, line cap=round]
-plot[smooth, tension=1.0] coordinates {
-(-0.419,-0.007)(-1.222,-0.063)(-2.009,-0.171)(-2.769,-0.330)(-3.491,-0.536)
-(-4.166,-0.785)(-4.785,-1.070)(-5.340,-1.384)(-5.825,-1.722)(-6.233,-2.074)
-(-6.561,-2.431)(-6.805,-2.786)(-6.963,-3.129)(-7.035,-3.452)(-7.023,-3.745)
-(-6.928,-4.000)(-6.755,-4.210)(-6.507,-4.367)(-6.192,-4.466)(-5.815,-4.500)
-(-5.386,-4.466)(-4.912,-4.361)(-4.404,-4.184)(-3.869,-3.933)(-3.319,-3.609)
-(-2.763,-3.216)(-2.210,-2.755)(-1.670,-2.233)(-1.153,-1.655)(-0.665,-1.027)
-(-0.216,-0.359)};
+  plot[smooth, tension=1.0] coordinates {
+  (-0.419,-0.007)(-1.222,-0.063)(-2.009,-0.171)(-2.769,-0.330)(-3.491,-0.536)
+  (-4.166,-0.785)(-4.785,-1.070)(-5.340,-1.384)(-5.825,-1.722)(-6.233,-2.074)
+  (-6.561,-2.431)(-6.805,-2.786)(-6.963,-3.129)(-7.035,-3.452)(-7.023,-3.745)
+  (-6.928,-4.000)(-6.755,-4.210)(-6.507,-4.367)(-6.192,-4.466)(-5.815,-4.500)
+  (-5.386,-4.466)(-4.912,-4.361)(-4.404,-4.184)(-3.869,-3.933)(-3.319,-3.609)
+  (-2.763,-3.216)(-2.210,-2.755)(-1.670,-2.233)(-1.153,-1.655)(-0.665,-1.027)
+  (-0.216,-0.359)};
 
 % Lower-right leaf (3rds, red)
 \draw[leafred!40, line width=15pt, line cap=round]
-plot[smooth, tension=1.0] coordinates {
-(0.216,-0.359)(0.665,-1.027)(1.153,-1.655)(1.670,-2.233)(2.210,-2.755)
-(2.763,-3.216)(3.319,-3.609)(3.869,-3.933)(4.404,-4.184)(4.912,-4.361)
-(5.386,-4.466)(5.815,-4.500)(6.192,-4.466)(6.507,-4.367)(6.755,-4.210)
-(6.928,-4.000)(7.023,-3.745)(7.035,-3.452)(6.963,-3.129)(6.805,-2.786)
-(6.561,-2.431)(6.233,-2.074)(5.825,-1.722)(5.340,-1.384)(4.785,-1.070)
-(4.166,-0.785)(3.491,-0.536)(2.769,-0.330)(2.009,-0.171)(1.222,-0.063)
-(0.419,-0.007)};
+  plot[smooth, tension=1.0] coordinates {
+  (0.216,-0.359)(0.665,-1.027)(1.153,-1.655)(1.670,-2.233)(2.210,-2.755)
+  (2.763,-3.216)(3.319,-3.609)(3.869,-3.933)(4.404,-4.184)(4.912,-4.361)
+  (5.386,-4.466)(5.815,-4.500)(6.192,-4.466)(6.507,-4.367)(6.755,-4.210)
+  (6.928,-4.000)(7.023,-3.745)(7.035,-3.452)(6.963,-3.129)(6.805,-2.786)
+  (6.561,-2.431)(6.233,-2.074)(5.825,-1.722)(5.340,-1.384)(4.785,-1.070)
+  (4.166,-0.785)(3.491,-0.536)(2.769,-0.330)(2.009,-0.171)(1.222,-0.063)
+  (0.419,-0.007)};
 
-%% Center
+% Center
 \node[circle, draw=white, line width=5pt, fill=black, text=white,
-font=\bfseries\rmfamily\fontsize{42}{44}\selectfont, minimum size=2.5cm] (C) at (0,0) {I};
+      font=\bfseries\rmfamily\fontsize{42}{44}\selectfont, minimum size=2.5cm] (C) at (0,0) {I};
 
-%% 2NDS (top)
-\node[chord=leafcyan]         at ( 1.151, 2.750) {ii};
-\node[chord=leafcyan]         at ( 1.476, 5.086) {iii};
-\node[chord=leafcyan]         at ( 0.941, 7.366) {IV};
-\node[chord=leafcyan]         at (-0.941, 7.366) {V};
-\node[chord=leafcyan]         at (-1.476, 5.086) {vi};
-\node[chord=leafcyan]         at (-1.151, 2.750) {vii\textsuperscript{o}};
+% 2nds (top)
+\node[chord=leafcyan] at ( 1.151, 2.750) {ii};
+\node[chord=leafcyan] at ( 1.476, 5.086) {iii};
+\node[chord=leafcyan] at ( 0.941, 7.366) {IV};
+\node[chord=leafcyan] at (-0.941, 7.366) {V};
+\node[chord=leafcyan] at (-1.476, 5.086) {vi};
+\node[chord=leafcyan] at (-1.151, 2.750) {vii\textsuperscript{o}};
 \node[font=\bfseries\huge, leafcyan!80!black] at (0, 3.9) {2nds};
 
-%% 4THS (lower-left)
-\node[chord=leafyellow]       at (-2.957,-0.378) {IV};
-\node[chord=leafyellow]       at (-5.142,-1.265) {vii\textsuperscript{o}};
-\node[chord=leafyellow]       at (-6.850,-2.868) {iii};
-\node[chord=leafyellow]       at (-5.909,-4.498) {vi};
-\node[chord=leafyellow]       at (-3.666,-3.821) {ii};
-\node[chord=leafyellow]       at (-1.806,-2.371) {V};
+% 4ths (lower-left)
+\node[chord=leafyellow] at (-2.957,-0.378) {IV};
+\node[chord=leafyellow] at (-5.142,-1.265) {vii\textsuperscript{o}};
+\node[chord=leafyellow] at (-6.850,-2.868) {iii};
+\node[chord=leafyellow] at (-5.909,-4.498) {vi};
+\node[chord=leafyellow] at (-3.666,-3.821) {ii};
+\node[chord=leafyellow] at (-1.806,-2.371) {V};
 \node[font=\bfseries\huge, leafyellow!80!black] at (-4.3,-2.4) {4ths};
 
-%% 3RDS (lower-right)
-\node[chord=leafred]          at ( 1.806,-2.371) {iii};
-\node[chord=leafred]          at ( 3.666,-3.821) {V};
-\node[chord=leafred]          at ( 5.909,-4.498) {vii\textsuperscript{o}};
-\node[chord=leafred]          at ( 6.850,-2.868) {ii};
-\node[chord=leafred]          at ( 5.142,-1.265) {IV};
-\node[chord=leafred]          at ( 2.957,-0.378) {vi};
+% 3rds (lower-right)
+\node[chord=leafred] at ( 1.806,-2.371) {iii};
+\node[chord=leafred] at ( 3.666,-3.821) {V};
+\node[chord=leafred] at ( 5.909,-4.498) {vii\textsuperscript{o}};
+\node[chord=leafred] at ( 6.850,-2.868) {ii};
+\node[chord=leafred] at ( 5.142,-1.265) {IV};
+\node[chord=leafred] at ( 2.957,-0.378) {vi};
 \node[font=\bfseries\huge, leafred] at ( 4.3,-2.4) {3rds};
 
-\end{tikzpicture}%
-}
+\end{tikzpicture}}
 \par\vspace{1mm}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}
@@ -366,7 +437,16 @@ font=\bfseries\rmfamily\fontsize{42}{44}\selectfont, minimum size=2.5cm] (C) at 
 \centerline{\fontsize{10}{12}\selectfont\color{flavcol}\textbf{Jazz Progressions} \itshape —\ Paired LH/RH voicings along the three diatonic cycles; CW ascends, CCW descends.}
 \vspace{-2mm}
 
+% Header row macro for each cycle table — args: color
+\newcommand{\cychdr}[1]{%
+  \rowcolor{#1}%
+  {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{CW}} & {\color{white}\textbf{CCW}} & {\color{white}\textbf{Id}} \\
+}
+
 \setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.1}
+
+% Helper: rotated cycle-label cell spanning all 14 data rows
+\newcommand{\cyccol}[2]{\multirow{14}{*}{\rotatebox[origin=c]{90}{\color{white}\textbf{#1}}}\hspace{0pt}}
 
 \begin{center}
 \rowcolors{2}{white}{bandcol}
@@ -375,23 +455,21 @@ font=\bfseries\rmfamily\fontsize{42}{44}\selectfont, minimum size=2.5cm] (C) at 
 \rowcolor{headerbg}
 \cellcolor{leafcyan!80!black} & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{CW}} & {\color{white}\textbf{CCW}}
 & \cellcolor{leafred} & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{CW}} & {\color{white}\textbf{CCW}}
-& \cellcolor{leafyellow!80!black} & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{CW}} & {\color{white}\textbf{CCW}} \
-\cellcolor{leafcyan!80!black} & \sexc{ii}{}{I}{}{Cloudy}{Grounding}{133}{933}
-& \cellcolor{leafred} & \sexc{iii\inv{1}}{}{I}{}{Drifting}{Homecoming}{133}{743}
-& \cellcolor{leafyellow!80!black} & \sexc{IV}{}{I}{}{Exploring}{Landing}{133}{B33} \
-\cellcolor{leafcyan!80!black} & \sexc{iii}{}{ii}{}{Deepening}{Easing}{233}{A33} & \cellcolor{leafred} & \sexc{V}{}{iii}{}{Galvanizing}{Retreating}{333}{C33} & \cellcolor{leafyellow!80!black} & \sexc{vii}{°}{IV}{}{Alarming}{Quieting}{433}{E33} \
-\cellcolor{leafcyan!80!black} & \sexc{IV}{}{iii}{}{Warming}{Cooling}{333}{B33} & \cellcolor{leafred} & \sexc{vii}{°}{V}{}{Fraying}{Steadying}{533}{E33} & \cellcolor{leafyellow!80!black} & \sexc{iii}{}{vii}{°}{Despairing}{Rooting}{733}{H33} \
-\cellcolor{leafcyan!80!black} & \sexc{V}{}{IV}{}{Tensing}{Calming}{433}{C33} & \cellcolor{leafred} & \sexc{ii}{}{vii}{°}{Tilting}{Curdling}{733}{G33} & \cellcolor{leafyellow!80!black} & \sexc{vi}{}{iii}{}{Accepting}{Reverting}{333}{D33} \
-\cellcolor{leafcyan!80!black} & \sexc{vi}{}{V}{}{Deceptive}{Pivoting}{533}{D33} & \cellcolor{leafred} & \sexc{IV}{}{ii}{}{Gladdening}{Shading}{233}{B33} & \cellcolor{leafyellow!80!black} & \sexc{ii}{}{vi}{}{Wandering}{Dreaming}{633}{G33} \
-\cellcolor{leafcyan!80!black} & \sexc{vii}{°}{vi}{}{Darkening}{Reposing}{633}{E33} & \cellcolor{leafred} & \sexc{vi}{}{IV}{}{Grieving}{Consoling}{433}{D33} & \cellcolor{leafyellow!80!black} & \sexc{V}{}{ii}{}{Lifting}{Stepping}{233}{C33} \
-\cellcolor{leafcyan!80!black}\smash{\rotatebox{90}{\color{white}\scshape 2nd cycle}} & \sexc{I}{}{vii}{°}{Releasing}{Fracturing}{733}{F33} & \cellcolor{leafred}\smash{\rotatebox{90}{\color{white}\scshape 3rd cycle}} & \sexc{I}{}{vi}{}{Triumphing}{Brooding}{633}{F33} & \cellcolor{leafyellow!80!black}\smash{\rotatebox{90}{\color{white}\scshape 4th cycle}} & \sexc{I}{}{V}{}{Resolving}{Lofting}{533}{F33} \
-\cellcolor{leafcyan!80!black} & \sexc{ii}{7}{I}{}{Cloudy}{Grounding}{133}{9333} & \cellcolor{leafred} & \sexc{iii}{7}{I}{6}{Drifting}{Homecoming}{1332}{A333} & \cellcolor{leafyellow!80!black} & \sexc{IV}{Δ}{I}{}{Exploring}{Landing}{133}{B333} \
-\cellcolor{leafcyan!80!black} & \sexc{iii}{}{ii}{s2}{Deepening}{Easing}{224}{A33} & \cellcolor{leafred} & \sexc{V}{}{iii\inv{2}}{}{Galvanizing}{Retreating}{534}{C33} & \cellcolor{leafyellow!80!black} & \sexc{vii}{ø7}{IV}{}{Alarming}{Quieting}{433}{E333} \
-\cellcolor{leafcyan!80!black} & \sexc{IV}{}{iii}{s4}{Warming}{Cooling}{342}{B33} & \cellcolor{leafred} & \sexc{vii}{°}{V}{q}{Fraying}{Steadying}{544}{E33} & \cellcolor{leafyellow!80!black} & \sexc{iii}{}{vii}{+8}{Despairing}{Rooting}{7334}{H33} \
-\cellcolor{leafcyan!80!black} & \sexc{V}{7}{IV\inv{2}\rp\osf{8}}{}{Tensing}{Calming}{1433}{C333} & \cellcolor{leafred} & \sexc{ii}{}{vii}{ø7i}{Tilting}{Curdling}{6233}{G33} & \cellcolor{leafyellow!80!black} & \sexc{vi}{}{iii}{s4}{Accepting}{Reverting}{342}{D33} \
-\cellcolor{leafcyan!80!black} & \sexc{vi}{}{V}{+8}{Deceptive}{Pivoting}{5334}{D33} & \cellcolor{leafred} & \sexc{IV}{}{ii}{q7}{Gladdening}{Shading}{2444}{B33} & \cellcolor{leafyellow!80!black} & \sexc{ii}{}{vi}{7}{Wandering}{Dreaming}{6333}{G33} \
-\cellcolor{leafcyan!80!black} & \sexc{vii}{ø7}{vi}{}{Darkening}{Reposing}{633}{E333} & \cellcolor{leafred} & \sexc{vi}{}{IV\inv{1}}{}{Grieving}{Consoling}{143}{D33} & \cellcolor{leafyellow!80!black} & \sexc{V}{}{ii}{7}{Lifting}{Stepping}{2333}{C33} \
-\cellcolor{leafcyan!80!black} & \sexc{I}{+8}{vii}{°}{Releasing}{Fracturing}{733}{F334} & \cellcolor{leafred} & \sexc{I}{}{vi}{7iii}{Triumphing}{Brooding}{5434}{F33} & \cellcolor{leafyellow!80!black} & \sexc{I}{}{V}{6}{Resolving}{Lofting}{5332}{F33} \
+& \cellcolor{leafyellow!80!black} & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{CW}} & {\color{white}\textbf{CCW}} \\
+\cellcolor{leafcyan!80!black} & \sexcA{ii}{}{I}{}{Cloudy}{Grounding}{133}{933} & \cellcolor{leafred} & \sexcB{iii}{}{I}{}{Drifting}{Homecoming}{133}{A33} & \cellcolor{leafyellow!80!black} & \sexcC{IV}{}{I}{}{Exploring}{Landing}{133}{B33} \\
+\cellcolor{leafcyan!80!black} & \sexcA{iii}{}{ii}{}{Deepening}{Easing}{233}{A33} & \cellcolor{leafred} & \sexcB{V}{}{iii}{}{Galvanizing}{Retreating}{333}{C33} & \cellcolor{leafyellow!80!black} & \sexcC{vii}{°}{IV}{}{Alarming}{Quieting}{433}{E33} \\
+\cellcolor{leafcyan!80!black} & \sexcA{IV}{}{iii}{}{Warming}{Cooling}{333}{B33} & \cellcolor{leafred} & \sexcB{vii}{°}{V}{}{Fraying}{Steadying}{533}{E33} & \cellcolor{leafyellow!80!black} & \sexcC{vii}{°}{iii}{}{Despairing}{Rooting}{333}{E33} \\
+\cellcolor{leafcyan!80!black} & \sexcA{V}{}{IV}{}{Tensing}{Calming}{433}{C33} & \cellcolor{leafred} & \sexcB{vii}{°}{ii}{}{Tilting}{Curdling}{233}{733} & \cellcolor{leafyellow!80!black} & \sexcC{vi}{}{iii}{}{Accepting}{Reverting}{333}{D33} \\
+\cellcolor{leafcyan!80!black} & \sexcA{vi}{}{V}{}{Deceptive}{Pivoting}{533}{D33} & \cellcolor{leafred} & \sexcB{IV}{}{ii}{}{Gladdening}{Shading}{233}{B33} & \cellcolor{leafyellow!80!black} & \sexcC{vi}{}{ii}{}{Wandering}{Dreaming}{233}{D33} \\
+\cellcolor{leafcyan!80!black} & \sexcA{vii}{°}{vi}{}{Darkening}{Reposing}{633}{E33} & \cellcolor{leafred} & \sexcB{vi}{}{IV}{}{Grieving}{Consoling}{433}{D33} & \cellcolor{leafyellow!80!black} & \sexcC{V}{}{ii}{}{Lifting}{Stepping}{233}{C33} \\
+\cellcolor{leafcyan!80!black}\smash{\rotatebox{90}{\color{white}\scshape 2nd cycle}} & \sexcA{I}{}{vii}{°}{Releasing}{Fracturing}{733}{F33} & \cellcolor{leafred}\smash{\rotatebox{90}{\color{white}\scshape 3rd cycle}} & \sexcB{I}{}{vi}{}{Triumphing}{Brooding}{633}{F33} & \cellcolor{leafyellow!80!black}\smash{\rotatebox{90}{\color{white}\scshape 4th cycle}} & \sexcC{I}{}{V}{}{Resolving}{Lofting}{533}{F33} \\
+\cellcolor{leafcyan!80!black} & \sexcA{I}{Δiii}{ii}{7iii}{Cloudy}{Grounding}{1233}{7233} & \cellcolor{leafred} & \sexcB{I}{i}{iii}{7iii}{Drifting}{Homecoming}{2233}{A34} & \cellcolor{leafyellow!80!black} & \sexcC{I}{Δiii}{IV}{Δii}{Exploring}{Landing}{1323}{7233} \\
+\cellcolor{leafcyan!80!black} & \sexcA{ii}{7iii}{iii}{7iii}{Deepening}{Easing}{2233}{8233} & \cellcolor{leafred} & \sexcB{iii}{i}{V}{7iii}{Galvanizing}{Retreating}{4233}{C34} & \cellcolor{leafyellow!80!black} & \sexcC{IV}{Δiii}{vii}{ø7ii}{Alarming}{Quieting}{4323}{A233} \\
+\cellcolor{leafcyan!80!black} & \sexcA{iii}{7iii}{IV}{Δiii}{Warming}{Cooling}{3233}{9233} & \cellcolor{leafred} & \sexcB{V}{i}{vii}{ø7iii}{Fraying}{Steadying}{6233}{E34} & \cellcolor{leafyellow!80!black} & \sexcC{vii}{ø7iii}{iii}{7ii}{Despairing}{Rooting}{7323}{D233} \\
+\cellcolor{leafcyan!80!black} & \sexcA{IV}{Δiii}{V}{7iii}{Tensing}{Calming}{4233}{A233} & \cellcolor{leafred} & \sexcB{vii}{°i}{ii}{7iii}{Tilting}{Curdling}{1233}{934} & \cellcolor{leafyellow!80!black} & \sexcC{iii}{7iii}{vi}{7ii}{Accepting}{Reverting}{3323}{9233} \\
+\cellcolor{leafcyan!80!black} & \sexcA{V}{7iii}{vi}{7iii}{Deceptive}{Pivoting}{5233}{B233} & \cellcolor{leafred} & \sexcB{ii}{i}{IV}{Δiii}{Gladdening}{Shading}{3233}{B34} & \cellcolor{leafyellow!80!black} & \sexcC{vi}{7iii}{ii}{7ii}{Wandering}{Dreaming}{6323}{C233} \\
+\cellcolor{leafcyan!80!black} & \sexcA{vi}{7iii}{vii}{ø7iii}{Darkening}{Reposing}{6233}{C233} & \cellcolor{leafred} & \sexcB{IV}{i}{vi}{7iii}{Grieving}{Consoling}{5233}{D34} & \cellcolor{leafyellow!80!black} & \sexcC{ii}{7iii}{V}{7ii}{Lifting}{Stepping}{2323}{8233} \\
+\cellcolor{leafcyan!80!black} & \sexcA{vii}{ø7iii}{I}{Δiii}{Releasing}{Fracturing}{7233}{D233} & \cellcolor{leafred} & \sexcB{vi}{i}{I}{Δiii}{Triumphing}{Brooding}{7233}{F34} & \cellcolor{leafyellow!80!black} & \sexcC{V}{7iii}{I}{Δii}{Resolving}{Lofting}{5323}{B233} \\
 \end{tabular}
 \end{center}
 
@@ -405,26 +483,26 @@ font=\bfseries\rmfamily\fontsize{42}{44}\selectfont, minimum size=2.5cm] (C) at 
 \rowcolors{2}{white}{bandcol}
 \begin{tabular}{@{}l l l l >{\columncolor{headerbg}}m{2mm} l l l l >{\columncolor{headerbg}}m{2mm} l l l l >{\columncolor{headerbg}}m{2mm} l l l l@{}}
 \rowcolor{headerbg}
-{\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} & & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} & & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} & & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} \
-\spt{I}{}{ii}{}{133}{933}{Warm} & \cellcolor{headerbg} & \spt{ii}{}{I}{}{233}{833}{Plain} & \cellcolor{headerbg} & \spt{IV}{}{I}{Δ}{433}{8333}{Glowing} & \cellcolor{headerbg} & \spt{V}{7}{ii\inv{1}}{}{5333}{D43}{Sultry} \
-\spt{I}{}{ii}{7}{133}{9333}{Ethereal} & \cellcolor{headerbg} & \spt{ii}{}{iii}{}{233}{A33}{Mournful} & \cellcolor{headerbg} & \spt{IV}{}{IV}{s2}{433}{B24}{Hollow} & \cellcolor{headerbg} & \spt{V}{7}{ii}{7}{5333}{G333}{Smooth} \
-\spt{I}{}{iii\inv{1}}{}{133}{743}{Soft} & \cellcolor{headerbg} & \spt{ii}{}{IV\inv{1}}{}{233}{843}{Modal} & \cellcolor{headerbg} & \spt{IV}{}{V}{}{433}{C33}{Lifting} & \cellcolor{headerbg} & \spt{V}{7}{IV}{}{5333}{B33}{Pending} \
-\spt{I}{}{IV\inv{2}}{}{133}{634}{Hazy} & \cellcolor{headerbg} & \spt{ii}{}{V\inv{2}}{}{233}{734}{Floating} & \cellcolor{headerbg} & \spt{IV}{}{vi\inv{1}}{}{433}{A43}{Comforting} & \cellcolor{headerbg} & \spt{V}{7}{IV}{Δ}{5333}{B333}{Hip} \
-\spt{I}{}{V}{}{133}{533}{Bright} & \cellcolor{headerbg} & \spt{ii}{}{vi}{}{233}{633}{Rich} & \cellcolor{headerbg} & \spt{IV}{}{IV}{+8}{433}{B334}{Ringing} & \cellcolor{headerbg} & \spt{V}{7}{I}{Δ}{5333}{F333}{Leading} \
-\spt{I}{}{V}{7i}{133}{7332}{Bluesy} & \cellcolor{headerbg} & \spt{ii}{}{ii}{+8}{233}{9334}{Pealing} & \cellcolor{headerbg} & \spt{IV}{Δ}{ii\inv{2}}{}{4333}{B34}{Sparkling} & \cellcolor{headerbg} & \spt{V}{7}{V}{}{5333}{C33}{Thunderous} \
-\spt{I}{}{vi}{}{133}{633}{Pastoral} & \cellcolor{headerbg} & \spt{ii}{7}{I}{}{2333}{833}{Introspective} & \cellcolor{headerbg} & \spt{IV}{Δ}{iii}{}{4333}{A33}{Prismatic} & \cellcolor{headerbg} & \spt{V}{7}{vi}{}{5333}{D33}{Exotic} \
-\spt{I}{}{vii}{°}{133}{733}{Piercing} & \cellcolor{headerbg} & \spt{ii}{7}{IV}{}{2333}{B33}{Open jazz} & \cellcolor{headerbg} & \spt{IV}{Δ}{V}{}{4333}{C33}{Gleaming} & \cellcolor{headerbg} & \spt{vi}{}{I\inv{1}}{}{633}{C43}{Gentle} \
-\spt{I}{}{I}{s2}{133}{824}{Open} & \cellcolor{headerbg} & \spt{ii}{7}{V}{}{2333}{C33}{Hinting} & \cellcolor{headerbg} & \spt{V}{}{I\inv{2}}{}{533}{A34}{Unresolved} & \cellcolor{headerbg} & \spt{vi}{}{ii\inv{2}}{}{633}{B34}{Sprawling} \
-\spt{I}{}{I}{s4}{133}{842}{Suspended} & \cellcolor{headerbg} & \spt{iii}{}{I}{}{333}{833}{Thoughtful} & \cellcolor{headerbg} & \spt{V}{}{ii}{}{533}{933}{Punchy} & \cellcolor{headerbg} & \spt{vi}{}{iii}{}{633}{A33}{Somber} \
-\spt{I}{}{I}{Δ}{133}{8333}{Radiant} & \cellcolor{headerbg} & \spt{iii}{}{IV}{}{333}{B33}{Dark} & \cellcolor{headerbg} & \spt{V}{}{iii}{}{533}{A33}{Bouncy} & \cellcolor{headerbg} & \spt{vi}{}{IV}{}{633}{B33}{Wistful} \
-\spt{I}{}{I}{+8}{133}{8334}{Chiming} & \cellcolor{headerbg} & \spt{iii}{}{V\inv{1}}{}{333}{943}{Ancient} & \cellcolor{headerbg} & \spt{V}{}{IV}{}{533}{B33}{Coasting} & \cellcolor{headerbg} & \spt{vi}{}{V}{}{633}{C33}{Haunting} \
-\spt{I}{Δ}{I}{}{1333}{833}{Anchored} & \cellcolor{headerbg} & \spt{iii}{}{vi\inv{1}}{}{333}{834}{Pensive} & \cellcolor{headerbg} & \spt{V}{}{V}{q}{533}{C44}{Modern} & \cellcolor{headerbg} & \spt{vi}{}{vii}{°}{633}{E33}{Mysterious} \
-\spt{I}{Δ}{ii}{}{1333}{933}{Lush} & \cellcolor{headerbg} & \spt{iii}{}{vii}{°}{333}{733}{Strained} & \cellcolor{headerbg} & \spt{V}{}{V}{s2}{533}{C24}{Airborne} & \cellcolor{headerbg} & \spt{vi}{}{vi}{+8}{633}{D334}{Resonant} \
-\spt{I}{Δ}{iii}{}{1333}{A33}{Airy} & \cellcolor{headerbg} & \spt{iii}{}{iii}{+8}{333}{A334}{Tolling} & \cellcolor{headerbg} & \spt{V}{}{V}{s4}{533}{C42}{Urgent} & \cellcolor{headerbg} & \spt{vi}{7}{I}{}{6333}{F33}{Cradling} \
-\spt{I}{Δ}{IV}{}{1333}{B33}{Shimmer} & \cellcolor{headerbg} & \spt{iii}{7}{ii}{}{3333}{933}{Layered} & \cellcolor{headerbg} & \spt{V}{}{vi}{}{533}{D33}{Velvety} & \cellcolor{headerbg} & \spt{vi}{7}{V}{}{6333}{C33}{Pointing} \
-\spt{I}{Δ}{V\inv{1}}{}{1333}{943}{Soulful} & \cellcolor{headerbg} & \spt{IV}{}{I}{}{433}{833}{Spacious} & \cellcolor{headerbg} & \spt{V}{}{vii}{°i}{533}{B43}{Sharp} & \cellcolor{headerbg} & \spt{vii}{°}{IV}{}{733}{B33}{Tangled} \
-\spt{I}{Δ}{V}{7ii}{1333}{9323}{Poised} & \cellcolor{headerbg} & \spt{IV}{}{ii}{}{433}{933}{Dreamy} & \cellcolor{headerbg} & \spt{V}{}{V}{+8}{533}{C334}{Sonorous} & \cellcolor{headerbg} & \spt{vii}{°}{vii}{+8}{733}{E334}{Twinkling} \
-\spt{I}{Δ}{vii}{°}{1333}{733}{Crystalline} & \cellcolor{headerbg} & \spt{IV}{}{iii}{}{433}{A33}{Elegant} & \cellcolor{headerbg} & \spt{V}{7}{I}{}{5333}{F33}{Commanding} & \cellcolor{headerbg} & \spt{vii}{ø7}{vi}{}{7333}{D33}{Turbulent} \
+{\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} & & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} & & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} & & {\color{white}\textbf{LH}} & {\color{white}\textbf{RH}} & {\color{white}\textbf{Figure}} & {\color{white}\textbf{Name}} \\
+\spt{I}{6}{V}{7i}{1332}{7332}{Warm} & \cellcolor{headerbg} & \spt{I}{s2}{vi}{s2}{124}{624}{Soulful} & \cellcolor{headerbg} & \spt{I}{s2}{IV}{i}{124}{634}{Mellow} & \cellcolor{headerbg} & \spt{I}{s2}{ii}{ii}{124}{643}{Velvety} \\
+\spt{I}{s2}{vii}{ø7iii}{124}{6233}{Plush} & \cellcolor{headerbg} & \spt{I}{s2}{IV}{Δi}{124}{6332}{Sultry} & \cellcolor{headerbg} & \spt{I}{ii}{ii}{i}{543}{B34}{Pastoral} & \cellcolor{headerbg} & \spt{I}{ii}{vii}{°ii}{543}{B43}{Bright} \\
+\spt{I}{ii}{vii}{ø7ii}{543}{B323}{Radiant} & \cellcolor{headerbg} & \spt{I}{i}{vii}{°i}{334}{934}{Glowing} & \cellcolor{headerbg} & \spt{I}{Δ}{ii}{7iii}{1333}{8233}{Gilded} & \cellcolor{headerbg} & \spt{I}{Δii}{ii}{i}{5323}{B34}{Shimmering} \\
+\spt{I}{Δii}{vii}{ø7ii}{5323}{B323}{Silvered} & \cellcolor{headerbg} & \spt{I}{Δiii}{ii}{ii}{7233}{D43}{Crystalline} & \cellcolor{headerbg} & \spt{I}{Δiii}{ii}{7ii}{7233}{D323}{Sparkling} & \cellcolor{headerbg} & \spt{ii}{}{iii}{ii}{233}{743}{Prismatic} \\
+\spt{ii}{}{I}{Δiii}{233}{7233}{Halo} & \cellcolor{headerbg} & \spt{ii}{6}{vi}{i}{2332}{834}{Dark} & \cellcolor{headerbg} & \spt{ii}{6}{IV}{Δii}{2332}{8323}{Nocturnal} & \cellcolor{headerbg} & \spt{ii}{7}{iii}{7iii}{2333}{9233}{Haunting} \\
+\spt{ii}{q}{vii}{°i}{244}{934}{Mysterious} & \cellcolor{headerbg} & \spt{ii}{q}{iii}{s4}{244}{A42}{Arcane} & \cellcolor{headerbg} & \spt{ii}{s2}{V}{i}{224}{734}{Veiled} & \cellcolor{headerbg} & \spt{ii}{s2}{iii}{ii}{224}{743}{Foggy} \\
+\spt{ii}{s2}{I}{Δiii}{224}{7233}{Shadowed} & \cellcolor{headerbg} & \spt{ii}{s2}{V}{7i}{224}{7332}{Wistful} & \cellcolor{headerbg} & \spt{iii}{}{IV}{ii}{333}{843}{Cascading} & \cellcolor{headerbg} & \spt{iii}{}{ii}{7iii}{333}{8233}{Pendular} \\
+\spt{iii}{}{IV}{ii+8}{333}{8433}{Rustling} & \cellcolor{headerbg} & \spt{iii}{7}{IV}{Δiii}{3333}{A233}{Floating} & \cellcolor{headerbg} & \spt{iii}{q}{I}{i}{344}{A34}{Wafting} & \cellcolor{headerbg} & \spt{iii}{q}{I}{Δi}{344}{A332}{Spinning} \\
+\spt{IV}{}{V}{ii}{433}{943}{Curling} & \cellcolor{headerbg} & \spt{IV}{}{iii}{7iii}{433}{9233}{Ascending} & \cellcolor{headerbg} & \spt{IV}{6}{I}{Δi}{4332}{A332}{Lifted} & \cellcolor{headerbg} & \spt{IV}{s2}{ii}{s2}{424}{924}{Melting} \\
+\spt{IV}{s2}{vii}{°i}{424}{934}{Still} & \cellcolor{headerbg} & \spt{IV}{s2}{V}{ii}{424}{943}{Quiet} & \cellcolor{headerbg} & \spt{IV}{s2}{iii}{7iii}{424}{9233}{Settled} & \cellcolor{headerbg} & \spt{IV}{s2}{V}{ii+8}{424}{9433}{Anchored} \\
+\spt{IV}{ii}{V}{i}{143}{734}{Poised} & \cellcolor{headerbg} & \spt{IV}{ii}{iii}{ii}{143}{743}{Thoughtful} & \cellcolor{headerbg} & \spt{IV}{ii}{iii}{7ii}{143}{7323}{Breathing} & \cellcolor{headerbg} & \spt{IV}{i}{iii}{i}{634}{C34}{Resonant} \\
+\spt{IV}{Δ}{V}{7iii}{4333}{B233}{Autumnal} & \cellcolor{headerbg} & \spt{IV}{Δiii}{V}{ii}{3233}{943}{Oceanic} & \cellcolor{headerbg} & \spt{IV}{Δiii}{V}{7ii}{3233}{9323}{Tidal} & \cellcolor{headerbg} & \spt{V}{}{vi}{ii}{533}{A43}{Misty} \\
+\spt{V}{}{IV}{Δiii}{533}{A233}{Frosted} & \cellcolor{headerbg} & \spt{V}{7}{vi}{7iii}{5333}{C233}{Dewy} & \cellcolor{headerbg} & \spt{V}{q}{iii}{i}{544}{C34}{Dappled} & \cellcolor{headerbg} & \spt{V}{s2}{I}{i}{524}{A34}{Lush} \\
+\spt{V}{s2}{vi}{ii}{524}{A43}{Rich} & \cellcolor{headerbg} & \spt{V}{s2}{IV}{Δiii}{524}{A233}{Spacious} & \cellcolor{headerbg} & \spt{V}{s2}{I}{Δi}{524}{A332}{Hollow} & \cellcolor{headerbg} & \spt{V}{s4}{iii}{s4}{542}{A42}{Airy} \\
+\spt{V}{ii}{vi}{i}{243}{834}{Soft} & \cellcolor{headerbg} & \spt{V}{ii}{IV}{ii}{243}{843}{Open} & \cellcolor{headerbg} & \spt{V}{ii}{IV}{Δii}{243}{8323}{Hazy} & \cellcolor{headerbg} & \spt{V}{i}{IV}{i}{734}{D34}{Woven} \\
+\spt{V}{i}{IV}{Δi}{734}{D332}{Carved} & \cellcolor{headerbg} & \spt{V}{7iii}{vi}{ii}{4233}{A43}{Arched} & \cellcolor{headerbg} & \spt{vi}{}{vii}{°ii}{633}{B43}{Layered} & \cellcolor{headerbg} & \spt{vi}{}{V}{7iii}{633}{B233}{Tangled} \\
+\spt{vi}{7}{vii}{ø7iii}{6333}{D233}{Bluesy} & \cellcolor{headerbg} & \spt{vi}{q}{IV}{i}{644}{D34}{Jazzy} & \cellcolor{headerbg} & \spt{vi}{q}{IV}{Δi}{644}{D332}{Modal} & \cellcolor{headerbg} & \spt{vi}{s2}{IV}{s2}{624}{B24}{Pealing} \\
+\spt{vii}{q}{V}{i}{744}{E34}{Ringing} & \cellcolor{headerbg} & \spt{vii}{q}{V}{7i}{744}{E332}{Brass} & \cellcolor{headerbg} & \spt{vii}{°}{I}{ii}{733}{C43}{Commanding} & \cellcolor{headerbg} & \spt{vii}{°}{vi}{7iii}{733}{C233}{Ancient} \\
+\spt{vii}{°}{I}{ii+8}{733}{C433}{Elegant} & \cellcolor{headerbg} & \spt{vii}{ø7}{I}{Δiii}{7333}{E233}{Ethereal} & \cellcolor{headerbg} & \spt{vii}{ø7}{iii}{ii}{7333}{E43}{Dreamy} & \cellcolor{headerbg} & \spt{vii}{ø7}{iii}{7ii}{7333}{E323}{Mournful} \\
 \end{tabular}
 \end{center}
 

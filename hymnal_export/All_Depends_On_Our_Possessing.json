@@ -5089,59 +5089,41 @@
         "rn": "I",
         "melody": "F4",
         "contour": "ascending",
-        "lh_roman": "I",
-        "lh_figure": "5434",
-        "rh_roman": "vi\u2077\u00b3",
+        "lh_roman": "vi",
+        "lh_figure": "633",
+        "rh_roman": "I",
         "rh_figure": "F33",
         "mood": "Brooding",
         "source": "jazz_progressions",
         "method": "3rds-CCW",
         "harmonic_substitution": null,
         "requested_rn": "I",
-        "alternates": [
-          {
-            "lh_roman": "I",
-            "lh_figure": "633",
-            "rh_roman": "vi",
-            "rh_figure": "F33",
-            "mood": "Brooding",
-            "source": "jazz_progressions"
-          }
-        ]
+        "alternates": []
       },
       {
         "bar": 2,
         "rn": "vi",
         "melody": "B-4",
         "contour": "descending",
-        "lh_roman": "I",
-        "lh_figure": "5434",
-        "rh_roman": "vi\u2077\u00b3",
+        "lh_roman": "vi",
+        "lh_figure": "633",
+        "rh_roman": "I",
         "rh_figure": "F33",
         "mood": "Triumphing",
         "source": "jazz_progressions",
         "method": "3rds-CW",
         "harmonic_substitution": null,
         "requested_rn": "vi",
-        "alternates": [
-          {
-            "lh_roman": "I",
-            "lh_figure": "633",
-            "rh_roman": "vi",
-            "rh_figure": "F33",
-            "mood": "Triumphing",
-            "source": "jazz_progressions"
-          }
-        ]
+        "alternates": []
       },
       {
         "bar": 3,
         "rn": "I",
         "melody": "A4",
         "contour": "descending",
-        "lh_roman": "I",
-        "lh_figure": "5332",
-        "rh_roman": "V6",
+        "lh_roman": "V",
+        "lh_figure": "533",
+        "rh_roman": "I",
         "rh_figure": "F33",
         "mood": "Lofting",
         "source": "jazz_progressions",
@@ -5150,10 +5132,10 @@
         "requested_rn": "I",
         "alternates": [
           {
-            "lh_roman": "I",
-            "lh_figure": "533",
-            "rh_roman": "V",
-            "rh_figure": "F33",
+            "lh_roman": "I\u0394ii",
+            "lh_figure": "5323",
+            "rh_roman": "V7iii",
+            "rh_figure": "B233",
             "mood": "Lofting",
             "source": "jazz_progressions"
           }
@@ -5164,10 +5146,10 @@
         "rn": "V",
         "melody": "F4",
         "contour": "ascending",
-        "lh_roman": "V",
-        "lh_figure": "2333",
-        "rh_roman": "ii7",
-        "rh_figure": "C33",
+        "lh_roman": "V7ii",
+        "lh_figure": "2323",
+        "rh_roman": "ii7iii",
+        "rh_figure": "8233",
         "mood": "Stepping",
         "source": "jazz_progressions",
         "method": "4ths-CCW",
@@ -5175,9 +5157,9 @@
         "requested_rn": "V",
         "alternates": [
           {
-            "lh_roman": "V",
+            "lh_roman": "ii",
             "lh_figure": "233",
-            "rh_roman": "ii",
+            "rh_roman": "V",
             "rh_figure": "C33",
             "mood": "Stepping",
             "source": "jazz_progressions"
@@ -5190,9 +5172,9 @@
         "melody": "G4",
         "contour": "descending",
         "lh_roman": "ii",
-        "lh_figure": "6333",
-        "rh_roman": "vi7",
-        "rh_figure": "G33",
+        "lh_figure": "233",
+        "rh_roman": "vi",
+        "rh_figure": "D33",
         "mood": "Dreaming",
         "source": "jazz_progressions",
         "method": "4ths-CCW",
@@ -5200,10 +5182,10 @@
         "requested_rn": "ii4",
         "alternates": [
           {
-            "lh_roman": "ii",
-            "lh_figure": "633",
-            "rh_roman": "vi",
-            "rh_figure": "G33",
+            "lh_roman": "ii7ii",
+            "lh_figure": "6323",
+            "rh_roman": "vi7iii",
+            "rh_figure": "C233",
             "mood": "Dreaming",
             "source": "jazz_progressions"
           }
@@ -5214,9 +5196,9 @@
         "rn": "vi6",
         "melody": "D4",
         "contour": "ascending",
-        "lh_roman": "vi",
-        "lh_figure": "5334",
-        "rh_roman": "V+8",
+        "lh_roman": "V",
+        "lh_figure": "533",
+        "rh_roman": "vi",
         "rh_figure": "D33",
         "mood": "Pivoting",
         "source": "jazz_progressions",
@@ -5225,10 +5207,10 @@
         "requested_rn": "vi6",
         "alternates": [
           {
-            "lh_roman": "vi",
-            "lh_figure": "533",
-            "rh_roman": "V",
-            "rh_figure": "D33",
+            "lh_roman": "vi7iii",
+            "lh_figure": "5233",
+            "rh_roman": "V7iii",
+            "rh_figure": "B233",
             "mood": "Pivoting",
             "source": "jazz_progressions"
           }
@@ -5239,10 +5221,10 @@
         "rn": "V",
         "melody": "G4",
         "contour": "ascending",
-        "lh_roman": "I",
-        "lh_figure": "5332",
-        "rh_roman": "V6",
-        "rh_figure": "F33",
+        "lh_roman": "I\u0394ii",
+        "lh_figure": "5323",
+        "rh_roman": "V7iii",
+        "rh_figure": "B233",
         "mood": "Resolving",
         "source": "jazz_progressions",
         "method": "4ths-CW",
@@ -5250,9 +5232,9 @@
         "requested_rn": "V",
         "alternates": [
           {
-            "lh_roman": "I",
+            "lh_roman": "V",
             "lh_figure": "533",
-            "rh_roman": "V",
+            "rh_roman": "I",
             "rh_figure": "F33",
             "mood": "Resolving",
             "source": "jazz_progressions"
@@ -5264,10 +5246,10 @@
         "rn": "I",
         "melody": "B-4",
         "contour": "descending",
-        "lh_roman": "I",
-        "lh_figure": "5332",
-        "rh_roman": "V6",
-        "rh_figure": "F33",
+        "lh_roman": "I\u0394ii",
+        "lh_figure": "5323",
+        "rh_roman": "V7iii",
+        "rh_figure": "B233",
         "mood": "Lofting",
         "source": "jazz_progressions",
         "method": "4ths-CCW",
@@ -5275,9 +5257,9 @@
         "requested_rn": "I",
         "alternates": [
           {
-            "lh_roman": "I",
+            "lh_roman": "V",
             "lh_figure": "533",
-            "rh_roman": "V",
+            "rh_roman": "I",
             "rh_figure": "F33",
             "mood": "Lofting",
             "source": "jazz_progressions"
@@ -5289,9 +5271,9 @@
         "rn": "V",
         "melody": "F4",
         "contour": "descending",
-        "lh_roman": "I",
-        "lh_figure": "5332",
-        "rh_roman": "V6",
+        "lh_roman": "V",
+        "lh_figure": "533",
+        "rh_roman": "I",
         "rh_figure": "F33",
         "mood": "Resolving",
         "source": "jazz_progressions",
@@ -5300,10 +5282,10 @@
         "requested_rn": "V",
         "alternates": [
           {
-            "lh_roman": "I",
-            "lh_figure": "533",
-            "rh_roman": "V",
-            "rh_figure": "F33",
+            "lh_roman": "I\u0394ii",
+            "lh_figure": "5323",
+            "rh_roman": "V7iii",
+            "rh_figure": "B233",
             "mood": "Resolving",
             "source": "jazz_progressions"
           }
@@ -5316,28 +5298,28 @@
         "contour": "ascending",
         "lh_roman": "I",
         "lh_figure": "133",
-        "rh_roman": "ii7",
-        "rh_figure": "9333",
-        "mood": "Ethereal",
-        "source": "stacked_chords",
+        "rh_roman": "IV",
+        "rh_figure": "B33",
+        "mood": "Exploring",
+        "source": "jazz_progressions",
         "method": "stacked",
         "harmonic_substitution": null,
         "requested_rn": "I6",
         "alternates": [
           {
-            "lh_roman": "I",
-            "lh_figure": "133",
-            "rh_roman": "I+8",
-            "rh_figure": "8334",
-            "mood": "Chiming",
+            "lh_roman": "I6",
+            "lh_figure": "1332",
+            "rh_roman": "V7i",
+            "rh_figure": "7332",
+            "mood": "Warm",
             "source": "stacked_chords"
           },
           {
-            "lh_roman": "I+8",
-            "lh_figure": "733",
-            "rh_roman": "vii\u00b0",
-            "rh_figure": "F334",
-            "mood": "Releasing",
+            "lh_roman": "I",
+            "lh_figure": "133",
+            "rh_roman": "ii",
+            "rh_figure": "933",
+            "mood": "Cloudy",
             "source": "jazz_progressions"
           }
         ]
@@ -5347,11 +5329,11 @@
         "rn": "I",
         "melody": "G4",
         "contour": "ascending",
-        "lh_roman": "I",
-        "lh_figure": "133",
-        "rh_roman": "V",
-        "rh_figure": "533",
-        "mood": "Bright",
+        "lh_roman": "I6",
+        "lh_figure": "1332",
+        "rh_roman": "V7i",
+        "rh_figure": "7332",
+        "mood": "Warm",
         "source": "stacked_chords",
         "method": "stacked",
         "harmonic_substitution": null,
@@ -5360,17 +5342,17 @@
           {
             "lh_roman": "I",
             "lh_figure": "133",
-            "rh_roman": "ii7",
-            "rh_figure": "9333",
-            "mood": "Ethereal",
-            "source": "stacked_chords"
-          },
-          {
-            "lh_roman": "I",
-            "lh_figure": "133",
             "rh_roman": "ii",
             "rh_figure": "933",
-            "mood": "Warm",
+            "mood": "Cloudy",
+            "source": "jazz_progressions"
+          },
+          {
+            "lh_roman": "I\u0394ii",
+            "lh_figure": "5323",
+            "rh_roman": "iii",
+            "rh_figure": "B34",
+            "mood": "Shimmering",
             "source": "stacked_chords"
           }
         ]

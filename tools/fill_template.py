@@ -366,7 +366,7 @@ def render_header(data):
 \begin{{minipage}}[b]{{0.26\linewidth}}
 \raggedleft
 \fontsize{{7}}{{9}}\selectfont\ttfamily\color{{desccol}}
-\textbf{{Lead Sheet}}\\
+\textbf{{Reharm Sheet}}\\
 {n_bars} bars \raisebox{{0.2ex}}{{$\bullet$}} {n_phrases} phrase{'s' if n_phrases != 1 else ''}\\
 Strictly within the 118-chord vocabulary\\
 Auto-generated
