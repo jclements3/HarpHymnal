@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f1c19">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Harp Trefoil</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <button id="nav-toggle" class="nav-toggle" type="button"
+            aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <h1 class="topbar-title">Harp Trefoil</h1>
+    <div class="topbar-spacer" aria-hidden="true"></div>
+  </header>
+
+  <div class="shell">
+    <aside id="nav" class="nav" aria-label="Browse hymns and drills">
+      <div class="nav-inner">
+        <section class="nav-section" id="nav-hymns">
+          <button class="nav-section-toggle" type="button"
+                  aria-expanded="true" aria-controls="hymn-list">
+            <span class="chev" aria-hidden="true"></span>
+            <span class="label">Hymns</span>
+            <span class="count" id="hymn-count">0</span>
+          </button>
+          <div id="hymn-list" class="nav-body">
+            <p class="empty" id="hymn-empty">No hymns yet. Run <code>python -m cli.viewer_build</code>.</p>
+          </div>
+        </section>
+
+        <section class="nav-section" id="nav-drills">
+          <button class="nav-section-toggle" type="button"
+                  aria-expanded="true" aria-controls="drill-list">
+            <span class="chev" aria-hidden="true"></span>
+            <span class="label">Drills</span>
+            <span class="count" id="drill-count">0</span>
+          </button>
+          <div id="drill-list" class="nav-body">
+            <p class="empty" id="drill-empty">No drills yet.</p>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <main class="stage" id="stage" role="main" tabindex="-1">
+      <section id="view-welcome" class="view view-welcome" hidden>
+        <div class="welcome">
+          <h2>Harp Trefoil</h2>
+          <p>Tap a <strong>hymn</strong> for the piano score + MIDI, or a
+          <strong>drill</strong> for the ABC practice table.</p>
+        </div>
+      </section>
+
+      <section id="view-hymn" class="view view-hymn" hidden>
+        <div class="hymn-header">
+          <h2 id="hymn-title" class="hymn-title"></h2>
+          <div class="hymn-meta" id="hymn-meta"></div>
+        </div>
+        <div class="hymn-actions">
+          <a id="midi-link" class="midi-btn" href="#" hidden>
+            <span class="midi-glyph" aria-hidden="true">&#9654;</span>
+            <span class="midi-label">Play MIDI</span>
+          </a>
+          <audio id="midi-audio" controls preload="none" hidden></audio>
+        </div>
+        <div class="score-wrap">
+          <img id="score-img" class="score" alt="" />
+          <div id="score-fallback" class="score-fallback" hidden>
+            <p>Score not yet rendered for this hymn.</p>
+            <p class="hint">Run Step&nbsp;7 (LilyPond pipeline) to populate
+              <code>data/scores/</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-drill" class="view view-drill" hidden>
+        <div class="drill-header">
+          <h2 id="drill-title" class="drill-title"></h2>
+          <div class="drill-meta" id="drill-meta"></div>
+        </div>
+        <div class="drill-wrap">
+          <table class="drill-table" id="drill-table">
+            <thead>
+              <tr><th class="step" scope="col">#</th>
+                  <th class="abc" scope="col">ABC</th>
+                  <th class="cmt" scope="col">Comment</th></tr>
+            </thead>
+            <tbody id="drill-body"></tbody>
+          </table>
+          <p id="drill-fallback" class="drill-fallback" hidden>
+            Drill not yet built.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="nav-scrim" class="nav-scrim" hidden></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
