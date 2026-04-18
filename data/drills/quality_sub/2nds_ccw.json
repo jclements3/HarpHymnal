@@ -1,0 +1,108 @@
+{
+  "technique": "Quality sub",
+  "path": "2nds CCW",
+  "steps": [
+    {
+      "brace": {
+        "ipools": [
+          "001",
+          "002",
+          "003"
+        ],
+        "chord_nonterminal": "I"
+      },
+      "comment": "replace I with IΔ7"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "019",
+          "113",
+          "114",
+          "115"
+        ],
+        "chord_nonterminal": "vii○"
+      },
+      "comment": "replace vii○ with vii○ø7"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "016",
+          "020",
+          "105",
+          "106"
+        ],
+        "chord_nonterminal": "vi"
+      },
+      "comment": "replace vi with vi7"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "008",
+          "013",
+          "021",
+          "090",
+          "091"
+        ],
+        "chord_nonterminal": "V"
+      },
+      "comment": "replace V with V7"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "006",
+          "010",
+          "017",
+          "075",
+          "076"
+        ],
+        "chord_nonterminal": "IV"
+      },
+      "comment": "replace IV with IVΔ7"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "005",
+          "007",
+          "009",
+          "012",
+          "069",
+          "070",
+          "071"
+        ],
+        "chord_nonterminal": "iii"
+      },
+      "comment": "replace iii with iii7"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "004",
+          "011",
+          "014",
+          "015",
+          "018",
+          "058",
+          "059"
+        ],
+        "chord_nonterminal": "ii"
+      },
+      "comment": "replace ii with ii7"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "001",
+          "002",
+          "003"
+        ],
+        "chord_nonterminal": "I"
+      },
+      "comment": "replace I with IΔ7"
+    }
+  ]
+}

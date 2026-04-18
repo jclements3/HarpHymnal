@@ -1,0 +1,108 @@
+{
+  "technique": "Inversion",
+  "path": "3rds CW",
+  "steps": [
+    {
+      "brace": {
+        "ipools": [
+          "001",
+          "002",
+          "003"
+        ],
+        "chord_nonterminal": "I"
+      },
+      "comment": "play I in first inversion (3rd on the bottom)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "005",
+          "007",
+          "009",
+          "012",
+          "069",
+          "070",
+          "071"
+        ],
+        "chord_nonterminal": "iii"
+      },
+      "comment": "play iii in first inversion (3rd on the bottom)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "008",
+          "013",
+          "021",
+          "090",
+          "091"
+        ],
+        "chord_nonterminal": "V"
+      },
+      "comment": "play V in first inversion (3rd on the bottom)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "019",
+          "113",
+          "114",
+          "115"
+        ],
+        "chord_nonterminal": "vii○"
+      },
+      "comment": "play vii○ in first inversion (3rd on the bottom)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "004",
+          "011",
+          "014",
+          "015",
+          "018",
+          "058",
+          "059"
+        ],
+        "chord_nonterminal": "ii"
+      },
+      "comment": "play ii in first inversion (3rd on the bottom)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "006",
+          "010",
+          "017",
+          "075",
+          "076"
+        ],
+        "chord_nonterminal": "IV"
+      },
+      "comment": "play IV in first inversion (3rd on the bottom)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "016",
+          "020",
+          "105",
+          "106"
+        ],
+        "chord_nonterminal": "vi"
+      },
+      "comment": "play vi in first inversion (3rd on the bottom)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "001",
+          "002",
+          "003"
+        ],
+        "chord_nonterminal": "I"
+      },
+      "comment": "play I in first inversion (3rd on the bottom)"
+    }
+  ]
+}

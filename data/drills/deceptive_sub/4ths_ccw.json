@@ -1,0 +1,108 @@
+{
+  "technique": "Deceptive sub",
+  "path": "4ths CCW",
+  "steps": [
+    {
+      "brace": {
+        "ipools": [
+          "001",
+          "002",
+          "003"
+        ],
+        "chord_nonterminal": "I"
+      },
+      "comment": "deceptive sub: hold I (no diatonic sub available)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "008",
+          "013",
+          "021",
+          "090",
+          "091"
+        ],
+        "chord_nonterminal": "V"
+      },
+      "comment": "replace V with vi"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "004",
+          "011",
+          "014",
+          "015",
+          "018",
+          "058",
+          "059"
+        ],
+        "chord_nonterminal": "ii"
+      },
+      "comment": "deceptive sub: hold ii (no diatonic sub available)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "016",
+          "020",
+          "105",
+          "106"
+        ],
+        "chord_nonterminal": "vi"
+      },
+      "comment": "deceptive sub: hold vi (no diatonic sub available)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "005",
+          "007",
+          "009",
+          "012",
+          "069",
+          "070",
+          "071"
+        ],
+        "chord_nonterminal": "iii"
+      },
+      "comment": "deceptive sub: hold iii (no diatonic sub available)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "019",
+          "113",
+          "114",
+          "115"
+        ],
+        "chord_nonterminal": "vii○"
+      },
+      "comment": "deceptive sub: hold vii○ (no diatonic sub available)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "006",
+          "010",
+          "017",
+          "075",
+          "076"
+        ],
+        "chord_nonterminal": "IV"
+      },
+      "comment": "deceptive sub: hold IV (no diatonic sub available)"
+    },
+    {
+      "brace": {
+        "ipools": [
+          "001",
+          "002",
+          "003"
+        ],
+        "chord_nonterminal": "I"
+      },
+      "comment": "deceptive sub: hold I (no diatonic sub available)"
+    }
+  ]
+}
