@@ -66,6 +66,11 @@ Terms in dependency order (smallest → largest). See the grammar in §4 for for
 - **intervals** — sequence of `interval`s, e.g. `"333"`. Identifies a hand *shape class* (14 total in the HarpChordSystem).
 - **shape** — `degree + intervals` — one hand's concrete voicing. *The teacher's term*: shape is what the fingers do, locked in before the strings are engaged, ending on the thumb.
 - **bishape** — two shapes stacked (LH + RH) — a two-hand voicing.
+- **gap** — a derived integer on a bishape: the number of strings between the topmost LH string and the bottommost RH string. Formally `gap = min(positions(RH)) − max(positions(LH)) − 1`. Interpretation:
+  - `gap = 0` — LH top and RH bottom are on *adjacent* strings (tightest legal coupling; no overlap).
+  - `gap < 0` — LH and RH would pluck the same physical string simultaneously. **Unplayable on harp — prohibited.** The LH and RH can share a pitch class an octave apart (different strings), but never the same string at the same time.
+  - `gap < 4` — *preferred* range for harmonic cohesion. 105 of 118 pool fractions sit in `gap ∈ {0, 1, 2, 3}`.
+  - `gap ≥ 4` — wide spread; legal but reserved for specific open-voicing moods.
 
 ### 3.3 Chord names (abstract)
 - **chord** — a roman numeral (`I`, `V7`, `IΔ7`, `iii`, `vii○`). Names the chord independent of voicing.
@@ -93,6 +98,133 @@ Four top-level tags, 18 techniques total:
 - **Approach** (5): Step, Third, Dominant, Suspension, Double
 - **Voicing** (6): Inversion, Density, Stacking, Pedal, Voice leading, Open/closed spread
 - **Placement** (2): Anticipation, Delay
+
+### 3.6.1  Technique drill inventory (key of C)
+
+For each technique: the rule in parentheses, then one bullet per chord-function
+pair (or per chord), listing every distinct hand-pattern gesture as a from→to
+note pair.  Lowercase = LH, UPPERCASE = RH.  Three filters applied:
+
+1. **Duplicate pattern-pairs removed** — fractions at different anchors but with the
+   same (LH-pattern, RH-pattern) encode the same muscle-memory gesture.
+2. **Same-string overlap removed** (gap ≥ 0) — LH and RH can share a pitch class
+   an octave apart, but they can never pluck the same physical string at the same time.
+3. **Wide-spread overlap removed** (gap ≤ 6) — the largest gap observed in the
+   curated pool is 6; any arithmetically-slid target whose LH/RH spread exceeds
+   that is rejected as unidiomatic.  Bounds come from `grammar/constants.py`.
+
+---
+
+#### Third sub   *(slide both hands down 2 degrees; same pattern)*
+
+* **I-vi**   bcegABDF gaceFGBD, bcegCEA gaceACF, gbceFGBD egacDEGB, gceFAD eacDFB, gceFBD eacDGB, gceFABD eacDFGB, egcDFB ceaBDG, gbceFAD egacDFB, gbceFABD egacDFGB, bcegADF gaceFBD, bcegACDF gaceFABD
+* **IV-ii**   facBDF dfaGBD, efacDEGB cdfaBCEG, efacFAD cdfaDFB, facDGB dfaBEG, facDEGB dfaBCEG, facdEGBC dfabCEGA, fgcDEA deaBCF, fgcDFB deaBDG, fgcDGB deaBEG, fgcDEGB deaBCEG, fgcDGBD deaBEGB, acfGBE fadEGC, faceFGBD dfacDEGB, efacDGB cdfaBEG, efacDFGB cdfaBDEG
+* **vii°-V**   bdfCEG gbdACE, fabdEFAC dfgbCDFA, abdfBDG fgbdGBE, abdfGACE fgbdEFAC, beaBDG gcfGBE, beaBDFG gcfGBDE, bdfGCE gbdEAC, bdfGACE gbdEFAC, bdfGCEG gbdEACE, bdfaBCEG gbdfGACE, bdfaBEG gbdfGCE, bdfaBDEG gbdfGBCE
+* **iii-I**   egbGBD cegEGB, bdegABDF gbceFGBD, egbCFA cegADF, egbCDFA cegABDF, egbCFAC cegADFA, egbdEFAC cegbCDFA, eadEGC cfbCEA, eadEGBC cfbCEGA
+* **vi-IV**   aceBDF facGBD, egacDEGB cefaBCEG, gaceFGBD efacDEGB, gaceACF efacFAD, aceFBD facDGB, aceFGBD facDEGB, acegABDF faceFGBD, adgACF fbeFAD, adgACEF fbeFACD, abeFGC fgcDEA
+* **ii-vii°**   acdfGACE fabdEFAC
+* **V-iii**   gbdBDF egbGBD, fgbdGBE degbEGC, fgbdEFAC degbCDFA, gbdEAC egbCFA, gbdEFAC egbCDFA, gbdfGACE egbdEFAC, gcfGBE eadEGC, gadEGC efbCEA, gadEAC efbCFA, gadEFAC efbCDFA, gadEGBC efbCEGA, gcdEAB eabCFG, bdgACF gbeFAD, bdgACEF gbeFACD, fgbdEAC degbCFA
+
+#### Quality sub   *(same anchor, extend pattern by appending one 3-interval (adds the 7th))*
+
+* **I**   cegDFA cegbDFAC
+
+#### Modal reframing   *(no physical change — re-label the chord in the relative mode (Ionian ↔ Aeolian); same notes, new function)*
+
+
+#### Deceptive sub   *(at V→I only: keep LH, RH slides down 2 to vi)*
+
+* **V-vi**   gbdCEG gbdACE
+
+#### Common-tone pivot   *(slide 1 degree down to a chord sharing 2 tones)*
+
+* **I-vii°**   bcegABDF abdfGACE, bcegCEA abdfBDG, gbceFGBD fabdEFAC, gceFAD fbdEGC, gceFBD fbdEAC, gceFABD fbdEGAC, egcDFB dfbCEA, gbceFAD fabdEGC, gbceFABD fabdEGAC, bcegADF abdfGCE, bcegACDF abdfGBCE
+* **IV-iii**   facBDF egbACE, efacDEGB degbCDFA, efacFAD degbEGC, facDGB egbCFA, facDEGB egbCDFA, facdEGBC egbcDFAB, fgcDEA efbCDG, fgcDFB efbCEA, fgcDGB efbCFA, fgcDEGB efbCDFA, fgcDGBD efbCFAC, acfGBE gbeFAD, faceFGBD egbdEFAC, efacDGB degbCFA, efacDFGB degbCEFA
+* **vii°-vi**   bdfCEG aceBDF, fabdEFAC egacDEGB, abdfBDG gaceACF, abdfGACE gaceFGBD, beaBDG adgACF, beaBDFG adgACEF, bdfGCE aceFBD, bdfGACE aceFGBD, bdfGCEG aceFBDF, bdfaBCEG acegABDF, bdfaBEG acegADF, bdfaBDEG acegACDF
+* **iii-ii**   egbGBD dfaFAC, degbEGC cdfaDFB, degbCDFA cdfaBCEG, bdegABDF acdfGACE, egbCFA dfaBEG, egbCDFA dfaBCEG, egbCFAC dfaBEGB, egbdEFAC dfacDEGB, eadEGC dgcDFB, eadEGBC dgcDFAB
+* **vi-V**   aceBDF gbdACE, egacDEGB dfgbCDFA, gaceFGBD fgbdEFAC, gaceACF fgbdGBE, aceFBD gbdEAC, aceFGBD gbdEFAC, acegABDF gbdfGACE, adgACF gcfGBE, adgACEF gcfGBDE, abeFGC gadEFB
+* **ii-I**   dfaEGB cegDFA, acdfGACE gbceFGBD, dfaBEG cegADF, dfaBCEG cegABDF, dfabCEA cegaBDG, dfabCEFA cegaBDEG, dfacDEGB cegbCDFA, dgcDFB cfbCEA, dgcEAB cfbDGA, deaBDG cdgACF, deaBEG cdgADF, deaBCEG cdgABDF, deaBDFG cdgACEF
+* **V-IV**   gbdBDF facACE, fgbdGBE efacFAD, fgbdEFAC efacDEGB, dfgbCDFA cefaBCEG, gbdEAC facDGB, gbdEFAC facDEGB, gbdfGACE faceFGBD, gcfGBE fbeFAD, gadEGC fgcDFB, gadEAC fgcDGB, gadEFAC fgcDEGB, gadEGBC fgcDFAB, gcdEAB fbcDGA, dgbCEA cfaBDG, dgbCFA cfaBEG, dgbCEFA cfaBDEG, bdgACF acfGBE, bdgACEF acfGBDE, fgbdEAC efacDGB
+
+#### Step approach   *(from the chord a step below the target: LH & RH slide up 1 degree)*
+
+* **I-ii**   cegDFA dfaEGB, bcegABDF cdfaBCEG, gbceFGBD acdfGACE, cegaBDFG dfabCEGA, cdgABE deaBCF, cdgACF deaBDG, cdgADF deaBEG, cdgABDF deaBCEG, cdgACEF deaBDFG, gceFAD adfGBE, gceFBD adfGCE, gceFABD adfGBCE, egcDFB fadEGC, cegbCDFA dfacDEGB, gbceFAD acdfGBE, gbceFABD acdfGBCE, bcegADF cdfaBEG, bcegACDF cdfaBDEG
+* **IV-V**   facBDF gbdCEG, cefaBCEG dfgbCDFA, efacDEGB fgbdEFAC, efacFAD fgbdGBE, facDGB gbdEAC, facDEGB gbdEFAC, facdEGBC gbdeFACD, fgcDEA gadEFB, fgcDFB gadEGC, fgcDGB gadEAC, fgcDEGB gadEFAC, fgcDGBD gadEACE, cfaBDG dgbCEA, cfaBEG dgbCFA, cfaBDEG dgbCEFA, acfGBE bdgACF, faceFGBD gbdfGACE, efacDGB fgbdEAC, efacDFGB fgbdEGAC
+* **vii°-I**   fabdEFAC gbceFGBD, abdfBDG bcegCEA, abdfGACE bcegABDF, beaBDG cfbCEA, beaBDFG cfbCEGA, bdfGCE cegADF, bdfGACE cegABDF, bdfGCEG cegADFA, bdfaBCEG cegbCDFA, bdfaBEG cegbCFA, bdfaBDEG cegbCEFA
+* **iii-IV**   egbGBD facACE, degbEGC efacFAD, degbCDFA efacDEGB, bdegABDF cefaBCEG, egbCFA facDGB, egbCDFA facDEGB, egbCFAC facDGBD, egbdEFAC faceFGBD, eadEGC fbeFAD, eadEGBC fbeFACD
+* **vi-vii°**   aceBDF bdfCEG, egacDEGB fabdEFAC, gaceFGBD abdfGACE, gaceACF abdfBDG, aceFBD bdfGCE, aceFGBD bdfGACE, acegABDF bdfaBCEG, adgACF beaBDG, adgACEF beaBDFG, abeFGC bcfGAD
+* **ii-iii**   dfaEGB egbFAC, cdfaBCEG degbCDFA, cdfaDFB degbEGC, acdfGACE bdegABDF, dfaBEG egbCFA, dfaBCEG egbCDFA, dfabCEA egbcDFB, dfabCEFA egbcDFGB, dfacDEGB egbdEFAC, dgcDFB eadEGC, dgcEAB eadFBC, deaBDG efbCEA, deaBEG efbCFA, deaBCEG efbCDFA, deaBDFG efbCEGA
+* **V-vi**   gbdBDF aceCEG, fgbdGBE gaceACF, fgbdEFAC gaceFGBD, dfgbCDFA egacDEGB, gbdEAC aceFBD, gbdEFAC aceFGBD, gbdfGACE acegABDF, gcfGBE adgACF, gadEGC abeFAD, gadEAC abeFBD, gadEFAC abeFGBD, gadEGBC abeFACD, gcdEAB adeFBC, dgbCEA eacDFB, dgbCFA eacDGB, dgbCEFA eacDFGB, bdgACF ceaBDG, bdgACEF ceaBDFG, fgbdEAC gaceFBD
+
+#### Third approach   *(from the chord a third below the target: LH & RH slide up 2 degrees)*
+
+* **I-iii**   cegDFA egbFAC, bcegABDF degbCDFA, gbceFGBD bdegABDF, cegaBDFG egbcDFAB, cdgABE efbCDG, cdgACF efbCEA, cdgADF efbCFA, cdgABDF efbCDFA, cdgACEF efbCEGA, gceFAD begACF, gceFBD begADF, gceFABD begACDF, egcDFB gbeFAD, cegbCDFA egbdEFAC, gbceFAD bdegACF, gbceFABD bdegACDF, bcegADF degbCFA, bcegACDF degbCEFA
+* **IV-vi**   facGBD aceBDF, cefaBCEG egacDEGB, efacDEGB gaceFGBD, efacFAD gaceACF, facDGB aceFBD, facDEGB aceFGBD, facdEGBC acefGBDE, fgcDEA abeFGC, fgcDFB abeFAD, fgcDGB abeFBD, fgcDEGB abeFGBD, fgcDGBD abeFBDF, cfaBDG eacDFB, cfaBEG eacDGB, cfaBDEG eacDFGB, acfGBE ceaBDG, faceFGBD acegABDF, efacDGB gaceFBD, efacDFGB gaceFABD
+* **vii°-ii**   fabdEFAC acdfGACE, abdfGACE cdfaBCEG, bdfGCE dfaBEG, bdfGACE dfaBCEG, bdfGCEG dfaBEGB
+* **iii-V**   egbGBD gbdBDF, degbEGC fgbdGBE, degbCDFA fgbdEFAC, bdegABDF dfgbCDFA, egbCFA gbdEAC, egbCDFA gbdEFAC, egbCFAC gbdEACE, egbdEFAC gbdfGACE, eadEGC gcfGBE, eadEGBC gcfGBDE
+* **vi-I**   egacDEGB gbceFGBD, gaceFGBD bcegABDF, gaceACF bcegCEA, aceFBD cegADF, aceFGBD cegABDF, acegABDF cegbCDFA, adgACF cfbCEA, adgACEF cfbCEGA, abeFGC cdgABE
+* **ii-IV**   dfaEGB facGBD, cdfaBCEG efacDEGB, cdfaDFB efacFAD, acdfGACE cefaBCEG, dfaBEG facDGB, dfaBCEG facDEGB, dfabCEA facdEGC, dfabCEFA facdEGAC, dfacDEGB faceFGBD, dgcDFB fbeFAD, dgcEAB fbeGCD, deaBDG fgcDFB, deaBEG fgcDGB, deaBCEG fgcDEGB, deaBDFG fgcDFAB
+* **V-vii°**   gbdACE bdfCEG, fgbdGBE abdfBDG, fgbdEFAC abdfGACE, dfgbCDFA fabdEFAC, gbdEAC bdfGCE, gbdEFAC bdfGACE, gbdfGACE bdfaBCEG, gcfGBE beaBDG, gadEGC bcfGBE, gadEAC bcfGCE, gadEFAC bcfGACE, gadEGBC bcfGBDE, gcdEAB befGCD, dgbCEA fbdEGC, dgbCFA fbdEAC, dgbCEFA fbdEGAC, bdgACF dfbCEA, bdgACEF dfbCEGA, fgbdEAC abdfGCE
+
+#### Dominant approach   *(approach any target by first playing V of the key, then the target; slide distance depends on the target (V-I, V-IV, V-vi, …))*
+
+
+#### Suspension approach   *(same anchor as the target; swap one 3-interval for a 2+4 (s2/s4), then resolve to the target triad)*
+
+
+#### Double approach   *(two-step preparation: step-below + V + target (three chords into the bar))*
+
+
+#### Inversion   *(rotate the interval list left; anchor shifts up by (first-interval − 1))*
+
+* **I**   cegDFA egbFAC, cegaBDFG egacDFGB, cdgACF dgbCFA, cdgADF dgbDFA, cdgACEF dgbCEFA
+* **IV**   cfaBDG facDGB, cfaBEG facEGB, cfaBDEG facDEGB
+* **iii**   egbCFA gbdFAC
+* **ii**   dfaBDF facDFA, dfaBEG facEGB, dfabCEA fabdEAC, dfabCEFA fabdEFAC, deaBDG eacDGB, deaBEG eacEGB, deaBDFG eacDFGB
+* **V**   dgbCEA gbdEAC, dgbCFA gbdFAC, dgbCEFA gbdEFAC
+
+#### Density (drop)   *(drop the top interval from the pattern (lose a finger))*
+
+* **I**   cegDFA ceDF, bcegABDF bceABD, bcegCEA bceCE, gbceFGBD gbcFGB, cegaBDFG cegBDF, cdgABE cdAB, cdgACF cdAC, cdgADF cdAD, cdgABDF cdABD, cdgACEF cdACE, gceFAD gcFA, gceFBD gcFB, gceFABD gcFAB, egcDFB egDF, cegbCDFA cegCDF, gbceFAD gbcFA, gbceFABD gbcFAB, bcegADF bceAD, bcegACDF bceACD
+* **IV**   facGBD faGB, cefaBCEG cefBCE, efacDEGB efaDEG, efacFAD efaFA, facDGB faDG, facDEGB faDEG, facdEGBC facEGB, fgcDEA fgDE, fgcDFB fgDF, fgcDGB fgDG, fgcDEGB fgDEG, fgcDGBD fgDGB, cfaBDG cfBD, cfaBEG cfBE, cfaBDEG cfBDE, acfGBE acGB, faceFGBD facFGB, efacDGB efaDG, efacDFGB efaDFG
+* **vii°**   bdfCEG bdCE, fabdEFAC fabEFA, abdfBDG abdBD, abdfGACE abdGAC, beaBDG beBD, beaBDFG beBDF, bdfGCE bdGC, bdfGACE bdGAC, bdfGCEG bdGCE, bdfaBCEG bdfBCE, bdfaBEG bdfBE, bdfaBDEG bdfBDE
+* **iii**   egbGBD egGB, degbEGC degEG, degbCDFA degCDF, bdegABDF bdeABD, egbCFA egCF, egbCDFA egCDF, egbCFAC egCFA, egbdEFAC egbEFA, eadEGC eaEG, eadEGBC eaEGB
+* **vi**   aceBDF acBD, egacDEGB egaDEG, gaceFGBD gacFGB, gaceACF gacAC, aceFBD acFB, aceFGBD acFGB, acegABDF aceABD, adgACF adAC, adgACEF adACE, abeFGC abFG
+* **ii**   dfaEGB dfEG, cdfaBCEG cdfBCE, cdfaDFB cdfDF, acdfGACE acdGAC, dfaBEG dfBE, dfaBCEG dfBCE, dfabCEA dfaCE, dfabCEFA dfaCEF, dfacDEGB dfaDEG, dgcDFB dgDF, dgcEAB dgEA, deaBDG deBD, deaBEG deBE, deaBCEG deBCE, deaBDFG deBDF
+* **V**   gbdBDF gbBD, fgbdGBE fgbGB, fgbdEFAC fgbEFA, dfgbCDFA dfgCDF, gbdEAC gbEA, gbdEFAC gbEFA, gbdfGACE gbdGAC, gcfGBE gcGB, gadEGC gaEG, gadEAC gaEA, gadEFAC gaEFA, gadEGBC gaEGB, gcdEAB gcEA, dgbCEA dgCE, dgbCFA dgCF, dgbCEFA dgCEF, bdgACF bdAC, bdgACEF bdACE, fgbdEAC fgbEA
+
+#### Density (extend)   *(append a 3-interval to the pattern (gain a finger, adds the next stack note))*
+
+* **I**   cegDFA cegbDFAC
+
+#### Stacking   *(single-hand shape → two-hand bishape)*
+
+* **I**   ceg cegDFA, bceg bcegABDF, gbce gbceFGBD, cega cegaBDFG, cdg cdgABE, gce gceFAD, egc egcDFB, cegb cegbCDFA
+* **IV**   fac facBDF, cefa cefaBCEG, efac efacDEGB, facd facdEGBC, fgc fgcDEA, cfa cfaBDG, acf acfGBE, face faceFGBD
+* **vii°**   bdf bdfCEG, fabd fabdEFAC, abdf abdfBDG, bea beaBDG, bdfa bdfaBCEG
+* **iii**   egb egbGBD, degb degbEGC, bdeg bdegABDF, egbd egbdEFAC, ead eadEGC
+* **vi**   ace aceBDF, egac egacDEGB, gace gaceFGBD, aceg acegABDF, adg adgACF, abe abeFGC
+* **ii**   dfa dfaEGB, cdfa cdfaBCEG, acdf acdfGACE, dfab dfabCEA, dfac dfacDEGB, dgc dgcDFB, dea deaBDG
+* **V**   gbd gbdBDF, fgbd fgbdGBE, dfgb dfgbCDFA, gbdf gbdfGACE, gcf gcfGBE, gad gadEGC, gcd gcdEAB, dgb dgbCEA
+
+#### Pedal   *(LH anchor frozen on tonic; RH shape slides)*
+
+* **I-pedal**   cegDFA
+
+#### Voice leading   *(select the target voicing that minimises total finger travel from the current voicing — no single arithmetic rule; consult the pool column for the target chord and pick the voicing closest to the previous bar’s shape)*
+
+
+#### Open/closed spread   *(swap the last 3-interval in the pattern for a 4 to widen the voicing)*
+
+* **I**   cegDFA ceaDFB
+* **ii**   dfaEGB dfbEGC, cdfaDFB cdfbDGC
+
+#### Anticipation   *(no shape change — the chord change arrives earlier in the bar than written)*
+
+
+#### Delay   *(no shape change — the chord change arrives later in the bar than written)*
+
+
 
 ### 3.7 Paths (the trefoil)
 Six diatonic cycles — three axes × two directions:

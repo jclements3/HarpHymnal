@@ -27,7 +27,10 @@ inversion  = "¹" | "²" | "³" ;
 (* ------- Voicings ------- *)
 intervals  = interval, interval, { interval } ;
 shape      = degree, intervals ;
-bishape    = shape, shape ;
+bishape    = shape, shape ;                             (* constraint: gap(lh, rh) >= 0; pool prefers gap < 4 *)
+gap        = number ;                                   (* derived: min(positions(rh)) - max(positions(lh)) - 1;
+                                                           gap=0 = adjacent strings (tightest); gap<0 = same-string
+                                                           collision (unplayable); gap<4 = preferred harmonic range *)
 
 (* ------- Chord names ------- *)
 chord      = roman ;
