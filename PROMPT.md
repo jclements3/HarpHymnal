@@ -98,7 +98,8 @@ Each numbered step should be a separate commit + push.
 **Drill format**:
 - Rows = steps, 2 columns per row: ABC text + one-line comment.
 - Braces: each slot is an alternation of ipools that realize the same chord.
-- Example for tonic family: `{006|015|029|065|074}` for I, `{008|017|031|067}` for iii, `{011|013|027|070}` for vi.
+- Ipool scheme: `{degree}{rank:02d}` — first digit is the LH scale-degree (1..7), next two digits rank the voicing within that degree (01 = cleanest / best-sounding).
+- Example for tonic family: `{101|102|103}` for I, `{301|302|303|304}` for iii, `{601|602|606|607}` for vi.
 
 ---
 

@@ -80,10 +80,11 @@ def test_every_step_brace_has_at_least_one_ipool(pool):
                     f'brace for {step.brace.chord_nonterminal!r} in '
                     f'{display!r} × {path!r} at step {idx} has zero ipools'
                 )
-                # Each ipool is a 3-digit zero-padded id in 001..118.
+                # Each ipool is degree-prefixed: '{1-7}{rank:02d}'.
                 for ip in ips:
                     assert ip.isdigit() and len(ip) == 3
-                    assert 1 <= int(ip) <= 118
+                    assert ip[0] in '1234567'
+                    assert int(ip[1:]) >= 1
 
 
 def test_brace_ipools_are_unique_within_step(pool):
