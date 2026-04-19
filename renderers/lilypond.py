@@ -665,6 +665,205 @@ def assign_bars(song: Song, pool: Pool) -> list[Optional[dict]]:
 
 
 # ═════════════════════════════════════════════════════════════════════════════
+#   Voicing hints (Task #12 — techniques/voicing.py as renderer-level tweaks)
+# ═════════════════════════════════════════════════════════════════════════════
+#
+# The mapper has already picked a pool Bishape (LH fig + RH fig) per bar.  The
+# voicing module in ``techniques/voicing.py`` defines 6 pure-function operators
+# that return a modified Bar with a new ``voicing`` Bishape — but here in the
+# renderer we apply them as lightweight *hints* that reshape the concrete
+# figures without changing the RN label.  Scope for Phase 1:
+#
+#   - ``inversion=1``    on the 2nd occurrence of a repeated phrase-final RN
+#                        (e.g. bar 8 of a 16-bar hymn whose bar 4 has the same
+#                        chord) — rotates the LH figure so the 3rd is in the
+#                        bass, giving the player contrast on the reprise.
+#   - ``density=extend`` on phrase-final bars with ``bar_duration >= 3`` beats
+#                        AND sparse melody (<= 2 events) — appends a 3-interval
+#                        to the RH figure, producing a 7th/9th colour tone.
+#   - ``pedal=1``        on the first bar of phrases >= 6 bars long — injects a
+#                        low tonic as a grace / stacked bass under the normal
+#                        LH, creating a grounding anchor.
+#
+# Voice-leading / stacking / open-closed spread are deferred.
+
+def _rotate_figure_inv1(fig: str) -> str:
+    """Rotate a figure one step left: root moves out, 3rd becomes new bass.
+    ``'133' -> '333'``, ``'1332' -> '3323'``, ``'124' -> '242'``.  Returns
+    the input unchanged on short or unparsable figures.
+    """
+    if not fig or len(fig) < 2:
+        return fig
+    try:
+        start = STRING_ALPHABET[fig[0]]
+        positions = [start]
+        for ch in fig[1:]:
+            positions.append(positions[-1] + int(ch) - 1)
+    except (KeyError, ValueError):
+        return fig
+    # Original intervals-between-adjacent: keep list stable.
+    intervals = [positions[i + 1] - positions[i] + 1
+                 for i in range(len(positions) - 1)]
+    new_top = positions[-1] + intervals[0] - 1
+    new_positions = positions[1:] + [new_top]
+    _INV = {v: k for k, v in STRING_ALPHABET.items()}
+    head = _INV.get(new_positions[0])
+    if head is None:  # overflow past string F (=15)
+        return fig
+    tail_chars: list[str] = []
+    for a, b in zip(new_positions, new_positions[1:]):
+        d = b - a + 1
+        if d < 1 or d > 9:
+            return fig
+        tail_chars.append(str(d))
+    return head + ''.join(tail_chars)
+
+
+def _extend_figure_9th(fig: str) -> str:
+    """Append a 3-interval to stack an extra diatonic third on top.
+    ``'933' -> '9333'``.  If appending would overflow string F, re-anchor
+    one octave lower so the extension still fits.
+    """
+    if not fig:
+        return fig
+    try:
+        start = STRING_ALPHABET[fig[0]]
+        positions = [start]
+        for ch in fig[1:]:
+            positions.append(positions[-1] + int(ch) - 1)
+    except (KeyError, ValueError):
+        return fig
+    new_top = positions[-1] + 2  # +3-1 = +2 (stack-a-third)
+    if new_top <= 15:
+        return fig + '3'
+    # Overflow — drop the whole voicing an octave (7 strings) and retry.
+    shifted = [p - 7 for p in positions]
+    if shifted[0] < 1 or shifted[-1] + 2 > 15:
+        return fig  # still can't fit; give up
+    _INV = {v: k for k, v in STRING_ALPHABET.items()}
+    head = _INV.get(shifted[0])
+    if head is None:
+        return fig
+    rest = [str(b - a + 1) for a, b in zip(shifted, shifted[1:])]
+    return head + ''.join(rest) + '3'
+
+
+def _voicing_plan(song: Song,
+                  assignments: list[Optional[dict]]) -> dict[int, str]:
+    """Build the ibar -> voicing-hint-name map per the Task #12 policy.
+
+    Returns a dict keyed by 1-based ibar; values are hint strings such as
+    ``'inversion=1'``, ``'density=extend'``, ``'pedal=1'``.  At most one hint
+    per bar — priority pedal > inversion > density so the grounding anchor
+    isn't overwritten by a colour tweak.
+    """
+    plan: dict[int, str] = {}
+    n = len(assignments)
+    if n == 0:
+        return plan
+
+    # --- pedal=1: first bar of phrases with >= 6 bars --------------------
+    for ph in song.phrases:
+        ibars = list(ph.ibars or ())
+        if len(ibars) >= 6 and ibars:
+            ib = ibars[0]
+            if 1 <= ib <= n and assignments[ib - 1] is not None:
+                plan[ib] = 'pedal=1'
+
+    # --- inversion=1 on the SECOND occurrence only of a repeated phrase-final
+    # RN (per Task #12 policy: "bar 8 of a 16-bar hymn with same chord as bar 4
+    # — inversion on 2nd occurrence only").  Third and later occurrences are
+    # left alone so the figure contrast is a one-shot surprise, not a pattern.
+    phrase_final_bars: list[int] = []
+    for ph in song.phrases:
+        ibars = list(ph.ibars or ())
+        if ibars:
+            phrase_final_bars.append(ibars[-1])
+    rn_counts: dict[str, int] = {}
+    for ib in phrase_final_bars:
+        if not (1 <= ib <= n):
+            continue
+        a = assignments[ib - 1]
+        if a is None:
+            continue
+        rn = (a.get('rn') or '').strip()
+        if not rn:
+            continue
+        rn_counts[rn] = rn_counts.get(rn, 0) + 1
+        if rn_counts[rn] == 2 and ib not in plan:
+            plan[ib] = 'inversion=1'
+
+    # --- density=extend on sustained phrase-final bars -------------------
+    meter = song.meter
+    bar_duration = float(meter.beats) * (4.0 / float(meter.unit))
+    if bar_duration >= 3.0:
+        for ph in song.phrases:
+            ibars = list(ph.ibars or ())
+            if not ibars:
+                continue
+            ib = ibars[-1]
+            if not (1 <= ib <= n):
+                continue
+            if ib in plan:
+                continue
+            a = assignments[ib - 1]
+            if a is None:
+                continue
+            bar = song.bars[ib - 1]
+            n_events = len(bar.melody)
+            if n_events <= 2:
+                plan[ib] = 'density=extend'
+
+    return plan
+
+
+def _apply_voicing_hint(assignment: dict, hint: str) -> dict:
+    """Return a shallow-copied assignment dict with figures re-shaped per hint.
+
+    Attaches the hint name as ``assignment['voicing']`` so downstream consumers
+    (and the label-markup pass) can see which bars were tweaked.  Pedal is
+    NOT expressed as a figure change — it is handled at layout time by
+    injecting a low tonic into the LH event stream; we merely tag it here.
+    """
+    out = dict(assignment)
+    out['voicing'] = hint
+    if hint == 'inversion=1':
+        lh = out.get('lh_fig') or ''
+        if lh:
+            out['lh_fig'] = _rotate_figure_inv1(lh)
+    elif hint == 'density=extend':
+        rh = out.get('rh_fig') or ''
+        if rh:
+            out['rh_fig'] = _extend_figure_9th(rh)
+    # 'pedal=1' has no figure-level change; layout pass injects a bass tonic.
+    return out
+
+
+def _inject_pedal_tone(bar_data: dict, key_root: str, mode: str) -> None:
+    """Add a low-tonic pedal under the bar's LH events (in-place).
+
+    If the bar already carries ``grace_midis`` (bar 1 / last bar), prepend the
+    pedal to those; otherwise add it as ``grace_midis`` on the first LH event
+    so it sounds as a grace leading into the beat-1 block.  Also stack a
+    sustained low tonic as an additional midi in the first LH chord so it
+    rings through the bar.
+    """
+    lh_events = bar_data.get('lh_events') or []
+    if not lh_events:
+        return
+    pedal_midi = string_to_midi(1, key_root, mode, base_octave=1)
+    while pedal_midi < HARP_LOW_MIDI:
+        pedal_midi += 12
+    first = lh_events[0]
+    existing = list(first.get('midis') or [])
+    if pedal_midi not in existing:
+        first['midis'] = [pedal_midi] + existing
+    grace = list(first.get('grace_midis') or [])
+    if pedal_midi not in grace:
+        first['grace_midis'] = [pedal_midi] + grace
+
+
+# ═════════════════════════════════════════════════════════════════════════════
 #   LilyPond assembly
 # ═════════════════════════════════════════════════════════════════════════════
 
@@ -721,6 +920,17 @@ def render_piano_score(song: Song, pool: Pool) -> str:
 
     assignments = assign_bars(song, pool)
 
+    # Voicing hints (Task #12): ibar -> hint name.  Applied to the per-bar
+    # assignment dict so layout sees the reshaped figures; 'pedal=1' is
+    # handled after layout via _inject_pedal_tone since it touches the LH
+    # event stream, not the figure string.
+    voicing_hints = _voicing_plan(song, assignments)
+    for ib, hint in voicing_hints.items():
+        a = assignments[ib - 1]
+        if a is None:
+            continue
+        assignments[ib - 1] = _apply_voicing_hint(a, hint)
+
     # Phrase-end bars (cadence_arp) — last bar excluded (→ grand_chord instead).
     phrase_end_bars: set[int] = set()
     n = len(song.bars)
@@ -752,8 +962,11 @@ def render_piano_score(song: Song, pool: Pool) -> str:
         bar_data = layout_fn(assignment, melody_events, key_root, mode,
                              meter_num, meter_den,
                              next_assignment=next_assignment)
+        if voicing_hints.get(ibar) == 'pedal=1':
+            _inject_pedal_tone(bar_data, key_root, mode)
         bar_data['label_markup'] = chord_label_markup(assignment)
         bar_data['style'] = style
+        bar_data['voicing'] = assignment.get('voicing')
         layouts.append(bar_data)
 
     # Emit.
