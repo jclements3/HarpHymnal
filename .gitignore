@@ -25,3 +25,6 @@ samples/files (1).zip
 
 # Claude Code agent worktrees (scratch, managed by the CLI)
 .claude/
+
+# Generated score artifacts (rebuilt on demand via cli.scores_build)
+data/scores/
