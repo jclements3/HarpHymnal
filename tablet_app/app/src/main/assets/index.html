@@ -598,12 +598,12 @@
     $('hymn-count').textContent = matches.length + ' / ' + catalog.length;
 
     const groups = groupByLetter(matches);
-    // When searching, auto-expand all groups; otherwise only the first is open.
+    // When searching, auto-expand all groups; otherwise all start collapsed.
     for (let gi = 0; gi < groups.length; gi++) {
       const g = groups[gi];
       const group = document.createElement('div');
       group.className = 'hymn-letter-group';
-      if (q || gi === 0) group.classList.add('open');
+      if (q) group.classList.add('open');
 
       const header = document.createElement('div');
       header.className = 'hymn-letter-header';
