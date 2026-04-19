@@ -85,6 +85,19 @@ def rn_to_root_degree(rn: Optional[str]) -> Optional[int]:
     return _ROMAN_DEG.get(m.group(1))
 
 
+def _is_dominant_rn(rn: Optional[str]) -> bool:
+    """``True`` if ``rn`` is built on the V degree (``'V'``, ``'V7'``, ``'V¹'``, …).
+
+    Used by the approach-pickup gate: we never pile ``V`` on top of ``V``.
+    """
+    if not rn:
+        return False
+    m = re.match(r'^[b#\u266d\u266f]?([ivIV]+)', rn)
+    if not m:
+        return False
+    return m.group(1) == 'V'
+
+
 def figure_to_strings(fig: str) -> list[int]:
     """Harp figure → string positions, e.g. ``'1333' → [1, 3, 5, 7]``."""
     start = STRING_ALPHABET[fig[0]]
@@ -467,7 +480,22 @@ def layout_bar_grand(assignment: dict, melody_events: list[dict],
 
 def _chord_then_motion(base_lh_events: list[dict], bar_duration: float,
                         tail_midi: int) -> list[dict]:
-    """Beat-1 block chord + middle eighth arpeggio + final-beat quarter tail."""
+    """Beat-1 block chord + middle eighth arpeggio + final-beat quarter tail.
+
+    The tail is a single pitch (``tail_midi``).  Approach-pickup uses the
+    plural variant :func:`_chord_then_chord_motion` to emit a block chord tail.
+    """
+    return _chord_then_chord_motion(base_lh_events, bar_duration, [tail_midi])
+
+
+def _chord_then_chord_motion(base_lh_events: list[dict], bar_duration: float,
+                              tail_midis: list[int]) -> list[dict]:
+    """Beat-1 block chord + middle eighth arpeggio + final-beat chord tail.
+
+    Identical to :func:`_chord_then_motion` except the final-beat tail is a
+    chord (``tail_midis`` may be one or more MIDI pitches).  Used by the
+    approach-pickup layout to stamp V-of-key as a block chord on the last beat.
+    """
     new_lh: list[dict] = []
     for ev in base_lh_events:
         midis = ev['midis']
@@ -498,7 +526,7 @@ def _chord_then_motion(base_lh_events: list[dict], bar_duration: float,
             new_lh.append({
                 'offset_ql': mid_end,
                 'duration_ql': 1.0,
-                'midis': [tail_midi],
+                'midis': list(tail_midis),
             })
     return new_lh
 
@@ -549,10 +577,129 @@ def layout_bar_cadence_arp(assignment: dict, melody_events: list[dict],
     return base
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+#   Approach decoration (Task #11 — techniques/approach.py::dominant_approach)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _approach_pickup_fig(key_root: str, mode: str, pool: 'Pool',
+                         next_rn: Optional[str] = None) -> Optional[str]:
+    """Resolve the LH figure for a diatonic V-of-the-key pickup.
+
+    Wires :func:`mapper.harp_mapper.pick_fraction` against the global ``V`` —
+    the pool is strictly diatonic, so every "V of target" collapses to plain
+    ``V`` when the secondary dominant isn't in the scale.  ``next_rn`` is
+    accepted for future elaboration (e.g. pulling melody context) but is not
+    yet consulted.  Returns the ``lh_figure`` string (e.g. ``'533'``) or None
+    if the pool has no scoring match — effectively never for a diatonic pool.
+    """
+    from mapper.harp_mapper import pick_fraction
+    picks = pick_fraction(pool, 'V', key_root, mode=mode, top_n=1)
+    if not picks:
+        return None
+    entry = pool.get(picks[0].ipool)
+    return entry.lh_figure
+
+
+def _approach_pickup_midis(key_root: str, mode: str, pool: 'Pool',
+                            *, ref_midi: int,
+                            next_rn: Optional[str] = None) -> list[int]:
+    """MIDI pitches for a V-of-key block chord sitting just below ``ref_midi``.
+
+    ``ref_midi`` is the anchor (typically the bar's bass note) the pickup
+    should live near — we octave-shift the resolved figure so its bass is not
+    more than a fifth below the anchor and the top note is not above it.
+    Returns ``[]`` if the figure could not be resolved.
+    """
+    fig = _approach_pickup_fig(key_root, mode, pool, next_rn=next_rn)
+    if not fig:
+        return []
+    strings = figure_to_strings(fig)
+    midis = [string_to_midi(s, key_root, mode, base_octave=2) for s in strings]
+    # Keep the pickup chord close to the bar's anchor bass note — walk octaves
+    # until the lowest tone sits within a fifth below the anchor.
+    if midis:
+        while max(midis) < ref_midi - 7:
+            midis = [m + 12 for m in midis]
+        while min(midis) > ref_midi + 5:
+            midis = [m - 12 for m in midis]
+        # Clamp to the harp's low register just like the pedal grace does.
+        while min(midis) < HARP_LOW_MIDI:
+            midis = [m + 12 for m in midis]
+    return midis
+
+
+def layout_bar_approach_pickup(assignment: dict, melody_events: list[dict],
+                                key_root: str, mode: str,
+                                meter_num: int, meter_den: int,
+                                next_assignment: Optional[dict] = None,
+                                pool: Optional['Pool'] = None) -> dict:
+    """Strum + eighth arpeggio + V-of-key block chord on the last beat.
+
+    This is the Phase-1 realization of ``techniques/approach.py``'s
+    ``dominant_approach``: the final beat of a phrase-interior pre-cadence
+    bar is replaced with a V-of-the-key block chord, setting up the cadence
+    bar that follows.  If ``pool`` is not supplied the layout degrades
+    gracefully to ``layout_bar_strum_pickup`` (single upper-neighbor pickup),
+    so this function is still safe to call without a pool in hand.
+    """
+    base = layout_bar_grand(assignment, melody_events, key_root, mode,
+                            meter_num, meter_den)
+    bar_duration = meter_num * (4.0 / meter_den)
+    if bar_duration < 2.0 + 1e-6 or not base['lh_events']:
+        return base
+    if pool is None:
+        return layout_bar_strum_pickup(assignment, melody_events, key_root,
+                                       mode, meter_num, meter_den,
+                                       next_assignment=next_assignment)
+
+    ref = base['lh_events'][0]['midis'][0]
+    next_rn = (next_assignment or {}).get('rn')
+    tail_midis = _approach_pickup_midis(key_root, mode, pool,
+                                        ref_midi=ref, next_rn=next_rn)
+    if not tail_midis:
+        return layout_bar_strum_pickup(assignment, melody_events, key_root,
+                                       mode, meter_num, meter_den,
+                                       next_assignment=next_assignment)
+
+    base['lh_events'] = _chord_then_chord_motion(base['lh_events'],
+                                                  bar_duration, tail_midis)
+    return base
+
+
+def _should_use_approach_pickup(ibar: int, assignment: Optional[dict],
+                                 next_assignment: Optional[dict],
+                                 phrase_end_bars: set[int],
+                                 is_last_bar: bool) -> bool:
+    """Gate the Dominant-approach pickup for bar ``ibar`` (1-based).
+
+    Fires on a phrase-interior bar ``n`` when:
+
+    - ``n`` is not bar 1 and is not itself the last bar;
+    - ``n+1`` is a phrase-ending bar (so ``n`` is the pre-cadence bar);
+    - ``n`` is not itself a phrase-ending bar (interior only);
+    - the current chord is not already a dominant (avoid V→V→I redundancy);
+    - the mapper did not pick a substitution (never pile techniques).
+    """
+    if assignment is None or next_assignment is None:
+        return False
+    if ibar == 1 or is_last_bar:
+        return False
+    if ibar in phrase_end_bars:
+        return False
+    if (ibar + 1) not in phrase_end_bars:
+        return False
+    if _is_dominant_rn(assignment.get('rn')):
+        return False
+    if assignment.get('harmonic_substitution'):
+        return False
+    return True
+
+
 _STYLE_LAYOUTS = {
     'grand_chord': layout_bar_grand,
     'strum_pickup': layout_bar_strum_pickup,
     'cadence_arp': layout_bar_cadence_arp,
+    'approach_pickup': layout_bar_approach_pickup,
 }
 
 
@@ -748,10 +895,26 @@ def render_piano_score(song: Song, pool: Pool) -> str:
             continue
 
         style = pick_style(ibar, phrase_end_bars, is_last_bar=is_last)
+        # Approach decoration: upgrade strum_pickup → approach_pickup when the
+        # bar is the phrase-interior pre-cadence (bar n with n+1 phrase-end,
+        # original chord not already V, no mapper substitution in play).
+        if style == 'strum_pickup' and _should_use_approach_pickup(
+            ibar, assignment, next_assignment, phrase_end_bars,
+            is_last_bar=is_last,
+        ):
+            style = 'approach_pickup'
+            # Surface the technique on the assignment for downstream logging.
+            assignment['technique'] = 'Dominant approach'
         layout_fn = _STYLE_LAYOUTS.get(style, layout_bar_grand)
-        bar_data = layout_fn(assignment, melody_events, key_root, mode,
-                             meter_num, meter_den,
-                             next_assignment=next_assignment)
+        if style == 'approach_pickup':
+            bar_data = layout_fn(assignment, melody_events, key_root, mode,
+                                 meter_num, meter_den,
+                                 next_assignment=next_assignment,
+                                 pool=pool)
+        else:
+            bar_data = layout_fn(assignment, melody_events, key_root, mode,
+                                 meter_num, meter_den,
+                                 next_assignment=next_assignment)
         bar_data['label_markup'] = chord_label_markup(assignment)
         bar_data['style'] = style
         layouts.append(bar_data)
@@ -1063,4 +1226,5 @@ __all__ = [
     'layout_bar_grand',
     'layout_bar_strum_pickup',
     'layout_bar_cadence_arp',
+    'layout_bar_approach_pickup',
 ]
