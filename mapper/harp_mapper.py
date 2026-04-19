@@ -655,6 +655,7 @@ _TECHNIQUE_BONUS = {
     'Deceptive sub':      4.0,   # phrase-end cadence swap — explicit intent
     'Third sub':          0.0,   # only when alternate's melody match is stronger
     'Common-tone pivot':  0.5,   # very narrow — shares ≥2 pcs with both sides
+    'Quality sub':        0.5,   # light color tweak (add/remove the 7)
 }
 _INCUMBENT_BONUS = 4.0           # default bar keeps its chord unless clearly beaten
 
@@ -700,6 +701,51 @@ def _deceptive_sub_alternate(rn: str, next_rn: Optional[str]) -> Optional[str]:
     if next_num != 'I':
         return None
     return 'vi'
+
+
+# Diatonic quality toggle for the Ionian ladder. Each numeral flips between
+# its plain triad and its idiomatic 7-flavored partner (all diatonic):
+#   I  ↔ IΔ     IV ↔ IVΔ     V  ↔ V7
+#   ii ↔ ii7    iii ↔ iii7    vi ↔ vi7    vii° ↔ viiø7
+# The pair is (plain_suffix, sevened_suffix); the helper returns the "other"
+# member's RN string for a given input RN.
+_QUALITY_SUB_FLIP = {
+    'I':   ('', 'Δ'),
+    'ii':  ('', '7'),
+    'iii': ('', '7'),
+    'IV':  ('', 'Δ'),
+    'V':   ('', '7'),
+    'vi':  ('', '7'),
+    'vii': ('°', 'ø7'),
+}
+
+
+def _quality_sub_alternate(rn: str) -> Optional[str]:
+    """Return the other-quality RN for ``rn``, or ``None`` if not applicable.
+
+    The flip toggles between the plain diatonic triad and its idiomatic
+    7-flavored partner: e.g. ``V ↔ V7``, ``I ↔ IΔ``, ``IV ↔ IVΔ``,
+    ``vii° ↔ viiø7``. Inversions (``6``, ``64``, ``¹``, ``²`` ...) break the
+    toggle — only bare plain / 7-flavored forms are eligible. Chords outside
+    the major ladder (e.g. ``bVII``, modal numerals) return ``None``.
+    """
+    if not rn:
+        return None
+    num = _rn_numeral(rn)
+    if num is None:
+        return None
+    pair = _QUALITY_SUB_FLIP.get(num)
+    if pair is None:
+        return None
+    plain, sevened = pair
+    rest = rn[len(num):]     # whatever follows the ladder numeral
+    # Accept an optional leading accidental on the RN, then expect the
+    # remainder to match exactly one side of the flip pair.
+    if rest == plain:
+        return f"{num}{sevened}"
+    if rest == sevened:
+        return f"{num}{plain}"
+    return None
 
 
 def _common_tone_pivot_alternates(rn: str, next_rn: Optional[str]) -> list[str]:
@@ -787,23 +833,28 @@ def pick_with_techniques(pool: Pool, rn: str, key_root: str, *,
                               'Deceptive sub',
                               'Third sub',
                               'Common-tone pivot',
+                              'Quality sub',
                           )) -> list[Pick]:
     """Technique-aware wrapper around :func:`pick_with_substitution`.
 
     Generates candidate alternate RNs via substitution techniques (Third sub,
-    Deceptive sub, Common-tone pivot), scores each alternate's best pool
-    entry, adds a technique bonus plus a voice-leading bonus vs. ``prev_pick``,
-    and returns the winning pick (top-1). The winning pick's ``technique``
-    field records which technique (if any) was applied; baseline picks have
-    ``technique=None``.
+    Deceptive sub, Common-tone pivot, Quality sub), scores each alternate's
+    best pool entry, adds a technique bonus plus a voice-leading bonus vs.
+    ``prev_pick``, and returns the winning pick (top-1). The winning pick's
+    ``technique`` field records which technique (if any) was applied;
+    baseline picks have ``technique=None``.
 
     Techniques are gated by musical context:
       - Deceptive sub: only on phrase-final V → I cadences.
-      - Third sub: everywhere, but bonus is small.
-      - Common-tone pivot: only when both current and next RN exist.
+      - Third sub: only on non-cycle-edge bars with weak baseline melody fit.
+      - Common-tone pivot: only on repeated chords, off cycle edges.
+      - Quality sub: fires on cycle-edge bars too (root motion is preserved);
+                     skipped when Deceptive sub is already planned for this bar.
 
     Minor-key V substitution (``harmonic_substitution``) is delegated to
     :func:`pick_with_substitution` and preserved on the returned pick.
+    Quality sub in minor mode is skipped (the minor-V substitution handler
+    already owns that territory).
     """
     baseline_picks = pick_with_substitution(
         pool, rn, key_root,
@@ -856,10 +907,12 @@ def pick_with_techniques(pool: Pool, rn: str, key_root: str, *,
     # Deceptive sub: phrase-final V → I cadence only. Fires even on cycle
     # edges because V→I is always a 4ths-cycle edge and the deceptive
     # cadence is the musical point.
+    deceptive_planned = False
     if 'Deceptive sub' in enabled and is_phrase_end:
         alt = _deceptive_sub_alternate(rn, next_rn)
         if alt:
             candidates.append(('Deceptive sub', alt))
+            deceptive_planned = True
 
     # Third sub: only on non-cycle-edge bars where the baseline rescored
     # poorly on melody. Cycle edges keep their trefoil path.
@@ -878,6 +931,16 @@ def pick_with_techniques(pool: Pool, rn: str, key_root: str, *,
         if cur_num and prev_num and cur_num == prev_num:
             for alt in _common_tone_pivot_alternates(rn, next_rn):
                 candidates.append(('Common-tone pivot', alt))
+
+    # Quality sub: the light-touch toggle between plain and 7-flavored forms
+    # (V ↔ V7, I ↔ IΔ, IV ↔ IVΔ, ii ↔ ii7, ...). Unlike the other techniques
+    # it preserves root motion, so it's safe on cycle-edge bars. Skip only
+    # when Deceptive sub is already planned for this bar to avoid stacking
+    # two substitutions on the same chord.
+    if 'Quality sub' in enabled and not deceptive_planned:
+        alt = _quality_sub_alternate(rn)
+        if alt:
+            candidates.append(('Quality sub', alt))
 
     for tech_name, alt_rn in candidates:
         alt_picks = pick_fraction(pool, alt_rn, key_root, melody, mode, top_n=1)
