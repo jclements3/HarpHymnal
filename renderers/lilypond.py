@@ -263,6 +263,32 @@ def ql_to_lilypond_duration(ql: float) -> str:
     return '4'
 
 
+_SORTED_DURS_DESC = sorted(_DUR_MAP.keys(), reverse=True)
+
+
+def ql_to_lilypond_durations(ql: float) -> list[str]:
+    """Decompose a quarter-length into one or more standard LilyPond durations
+    meant to be tied together.  A 9/8 bar (``ql=4.5``) has no single-token
+    representation, so it splits as ``['1', '8']`` (whole tied to eighth).
+    Standard durations (1.0, 3.0, 4.0, ...) return a single-element list.
+    """
+    out: list[str] = []
+    remaining = round(ql * 32) / 32
+    while remaining > 1e-6:
+        picked = None
+        for s in _SORTED_DURS_DESC:
+            if s <= remaining + 1e-6:
+                picked = s
+                break
+        if picked is None:
+            out.append('4')
+            remaining = 0.0
+            break
+        out.append(_DUR_MAP[picked])
+        remaining -= picked
+    return out or ['4']
+
+
 def midis_to_lilypond_chord(midis: list[int],
                             pc_spelling: Optional[dict[int, str]] = None) -> str:
     """``[60, 64, 67] → "<c' e' g'>"``.  Single-pitch → bare name."""
@@ -342,7 +368,8 @@ def events_to_lilypond_bar(events: list[dict], full_bar_ql: float,
     """
     events = sorted(events, key=lambda e: e['offset_ql'])
     if not events:
-        return f'r{ql_to_lilypond_duration(full_bar_ql)}'
+        rest_pieces = [f'r{d}' for d in ql_to_lilypond_durations(full_bar_ql)]
+        return ' '.join(rest_pieces)
 
     out: list[str] = []
     dyn_applied = False
@@ -352,18 +379,23 @@ def events_to_lilypond_bar(events: list[dict], full_bar_ql: float,
         if e.get('grace_midis'):
             grace_chord = midis_to_lilypond_chord(e['grace_midis'], pc_spelling)
             pieces.append('\\acciaccatura { ' + grace_chord + '8 }')
-        chord = midis_to_lilypond_chord(e['midis'], pc_spelling)
-        dur = ql_to_lilypond_duration(e['duration_ql'])
-        note = chord + dur
-        if label and not label_applied:
-            note += '^\\markup { ' + label + ' }'
-            label_applied = True
-        if dynamic and not dyn_applied:
-            note += '\\' + dynamic
-            dyn_applied = True
-        if arpeggiate and len(e.get('midis', [])) > 1:
-            note += '\\arpeggio'
-        pieces.append(note)
+        is_rest = not e.get('midis')
+        chord = 'r' if is_rest else midis_to_lilypond_chord(e['midis'], pc_spelling)
+        durs = ql_to_lilypond_durations(e['duration_ql'])
+        for i, d in enumerate(durs):
+            seg = chord + d
+            if i == 0:
+                if label and not label_applied:
+                    seg += '^\\markup { ' + label + ' }'
+                    label_applied = True
+                if dynamic and not dyn_applied:
+                    seg += '\\' + dynamic
+                    dyn_applied = True
+                if arpeggiate and len(e.get('midis', [])) > 1:
+                    seg += '\\arpeggio'
+            if not is_rest and i < len(durs) - 1:
+                seg += '~'
+            pieces.append(seg)
         out.append(' '.join(pieces))
     return ' '.join(out)
 
@@ -466,6 +498,14 @@ def layout_bar_grand(assignment: dict, melody_events: list[dict],
                 melody_top = max(all_mel)
                 while rh_midis and max(rh_midis) > melody_top:
                     rh_midis = [m - 12 for m in rh_midis]
+        # Hard gap rule (grammar/constants.py MIN_GAP=0): RH bottom must sit
+        # strictly above LH top, else the hands collide on the same harp string.
+        # Playability trumps the "RH below melody" style preference — if the
+        # octave drop above put RH into LH territory, walk it back up.
+        if rh_midis and lh_events and lh_events[0].get('midis'):
+            lh_top = max(lh_events[0]['midis'])
+            while rh_midis and min(rh_midis) <= lh_top:
+                rh_midis = [m + 12 for m in rh_midis]
         rh_midis = [m for m in rh_midis if m not in melody_midis]
         if rh_midis:
             rh_events.append({
