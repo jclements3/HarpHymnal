@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+<title>HarpHymnal Drills</title>
+<style>
+  :root {
+    --bg:        #f7f3ea;
+    --ink:       #2a2a2a;
+    --muted:     #888;
+    --line:      #d8d0c0;
+    --panel:     #ffffff;
+    --panel-alt: #f0ece0;
+    --lhcol:     #7B2B2B;
+    --rhcol:     #1F4E79;
+    --sub:       #C0605A;
+    --app:       #4080A0;
+    --voi:       #50A050;
+    --pla:       #7B4A9E;
+    --pool:      #8B5A2B;
+    --tap:       rgba(37, 99, 235, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%; width: 100%;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  button {
+    font-family: inherit; font-size: 18px;
+    border: 2px solid var(--line); border-radius: 10px;
+    background: var(--panel); color: var(--ink);
+    padding: 12px 20px; cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    min-height: 48px; min-width: 48px;
+  }
+  button:active { background: var(--tap); }
+  button:disabled { opacity: 0.4; cursor: default; }
+
+  #app {
+    display: flex; flex-direction: column;
+    width: 100%; height: 100%;
+  }
+
+  /* ──────── Home screen ──────── */
+  #home {
+    display: flex; flex-direction: column; height: 100%;
+    padding: 20px;
+  }
+  #home-title {
+    font-size: 28px; font-weight: bold;
+    padding-bottom: 14px; margin-bottom: 14px;
+    border-bottom: 2px solid var(--line);
+    color: var(--ink);
+  }
+  #home-title small {
+    font-size: 15px; font-weight: normal; color: var(--muted);
+    margin-left: 12px;
+  }
+  #tile-grid {
+    flex: 1; overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px; padding: 4px; align-content: start;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tile {
+    padding: 20px 18px;
+    border-radius: 12px;
+    background: var(--panel);
+    border: 2px solid var(--line);
+    cursor: pointer;
+    min-height: 120px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tile:active { background: var(--tap); }
+  .tile.empty { opacity: 0.4; cursor: default; }
+  .tile-name {
+    font-size: 22px; font-weight: bold; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .tile-rule {
+    font-size: 13px; color: var(--muted);
+    font-style: italic; line-height: 1.3;
+  }
+  .tile-meta {
+    font-size: 13px; color: var(--muted); margin-top: 10px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .tile-count {
+    font-size: 13px; font-weight: bold;
+    padding: 3px 10px; border-radius: 12px;
+    background: var(--panel-alt); color: var(--ink);
+  }
+  .tile-banner {
+    height: 6px; border-radius: 3px 3px 0 0;
+    margin: -20px -18px 16px -18px;
+  }
+  .tile.pool .tile-banner { background: var(--pool); }
+  .tile.substitution .tile-banner { background: var(--sub); }
+  .tile.approach     .tile-banner { background: var(--app); }
+  .tile.voicing      .tile-banner { background: var(--voi); }
+  .tile.placement    .tile-banner { background: var(--pla); }
+  .tile.hymns        .tile-banner { background: #2C3E50; }
+  .tile.hymns { border-color: #2C3E50; }
+
+  /* ──────── Drill screen ──────── */
+  #drill { display: none; flex-direction: column; height: 100%; }
+  #drill.active { display: flex; }
+  #drill-banner {
+    padding: 12px 20px;
+    color: #fff;
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0;
+  }
+  #drill-banner.pool        { background: var(--pool); }
+  #drill-banner.substitution { background: var(--sub); }
+  #drill-banner.approach     { background: var(--app); }
+  #drill-banner.voicing      { background: var(--voi); }
+  #drill-banner.placement    { background: var(--pla); }
+  #home-btn {
+    background: rgba(255,255,255,0.25); color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    font-size: 16px; padding: 8px 14px; font-weight: bold;
+  }
+  #home-btn:active { background: rgba(255,255,255,0.45); }
+  #drill-title {
+    font-size: 24px; font-weight: bold;
+    flex: 1;
+  }
+  #drill-rule {
+    font-size: 14px; font-style: italic; opacity: 0.92;
+  }
+  #drill-counter {
+    font-size: 20px; font-weight: bold;
+    padding: 6px 14px; border-radius: 18px;
+    background: rgba(255,255,255,0.25); color: #fff;
+    min-width: 90px; text-align: center;
+  }
+
+  #card-area {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: stretch; align-items: stretch;
+    padding: 2px 3px;
+    background: var(--bg);
+    overflow: hidden;
+    position: relative;
+    min-height: 0;
+  }
+  #card {
+    flex: 1;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: stretch;
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 2px 4px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Pool card layout */
+  .pool-ipool {
+    font-family: "Courier New", monospace;
+    font-size: 44px; font-weight: bold;
+    color: var(--muted); margin-bottom: 10px;
+  }
+  .pool-roman {
+    font-size: 48px; font-weight: bold;
+    margin-bottom: 22px;
+  }
+  .pool-roman .lh { color: var(--lhcol); }
+  .pool-roman .rh { color: var(--rhcol); }
+  .pool-roman .sep { color: var(--muted); margin: 0 12px; font-weight: normal; }
+  .pool-notes {
+    font-family: "Courier New", monospace;
+    font-size: 72px; font-weight: bold;
+    line-height: 1.1; letter-spacing: 3px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+  }
+  .pool-notes .lh { color: var(--lhcol); }
+  .pool-notes .rh { color: var(--rhcol); }
+  /* Degree-family card: 6-column grid of fraction tiles.  21 fractions
+     fit in ≤4 rows; tight horizontal/vertical gaps let the tiles breathe
+     without burning a lot of margin. */
+  .pool-paragraph {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 60px;
+    gap: 10px 8px;
+    padding: 2px 2px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+  }
+  .pool-frac {
+    display: block;
+    text-align: center;
+  }
+  .pool-frac-ipool {
+    display: block;
+    font-family: "Courier New", monospace;
+    font-size: 18px; color: #000; font-weight: bold;
+    line-height: 1.0; margin-bottom: 0;
+  }
+  .pool-frac-notes {
+    display: block;
+    font-family: "Courier New", monospace;
+    font-size: 32px; font-weight: bold; letter-spacing: 0.3px;
+    line-height: 1.0; margin-top: 1px;
+    white-space: nowrap;
+  }
+  .pool-frac-notes .lh { color: var(--lhcol); }
+  .pool-frac-notes .rh { color: var(--rhcol); }
+  /* Chapter/section cell — occupies a grid slot, color-coded to the family. */
+  .chapter-cell {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    border-radius: 6px;
+    padding: 4px 6px;
+    min-height: 56px; min-width: 100%;
+    color: #fff;
+  }
+  .chapter-cell.pool-family       { background: #8B6F47; }
+  .chapter-cell.tech-pool         { background: #8B6F47; }
+  .chapter-cell.tech-substitution { background: #C0605A; }
+  .chapter-cell.tech-approach     { background: #4080A0; }
+  .chapter-cell.tech-voicing      { background: #50A050; }
+  .chapter-chapter {
+    display: block;
+    font-size: 14px; font-weight: bold; line-height: 1.0;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    opacity: 0.9;
+  }
+  .chapter-section {
+    display: block;
+    font-size: 22px; font-weight: bold; line-height: 1.0;
+    margin-top: 4px;
+  }
+  /* Technique-pair card: label at top, paragraph of stacked from/to pairs. */
+  .tech-pair-label {
+    font-family: sans-serif;
+    font-size: 36px; font-weight: bold; color: #000;
+    padding: 6px 6px 2px 6px;
+  }
+  .tech-frac {
+    display: inline-block;
+    vertical-align: top;
+    margin: 14px 40px 14px 0;
+    text-align: center;
+  }
+  .tech-frac-from, .tech-frac-to {
+    display: block;
+    font-family: "Courier New", monospace;
+    font-size: 24px; font-weight: bold; letter-spacing: 0.3px;
+    line-height: 1.0;
+    white-space: nowrap;
+  }
+  .tech-frac-from .lh, .tech-frac-to .lh { color: var(--lhcol); }
+  .tech-frac-from .rh, .tech-frac-to .rh { color: var(--rhcol); }
+  /* Transition cell — colored splash that sits at the start of each deck. */
+  .trans-cell {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 60vh;
+    border-radius: 14px;
+    color: #fff; text-align: center;
+    padding: 40px 20px;
+  }
+  .trans-pool         { background: #8B6F47; }
+  .trans-substitution { background: #C0605A; }
+  .trans-approach     { background: #4080A0; }
+  .trans-voicing      { background: #50A050; }
+  .trans-starting {
+    font-size: 22px; text-transform: uppercase; letter-spacing: 4px;
+    opacity: 0.85;
+  }
+  .trans-title {
+    font-size: 96px; font-weight: bold; line-height: 1.0;
+    margin: 18px 0 12px 0;
+  }
+  .trans-rule {
+    font-style: italic; font-size: 28px; max-width: 80%;
+    opacity: 0.9; margin-top: 8px;
+  }
+  .trans-cont {
+    margin-top: 28px; font-size: 20px; opacity: 0.75;
+  }
+  .pool-meta {
+    font-size: 18px; color: var(--muted);
+  }
+  .pool-meta .chip {
+    display: inline-block;
+    padding: 3px 10px; border-radius: 10px;
+    background: var(--panel-alt); color: var(--ink);
+    font-size: 15px; margin: 0 4px;
+  }
+  .pool-meta .chip.source { font-weight: bold; }
+
+  /* Technique card layout */
+  .tech-label {
+    font-size: 52px; font-weight: bold;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .tech-notes {
+    font-family: "Courier New", monospace;
+    font-size: 72px; font-weight: bold;
+    line-height: 1.15; letter-spacing: 2px;
+    white-space: nowrap;
+    margin: 10px 0;
+  }
+  .tech-notes.from { color: var(--lhcol); }
+  .tech-notes.to   { color: var(--rhcol); }
+  .tech-arrow {
+    font-size: 42px; color: var(--muted);
+    margin: 6px 0;
+  }
+  .tech-notes .hi-lh { /* lowercase letters = LH */
+    /* color inherited — styling by position already baked in via text */
+  }
+
+  /* Controls */
+  #controls {
+    display: flex; gap: 10px; padding: 14px 20px;
+    border-top: 2px solid var(--line);
+    background: var(--panel);
+    flex-shrink: 0;
+  }
+  #controls button {
+    flex: 1; font-size: 22px; font-weight: bold;
+    min-height: 64px;
+  }
+  .btn-prev, .btn-next { background: var(--panel); }
+  .btn-prev:active, .btn-next:active { background: var(--tap); }
+  .btn-mid {
+    max-width: 140px; flex: 0 1 140px;
+    color: var(--muted); font-size: 15px; font-weight: normal;
+  }
+
+  /* Swipe feedback (faint) */
+  #card.swipe-left  { animation: swL 0.14s ease-out; }
+  #card.swipe-right { animation: swR 0.14s ease-out; }
+  @keyframes swL { 0% { transform: translateX(0); } 100% { transform: translateX(-16px); } }
+  @keyframes swR { 0% { transform: translateX(0); } 100% { transform: translateX(16px); } }
+
+  .empty-note {
+    text-align: center; color: var(--muted); font-style: italic;
+    font-size: 20px; padding: 40px;
+  }
+</style>
+<script src="harphymnal_drills.js"></script>
+</head>
+<body>
+<div id="app">
+
+  <!-- ════════════════ HOME ════════════════ -->
+  <section id="home">
+    <h1 id="home-title">HarpHymnal Drills<small>tap a tile to start</small></h1>
+    <div id="tile-grid"><!-- populated by JS --></div>
+  </section>
+
+  <!-- ════════════════ DRILL ════════════════ -->
+  <section id="drill">
+    <header id="drill-banner">
+      <button id="home-btn" type="button">&larr; Home</button>
+      <div>
+        <div id="drill-title">—</div>
+        <div id="drill-rule"></div>
+      </div>
+      <div style="flex:1"></div>
+      <div id="drill-counter">0 / 0</div>
+    </header>
+
+    <div id="card-area">
+      <div id="card"><!-- per-card content --></div>
+    </div>
+
+    <footer id="controls">
+      <button class="btn-prev" id="btn-prev" type="button">&larr; Prev</button>
+      <button class="btn-mid"  id="btn-mid"  type="button">(tap card or swipe)</button>
+      <button class="btn-next" id="btn-next" type="button">Next &rarr;</button>
+    </footer>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ──────────── State ────────────
+  let DATA = null;
+  let mode = 'home';          // 'home' | 'pool' | 'technique'
+  let techniqueName = null;
+  let cards = [];
+  let idx = 0;
+
+  // ──────────── Utilities ────────────
+  const $ = (id) => document.getElementById(id);
+
+  function splitLHRH(notes) {
+    // lowercase = LH, uppercase = RH. Interleave runs so we can color them.
+    const out = [];
+    let run = '';
+    let isLower = null;
+    for (const ch of notes) {
+      const lower = ch === ch.toLowerCase();
+      if (isLower === null) { run = ch; isLower = lower; continue; }
+      if (lower === isLower) { run += ch; continue; }
+      out.push({ text: run, lh: isLower });
+      run = ch; isLower = lower;
+    }
+    if (run) out.push({ text: run, lh: isLower });
+    return out;
+  }
+
+  function renderNotes(notes) {
+    // Returns HTML with .lh / .rh spans.
+    return splitLHRH(notes).map(r =>
+      `<span class="${r.lh ? 'lh' : 'rh'}">${r.text}</span>`
+    ).join('');
+  }
+
+  // ──────────── Data load ────────────
+  function loadData() {
+    // Data is embedded via <script src="harphymnal_drills.js"> as
+    // window.DRILL_DATA. Avoids fetch/CORS issues in file:// WebView.
+    if (!window.DRILL_DATA) {
+      document.body.innerHTML =
+        '<div class="empty-note">Drill data not loaded. Check that ' +
+        'harphymnal_drills.js is present in the app assets.</div>';
+      return;
+    }
+    DATA = window.DRILL_DATA;
+    renderHome();
+  }
+
+  // ──────────── Home screen ────────────
+  function renderHome() {
+    const grid = $('tile-grid');
+    grid.innerHTML = '';
+    // One tile per section jump — pool degree or technique name.  The tile's
+    // count is the card index (1-based) where that section starts.
+    for (const j of (DATA.jumps || [])) {
+      const tile = makeTile({
+        family: j.family,
+        name:   j.title,
+        rule:   j.label,
+        count:  j.count,        // number of fractions / pairs in this topic
+        onTap:  () => enterDrill('jump', j.card),
+      });
+      grid.appendChild(tile);
+    }
+    // Last tile — open the sibling Trefoil Hymnal app via the Android bridge.
+    const hymns = makeTile({
+      family: 'hymns',
+      name:   'Hymns',
+      rule:   'open the Trefoil hymnal',
+      count:  '↗',
+      onTap:  () => {
+        if (window.Bridge && Bridge.launchHymns) Bridge.launchHymns();
+      },
+    });
+    grid.appendChild(hymns);
+  }
+
+  function makeTile(spec) {
+    const tile = document.createElement('div');
+    tile.className = 'tile ' + spec.family;
+    tile.innerHTML = [
+      '<div class="tile-banner"></div>',
+      '<div>',
+      '  <div class="tile-name">' + escapeHtml(spec.name) + '</div>',
+      '  <div class="tile-rule">' + escapeHtml(spec.rule || '') + '</div>',
+      '</div>',
+      '<div class="tile-meta">',
+      '  <span>' + (spec.family === 'pool' ? 'pool' : spec.family) + '</span>',
+      '  <span class="tile-count">' + spec.count + '</span>',
+      '</div>',
+    ].join('');
+    if (spec.onTap) tile.addEventListener('click', spec.onTap);
+    return tile;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g,
+      c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  // ──────────── Drill playlist (pool + techniques as one long deck) ─────
+  // When the user hits Next past the end of pool, we roll into the first
+  // technique; past the end of that technique, into the next, and so on.
+  // Only decks with cards are included in the playlist.
+  let playlist = [];       // [{kind, name, family, cards, title, rule}]
+  let playlistIdx = 0;     // which deck we're in
+  // ``idx`` is the card index within the current deck (existing global).
+
+  function buildPlaylist() {
+    // Single continuous deck — pool items + technique items flow in one
+    // paginated stream.  DATA.cards already has the pagination done by
+    // build_drill_data.py (6×6 = 36 cells/page, with continuation markers).
+    playlist = [{
+      kind: 'flow',
+      name: 'drills',
+      family: 'pool',
+      cards: (DATA.cards || []).slice(),
+      title: 'Drills',
+      rule: '',
+    }];
+  }
+
+  // ──────────── Drill screen ────────────
+  function enterDrill(kind, arg) {
+    if (!playlist.length) buildPlaylist();
+    playlistIdx = 0;    // single-deck model
+    // `arg` is the starting card index when kind === 'jump'; otherwise 0.
+    idx = (kind === 'jump' && typeof arg === 'number') ? arg : 0;
+    loadDeck();
+    $('home').style.display = 'none';
+    $('drill').classList.add('active');
+  }
+
+  function loadDeck() {
+    const deck = playlist[playlistIdx];
+    mode = deck.kind;
+    techniqueName = (deck.kind === 'technique') ? deck.name : null;
+    cards = deck.cards;
+    $('drill-title').textContent = deck.title;
+    $('drill-rule').textContent  = deck.rule;
+    setBanner(deck.family);
+    renderCard();
+  }
+
+  function setBanner(family) {
+    const b = $('drill-banner');
+    b.className = '';
+    b.classList.add(family);
+  }
+
+  function exitDrill() {
+    mode = 'home';
+    $('drill').classList.remove('active');
+    $('home').style.display = 'flex';
+  }
+
+  function renderCard() {
+    const card = $('card');
+    const n = cards.length;
+    // Global counter: card N of M across the whole playlist.
+    let cardsBefore = 0;
+    for (let i = 0; i < playlistIdx; i++) cardsBefore += playlist[i].cards.length;
+    const globalIdx   = cardsBefore + idx + 1;
+    const globalTotal = playlist.reduce((acc, d) => acc + d.cards.length, 0);
+    $('drill-counter').textContent = globalIdx + ' / ' + globalTotal;
+    // Enable state: Prev disabled at first card of first deck; Next disabled
+    // at last card of last deck.
+    const atVeryStart = (playlistIdx === 0 && idx <= 0);
+    const atVeryEnd   = (playlistIdx === playlist.length - 1 && idx >= n - 1);
+    $('btn-prev').disabled = atVeryStart;
+    $('btn-next').disabled = atVeryEnd;
+
+    if (!n) {
+      card.innerHTML =
+        '<div class="empty-note">No entries for this technique yet.<br>' +
+        '(The SDD inventory has no concrete pattern-pairs here.)</div>';
+      return;
+    }
+
+    const c = cards[idx];
+    $('drill-title').textContent = 'Drill ' + (idx + 1) + ' / ' + n;
+    card.innerHTML = renderFlowCard(c);
+  }
+
+  function renderFlowCard(c) {
+    const frags = (c.items || []).map(it => {
+      if (it.type === 'section') {
+        return `<span class="pool-frac chapter-cell pool-family">
+                  <span class="chapter-chapter">Pool</span>
+                  <span class="chapter-section">${escapeHtml(it.chord)}</span>
+                </span>`;
+      }
+      if (it.type === 'fraction') {
+        return `<span class="pool-frac">
+                  <span class="pool-frac-ipool">${escapeHtml(it.ipool)}</span>
+                  <span class="pool-frac-notes">
+                    <span class="lh">${escapeHtml(it.lh_notes)}</span><span class="rh">${escapeHtml(it.rh_notes)}</span>
+                  </span>
+                </span>`;
+      }
+      if (it.type === 'tech_label') {
+        return `<span class="pool-frac chapter-cell tech-${it.family}">
+                  <span class="chapter-chapter">${escapeHtml(it.technique)}</span>
+                  <span class="chapter-section">${escapeHtml(it.label)}</span>
+                </span>`;
+      }
+      if (it.type === 'tech_pair') {
+        const fromHtml = `<span class="lh">${escapeHtml(hasLH(it.from))}</span>` +
+                         `<span class="rh">${escapeHtml(hasRH(it.from))}</span>`;
+        const toHtml = it.to
+          ? `<span class="tech-frac-to"><span class="lh">${escapeHtml(hasLH(it.to))}</span>` +
+            `<span class="rh">${escapeHtml(hasRH(it.to))}</span></span>`
+          : '';
+        return `<span class="pool-frac tech-frac">` +
+                 `<span class="tech-frac-from">${fromHtml}</span>` +
+                 toHtml +
+               `</span>`;
+      }
+      return '';
+    }).join(' ');
+    return `<div class="pool-paragraph">${frags}</div>`;
+  }
+
+  function renderPoolCard(c) {
+    // Card items is a mix of section markers and fractions.  Section
+    // markers become coloured chapter cells ("Pool I", "Pool ii", ...),
+    // fractions become ipool/notes stacks.
+    const frags = (c.items || []).map(it => {
+      if (it.type === 'section') {
+        return `<span class="pool-frac chapter-cell pool-family">
+                  <span class="chapter-chapter">Pool</span>
+                  <span class="chapter-section">${escapeHtml(it.chord)}</span>
+                </span>`;
+      }
+      return `<span class="pool-frac">
+                <span class="pool-frac-ipool">${escapeHtml(it.ipool)}</span>
+                <span class="pool-frac-notes">
+                  <span class="lh">${escapeHtml(it.lh_notes)}</span><span class="rh">${escapeHtml(it.rh_notes)}</span>
+                </span>
+              </span>`;
+    }).join(' ');
+    return `<div class="pool-paragraph">${frags}</div>`;
+  }
+
+  function renderTechCard(c) {
+    // Card body = one function-pair (e.g. "I-vi") — flowing paragraph of
+    // stacked from/to pairs.  Each pair is an inline block with `from` on
+    // top and `to` below, echoing the pool card's ipool/notes stack.
+    const frags = (c.pairs || []).map(p => {
+      const fromSpan = `<span class="lh">${escapeHtml(hasLH(p.from))}</span>` +
+                       `<span class="rh">${escapeHtml(hasRH(p.from))}</span>`;
+      const toHtml = p.to
+        ? `<span class="tech-frac-to"><span class="lh">${escapeHtml(hasLH(p.to))}</span>` +
+          `<span class="rh">${escapeHtml(hasRH(p.to))}</span></span>`
+        : '';
+      return `<span class="tech-frac">` +
+               `<span class="tech-frac-from">${fromSpan}</span>` +
+               toHtml +
+             `</span>`;
+    }).join(' ');
+    const deck = playlist[playlistIdx];
+    const label = `<span class="pool-frac chapter-cell tech-${deck.family}">
+                     <span class="chapter-chapter">${escapeHtml(deck.title)}</span>
+                     <span class="chapter-section">${escapeHtml(c.label)}</span>
+                   </span>`;
+    return `<div class="pool-paragraph">${label}${frags}</div>`;
+  }
+
+  // Split a concatenated notes string like "cegDFA" into LH (lowercase
+  // leading run) and RH (UPPERCASE trailing run).  In key of C every
+  // pitch is a single letter so the split is clean at the first uppercase.
+  function hasLH(s) {
+    const m = String(s).match(/^[a-z]+/);
+    return m ? m[0] : '';
+  }
+  function hasRH(s) {
+    return String(s).slice(hasLH(s).length);
+  }
+
+  function step(delta) {
+    if (!cards || !cards.length) return;
+    let newIdx = idx + delta;
+    let crossedDeck = false;
+    // Forward past end → next deck's first card.
+    while (newIdx >= cards.length) {
+      if (playlistIdx >= playlist.length - 1) {
+        newIdx = cards.length - 1;  // clamp at the very last card of the deck
+        break;
+      }
+      newIdx -= cards.length;
+      playlistIdx += 1;
+      cards = playlist[playlistIdx].cards;
+      crossedDeck = true;
+    }
+    // Back past start → previous deck's last card.
+    while (newIdx < 0) {
+      if (playlistIdx <= 0) {
+        newIdx = 0;
+        break;
+      }
+      playlistIdx -= 1;
+      cards = playlist[playlistIdx].cards;
+      newIdx += cards.length;
+      crossedDeck = true;
+    }
+    if (newIdx === idx && !crossedDeck) return;
+    const cardEl = $('card');
+    cardEl.classList.remove('swipe-left', 'swipe-right');
+    void cardEl.offsetWidth;
+    cardEl.classList.add(delta > 0 ? 'swipe-left' : 'swipe-right');
+    idx = newIdx;
+    if (crossedDeck) loadDeck();
+    else renderCard();
+  }
+
+  // ──────────── Input: tap + swipe ────────────
+  $('home-btn').addEventListener('click', exitDrill);
+  $('btn-prev').addEventListener('click', () => step(-1));
+  $('btn-next').addEventListener('click', () => step(+1));
+  $('btn-mid').addEventListener('click', () => step(+1));
+
+  // Tap anywhere on card = next; two-finger tap = prev (rare); use swipe
+  // gesture to move backwards intuitively.
+  const cardEl = $('card');
+  cardEl.addEventListener('click', (e) => {
+    // Click on the right half = next, left half = prev.
+    const rect = cardEl.getBoundingClientRect();
+    const x = (e.clientX || 0) - rect.left;
+    step(x < rect.width * 0.35 ? -1 : +1);
+  });
+
+  // Swipe detection.
+  let tStartX = null, tStartY = null, tStartT = 0;
+  cardEl.addEventListener('touchstart', (e) => {
+    const t = e.changedTouches[0];
+    tStartX = t.clientX; tStartY = t.clientY; tStartT = Date.now();
+  }, { passive: true });
+  cardEl.addEventListener('touchend', (e) => {
+    if (tStartX == null) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - tStartX, dy = t.clientY - tStartY;
+    const dt = Date.now() - tStartT;
+    tStartX = tStartY = null;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    if (dt > 600) return;
+    // Prevent the click fallback from also firing. (Many WebViews will
+    // generate a click after touchend; guard by a short deadzone.)
+    e.preventDefault();
+    step(dx < 0 ? +1 : -1);
+  }, { passive: false });
+
+  // Keyboard (desktop testing).
+  document.addEventListener('keydown', (e) => {
+    if (mode === 'home') return;
+    if (e.key === 'ArrowRight' || e.key === ' ') step(+1);
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'Escape') exitDrill();
+  });
+
+  // ──────────── Boot ────────────
+  loadData();
+})();
+</script>
+</body>
+</html>

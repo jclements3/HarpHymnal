@@ -1,0 +1,15 @@
+# Gradle build cache and output artefacts
+.gradle/
+build/
+local.properties
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+*.log
+
+# Android Studio metadata
+.idea/
+*.iml
+captures/
