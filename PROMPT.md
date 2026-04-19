@@ -12,7 +12,187 @@ Read these first, in order:
 5. `ISSUES.md` — known bugs + Trefoil vocabulary gaps
 6. `TREFOIL.md` — 118-fraction pedagogy (do **not** re-teach)
 
-Memory index: `~/.claude/projects/-home-james-clements-projects-HarpHymnal/memory/MEMORY.md` — user's locked-in preferences (parallelism defaults, commit-per-step, frozen paths, etc.).
+Memory index (if it exists): `~/.claude/projects/-home-james-clements-projects-HarpHymnal/memory/MEMORY.md` — user's locked-in preferences. **If this directory does not exist on the home laptop, bootstrap it first (see next section).**
+
+---
+
+## Bootstrap Claude's memory (do this FIRST on a fresh laptop)
+
+Memory is per-machine. The lab machine built up a set of preference files across sessions; the home laptop's `~/.claude/projects/.../memory/` dir is empty until you recreate it. **Before executing step 1**, check:
+
+```bash
+ls ~/.claude/projects/-home-james-clements-projects-HarpHymnal/memory/ 2>&1
+```
+
+If that directory is empty or missing, **write the following 8 files verbatim** (Claude has Write permission to its own memory dir by default — just create each file at the path shown). The `MEMORY.md` index goes at the top level; the others are sibling files.
+
+The exact parent directory path depends on where the repo lives on the home laptop. Find it with:
+
+```bash
+# Claude's working dir → escape chars for the memory dir name
+echo "~/.claude/projects/$(pwd | sed 's|/|-|g')/memory/"
+```
+
+Adjust the paths below to match.
+
+### Memory file 1 — `MEMORY.md` (the index)
+
+```markdown
+- [Parallelize with agents](feedback_parallel_agents.md) — user said "I have 40 cpus. use multiple agents" — default to aggressive parallelism on this repo.
+- [Refactor handoff via PROMPT.md](project_refactor_handoff.md) — lab-Claude starts each session by reading PROMPT.md and continuing the 8-step build order.
+- [Commit+push per numbered step](feedback_commit_per_step.md) — PROMPT.md mandates a separate commit + push per numbered build step so the user can follow from the tablet.
+- [legacy/ and source/HarpChordSystem.tex are frozen](feedback_frozen_paths.md) — never modify. HarpTrefoil.tex must stay byte-exact to HarpChordSystem.tex.
+- [vii° vs vii○ Unicode gotcha](project_vii_unicode_gotcha.md) — pool JSON stores U+00B0, grammar uses U+25CB; bridge at query boundary.
+- [pool = paths ∪ reserve](project_pool_paths_reserve.md) — canonical vocabulary terminology the user settled on mid-refactor.
+- [Stop asking, just execute](feedback_stop_asking_execute.md) — once the goal is stated, pick a sane default and keep moving; only ask at real forks.
+- [git stash is shared across worktrees](feedback_stash_across_worktrees.md) — stashing in main while an agent-worktree is active can let the agent pop and claim those changes.
+```
+
+### Memory file 2 — `feedback_parallel_agents.md`
+
+```markdown
+---
+name: Parallelize with agents
+description: User has 40 CPUs and prefers parallel subagents over sequential execution on this repo.
+type: feedback
+---
+The user explicitly said "I have 40 cpus. use multiple agents" early in the HarpHymnal refactor.
+
+**Why:** the build order in PROMPT.md is multi-step, and many of the steps are mechanical ports of independent files. Serial execution wastes the box.
+
+**How to apply:** when starting a multi-step task here, identify which steps are independent and spawn them in parallel worktree-isolated agents. Merge + commit from the main worktree in dependency order. Don't let agents commit/push — serialize git operations in the main thread. Still respect the dependency DAG (e.g. pool.py → mapper.py → piano-score renderer).
+```
+
+### Memory file 3 — `feedback_commit_per_step.md`
+
+```markdown
+---
+name: Commit+push per numbered step
+description: Each numbered build step in PROMPT.md gets its own commit + push so the user can follow progress from the tablet.
+type: feedback
+---
+For the HarpHymnal refactor, land one commit per numbered step and push after each.
+
+**Why:** the user watches progress asynchronously from a tablet; per-step commits let them review each landing independently without digging through a big merged diff.
+
+**How to apply:** never batch multiple steps into one commit. Run `python3 -m pytest tests/ -q` before each commit — all green required. Commit message HEREDOC ending with `Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>`. Push to `origin main` after each commit.
+```
+
+### Memory file 4 — `feedback_frozen_paths.md`
+
+```markdown
+---
+name: legacy/ and source/HarpChordSystem.tex are frozen
+description: Never modify legacy/ or source/HarpChordSystem.tex; HarpTrefoil.tex must stay byte-exact to HarpChordSystem.tex.
+type: feedback
+---
+Hard rules on the HarpHymnal repo:
+
+- `legacy/` is a frozen snapshot of the pre-refactor code — read for reference, never modify, never import from `legacy.*`.
+- `source/HarpChordSystem.tex` is the canonical pedagogy — sacred, no edits.
+- `source/HarpTrefoil.tex` must stay byte-exact to HarpChordSystem.tex. Pedagogy edits land in HarpChordSystem.tex first, then `cp source/HarpChordSystem.tex source/HarpTrefoil.tex`. `tests/test_pool_fidelity.py` enforces this.
+- New scripts live under `grammar/`, `trefoil/`, `parsers/`, `mapper/`, `techniques/`, `drills/`, `renderers/`, `viewer/`, `cli/`, `data/`, `tests/`.
+
+**Why:** the legacy tree is a reference monument for the user to compare against; drift in the pedagogy source would corrupt the 118-fraction vocabulary the entire project is built around.
+
+**How to apply:** if a fix requires editing legacy code, instead port the logic to the new layout and leave the legacy copy untouched. If a pedagogy change is truly needed, flag it to the user — never silently edit HarpChordSystem.tex.
+```
+
+### Memory file 5 — `feedback_stop_asking_execute.md`
+
+```markdown
+---
+name: Stop asking, just execute
+description: Once the goal is stated, do not pause to confirm direction — ship the work
+type: feedback
+---
+Do not pause mid-task to ask "should I do X or Y?" or "want me to loosen/tighten?" when the overall goal is clear. Execute the obvious next step and report what you did.
+
+**Why:** The user set the goal at the start. Repeated "which option?" prompts are noise that slow the loop. User explicitly called it out: "why do you keep asking me questions. Is the goal unclear?"
+
+**How to apply:** For HarpHymnal refactor tasks, when a tuning parameter or scope choice comes up mid-execution, pick a reasonable default and keep moving. Flag the choice in the end-of-turn report so the user can steer if they disagree. Only stop to ask when the path genuinely forks between two materially different outcomes that can't be reversed.
+```
+
+### Memory file 6 — `feedback_stash_across_worktrees.md`
+
+```markdown
+---
+name: git stash is shared across worktrees
+description: Stashing in main while an agent-worktree is active can let the agent pop and claim those changes
+type: feedback
+---
+`git stash` pushes to a single stash list shared by every worktree of the repo. Launching an agent with `isolation: "worktree"` does NOT give that agent a separate stash space. If you stash uncommitted work in main and then an agent does `git stash pop` in its worktree, your changes are now committed on the agent's branch (not lost, but the naive `git stash pop` in your shell will say "no stash entries found").
+
+**Why:** This happened during the HarpHymnal Task #10 gap-closing — stashed `mapper/harp_mapper.py` + `renderers/lilypond.py` WIP to run `git merge <agent-branch>`, and the already-running agent popped the stash in its worktree, then committed it. Recovery path: `git reflog` + find the agent branch that holds the commit.
+
+**How to apply:** Before stashing in a repo that has active agent worktrees, either (a) commit the WIP to a scratch branch instead, or (b) include the WIP in the agent's prompt so it's deliberately carried forward. Also, after running `cd` / working across worktrees, always `pwd && git branch --show-current` before destructive operations — the `claude-code` session can land in a worktree without realizing it.
+```
+
+### Memory file 7 — `project_refactor_handoff.md`
+
+```markdown
+---
+name: Refactor handoff via PROMPT.md
+description: PROMPT.md is the canonical session-start handoff for the HarpHymnal grammar-native refactor.
+type: project
+---
+HarpHymnal is in a multi-session grammar-native refactor. Each session starts by reading `PROMPT.md` at the repo root, which carries the current step queue, file precedence rules, and locked-in style/pedagogy choices.
+
+**Why:** work spans multiple sessions / multiple machines (lab, home laptop, tablet). PROMPT.md is the shared state — the user treats it as the standing instruction.
+
+**How to apply:** at the start of a session, read `PROMPT.md` + `SDD.md` + `GRAMMAR.md` + `TREFOIL.md` before touching code. Cross-check against git log (`git log --oneline -5`) to see what's already landed. Execute steps in order.
+```
+
+### Memory file 8 — `project_pool_paths_reserve.md`
+
+```markdown
+---
+name: pool = paths ∪ reserve — canonical terminology
+description: The user's canonical taxonomy: pool (118) = paths (42 cycle) + reserve (76 color). Use these names, not the legacy jazz_progressions/stacked_chords.
+type: project
+---
+The HarpHymnal vocabulary model:
+
+- **pool** = the full 118-fraction vocabulary.
+- **paths** = the 42 fractions that walk the six trefoil cycles (2nds/3rds/4ths × CW/CCW).
+- **reserve** = the 76 coloristic single-sonority fractions held for substitution and variety.
+- `pool = paths ∪ reserve`.
+
+**Why:** the legacy TeX used `jazz_progressions` / `stacked_chords` as section names, and TREFOIL.md briefly used "pool" for just the 76 leftover — creating a collision where "pool" could mean 118 OR 76. The user settled the terminology explicitly: pool is all 118, and the two subsets are named for their pedagogical role (on-path vs reserved-for-substitution).
+
+**How to apply:**
+- In new code, use `source='paths'` and `source='reserve'` on PoolEntry.
+- In JSON: top-level keys are `paths` and `reserve` (not `jazz_progressions` / `stacked_chords`).
+- In prose/docs: say "paths" and "reserve"; reserve the word "pool" for the full 118.
+- The legacy TeX is frozen and still uses `\sexcA/B/C` (paths) and `\spt` (reserve) — don't rename those, just bridge at the rebuild layer.
+- ipool scheme is `{degree}{rank:02d}`: first digit = LH scale-degree 1..7, last two digits = rank within that degree. Paths occupy the low ranks in each column; reserve occupies the high ranks. Numerically, path chords have the lowest ipools within their own degree column (not globally — `121` < `201` even though `201` is a path chord).
+```
+
+### Memory file 9 — `project_vii_unicode_gotcha.md`
+
+```markdown
+---
+name: vii° vs vii○ — pool/grammar Unicode mismatch
+description: Leading-tone chord is stored as U+00B0 (°) in the pool JSON but U+25CB (○) in the grammar — expect to bridge at lookup boundaries.
+type: project
+---
+The 118-fraction pool stores the leading-tone chord as `vii°` (U+00B0 DEGREE SIGN — inherited from `source/HarpTrefoil.tex`), but `grammar/parse.py` and the rest of the grammar use `vii○` (U+25CB WHITE CIRCLE).
+
+`parse_roman('vii○')` succeeds; `parse_roman('vii°')` raises `ValueError`. A naive `pool.all_voicings_of('vii○')` returns zero matches because the stored entries don't match.
+
+**Why:** the TeX is the sacred pedagogy source and uses `°`. The grammar EBNF v4 adopted `○` (whitespace-free, visually unambiguous) as the canonical form. Both existed before the fidelity gate landed, and neither side can be edited unilaterally (TeX is sacred, grammar is frozen).
+
+**How to apply:** when a new module queries the pool with a grammar-form numeral, translate `vii○ → vii°` at the query boundary. `drills/build.py::_pool_numeral` is the current reference implementation. Longer-term fix would be a normalizer inside `trefoil/pool._build_entry` that rewrites stored romans to grammar form on load — then consumers can query with either spelling. Defer the global fix until someone explicitly schedules it; don't let it block new work.
+```
+
+After writing all 9 files, verify with:
+
+```bash
+ls ~/.claude/projects/-home-<user>-<path>-HarpHymnal/memory/
+# Should show: MEMORY.md + 8 others
+```
+
+Then proceed to the step queue below.
 
 ---
 
