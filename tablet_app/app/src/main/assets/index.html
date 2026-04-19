@@ -358,54 +358,66 @@
     font-size: 20px; padding: 40px;
   }
 
-  /* ──────────────── Hymn browser ──────────────── */
-  #hymns, #hymn-view { display: none; height: 100vh; flex-direction: column; }
-  #hymns.active, #hymn-view.active { display: flex; }
+  /* ──────────────── Hymn browser (split: A-Z index on left, SVG on right) ──── */
+  #hymns { display: none; height: 100vh; flex-direction: column; }
+  #hymns.active { display: flex; }
 
-  #hymn-search-bar {
-    padding: 14px 20px; background: #1b1b1b; color: #fff;
-    display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  #hymn-top-bar {
+    padding: 10px 16px; background: #1b1b1b; color: #fff;
+    display: flex; gap: 12px; align-items: center;
   }
-  #hymn-search-bar button {
+  #hymn-top-bar button {
     background: #333; color: #fff; border: 0; border-radius: 6px;
     padding: 8px 14px; font-size: 16px; cursor: pointer;
   }
-  #hymn-search-bar input[type="search"] {
-    flex: 1; min-width: 200px; padding: 8px 14px; font-size: 18px;
+  #hymn-top-bar input[type="search"] {
+    flex: 1; min-width: 180px; padding: 8px 12px; font-size: 16px;
     border: 0; border-radius: 6px; background: #2b2b2b; color: #fff;
   }
-  #hymn-search-bar #hymn-count { font-size: 15px; color: #bbb; }
+  #hymn-top-bar #hymn-count { font-size: 13px; color: #bbb; }
+  #hymn-view-title { font-size: 18px; font-weight: 600; color: #fff; }
+  #hymn-view-meta  { font-size: 13px; color: #bbb; }
 
-  #hymn-list {
-    flex: 1; overflow-y: auto; padding: 12px;
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 8px; align-content: start;
-  }
-  .hymn-tile {
-    background: #f4ecd8; border: 1px solid #c9b988; border-radius: 6px;
-    padding: 10px 12px; cursor: pointer; font-size: 16px; color: #2c1e0f;
-    display: flex; flex-direction: column; justify-content: space-between;
-    min-height: 60px;
-  }
-  .hymn-tile:hover { background: #efe0b0; }
-  .hymn-tile-title { font-weight: 600; line-height: 1.2; }
-  .hymn-tile-meta  { font-size: 12px; color: #7a5a2b; margin-top: 4px; }
+  #hymn-split { flex: 1; display: flex; min-height: 0; }
 
-  #hymn-view-bar {
-    padding: 10px 20px; background: #1b1b1b; color: #fff;
-    display: flex; gap: 14px; align-items: center;
+  #hymn-index {
+    width: 300px; min-width: 220px; background: #2c1e0f; color: #f4ecd8;
+    overflow-y: auto; border-right: 1px solid #000; flex-shrink: 0;
   }
-  #hymn-view-bar button {
-    background: #333; color: #fff; border: 0; border-radius: 6px;
-    padding: 8px 14px; font-size: 16px; cursor: pointer;
+  .hymn-letter-group { border-bottom: 1px solid #4a3820; }
+  .hymn-letter-header {
+    padding: 10px 16px; font-size: 18px; font-weight: 700;
+    cursor: pointer; background: #3c2b16; color: #f4ecd8;
+    display: flex; justify-content: space-between; align-items: center;
+    user-select: none;
   }
-  #hymn-view-title { font-size: 20px; font-weight: 600; flex: 1; }
-  #hymn-view-meta  { font-size: 14px; color: #bbb; }
-  #hymn-view-img-wrap {
+  .hymn-letter-header:hover { background: #553c1e; }
+  .hymn-letter-header .hymn-letter-count {
+    font-size: 13px; font-weight: 400; color: #c9a87a;
+  }
+  .hymn-letter-header::before {
+    content: '▸'; display: inline-block; width: 16px; margin-right: 6px;
+    transition: transform 0.1s ease;
+  }
+  .hymn-letter-group.open .hymn-letter-header::before { transform: rotate(90deg); }
+  .hymn-letter-items { display: none; background: #201408; }
+  .hymn-letter-group.open .hymn-letter-items { display: block; }
+  .hymn-item {
+    padding: 9px 16px 9px 38px; cursor: pointer; font-size: 15px;
+    color: #e8dcc0; border-bottom: 1px solid #2c1e0f; line-height: 1.3;
+  }
+  .hymn-item:hover { background: #3c2b16; }
+  .hymn-item.selected { background: #7B2B2B; color: #fff; font-weight: 600; }
+  .hymn-item-meta { font-size: 11px; color: #9b855f; }
+  .hymn-item.selected .hymn-item-meta { color: #f4c8c8; }
+
+  #hymn-pane {
     flex: 1; overflow: auto; background: #fff;
     display: flex; justify-content: center; align-items: flex-start;
+    min-width: 0;
   }
-  #hymn-view-img { max-width: 100%; height: auto; display: block; }
+  #hymn-pane img { max-width: 100%; height: auto; display: block; }
+  #hymn-pane .empty-note { margin: auto; }
 </style>
 <script src="harphymnal_drills.js"></script>
 <script src="harphymnal_hymns.js"></script>
@@ -442,25 +454,23 @@
     </footer>
   </section>
 
-  <!-- ════════════════ HYMNS LIST ════════════════ -->
+  <!-- ════════════════ HYMNS (A-Z index + score pane) ════════════════ -->
   <section id="hymns">
-    <div id="hymn-search-bar">
+    <div id="hymn-top-bar">
       <button id="hymns-home-btn" type="button">&larr; Home</button>
       <input id="hymn-search" type="search" placeholder="Search hymns…" autocomplete="off" />
       <span id="hymn-count"></span>
-    </div>
-    <div id="hymn-list"><!-- populated by JS --></div>
-  </section>
-
-  <!-- ════════════════ HYMN VIEW (SVG) ════════════════ -->
-  <section id="hymn-view">
-    <div id="hymn-view-bar">
-      <button id="hymn-view-back" type="button">&larr; Hymns</button>
       <div id="hymn-view-title">—</div>
       <div id="hymn-view-meta"></div>
     </div>
-    <div id="hymn-view-img-wrap">
-      <img id="hymn-view-img" alt="" />
+    <div id="hymn-split">
+      <nav id="hymn-index"><!-- A-Z collapsible groups --></nav>
+      <div id="hymn-pane">
+        <img id="hymn-view-img" alt="" style="display:none" />
+        <div class="empty-note" id="hymn-view-placeholder">
+          Select a hymn from the index on the left.
+        </div>
+      </div>
     </div>
   </section>
 
@@ -545,13 +555,14 @@
     grid.appendChild(hymns);
   }
 
-  // ──────────── Hymn browser ────────────
+  // ──────────── Hymn browser (A-Z collapsible index + score pane) ────────────
+  let _currentHymnSlug = null;
+
   function enterHymns() {
     $('home').style.display = 'none';
     $('hymns').classList.add('active');
-    renderHymnList('');
     $('hymn-search').value = '';
-    $('hymn-search').focus();
+    renderHymnIndex('');
   }
 
   function exitHymns() {
@@ -559,9 +570,25 @@
     $('home').style.display = 'flex';
   }
 
-  function renderHymnList(query) {
-    const list = $('hymn-list');
-    list.innerHTML = '';
+  function groupByLetter(hymns) {
+    // Returns [{letter, hymns: []}] sorted A-Z. Non-alpha titles bucket to '#'.
+    const groups = {};
+    for (const h of hymns) {
+      const first = (h.title[0] || '').toUpperCase();
+      const key = /[A-Z]/.test(first) ? first : '#';
+      (groups[key] = groups[key] || []).push(h);
+    }
+    const keys = Object.keys(groups).sort((a, b) => {
+      if (a === '#') return 1;
+      if (b === '#') return -1;
+      return a.localeCompare(b);
+    });
+    return keys.map(k => ({ letter: k, hymns: groups[k] }));
+  }
+
+  function renderHymnIndex(query) {
+    const idx = $('hymn-index');
+    idx.innerHTML = '';
     const q = (query || '').trim().toLowerCase();
     const catalog = window.HYMN_CATALOG || [];
     const matches = q
@@ -569,38 +596,70 @@
                          || h.slug.toLowerCase().includes(q))
       : catalog;
     $('hymn-count').textContent = matches.length + ' / ' + catalog.length;
-    for (const h of matches) {
-      const tile = document.createElement('div');
-      tile.className = 'hymn-tile';
-      tile.innerHTML =
-        '<div class="hymn-tile-title">' + escapeHtml(h.title) + '</div>' +
-        '<div class="hymn-tile-meta">' +
-          escapeHtml([h.key + (h.mode === 'minor' ? 'm' : ''), h.meter].filter(Boolean).join(' · ')) +
-        '</div>';
-      tile.addEventListener('click', () => openHymn(h));
-      list.appendChild(tile);
+
+    const groups = groupByLetter(matches);
+    // When searching, auto-expand all groups; otherwise only the first is open.
+    for (let gi = 0; gi < groups.length; gi++) {
+      const g = groups[gi];
+      const group = document.createElement('div');
+      group.className = 'hymn-letter-group';
+      if (q || gi === 0) group.classList.add('open');
+
+      const header = document.createElement('div');
+      header.className = 'hymn-letter-header';
+      header.innerHTML =
+        '<span>' + escapeHtml(g.letter) + '</span>' +
+        '<span class="hymn-letter-count">' + g.hymns.length + '</span>';
+      header.addEventListener('click', () => group.classList.toggle('open'));
+      group.appendChild(header);
+
+      const items = document.createElement('div');
+      items.className = 'hymn-letter-items';
+      for (const h of g.hymns) {
+        const item = document.createElement('div');
+        item.className = 'hymn-item';
+        if (h.slug === _currentHymnSlug) item.classList.add('selected');
+        const meta = [h.key + (h.mode === 'minor' ? 'm' : ''), h.meter]
+          .filter(Boolean).join(' · ');
+        item.innerHTML =
+          escapeHtml(h.title) +
+          (meta ? '<div class="hymn-item-meta">' + escapeHtml(meta) + '</div>' : '');
+        item.addEventListener('click', () => openHymn(h));
+        items.appendChild(item);
+      }
+      group.appendChild(items);
+      idx.appendChild(group);
     }
+
     if (!matches.length) {
-      list.innerHTML = '<div class="empty-note">No hymns match.</div>';
+      idx.innerHTML = '<div class="empty-note" style="color:#c9a87a">No hymns match.</div>';
     }
   }
 
   function openHymn(h) {
-    $('hymns').classList.remove('active');
-    $('hymn-view').classList.add('active');
+    _currentHymnSlug = h.slug;
     $('hymn-view-title').textContent = h.title;
     const metaBits = [];
     if (h.key) metaBits.push(h.key + (h.mode === 'minor' ? ' minor' : ' major'));
     if (h.meter) metaBits.push(h.meter);
     $('hymn-view-meta').textContent = metaBits.join(' · ');
-    $('hymn-view-img').alt = h.title;
-    $('hymn-view-img').src = h.svg;
-  }
-
-  function exitHymnView() {
-    $('hymn-view').classList.remove('active');
-    $('hymns').classList.add('active');
-    $('hymn-view-img').src = '';
+    const img = $('hymn-view-img');
+    img.alt = h.title;
+    img.src = h.svg;
+    img.style.display = 'block';
+    $('hymn-view-placeholder').style.display = 'none';
+    // Update the selected styling on the index without rebuilding.
+    for (const el of document.querySelectorAll('.hymn-item.selected')) {
+      el.classList.remove('selected');
+    }
+    // Find and select the just-clicked item (may not be unique if search caused
+    // duplicates across groups — safe to leave as-is).
+    for (const el of document.querySelectorAll('.hymn-item')) {
+      if (el.textContent.startsWith(h.title)) {
+        el.classList.add('selected');
+        break;
+      }
+    }
   }
 
   function makeTile(spec) {
@@ -847,8 +906,7 @@
   $('btn-next').addEventListener('click', () => step(+1));
   $('btn-mid').addEventListener('click', () => step(+1));
   $('hymns-home-btn').addEventListener('click', exitHymns);
-  $('hymn-view-back').addEventListener('click', exitHymnView);
-  $('hymn-search').addEventListener('input', (e) => renderHymnList(e.target.value));
+  $('hymn-search').addEventListener('input', (e) => renderHymnIndex(e.target.value));
 
   // Tap anywhere on card = next; two-finger tap = prev (rare); use swipe
   // gesture to move backwards intuitively.

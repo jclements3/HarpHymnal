@@ -1056,13 +1056,14 @@ upper = {
   \global
   <<
     { \voiceOne __MELODY__ }
-    { \voiceTwo __RHFILL__ }
+    { \once \omit Staff.TimeSignature \voiceTwo __RHFILL__ }
   >>
 }
 
 lower = {
   \clef bass
   \global
+  \once \omit Staff.TimeSignature
   __LH__
 }
 
