@@ -51,7 +51,7 @@ from typing import Any, Iterable, Optional
 
 from grammar.emit import emit_roman
 from grammar.types import Bar, Note, Rest, Roman, Song
-from mapper.harp_mapper import pick_with_substitution
+from mapper.harp_mapper import pick_with_substitution, pick_with_techniques
 from parsers.abc import hymn_slug
 from trefoil.pool import Pool
 
@@ -600,20 +600,27 @@ def _rn_string(r: Roman) -> str:
     return emit_roman(r)
 
 
-def assign_bars(song: Song, pool: Pool) -> list[Optional[dict]]:
+def assign_bars(song: Song, pool: Pool, *,
+                use_techniques: bool = True) -> list[Optional[dict]]:
     """Walk ``song.bars`` and compute a per-bar assignment dict via the mapper.
 
     Each assignment dict carries the legacy-compatible keys the layout
     functions expect: ``rn``, ``lh_fig``, ``rh_fig``, ``lh_rom``, ``rh_rom``,
     ``ipool``, plus the substitution bookkeeping (``harmonic_substitution``,
-    ``requested_rn``).  Returns a list the same length as ``song.bars``.
+    ``requested_rn``, ``technique``).  Returns a list the same length as
+    ``song.bars``.
+
+    When ``use_techniques`` is True (default), the technique-aware picker is
+    used so Third sub / Deceptive sub / Common-tone pivot can replace the
+    input RN where musically warranted. Set to False to match the legacy
+    pre-technique output for diffing.
     """
     key_root = song.key.root
     mode = song.key.mode
     bars = song.bars
     n = len(bars)
 
-    # Phrase endings (for cadence tag surfacing).
+    # Phrase endings (for cadence tag surfacing + deceptive-sub gating).
     phrase_final_bars: set[int] = set()
     last_bar_num = n
     for ph in song.phrases:
@@ -621,6 +628,7 @@ def assign_bars(song: Song, pool: Pool) -> list[Optional[dict]]:
             phrase_final_bars.add(ph.ibars[-1])
 
     assignments: list[Optional[dict]] = []
+    prev_pick = None
     for i, bar in enumerate(bars):
         ibar = i + 1
         rn_str = _rn_string(bar.chord)
@@ -628,6 +636,7 @@ def assign_bars(song: Song, pool: Pool) -> list[Optional[dict]]:
         prev_rn = _rn_string(bars[i - 1].chord) if i > 0 else None
         next_rn = _rn_string(bars[i + 1].chord) if i + 1 < n else None
         is_final = (ibar == last_bar_num) and (ibar in phrase_final_bars)
+        is_phrase_end = ibar in phrase_final_bars
         v_dur = None
         try:
             v_dur = sum(
@@ -636,18 +645,32 @@ def assign_bars(song: Song, pool: Pool) -> list[Optional[dict]]:
         except Exception:
             pass
 
-        picks = pick_with_substitution(
-            pool, rn_str, key_root,
-            next_rn=next_rn,
-            prev_rn=prev_rn,
-            melody=melody,
-            mode=mode,
-            is_final_cadence=is_final,
-            v_duration_beats=v_dur,
-            top_n=1,
-        )
+        if use_techniques:
+            picks = pick_with_techniques(
+                pool, rn_str, key_root,
+                next_rn=next_rn,
+                prev_rn=prev_rn,
+                melody=melody,
+                mode=mode,
+                is_final_cadence=is_final,
+                v_duration_beats=v_dur,
+                is_phrase_end=is_phrase_end,
+                prev_pick=prev_pick,
+            )
+        else:
+            picks = pick_with_substitution(
+                pool, rn_str, key_root,
+                next_rn=next_rn,
+                prev_rn=prev_rn,
+                melody=melody,
+                mode=mode,
+                is_final_cadence=is_final,
+                v_duration_beats=v_dur,
+                top_n=1,
+            )
         if not picks:
             assignments.append(None)
+            prev_pick = None
             continue
         pick = picks[0]
         entry = pool.get(pick.ipool)
@@ -660,7 +683,9 @@ def assign_bars(song: Song, pool: Pool) -> list[Optional[dict]]:
             'ipool': pick.ipool,
             'harmonic_substitution': pick.harmonic_substitution,
             'requested_rn': pick.requested_rn,
+            'technique': getattr(pick, 'technique', None),
         })
+        prev_pick = pick
     return assignments
 
 

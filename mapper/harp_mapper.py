@@ -43,6 +43,8 @@ class Pick:
     mirror the underlying ``PoolEntry``. ``score`` is the numeric match score.
     ``harmonic_substitution`` and ``requested_rn`` are set by
     ``pick_with_substitution`` when a minor-V substitution was applied.
+    ``technique`` is set by ``pick_with_techniques`` when a reharm technique
+    (Third sub / Deceptive sub / Common-tone pivot) replaced the input RN.
     """
     bishape: Bishape
     lh_chord: Roman
@@ -53,6 +55,7 @@ class Pick:
     meta: dict = field(default_factory=dict)
     harmonic_substitution: Optional[str] = None
     requested_rn: Optional[str] = None
+    technique: Optional[str] = None
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -627,6 +630,274 @@ def pick_with_substitution(pool: Pool, rn: str, key_root: str, *,
 
 
 # ═════════════════════════════════════════════════════════════════════════════
+#   Technique-aware picker: substitution techniques as candidate alternates
+# ═════════════════════════════════════════════════════════════════════════════
+
+# Ionian diatonic ladder (tuple of plain numerals, no quality marks).
+_DIATONIC_NUMERALS = ('I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii')
+
+# Diatonic triad scale-degree sets (indices into the 7-note ladder, 0-based).
+_DIATONIC_TRIADS = {
+    0: frozenset({0, 2, 4}),   # I
+    1: frozenset({1, 3, 5}),   # ii
+    2: frozenset({2, 4, 6}),   # iii
+    3: frozenset({3, 5, 0}),   # IV
+    4: frozenset({4, 6, 1}),   # V
+    5: frozenset({5, 0, 2}),   # vi
+    6: frozenset({6, 1, 3}),   # vii
+}
+
+# Per-technique score bonus. The baseline gets an incumbency bonus of
+# ``_INCUMBENT_BONUS`` below, so effective net tilt = bonus - incumbency.
+# Deceptive sub (V→vi on phrase-end cadence) is the only technique tilted to
+# beat baseline on a tie; the others must earn their win with raw pool score.
+_TECHNIQUE_BONUS = {
+    'Deceptive sub':      4.0,   # phrase-end cadence swap — explicit intent
+    'Third sub':          0.0,   # only when alternate's melody match is stronger
+    'Common-tone pivot':  0.5,   # very narrow — shares ≥2 pcs with both sides
+}
+_INCUMBENT_BONUS = 4.0           # default bar keeps its chord unless clearly beaten
+
+
+def _rn_numeral(rn: str) -> Optional[str]:
+    """Extract the ladder numeral (e.g. ``'V7' → 'V'``, ``'iii¹' → 'iii'``)."""
+    m = re.match(r'^[#b\u266d\u266f]?([ivIV]+)', rn or '')
+    if not m:
+        return None
+    return m.group(1)
+
+
+def _ladder_index(rn: str) -> Optional[int]:
+    """0..6 position of ``rn`` on the Ionian ladder, else None."""
+    num = _rn_numeral(rn)
+    if num is None:
+        return None
+    for i, canonical in enumerate(_DIATONIC_NUMERALS):
+        if canonical.lower() == num.lower():
+            return i
+    return None
+
+
+def _third_sub_alternates(rn: str) -> list[str]:
+    """Return up-a-third and down-a-third diatonic neighbors of ``rn``."""
+    idx = _ladder_index(rn)
+    if idx is None:
+        return []
+    return [
+        _DIATONIC_NUMERALS[(idx - 2) % 7],
+        _DIATONIC_NUMERALS[(idx + 2) % 7],
+    ]
+
+
+def _deceptive_sub_alternate(rn: str, next_rn: Optional[str]) -> Optional[str]:
+    """Return ``'vi'`` iff ``rn`` is ``V`` / ``V7`` and ``next_rn`` starts with ``I``."""
+    num = _rn_numeral(rn)
+    if num != 'V':
+        return None
+    if not next_rn:
+        return None
+    next_num = _rn_numeral(next_rn)
+    if next_num != 'I':
+        return None
+    return 'vi'
+
+
+def _common_tone_pivot_alternates(rn: str, next_rn: Optional[str]) -> list[str]:
+    """Return diatonic neighbors sharing ≥2 tones with both current and next RN."""
+    cur_idx = _ladder_index(rn)
+    nxt_idx = _ladder_index(next_rn) if next_rn else None
+    if cur_idx is None or nxt_idx is None:
+        return []
+    cur_pcs = _DIATONIC_TRIADS[cur_idx]
+    nxt_pcs = _DIATONIC_TRIADS[nxt_idx]
+    alts: list[str] = []
+    for i, numeral in enumerate(_DIATONIC_NUMERALS):
+        if i == cur_idx or i == nxt_idx:
+            continue
+        pcs = _DIATONIC_TRIADS[i]
+        if len(pcs & cur_pcs) >= 2 and len(pcs & nxt_pcs) >= 2:
+            alts.append(numeral)
+    return alts
+
+
+def _rescore_via_score_entry(pool: Pool, pick: Pick, rn: str, key_root: str,
+                              melody: Optional[str], mode: str) -> float:
+    """Re-score a ``Pick`` via :func:`score_entry` against the caller's RN.
+
+    The baseline from :func:`pick_with_substitution` may have been scored on
+    the :func:`pick_transition` scale (smaller range). This helper rescales
+    the baseline so technique alternates (which are scored via
+    :func:`pick_fraction`) can be compared against it on equal footing.
+    """
+    lookup_rn = translate_minor_to_major(rn) if mode == 'minor' else rn
+    target_deg, target_quality, target_inv = parse_rn(lookup_rn)
+    if target_deg is None:
+        return pick.score
+    K = _build_key(key_root, mode)
+    melody_pitch = None
+    if melody:
+        try:
+            melody_pitch = m21_pitch.Pitch(melody)
+        except Exception:
+            melody_pitch = None
+    try:
+        entry = pool.get(pick.ipool)
+    except Exception:
+        return pick.score
+    return score_entry(entry, target_deg, target_quality, target_inv,
+                       melody_pitch, K, prefer_color=True)
+
+
+def _voice_leading_bonus(prev_pick: Optional[Pick], cand: Pick,
+                          key_root: str, mode: str) -> float:
+    """Reward pitch-class overlap between ``prev_pick`` and ``cand`` voicings.
+
+    Shared pitch classes → smoother voice leading. Returns 0..2.5.
+    """
+    if prev_pick is None:
+        return 0.0
+    try:
+        K = _build_key(key_root, mode)
+        prev_pcs = {p.pitchClass for p in (
+            figure_pitches(prev_pick.bishape.rh.figure, K) +
+            figure_pitches(prev_pick.bishape.lh.figure, K)
+        )}
+        cand_pcs = {p.pitchClass for p in (
+            figure_pitches(cand.bishape.rh.figure, K) +
+            figure_pitches(cand.bishape.lh.figure, K)
+        )}
+        shared = len(prev_pcs & cand_pcs)
+        return min(shared * 0.5, 2.5)
+    except Exception:
+        return 0.0
+
+
+def pick_with_techniques(pool: Pool, rn: str, key_root: str, *,
+                          next_rn: Optional[str] = None,
+                          prev_rn: Optional[str] = None,
+                          melody: Optional[str] = None,
+                          mode: str = 'major',
+                          contour: Optional[str] = None,
+                          is_final_cadence: bool = False,
+                          ending_marker: Optional[str] = None,
+                          v_duration_beats: Optional[float] = None,
+                          is_phrase_end: bool = False,
+                          prev_pick: Optional[Pick] = None,
+                          enabled: tuple[str, ...] = (
+                              'Deceptive sub',
+                              'Third sub',
+                              'Common-tone pivot',
+                          )) -> list[Pick]:
+    """Technique-aware wrapper around :func:`pick_with_substitution`.
+
+    Generates candidate alternate RNs via substitution techniques (Third sub,
+    Deceptive sub, Common-tone pivot), scores each alternate's best pool
+    entry, adds a technique bonus plus a voice-leading bonus vs. ``prev_pick``,
+    and returns the winning pick (top-1). The winning pick's ``technique``
+    field records which technique (if any) was applied; baseline picks have
+    ``technique=None``.
+
+    Techniques are gated by musical context:
+      - Deceptive sub: only on phrase-final V → I cadences.
+      - Third sub: everywhere, but bonus is small.
+      - Common-tone pivot: only when both current and next RN exist.
+
+    Minor-key V substitution (``harmonic_substitution``) is delegated to
+    :func:`pick_with_substitution` and preserved on the returned pick.
+    """
+    baseline_picks = pick_with_substitution(
+        pool, rn, key_root,
+        next_rn=next_rn, prev_rn=prev_rn, melody=melody, mode=mode,
+        contour=contour, is_final_cadence=is_final_cadence,
+        ending_marker=ending_marker, v_duration_beats=v_duration_beats,
+        top_n=1,
+    )
+    if not baseline_picks:
+        return []
+
+    best = baseline_picks[0]
+    best.technique = None
+    # Re-score baseline via score_entry so it's on the same scale as alternates
+    # (pick_with_substitution may have gone through pick_transition, which uses
+    # a smaller scoring range). The baseline's pool choice is preserved; only
+    # the comparison score changes.
+    baseline_rescore = _rescore_via_score_entry(
+        pool, best, rn, key_root, melody, mode
+    )
+    best_score = (
+        baseline_rescore
+        + _INCUMBENT_BONUS
+        + _voice_leading_bonus(prev_pick, best, key_root, mode)
+    )
+
+    # In minor mode, the mapper already translated the lookup; we should only
+    # apply substitution techniques in major mode to keep the Ionian ladder
+    # assumption in _third_sub_alternates / _common_tone_pivot_alternates
+    # valid. (Minor-mode V substitution is still handled by pick_with_substitution.)
+    if mode == 'minor':
+        return [best]
+
+    # Cycle-edge bars are where the trefoil-path pedagogy earns its keep —
+    # the 42 paths encode direction-aware voice-leading between adjacent
+    # diatonic degrees. We never override a cycle-edge baseline with a
+    # substitution technique; the cycle pick is the lesson.
+    cur_deg = _ladder_index(rn)
+    nxt_deg = _ladder_index(next_rn) if next_rn else None
+    on_cycle_edge = False
+    if cur_deg is not None and nxt_deg is not None:
+        # cycle_of_transition wants 1-based degrees.
+        cyc, _direction = cycle_of_transition(cur_deg + 1, nxt_deg + 1)
+        on_cycle_edge = cyc is not None
+
+    # Gate techniques by musical context so they only fire when there's a
+    # clear motivation — otherwise baseline wins by default.
+    candidates: list[tuple[str, str]] = []      # (technique_name, alt_rn)
+
+    # Deceptive sub: phrase-final V → I cadence only. Fires even on cycle
+    # edges because V→I is always a 4ths-cycle edge and the deceptive
+    # cadence is the musical point.
+    if 'Deceptive sub' in enabled and is_phrase_end:
+        alt = _deceptive_sub_alternate(rn, next_rn)
+        if alt:
+            candidates.append(('Deceptive sub', alt))
+
+    # Third sub: only on non-cycle-edge bars where the baseline rescored
+    # poorly on melody. Cycle edges keep their trefoil path.
+    if ('Third sub' in enabled and melody and not on_cycle_edge
+            and baseline_rescore < 20.0):
+        for alt in _third_sub_alternates(rn):
+            candidates.append(('Third sub', alt))
+
+    # Common-tone pivot: only on repeated chords (current RN == prev RN),
+    # and only off cycle edges. Repeated bars are the classic target for
+    # pivot variety; applying it to every transition produces noise.
+    if ('Common-tone pivot' in enabled and next_rn and prev_rn
+            and not on_cycle_edge):
+        cur_num = _rn_numeral(rn)
+        prev_num = _rn_numeral(prev_rn)
+        if cur_num and prev_num and cur_num == prev_num:
+            for alt in _common_tone_pivot_alternates(rn, next_rn):
+                candidates.append(('Common-tone pivot', alt))
+
+    for tech_name, alt_rn in candidates:
+        alt_picks = pick_fraction(pool, alt_rn, key_root, melody, mode, top_n=1)
+        if not alt_picks:
+            continue
+        cand = alt_picks[0]
+        combined = (
+            cand.score
+            + _TECHNIQUE_BONUS.get(tech_name, 0.0)
+            + _voice_leading_bonus(prev_pick, cand, key_root, mode)
+        )
+        if combined > best_score:
+            cand.technique = tech_name
+            cand.requested_rn = rn
+            best, best_score = cand, combined
+
+    return [best]
+
+
+# ═════════════════════════════════════════════════════════════════════════════
 #   Convenience: module-level pool cache for ad-hoc callers
 # ═════════════════════════════════════════════════════════════════════════════
 
@@ -646,6 +917,7 @@ __all__ = [
     'pick_fraction',
     'pick_transition',
     'pick_with_substitution',
+    'pick_with_techniques',
     'cycle_of_transition',
     'infer_contour',
     'choose_minor_V_substitution',
