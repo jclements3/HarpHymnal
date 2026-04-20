@@ -1096,14 +1096,13 @@ upper = {
   \global
   <<
     { \voiceOne __MELODY__ }
-    { \once \omit Staff.TimeSignature \voiceTwo __RHFILL__ }
+    { \voiceTwo __RHFILL__ }
   >>
 }
 
 lower = {
   \clef bass
   \global
-  \once \omit Staff.TimeSignature
   __LH__
 }
 
@@ -1193,6 +1192,21 @@ def render_piano_score(song: Song, pool: Pool) -> str:
                                  next_assignment=next_assignment)
         if voicing_hints.get(ibar) == 'pedal=1':
             _inject_pedal_tone(bar_data, key_root, mode)
+        # Bar 1 grace-note fold: the acciaccatura pedal tone at the very start
+        # of the piece collides with LilyPond's break-alignment of staff-header
+        # signatures (time sig ends up before the key sig; grace lands between
+        # them). Fold the pedal into the main chord as a stacked low tone on
+        # bar 1 only — keeps the low-tonic bass audible without perturbing the
+        # staff header. The final bar's grace is unaffected (no header there).
+        if ibar == 1:
+            for ev in bar_data.get('lh_events', []):
+                grace = ev.get('grace_midis')
+                if not grace:
+                    continue
+                merged = list(grace) + list(ev.get('midis') or [])
+                seen: set[int] = set()
+                ev['midis'] = [m for m in merged if not (m in seen or seen.add(m))]
+                ev.pop('grace_midis', None)
         bar_data['label_markup'] = chord_label_markup(assignment)
         bar_data['style'] = style
         bar_data['voicing'] = assignment.get('voicing')
