@@ -4,8 +4,8 @@ Usage:
     python3 tablet_app/build_hymns_bundle.py
 
 Reads:
-    data/scores/tech_full/*.svg      — tech-rendered hymn scores
-    data/audio/tech_full/*.m4a       — harp-timbre audio rendered from the MIDI
+    data/scores/*.svg                — tech-rendered hymn scores
+    data/audio/*.m4a                 — harp-timbre audio rendered from the MIDI
     data/hymns/*.json                — titles + keys for the catalog
 
 Writes:
@@ -21,8 +21,8 @@ import shutil
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SCORES = REPO / 'data' / 'scores' / 'tech_full'
-AUDIO = REPO / 'data' / 'audio' / 'tech_full'
+SCORES = REPO / 'data' / 'scores'
+AUDIO = REPO / 'data' / 'audio'
 HYMNS_JSON = REPO / 'data' / 'hymns'
 ASSETS = REPO / 'tablet_app' / 'app' / 'src' / 'main' / 'assets'
 HYMNS_OUT = ASSETS / 'hymns'

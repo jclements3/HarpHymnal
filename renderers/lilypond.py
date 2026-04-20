@@ -528,11 +528,16 @@ def layout_bar_grand(assignment: dict, melody_events: list[dict],
         # Musically this matches the harp idiom: LH rolls on beat 1, RH plays
         # the melody note simultaneously, and the RH fill is then rolled up
         # as a continuation of the strum once the melody note has sounded.
+        # Cap: if the delay would leave less than an eighth for the RH chord
+        # (e.g. a long held melody note on the last bar), fall back to beat-1
+        # onset so the RH still plays a proper block chord.
         rh_onset = 0.0
         if melody_events:
             first = melody_events[0]
             if first.get('midis'):
-                rh_onset = float(first.get('duration_ql', 0.0))
+                candidate = float(first.get('duration_ql', 0.0))
+                if bar_duration - candidate >= 0.5 - 1e-6:
+                    rh_onset = candidate
         rh_dur = bar_duration - rh_onset
         if rh_midis and rh_dur > 1e-6:
             rh_events.append({
@@ -1195,6 +1200,16 @@ def render_piano_score(song: Song, pool: Pool) -> str:
         ibar = i + 1
         is_last = (ibar == n)
         melody_events = _bar_melody_events(list(bar.melody), bar_duration)
+        # Hymn-end convention: a short last bar means the final note rings
+        # through the remaining time (implicit fermata). Extend the last
+        # melody note's duration to fill the bar rather than emit a trailing
+        # rest. Only applies to the very last bar; short interior bars stay
+        # as written.
+        if is_last and melody_events:
+            total = sum(ev.get('duration_ql', 0.0) for ev in melody_events)
+            gap = bar_duration - total
+            if gap > 1e-6 and melody_events[-1].get('midis'):
+                melody_events[-1]['duration_ql'] += gap
         assignment = assignments[i]
         next_assignment = assignments[i + 1] if i + 1 < n else None
 
