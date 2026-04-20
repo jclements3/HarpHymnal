@@ -374,6 +374,11 @@
     width: 180px; flex: 0 0 180px; padding: 7px 10px; font-size: 14px;
     border: 0; border-radius: 6px; background: #2b2b2b; color: #fff;
   }
+  #hymn-top-bar #hymn-recent {
+    width: 170px; flex: 0 0 170px; padding: 7px 8px; font-size: 14px;
+    border: 0; border-radius: 6px; background: #2b2b2b; color: #fff;
+    cursor: pointer;
+  }
   #hymn-top-bar #hymn-count { font-size: 13px; color: #bbb; }
   #hymn-view-title { font-size: 18px; font-weight: 600; color: #fff; }
   #hymn-view-meta  { font-size: 13px; color: #bbb; }
@@ -474,6 +479,9 @@
     <div id="hymn-top-bar">
       <button id="hymns-home-btn" type="button">&larr; Home</button>
       <input id="hymn-search" type="search" placeholder="Search…" autocomplete="off" />
+      <select id="hymn-recent" title="Recently viewed">
+        <option value="">Recent…</option>
+      </select>
       <span id="hymn-count"></span>
       <div id="hymn-transport" role="group" aria-label="Playback transport">
         <button id="hymn-to-start" type="button" title="Jump to start">&#x23EE;</button>
@@ -582,11 +590,69 @@
   // ──────────── Hymn browser (A-Z collapsible index + score pane) ────────────
   let _currentHymnSlug = null;
 
+  const HYMN_LAST_KEY = 'hymn.last';
+  const HYMN_RECENT_KEY = 'hymn.recent';
+  const HYMN_RECENT_MAX = 10;
+
+  function loadRecentSlugs() {
+    try {
+      const raw = localStorage.getItem(HYMN_RECENT_KEY);
+      if (!raw) return [];
+      const arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr.filter((s) => typeof s === 'string') : [];
+    } catch (_e) { return []; }
+  }
+  function saveRecentSlug(slug) {
+    if (!slug) return;
+    let arr = loadRecentSlugs().filter((s) => s !== slug);
+    arr.unshift(slug);
+    if (arr.length > HYMN_RECENT_MAX) arr = arr.slice(0, HYMN_RECENT_MAX);
+    try { localStorage.setItem(HYMN_RECENT_KEY, JSON.stringify(arr)); } catch (_e) {}
+    try { localStorage.setItem(HYMN_LAST_KEY, slug); } catch (_e) {}
+  }
+  function findHymnBySlug(slug) {
+    if (!slug || !window.HYMN_CATALOG) return null;
+    return window.HYMN_CATALOG.find((h) => h.slug === slug) || null;
+  }
+  function rebuildRecentDropdown() {
+    const sel = document.getElementById('hymn-recent');
+    if (!sel) return;
+    const slugs = loadRecentSlugs();
+    sel.innerHTML = '';
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = slugs.length ? 'Recent…' : '(no recent)';
+    sel.appendChild(placeholder);
+    for (const slug of slugs) {
+      const h = findHymnBySlug(slug);
+      if (!h) continue;
+      const opt = document.createElement('option');
+      opt.value = slug;
+      opt.textContent = h.title;
+      sel.appendChild(opt);
+    }
+    sel.value = '';
+  }
+
   function enterHymns() {
     $('home').style.display = 'none';
     $('hymns').classList.add('active');
     $('hymn-search').value = '';
     renderHymnIndex('');
+    rebuildRecentDropdown();
+    // Auto-restore the last viewed hymn, expand its letter group so the
+    // selected item is visible in the index.
+    const lastSlug = (() => {
+      try { return localStorage.getItem(HYMN_LAST_KEY); } catch (_e) { return null; }
+    })();
+    const last = findHymnBySlug(lastSlug);
+    if (last) {
+      const letter = (last.title[0] || '').toUpperCase();
+      const key = /[A-Z]/.test(letter) ? letter : '#';
+      const group = document.querySelector('.hymn-letter-group[data-letter="' + key + '"]');
+      if (group) group.classList.add('open');
+      openHymn(last);
+    }
   }
 
   function exitHymns() {
@@ -635,6 +701,7 @@
       const g = groups[gi];
       const group = document.createElement('div');
       group.className = 'hymn-letter-group';
+      group.dataset.letter = g.letter;
       if (q) group.classList.add('open');
 
       const header = document.createElement('div');
@@ -670,6 +737,8 @@
 
   function openHymn(h) {
     _currentHymnSlug = h.slug;
+    saveRecentSlug(h.slug);
+    rebuildRecentDropdown();
     $('hymn-view-title').textContent = h.title;
     const metaBits = [];
     if (h.key) metaBits.push(h.key + (h.mode === 'minor' ? ' minor' : ' major'));
@@ -953,6 +1022,19 @@
   $('btn-mid').addEventListener('click', () => step(+1));
   $('hymns-home-btn').addEventListener('click', exitHymns);
   $('hymn-search').addEventListener('input', (e) => renderHymnIndex(e.target.value));
+  $('hymn-recent').addEventListener('change', (e) => {
+    const slug = e.target.value;
+    if (!slug) return;
+    const h = findHymnBySlug(slug);
+    if (!h) return;
+    // Expand the picked hymn's letter group so the index shows the selection.
+    const letter = (h.title[0] || '').toUpperCase();
+    const key = /[A-Z]/.test(letter) ? letter : '#';
+    const group = document.querySelector('.hymn-letter-group[data-letter="' + key + '"]');
+    if (group) group.classList.add('open');
+    openHymn(h);
+    e.target.value = '';  // reset so re-picking the same entry re-fires
+  });
 
   // ──────────── Hymn transport (HTMLAudioElement) ────────────
   const audio = $('hymn-audio');
