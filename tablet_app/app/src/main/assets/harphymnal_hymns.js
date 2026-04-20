@@ -1249,6 +1249,14 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
+    "slug": "lord_thee_i_love_with_all_my_heart",
+    "title": "Lord, Thee I Love with All My Heart",
+    "svg": "hymns/lord_thee_i_love_with_all_my_heart.svg",
+    "key": "Bb",
+    "mode": "major",
+    "meter": "/"
+  },
+  {
     "slug": "lord_who_at_cana_s_wedding_feast",
     "title": "Lord, Who at Cana's Wedding Feast",
     "svg": "hymns/lord_who_at_cana_s_wedding_feast.svg",
@@ -1401,6 +1409,14 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
+    "slug": "o_be_glad_all_nations_on_earth",
+    "title": "O Be Glad All Nations on Earth",
+    "svg": "hymns/o_be_glad_all_nations_on_earth.svg",
+    "key": "F",
+    "mode": "major",
+    "meter": "/"
+  },
+  {
     "slug": "o_be_glad_all_nations_on_earth-1",
     "title": "O Be Glad All Nations On Earth-1",
     "svg": "hymns/o_be_glad_all_nations_on_earth-1.svg",
@@ -1495,6 +1511,14 @@ window.HYMN_CATALOG = [
     "key": "",
     "mode": "",
     "meter": ""
+  },
+  {
+    "slug": "o_holy_spirit_enter_in",
+    "title": "O Holy Spirit, Enter In",
+    "svg": "hymns/o_holy_spirit_enter_in.svg",
+    "key": "Eb",
+    "mode": "major",
+    "meter": "/"
   },
   {
     "slug": "o_holy_blessed_trinity",
@@ -1823,6 +1847,14 @@ window.HYMN_CATALOG = [
     "key": "",
     "mode": "",
     "meter": ""
+  },
+  {
+    "slug": "see_the_lord_ascends_in_triumph",
+    "title": "See, The Lord Ascends In Triumph",
+    "svg": "hymns/see_the_lord_ascends_in_triumph.svg",
+    "key": "A",
+    "mode": "major",
+    "meter": "/"
   },
   {
     "slug": "silent_night",
@@ -2199,6 +2231,14 @@ window.HYMN_CATALOG = [
     "key": "",
     "mode": "",
     "meter": ""
+  },
+  {
+    "slug": "we_all_believe_in_one_true_god",
+    "title": "We All Believe in One True God",
+    "svg": "hymns/we_all_believe_in_one_true_god.svg",
+    "key": "D",
+    "mode": "minor",
+    "meter": "/"
   },
   {
     "slug": "we_all_believe_in_one_true_god-1",
