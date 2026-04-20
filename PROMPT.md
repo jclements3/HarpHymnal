@@ -1,7 +1,7 @@
 # PROMPT.md — home-laptop Claude handoff
 
-Continue the HarpHymnal refactor. State is on `origin/main` at commit **`9b91957`**.
-The 8-step refactor + drill↔hymn-gap-closing pass is done; this handoff picks up from the end of the **audio-playback + tablet-UX** pass.
+Continue the HarpHymnal refactor. State is on `origin/main` at commit **`fb610a8`**.
+The 8-step refactor + drill↔hymn-gap-closing pass is done; this handoff picks up from the end of the **audio-playback + tablet-UX + trailing-rest-fix** pass. The APK at `fb610a8` has already been installed on the tablet (`P90YPDU16Y251200164`) from the lab machine.
 
 Read these first, in order:
 
@@ -271,7 +271,7 @@ If a step fails, fall back to `--soundfont` CLI arg on `cli.audio_build` to poin
 
 ---
 
-## What shipped last session (commits `87f0f09..9b91957`)
+## What shipped last session (commits `87f0f09..fb610a8`)
 
 ### Renderer correctness
 1. **Gap rule enforced at render time** (`12815b8`) — `layout_bar_grand` octave-shifts RH back up if the melody-push-down put it at or below the LH top. Previously 85% of hymns had at least one bar with same-string LH/RH collision; now zero across 4 717 bars.
@@ -280,12 +280,13 @@ If a step fails, fall back to `--soundfont` CLI arg on `cli.audio_build` to poin
 4. **Tight paper margins** (`282e490`) — `\paper { left-margin = 4\mm, right-margin = 4\mm, top-margin = 8\mm, bottom-margin = 8\mm, indent = 0 }`. Music fills the tablet pane edge-to-edge.
 5. **RH fill delayed past first melody note** (`ad32971`) — arpeggio wavy line no longer overlaps the melody notehead; rhythm matches the harp idiom (LH rolls, RH plays melody, RH fill rolls up after). `events_to_lilypond_bar` now fills leading/mid/trailing gaps with rests to support mid-bar voice starts.
 6. **Per-voice dynamics** (`a227806`) — wrapped each polyphonic arm in `\new Voice` so voiceOne's `\mf` (melody) and voiceTwo's `\p` (RH fill) don't collapse to a single MIDI velocity. Melody is now audibly above the fill.
+6b. **Trailing-rest fix for short last bars** (`fb610a8`) — 54/279 hymns have short final measures (e.g. amazing_grace: 2 QL half-note in a 3/4 bar). The new `events_to_lilypond_bar` gap-fill was dutifully emitting a quarter rest. Hymn convention is that the final note rings through; `render_piano_score` now extends the last melody event's duration to absorb any trailing gap. Also capped the RH-delay-past-first-melody trick: if the delay would leave under an eighth for RH, fall back to beat-1 onset so long held finals still get a block chord.
 
 ### Audio pipeline (brand new)
 7. **Orchestral harp timbre** (`684dbeb`) — `\set Staff.midiInstrument = "orchestral harp"` on both staves. GM program 46.
 8. **MIDI strum post-process** — `renderers/midi_strum.py` staggers simultaneous note-ons by 20 ms/note low→high. Note-offs untouched so chords release together (strummed attack, sustained ring). LilyPond's `\arpeggio` is visual only; this module is what makes the audio actually sound like a harp.
 9. **Audio build pipeline** — `cli/audio_build.py`: MIDI → fluidsynth (MuseScore_General.sf3) → WAV → ffmpeg AAC mono 48 kbps → .m4a. Parallel with `--jobs 40`, full 279-hymn corpus in ~170 s, ~86 MB output.
-10. **Bundle script** — `tablet_app/build_hymns_bundle.py` now copies `data/audio/tech_full/*.m4a` into `tablet_app/app/src/main/assets/audio/` and stamps each catalog entry with an `audio` field. Multi-page SVG `-N` suffix is stripped when looking up the audio.
+10. **Bundle script** (`fb610a8`) — `tablet_app/build_hymns_bundle.py` copies `data/audio/*.m4a` into `tablet_app/app/src/main/assets/audio/` and stamps each catalog entry with an `audio` field. Multi-page SVG `-N` suffix is stripped when looking up the audio. *Path note:* `cli.scores_build` defaults to `data/scores/` (flat, no `tech_full/` subdir); the bundler was updated in `fb610a8` to match. Old references to `data/scores/tech_full/` in docs/memory are stale.
 
 ### Tablet UX
 11. **Transport controls** (`684dbeb`) — `⏮ ⏪ ▶/⏸ ⏩ ⏭` with `mm:ss / mm:ss` readout, wired to a single `<audio>` element. Play/pause, ±5 s seek, jump-to-start/end. `exitHymns()` pauses and releases so audio can't bleed into the drill screen.
@@ -366,13 +367,15 @@ Commit: `renderer: wire anticipation / delay as rhythmic shifts (PROMPT step 5)`
 After steps 1–5, re-render scores, audio, and the tablet bundle:
 
 ```bash
-rm -rf data/scores/tech_full    # clean; old page-split -N.svg files accumulate otherwise
-python3 -m cli.scores_build --all --jobs 40 --formats svg,midi --out-dir data/scores/tech_full
-python3 -m cli.audio_build --all --jobs 40
+rm -rf data/scores    # clean; old page-split -N.svg files accumulate otherwise
+python3 -m cli.scores_build --all --jobs 40 --formats svg,midi
+python3 -m cli.audio_build --all --jobs 40 --midi-dir data/scores --out-dir data/audio
 python3 tablet_app/build_hymns_bundle.py
 cd tablet_app && ./gradlew assembleDebug
 ~/Android/Sdk/platform-tools/adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
+
+Note on the `cli.audio_build` flags: its defaults still point at `data/scores/tech_full/` and `data/audio/tech_full/`, so pass the flags above to match the current flat layout. If you update the `cli.audio_build` defaults, drop the flags.
 
 Diff a few hymns visually on the tablet vs. the pre-step-1 versions.
 
@@ -402,7 +405,7 @@ User said "I'm willing to try it for real tomorrow" — they're deferring final 
 
 ### Step 8 — soundfont fallback if home laptop blocks on audio
 
-If the MuseScore_General.sf3 download fails on the home laptop or fluidsynth isn't installable, skip the audio pipeline rather than blocking on it. The tablet already has 86 MB of audio from the lab build committed at `9b91957`; re-rendering scores without re-rendering audio will keep the old audio in the bundle. Audio is a "nice to have" for playback; the visual score is the primary deliverable.
+If the MuseScore_General.sf3 download fails on the home laptop or fluidsynth isn't installable, skip the audio pipeline rather than blocking on it. The tablet already has 86 MB of audio from the lab build committed at `fb610a8`; re-rendering scores without re-rendering audio will keep the old audio in the bundle. Audio is a "nice to have" for playback; the visual score is the primary deliverable.
 
 ---
 
@@ -431,7 +434,7 @@ If the MuseScore_General.sf3 download fails on the home laptop or fluidsynth isn
 
 ```bash
 cd /home/james.clements/projects/HarpHymnal    # adjust path for home laptop
-git log --oneline -5      # expect 9b91957 on top
+git log --oneline -5      # expect fb610a8 on top
 git status --short        # should be clean
 pytest tests/ -q          # should pass (158 tests last run)
 python3 -m cli.scores_build --title silent_night --out-dir /tmp/verify --no-compile
@@ -439,8 +442,8 @@ python3 -m cli.scores_build --title silent_night --out-dir /tmp/verify --no-comp
 # Audio pipeline smoke (after env bootstrap above)
 which fluidsynth          # expect /home/.../anaconda3/bin/fluidsynth
 ls -la /tmp/MuseScore_General.sf3    # expect ~40 MB
-python3 -m cli.audio_build --title amazing_grace
-ls -la data/audio/tech_full/amazing_grace.m4a    # expect ~240 KB
+python3 -m cli.audio_build --title amazing_grace --midi-dir data/scores --out-dir data/audio
+ls -la data/audio/amazing_grace.m4a    # expect ~240 KB
 
 # Tablet device
 ~/Android/Sdk/platform-tools/adb devices    # expect P90YPDU16Y251200164 device
