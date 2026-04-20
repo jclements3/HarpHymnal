@@ -1105,8 +1105,8 @@ upper = {
   \set Staff.midiInstrument = "orchestral harp"
   \global
   <<
-    { \voiceOne __MELODY__ }
-    { \voiceTwo __RHFILL__ }
+    \new Voice { \voiceOne __MELODY__ }
+    \new Voice { \voiceTwo __RHFILL__ }
   >>
 }
 

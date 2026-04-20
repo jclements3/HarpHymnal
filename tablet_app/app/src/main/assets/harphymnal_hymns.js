@@ -325,6 +325,15 @@ window.HYMN_CATALOG = [
     "meter": ""
   },
   {
+    "slug": "behold_a_host_arrayed_in_white",
+    "title": "Behold, A Host, Arrayed in White",
+    "svg": "hymns/behold_a_host_arrayed_in_white.svg",
+    "audio": "audio/behold_a_host_arrayed_in_white.m4a",
+    "key": "Eb",
+    "mode": "major",
+    "meter": "/"
+  },
+  {
     "slug": "beneath_the_cross_of_jesus",
     "title": "Beneath The Cross Of Jesus",
     "svg": "hymns/beneath_the_cross_of_jesus.svg",
