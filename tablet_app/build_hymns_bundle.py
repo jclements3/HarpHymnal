@@ -1,27 +1,32 @@
-"""Bundle rendered hymn SVGs + catalog into the tablet_app's assets.
+"""Bundle rendered hymn SVGs + AAC audio + catalog into the tablet_app's assets.
 
 Usage:
     python3 tablet_app/build_hymns_bundle.py
 
 Reads:
-    data/scores/tech_full/*.svg      — 279 tech-rendered hymn scores
+    data/scores/tech_full/*.svg      — tech-rendered hymn scores
+    data/audio/tech_full/*.m4a       — harp-timbre audio rendered from the MIDI
     data/hymns/*.json                — titles + keys for the catalog
 
 Writes:
-    tablet_app/app/src/main/assets/hymns/<slug>.svg     — 279 SVGs
+    tablet_app/app/src/main/assets/hymns/<slug>.svg     — per-hymn SVG
+    tablet_app/app/src/main/assets/audio/<slug>.m4a     — per-hymn audio
     tablet_app/app/src/main/assets/harphymnal_hymns.js  — window.HYMN_CATALOG
 """
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 SCORES = REPO / 'data' / 'scores' / 'tech_full'
+AUDIO = REPO / 'data' / 'audio' / 'tech_full'
 HYMNS_JSON = REPO / 'data' / 'hymns'
 ASSETS = REPO / 'tablet_app' / 'app' / 'src' / 'main' / 'assets'
 HYMNS_OUT = ASSETS / 'hymns'
+AUDIO_OUT = ASSETS / 'audio'
 CATALOG_OUT = ASSETS / 'harphymnal_hymns.js'
 
 
@@ -29,6 +34,9 @@ def main() -> int:
     if HYMNS_OUT.exists():
         shutil.rmtree(HYMNS_OUT)
     HYMNS_OUT.mkdir(parents=True)
+    if AUDIO_OUT.exists():
+        shutil.rmtree(AUDIO_OUT)
+    AUDIO_OUT.mkdir(parents=True)
 
     catalog: list[dict] = []
     svgs = sorted(SCORES.glob('*.svg'))
@@ -36,6 +44,16 @@ def main() -> int:
         slug = svg.stem
         dest = HYMNS_OUT / svg.name
         shutil.copyfile(svg, dest)
+        # Multi-page scores carry a "-1" / "-2" page suffix on the SVG but
+        # share a single MIDI/audio file named by the unsuffixed slug.
+        audio_slug = re.sub(r'-\d+$', '', slug)
+        audio_src = AUDIO / f'{audio_slug}.m4a'
+        audio_field: str = ''
+        if audio_src.exists():
+            audio_dest = AUDIO_OUT / audio_src.name
+            if not audio_dest.exists():
+                shutil.copyfile(audio_src, audio_dest)
+            audio_field = f'audio/{audio_src.name}'
         hymn_json = HYMNS_JSON / f'{slug}.json'
         title = slug.replace('_', ' ').title()
         key_root = ''
@@ -56,6 +74,7 @@ def main() -> int:
             'slug': slug,
             'title': title,
             'svg': f'hymns/{svg.name}',
+            'audio': audio_field,
             'key': key_root,
             'mode': mode,
             'meter': meter,
@@ -69,7 +88,9 @@ def main() -> int:
         + ';\n'
     )
     CATALOG_OUT.write_text(content, encoding='utf-8')
+    audio_count = sum(1 for c in catalog if c['audio'])
     print(f'wrote {len(catalog)} hymns to {HYMNS_OUT}')
+    print(f'wrote {audio_count}  audio files to {AUDIO_OUT}')
     print(f'wrote catalog   → {CATALOG_OUT}')
     return 0
 

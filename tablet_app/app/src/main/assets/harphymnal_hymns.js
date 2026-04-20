@@ -4,6 +4,7 @@ window.HYMN_CATALOG = [
     "slug": "take_up_thy_cross_the_savior_said",
     "title": "'Take Up Thy Cross', the Savior Said",
     "svg": "hymns/take_up_thy_cross_the_savior_said.svg",
+    "audio": "audio/take_up_thy_cross_the_savior_said.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -12,6 +13,7 @@ window.HYMN_CATALOG = [
     "slug": "tis_midnight_and_on_olive_s_brow",
     "title": "'Tis Midnight and On Olive's Brow",
     "svg": "hymns/tis_midnight_and_on_olive_s_brow.svg",
+    "audio": "audio/tis_midnight_and_on_olive_s_brow.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -20,6 +22,7 @@ window.HYMN_CATALOG = [
     "slug": "twas_on_that_dark_that_doleful_night",
     "title": "'Twas On That Dark, That Doleful Night",
     "svg": "hymns/twas_on_that_dark_that_doleful_night.svg",
+    "audio": "audio/twas_on_that_dark_that_doleful_night.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -28,6 +31,7 @@ window.HYMN_CATALOG = [
     "slug": "a_great_and_mighty_wonder",
     "title": "A Great and Mighty Wonder",
     "svg": "hymns/a_great_and_mighty_wonder.svg",
+    "audio": "audio/a_great_and_mighty_wonder.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -36,6 +40,7 @@ window.HYMN_CATALOG = [
     "slug": "a_lamb_goes_uncomplaining_forth",
     "title": "A Lamb Goes Uncomplaining Forth",
     "svg": "hymns/a_lamb_goes_uncomplaining_forth.svg",
+    "audio": "audio/a_lamb_goes_uncomplaining_forth.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -44,6 +49,7 @@ window.HYMN_CATALOG = [
     "slug": "a_mighty_fortress_is_our_god",
     "title": "A Mighty Fortress Is Our God",
     "svg": "hymns/a_mighty_fortress_is_our_god.svg",
+    "audio": "audio/a_mighty_fortress_is_our_god.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -52,6 +58,7 @@ window.HYMN_CATALOG = [
     "slug": "abide_with_me",
     "title": "Abide With Me",
     "svg": "hymns/abide_with_me.svg",
+    "audio": "audio/abide_with_me.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -60,6 +67,7 @@ window.HYMN_CATALOG = [
     "slug": "abide_o_dearest_jesus",
     "title": "Abide, O Dearest Jesus",
     "svg": "hymns/abide_o_dearest_jesus.svg",
+    "audio": "audio/abide_o_dearest_jesus.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -68,6 +76,7 @@ window.HYMN_CATALOG = [
     "slug": "all_creatures_of_our_god_and_king",
     "title": "All Creatures of Our God and King",
     "svg": "hymns/all_creatures_of_our_god_and_king.svg",
+    "audio": "audio/all_creatures_of_our_god_and_king.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -76,6 +85,7 @@ window.HYMN_CATALOG = [
     "slug": "all_depends_on_our_possessing",
     "title": "All Depends On Our Possessing",
     "svg": "hymns/all_depends_on_our_possessing.svg",
+    "audio": "audio/all_depends_on_our_possessing.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -84,6 +94,7 @@ window.HYMN_CATALOG = [
     "slug": "all_glory_laud_and_honor",
     "title": "All Glory, Laud, and Honor",
     "svg": "hymns/all_glory_laud_and_honor.svg",
+    "audio": "audio/all_glory_laud_and_honor.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -92,6 +103,7 @@ window.HYMN_CATALOG = [
     "slug": "all_hail_the_power_of_jesus_name",
     "title": "All Hail The Power Of Jesus' Name",
     "svg": "hymns/all_hail_the_power_of_jesus_name.svg",
+    "audio": "audio/all_hail_the_power_of_jesus_name.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -100,6 +112,7 @@ window.HYMN_CATALOG = [
     "slug": "all_my_heart_this_night_rejoices",
     "title": "All My Heart This Night Rejoices",
     "svg": "hymns/all_my_heart_this_night_rejoices.svg",
+    "audio": "audio/all_my_heart_this_night_rejoices.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -108,6 +121,7 @@ window.HYMN_CATALOG = [
     "slug": "all_praise_to_jesus_hallowed_name",
     "title": "All Praise to Jesus' Hallowed Name",
     "svg": "hymns/all_praise_to_jesus_hallowed_name.svg",
+    "audio": "audio/all_praise_to_jesus_hallowed_name.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -116,6 +130,7 @@ window.HYMN_CATALOG = [
     "slug": "all_praise_to_thee_my_god_this_night",
     "title": "All Praise To Thee, My God, This Night",
     "svg": "hymns/all_praise_to_thee_my_god_this_night.svg",
+    "audio": "audio/all_praise_to_thee_my_god_this_night.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -124,6 +139,7 @@ window.HYMN_CATALOG = [
     "slug": "all_who_believe_and_are_baptized",
     "title": "All Who Believe and Are Baptized",
     "svg": "hymns/all_who_believe_and_are_baptized.svg",
+    "audio": "audio/all_who_believe_and_are_baptized.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -132,6 +148,7 @@ window.HYMN_CATALOG = [
     "slug": "alleluia_alleluia_hearts_to_heaven_and_voices_raise",
     "title": "Alleluia, Alleluia! Hearts to Heaven and Voices Raise",
     "svg": "hymns/alleluia_alleluia_hearts_to_heaven_and_voices_raise.svg",
+    "audio": "audio/alleluia_alleluia_hearts_to_heaven_and_voices_raise.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -140,6 +157,7 @@ window.HYMN_CATALOG = [
     "slug": "alleluia_sing_to_jesus",
     "title": "Alleluia, Sing To Jesus!",
     "svg": "hymns/alleluia_sing_to_jesus.svg",
+    "audio": "audio/alleluia_sing_to_jesus.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -148,6 +166,7 @@ window.HYMN_CATALOG = [
     "slug": "almighty_god_your_word_is_cast",
     "title": "Almighty God Your Word Is Cast",
     "svg": "hymns/almighty_god_your_word_is_cast.svg",
+    "audio": "audio/almighty_god_your_word_is_cast.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -156,6 +175,7 @@ window.HYMN_CATALOG = [
     "slug": "amazing_grace",
     "title": "Amazing Grace",
     "svg": "hymns/amazing_grace.svg",
+    "audio": "audio/amazing_grace.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -164,6 +184,7 @@ window.HYMN_CATALOG = [
     "slug": "and_can_it_be",
     "title": "And Can It Be",
     "svg": "hymns/and_can_it_be.svg",
+    "audio": "audio/and_can_it_be.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -172,6 +193,7 @@ window.HYMN_CATALOG = [
     "slug": "angel_voices_ever_singing",
     "title": "Angel Voices, Ever Singing",
     "svg": "hymns/angel_voices_ever_singing.svg",
+    "audio": "audio/angel_voices_ever_singing.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -180,6 +202,7 @@ window.HYMN_CATALOG = [
     "slug": "angels_from_the_realms_of_glory",
     "title": "Angels From the Realms of Glory",
     "svg": "hymns/angels_from_the_realms_of_glory.svg",
+    "audio": "audio/angels_from_the_realms_of_glory.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -188,6 +211,7 @@ window.HYMN_CATALOG = [
     "slug": "angels_we_have_heard_on_high",
     "title": "Angels We Have Heard On High",
     "svg": "hymns/angels_we_have_heard_on_high.svg",
+    "audio": "audio/angels_we_have_heard_on_high.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -196,6 +220,7 @@ window.HYMN_CATALOG = [
     "slug": "as_with_gladness_men_of_old",
     "title": "As With Gladness Men of Old",
     "svg": "hymns/as_with_gladness_men_of_old.svg",
+    "audio": "audio/as_with_gladness_men_of_old.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -204,6 +229,7 @@ window.HYMN_CATALOG = [
     "slug": "at_the_lamb_s_high_feast",
     "title": "At The Lamb's High Feast",
     "svg": "hymns/at_the_lamb_s_high_feast.svg",
+    "audio": "audio/at_the_lamb_s_high_feast.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -212,6 +238,7 @@ window.HYMN_CATALOG = [
     "slug": "author_of_all_life",
     "title": "Author of All Life",
     "svg": "hymns/author_of_all_life.svg",
+    "audio": "audio/author_of_all_life.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -220,6 +247,7 @@ window.HYMN_CATALOG = [
     "slug": "awake_my_soul_an_offering_bring",
     "title": "Awake My Soul, An Offering Bring",
     "svg": "hymns/awake_my_soul_an_offering_bring.svg",
+    "audio": "audio/awake_my_soul_an_offering_bring.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -228,6 +256,7 @@ window.HYMN_CATALOG = [
     "slug": "awake_my_heart_with_gladness",
     "title": "Awake, My Heart, With Gladness",
     "svg": "hymns/awake_my_heart_with_gladness.svg",
+    "audio": "audio/awake_my_heart_with_gladness.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -236,6 +265,7 @@ window.HYMN_CATALOG = [
     "slug": "away_in_a_manger",
     "title": "Away In A Manger",
     "svg": "hymns/away_in_a_manger.svg",
+    "audio": "audio/away_in_a_manger.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -244,6 +274,7 @@ window.HYMN_CATALOG = [
     "slug": "baptized_into_thy_name_most_holy",
     "title": "Baptized Into Thy Name Most Holy",
     "svg": "hymns/baptized_into_thy_name_most_holy.svg",
+    "audio": "audio/baptized_into_thy_name_most_holy.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -252,6 +283,7 @@ window.HYMN_CATALOG = [
     "slug": "be_still_my_soul",
     "title": "Be Still My Soul",
     "svg": "hymns/be_still_my_soul.svg",
+    "audio": "audio/be_still_my_soul.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -260,6 +292,7 @@ window.HYMN_CATALOG = [
     "slug": "be_thou_my_vision",
     "title": "Be Thou My Vision",
     "svg": "hymns/be_thou_my_vision.svg",
+    "audio": "audio/be_thou_my_vision.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -268,6 +301,7 @@ window.HYMN_CATALOG = [
     "slug": "beautiful_savior",
     "title": "Beautiful Savior",
     "svg": "hymns/beautiful_savior.svg",
+    "audio": "audio/beautiful_savior.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -276,6 +310,7 @@ window.HYMN_CATALOG = [
     "slug": "behold_a_host_arrayed_in_white-1",
     "title": "Behold A Host Arrayed In White-1",
     "svg": "hymns/behold_a_host_arrayed_in_white-1.svg",
+    "audio": "audio/behold_a_host_arrayed_in_white.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -284,6 +319,7 @@ window.HYMN_CATALOG = [
     "slug": "behold_a_host_arrayed_in_white-2",
     "title": "Behold A Host Arrayed In White-2",
     "svg": "hymns/behold_a_host_arrayed_in_white-2.svg",
+    "audio": "audio/behold_a_host_arrayed_in_white.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -292,6 +328,7 @@ window.HYMN_CATALOG = [
     "slug": "beneath_the_cross_of_jesus",
     "title": "Beneath The Cross Of Jesus",
     "svg": "hymns/beneath_the_cross_of_jesus.svg",
+    "audio": "audio/beneath_the_cross_of_jesus.m4a",
     "key": "Db",
     "mode": "major",
     "meter": "/"
@@ -300,6 +337,7 @@ window.HYMN_CATALOG = [
     "slug": "blessed_assurance",
     "title": "Blessed Assurance",
     "svg": "hymns/blessed_assurance.svg",
+    "audio": "audio/blessed_assurance.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -308,6 +346,7 @@ window.HYMN_CATALOG = [
     "slug": "blessed_jesus_at_thy_word",
     "title": "Blessed Jesus at Thy Word",
     "svg": "hymns/blessed_jesus_at_thy_word.svg",
+    "audio": "audio/blessed_jesus_at_thy_word.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -316,6 +355,7 @@ window.HYMN_CATALOG = [
     "slug": "blest_be_the_tie_that_binds",
     "title": "Blest Be The Tie That Binds",
     "svg": "hymns/blest_be_the_tie_that_binds.svg",
+    "audio": "audio/blest_be_the_tie_that_binds.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -324,6 +364,7 @@ window.HYMN_CATALOG = [
     "slug": "blind_bartimaeus",
     "title": "Blind Bartimaeus",
     "svg": "hymns/blind_bartimaeus.svg",
+    "audio": "audio/blind_bartimaeus.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -332,6 +373,7 @@ window.HYMN_CATALOG = [
     "slug": "breathe_on_me_breath_of_god",
     "title": "Breathe on Me, Breath of God",
     "svg": "hymns/breathe_on_me_breath_of_god.svg",
+    "audio": "audio/breathe_on_me_breath_of_god.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -340,6 +382,7 @@ window.HYMN_CATALOG = [
     "slug": "built_on_the_rock",
     "title": "Built on the Rock",
     "svg": "hymns/built_on_the_rock.svg",
+    "audio": "audio/built_on_the_rock.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -348,6 +391,7 @@ window.HYMN_CATALOG = [
     "slug": "by_grace_i_m_saved",
     "title": "By Grace I'm Saved",
     "svg": "hymns/by_grace_i_m_saved.svg",
+    "audio": "audio/by_grace_i_m_saved.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -356,6 +400,7 @@ window.HYMN_CATALOG = [
     "slug": "christ_arose",
     "title": "Christ Arose",
     "svg": "hymns/christ_arose.svg",
+    "audio": "audio/christ_arose.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -364,6 +409,7 @@ window.HYMN_CATALOG = [
     "slug": "christ_jesus_lay_in_death_s_strong_bands",
     "title": "Christ Jesus Lay In Death's Strong Bands",
     "svg": "hymns/christ_jesus_lay_in_death_s_strong_bands.svg",
+    "audio": "audio/christ_jesus_lay_in_death_s_strong_bands.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -372,6 +418,7 @@ window.HYMN_CATALOG = [
     "slug": "christ_my_king_on_high",
     "title": "Christ My King On High",
     "svg": "hymns/christ_my_king_on_high.svg",
+    "audio": "audio/christ_my_king_on_high.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -380,6 +427,7 @@ window.HYMN_CATALOG = [
     "slug": "christ_returneth",
     "title": "Christ Returneth",
     "svg": "hymns/christ_returneth.svg",
+    "audio": "audio/christ_returneth.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -388,6 +436,7 @@ window.HYMN_CATALOG = [
     "slug": "christ_the_lord_is_risen_today_lyra",
     "title": "Christ The Lord Is Risen Today (Lyra)",
     "svg": "hymns/christ_the_lord_is_risen_today_lyra.svg",
+    "audio": "audio/christ_the_lord_is_risen_today_lyra.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -396,6 +445,7 @@ window.HYMN_CATALOG = [
     "slug": "come_down_o_love_divine",
     "title": "Come Down, O Love Divine",
     "svg": "hymns/come_down_o_love_divine.svg",
+    "audio": "audio/come_down_o_love_divine.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -404,6 +454,7 @@ window.HYMN_CATALOG = [
     "slug": "come_holy_spirit_lord_our_god-1",
     "title": "Come Holy Spirit Lord Our God-1",
     "svg": "hymns/come_holy_spirit_lord_our_god-1.svg",
+    "audio": "audio/come_holy_spirit_lord_our_god.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -412,6 +463,7 @@ window.HYMN_CATALOG = [
     "slug": "come_holy_spirit_lord_our_god-2",
     "title": "Come Holy Spirit Lord Our God-2",
     "svg": "hymns/come_holy_spirit_lord_our_god-2.svg",
+    "audio": "audio/come_holy_spirit_lord_our_god.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -420,6 +472,7 @@ window.HYMN_CATALOG = [
     "slug": "come_thou_fount_of_every_blessing",
     "title": "Come Thou Fount Of Every Blessing",
     "svg": "hymns/come_thou_fount_of_every_blessing.svg",
+    "audio": "audio/come_thou_fount_of_every_blessing.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -428,6 +481,7 @@ window.HYMN_CATALOG = [
     "slug": "come_god_creator_holy_ghost",
     "title": "Come, God Creator, Holy Ghost",
     "svg": "hymns/come_god_creator_holy_ghost.svg",
+    "audio": "audio/come_god_creator_holy_ghost.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -436,6 +490,7 @@ window.HYMN_CATALOG = [
     "slug": "come_thou_long_expected_jesus",
     "title": "Come, Thou Long-Expected Jesus",
     "svg": "hymns/come_thou_long_expected_jesus.svg",
+    "audio": "audio/come_thou_long_expected_jesus.m4a",
     "key": "A",
     "mode": "minor",
     "meter": "/"
@@ -444,6 +499,7 @@ window.HYMN_CATALOG = [
     "slug": "come_ye_disconsolate",
     "title": "Come, Ye Disconsolate",
     "svg": "hymns/come_ye_disconsolate.svg",
+    "audio": "audio/come_ye_disconsolate.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -452,6 +508,7 @@ window.HYMN_CATALOG = [
     "slug": "come_your_heart_and_voices_raising",
     "title": "Come, Your Heart and Voices Raising",
     "svg": "hymns/come_your_heart_and_voices_raising.svg",
+    "audio": "audio/come_your_heart_and_voices_raising.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -460,6 +517,7 @@ window.HYMN_CATALOG = [
     "slug": "comfort_comfort_ye_my_people",
     "title": "Comfort, Comfort Ye My People",
     "svg": "hymns/comfort_comfort_ye_my_people.svg",
+    "audio": "audio/comfort_comfort_ye_my_people.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -468,6 +526,7 @@ window.HYMN_CATALOG = [
     "slug": "crown_him_with_many_crowns",
     "title": "Crown Him With Many Crowns",
     "svg": "hymns/crown_him_with_many_crowns.svg",
+    "audio": "audio/crown_him_with_many_crowns.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -476,6 +535,7 @@ window.HYMN_CATALOG = [
     "slug": "day_of_wrath_o_day_of_mourning",
     "title": "Day of Wrath, O Day of Mourning",
     "svg": "hymns/day_of_wrath_o_day_of_mourning.svg",
+    "audio": "audio/day_of_wrath_o_day_of_mourning.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -484,6 +544,7 @@ window.HYMN_CATALOG = [
     "slug": "dear_christians_one_and_all_rejoice",
     "title": "Dear Christians, One and All Rejoice",
     "svg": "hymns/dear_christians_one_and_all_rejoice.svg",
+    "audio": "audio/dear_christians_one_and_all_rejoice.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -492,6 +553,7 @@ window.HYMN_CATALOG = [
     "slug": "despair_not_o_heart",
     "title": "Despair Not, O Heart",
     "svg": "hymns/despair_not_o_heart.svg",
+    "audio": "audio/despair_not_o_heart.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -500,6 +562,7 @@ window.HYMN_CATALOG = [
     "slug": "did_you_think_to_pray",
     "title": "Did You Think To Pray?",
     "svg": "hymns/did_you_think_to_pray.svg",
+    "audio": "audio/did_you_think_to_pray.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -508,6 +571,7 @@ window.HYMN_CATALOG = [
     "slug": "every_morning_mercies_new",
     "title": "Every Morning Mercies New",
     "svg": "hymns/every_morning_mercies_new.svg",
+    "audio": "audio/every_morning_mercies_new.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -516,6 +580,7 @@ window.HYMN_CATALOG = [
     "slug": "faith_of_our_fathers",
     "title": "Faith of Our Fathers",
     "svg": "hymns/faith_of_our_fathers.svg",
+    "audio": "audio/faith_of_our_fathers.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -524,6 +589,7 @@ window.HYMN_CATALOG = [
     "slug": "far_far_away_on_judea_s_plains",
     "title": "Far, Far Away On Judea's Plains",
     "svg": "hymns/far_far_away_on_judea_s_plains.svg",
+    "audio": "audio/far_far_away_on_judea_s_plains.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -532,6 +598,7 @@ window.HYMN_CATALOG = [
     "slug": "fear_not_o_little_flock",
     "title": "Fear Not, O Little Flock",
     "svg": "hymns/fear_not_o_little_flock.svg",
+    "audio": "audio/fear_not_o_little_flock.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -540,6 +607,7 @@ window.HYMN_CATALOG = [
     "slug": "for_all_the_saints",
     "title": "For All The Saints",
     "svg": "hymns/for_all_the_saints.svg",
+    "audio": "audio/for_all_the_saints.m4a",
     "key": "B",
     "mode": "minor",
     "meter": "/"
@@ -548,6 +616,7 @@ window.HYMN_CATALOG = [
     "slug": "for_the_beauty_of_the_earth",
     "title": "For The Beauty Of The Earth",
     "svg": "hymns/for_the_beauty_of_the_earth.svg",
+    "audio": "audio/for_the_beauty_of_the_earth.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -556,6 +625,7 @@ window.HYMN_CATALOG = [
     "slug": "from_heaven_above_to_earth_i_come",
     "title": "From Heaven Above To Earth I Come",
     "svg": "hymns/from_heaven_above_to_earth_i_come.svg",
+    "audio": "audio/from_heaven_above_to_earth_i_come.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -564,6 +634,7 @@ window.HYMN_CATALOG = [
     "slug": "from_nazareth",
     "title": "From Nazareth",
     "svg": "hymns/from_nazareth.svg",
+    "audio": "audio/from_nazareth.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -572,6 +643,7 @@ window.HYMN_CATALOG = [
     "slug": "gabriel_s_message",
     "title": "Gabriel's Message",
     "svg": "hymns/gabriel_s_message.svg",
+    "audio": "audio/gabriel_s_message.m4a",
     "key": "A",
     "mode": "minor",
     "meter": "/"
@@ -580,6 +652,7 @@ window.HYMN_CATALOG = [
     "slug": "gentle_mary_laid_her_child",
     "title": "Gentle Mary Laid Her Child",
     "svg": "hymns/gentle_mary_laid_her_child.svg",
+    "audio": "audio/gentle_mary_laid_her_child.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -588,6 +661,7 @@ window.HYMN_CATALOG = [
     "slug": "glorious_things_of_thee_are_spoken",
     "title": "Glorious Things of Thee are Spoken",
     "svg": "hymns/glorious_things_of_thee_are_spoken.svg",
+    "audio": "audio/glorious_things_of_thee_are_spoken.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -596,6 +670,7 @@ window.HYMN_CATALOG = [
     "slug": "go_to_dark_gethsemane",
     "title": "Go To Dark Gethsemane",
     "svg": "hymns/go_to_dark_gethsemane.svg",
+    "audio": "audio/go_to_dark_gethsemane.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -604,6 +679,7 @@ window.HYMN_CATALOG = [
     "slug": "god_himself_is_present",
     "title": "God Himself is Present",
     "svg": "hymns/god_himself_is_present.svg",
+    "audio": "audio/god_himself_is_present.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -612,6 +688,7 @@ window.HYMN_CATALOG = [
     "slug": "god_rest_ye_merry_gentlemen",
     "title": "God Rest Ye Merry Gentlemen",
     "svg": "hymns/god_rest_ye_merry_gentlemen.svg",
+    "audio": "audio/god_rest_ye_merry_gentlemen.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -620,6 +697,7 @@ window.HYMN_CATALOG = [
     "slug": "god_the_father_be_our_stay-1",
     "title": "God The Father Be Our Stay-1",
     "svg": "hymns/god_the_father_be_our_stay-1.svg",
+    "audio": "audio/god_the_father_be_our_stay.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -628,6 +706,7 @@ window.HYMN_CATALOG = [
     "slug": "god_the_father_be_our_stay-2",
     "title": "God The Father Be Our Stay-2",
     "svg": "hymns/god_the_father_be_our_stay-2.svg",
+    "audio": "audio/god_the_father_be_our_stay.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -636,6 +715,7 @@ window.HYMN_CATALOG = [
     "slug": "god_will_take_care_of_you",
     "title": "God Will Take Care of You",
     "svg": "hymns/god_will_take_care_of_you.svg",
+    "audio": "audio/god_will_take_care_of_you.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -644,6 +724,7 @@ window.HYMN_CATALOG = [
     "slug": "god_that_madest_earth_and_heaven",
     "title": "God, That Madest Earth and Heaven",
     "svg": "hymns/god_that_madest_earth_and_heaven.svg",
+    "audio": "audio/god_that_madest_earth_and_heaven.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -652,6 +733,7 @@ window.HYMN_CATALOG = [
     "slug": "god_whose_almighty_word",
     "title": "God, Whose Almighty Word",
     "svg": "hymns/god_whose_almighty_word.svg",
+    "audio": "audio/god_whose_almighty_word.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -660,6 +742,7 @@ window.HYMN_CATALOG = [
     "slug": "guide_me_o_thou_great_jehovah",
     "title": "Guide Me, O Thou Great Jehovah",
     "svg": "hymns/guide_me_o_thou_great_jehovah.svg",
+    "audio": "audio/guide_me_o_thou_great_jehovah.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -668,6 +751,7 @@ window.HYMN_CATALOG = [
     "slug": "hallelujah_what_a_savior",
     "title": "Hallelujah, What a Savior!",
     "svg": "hymns/hallelujah_what_a_savior.svg",
+    "audio": "audio/hallelujah_what_a_savior.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -676,6 +760,7 @@ window.HYMN_CATALOG = [
     "slug": "happy_the_man_who_feareth_god",
     "title": "Happy the Man Who Feareth God",
     "svg": "hymns/happy_the_man_who_feareth_god.svg",
+    "audio": "audio/happy_the_man_who_feareth_god.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -684,6 +769,7 @@ window.HYMN_CATALOG = [
     "slug": "hark_the_glad_sound",
     "title": "Hark the Glad Sound",
     "svg": "hymns/hark_the_glad_sound.svg",
+    "audio": "audio/hark_the_glad_sound.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -692,6 +778,7 @@ window.HYMN_CATALOG = [
     "slug": "hark_the_herald_angels_sing",
     "title": "Hark! The Herald Angels Sing",
     "svg": "hymns/hark_the_herald_angels_sing.svg",
+    "audio": "audio/hark_the_herald_angels_sing.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -700,6 +787,7 @@ window.HYMN_CATALOG = [
     "slug": "hark_hark_my_soul",
     "title": "Hark, Hark, My Soul!",
     "svg": "hymns/hark_hark_my_soul.svg",
+    "audio": "audio/hark_hark_my_soul.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -708,6 +796,7 @@ window.HYMN_CATALOG = [
     "slug": "hark_the_voice_of_jesus_calling",
     "title": "Hark, the Voice of Jesus Calling",
     "svg": "hymns/hark_the_voice_of_jesus_calling.svg",
+    "audio": "audio/hark_the_voice_of_jesus_calling.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -716,6 +805,7 @@ window.HYMN_CATALOG = [
     "slug": "have_mercy_on_me_o_my_god",
     "title": "Have Mercy On Me, O My God",
     "svg": "hymns/have_mercy_on_me_o_my_god.svg",
+    "audio": "audio/have_mercy_on_me_o_my_god.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -724,6 +814,7 @@ window.HYMN_CATALOG = [
     "slug": "he_leadeth_me",
     "title": "He Leadeth Me",
     "svg": "hymns/he_leadeth_me.svg",
+    "audio": "audio/he_leadeth_me.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -732,6 +823,7 @@ window.HYMN_CATALOG = [
     "slug": "he_was_not_willing",
     "title": "He Was Not Willing",
     "svg": "hymns/he_was_not_willing.svg",
+    "audio": "audio/he_was_not_willing.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -740,6 +832,7 @@ window.HYMN_CATALOG = [
     "slug": "he_who_would_valiant_be",
     "title": "He Who Would Valiant Be",
     "svg": "hymns/he_who_would_valiant_be.svg",
+    "audio": "audio/he_who_would_valiant_be.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -748,6 +841,7 @@ window.HYMN_CATALOG = [
     "slug": "his_gifts",
     "title": "His Gifts",
     "svg": "hymns/his_gifts.svg",
+    "audio": "audio/his_gifts.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -756,6 +850,7 @@ window.HYMN_CATALOG = [
     "slug": "holy_ghost_with_light_divine",
     "title": "Holy Ghost, with Light Divine",
     "svg": "hymns/holy_ghost_with_light_divine.svg",
+    "audio": "audio/holy_ghost_with_light_divine.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -764,6 +859,7 @@ window.HYMN_CATALOG = [
     "slug": "holy_god_we_praise_thy_name",
     "title": "Holy God, We Praise Thy Name",
     "svg": "hymns/holy_god_we_praise_thy_name.svg",
+    "audio": "audio/holy_god_we_praise_thy_name.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -772,6 +868,7 @@ window.HYMN_CATALOG = [
     "slug": "holy_spirit_ever_dwelling",
     "title": "Holy Spirit, Ever Dwelling",
     "svg": "hymns/holy_spirit_ever_dwelling.svg",
+    "audio": "audio/holy_spirit_ever_dwelling.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -780,6 +877,7 @@ window.HYMN_CATALOG = [
     "slug": "holy_holy_holy",
     "title": "Holy, Holy, Holy",
     "svg": "hymns/holy_holy_holy.svg",
+    "audio": "audio/holy_holy_holy.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -788,6 +886,7 @@ window.HYMN_CATALOG = [
     "slug": "hosanna_loud_hosanna",
     "title": "Hosanna, Loud Hosanna",
     "svg": "hymns/hosanna_loud_hosanna.svg",
+    "audio": "audio/hosanna_loud_hosanna.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -796,6 +895,7 @@ window.HYMN_CATALOG = [
     "slug": "how_firm_a_foundation",
     "title": "How Firm A Foundation",
     "svg": "hymns/how_firm_a_foundation.svg",
+    "audio": "audio/how_firm_a_foundation.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -804,6 +904,7 @@ window.HYMN_CATALOG = [
     "slug": "how_shall_we_answer_terror_s_cry",
     "title": "How Shall We Answer Terror's Cry?",
     "svg": "hymns/how_shall_we_answer_terror_s_cry.svg",
+    "audio": "audio/how_shall_we_answer_terror_s_cry.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -812,6 +913,7 @@ window.HYMN_CATALOG = [
     "slug": "i_am_jesus_little_lamb",
     "title": "I Am Jesus' Little Lamb",
     "svg": "hymns/i_am_jesus_little_lamb.svg",
+    "audio": "audio/i_am_jesus_little_lamb.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -820,6 +922,7 @@ window.HYMN_CATALOG = [
     "slug": "i_bind_unto_myself_today",
     "title": "I Bind Unto Myself Today",
     "svg": "hymns/i_bind_unto_myself_today.svg",
+    "audio": "audio/i_bind_unto_myself_today.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -828,6 +931,7 @@ window.HYMN_CATALOG = [
     "slug": "i_come_o_savior_to_thy_table",
     "title": "I Come, O Savior, To Thy Table",
     "svg": "hymns/i_come_o_savior_to_thy_table.svg",
+    "audio": "audio/i_come_o_savior_to_thy_table.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -836,6 +940,7 @@ window.HYMN_CATALOG = [
     "slug": "i_heard_the_bells_on_christmas_day",
     "title": "I Heard The Bells On Christmas Day",
     "svg": "hymns/i_heard_the_bells_on_christmas_day.svg",
+    "audio": "audio/i_heard_the_bells_on_christmas_day.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -844,6 +949,7 @@ window.HYMN_CATALOG = [
     "slug": "i_know_that_my_redeemer_lives",
     "title": "I Know That My Redeemer Lives",
     "svg": "hymns/i_know_that_my_redeemer_lives.svg",
+    "audio": "audio/i_know_that_my_redeemer_lives.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -852,6 +958,7 @@ window.HYMN_CATALOG = [
     "slug": "i_know_whom_i_have_believed",
     "title": "I Know Whom I Have Believed",
     "svg": "hymns/i_know_whom_i_have_believed.svg",
+    "audio": "audio/i_know_whom_i_have_believed.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -860,6 +967,7 @@ window.HYMN_CATALOG = [
     "slug": "i_need_thee_every_hour",
     "title": "I Need Thee Every Hour",
     "svg": "hymns/i_need_thee_every_hour.svg",
+    "audio": "audio/i_need_thee_every_hour.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -868,6 +976,7 @@ window.HYMN_CATALOG = [
     "slug": "i_place_my_trust_in_god",
     "title": "I Place My Trust In God",
     "svg": "hymns/i_place_my_trust_in_god.svg",
+    "audio": "audio/i_place_my_trust_in_god.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -876,6 +985,7 @@ window.HYMN_CATALOG = [
     "slug": "i_sing_the_mighty_power_of_god",
     "title": "I Sing the Mighty Power of God",
     "svg": "hymns/i_sing_the_mighty_power_of_god.svg",
+    "audio": "audio/i_sing_the_mighty_power_of_god.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -884,6 +994,7 @@ window.HYMN_CATALOG = [
     "slug": "i_m_but_a_stranger_here",
     "title": "I'm But A Stranger Here",
     "svg": "hymns/i_m_but_a_stranger_here.svg",
+    "audio": "audio/i_m_but_a_stranger_here.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -892,6 +1003,7 @@ window.HYMN_CATALOG = [
     "slug": "if_god_had_not_been_on_our_side",
     "title": "If God Had Not Been on Our Side",
     "svg": "hymns/if_god_had_not_been_on_our_side.svg",
+    "audio": "audio/if_god_had_not_been_on_our_side.m4a",
     "key": "F#",
     "mode": "minor",
     "meter": "/"
@@ -900,6 +1012,7 @@ window.HYMN_CATALOG = [
     "slug": "if_god_himself_be_for_me",
     "title": "If God Himself Be For Me",
     "svg": "hymns/if_god_himself_be_for_me.svg",
+    "audio": "audio/if_god_himself_be_for_me.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -908,6 +1021,7 @@ window.HYMN_CATALOG = [
     "slug": "immortal_invisible_god_only_wise",
     "title": "Immortal, Invisible, God Only Wise",
     "svg": "hymns/immortal_invisible_god_only_wise.svg",
+    "audio": "audio/immortal_invisible_god_only_wise.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -916,6 +1030,7 @@ window.HYMN_CATALOG = [
     "slug": "in_his_temple_now_behold_him",
     "title": "In His Temple Now Behold Him",
     "svg": "hymns/in_his_temple_now_behold_him.svg",
+    "audio": "audio/in_his_temple_now_behold_him.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -924,6 +1039,7 @@ window.HYMN_CATALOG = [
     "slug": "in_peace_and_joy_i_now_depart",
     "title": "In Peace and Joy I Now Depart",
     "svg": "hymns/in_peace_and_joy_i_now_depart.svg",
+    "audio": "audio/in_peace_and_joy_i_now_depart.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -932,6 +1048,7 @@ window.HYMN_CATALOG = [
     "slug": "in_the_bleak_midwinter",
     "title": "In The Bleak MidWinter",
     "svg": "hymns/in_the_bleak_midwinter.svg",
+    "audio": "audio/in_the_bleak_midwinter.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -940,6 +1057,7 @@ window.HYMN_CATALOG = [
     "slug": "in_these_our_days_so_perilous",
     "title": "In These Our Days So Perilous",
     "svg": "hymns/in_these_our_days_so_perilous.svg",
+    "audio": "audio/in_these_our_days_so_perilous.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -948,6 +1066,7 @@ window.HYMN_CATALOG = [
     "slug": "isaiah_mighty_seer_in_days_of_old-1",
     "title": "Isaiah Mighty Seer In Days Of Old-1",
     "svg": "hymns/isaiah_mighty_seer_in_days_of_old-1.svg",
+    "audio": "audio/isaiah_mighty_seer_in_days_of_old.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -956,6 +1075,7 @@ window.HYMN_CATALOG = [
     "slug": "isaiah_mighty_seer_in_days_of_old-2",
     "title": "Isaiah Mighty Seer In Days Of Old-2",
     "svg": "hymns/isaiah_mighty_seer_in_days_of_old-2.svg",
+    "audio": "audio/isaiah_mighty_seer_in_days_of_old.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -964,6 +1084,7 @@ window.HYMN_CATALOG = [
     "slug": "it_came_upon_a_midnight_clear",
     "title": "It Came Upon A Midnight Clear",
     "svg": "hymns/it_came_upon_a_midnight_clear.svg",
+    "audio": "audio/it_came_upon_a_midnight_clear.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -972,6 +1093,7 @@ window.HYMN_CATALOG = [
     "slug": "it_is_well_with_my_soul",
     "title": "It Is Well With My Soul",
     "svg": "hymns/it_is_well_with_my_soul.svg",
+    "audio": "audio/it_is_well_with_my_soul.m4a",
     "key": "Db",
     "mode": "major",
     "meter": "/"
@@ -980,6 +1102,7 @@ window.HYMN_CATALOG = [
     "slug": "jerusalem_the_golden",
     "title": "Jerusalem the Golden",
     "svg": "hymns/jerusalem_the_golden.svg",
+    "audio": "audio/jerusalem_the_golden.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -988,6 +1111,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_came_the_heavens_adoring",
     "title": "Jesus Came, the Heavens Adoring",
     "svg": "hymns/jesus_came_the_heavens_adoring.svg",
+    "audio": "audio/jesus_came_the_heavens_adoring.m4a",
     "key": "B",
     "mode": "minor",
     "meter": "/"
@@ -996,6 +1120,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_christ_is_risen_today",
     "title": "Jesus Christ Is Risen Today",
     "svg": "hymns/jesus_christ_is_risen_today.svg",
+    "audio": "audio/jesus_christ_is_risen_today.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1004,6 +1129,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_christ_who_came_to_save",
     "title": "Jesus Christ Who Came to Save",
     "svg": "hymns/jesus_christ_who_came_to_save.svg",
+    "audio": "audio/jesus_christ_who_came_to_save.m4a",
     "key": "A",
     "mode": "minor",
     "meter": "/"
@@ -1012,6 +1138,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_grant_that_balm_and_healing",
     "title": "Jesus Grant That Balm and Healing",
     "svg": "hymns/jesus_grant_that_balm_and_healing.svg",
+    "audio": "audio/jesus_grant_that_balm_and_healing.m4a",
     "key": "A",
     "mode": "minor",
     "meter": "/"
@@ -1020,6 +1147,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_loves_me",
     "title": "Jesus Loves Me",
     "svg": "hymns/jesus_loves_me.svg",
+    "audio": "audio/jesus_loves_me.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1028,6 +1156,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_shall_reign",
     "title": "Jesus Shall Reign",
     "svg": "hymns/jesus_shall_reign.svg",
+    "audio": "audio/jesus_shall_reign.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1036,6 +1165,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_sinners_doth_receive",
     "title": "Jesus Sinners Doth Receive",
     "svg": "hymns/jesus_sinners_doth_receive.svg",
+    "audio": "audio/jesus_sinners_doth_receive.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1044,6 +1174,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_wants_all_of_his_children",
     "title": "Jesus Wants All Of His Children",
     "svg": "hymns/jesus_wants_all_of_his_children.svg",
+    "audio": "audio/jesus_wants_all_of_his_children.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1052,6 +1183,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_in_thy_dying_woes",
     "title": "Jesus, In Thy Dying Woes",
     "svg": "hymns/jesus_in_thy_dying_woes.svg",
+    "audio": "audio/jesus_in_thy_dying_woes.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -1060,6 +1192,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_king_of_glory",
     "title": "Jesus, King of Glory",
     "svg": "hymns/jesus_king_of_glory.svg",
+    "audio": "audio/jesus_king_of_glory.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1068,6 +1201,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_tender_shepherd_hear_me",
     "title": "Jesus, Tender Shepherd, Hear Me",
     "svg": "hymns/jesus_tender_shepherd_hear_me.svg",
+    "audio": "audio/jesus_tender_shepherd_hear_me.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1076,6 +1210,7 @@ window.HYMN_CATALOG = [
     "slug": "jesus_thy_boundless_love_to_me",
     "title": "Jesus, Thy Boundless Love To Me",
     "svg": "hymns/jesus_thy_boundless_love_to_me.svg",
+    "audio": "audio/jesus_thy_boundless_love_to_me.m4a",
     "key": "E",
     "mode": "major",
     "meter": "/"
@@ -1084,6 +1219,7 @@ window.HYMN_CATALOG = [
     "slug": "joy_to_the_world",
     "title": "Joy to the World",
     "svg": "hymns/joy_to_the_world.svg",
+    "audio": "audio/joy_to_the_world.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1092,6 +1228,7 @@ window.HYMN_CATALOG = [
     "slug": "joyful_joyful_we_adore_thee",
     "title": "Joyful, Joyful, We Adore Thee",
     "svg": "hymns/joyful_joyful_we_adore_thee.svg",
+    "audio": "audio/joyful_joyful_we_adore_thee.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1100,6 +1237,7 @@ window.HYMN_CATALOG = [
     "slug": "lamp_of_our_feet",
     "title": "Lamp of Our Feet",
     "svg": "hymns/lamp_of_our_feet.svg",
+    "audio": "audio/lamp_of_our_feet.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1108,6 +1246,7 @@ window.HYMN_CATALOG = [
     "slug": "let_all_mortal_flesh_keep_silence",
     "title": "Let All Mortal Flesh Keep Silence",
     "svg": "hymns/let_all_mortal_flesh_keep_silence.svg",
+    "audio": "audio/let_all_mortal_flesh_keep_silence.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -1116,6 +1255,7 @@ window.HYMN_CATALOG = [
     "slug": "let_children_hear_the_mighty_deeds",
     "title": "Let Children Hear The Mighty Deeds",
     "svg": "hymns/let_children_hear_the_mighty_deeds.svg",
+    "audio": "audio/let_children_hear_the_mighty_deeds.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -1124,6 +1264,7 @@ window.HYMN_CATALOG = [
     "slug": "let_our_gladness_have_no_end",
     "title": "Let Our Gladness Have No End",
     "svg": "hymns/let_our_gladness_have_no_end.svg",
+    "audio": "audio/let_our_gladness_have_no_end.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1132,6 +1273,7 @@ window.HYMN_CATALOG = [
     "slug": "lift_high_the_cross",
     "title": "Lift High The Cross",
     "svg": "hymns/lift_high_the_cross.svg",
+    "audio": "audio/lift_high_the_cross.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1140,6 +1282,7 @@ window.HYMN_CATALOG = [
     "slug": "lift_up_your_heads_ye_mighty_gates",
     "title": "Lift Up Your Heads, Ye Mighty Gates",
     "svg": "hymns/lift_up_your_heads_ye_mighty_gates.svg",
+    "audio": "audio/lift_up_your_heads_ye_mighty_gates.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -1148,6 +1291,7 @@ window.HYMN_CATALOG = [
     "slug": "lo_he_comes_with_clouds_descending",
     "title": "Lo! He Comes With Clouds Descending",
     "svg": "hymns/lo_he_comes_with_clouds_descending.svg",
+    "audio": "audio/lo_he_comes_with_clouds_descending.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1156,6 +1300,7 @@ window.HYMN_CATALOG = [
     "slug": "lo_god_to_heav_n_ascendeth",
     "title": "Lo, God To Heav'n Ascendeth",
     "svg": "hymns/lo_god_to_heav_n_ascendeth.svg",
+    "audio": "audio/lo_god_to_heav_n_ascendeth.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1164,6 +1309,7 @@ window.HYMN_CATALOG = [
     "slug": "lo_how_a_rose_e_er_blooming",
     "title": "Lo, How A Rose E'er Blooming",
     "svg": "hymns/lo_how_a_rose_e_er_blooming.svg",
+    "audio": "audio/lo_how_a_rose_e_er_blooming.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1172,6 +1318,7 @@ window.HYMN_CATALOG = [
     "slug": "look_down_o_lord_from_heaven_behold",
     "title": "Look Down, O Lord, From Heaven Behold",
     "svg": "hymns/look_down_o_lord_from_heaven_behold.svg",
+    "audio": "audio/look_down_o_lord_from_heaven_behold.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -1180,6 +1327,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_jesus_think_on_me",
     "title": "Lord Jesus Think On Me",
     "svg": "hymns/lord_jesus_think_on_me.svg",
+    "audio": "audio/lord_jesus_think_on_me.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -1188,6 +1336,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_of_glory_who_hast_bought_us",
     "title": "Lord of Glory, Who Hast Bought Us",
     "svg": "hymns/lord_of_glory_who_hast_bought_us.svg",
+    "audio": "audio/lord_of_glory_who_hast_bought_us.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1196,6 +1345,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_of_life_all_praise_excelling",
     "title": "Lord of Life, All Praise Excelling",
     "svg": "hymns/lord_of_life_all_praise_excelling.svg",
+    "audio": "audio/lord_of_life_all_praise_excelling.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1204,6 +1354,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_thee_i_love_with_all_my_heart-1",
     "title": "Lord Thee I Love With All My Heart-1",
     "svg": "hymns/lord_thee_i_love_with_all_my_heart-1.svg",
+    "audio": "audio/lord_thee_i_love_with_all_my_heart.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1212,6 +1363,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_thee_i_love_with_all_my_heart-2",
     "title": "Lord Thee I Love With All My Heart-2",
     "svg": "hymns/lord_thee_i_love_with_all_my_heart-2.svg",
+    "audio": "audio/lord_thee_i_love_with_all_my_heart.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1220,6 +1372,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_who_throughout_these_forty_days",
     "title": "Lord Who Throughout These Forty Days",
     "svg": "hymns/lord_who_throughout_these_forty_days.svg",
+    "audio": "audio/lord_who_throughout_these_forty_days.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1228,6 +1381,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_dismiss_us_with_thy_blessing",
     "title": "Lord, Dismiss Us With Thy Blessing",
     "svg": "hymns/lord_dismiss_us_with_thy_blessing.svg",
+    "audio": "audio/lord_dismiss_us_with_thy_blessing.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1236,6 +1390,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_enthroned_in_heavenly_splendor",
     "title": "Lord, Enthroned in Heavenly Splendor",
     "svg": "hymns/lord_enthroned_in_heavenly_splendor.svg",
+    "audio": "audio/lord_enthroned_in_heavenly_splendor.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -1244,6 +1399,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_keep_us_steadfast_in_thy_word",
     "title": "Lord, Keep Us Steadfast in Thy Word",
     "svg": "hymns/lord_keep_us_steadfast_in_thy_word.svg",
+    "audio": "audio/lord_keep_us_steadfast_in_thy_word.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -1252,6 +1408,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_thee_i_love_with_all_my_heart",
     "title": "Lord, Thee I Love with All My Heart",
     "svg": "hymns/lord_thee_i_love_with_all_my_heart.svg",
+    "audio": "audio/lord_thee_i_love_with_all_my_heart.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -1260,6 +1417,7 @@ window.HYMN_CATALOG = [
     "slug": "lord_who_at_cana_s_wedding_feast",
     "title": "Lord, Who at Cana's Wedding Feast",
     "svg": "hymns/lord_who_at_cana_s_wedding_feast.svg",
+    "audio": "audio/lord_who_at_cana_s_wedding_feast.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1268,6 +1426,7 @@ window.HYMN_CATALOG = [
     "slug": "magnificat",
     "title": "Magnificat",
     "svg": "hymns/magnificat.svg",
+    "audio": "audio/magnificat.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -1276,6 +1435,7 @@ window.HYMN_CATALOG = [
     "slug": "may_god_bestow_on_us_his_grace",
     "title": "May God Bestow on Us His Grace",
     "svg": "hymns/may_god_bestow_on_us_his_grace.svg",
+    "audio": "audio/may_god_bestow_on_us_his_grace.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -1284,6 +1444,7 @@ window.HYMN_CATALOG = [
     "slug": "more_love_to_thee",
     "title": "More Love to Thee",
     "svg": "hymns/more_love_to_thee.svg",
+    "audio": "audio/more_love_to_thee.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -1292,6 +1453,7 @@ window.HYMN_CATALOG = [
     "slug": "my_faith_looks_up_to_thee",
     "title": "My Faith Looks Up To Thee",
     "svg": "hymns/my_faith_looks_up_to_thee.svg",
+    "audio": "audio/my_faith_looks_up_to_thee.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1300,6 +1462,7 @@ window.HYMN_CATALOG = [
     "slug": "my_hope_is_built",
     "title": "My Hope Is Built",
     "svg": "hymns/my_hope_is_built.svg",
+    "audio": "audio/my_hope_is_built.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1308,6 +1471,7 @@ window.HYMN_CATALOG = [
     "slug": "my_jesus_as_thou_wilt",
     "title": "My Jesus, As Thou Wilt",
     "svg": "hymns/my_jesus_as_thou_wilt.svg",
+    "audio": "audio/my_jesus_as_thou_wilt.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1316,6 +1480,7 @@ window.HYMN_CATALOG = [
     "slug": "my_neighbor",
     "title": "My Neighbor",
     "svg": "hymns/my_neighbor.svg",
+    "audio": "audio/my_neighbor.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1324,6 +1489,7 @@ window.HYMN_CATALOG = [
     "slug": "my_song_shall_be_of_jesus",
     "title": "My Song Shall Be Of Jesus",
     "svg": "hymns/my_song_shall_be_of_jesus.svg",
+    "audio": "audio/my_song_shall_be_of_jesus.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1332,6 +1498,7 @@ window.HYMN_CATALOG = [
     "slug": "my_soul_now_praise_thy_maker-1",
     "title": "My Soul Now Praise Thy Maker-1",
     "svg": "hymns/my_soul_now_praise_thy_maker-1.svg",
+    "audio": "audio/my_soul_now_praise_thy_maker.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1340,6 +1507,7 @@ window.HYMN_CATALOG = [
     "slug": "my_soul_now_praise_thy_maker-2",
     "title": "My Soul Now Praise Thy Maker-2",
     "svg": "hymns/my_soul_now_praise_thy_maker-2.svg",
+    "audio": "audio/my_soul_now_praise_thy_maker.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1348,6 +1516,7 @@ window.HYMN_CATALOG = [
     "slug": "nearer_my_god_to_thee",
     "title": "Nearer, My God, To Thee",
     "svg": "hymns/nearer_my_god_to_thee.svg",
+    "audio": "audio/nearer_my_god_to_thee.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1356,6 +1525,7 @@ window.HYMN_CATALOG = [
     "slug": "no_not_one",
     "title": "No, Not One!",
     "svg": "hymns/no_not_one.svg",
+    "audio": "audio/no_not_one.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1364,6 +1534,7 @@ window.HYMN_CATALOG = [
     "slug": "none_other_lamb",
     "title": "None Other Lamb",
     "svg": "hymns/none_other_lamb.svg",
+    "audio": "audio/none_other_lamb.m4a",
     "key": "F#",
     "mode": "minor",
     "meter": "/"
@@ -1372,6 +1543,7 @@ window.HYMN_CATALOG = [
     "slug": "not_worthy_lord_to_gather_up_the_crumbs",
     "title": "Not Worthy, Lord, to Gather Up the Crumbs",
     "svg": "hymns/not_worthy_lord_to_gather_up_the_crumbs.svg",
+    "audio": "audio/not_worthy_lord_to_gather_up_the_crumbs.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1380,6 +1552,7 @@ window.HYMN_CATALOG = [
     "slug": "now_praise_we_christ_the_holy_one",
     "title": "Now Praise We Christ, the Holy One",
     "svg": "hymns/now_praise_we_christ_the_holy_one.svg",
+    "audio": "audio/now_praise_we_christ_the_holy_one.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -1388,6 +1561,7 @@ window.HYMN_CATALOG = [
     "slug": "now_rest_beneath_night_s_shadow",
     "title": "Now Rest Beneath Night's Shadow",
     "svg": "hymns/now_rest_beneath_night_s_shadow.svg",
+    "audio": "audio/now_rest_beneath_night_s_shadow.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1396,6 +1570,7 @@ window.HYMN_CATALOG = [
     "slug": "now_thank_we_all_our_god",
     "title": "Now Thank We All Our God",
     "svg": "hymns/now_thank_we_all_our_god.svg",
+    "audio": "audio/now_thank_we_all_our_god.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1404,6 +1579,7 @@ window.HYMN_CATALOG = [
     "slug": "now_the_light_has_gone_away",
     "title": "Now the Light Has Gone Away",
     "svg": "hymns/now_the_light_has_gone_away.svg",
+    "audio": "audio/now_the_light_has_gone_away.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1412,6 +1588,7 @@ window.HYMN_CATALOG = [
     "slug": "o_be_glad_all_nations_on_earth",
     "title": "O Be Glad All Nations on Earth",
     "svg": "hymns/o_be_glad_all_nations_on_earth.svg",
+    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1420,6 +1597,7 @@ window.HYMN_CATALOG = [
     "slug": "o_be_glad_all_nations_on_earth-1",
     "title": "O Be Glad All Nations On Earth-1",
     "svg": "hymns/o_be_glad_all_nations_on_earth-1.svg",
+    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1428,6 +1606,7 @@ window.HYMN_CATALOG = [
     "slug": "o_be_glad_all_nations_on_earth-2",
     "title": "O Be Glad All Nations On Earth-2",
     "svg": "hymns/o_be_glad_all_nations_on_earth-2.svg",
+    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1436,6 +1615,7 @@ window.HYMN_CATALOG = [
     "slug": "o_be_glad_all_nations_on_earth-3",
     "title": "O Be Glad All Nations On Earth-3",
     "svg": "hymns/o_be_glad_all_nations_on_earth-3.svg",
+    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1444,6 +1624,7 @@ window.HYMN_CATALOG = [
     "slug": "o_be_glad_all_nations_on_earth-4",
     "title": "O Be Glad All Nations On Earth-4",
     "svg": "hymns/o_be_glad_all_nations_on_earth-4.svg",
+    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1452,6 +1633,7 @@ window.HYMN_CATALOG = [
     "slug": "o_chief_of_cities_bethlehem",
     "title": "O Chief of Cities Bethlehem",
     "svg": "hymns/o_chief_of_cities_bethlehem.svg",
+    "audio": "audio/o_chief_of_cities_bethlehem.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1460,6 +1642,7 @@ window.HYMN_CATALOG = [
     "slug": "o_come_o_come_emmanuel",
     "title": "O Come O Come Emmanuel",
     "svg": "hymns/o_come_o_come_emmanuel.svg",
+    "audio": "audio/o_come_o_come_emmanuel.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -1468,6 +1651,7 @@ window.HYMN_CATALOG = [
     "slug": "o_come_all_ye_faithful",
     "title": "O Come, All Ye Faithful",
     "svg": "hymns/o_come_all_ye_faithful.svg",
+    "audio": "audio/o_come_all_ye_faithful.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1476,6 +1660,7 @@ window.HYMN_CATALOG = [
     "slug": "o_day_of_rest_and_gladness",
     "title": "O Day of Rest And Gladness",
     "svg": "hymns/o_day_of_rest_and_gladness.svg",
+    "audio": "audio/o_day_of_rest_and_gladness.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1484,6 +1669,7 @@ window.HYMN_CATALOG = [
     "slug": "o_father_all_creating",
     "title": "O Father, All Creating",
     "svg": "hymns/o_father_all_creating.svg",
+    "audio": "audio/o_father_all_creating.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1492,6 +1678,7 @@ window.HYMN_CATALOG = [
     "slug": "o_for_a_thousand_tongues",
     "title": "O For A Thousand Tongues",
     "svg": "hymns/o_for_a_thousand_tongues.svg",
+    "audio": "audio/o_for_a_thousand_tongues.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -1500,6 +1687,7 @@ window.HYMN_CATALOG = [
     "slug": "o_holy_spirit_enter_in-1",
     "title": "O Holy Spirit Enter In-1",
     "svg": "hymns/o_holy_spirit_enter_in-1.svg",
+    "audio": "audio/o_holy_spirit_enter_in.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1508,6 +1696,7 @@ window.HYMN_CATALOG = [
     "slug": "o_holy_spirit_enter_in-2",
     "title": "O Holy Spirit Enter In-2",
     "svg": "hymns/o_holy_spirit_enter_in-2.svg",
+    "audio": "audio/o_holy_spirit_enter_in.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1516,6 +1705,7 @@ window.HYMN_CATALOG = [
     "slug": "o_holy_spirit_enter_in",
     "title": "O Holy Spirit, Enter In",
     "svg": "hymns/o_holy_spirit_enter_in.svg",
+    "audio": "audio/o_holy_spirit_enter_in.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1524,6 +1714,7 @@ window.HYMN_CATALOG = [
     "slug": "o_holy_blessed_trinity",
     "title": "O Holy, Blessed Trinity",
     "svg": "hymns/o_holy_blessed_trinity.svg",
+    "audio": "audio/o_holy_blessed_trinity.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1532,6 +1723,7 @@ window.HYMN_CATALOG = [
     "slug": "o_little_town_of_bethlehem",
     "title": "O Little Town of Bethlehem",
     "svg": "hymns/o_little_town_of_bethlehem.svg",
+    "audio": "audio/o_little_town_of_bethlehem.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1540,6 +1732,7 @@ window.HYMN_CATALOG = [
     "slug": "o_lord_my_soul_convicted",
     "title": "O Lord My Soul Convicted",
     "svg": "hymns/o_lord_my_soul_convicted.svg",
+    "audio": "audio/o_lord_my_soul_convicted.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1548,6 +1741,7 @@ window.HYMN_CATALOG = [
     "slug": "o_lord_of_heav_n_and_earth_and_sea",
     "title": "O Lord of Heav'n and Earth and Sea",
     "svg": "hymns/o_lord_of_heav_n_and_earth_and_sea.svg",
+    "audio": "audio/o_lord_of_heav_n_and_earth_and_sea.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1556,6 +1750,7 @@ window.HYMN_CATALOG = [
     "slug": "o_lord_we_praise_thee-1",
     "title": "O Lord We Praise Thee-1",
     "svg": "hymns/o_lord_we_praise_thee-1.svg",
+    "audio": "audio/o_lord_we_praise_thee.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1564,6 +1759,7 @@ window.HYMN_CATALOG = [
     "slug": "o_lord_we_praise_thee-2",
     "title": "O Lord We Praise Thee-2",
     "svg": "hymns/o_lord_we_praise_thee-2.svg",
+    "audio": "audio/o_lord_we_praise_thee.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1572,6 +1768,7 @@ window.HYMN_CATALOG = [
     "slug": "o_lord_how_shall_i_meet_thee",
     "title": "O Lord, How Shall I Meet Thee",
     "svg": "hymns/o_lord_how_shall_i_meet_thee.svg",
+    "audio": "audio/o_lord_how_shall_i_meet_thee.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1580,6 +1777,7 @@ window.HYMN_CATALOG = [
     "slug": "o_lord_i_am_not_worthy",
     "title": "O Lord, I Am Not Worthy",
     "svg": "hymns/o_lord_i_am_not_worthy.svg",
+    "audio": "audio/o_lord_i_am_not_worthy.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -1588,6 +1786,7 @@ window.HYMN_CATALOG = [
     "slug": "o_lord_my_god_i_thirst_for_you",
     "title": "O Lord, My God, I Thirst For You",
     "svg": "hymns/o_lord_my_god_i_thirst_for_you.svg",
+    "audio": "audio/o_lord_my_god_i_thirst_for_you.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -1596,6 +1795,7 @@ window.HYMN_CATALOG = [
     "slug": "o_love_how_deep_how_broad_how_high",
     "title": "O Love, How Deep, How Broad, How High",
     "svg": "hymns/o_love_how_deep_how_broad_how_high.svg",
+    "audio": "audio/o_love_how_deep_how_broad_how_high.m4a",
     "key": "C#",
     "mode": "minor",
     "meter": "/"
@@ -1604,6 +1804,7 @@ window.HYMN_CATALOG = [
     "slug": "o_sacred_head_now_wounded",
     "title": "O Sacred Head, Now Wounded",
     "svg": "hymns/o_sacred_head_now_wounded.svg",
+    "audio": "audio/o_sacred_head_now_wounded.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1612,6 +1813,7 @@ window.HYMN_CATALOG = [
     "slug": "o_that_the_lord_would_guide_my_ways",
     "title": "O That The Lord Would Guide My Ways",
     "svg": "hymns/o_that_the_lord_would_guide_my_ways.svg",
+    "audio": "audio/o_that_the_lord_would_guide_my_ways.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -1620,6 +1822,7 @@ window.HYMN_CATALOG = [
     "slug": "o_the_deep_deep_love_of_jesus",
     "title": "O The Deep, Deep Love of Jesus",
     "svg": "hymns/o_the_deep_deep_love_of_jesus.svg",
+    "audio": "audio/o_the_deep_deep_love_of_jesus.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -1628,6 +1831,7 @@ window.HYMN_CATALOG = [
     "slug": "o_trinity_of_blessed_light",
     "title": "O Trinity of Blessed Light",
     "svg": "hymns/o_trinity_of_blessed_light.svg",
+    "audio": "audio/o_trinity_of_blessed_light.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -1636,6 +1840,7 @@ window.HYMN_CATALOG = [
     "slug": "o_wondrous_type_o_vision_fair",
     "title": "O Wondrous Type, O Vision Fair",
     "svg": "hymns/o_wondrous_type_o_vision_fair.svg",
+    "audio": "audio/o_wondrous_type_o_vision_fair.m4a",
     "key": "C#",
     "mode": "minor",
     "meter": "/"
@@ -1644,6 +1849,7 @@ window.HYMN_CATALOG = [
     "slug": "of_the_father_s_love_begotten",
     "title": "Of The Father's Love Begotten",
     "svg": "hymns/of_the_father_s_love_begotten.svg",
+    "audio": "audio/of_the_father_s_love_begotten.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1652,6 +1858,7 @@ window.HYMN_CATALOG = [
     "slug": "oh_blest_the_house",
     "title": "Oh, Blest the House",
     "svg": "hymns/oh_blest_the_house.svg",
+    "audio": "audio/oh_blest_the_house.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1660,6 +1867,7 @@ window.HYMN_CATALOG = [
     "slug": "on_jordan_s_bank_the_baptist_s_cry",
     "title": "On Jordan's Bank the Baptist's Cry",
     "svg": "hymns/on_jordan_s_bank_the_baptist_s_cry.svg",
+    "audio": "audio/on_jordan_s_bank_the_baptist_s_cry.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1668,6 +1876,7 @@ window.HYMN_CATALOG = [
     "slug": "on_what_has_now_been_sown",
     "title": "On What Has Now Been Sown",
     "svg": "hymns/on_what_has_now_been_sown.svg",
+    "audio": "audio/on_what_has_now_been_sown.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1676,6 +1885,7 @@ window.HYMN_CATALOG = [
     "slug": "one_thing_s_needful",
     "title": "One Thing's Needful",
     "svg": "hymns/one_thing_s_needful.svg",
+    "audio": "audio/one_thing_s_needful.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1684,6 +1894,7 @@ window.HYMN_CATALOG = [
     "slug": "open_now_thy_gates_of_beauty",
     "title": "Open Now Thy Gates of Beauty",
     "svg": "hymns/open_now_thy_gates_of_beauty.svg",
+    "audio": "audio/open_now_thy_gates_of_beauty.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -1692,6 +1903,7 @@ window.HYMN_CATALOG = [
     "slug": "our_father_thou_in_heaven_above",
     "title": "Our Father Thou in Heaven Above",
     "svg": "hymns/our_father_thou_in_heaven_above.svg",
+    "audio": "audio/our_father_thou_in_heaven_above.m4a",
     "key": "C",
     "mode": "minor",
     "meter": "/"
@@ -1700,6 +1912,7 @@ window.HYMN_CATALOG = [
     "slug": "our_god_our_help_in_ages_past",
     "title": "Our God, Our Help In Ages Past",
     "svg": "hymns/our_god_our_help_in_ages_past.svg",
+    "audio": "audio/our_god_our_help_in_ages_past.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1708,6 +1921,7 @@ window.HYMN_CATALOG = [
     "slug": "out_of_the_deep_i_cry_to_thee",
     "title": "Out of the Deep I Cry to Thee",
     "svg": "hymns/out_of_the_deep_i_cry_to_thee.svg",
+    "audio": "audio/out_of_the_deep_i_cry_to_thee.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -1716,6 +1930,7 @@ window.HYMN_CATALOG = [
     "slug": "over_kidron_jesus_treadeth",
     "title": "Over Kidron Jesus Treadeth",
     "svg": "hymns/over_kidron_jesus_treadeth.svg",
+    "audio": "audio/over_kidron_jesus_treadeth.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -1724,6 +1939,7 @@ window.HYMN_CATALOG = [
     "slug": "pass_me_not_o_gentle_savior",
     "title": "Pass Me Not, O Gentle Savior",
     "svg": "hymns/pass_me_not_o_gentle_savior.svg",
+    "audio": "audio/pass_me_not_o_gentle_savior.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -1732,6 +1948,7 @@ window.HYMN_CATALOG = [
     "slug": "praise_god_from_whom_all_blessings_flow",
     "title": "Praise God From Whom All Blessings Flow",
     "svg": "hymns/praise_god_from_whom_all_blessings_flow.svg",
+    "audio": "audio/praise_god_from_whom_all_blessings_flow.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1740,6 +1957,7 @@ window.HYMN_CATALOG = [
     "slug": "praise_my_soul_the_king_of_heaven",
     "title": "Praise My Soul The King Of Heaven",
     "svg": "hymns/praise_my_soul_the_king_of_heaven.svg",
+    "audio": "audio/praise_my_soul_the_king_of_heaven.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1748,6 +1966,7 @@ window.HYMN_CATALOG = [
     "slug": "praise_the_lord_ye_heavens_adore_him",
     "title": "Praise The Lord, Ye Heavens Adore Him",
     "svg": "hymns/praise_the_lord_ye_heavens_adore_him.svg",
+    "audio": "audio/praise_the_lord_ye_heavens_adore_him.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1756,6 +1975,7 @@ window.HYMN_CATALOG = [
     "slug": "praise_to_the_lord_the_almighty",
     "title": "Praise To The Lord, The Almighty",
     "svg": "hymns/praise_to_the_lord_the_almighty.svg",
+    "audio": "audio/praise_to_the_lord_the_almighty.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1764,6 +1984,7 @@ window.HYMN_CATALOG = [
     "slug": "rejoice_my_heart_be_glad_and_sing",
     "title": "Rejoice, My Heart, Be Glad and Sing",
     "svg": "hymns/rejoice_my_heart_be_glad_and_sing.svg",
+    "audio": "audio/rejoice_my_heart_be_glad_and_sing.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -1772,6 +1993,7 @@ window.HYMN_CATALOG = [
     "slug": "rejoice_o_pilgrim_throng",
     "title": "Rejoice, O Pilgrim Throng",
     "svg": "hymns/rejoice_o_pilgrim_throng.svg",
+    "audio": "audio/rejoice_o_pilgrim_throng.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1780,6 +2002,7 @@ window.HYMN_CATALOG = [
     "slug": "rock_of_ages",
     "title": "Rock of Ages",
     "svg": "hymns/rock_of_ages.svg",
+    "audio": "audio/rock_of_ages.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -1788,6 +2011,7 @@ window.HYMN_CATALOG = [
     "slug": "salvation_unto_us_has_come",
     "title": "Salvation Unto Us Has Come",
     "svg": "hymns/salvation_unto_us_has_come.svg",
+    "audio": "audio/salvation_unto_us_has_come.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1796,6 +2020,7 @@ window.HYMN_CATALOG = [
     "slug": "savior_of_the_nations_come",
     "title": "Savior Of The Nations Come",
     "svg": "hymns/savior_of_the_nations_come.svg",
+    "audio": "audio/savior_of_the_nations_come.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -1804,6 +2029,7 @@ window.HYMN_CATALOG = [
     "slug": "savior_when_in_dust_to_thee",
     "title": "Savior When In Dust To Thee",
     "svg": "hymns/savior_when_in_dust_to_thee.svg",
+    "audio": "audio/savior_when_in_dust_to_thee.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -1812,6 +2038,7 @@ window.HYMN_CATALOG = [
     "slug": "savior_like_a_shepherd_lead_us",
     "title": "Savior, Like A Shepherd Lead Us",
     "svg": "hymns/savior_like_a_shepherd_lead_us.svg",
+    "audio": "audio/savior_like_a_shepherd_lead_us.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -1820,6 +2047,7 @@ window.HYMN_CATALOG = [
     "slug": "savior_who_thy_flock_art_feeding",
     "title": "Savior, Who Thy Flock Art Feeding",
     "svg": "hymns/savior_who_thy_flock_art_feeding.svg",
+    "audio": "audio/savior_who_thy_flock_art_feeding.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1828,6 +2056,7 @@ window.HYMN_CATALOG = [
     "slug": "see_amid_the_winter_s_snow",
     "title": "See Amid the Winter's Snow",
     "svg": "hymns/see_amid_the_winter_s_snow.svg",
+    "audio": "audio/see_amid_the_winter_s_snow.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1836,6 +2065,7 @@ window.HYMN_CATALOG = [
     "slug": "see_the_lord_ascends_in_triumph-1",
     "title": "See The Lord Ascends In Triumph-1",
     "svg": "hymns/see_the_lord_ascends_in_triumph-1.svg",
+    "audio": "audio/see_the_lord_ascends_in_triumph.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1844,6 +2074,7 @@ window.HYMN_CATALOG = [
     "slug": "see_the_lord_ascends_in_triumph-2",
     "title": "See The Lord Ascends In Triumph-2",
     "svg": "hymns/see_the_lord_ascends_in_triumph-2.svg",
+    "audio": "audio/see_the_lord_ascends_in_triumph.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -1852,6 +2083,7 @@ window.HYMN_CATALOG = [
     "slug": "see_the_lord_ascends_in_triumph",
     "title": "See, The Lord Ascends In Triumph",
     "svg": "hymns/see_the_lord_ascends_in_triumph.svg",
+    "audio": "audio/see_the_lord_ascends_in_triumph.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -1860,6 +2092,7 @@ window.HYMN_CATALOG = [
     "slug": "silent_night",
     "title": "Silent Night",
     "svg": "hymns/silent_night.svg",
+    "audio": "audio/silent_night.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -1868,6 +2101,7 @@ window.HYMN_CATALOG = [
     "slug": "sing_o_sing_this_blessed_morn",
     "title": "Sing, O Sing, This Blessed Morn",
     "svg": "hymns/sing_o_sing_this_blessed_morn.svg",
+    "audio": "audio/sing_o_sing_this_blessed_morn.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1876,6 +2110,7 @@ window.HYMN_CATALOG = [
     "slug": "songs_of_thankfulness_and_praise",
     "title": "Songs of Thankfulness and Praise",
     "svg": "hymns/songs_of_thankfulness_and_praise.svg",
+    "audio": "audio/songs_of_thankfulness_and_praise.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1884,6 +2119,7 @@ window.HYMN_CATALOG = [
     "slug": "souls_of_men_why_will_ye_scatter",
     "title": "Souls of Men! Why Will Ye Scatter",
     "svg": "hymns/souls_of_men_why_will_ye_scatter.svg",
+    "audio": "audio/souls_of_men_why_will_ye_scatter.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1892,6 +2128,7 @@ window.HYMN_CATALOG = [
     "slug": "stricken_smitten_and_afflicted",
     "title": "Stricken, Smitten, and Afflicted",
     "svg": "hymns/stricken_smitten_and_afflicted.svg",
+    "audio": "audio/stricken_smitten_and_afflicted.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -1900,6 +2137,7 @@ window.HYMN_CATALOG = [
     "slug": "take_my_life_and_let_it_be",
     "title": "Take My Life And Let It Be",
     "svg": "hymns/take_my_life_and_let_it_be.svg",
+    "audio": "audio/take_my_life_and_let_it_be.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1908,6 +2146,7 @@ window.HYMN_CATALOG = [
     "slug": "take_thou_my_hand_and_lead_me",
     "title": "Take Thou My Hand and Lead Me",
     "svg": "hymns/take_thou_my_hand_and_lead_me.svg",
+    "audio": "audio/take_thou_my_hand_and_lead_me.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -1916,6 +2155,7 @@ window.HYMN_CATALOG = [
     "slug": "that_men_a_godly_life_might_live",
     "title": "That Men a godly Life Might Live",
     "svg": "hymns/that_men_a_godly_life_might_live.svg",
+    "audio": "audio/that_men_a_godly_life_might_live.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1924,6 +2164,7 @@ window.HYMN_CATALOG = [
     "slug": "the_advent_of_our_god",
     "title": "The Advent of Our God",
     "svg": "hymns/the_advent_of_our_god.svg",
+    "audio": "audio/the_advent_of_our_god.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1932,6 +2173,7 @@ window.HYMN_CATALOG = [
     "slug": "the_apostle_looked_and_heard_a_voice",
     "title": "The Apostle Looked and Heard a Voice",
     "svg": "hymns/the_apostle_looked_and_heard_a_voice.svg",
+    "audio": "audio/the_apostle_looked_and_heard_a_voice.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1940,6 +2182,7 @@ window.HYMN_CATALOG = [
     "slug": "the_bridegroom_soon_will_call_us",
     "title": "The Bridegroom Soon Will Call Us",
     "svg": "hymns/the_bridegroom_soon_will_call_us.svg",
+    "audio": "audio/the_bridegroom_soon_will_call_us.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1948,6 +2191,7 @@ window.HYMN_CATALOG = [
     "slug": "the_church_s_one_foundation",
     "title": "The Church's One Foundation",
     "svg": "hymns/the_church_s_one_foundation.svg",
+    "audio": "audio/the_church_s_one_foundation.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1956,6 +2200,7 @@ window.HYMN_CATALOG = [
     "slug": "the_cloud_received_christ_from_their_sight",
     "title": "The Cloud Received Christ From Their Sight",
     "svg": "hymns/the_cloud_received_christ_from_their_sight.svg",
+    "audio": "audio/the_cloud_received_christ_from_their_sight.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -1964,6 +2209,7 @@ window.HYMN_CATALOG = [
     "slug": "the_comforter_has_come",
     "title": "The Comforter Has Come",
     "svg": "hymns/the_comforter_has_come.svg",
+    "audio": "audio/the_comforter_has_come.m4a",
     "key": "C",
     "mode": "major",
     "meter": "/"
@@ -1972,6 +2218,7 @@ window.HYMN_CATALOG = [
     "slug": "the_day_is_surely_drawing_near",
     "title": "The Day is Surely Drawing Near",
     "svg": "hymns/the_day_is_surely_drawing_near.svg",
+    "audio": "audio/the_day_is_surely_drawing_near.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1980,6 +2227,7 @@ window.HYMN_CATALOG = [
     "slug": "the_first_noel",
     "title": "The First Noel",
     "svg": "hymns/the_first_noel.svg",
+    "audio": "audio/the_first_noel.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -1988,6 +2236,7 @@ window.HYMN_CATALOG = [
     "slug": "the_galilean_fishers_toil",
     "title": "The Galilean Fishers Toil",
     "svg": "hymns/the_galilean_fishers_toil.svg",
+    "audio": "audio/the_galilean_fishers_toil.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -1996,6 +2245,7 @@ window.HYMN_CATALOG = [
     "slug": "the_god_of_abraham_praise",
     "title": "The God of Abraham Praise",
     "svg": "hymns/the_god_of_abraham_praise.svg",
+    "audio": "audio/the_god_of_abraham_praise.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -2004,6 +2254,7 @@ window.HYMN_CATALOG = [
     "slug": "the_gospel_shows_the_father_s_grace",
     "title": "The Gospel Shows The Father's Grace",
     "svg": "hymns/the_gospel_shows_the_father_s_grace.svg",
+    "audio": "audio/the_gospel_shows_the_father_s_grace.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2012,6 +2263,7 @@ window.HYMN_CATALOG = [
     "slug": "the_king_shall_come",
     "title": "The King Shall Come",
     "svg": "hymns/the_king_shall_come.svg",
+    "audio": "audio/the_king_shall_come.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -2020,6 +2272,7 @@ window.HYMN_CATALOG = [
     "slug": "the_law_of_god_is_good_and_wise",
     "title": "The Law Of God Is Good And Wise",
     "svg": "hymns/the_law_of_god_is_good_and_wise.svg",
+    "audio": "audio/the_law_of_god_is_good_and_wise.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -2028,6 +2281,7 @@ window.HYMN_CATALOG = [
     "slug": "the_lily_of_the_valley",
     "title": "The Lily of the Valley",
     "svg": "hymns/the_lily_of_the_valley.svg",
+    "audio": "audio/the_lily_of_the_valley.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2036,6 +2290,7 @@ window.HYMN_CATALOG = [
     "slug": "the_lord_s_my_shepherd-1",
     "title": "The Lord S My Shepherd-1",
     "svg": "hymns/the_lord_s_my_shepherd-1.svg",
+    "audio": "audio/the_lord_s_my_shepherd.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -2044,6 +2299,7 @@ window.HYMN_CATALOG = [
     "slug": "the_lord_s_my_shepherd-2",
     "title": "The Lord S My Shepherd-2",
     "svg": "hymns/the_lord_s_my_shepherd-2.svg",
+    "audio": "audio/the_lord_s_my_shepherd.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -2052,6 +2308,7 @@ window.HYMN_CATALOG = [
     "slug": "the_lord_s_prayer_new",
     "title": "The Lord's Prayer (new)",
     "svg": "hymns/the_lord_s_prayer_new.svg",
+    "audio": "audio/the_lord_s_prayer_new.m4a",
     "key": "G",
     "mode": "minor",
     "meter": "/"
@@ -2060,6 +2317,7 @@ window.HYMN_CATALOG = [
     "slug": "the_love_of_god",
     "title": "The Love of God",
     "svg": "hymns/the_love_of_god.svg",
+    "audio": "audio/the_love_of_god.m4a",
     "key": "Db",
     "mode": "major",
     "meter": "/"
@@ -2068,6 +2326,7 @@ window.HYMN_CATALOG = [
     "slug": "the_mouth_of_fools_doth_god_confess",
     "title": "The Mouth of Fools Doth God Confess",
     "svg": "hymns/the_mouth_of_fools_doth_god_confess.svg",
+    "audio": "audio/the_mouth_of_fools_doth_god_confess.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -2076,6 +2335,7 @@ window.HYMN_CATALOG = [
     "slug": "the_old_rugged_cross",
     "title": "The Old Rugged Cross",
     "svg": "hymns/the_old_rugged_cross.svg",
+    "audio": "audio/the_old_rugged_cross.m4a",
     "key": "Bb",
     "mode": "major",
     "meter": "/"
@@ -2084,6 +2344,7 @@ window.HYMN_CATALOG = [
     "slug": "the_people_that_in_darkness_sat",
     "title": "The People That in Darkness Sat",
     "svg": "hymns/the_people_that_in_darkness_sat.svg",
+    "audio": "audio/the_people_that_in_darkness_sat.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2092,6 +2353,7 @@ window.HYMN_CATALOG = [
     "slug": "the_star_proclaims_the_king_is_here",
     "title": "The Star Proclaims the King is Here",
     "svg": "hymns/the_star_proclaims_the_king_is_here.svg",
+    "audio": "audio/the_star_proclaims_the_king_is_here.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -2100,6 +2362,7 @@ window.HYMN_CATALOG = [
     "slug": "the_strife_is_o_er_the_battle_done",
     "title": "The Strife Is O'er, The Battle Done",
     "svg": "hymns/the_strife_is_o_er_the_battle_done.svg",
+    "audio": "audio/the_strife_is_o_er_the_battle_done.m4a",
     "key": "E",
     "mode": "major",
     "meter": "/"
@@ -2108,6 +2371,7 @@ window.HYMN_CATALOG = [
     "slug": "the_winds_and_billows_loudly_roar",
     "title": "The Winds and Billows Loudly Roar",
     "svg": "hymns/the_winds_and_billows_loudly_roar.svg",
+    "audio": "audio/the_winds_and_billows_loudly_roar.m4a",
     "key": "F",
     "mode": "minor",
     "meter": "/"
@@ -2116,6 +2380,7 @@ window.HYMN_CATALOG = [
     "slug": "there_s_a_great_day_coming",
     "title": "There's a Great Day Coming",
     "svg": "hymns/there_s_a_great_day_coming.svg",
+    "audio": "audio/there_s_a_great_day_coming.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -2124,6 +2389,7 @@ window.HYMN_CATALOG = [
     "slug": "thine_arm_o_lord_in_days_of_old",
     "title": "Thine Arm, O Lord, in Days of Old",
     "svg": "hymns/thine_arm_o_lord_in_days_of_old.svg",
+    "audio": "audio/thine_arm_o_lord_in_days_of_old.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -2132,6 +2398,7 @@ window.HYMN_CATALOG = [
     "slug": "thou_who_at_thy_first_eucharist",
     "title": "Thou, Who at Thy First Eucharist",
     "svg": "hymns/thou_who_at_thy_first_eucharist.svg",
+    "audio": "audio/thou_who_at_thy_first_eucharist.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -2140,6 +2407,7 @@ window.HYMN_CATALOG = [
     "slug": "though_in_the_midst_of_life_we_be",
     "title": "Though in the Midst of Life We Be",
     "svg": "hymns/though_in_the_midst_of_life_we_be.svg",
+    "audio": "audio/though_in_the_midst_of_life_we_be.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -2148,6 +2416,7 @@ window.HYMN_CATALOG = [
     "slug": "through_the_night_of_doubt_and_sorrow",
     "title": "Through the Night of Doubt and Sorrow",
     "svg": "hymns/through_the_night_of_doubt_and_sorrow.svg",
+    "audio": "audio/through_the_night_of_doubt_and_sorrow.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -2156,6 +2425,7 @@ window.HYMN_CATALOG = [
     "slug": "tis_good_lord_to_be_here",
     "title": "Tis Good, Lord, To Be Here",
     "svg": "hymns/tis_good_lord_to_be_here.svg",
+    "audio": "audio/tis_good_lord_to_be_here.m4a",
     "key": "E",
     "mode": "major",
     "meter": "/"
@@ -2164,6 +2434,7 @@ window.HYMN_CATALOG = [
     "slug": "to_avert_from_men_god_s_wrath",
     "title": "To Avert From Men God's Wrath",
     "svg": "hymns/to_avert_from_men_god_s_wrath.svg",
+    "audio": "audio/to_avert_from_men_god_s_wrath.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -2172,6 +2443,7 @@ window.HYMN_CATALOG = [
     "slug": "to_god_be_the_glory",
     "title": "To God Be The Glory",
     "svg": "hymns/to_god_be_the_glory.svg",
+    "audio": "audio/to_god_be_the_glory.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -2180,6 +2452,7 @@ window.HYMN_CATALOG = [
     "slug": "to_jordan_came_our_lord_the_christ",
     "title": "To Jordan Came Our Lord, The Christ",
     "svg": "hymns/to_jordan_came_our_lord_the_christ.svg",
+    "audio": "audio/to_jordan_came_our_lord_the_christ.m4a",
     "key": "A",
     "mode": "minor",
     "meter": "/"
@@ -2188,6 +2461,7 @@ window.HYMN_CATALOG = [
     "slug": "to_shepherds_as_they_watched_by_night",
     "title": "To Shepherds As They Watched By Night",
     "svg": "hymns/to_shepherds_as_they_watched_by_night.svg",
+    "audio": "audio/to_shepherds_as_they_watched_by_night.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -2196,6 +2470,7 @@ window.HYMN_CATALOG = [
     "slug": "today_thy_mercy_calls_me",
     "title": "Today Thy Mercy Calls Me",
     "svg": "hymns/today_thy_mercy_calls_me.svg",
+    "audio": "audio/today_thy_mercy_calls_me.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -2204,6 +2479,7 @@ window.HYMN_CATALOG = [
     "slug": "twas_in_the_moon_of_wintertime",
     "title": "Twas In The Moon of Wintertime",
     "svg": "hymns/twas_in_the_moon_of_wintertime.svg",
+    "audio": "audio/twas_in_the_moon_of_wintertime.m4a",
     "key": "B",
     "mode": "minor",
     "meter": "/"
@@ -2212,6 +2488,7 @@ window.HYMN_CATALOG = [
     "slug": "under_his_wings",
     "title": "Under His Wings",
     "svg": "hymns/under_his_wings.svg",
+    "audio": "audio/under_his_wings.m4a",
     "key": "Db",
     "mode": "major",
     "meter": "/"
@@ -2220,6 +2497,7 @@ window.HYMN_CATALOG = [
     "slug": "wake_awake_for_night_is_flying-1",
     "title": "Wake Awake For Night Is Flying-1",
     "svg": "hymns/wake_awake_for_night_is_flying-1.svg",
+    "audio": "audio/wake_awake_for_night_is_flying.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -2228,6 +2506,7 @@ window.HYMN_CATALOG = [
     "slug": "wake_awake_for_night_is_flying-2",
     "title": "Wake Awake For Night Is Flying-2",
     "svg": "hymns/wake_awake_for_night_is_flying-2.svg",
+    "audio": "audio/wake_awake_for_night_is_flying.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -2236,6 +2515,7 @@ window.HYMN_CATALOG = [
     "slug": "we_all_believe_in_one_true_god",
     "title": "We All Believe in One True God",
     "svg": "hymns/we_all_believe_in_one_true_god.svg",
+    "audio": "audio/we_all_believe_in_one_true_god.m4a",
     "key": "D",
     "mode": "minor",
     "meter": "/"
@@ -2244,6 +2524,7 @@ window.HYMN_CATALOG = [
     "slug": "we_all_believe_in_one_true_god-1",
     "title": "We All Believe In One True God-1",
     "svg": "hymns/we_all_believe_in_one_true_god-1.svg",
+    "audio": "audio/we_all_believe_in_one_true_god.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -2252,6 +2533,7 @@ window.HYMN_CATALOG = [
     "slug": "we_all_believe_in_one_true_god-2",
     "title": "We All Believe In One True God-2",
     "svg": "hymns/we_all_believe_in_one_true_god-2.svg",
+    "audio": "audio/we_all_believe_in_one_true_god.m4a",
     "key": "",
     "mode": "",
     "meter": ""
@@ -2260,6 +2542,7 @@ window.HYMN_CATALOG = [
     "slug": "we_gather_together",
     "title": "We Gather Together",
     "svg": "hymns/we_gather_together.svg",
+    "audio": "audio/we_gather_together.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -2268,6 +2551,7 @@ window.HYMN_CATALOG = [
     "slug": "we_give_thee_but_thine_own",
     "title": "We Give Thee But Thine Own",
     "svg": "hymns/we_give_thee_but_thine_own.svg",
+    "audio": "audio/we_give_thee_but_thine_own.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"
@@ -2276,6 +2560,7 @@ window.HYMN_CATALOG = [
     "slug": "we_know_thee_who_thou_art",
     "title": "We Know Thee Who Thou Art",
     "svg": "hymns/we_know_thee_who_thou_art.svg",
+    "audio": "audio/we_know_thee_who_thou_art.m4a",
     "key": "D",
     "mode": "major",
     "meter": "/"
@@ -2284,6 +2569,7 @@ window.HYMN_CATALOG = [
     "slug": "we_now_implore_god_the_holy_ghost",
     "title": "We Now Implore God the Holy Ghost",
     "svg": "hymns/we_now_implore_god_the_holy_ghost.svg",
+    "audio": "audio/we_now_implore_god_the_holy_ghost.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2292,6 +2578,7 @@ window.HYMN_CATALOG = [
     "slug": "were_you_there",
     "title": "Were You There?",
     "svg": "hymns/were_you_there.svg",
+    "audio": "audio/were_you_there.m4a",
     "key": "E",
     "mode": "major",
     "meter": "/"
@@ -2300,6 +2587,7 @@ window.HYMN_CATALOG = [
     "slug": "what_a_friend_we_have_in_jesus",
     "title": "What A Friend We Have In Jesus",
     "svg": "hymns/what_a_friend_we_have_in_jesus.svg",
+    "audio": "audio/what_a_friend_we_have_in_jesus.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2308,6 +2596,7 @@ window.HYMN_CATALOG = [
     "slug": "what_child_is_this",
     "title": "What Child Is This?",
     "svg": "hymns/what_child_is_this.svg",
+    "audio": "audio/what_child_is_this.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -2316,6 +2605,7 @@ window.HYMN_CATALOG = [
     "slug": "when_i_survey_the_wondrous_cross",
     "title": "When I Survey the Wondrous Cross",
     "svg": "hymns/when_i_survey_the_wondrous_cross.svg",
+    "audio": "audio/when_i_survey_the_wondrous_cross.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -2324,6 +2614,7 @@ window.HYMN_CATALOG = [
     "slug": "when_the_roll_is_called_up_yonder",
     "title": "When The Roll Is Called Up Yonder",
     "svg": "hymns/when_the_roll_is_called_up_yonder.svg",
+    "audio": "audio/when_the_roll_is_called_up_yonder.m4a",
     "key": "Ab",
     "mode": "major",
     "meter": "/"
@@ -2332,6 +2623,7 @@ window.HYMN_CATALOG = [
     "slug": "where_he_leads_me",
     "title": "Where He Leads Me",
     "svg": "hymns/where_he_leads_me.svg",
+    "audio": "audio/where_he_leads_me.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2340,6 +2632,7 @@ window.HYMN_CATALOG = [
     "slug": "while_o_er_our_guilty_land_o_lord",
     "title": "While O'er Our Guilty Land, O Lord",
     "svg": "hymns/while_o_er_our_guilty_land_o_lord.svg",
+    "audio": "audio/while_o_er_our_guilty_land_o_lord.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2348,6 +2641,7 @@ window.HYMN_CATALOG = [
     "slug": "whiter_than_snow",
     "title": "Whiter Than Snow",
     "svg": "hymns/whiter_than_snow.svg",
+    "audio": "audio/whiter_than_snow.m4a",
     "key": "A",
     "mode": "major",
     "meter": "/"
@@ -2356,6 +2650,7 @@ window.HYMN_CATALOG = [
     "slug": "wilt_thou_o_man_live_happily",
     "title": "Wilt Thou, O Man, Live Happily",
     "svg": "hymns/wilt_thou_o_man_live_happily.svg",
+    "audio": "audio/wilt_thou_o_man_live_happily.m4a",
     "key": "E",
     "mode": "minor",
     "meter": "/"
@@ -2364,6 +2659,7 @@ window.HYMN_CATALOG = [
     "slug": "within_the_father_s_house",
     "title": "Within the Father's House",
     "svg": "hymns/within_the_father_s_house.svg",
+    "audio": "audio/within_the_father_s_house.m4a",
     "key": "Eb",
     "mode": "major",
     "meter": "/"
@@ -2372,6 +2668,7 @@ window.HYMN_CATALOG = [
     "slug": "yet_before_we_see_your_plans",
     "title": "Yet Before We See Your Plans",
     "svg": "hymns/yet_before_we_see_your_plans.svg",
+    "audio": "audio/yet_before_we_see_your_plans.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2380,6 +2677,7 @@ window.HYMN_CATALOG = [
     "slug": "you_parents_hear_what_jesus_taught",
     "title": "You Parents Hear What Jesus Taught",
     "svg": "hymns/you_parents_hear_what_jesus_taught.svg",
+    "audio": "audio/you_parents_hear_what_jesus_taught.m4a",
     "key": "F",
     "mode": "major",
     "meter": "/"
@@ -2388,6 +2686,7 @@ window.HYMN_CATALOG = [
     "slug": "you_people_who_now_are_baptized",
     "title": "You People Who Now Are Baptized",
     "svg": "hymns/you_people_who_now_are_baptized.svg",
+    "audio": "audio/you_people_who_now_are_baptized.m4a",
     "key": "G",
     "mode": "major",
     "meter": "/"

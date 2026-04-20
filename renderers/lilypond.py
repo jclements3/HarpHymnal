@@ -1102,6 +1102,7 @@ global = {
 }
 
 upper = {
+  \set Staff.midiInstrument = "orchestral harp"
   \global
   <<
     { \voiceOne __MELODY__ }
@@ -1111,6 +1112,7 @@ upper = {
 
 lower = {
   \clef bass
+  \set Staff.midiInstrument = "orchestral harp"
   \global
   __LH__
 }
