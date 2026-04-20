@@ -37,13 +37,22 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "a_lamb_goes_uncomplaining_forth",
-    "title": "A Lamb Goes Uncomplaining Forth",
-    "svg": "hymns/a_lamb_goes_uncomplaining_forth.svg",
+    "slug": "a_lamb_goes_uncomplaining_forth-1",
+    "title": "A Lamb Goes Uncomplaining Forth-1",
+    "svg": "hymns/a_lamb_goes_uncomplaining_forth-1.svg",
     "audio": "audio/a_lamb_goes_uncomplaining_forth.m4a",
-    "key": "F",
-    "mode": "major",
-    "meter": "/"
+    "key": "",
+    "mode": "",
+    "meter": ""
+  },
+  {
+    "slug": "a_lamb_goes_uncomplaining_forth-2",
+    "title": "A Lamb Goes Uncomplaining Forth-2",
+    "svg": "hymns/a_lamb_goes_uncomplaining_forth-2.svg",
+    "audio": "audio/a_lamb_goes_uncomplaining_forth.m4a",
+    "key": "",
+    "mode": "",
+    "meter": ""
   },
   {
     "slug": "a_mighty_fortress_is_our_god",
@@ -323,15 +332,6 @@ window.HYMN_CATALOG = [
     "key": "",
     "mode": "",
     "meter": ""
-  },
-  {
-    "slug": "behold_a_host_arrayed_in_white",
-    "title": "Behold, A Host, Arrayed in White",
-    "svg": "hymns/behold_a_host_arrayed_in_white.svg",
-    "audio": "audio/behold_a_host_arrayed_in_white.m4a",
-    "key": "Eb",
-    "mode": "major",
-    "meter": "/"
   },
   {
     "slug": "beneath_the_cross_of_jesus",
@@ -703,22 +703,13 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "god_the_father_be_our_stay-1",
-    "title": "God The Father Be Our Stay-1",
-    "svg": "hymns/god_the_father_be_our_stay-1.svg",
+    "slug": "god_the_father_be_our_stay",
+    "title": "God the Father Be Our Stay",
+    "svg": "hymns/god_the_father_be_our_stay.svg",
     "audio": "audio/god_the_father_be_our_stay.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
-    "slug": "god_the_father_be_our_stay-2",
-    "title": "God The Father Be Our Stay-2",
-    "svg": "hymns/god_the_father_be_our_stay-2.svg",
-    "audio": "audio/god_the_father_be_our_stay.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
+    "key": "D",
+    "mode": "major",
+    "meter": "/"
   },
   {
     "slug": "god_will_take_care_of_you",
@@ -901,13 +892,22 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "how_firm_a_foundation",
-    "title": "How Firm A Foundation",
-    "svg": "hymns/how_firm_a_foundation.svg",
+    "slug": "how_firm_a_foundation-1",
+    "title": "How Firm A Foundation-1",
+    "svg": "hymns/how_firm_a_foundation-1.svg",
     "audio": "audio/how_firm_a_foundation.m4a",
-    "key": "Ab",
-    "mode": "major",
-    "meter": "/"
+    "key": "",
+    "mode": "",
+    "meter": ""
+  },
+  {
+    "slug": "how_firm_a_foundation-2",
+    "title": "How Firm A Foundation-2",
+    "svg": "hymns/how_firm_a_foundation-2.svg",
+    "audio": "audio/how_firm_a_foundation.m4a",
+    "key": "",
+    "mode": "",
+    "meter": ""
   },
   {
     "slug": "how_shall_we_answer_terror_s_cry",
@@ -982,13 +982,22 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "i_place_my_trust_in_god",
-    "title": "I Place My Trust In God",
-    "svg": "hymns/i_place_my_trust_in_god.svg",
+    "slug": "i_place_my_trust_in_god-1",
+    "title": "I Place My Trust In God-1",
+    "svg": "hymns/i_place_my_trust_in_god-1.svg",
     "audio": "audio/i_place_my_trust_in_god.m4a",
-    "key": "Bb",
-    "mode": "major",
-    "meter": "/"
+    "key": "",
+    "mode": "",
+    "meter": ""
+  },
+  {
+    "slug": "i_place_my_trust_in_god-2",
+    "title": "I Place My Trust In God-2",
+    "svg": "hymns/i_place_my_trust_in_god-2.svg",
+    "audio": "audio/i_place_my_trust_in_god.m4a",
+    "key": "",
+    "mode": "",
+    "meter": ""
   },
   {
     "slug": "i_sing_the_mighty_power_of_god",
@@ -1162,13 +1171,22 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "jesus_shall_reign",
-    "title": "Jesus Shall Reign",
-    "svg": "hymns/jesus_shall_reign.svg",
+    "slug": "jesus_shall_reign-1",
+    "title": "Jesus Shall Reign-1",
+    "svg": "hymns/jesus_shall_reign-1.svg",
     "audio": "audio/jesus_shall_reign.m4a",
-    "key": "Eb",
-    "mode": "major",
-    "meter": "/"
+    "key": "",
+    "mode": "",
+    "meter": ""
+  },
+  {
+    "slug": "jesus_shall_reign-2",
+    "title": "Jesus Shall Reign-2",
+    "svg": "hymns/jesus_shall_reign-2.svg",
+    "audio": "audio/jesus_shall_reign.m4a",
+    "key": "",
+    "mode": "",
+    "meter": ""
   },
   {
     "slug": "jesus_sinners_doth_receive",
@@ -1414,15 +1432,6 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "lord_thee_i_love_with_all_my_heart",
-    "title": "Lord, Thee I Love with All My Heart",
-    "svg": "hymns/lord_thee_i_love_with_all_my_heart.svg",
-    "audio": "audio/lord_thee_i_love_with_all_my_heart.m4a",
-    "key": "Bb",
-    "mode": "major",
-    "meter": "/"
-  },
-  {
     "slug": "lord_who_at_cana_s_wedding_feast",
     "title": "Lord, Who at Cana's Wedding Feast",
     "svg": "hymns/lord_who_at_cana_s_wedding_feast.svg",
@@ -1603,42 +1612,6 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "o_be_glad_all_nations_on_earth-1",
-    "title": "O Be Glad All Nations On Earth-1",
-    "svg": "hymns/o_be_glad_all_nations_on_earth-1.svg",
-    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
-    "slug": "o_be_glad_all_nations_on_earth-2",
-    "title": "O Be Glad All Nations On Earth-2",
-    "svg": "hymns/o_be_glad_all_nations_on_earth-2.svg",
-    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
-    "slug": "o_be_glad_all_nations_on_earth-3",
-    "title": "O Be Glad All Nations On Earth-3",
-    "svg": "hymns/o_be_glad_all_nations_on_earth-3.svg",
-    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
-    "slug": "o_be_glad_all_nations_on_earth-4",
-    "title": "O Be Glad All Nations On Earth-4",
-    "svg": "hymns/o_be_glad_all_nations_on_earth-4.svg",
-    "audio": "audio/o_be_glad_all_nations_on_earth.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
     "slug": "o_chief_of_cities_bethlehem",
     "title": "O Chief of Cities Bethlehem",
     "svg": "hymns/o_chief_of_cities_bethlehem.svg",
@@ -1691,24 +1664,6 @@ window.HYMN_CATALOG = [
     "key": "Ab",
     "mode": "major",
     "meter": "/"
-  },
-  {
-    "slug": "o_holy_spirit_enter_in-1",
-    "title": "O Holy Spirit Enter In-1",
-    "svg": "hymns/o_holy_spirit_enter_in-1.svg",
-    "audio": "audio/o_holy_spirit_enter_in.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
-    "slug": "o_holy_spirit_enter_in-2",
-    "title": "O Holy Spirit Enter In-2",
-    "svg": "hymns/o_holy_spirit_enter_in-2.svg",
-    "audio": "audio/o_holy_spirit_enter_in.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
   },
   {
     "slug": "o_holy_spirit_enter_in",
@@ -2087,15 +2042,6 @@ window.HYMN_CATALOG = [
     "key": "",
     "mode": "",
     "meter": ""
-  },
-  {
-    "slug": "see_the_lord_ascends_in_triumph",
-    "title": "See, The Lord Ascends In Triumph",
-    "svg": "hymns/see_the_lord_ascends_in_triumph.svg",
-    "audio": "audio/see_the_lord_ascends_in_triumph.m4a",
-    "key": "A",
-    "mode": "major",
-    "meter": "/"
   },
   {
     "slug": "silent_night",
@@ -2503,30 +2449,12 @@ window.HYMN_CATALOG = [
     "meter": "/"
   },
   {
-    "slug": "wake_awake_for_night_is_flying-1",
-    "title": "Wake Awake For Night Is Flying-1",
-    "svg": "hymns/wake_awake_for_night_is_flying-1.svg",
+    "slug": "wake_awake_for_night_is_flying",
+    "title": "Wake, Awake, for Night Is Flying",
+    "svg": "hymns/wake_awake_for_night_is_flying.svg",
     "audio": "audio/wake_awake_for_night_is_flying.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
-    "slug": "wake_awake_for_night_is_flying-2",
-    "title": "Wake Awake For Night Is Flying-2",
-    "svg": "hymns/wake_awake_for_night_is_flying-2.svg",
-    "audio": "audio/wake_awake_for_night_is_flying.m4a",
-    "key": "",
-    "mode": "",
-    "meter": ""
-  },
-  {
-    "slug": "we_all_believe_in_one_true_god",
-    "title": "We All Believe in One True God",
-    "svg": "hymns/we_all_believe_in_one_true_god.svg",
-    "audio": "audio/we_all_believe_in_one_true_god.m4a",
-    "key": "D",
-    "mode": "minor",
+    "key": "C",
+    "mode": "major",
     "meter": "/"
   },
   {

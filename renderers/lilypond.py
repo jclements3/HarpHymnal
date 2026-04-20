@@ -371,6 +371,22 @@ def events_to_lilypond_bar(events: list[dict], full_bar_ql: float,
         rest_pieces = [f'r{d}' for d in ql_to_lilypond_durations(full_bar_ql)]
         return ' '.join(rest_pieces)
 
+    # Fill gaps (leading offset, between-event silence, trailing) with rests so
+    # the emitted bar duration always matches the meter.  Voices that start
+    # mid-bar (e.g. RH fill delayed until after the first melody note) depend
+    # on this.
+    filled: list[dict] = []
+    cursor = 0.0
+    for e in events:
+        off = float(e.get('offset_ql', cursor))
+        if off - cursor > 1e-6:
+            filled.append({'offset_ql': cursor, 'duration_ql': off - cursor, 'midis': []})
+        filled.append(e)
+        cursor = off + float(e.get('duration_ql', 0.0))
+    if full_bar_ql - cursor > 1e-6:
+        filled.append({'offset_ql': cursor, 'duration_ql': full_bar_ql - cursor, 'midis': []})
+    events = filled
+
     out: list[str] = []
     dyn_applied = False
     label_applied = False
@@ -507,10 +523,21 @@ def layout_bar_grand(assignment: dict, melody_events: list[dict],
             while rh_midis and min(rh_midis) <= lh_top:
                 rh_midis = [m + 12 for m in rh_midis]
         rh_midis = [m for m in rh_midis if m not in melody_midis]
-        if rh_midis:
+        # Delay the RH fill chord until after the first melody note so its
+        # arpeggio wavy line doesn't visually collide with the melody notehead.
+        # Musically this matches the harp idiom: LH rolls on beat 1, RH plays
+        # the melody note simultaneously, and the RH fill is then rolled up
+        # as a continuation of the strum once the melody note has sounded.
+        rh_onset = 0.0
+        if melody_events:
+            first = melody_events[0]
+            if first.get('midis'):
+                rh_onset = float(first.get('duration_ql', 0.0))
+        rh_dur = bar_duration - rh_onset
+        if rh_midis and rh_dur > 1e-6:
             rh_events.append({
-                'offset_ql': 0.0,
-                'duration_ql': bar_duration,
+                'offset_ql': rh_onset,
+                'duration_ql': rh_dur,
                 'midis': rh_midis,
             })
 
@@ -1318,7 +1345,8 @@ def compile_ly(ly_path: Path, *,
 
 def _run_ly(cmd: list[str], cwd: Path) -> None:
     """Run a LilyPond command and raise on failure with a short diagnostic."""
-    result = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True)
+    result = subprocess.run(cmd, cwd=str(cwd), capture_output=True,
+                            text=True, errors='replace')
     if result.returncode != 0:
         tail = '\n'.join((result.stderr or result.stdout).splitlines()[-6:])
         raise RuntimeError(
