@@ -1081,6 +1081,15 @@ def _inject_pedal_tone(bar_data: dict, key_root: str, mode: str) -> None:
 
 _LY_TEMPLATE = r"""\version "2.22.1"
 
+\paper {
+  left-margin = 4\mm
+  right-margin = 4\mm
+  top-margin = 8\mm
+  bottom-margin = 8\mm
+  indent = 0
+  ragged-right = ##f
+}
+
 \header {
   title = "__TITLE__"
   subtitle = "__SUBTITLE__"
