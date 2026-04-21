@@ -1,5 +1,6 @@
 {
   "schema_version": 5,
+  "_schema_version_note": "schema v5 — 118-entry Trefoil pool (42 paths + 76 reserve), renamed from earlier `jazz_progressions`/`stacked_chords` to `paths`/`reserve`. Authoritative pool file; consumed by the selector and compare pages.",
   "title": "Harp Chord System — JSON reference",
   "source": "HarpTrefoil.tex (byte-exact mirror of HarpChordSystem.tex) via trefoil/rebuild.py",
   "_rebuilt_from_tex": true,

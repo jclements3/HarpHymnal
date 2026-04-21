@@ -1,5 +1,6 @@
 {
   "schema_version": 4,
+  "_schema_version_note": "schema v4 — predecessor to HarpTrefoil.json schema v5 (same 118 entries, older field names `jazz_progressions`/`stacked_chords`). Rebuilt from source/HarpChordSystem.tex. Still referenced by legacy tooling.",
   "title": "Harp Chord System — JSON reference",
   "source": "HarpChordSystem.tex (authoritative) via tools/rebuild_chord_system_json.py",
   "_rebuilt_from_tex": true,

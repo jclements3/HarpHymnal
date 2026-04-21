@@ -4,17 +4,24 @@ Usage::
 
     python3 -m cli.reharm_solo --hymn amazing_grace --all
 
-For every tactic in ``data/reharm/tactics.json``, renders a MIDI that is
-the SATB baseline of the named hymn PLUS a single audible application of
-that tactic in one spotlight bar (bar 5 default; bar 8 for cadence/release
-/ connect_to.* tactics).
+For every tactic in ``data/reharm/tactics.json``, renders a pair of MIDI
+snippets (3 bars each) around a spotlight bar:
 
-Outputs to ``data/reharm/tests/<hymn>/``:
-  * ``_baseline.mid``                            — the plain SATB chorale
-  * ``<dimension>__<tactic_short_name>.mid``     — one per tactic
+  * ``<dimension>__<tactic_short_name>__original.mid`` — the plain SATB
+    baseline for the snippet window (A side).
+  * ``<dimension>__<tactic_short_name>__tactic.mid``   — the same snippet
+    with the tactic applied to the middle bar (B side).
 
-Plus a ``_notes.json`` summarizing tactics that couldn't be rendered
-cleanly (e.g. connect_from.step in one-bar isolation).
+Spotlight defaults to bar 5; bar 8 for cadence / phrase_role / connect_to
+tactics. The snippet window is ``[spotlight-1, spotlight+1]`` inclusive,
+clipped to the piece at edges.
+
+Also emits:
+  * ``_baseline.mid`` — the full-hymn SATB chorale (top-of-page control).
+  * ``_notes.json``   — tactics with ambiguous single-bar realizations.
+
+Pass ``--no-snippet`` to fall back to the legacy full-hymn-per-tactic
+behaviour.
 
 Stdlib only.
 """
@@ -24,7 +31,7 @@ import argparse
 import json
 from pathlib import Path
 
-from trefoil.reharm.satb_baseline import render_satb_baseline
+from trefoil.reharm.satb_baseline import render_satb_baseline, render_snippet_original
 from trefoil.reharm.solo_tactic_demo import render_solo_tactic
 
 
@@ -60,6 +67,13 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--spotlight-bar", type=int, default=5,
                     help="default spotlight bar (overridden to 8 for cadence "
                          "tactics)")
+    ap.add_argument("--snippet", dest="snippet", action="store_true", default=True,
+                    help="emit A/B snippet pairs (default)")
+    ap.add_argument("--no-snippet", dest="snippet", action="store_false",
+                    help="emit full-hymn per-tactic files (legacy behaviour)")
+    ap.add_argument("--snippet-radius", type=int, default=1,
+                    help="bars on each side of the spotlight to include "
+                         "(default: 1, yielding a 3-bar window)")
     ap.add_argument("--out-dir", default=None,
                     help="override output dir (default: data/reharm/tests/<hymn>/)")
     args = ap.parse_args(argv)
@@ -67,7 +81,7 @@ def main(argv: list[str] | None = None) -> None:
     out_dir = Path(args.out_dir) if args.out_dir else _ROOT / "data" / "reharm" / "tests" / args.hymn
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # 1. Baseline
+    # 1. Baseline (full hymn — always emitted as the top-of-page control).
     baseline_path = out_dir / "_baseline.mid"
     render_satb_baseline(args.hymn, baseline_path)
     print(f"baseline → {baseline_path}")
@@ -83,10 +97,21 @@ def main(argv: list[str] | None = None) -> None:
         spotlight = args.spotlight_bar
         if tid in _CADENCE_TACTICS or dim in _CADENCE_DIMS:
             spotlight = 8
-        fname = f"{dim}__{_short_name(tid)}.mid"
-        dest = out_dir / fname
-        _, note = render_solo_tactic(args.hymn, tid, dest, spotlight_bar=spotlight)
-        msg = f"{tid} → {fname}"
+        short = _short_name(tid)
+        if args.snippet:
+            orig_path = out_dir / f"{dim}__{short}__original.mid"
+            tact_path = out_dir / f"{dim}__{short}__tactic.mid"
+            render_snippet_original(args.hymn, spotlight, orig_path,
+                                    snippet_radius=args.snippet_radius)
+            _, note = render_solo_tactic(args.hymn, tid, tact_path,
+                                         spotlight_bar=spotlight,
+                                         snippet_radius=args.snippet_radius)
+            msg = f"{tid} → {orig_path.name} + {tact_path.name}"
+        else:
+            fname = f"{dim}__{short}.mid"
+            dest = out_dir / fname
+            _, note = render_solo_tactic(args.hymn, tid, dest, spotlight_bar=spotlight)
+            msg = f"{tid} → {fname}"
         if note:
             msg += f"  [note: {note}]"
             notes.append({"tactic": tid, "note": note})

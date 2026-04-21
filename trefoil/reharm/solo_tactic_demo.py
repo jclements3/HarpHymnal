@@ -1004,6 +1004,7 @@ def render_solo_tactic(
     tactic_id: str,
     out_path: Path,
     spotlight_bar: int = 5,
+    snippet_radius: Optional[int] = None,
 ) -> tuple[Path, str]:
     """Render a SATB baseline with ONE tactic applied to ONE bar.
 
@@ -1012,6 +1013,15 @@ def render_solo_tactic(
     spotlight bar's baseline events are filtered out and replaced by the
     tactic-specific rendering. For ``connect_to.*`` the *prior* bar is
     the target instead of the spotlight bar.
+
+    Parameters
+    ----------
+    snippet_radius
+        When set, emit MIDI only for bars
+        ``[spotlight_bar - snippet_radius, spotlight_bar + snippet_radius]``
+        inclusive (clipped to the piece).  Ticks are shifted so the file
+        starts at 0.  When ``None`` (default), the existing full-hymn
+        behaviour is preserved.
 
     Returns
     -------
@@ -1066,6 +1076,27 @@ def render_solo_tactic(
         # Unknown spotlight bar — fall back to emitting straight baseline.
         replaced_window = (0, 0)
 
+    # --- Snippet clipping ------------------------------------------------- #
+    # When snippet_radius is set, confine the emitted bars to
+    # [spotlight-radius, spotlight+radius] inclusive and shift ticks so the
+    # file begins at 0. Clipping uses the legacy bar-tick windows, which
+    # already handle pickup / irregular bars.
+    if snippet_radius is not None:
+        available = sorted(windows.keys())
+        if available:
+            snip_lo_bar = max(available[0], spotlight_bar - snippet_radius)
+            snip_hi_bar = min(available[-1], spotlight_bar + snippet_radius)
+        else:
+            snip_lo_bar = spotlight_bar
+            snip_hi_bar = spotlight_bar
+        snip_lo_tick = windows.get(snip_lo_bar, (0, 0))[0]
+        snip_hi_tick = windows.get(snip_hi_bar, (0, 0))[1]
+    else:
+        snip_lo_tick = None
+        snip_hi_tick = None
+
+    tick_shift = snip_lo_tick if snip_lo_tick is not None else 0
+
     mb = _MidiBuilder(ticks_per_quarter=tpq, channel=0)
     mb.time_signature(0, beats_num, unit)
     mb.tempo(0, bpm)
@@ -1075,16 +1106,21 @@ def render_solo_tactic(
 
     # Emit the voices-driven baseline EXCEPT for events whose onset falls
     # inside the replaced bar's tick window. Those get filtered out and
-    # the tactic dispatch supplies the replacement.
+    # the tactic dispatch supplies the replacement. When snippet clipping
+    # is active, we also skip events outside the snippet window.  Keep
+    # `emitted` keyed on PRE-shift ticks so the downstream tactic helpers
+    # (which use pre-shift bar_start_tick) dedup against the same frame.
     lo_tick, hi_tick = replaced_window
     for tick, pitch, dur_ticks, vel, _src in baseline_events:
         if lo_tick <= tick < hi_tick:
+            continue
+        if snip_lo_tick is not None and not (snip_lo_tick <= tick < snip_hi_tick):
             continue
         k = (tick, pitch)
         if k in emitted:
             continue
         emitted.add(k)
-        mb.note(tick, pitch, dur_ticks, vel)
+        mb.note(tick - tick_shift, pitch, dur_ticks, vel)
 
     # Spotlight / connect_to prior-bar dispatch. The tactic helpers use
     # beats[] purely as chord-tone lookup tables for the replaced bar —
@@ -1094,18 +1130,38 @@ def render_solo_tactic(
     next_beats = bars_beats.get(spotlight_bar + 1)
 
     # Bar start tick from windows (not cumulative), so pickup/anomaly bars
-    # are still placed correctly.
+    # are still placed correctly. For snippet mode, shift tactic-emitted
+    # ticks into the snippet frame — we do that via a MidiBuilder wrapper.
     spotlight_start_tick = windows.get(spotlight_bar, (0, 0))[0]
+
+    if tick_shift:
+        # Wrap mb.note to subtract tick_shift for tactic-emitted events.
+        # Every tactic helper uses `mb.note(tick, pitch, dur, vel)` directly
+        # (via the inner emit() closures). We swap `mb` with a shim that
+        # shifts on the way through.
+        class _Shifted:
+            __slots__ = ("_mb", "_shift")
+
+            def __init__(self, inner, shift):
+                self._mb = inner
+                self._shift = shift
+
+            def note(self, tick, pitch, dur, vel):
+                self._mb.note(tick - self._shift, pitch, dur, vel)
+
+        mb_for_tactic = _Shifted(mb, tick_shift)
+    else:
+        mb_for_tactic = mb
 
     if dim == "connect_to":
         prev_start_tick = windows.get(spotlight_bar - 1, (0, 0))[0]
         _apply_connect_to_to_prev(
-            mb, tactic_id, prev_beats or [], spotlight_beats,
+            mb_for_tactic, tactic_id, prev_beats or [], spotlight_beats,
             tpq, prev_start_tick, beat_quarters, emitted,
         )
     else:
         n = _apply_tactic_to_bar(
-            mb, tactic_id, spotlight_beats, prev_beats, next_beats,
+            mb_for_tactic, tactic_id, spotlight_beats, prev_beats, next_beats,
             tpq, spotlight_start_tick, beat_quarters, bpm,
             key_root, key_mode, chord_numeral, emitted,
         )

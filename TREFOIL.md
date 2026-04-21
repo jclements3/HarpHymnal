@@ -71,12 +71,13 @@ Example (2nds cycle, edge `I ↔ ii`): `LH=I RH=ii  133 / 933  Cloudy / Groundin
 | 3 | **Complex chord cycles** | 2 (top) | 42 two-hand voicings along the same 6 paths. Each row shows `LH chord`, `RH chord`, `LH figure / RH figure`, CW mood, CCW mood. **The walks rendered for playing.** |
 | 4 | **Reserve fractions** | 2 (bottom) | 76 stacked single-sonority fractions. Each row shows `LH chord`, `RH chord`, `LH figure / RH figure`, mood name. **Curated best-of-the-rest fingerings held in reserve for substitution.** |
 
-**The 118 count:** 42 paths + 76 reserve = 118 total pool entries, but only **109 unique physical fingerings**.
+**The 118 count:** 42 paths + 76 reserve = **118 distinct fingerings** — every `(LH-figure, RH-figure)` pair is unique across both tables (verified against `data/trefoil/HarpTrefoil.json`).
 
 - The **complex cycles table** holds the curated **best fingering** for each cycle-edge transition — one winner per (cycle, edge, voicing richness). These 42 were selected out of the full playable universe.
-- The **reserve table** holds the curated **best of the rest** — playable diatonic fingerings that didn't win a cycle-edge slot but are still strong enough to be part of the handout vocabulary.
-- **9 of the reserve entries are duplicates of path entries** (same `(LH-fig, RH-fig)` pair appearing in both tables). These are redundant — the reserve includes those fingerings again instead of using the slot for a different fingering. That leaves **9 reserve slots of design room** that could be filled with new, non-redundant fingerings.
+- The **reserve table** holds the curated **best of the rest** — 76 playable diatonic fingerings that didn't win a cycle-edge slot but are still strong enough to be part of the handout vocabulary.
 - The 118 is a **curated subset**, not every possible diatonic fingering. More reserve entries could be added from the un-selected universe whenever more variety is wanted.
+
+> **Earlier versions of this doc claimed "109 unique fingerings (9 reserve entries duplicate path entries)." That was true of an earlier, less-curated pool and is no longer the case.** The current 118 entries are all distinct under any tested equivalence (exact figure pair, interval pattern, zero-relative shape).
 
 When a composition is running a pure cycle walk and it gets repetitious, reach into the reserve for variety — same pool, different feeling.
 
@@ -85,6 +86,14 @@ When a composition is running a pure cycle walk and it gets repetitious, reach i
 ## Finger patterns & figures
 
 ### The 14 patterns
+
+> **Relation to the Page-1 handout.** The separate shape-chord handout at
+> `data/trefoil/page1_chords.json` enumerates **39 patterns × 7 modes = 273
+> chord cells** — that's the *full terrain table*, designed to show every
+> playable hand-shape layout on the harp at a glance. The **14 patterns
+> below are the curated working vocabulary** that covers the 118 pool
+> entries (42 paths + 76 reserve) used in practice. All 14 are a subset
+> of the 39 on the handout.
 
 Pattern IDs encode **interval sequences** between adjacent fingers:
 
@@ -166,6 +175,35 @@ Traditional roman-numeral analysis loses voicing information. This system captur
 | `³` | third inversion (7th in bass) |
 
 So `Is4+8` is unambiguous: I chord voiced as sus4 with an added octave. `vi³` is vi in third inversion (its 7th in the bass). `IV²+8` is IV in second inversion with octave doubling. This is a deliberate improvement over the ~400-year-old notation that can't express those specifics.
+
+### Reading encoded inversions in `lh_roman` / `rh_roman` fields
+
+> **Parser contract for anyone consuming `HarpTrefoil.json` or
+> `HarpChordSystem.json`.** Inversion superscripts (`¹` / `²` / `³`) are
+> flattened to the ASCII strings `i` / `ii` / `iii` inside the `lh_roman` /
+> `rh_roman` fields. So `ii7iii` is **`ii7` in third inversion**, not the
+> mediant chord in some exotic state. `V7ii` is `V7` in second inversion.
+> `IVΔii` is `IV` with the Δ quality in second inversion.
+>
+> This introduces a real ambiguity for short romans: `Iii` could be read
+> as `III` (mediant root-position) or as `I + ii` (I chord, 2nd
+> inversion). The two interpretations predict **different bass-note
+> degrees**, and the `lh_figure` / `rh_figure` first digit unambiguously
+> gives you the sounded bass — *reconcile against the figure to
+> disambiguate.* A root-position read is wrong when the figure's bass
+> digit matches the inverted-read prediction instead. Only about nine
+> entries in the pool hit this ambiguity (`Iii`, `Ii`, `Vii` and variants)
+> but a naive first-1-3-`[IVXivx]`-chars parser gets them all wrong.
+>
+> A canonical inversion-aware parser lives at
+> `trefoil/parse_roman.py :: parse_roman_with_inversion(roman_str,
+> figure_bass_digit)`. Use that instead of rolling your own.
+
+> **Figure first character = sounded bass string, not chord root.** A
+> downstream tool that interprets the first digit of `lh_figure` as the
+> chord root will be wrong on ~35% of pool entries because many are
+> notated as inversions. Always treat it as "which diatonic string starts
+> the LH voicing".
 
 ---
 

@@ -327,8 +327,30 @@ def render_satb_baseline(
     return out_path
 
 
+def render_snippet_original(
+    hymn_slug: str,
+    spotlight_bar: int,
+    out_path: Path,
+    snippet_radius: int = 1,
+) -> Path:
+    """Render the plain SATB baseline for a snippet window around ``spotlight_bar``.
+
+    The window is ``[spotlight_bar - snippet_radius, spotlight_bar + snippet_radius]``
+    inclusive, clipped to the bars actually present in the hymn.  No tactic is
+    applied — this is the "A" (original) side of the A/B audition rig.
+    """
+    windows = bar_tick_windows(hymn_slug)
+    available = sorted(windows.keys())
+    if not available:
+        return render_satb_baseline(hymn_slug, out_path)
+    lo = max(available[0], spotlight_bar - snippet_radius)
+    hi = min(available[-1], spotlight_bar + snippet_radius)
+    return render_satb_baseline(hymn_slug, out_path, bar_range=(lo, hi))
+
+
 __all__ = [
     "render_satb_baseline",
+    "render_snippet_original",
     "build_baseline_events",
     "bar_tick_windows",
     "_pitch_to_midi",

@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "_schema_version_note": "schema v1 — Page-1 handout terrain table: 39 patterns × 7 modes = 273 cells. Independent of the 118-entry pool; the 14 working patterns in Trefoil are a curated subset of these 39.",
   "source": "handout.tex table 1 — HarpChords × Modes, all 39 hand shapes",
   "_notes": "Each pattern is a hand shape (digits = diatonic intervals 2/3/4). Cells is length 7 (Ionian..Locrian). null = non-diatonic dash. Each chord = {numeral, quality?, inversion?, additions[], omissions[], alternates?[]}. Main chord is C-Ionian-centric (numeral reads relative to C major). Alternates can carry {context: 'mode-local' | 'dualism' | ...} and the alt chord spec for the same pitches under a different root assumption.",
   "modes": [
