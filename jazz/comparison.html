@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Comparison — HarpHymnal Jazz</title>
+<style>
+:root {
+  --bg: #f7f3ea; --ink: #2a2a2a; --muted: #888; --line: #d8d0c0;
+  --panel: #ffffff; --banner: #7B2B2B;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background: var(--bg); color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+#topbar { padding: 16px 24px; background: var(--banner); color: #fff;
+  display: flex; align-items: center; gap: 16px; }
+#topbar a { color: #fff; text-decoration: none; font-size: 15px; }
+#topbar h1 { font-size: 22px; flex: 1; }
+.alpha-nav { padding: 10px 24px; background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; font-family: monospace; font-size: 15px; z-index: 10; }
+.alpha-nav a { color: var(--banner); margin-right: 10px; text-decoration: none;
+  display: inline-block; padding: 2px 6px; border-radius: 4px; }
+.alpha-nav a:hover { background: var(--line); text-decoration: none; }
+main { padding: 16px 24px 60px; }
+details.letter-group { margin-bottom: 14px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+details.letter-group summary { padding: 12px 16px;
+  font-size: 20px; font-weight: bold; color: var(--banner); cursor: pointer;
+  list-style: none; display: flex; justify-content: space-between; align-items: baseline; }
+details.letter-group summary::after { content: '▸'; transition: transform 0.15s; font-size: 16px; }
+details.letter-group[open] summary::after { transform: rotate(90deg); }
+details.letter-group summary:hover { background: #faf7ef; }
+details.letter-group summary::-webkit-details-marker { display: none; }
+.group-count { font-size: 13px; color: var(--muted); font-weight: normal; margin-left: 8px; }
+.hymn-list { list-style: none; padding: 8px 16px 16px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 4px 12px; }
+.hymn-row a { display: flex; justify-content: space-between; align-items: baseline;
+  padding: 7px 10px; text-decoration: none; color: inherit; border-radius: 5px; }
+.hymn-row a:hover { background: var(--bg); }
+.h-num { font-family: monospace; color: var(--muted); font-size: 12px;
+  min-width: 34px; display: inline-block; margin-right: 8px; text-align: right; }
+.h-title { font-weight: 500; flex: 1; }
+.h-meta { font-family: monospace; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="topbar">
+  <a href="index.html">← Home</a>
+  <h1>Comparison (279)</h1>
+  <span style="font-size:13px; opacity:.8">SATB vs Jazz · side-by-side grand staff</span>
+</div>
+<div class="alpha-nav"><a href="#letter-#">#</a> <a href="#letter-A">A</a> <a href="#letter-B">B</a> <a href="#letter-C">C</a> <a href="#letter-D">D</a> <a href="#letter-E">E</a> <a href="#letter-F">F</a> <a href="#letter-G">G</a> <a href="#letter-H">H</a> <a href="#letter-I">I</a> <a href="#letter-J">J</a> <a href="#letter-L">L</a> <a href="#letter-M">M</a> <a href="#letter-N">N</a> <a href="#letter-O">O</a> <a href="#letter-P">P</a> <a href="#letter-R">R</a> <a href="#letter-S">S</a> <a href="#letter-T">T</a> <a href="#letter-U">U</a> <a href="#letter-W">W</a> <a href="#letter-Y">Y</a></div>
+<main>
+<details class="letter-group" id="letter-#">
+  <summary>#<span class="group-count">3</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/take_up_thy_cross_the_savior_said.html"><span class="h-num">296</span><span class="h-title">&#x27;Take Up Thy Cross&#x27;, the Savior Said</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/tis_midnight_and_on_olive_s_brow.html"><span class="h-num">097</span><span class="h-title">&#x27;Tis Midnight and On Olive&#x27;s Brow</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/twas_on_that_dark_that_doleful_night.html"><span class="h-num">098</span><span class="h-title">&#x27;Twas On That Dark, That Doleful Night</span><span class="h-meta">Dm · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-A">
+  <summary>A<span class="group-count">27</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/a_great_and_mighty_wonder.html"><span class="h-num">046</span><span class="h-title">A Great and Mighty Wonder</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/a_lamb_goes_uncomplaining_forth.html"><span class="h-num">085</span><span class="h-title">A Lamb Goes Uncomplaining Forth</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/a_mighty_fortress_is_our_god.html"><span class="h-num">127</span><span class="h-title">A Mighty Fortress Is Our God</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/abide_o_dearest_jesus.html"><span class="h-num">027</span><span class="h-title">Abide, O Dearest Jesus</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/abide_with_me.html"><span class="h-num">191</span><span class="h-title">Abide With Me</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_creatures_of_our_god_and_king.html"><span class="h-num">250</span><span class="h-title">All Creatures of Our God and King</span><span class="h-meta">D · 6/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_depends_on_our_possessing.html"><span class="h-num">272</span><span class="h-title">All Depends On Our Possessing</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_glory_laud_and_honor.html"><span class="h-num">093</span><span class="h-title">All Glory, Laud, and Honor</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_hail_the_power_of_jesus_name.html"><span class="h-num">161</span><span class="h-title">All Hail The Power Of Jesus&#x27; Name</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_my_heart_this_night_rejoices.html"><span class="h-num">047</span><span class="h-title">All My Heart This Night Rejoices</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_praise_to_jesus_hallowed_name.html"><span class="h-num">048</span><span class="h-title">All Praise to Jesus&#x27; Hallowed Name</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_praise_to_thee_my_god_this_night.html"><span class="h-num">309</span><span class="h-title">All Praise To Thee, My God, This Night</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/all_who_believe_and_are_baptized.html"><span class="h-num">135</span><span class="h-title">All Who Believe and Are Baptized</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/alleluia_alleluia_hearts_to_heaven_and_voices_raise.html"><span class="h-num">251</span><span class="h-title">Alleluia, Alleluia! Hearts to Heaven and Voices Raise</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/alleluia_sing_to_jesus.html"><span class="h-num">162</span><span class="h-title">Alleluia, Sing To Jesus!</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/almighty_god_your_word_is_cast.html"><span class="h-num">154</span><span class="h-title">Almighty God Your Word Is Cast</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/amazing_grace.html"><span class="h-num">192</span><span class="h-title">Amazing Grace</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/and_can_it_be.html"><span class="h-num">266</span><span class="h-title">And Can It Be</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/angel_voices_ever_singing.html"><span class="h-num">252</span><span class="h-title">Angel Voices, Ever Singing</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/angels_from_the_realms_of_glory.html"><span class="h-num">049</span><span class="h-title">Angels From the Realms of Glory</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/angels_we_have_heard_on_high.html"><span class="h-num">050</span><span class="h-title">Angels We Have Heard On High</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/as_with_gladness_men_of_old.html"><span class="h-num">074</span><span class="h-title">As With Gladness Men of Old</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/at_the_lamb_s_high_feast.html"><span class="h-num">146</span><span class="h-title">At The Lamb&#x27;s High Feast</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/author_of_all_life.html"><span class="h-num">082</span><span class="h-title">Author of All Life</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/awake_my_heart_with_gladness.html"><span class="h-num">103</span><span class="h-title">Awake, My Heart, With Gladness</span><span class="h-meta">Eb · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/awake_my_soul_an_offering_bring.html"><span class="h-num">305</span><span class="h-title">Awake My Soul, An Offering Bring</span><span class="h-meta">Gm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/away_in_a_manger.html"><span class="h-num">051</span><span class="h-title">Away In A Manger</span><span class="h-meta">F · 3/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-B">
+  <summary>B<span class="group-count">13</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/baptized_into_thy_name_most_holy.html"><span class="h-num">136</span><span class="h-title">Baptized Into Thy Name Most Holy</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/be_still_my_soul.html"><span class="h-num">193</span><span class="h-title">Be Still My Soul</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/be_thou_my_vision.html"><span class="h-num">223</span><span class="h-title">Be Thou My Vision</span><span class="h-meta">Gm · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/beautiful_savior.html"><span class="h-num">163</span><span class="h-title">Beautiful Savior</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/behold_a_host_arrayed_in_white.html"><span class="h-num">215</span><span class="h-title">Behold, A Host, Arrayed in White</span><span class="h-meta">Eb · 6/4</span></a></li>
+    <li class="hymn-row"><a href="compare/beneath_the_cross_of_jesus.html"><span class="h-num">194</span><span class="h-title">Beneath The Cross Of Jesus</span><span class="h-meta">Db · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/blessed_assurance.html"><span class="h-num">195</span><span class="h-title">Blessed Assurance</span><span class="h-meta">D · 9/8</span></a></li>
+    <li class="hymn-row"><a href="compare/blessed_jesus_at_thy_word.html"><span class="h-num">022</span><span class="h-title">Blessed Jesus at Thy Word</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/blest_be_the_tie_that_binds.html"><span class="h-num">214</span><span class="h-title">Blest Be The Tie That Binds</span><span class="h-meta">C · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/blind_bartimaeus.html"><span class="h-num">196</span><span class="h-title">Blind Bartimaeus</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/breathe_on_me_breath_of_god.html"><span class="h-num">115</span><span class="h-title">Breathe on Me, Breath of God</span><span class="h-meta">Fm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/built_on_the_rock.html"><span class="h-num">217</span><span class="h-title">Built on the Rock</span><span class="h-meta">Dm · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/by_grace_i_m_saved.html"><span class="h-num">182</span><span class="h-title">By Grace I&#x27;m Saved</span><span class="h-meta">F · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-C">
+  <summary>C<span class="group-count">14</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/christ_arose.html"><span class="h-num">104</span><span class="h-title">Christ Arose</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/christ_jesus_lay_in_death_s_strong_bands.html"><span class="h-num">105</span><span class="h-title">Christ Jesus Lay In Death&#x27;s Strong Bands</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/christ_my_king_on_high.html"><span class="h-num">183</span><span class="h-title">Christ My King On High</span><span class="h-meta">Bb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/christ_returneth.html"><span class="h-num">203</span><span class="h-title">Christ Returneth</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/christ_the_lord_is_risen_today_lyra.html"><span class="h-num">106</span><span class="h-title">Christ The Lord Is Risen Today (Lyra)</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/come_down_o_love_divine.html"><span class="h-num">116</span><span class="h-title">Come Down, O Love Divine</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/come_god_creator_holy_ghost.html"><span class="h-num">117</span><span class="h-title">Come, God Creator, Holy Ghost</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/come_holy_spirit_lord_our_god.html"><span class="h-num">118</span><span class="h-title">Come Holy Spirit, Lord Our God</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/come_thou_fount_of_every_blessing.html"><span class="h-num">224</span><span class="h-title">Come Thou Fount Of Every Blessing</span><span class="h-meta">Eb · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/come_thou_long_expected_jesus.html"><span class="h-num">031</span><span class="h-title">Come, Thou Long-Expected Jesus</span><span class="h-meta">Am · 2/4</span></a></li>
+    <li class="hymn-row"><a href="compare/come_ye_disconsolate.html"><span class="h-num">197</span><span class="h-title">Come, Ye Disconsolate</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/come_your_heart_and_voices_raising.html"><span class="h-num">052</span><span class="h-title">Come, Your Heart and Voices Raising</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/comfort_comfort_ye_my_people.html"><span class="h-num">032</span><span class="h-title">Comfort, Comfort Ye My People</span><span class="h-meta">F · 6/4</span></a></li>
+    <li class="hymn-row"><a href="compare/crown_him_with_many_crowns.html"><span class="h-num">164</span><span class="h-title">Crown Him With Many Crowns</span><span class="h-meta">D · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-D">
+  <summary>D<span class="group-count">4</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/day_of_wrath_o_day_of_mourning.html"><span class="h-num">204</span><span class="h-title">Day of Wrath, O Day of Mourning</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/dear_christians_one_and_all_rejoice.html"><span class="h-num">184</span><span class="h-title">Dear Christians, One and All Rejoice</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/despair_not_o_heart.html"><span class="h-num">289</span><span class="h-title">Despair Not, O Heart</span><span class="h-meta">F · 2/4</span></a></li>
+    <li class="hymn-row"><a href="compare/did_you_think_to_pray.html"><span class="h-num">244</span><span class="h-title">Did You Think To Pray?</span><span class="h-meta">F · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-E">
+  <summary>E<span class="group-count">1</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/every_morning_mercies_new.html"><span class="h-num">307</span><span class="h-title">Every Morning Mercies New</span><span class="h-meta">Bb · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-F">
+  <summary>F<span class="group-count">7</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/faith_of_our_fathers.html"><span class="h-num">219</span><span class="h-title">Faith of Our Fathers</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/far_far_away_on_judea_s_plains.html"><span class="h-num">053</span><span class="h-title">Far, Far Away On Judea&#x27;s Plains</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/fear_not_o_little_flock.html"><span class="h-num">273</span><span class="h-title">Fear Not, O Little Flock</span><span class="h-meta">Gm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/for_all_the_saints.html"><span class="h-num">218</span><span class="h-title">For All The Saints</span><span class="h-meta">Bm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/for_the_beauty_of_the_earth.html"><span class="h-num">267</span><span class="h-title">For The Beauty Of The Earth</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/from_heaven_above_to_earth_i_come.html"><span class="h-num">054</span><span class="h-title">From Heaven Above To Earth I Come</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/from_nazareth.html"><span class="h-num">165</span><span class="h-title">From Nazareth</span><span class="h-meta">D · 3/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-G">
+  <summary>G<span class="group-count">11</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/gabriel_s_message.html"><span class="h-num">033</span><span class="h-title">Gabriel&#x27;s Message</span><span class="h-meta">Am · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/gentle_mary_laid_her_child.html"><span class="h-num">055</span><span class="h-title">Gentle Mary Laid Her Child</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/glorious_things_of_thee_are_spoken.html"><span class="h-num">210</span><span class="h-title">Glorious Things of Thee are Spoken</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/go_to_dark_gethsemane.html"><span class="h-num">095</span><span class="h-title">Go To Dark Gethsemane</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/god_himself_is_present.html"><span class="h-num">023</span><span class="h-title">God Himself is Present</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/god_rest_ye_merry_gentlemen.html"><span class="h-num">056</span><span class="h-title">God Rest Ye Merry Gentlemen</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/god_that_madest_earth_and_heaven.html"><span class="h-num">310</span><span class="h-title">God, That Madest Earth and Heaven</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/god_the_father_be_our_stay.html"><span class="h-num">122</span><span class="h-title">God the Father Be Our Stay</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/god_whose_almighty_word.html"><span class="h-num">291</span><span class="h-title">God, Whose Almighty Word</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/god_will_take_care_of_you.html"><span class="h-num">274</span><span class="h-title">God Will Take Care of You</span><span class="h-meta">Bb · 6/8</span></a></li>
+    <li class="hymn-row"><a href="compare/guide_me_o_thou_great_jehovah.html"><span class="h-num">225</span><span class="h-title">Guide Me, O Thou Great Jehovah</span><span class="h-meta">G · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-H">
+  <summary>H<span class="group-count">18</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/hallelujah_what_a_savior.html"><span class="h-num">166</span><span class="h-title">Hallelujah, What a Savior!</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/happy_the_man_who_feareth_god.html"><span class="h-num">238</span><span class="h-title">Happy the Man Who Feareth God</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/hark_hark_my_soul.html"><span class="h-num">211</span><span class="h-title">Hark, Hark, My Soul!</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/hark_the_glad_sound.html"><span class="h-num">034</span><span class="h-title">Hark the Glad Sound</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/hark_the_herald_angels_sing.html"><span class="h-num">057</span><span class="h-title">Hark! The Herald Angels Sing</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/hark_the_voice_of_jesus_calling.html"><span class="h-num">292</span><span class="h-title">Hark, the Voice of Jesus Calling</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/have_mercy_on_me_o_my_god.html"><span class="h-num">139</span><span class="h-title">Have Mercy On Me, O My God</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/he_leadeth_me.html"><span class="h-num">226</span><span class="h-title">He Leadeth Me</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/he_was_not_willing.html"><span class="h-num">293</span><span class="h-title">He Was Not Willing</span><span class="h-meta">Bb · 6/8</span></a></li>
+    <li class="hymn-row"><a href="compare/he_who_would_valiant_be.html"><span class="h-num">240</span><span class="h-title">He Who Would Valiant Be</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/his_gifts.html"><span class="h-num">268</span><span class="h-title">His Gifts</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/holy_ghost_with_light_divine.html"><span class="h-num">119</span><span class="h-title">Holy Ghost, with Light Divine</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/holy_god_we_praise_thy_name.html"><span class="h-num">123</span><span class="h-title">Holy God, We Praise Thy Name</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/holy_holy_holy.html"><span class="h-num">124</span><span class="h-title">Holy, Holy, Holy</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/holy_spirit_ever_dwelling.html"><span class="h-num">120</span><span class="h-title">Holy Spirit, Ever Dwelling</span><span class="h-meta">Fm · 8/4</span></a></li>
+    <li class="hymn-row"><a href="compare/hosanna_loud_hosanna.html"><span class="h-num">094</span><span class="h-title">Hosanna, Loud Hosanna</span><span class="h-meta">Bb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/how_firm_a_foundation.html"><span class="h-num">275</span><span class="h-title">How Firm A Foundation</span><span class="h-meta">Ab · 2/2</span></a></li>
+    <li class="hymn-row"><a href="compare/how_shall_we_answer_terror_s_cry.html"><span class="h-num">276</span><span class="h-title">How Shall We Answer Terror&#x27;s Cry?</span><span class="h-meta">C · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-I">
+  <summary>I<span class="group-count">20</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/i_am_jesus_little_lamb.html"><span class="h-num">277</span><span class="h-title">I Am Jesus&#x27; Little Lamb</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_bind_unto_myself_today.html"><span class="h-num">137</span><span class="h-title">I Bind Unto Myself Today</span><span class="h-meta">Bb · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_come_o_savior_to_thy_table.html"><span class="h-num">147</span><span class="h-title">I Come, O Savior, To Thy Table</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_heard_the_bells_on_christmas_day.html"><span class="h-num">058</span><span class="h-title">I Heard The Bells On Christmas Day</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_know_that_my_redeemer_lives.html"><span class="h-num">108</span><span class="h-title">I Know That My Redeemer Lives</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_know_whom_i_have_believed.html"><span class="h-num">278</span><span class="h-title">I Know Whom I Have Believed</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_m_but_a_stranger_here.html"><span class="h-num">213</span><span class="h-title">I&#x27;m But A Stranger Here</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_need_thee_every_hour.html"><span class="h-num">167</span><span class="h-title">I Need Thee Every Hour</span><span class="h-meta">Ab · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/i_place_my_trust_in_god.html"><span class="h-num">280</span><span class="h-title">I Place My Trust In God</span><span class="h-meta">Bb · 2/2</span></a></li>
+    <li class="hymn-row"><a href="compare/i_sing_the_mighty_power_of_god.html"><span class="h-num">001</span><span class="h-title">I Sing the Mighty Power of God</span><span class="h-meta">Bb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/if_god_had_not_been_on_our_side.html"><span class="h-num">129</span><span class="h-title">If God Had Not Been on Our Side</span><span class="h-meta">F#m · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/if_god_himself_be_for_me.html"><span class="h-num">279</span><span class="h-title">If God Himself Be For Me</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/immortal_invisible_god_only_wise.html"><span class="h-num">254</span><span class="h-title">Immortal, Invisible, God Only Wise</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/in_his_temple_now_behold_him.html"><span class="h-num">075</span><span class="h-title">In His Temple Now Behold Him</span><span class="h-meta">G · 6/8</span></a></li>
+    <li class="hymn-row"><a href="compare/in_peace_and_joy_i_now_depart.html"><span class="h-num">028</span><span class="h-title">In Peace and Joy I Now Depart</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/in_the_bleak_midwinter.html"><span class="h-num">059</span><span class="h-title">In The Bleak MidWinter</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/in_these_our_days_so_perilous.html"><span class="h-num">281</span><span class="h-title">In These Our Days So Perilous</span><span class="h-meta">Gm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/isaiah_mighty_seer_in_days_of_old.html"><span class="h-num">125</span><span class="h-title">Isaiah, Mighty Seer, In Days of Old</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/it_came_upon_a_midnight_clear.html"><span class="h-num">060</span><span class="h-title">It Came Upon A Midnight Clear</span><span class="h-meta">Bb · 6/8</span></a></li>
+    <li class="hymn-row"><a href="compare/it_is_well_with_my_soul.html"><span class="h-num">198</span><span class="h-title">It Is Well With My Soul</span><span class="h-meta">Db · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-J">
+  <summary>J<span class="group-count">15</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/jerusalem_the_golden.html"><span class="h-num">212</span><span class="h-title">Jerusalem the Golden</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_came_the_heavens_adoring.html"><span class="h-num">035</span><span class="h-title">Jesus Came, the Heavens Adoring</span><span class="h-meta">Bm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_christ_is_risen_today.html"><span class="h-num">109</span><span class="h-title">Jesus Christ Is Risen Today</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_christ_who_came_to_save.html"><span class="h-num">110</span><span class="h-title">Jesus Christ Who Came to Save</span><span class="h-meta">Am · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_grant_that_balm_and_healing.html"><span class="h-num">086</span><span class="h-title">Jesus Grant That Balm and Healing</span><span class="h-meta">Am · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_in_thy_dying_woes.html"><span class="h-num">099</span><span class="h-title">Jesus, In Thy Dying Woes</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_king_of_glory.html"><span class="h-num">168</span><span class="h-title">Jesus, King of Glory</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_loves_me.html"><span class="h-num">155</span><span class="h-title">Jesus Loves Me</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_shall_reign.html"><span class="h-num">169</span><span class="h-title">Jesus Shall Reign</span><span class="h-meta">Eb · 2/2</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_sinners_doth_receive.html"><span class="h-num">140</span><span class="h-title">Jesus Sinners Doth Receive</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_tender_shepherd_hear_me.html"><span class="h-num">311</span><span class="h-title">Jesus, Tender Shepherd, Hear Me</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_thy_boundless_love_to_me.html"><span class="h-num">170</span><span class="h-title">Jesus, Thy Boundless Love To Me</span><span class="h-meta">E · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/jesus_wants_all_of_his_children.html"><span class="h-num">241</span><span class="h-title">Jesus Wants All Of His Children</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/joy_to_the_world.html"><span class="h-num">061</span><span class="h-title">Joy to the World</span><span class="h-meta">D · 2/4</span></a></li>
+    <li class="hymn-row"><a href="compare/joyful_joyful_we_adore_thee.html"><span class="h-num">255</span><span class="h-title">Joyful, Joyful, We Adore Thee</span><span class="h-meta">G · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-L">
+  <summary>L<span class="group-count">19</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/lamp_of_our_feet.html"><span class="h-num">156</span><span class="h-title">Lamp of Our Feet</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/let_all_mortal_flesh_keep_silence.html"><span class="h-num">150</span><span class="h-title">Let All Mortal Flesh Keep Silence</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/let_children_hear_the_mighty_deeds.html"><span class="h-num">299</span><span class="h-title">Let Children Hear The Mighty Deeds</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/let_our_gladness_have_no_end.html"><span class="h-num">062</span><span class="h-title">Let Our Gladness Have No End</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lift_high_the_cross.html"><span class="h-num">294</span><span class="h-title">Lift High The Cross</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lift_up_your_heads_ye_mighty_gates.html"><span class="h-num">036</span><span class="h-title">Lift Up Your Heads, Ye Mighty Gates</span><span class="h-meta">A · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lo_god_to_heav_n_ascendeth.html"><span class="h-num">112</span><span class="h-title">Lo, God To Heav&#x27;n Ascendeth</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lo_he_comes_with_clouds_descending.html"><span class="h-num">037</span><span class="h-title">Lo! He Comes With Clouds Descending</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lo_how_a_rose_e_er_blooming.html"><span class="h-num">063</span><span class="h-title">Lo, How A Rose E&#x27;er Blooming</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/look_down_o_lord_from_heaven_behold.html"><span class="h-num">131</span><span class="h-title">Look Down, O Lord, From Heaven Behold</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_dismiss_us_with_thy_blessing.html"><span class="h-num">029</span><span class="h-title">Lord, Dismiss Us With Thy Blessing</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_enthroned_in_heavenly_splendor.html"><span class="h-num">171</span><span class="h-title">Lord, Enthroned in Heavenly Splendor</span><span class="h-meta">Gm · 6/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_jesus_think_on_me.html"><span class="h-num">141</span><span class="h-title">Lord Jesus Think On Me</span><span class="h-meta">Fm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_keep_us_steadfast_in_thy_word.html"><span class="h-num">133</span><span class="h-title">Lord, Keep Us Steadfast in Thy Word</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_of_glory_who_hast_bought_us.html"><span class="h-num">297</span><span class="h-title">Lord of Glory, Who Hast Bought Us</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_of_life_all_praise_excelling.html"><span class="h-num">257</span><span class="h-title">Lord of Life, All Praise Excelling</span><span class="h-meta">F · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_thee_i_love_with_all_my_heart.html"><span class="h-num">227</span><span class="h-title">Lord, Thee I Love with All My Heart</span><span class="h-meta">Bb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_who_at_cana_s_wedding_feast.html"><span class="h-num">300</span><span class="h-title">Lord, Who at Cana&#x27;s Wedding Feast</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/lord_who_throughout_these_forty_days.html"><span class="h-num">087</span><span class="h-title">Lord Who Throughout These Forty Days</span><span class="h-meta">F · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-M">
+  <summary>M<span class="group-count">9</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/magnificat.html"><span class="h-num">038</span><span class="h-title">Magnificat</span><span class="h-meta">Fm · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/may_god_bestow_on_us_his_grace.html"><span class="h-num">295</span><span class="h-title">May God Bestow on Us His Grace</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/more_love_to_thee.html"><span class="h-num">228</span><span class="h-title">More Love to Thee</span><span class="h-meta">Ab · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/my_faith_looks_up_to_thee.html"><span class="h-num">229</span><span class="h-title">My Faith Looks Up To Thee</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/my_hope_is_built.html"><span class="h-num">282</span><span class="h-title">My Hope Is Built</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/my_jesus_as_thou_wilt.html"><span class="h-num">242</span><span class="h-title">My Jesus, As Thou Wilt</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/my_neighbor.html"><span class="h-num">186</span><span class="h-title">My Neighbor</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/my_song_shall_be_of_jesus.html"><span class="h-num">199</span><span class="h-title">My Song Shall Be Of Jesus</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/my_soul_now_praise_thy_maker.html"><span class="h-num">256</span><span class="h-title">My Soul, Now Praise Thy Maker</span><span class="h-meta">G · 3/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-N">
+  <summary>N<span class="group-count">8</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/nearer_my_god_to_thee.html"><span class="h-num">200</span><span class="h-title">Nearer, My God, To Thee</span><span class="h-meta">G · 6/4</span></a></li>
+    <li class="hymn-row"><a href="compare/no_not_one.html"><span class="h-num">172</span><span class="h-title">No, Not One!</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/none_other_lamb.html"><span class="h-num">173</span><span class="h-title">None Other Lamb</span><span class="h-meta">F#m · 3/2</span></a></li>
+    <li class="hymn-row"><a href="compare/not_worthy_lord_to_gather_up_the_crumbs.html"><span class="h-num">230</span><span class="h-title">Not Worthy, Lord, to Gather Up the Crumbs</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/now_praise_we_christ_the_holy_one.html"><span class="h-num">064</span><span class="h-title">Now Praise We Christ, the Holy One</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/now_rest_beneath_night_s_shadow.html"><span class="h-num">312</span><span class="h-title">Now Rest Beneath Night&#x27;s Shadow</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/now_thank_we_all_our_god.html"><span class="h-num">269</span><span class="h-title">Now Thank We All Our God</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/now_the_light_has_gone_away.html"><span class="h-num">313</span><span class="h-title">Now the Light Has Gone Away</span><span class="h-meta">F · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-O">
+  <summary>O<span class="group-count">32</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/o_be_glad_all_nations_on_earth.html"><span class="h-num">174</span><span class="h-title">O Be Glad All Nations on Earth</span><span class="h-meta">F · 3/2</span></a></li>
+    <li class="hymn-row"><a href="compare/o_chief_of_cities_bethlehem.html"><span class="h-num">076</span><span class="h-title">O Chief of Cities Bethlehem</span><span class="h-meta">D · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_come_all_ye_faithful.html"><span class="h-num">065</span><span class="h-title">O Come, All Ye Faithful</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_come_o_come_emmanuel.html"><span class="h-num">039</span><span class="h-title">O Come O Come Emmanuel</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_day_of_rest_and_gladness.html"><span class="h-num">270</span><span class="h-title">O Day of Rest And Gladness</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_father_all_creating.html"><span class="h-num">301</span><span class="h-title">O Father, All Creating</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_for_a_thousand_tongues.html"><span class="h-num">175</span><span class="h-title">O For A Thousand Tongues</span><span class="h-meta">Ab · 3/2</span></a></li>
+    <li class="hymn-row"><a href="compare/o_holy_blessed_trinity.html"><span class="h-num">308</span><span class="h-title">O Holy, Blessed Trinity</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_holy_spirit_enter_in.html"><span class="h-num">024</span><span class="h-title">O Holy Spirit, Enter In</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_little_town_of_bethlehem.html"><span class="h-num">066</span><span class="h-title">O Little Town of Bethlehem</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_lord_how_shall_i_meet_thee.html"><span class="h-num">042</span><span class="h-title">O Lord, How Shall I Meet Thee</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_lord_i_am_not_worthy.html"><span class="h-num">151</span><span class="h-title">O Lord, I Am Not Worthy</span><span class="h-meta">Bb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_lord_my_god_i_thirst_for_you.html"><span class="h-num">245</span><span class="h-title">O Lord, My God, I Thirst For You</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_lord_my_soul_convicted.html"><span class="h-num">142</span><span class="h-title">O Lord My Soul Convicted</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_lord_of_heav_n_and_earth_and_sea.html"><span class="h-num">271</span><span class="h-title">O Lord of Heav&#x27;n and Earth and Sea</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_lord_we_praise_thee.html"><span class="h-num">259</span><span class="h-title">O Lord We Praise Thee</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_love_how_deep_how_broad_how_high.html"><span class="h-num">187</span><span class="h-title">O Love, How Deep, How Broad, How High</span><span class="h-meta">C#m · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_sacred_head_now_wounded.html"><span class="h-num">100</span><span class="h-title">O Sacred Head, Now Wounded</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_that_the_lord_would_guide_my_ways.html"><span class="h-num">231</span><span class="h-title">O That The Lord Would Guide My Ways</span><span class="h-meta">Ab · 3/2</span></a></li>
+    <li class="hymn-row"><a href="compare/o_the_deep_deep_love_of_jesus.html"><span class="h-num">176</span><span class="h-title">O The Deep, Deep Love of Jesus</span><span class="h-meta">Fm · 8/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_trinity_of_blessed_light.html"><span class="h-num">314</span><span class="h-title">O Trinity of Blessed Light</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/o_wondrous_type_o_vision_fair.html"><span class="h-num">083</span><span class="h-title">O Wondrous Type, O Vision Fair</span><span class="h-meta">C#m · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/of_the_father_s_love_begotten.html"><span class="h-num">041</span><span class="h-title">Of The Father&#x27;s Love Begotten</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/oh_blest_the_house.html"><span class="h-num">302</span><span class="h-title">Oh, Blest the House</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/on_jordan_s_bank_the_baptist_s_cry.html"><span class="h-num">040</span><span class="h-title">On Jordan&#x27;s Bank the Baptist&#x27;s Cry</span><span class="h-meta">D · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/on_what_has_now_been_sown.html"><span class="h-num">030</span><span class="h-title">On What Has Now Been Sown</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/one_thing_s_needful.html"><span class="h-num">177</span><span class="h-title">One Thing&#x27;s Needful</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/open_now_thy_gates_of_beauty.html"><span class="h-num">025</span><span class="h-title">Open Now Thy Gates of Beauty</span><span class="h-meta">Bb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/our_father_thou_in_heaven_above.html"><span class="h-num">246</span><span class="h-title">Our Father Thou in Heaven Above</span><span class="h-meta">Cm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/our_god_our_help_in_ages_past.html"><span class="h-num">283</span><span class="h-title">Our God, Our Help In Ages Past</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/out_of_the_deep_i_cry_to_thee.html"><span class="h-num">143</span><span class="h-title">Out of the Deep I Cry to Thee</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/over_kidron_jesus_treadeth.html"><span class="h-num">096</span><span class="h-title">Over Kidron Jesus Treadeth</span><span class="h-meta">Fm · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-P">
+  <summary>P<span class="group-count">5</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/pass_me_not_o_gentle_savior.html"><span class="h-num">232</span><span class="h-title">Pass Me Not, O Gentle Savior</span><span class="h-meta">Ab · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/praise_god_from_whom_all_blessings_flow.html"><span class="h-num">258</span><span class="h-title">Praise God From Whom All Blessings Flow</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/praise_my_soul_the_king_of_heaven.html"><span class="h-num">178</span><span class="h-title">Praise My Soul The King Of Heaven</span><span class="h-meta">Eb · 2/4</span></a></li>
+    <li class="hymn-row"><a href="compare/praise_the_lord_ye_heavens_adore_him.html"><span class="h-num">260</span><span class="h-title">Praise The Lord, Ye Heavens Adore Him</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/praise_to_the_lord_the_almighty.html"><span class="h-num">261</span><span class="h-title">Praise To The Lord, The Almighty</span><span class="h-meta">G · 3/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-R">
+  <summary>R<span class="group-count">3</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/rejoice_my_heart_be_glad_and_sing.html"><span class="h-num">201</span><span class="h-title">Rejoice, My Heart, Be Glad and Sing</span><span class="h-meta">Bb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/rejoice_o_pilgrim_throng.html"><span class="h-num">263</span><span class="h-title">Rejoice, O Pilgrim Throng</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/rock_of_ages.html"><span class="h-num">188</span><span class="h-title">Rock of Ages</span><span class="h-meta">Bb · 6/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-S">
+  <summary>S<span class="group-count">12</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/salvation_unto_us_has_come.html"><span class="h-num">189</span><span class="h-title">Salvation Unto Us Has Come</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/savior_like_a_shepherd_lead_us.html"><span class="h-num">233</span><span class="h-title">Savior, Like A Shepherd Lead Us</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/savior_of_the_nations_come.html"><span class="h-num">043</span><span class="h-title">Savior Of The Nations Come</span><span class="h-meta">Gm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/savior_when_in_dust_to_thee.html"><span class="h-num">088</span><span class="h-title">Savior When In Dust To Thee</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/savior_who_thy_flock_art_feeding.html"><span class="h-num">303</span><span class="h-title">Savior, Who Thy Flock Art Feeding</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/see_amid_the_winter_s_snow.html"><span class="h-num">067</span><span class="h-title">See Amid the Winter&#x27;s Snow</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/see_the_lord_ascends_in_triumph.html"><span class="h-num">113</span><span class="h-title">See, The Lord Ascends In Triumph</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/silent_night.html"><span class="h-num">068</span><span class="h-title">Silent Night</span><span class="h-meta">Bb · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/sing_o_sing_this_blessed_morn.html"><span class="h-num">069</span><span class="h-title">Sing, O Sing, This Blessed Morn</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/songs_of_thankfulness_and_praise.html"><span class="h-num">077</span><span class="h-title">Songs of Thankfulness and Praise</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/souls_of_men_why_will_ye_scatter.html"><span class="h-num">284</span><span class="h-title">Souls of Men! Why Will Ye Scatter</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/stricken_smitten_and_afflicted.html"><span class="h-num">101</span><span class="h-title">Stricken, Smitten, and Afflicted</span><span class="h-meta">Gm · 6/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-T">
+  <summary>T<span class="group-count">38</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/take_my_life_and_let_it_be.html"><span class="h-num">234</span><span class="h-title">Take My Life And Let It Be</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/take_thou_my_hand_and_lead_me.html"><span class="h-num">235</span><span class="h-title">Take Thou My Hand and Lead Me</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/that_men_a_godly_life_might_live.html"><span class="h-num">157</span><span class="h-title">That Men a godly Life Might Live</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_advent_of_our_god.html"><span class="h-num">044</span><span class="h-title">The Advent of Our God</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_apostle_looked_and_heard_a_voice.html"><span class="h-num">205</span><span class="h-title">The Apostle Looked and Heard a Voice</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_bridegroom_soon_will_call_us.html"><span class="h-num">206</span><span class="h-title">The Bridegroom Soon Will Call Us</span><span class="h-meta">G · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_church_s_one_foundation.html"><span class="h-num">220</span><span class="h-title">The Church&#x27;s One Foundation</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_cloud_received_christ_from_their_sight.html"><span class="h-num">114</span><span class="h-title">The Cloud Received Christ From Their Sight</span><span class="h-meta">Ab · 3/2</span></a></li>
+    <li class="hymn-row"><a href="compare/the_comforter_has_come.html"><span class="h-num">121</span><span class="h-title">The Comforter Has Come</span><span class="h-meta">C · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_day_is_surely_drawing_near.html"><span class="h-num">207</span><span class="h-title">The Day is Surely Drawing Near</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_first_noel.html"><span class="h-num">070</span><span class="h-title">The First Noel</span><span class="h-meta">D · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_galilean_fishers_toil.html"><span class="h-num">179</span><span class="h-title">The Galilean Fishers Toil</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_god_of_abraham_praise.html"><span class="h-num">262</span><span class="h-title">The God of Abraham Praise</span><span class="h-meta">Fm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_gospel_shows_the_father_s_grace.html"><span class="h-num">158</span><span class="h-title">The Gospel Shows The Father&#x27;s Grace</span><span class="h-meta">F · 6/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_king_shall_come.html"><span class="h-num">045</span><span class="h-title">The King Shall Come</span><span class="h-meta">Fm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_law_of_god_is_good_and_wise.html"><span class="h-num">159</span><span class="h-title">The Law Of God Is Good And Wise</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_lily_of_the_valley.html"><span class="h-num">180</span><span class="h-title">The Lily of the Valley</span><span class="h-meta">F · 6/8</span></a></li>
+    <li class="hymn-row"><a href="compare/the_lord_s_my_shepherd.html"><span class="h-num">285</span><span class="h-title">The Lord&#x27;s My Shepherd</span><span class="h-meta">D · 3/2</span></a></li>
+    <li class="hymn-row"><a href="compare/the_lord_s_prayer_new.html"><span class="h-num">247</span><span class="h-title">The Lord&#x27;s Prayer (new)</span><span class="h-meta">Gm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_love_of_god.html"><span class="h-num">001</span><span class="h-title">The Love of God</span><span class="h-meta">Db · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_mouth_of_fools_doth_god_confess.html"><span class="h-num">134</span><span class="h-title">The Mouth of Fools Doth God Confess</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_old_rugged_cross.html"><span class="h-num">202</span><span class="h-title">The Old Rugged Cross</span><span class="h-meta">Bb · 6/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_people_that_in_darkness_sat.html"><span class="h-num">078</span><span class="h-title">The People That in Darkness Sat</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_star_proclaims_the_king_is_here.html"><span class="h-num">079</span><span class="h-title">The Star Proclaims the King is Here</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_strife_is_o_er_the_battle_done.html"><span class="h-num">111</span><span class="h-title">The Strife Is O&#x27;er, The Battle Done</span><span class="h-meta">E · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/the_winds_and_billows_loudly_roar.html"><span class="h-num">286</span><span class="h-title">The Winds and Billows Loudly Roar</span><span class="h-meta">Fm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/there_s_a_great_day_coming.html"><span class="h-num">208</span><span class="h-title">There&#x27;s a Great Day Coming</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/thine_arm_o_lord_in_days_of_old.html"><span class="h-num">287</span><span class="h-title">Thine Arm, O Lord, in Days of Old</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/thou_who_at_thy_first_eucharist.html"><span class="h-num">152</span><span class="h-title">Thou, Who at Thy First Eucharist</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/though_in_the_midst_of_life_we_be.html"><span class="h-num">290</span><span class="h-title">Though in the Midst of Life We Be</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/through_the_night_of_doubt_and_sorrow.html"><span class="h-num">221</span><span class="h-title">Through the Night of Doubt and Sorrow</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/tis_good_lord_to_be_here.html"><span class="h-num">084</span><span class="h-title">Tis Good, Lord, To Be Here</span><span class="h-meta">E · 2/4</span></a></li>
+    <li class="hymn-row"><a href="compare/to_avert_from_men_god_s_wrath.html"><span class="h-num">153</span><span class="h-title">To Avert From Men God&#x27;s Wrath</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/to_god_be_the_glory.html"><span class="h-num">264</span><span class="h-title">To God Be The Glory</span><span class="h-meta">Ab · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/to_jordan_came_our_lord_the_christ.html"><span class="h-num">080</span><span class="h-title">To Jordan Came Our Lord, The Christ</span><span class="h-meta">Am · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/to_shepherds_as_they_watched_by_night.html"><span class="h-num">071</span><span class="h-title">To Shepherds As They Watched By Night</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/today_thy_mercy_calls_me.html"><span class="h-num">190</span><span class="h-title">Today Thy Mercy Calls Me</span><span class="h-meta">A · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/twas_in_the_moon_of_wintertime.html"><span class="h-num">072</span><span class="h-title">Twas In The Moon of Wintertime</span><span class="h-meta">Bm · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-U">
+  <summary>U<span class="group-count">1</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/under_his_wings.html"><span class="h-num">288</span><span class="h-title">Under His Wings</span><span class="h-meta">Db · 6/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-W">
+  <summary>W<span class="group-count">16</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/wake_awake_for_night_is_flying.html"><span class="h-num">209</span><span class="h-title">Wake, Awake, for Night Is Flying</span><span class="h-meta">C · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/we_all_believe_in_one_true_god.html"><span class="h-num">126</span><span class="h-title">We All Believe in One True God</span><span class="h-meta">Dm · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/we_gather_together.html"><span class="h-num">026</span><span class="h-title">We Gather Together</span><span class="h-meta">D · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/we_give_thee_but_thine_own.html"><span class="h-num">298</span><span class="h-title">We Give Thee But Thine Own</span><span class="h-meta">G · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/we_know_thee_who_thou_art.html"><span class="h-num">181</span><span class="h-title">We Know Thee Who Thou Art</span><span class="h-meta">D · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/we_now_implore_god_the_holy_ghost.html"><span class="h-num">248</span><span class="h-title">We Now Implore God the Holy Ghost</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/were_you_there.html"><span class="h-num">102</span><span class="h-title">Were You There?</span><span class="h-meta">E · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/what_a_friend_we_have_in_jesus.html"><span class="h-num">249</span><span class="h-title">What A Friend We Have In Jesus</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/what_child_is_this.html"><span class="h-num">073</span><span class="h-title">What Child Is This?</span><span class="h-meta">Em · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/when_i_survey_the_wondrous_cross.html"><span class="h-num">001</span><span class="h-title">When I Survey the Wondrous Cross</span><span class="h-meta">Eb · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/when_the_roll_is_called_up_yonder.html"><span class="h-num">222</span><span class="h-title">When The Roll Is Called Up Yonder</span><span class="h-meta">Ab · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/where_he_leads_me.html"><span class="h-num">243</span><span class="h-title">Where He Leads Me</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/while_o_er_our_guilty_land_o_lord.html"><span class="h-num">145</span><span class="h-title">While O&#x27;er Our Guilty Land, O Lord</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/whiter_than_snow.html"><span class="h-num">236</span><span class="h-title">Whiter Than Snow</span><span class="h-meta">A · 3/4</span></a></li>
+    <li class="hymn-row"><a href="compare/wilt_thou_o_man_live_happily.html"><span class="h-num">160</span><span class="h-title">Wilt Thou, O Man, Live Happily</span><span class="h-meta">Em · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/within_the_father_s_house.html"><span class="h-num">081</span><span class="h-title">Within the Father&#x27;s House</span><span class="h-meta">Eb · 4/4</span></a></li>
+  </ul>
+</details>
+<details class="letter-group" id="letter-Y">
+  <summary>Y<span class="group-count">3</span></summary>
+  <ul class="hymn-list">
+    <li class="hymn-row"><a href="compare/yet_before_we_see_your_plans.html"><span class="h-num">237</span><span class="h-title">Yet Before We See Your Plans</span><span class="h-meta">F · 4/4</span></a></li>
+    <li class="hymn-row"><a href="compare/you_parents_hear_what_jesus_taught.html"><span class="h-num">304</span><span class="h-title">You Parents Hear What Jesus Taught</span><span class="h-meta">F · 3/2</span></a></li>
+    <li class="hymn-row"><a href="compare/you_people_who_now_are_baptized.html"><span class="h-num">138</span><span class="h-title">You People Who Now Are Baptized</span><span class="h-meta">G · 4/4</span></a></li>
+  </ul>
+</details>
+</main>
+<script>
+  // Letter nav: open the target letter group when clicked
+  document.querySelectorAll('.alpha-nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.open = true;
+    });
+  });
+</script>
+</body>
+</html>

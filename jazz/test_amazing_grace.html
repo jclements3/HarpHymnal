@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>192 Amazing Grace — Single-Tactic Audition</title>
+<style>
+:root {
+  --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0;
+  --panel:#ffffff; --panel-alt:#f0ece0; --banner:#B58900; --accent:#8F6B00;
+  --tag-bg:#eee8d5; --warn:#C0605A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.5; }
+#topbar { padding:14px 24px; background:var(--banner); color:#fff;
+  display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+#topbar a { color:#fff; text-decoration:none; font-size:15px; }
+#topbar h1 { font-size:22px; }
+#topbar .sub { font-size:13px; opacity:.9; }
+main { padding:20px 28px 60px; max-width:1400px; margin:0 auto; }
+.caption { background:var(--panel); border-left:4px solid var(--accent);
+  padding:10px 14px; margin:16px 0; font-size:14px; color:var(--ink); }
+.caption strong { color:var(--accent); }
+section.baseline { background:var(--panel); border:1px solid var(--line);
+  border-radius:8px; padding:14px 18px; margin-bottom:16px;
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+section.baseline h2 { font-size:16px; color:var(--accent); margin:0 12px 0 0; }
+section.baseline .baseline-blurb { font-size:12px; color:var(--muted); flex:1 1 auto; }
+
+/* Dimensions packed as <details> so you can collapse sections you've
+   finished auditioning. Open by default. */
+details.dim-section { background:var(--panel); border:1px solid var(--line);
+  border-radius:8px; margin-bottom:10px; overflow:hidden; }
+details.dim-section > summary { padding:10px 16px; cursor:pointer;
+  list-style:none; display:flex; justify-content:space-between;
+  align-items:baseline; background:var(--panel-alt);
+  font-family:"DejaVu Sans Mono",Consolas,monospace; }
+details.dim-section > summary::-webkit-details-marker { display:none; }
+details.dim-section > summary::after { content:'▸'; color:var(--accent);
+  transition:transform 0.15s; font-size:12px; }
+details.dim-section[open] > summary::after { transform:rotate(90deg); }
+details.dim-section .dim-title { font-size:14px; color:var(--accent);
+  font-weight:bold; }
+details.dim-section .dim-meta { font-size:12px; color:var(--muted);
+  font-family:"DejaVu Sans Mono",Consolas,monospace; }
+details.dim-section .tactic-grid { display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:8px; padding:10px 14px; }
+
+.tactic-card { display:flex; align-items:center; gap:8px; padding:6px 10px;
+  border:1px solid var(--line); border-radius:6px; background:#fcfaf3;
+  font-size:13px; }
+.tactic-card:hover { background:var(--tag-bg); }
+button.play { flex:0 0 auto; padding:3px 10px; border:1px solid var(--line);
+  border-radius:3px; background:white; cursor:pointer;
+  font-family:monospace; font-size:13px; min-width:32px; }
+button.play:hover { background:var(--tag-bg); }
+button.play:disabled { opacity:0.5; cursor:wait; }
+button.play.active { background:var(--accent); color:white; border-color:var(--accent); }
+.tactic-card .tc-id { font-family:"DejaVu Sans Mono",Consolas,monospace;
+  color:var(--accent); font-size:11px; font-weight:bold; flex:0 0 auto; }
+.tactic-card .tc-name { color:var(--ink); font-size:12px; flex:1 1 auto;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tactic-card .tc-status { font-family:monospace; font-size:10px;
+  color:var(--muted); flex:0 0 auto; }
+.tactic-card .tc-bar { font-family:monospace; font-size:10px;
+  color:var(--muted); flex:0 0 auto; }
+.tactic-card.ambig { border-left:3px solid var(--warn); }
+.tactic-warn { color:var(--warn); font-size:10px; font-style:italic; }
+#global-stop { position:fixed; top:12px; right:16px; z-index:100;
+  padding:6px 14px; border:1px solid var(--line); background:white;
+  border-radius:4px; font-family:monospace; cursor:pointer; }
+.collapse-controls { display:flex; gap:8px; margin-bottom:8px; font-size:12px; }
+.collapse-controls button { padding:3px 10px; border:1px solid var(--line);
+  background:white; border-radius:3px; cursor:pointer; font-family:monospace;
+  font-size:12px; color:var(--muted); }
+.collapse-controls button:hover { background:var(--panel-alt); }
+</style>
+
+<!-- Strict-GM MIDI playback stack — copied from variations.amazing_grace.html.
+     midi-player-js parses SMF, soundfont-player plays MusyngKite orchestral_harp
+     samples — one note per Note-on event, no AI instrument remapping. -->
+<script src="https://cdn.jsdelivr.net/npm/midi-player-js@2.0.16/browser/midiplayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/soundfont-player@0.12.0/dist/soundfont-player.min.js"></script>
+</head>
+<body>
+
+<div id="topbar">
+  <a href="index.html">← Home</a>
+  <h1>192 Amazing Grace — Single-Tactic Audition</h1>
+  <span class="sub">G major · 3/4 · SATB baseline + one-tactic-at-a-time</span>
+</div>
+
+<button id="global-stop" onclick="_stopActive()">■ Stop</button>
+
+<main>
+
+<div class="caption">
+  <strong>How to listen.</strong>
+  Every demo plays the full 16-bar hymn as a plain SATB chorale on orchestral
+  harp, with ONE tactic audibly applied to a single spotlight bar. The
+  spotlight is <strong>bar 5</strong> by default (pure tonic chord after the
+  opening phrase), and <strong>bar 8</strong> for cadence / phrase-role /
+  connect-to tactics (the first half-cadence lands there). Start with
+  "Baseline" to calibrate your ear on the unreharmonized chorale, then pick
+  any tactic to hear how it transforms the spotlight bar.
+</div>
+
+<section class="baseline">
+  <h2>Baseline</h2>
+  <button class="play" id="baseline-btn"
+          data-mid="../data/reharm/tests/amazing_grace/_baseline.mid"
+          data-label="Baseline">▶</button>
+  <span class="tc-status" id="baseline-status"></span>
+  <span class="baseline-blurb">
+    SATB chorale as sung — four voices with real rhythm. Control reference.
+  </span>
+</section>
+
+<div class="collapse-controls">
+  <button onclick="setAllOpen(true)">expand all</button>
+  <button onclick="setAllOpen(false)">collapse all</button>
+</div>
+
+<div id="sections"></div>
+
+</main>
+
+<script>
+// --- Shared harp playback (one AudioContext + one orchestral_harp soundfont) ---
+let HARP_AC = null;
+let HARP_INST_PROMISE = null;
+let HARP_ACTIVE_PLAYER = null;
+let HARP_ACTIVE_BTN = null;
+let HARP_ACTIVE_STATUS = null;
+
+function _harpAC() {
+  if (!HARP_AC) HARP_AC = new (window.AudioContext || window.webkitAudioContext)();
+  return HARP_AC;
+}
+function _loadHarp() {
+  if (!HARP_INST_PROMISE) {
+    HARP_INST_PROMISE = Soundfont.instrument(_harpAC(), "orchestral_harp",
+      {soundfont: "MusyngKite"});
+  }
+  return HARP_INST_PROMISE;
+}
+function _stopActive() {
+  if (HARP_ACTIVE_PLAYER) { try { HARP_ACTIVE_PLAYER.stop(); } catch (e) {} }
+  HARP_ACTIVE_PLAYER = null;
+  if (HARP_ACTIVE_BTN) {
+    HARP_ACTIVE_BTN.classList.remove("active");
+    HARP_ACTIVE_BTN.textContent = HARP_ACTIVE_BTN.dataset.playLabel || "▶";
+    HARP_ACTIVE_BTN = null;
+  }
+  if (HARP_ACTIVE_STATUS) {
+    HARP_ACTIVE_STATUS.textContent = "";
+    HARP_ACTIVE_STATUS = null;
+  }
+}
+async function playMidi(midiUrl, btn, statusEl, label) {
+  _stopActive();
+  btn.disabled = true;
+  btn.dataset.playLabel = btn.textContent;
+  btn.textContent = "⋯";
+  if (statusEl) statusEl.textContent = "loading";
+  try {
+    const ac = _harpAC();
+    if (ac.state === "suspended") await ac.resume();
+    const harp = await _loadHarp();
+    // Cache-bust so regenerated MIDI files are actually re-fetched instead
+    // of the browser serving a stale copy.
+    const cacheBusted = midiUrl + (midiUrl.includes("?") ? "&" : "?") + "_=" + Date.now();
+    const resp = await fetch(cacheBusted);
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    const buf = await resp.arrayBuffer();
+    const player = new MidiPlayer.Player(event => {
+      if (event.name === "Note on" && event.velocity > 0) {
+        harp.play(event.noteName, ac.currentTime,
+          {gain: event.velocity / 127, duration: 2.5});
+      }
+    });
+    player.on("endOfFile", () => {
+      if (HARP_ACTIVE_PLAYER === player) _stopActive();
+    });
+    player.loadArrayBuffer(buf);
+    player.play();
+    HARP_ACTIVE_PLAYER = player;
+    HARP_ACTIVE_BTN = btn;
+    HARP_ACTIVE_STATUS = statusEl;
+    btn.textContent = "■ playing";
+    btn.classList.add("active");
+    if (statusEl) statusEl.textContent = "playing…";
+  } catch (e) {
+    btn.textContent = "▶";
+    if (statusEl) statusEl.textContent = "error: " + e.message;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// Baseline button
+document.querySelectorAll(".baseline button.play").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const status = btn.parentElement.querySelector('.tactic-status[data-for="baseline"]');
+    playMidi(btn.dataset.mid, btn, status, btn.dataset.label);
+  });
+});
+
+// --- Load tactics.json + _notes.json and build the dimension sections. ---
+async function buildSections() {
+  const [tacticsResp, notesResp] = await Promise.all([
+    fetch("../data/reharm/tactics.json"),
+    fetch("../data/reharm/tests/amazing_grace/_notes.json"),
+  ]);
+  const tactics = await tacticsResp.json();
+  const notesJson = await notesResp.json();
+  const ambig = {};
+  (notesJson.ambiguities || []).forEach(a => { ambig[a.tactic] = a.note; });
+
+  // Group tactics by dimension (preserve order from tactics.json)
+  const byDim = {};
+  for (const t of tactics.tactics) {
+    (byDim[t.dimension] = byDim[t.dimension] || []).push(t);
+  }
+
+  // Which spotlight bar does this tactic use? (mirrors cli/reharm_solo.py)
+  const cadenceTactics = new Set([
+    "phrase_role.cadence", "phrase_role.cadence_approach", "phrase_role.release",
+    "connect_to.anticipate", "connect_to.delay", "connect_to.step_bass",
+    "connect_to.common_tone", "connect_to.land_down",
+  ]);
+  function spotlightBar(tid, dim) {
+    if (cadenceTactics.has(tid) || dim === "phrase_role") return 8;
+    return 5;
+  }
+
+  // Dimension display labels — match tactics.json "dimensions" field
+  const dimMeta = {};
+  for (const d of (tactics.dimensions || [])) dimMeta[d.id] = d.name;
+
+  const container = document.getElementById("sections");
+
+  for (const dim of (tactics.dimensions || []).map(d => d.id)) {
+    if (!byDim[dim]) continue;
+    const section = document.createElement("details");
+    section.className = "dim-section";
+    section.open = true;  // open by default
+    const summary = document.createElement("summary");
+    const dimTitleWrap = document.createElement("span");
+    const dimTitle = document.createElement("span");
+    dimTitle.className = "dim-title";
+    dimTitle.textContent = dim;
+    dimTitleWrap.appendChild(dimTitle);
+    const dimMetaEl = document.createElement("span");
+    dimMetaEl.className = "dim-meta";
+    dimMetaEl.textContent = "  " + (dimMeta[dim] || "") +
+      "  ·  " + byDim[dim].length + " tactics";
+    dimTitleWrap.appendChild(dimMetaEl);
+    summary.appendChild(dimTitleWrap);
+    section.appendChild(summary);
+
+    const grid = document.createElement("div");
+    grid.className = "tactic-grid";
+
+    for (const t of byDim[dim]) {
+      const card = document.createElement("div");
+      card.className = "tactic-card";
+      if (ambig[t.id]) card.classList.add("ambig");
+
+      const btn = document.createElement("button");
+      btn.className = "play";
+      btn.textContent = "▶";
+      const short = t.id.split(".", 2)[1];
+      const fname = dim + "__" + short + ".mid";
+      const midPath = "../data/reharm/tests/amazing_grace/" + fname;
+      const status = document.createElement("span");
+      status.className = "tc-status";
+      btn.addEventListener("click", () => playMidi(midPath, btn, status, t.id));
+      card.appendChild(btn);
+
+      const idEl = document.createElement("span");
+      idEl.className = "tc-id";
+      idEl.textContent = short;
+      card.appendChild(idEl);
+
+      const nameEl = document.createElement("span");
+      nameEl.className = "tc-name";
+      nameEl.textContent = t.name;
+      nameEl.title = t.name + (ambig[t.id] ? " (" + ambig[t.id] + ")" : "");
+      card.appendChild(nameEl);
+
+      const barEl = document.createElement("span");
+      barEl.className = "tc-bar";
+      const sb = spotlightBar(t.id, dim);
+      barEl.textContent = "b" + sb;
+      barEl.title = "spotlight bar " + sb;
+      card.appendChild(barEl);
+
+      card.appendChild(status);
+      grid.appendChild(card);
+    }
+
+    section.appendChild(grid);
+    container.appendChild(section);
+  }
+}
+
+function setAllOpen(open) {
+  document.querySelectorAll("details.dim-section").forEach(d => { d.open = open; });
+}
+
+// Wire the baseline button
+(function() {
+  const btn = document.getElementById("baseline-btn");
+  const status = document.getElementById("baseline-status");
+  if (btn) btn.addEventListener("click", () =>
+    playMidi(btn.dataset.mid, btn, status, "baseline"));
+})();
+
+buildSections().catch(e => {
+  document.getElementById("sections").innerHTML =
+    "<p style='color:var(--warn); padding:20px;'>Failed to load tactics: " + e.message + "</p>";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reharm Variations Browser</title>
+<style>
+:root {
+  --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0;
+  --panel:#ffffff; --panel-alt:#f0ece0; --banner:#B58900; --accent:#8F6B00;
+  --tag-bg:#eee8d5; --tap:rgba(181,137,0,0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.45; -webkit-tap-highlight-color:transparent; }
+#topbar { padding:14px 24px; background:var(--banner); color:#fff;
+  display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+#topbar a { color:#fff; text-decoration:none; font-size:15px; }
+#topbar h1 { font-size:22px; }
+#topbar .sub { font-size:13px; opacity:.9; }
+#layout { display:grid; grid-template-columns:260px 1fr;
+  min-height:calc(100vh - 60px); }
+#sidebar { background:var(--panel); border-right:1px solid var(--line);
+  padding:12px 14px; overflow-y:auto; max-height:calc(100vh - 60px);
+  position:sticky; top:0; font-size:13px; }
+#sidebar h2 { color:var(--accent); font-size:14px; margin:6px 0;
+  border-bottom:1px solid var(--line); padding-bottom:3px;
+  text-transform:uppercase; letter-spacing:0.05em; }
+.dim-group { margin-bottom:8px; }
+.dim-group details summary { cursor:pointer; font-weight:bold; color:var(--accent);
+  padding:3px 0; font-size:13px; list-style:none; }
+.dim-group details summary::-webkit-details-marker { display:none; }
+.dim-group details summary::before { content:'▸'; margin-right:4px;
+  display:inline-block; transition:transform 0.15s; font-size:10px; }
+.dim-group details[open] summary::before { transform:rotate(90deg); }
+.tactic-row { padding:2px 6px 2px 20px; cursor:pointer; font-size:12px;
+  display:flex; justify-content:space-between; border-radius:3px; }
+.tactic-row:hover { background:var(--panel-alt); }
+.tactic-row.active { background:var(--tag-bg); color:var(--accent); font-weight:bold; }
+.tactic-count { color:var(--muted); font-family:monospace; font-size:11px; }
+#reset { margin-top:8px; padding:6px 10px; font-size:12px; border:1px solid var(--line);
+  border-radius:4px; background:white; cursor:pointer; color:var(--muted);
+  width:100%; }
+#reset:hover { background:var(--panel-alt); }
+main { padding:14px 22px 60px; overflow-y:auto; max-height:calc(100vh - 60px); }
+#coverage { background:var(--panel); border:1px solid var(--line); border-radius:6px;
+  padding:12px 16px; margin-bottom:14px; }
+#coverage h2 { color:var(--accent); font-size:15px; margin-bottom:8px; }
+#coverage-bars { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:6px; font-size:11px; font-family:monospace; color:var(--muted); }
+.cov-bar { display:flex; align-items:center; gap:4px; }
+.cov-bar .fill { background:var(--accent); height:6px; border-radius:3px;
+  min-width:1px; }
+.cov-bar .label { flex:1; overflow:hidden; white-space:nowrap;
+  text-overflow:ellipsis; }
+.cov-bar .num { font-variant-numeric:tabular-nums; }
+#controls { display:flex; gap:12px; margin-bottom:10px; flex-wrap:wrap;
+  align-items:center; font-size:13px; color:var(--muted); }
+#controls select { padding:4px 8px; border:1px solid var(--line); border-radius:4px;
+  font-size:13px; background:white; }
+#result-count { margin-left:auto; font-family:monospace; color:var(--muted); }
+.frag-row { background:var(--panel); border:1px solid var(--line); border-radius:4px;
+  padding:8px 12px; margin-bottom:4px; display:flex; gap:10px; align-items:center;
+  flex-wrap:wrap; font-size:12px; }
+.frag-hymn { font-weight:bold; color:var(--accent); min-width:200px;
+  text-decoration:none; }
+.frag-hymn:hover { text-decoration:underline; }
+.frag-phrase { font-family:monospace; font-weight:bold; color:var(--ink); min-width:40px; }
+.frag-bars { font-family:monospace; color:var(--muted); min-width:80px; }
+.frag-score { font-family:monospace; color:var(--muted); min-width:50px; }
+.frag-tags { display:flex; gap:3px; flex-wrap:wrap; flex:1; }
+.tag { display:inline-block; background:var(--tag-bg); color:var(--accent);
+  padding:1px 6px; border-radius:10px; font-size:10px;
+  font-family:"DejaVu Sans Mono",Consolas,monospace; }
+.tag.active { background:var(--accent); color:white; }
+.frag-actions a { font-size:11px; color:var(--accent); text-decoration:none;
+  padding:2px 8px; border:1px solid var(--line); border-radius:3px;
+  background:white; font-family:monospace; margin-left:2px; }
+.frag-actions a:hover { background:var(--tag-bg); }
+#empty-msg { text-align:center; padding:40px; color:var(--muted); font-style:italic; }
+@media (max-width: 800px) {
+  #layout { grid-template-columns:1fr; }
+  #sidebar { position:static; max-height:none; }
+}
+</style>
+</head>
+<body>
+<div id="topbar">
+  <a href="reharm_home.html">&larr; Reharm</a>
+  <h1>Variations Browser</h1>
+  <span class="sub" id="corpus-meta">…</span>
+</div>
+<div id="layout">
+  <div id="sidebar">
+    <h2>Filter by tactic</h2>
+    <div id="dim-filters">(loading…)</div>
+    <button id="reset">Reset filters</button>
+  </div>
+  <main>
+    <div id="coverage">
+      <h2>Corpus coverage (fragments containing each tactic)</h2>
+      <div id="coverage-bars">(loading…)</div>
+    </div>
+    <div id="controls">
+      <label>Sort
+        <select id="sort">
+          <option value="score_desc">Score (high→low)</option>
+          <option value="score_asc">Score (low→high)</option>
+          <option value="hymn">Hymn title</option>
+        </select>
+      </label>
+      <label>Page size
+        <select id="page-size">
+          <option>50</option>
+          <option selected>200</option>
+          <option>500</option>
+        </select>
+      </label>
+      <span id="result-count"></span>
+    </div>
+    <div id="result-root"></div>
+    <div id="empty-msg" style="display:none;">No fragments match.</div>
+  </main>
+</div>
+
+<script>
+const CATALOG_URL = "../data/reharm/catalog.json";
+const PATH_FRAG = (slug, vi, pi, ext) =>
+  "../data/reharm/fragments/" + slug + "/v" + String(vi).padStart(2,"0") + "_p" + pi + "." + ext;
+
+let CATALOG = null;
+const FILTER = new Set();
+
+function escHtml(s) {
+  return (s || "").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function phraseLetter(pi) {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (pi < 26) return letters[pi];
+  return letters[Math.floor(pi/26)-1] + letters[pi%26];
+}
+
+function decodeFragmentTactics(dt, dims, nameTable) {
+  const out = [];
+  for (let i = 0; i < dims.length; i++) {
+    const n = nameTable[dt[i] || 0];
+    if (n) out.push({dim: dims[i], short: n, tid: dims[i] + "." + n});
+  }
+  return out;
+}
+
+function scoreForVariation(slug, vi) {
+  const h = CATALOG.hymns[slug];
+  if (!h) return null;
+  for (const v of h.variations) if (v.idx === vi) return v.score;
+  return null;
+}
+
+function renderSidebar() {
+  const root = document.getElementById("dim-filters");
+  root.innerHTML = "";
+  const dims = CATALOG.dimension_order;
+  const byDim = {};
+  for (const d of dims) byDim[d] = [];
+  for (const tid of Object.keys(CATALOG.tactic_index).sort()) {
+    const [dim] = tid.split(".");
+    if (byDim[dim]) byDim[dim].push(tid);
+  }
+  const cov = CATALOG.corpus_stats.tactic_coverage_matrix;
+  for (const d of dims) {
+    const entries = byDim[d].slice()
+      .sort((a,b) => (cov[b]||0) - (cov[a]||0));
+    if (!entries.length) continue;
+    const group = document.createElement("div");
+    group.className = "dim-group";
+    const det = document.createElement("details");
+    det.open = false;
+    const sum = document.createElement("summary");
+    sum.textContent = d + " (" + entries.length + ")";
+    det.appendChild(sum);
+    for (const tid of entries) {
+      const row = document.createElement("div");
+      row.className = "tactic-row";
+      const shortName = tid.split(".").slice(1).join(".");
+      row.dataset.tid = tid;
+      row.innerHTML = '<span>' + escHtml(shortName) + '</span>'
+        + '<span class="tactic-count">' + (cov[tid] || 0) + '</span>';
+      row.onclick = () => {
+        if (FILTER.has(tid)) FILTER.delete(tid);
+        else FILTER.add(tid);
+        row.classList.toggle("active", FILTER.has(tid));
+        render();
+      };
+      det.appendChild(row);
+    }
+    group.appendChild(det);
+    root.appendChild(group);
+  }
+}
+
+function renderCoverage() {
+  const cov = CATALOG.corpus_stats.tactic_coverage_matrix;
+  const total = CATALOG.corpus_stats.total_fragments || 1;
+  const root = document.getElementById("coverage-bars");
+  const entries = Object.entries(cov).sort((a,b) => b[1] - a[1]);
+  const max = entries.length ? entries[0][1] : 1;
+  root.innerHTML = "";
+  for (const [tid, n] of entries) {
+    const pct = Math.max(1, Math.round((n / max) * 100));
+    const el = document.createElement("div");
+    el.className = "cov-bar";
+    el.innerHTML = '<span class="label" title="' + escHtml(tid) + '">' + escHtml(tid) + '</span>'
+      + '<span class="num">' + n + '</span>'
+      + '<span class="fill" style="width:' + pct + 'px;"></span>';
+    root.appendChild(el);
+  }
+}
+
+function collectMatchingFragments() {
+  // Walk every fragment, filter by FILTER set.
+  const dims = CATALOG.dimension_order;
+  const nameTable = CATALOG.tactic_name_table;
+  const out = [];
+  for (const [slug, h] of Object.entries(CATALOG.hymns)) {
+    for (const f of (h.fragments || [])) {
+      if (FILTER.size) {
+        const tactics = new Set();
+        for (let i = 0; i < dims.length; i++) {
+          const n = nameTable[f.dt[i] || 0];
+          if (n) tactics.add(dims[i] + "." + n);
+        }
+        let ok = true;
+        for (const needed of FILTER) {
+          if (!tactics.has(needed)) { ok = false; break; }
+        }
+        if (!ok) continue;
+      }
+      const score = scoreForVariation(slug, f.vi);
+      out.push({slug, hymn: h, frag: f, score});
+    }
+  }
+  return out;
+}
+
+function renderRow(hit) {
+  const dims = CATALOG.dimension_order;
+  const nameTable = CATALOG.tactic_name_table;
+  const {slug, hymn, frag, score} = hit;
+  const row = document.createElement("div");
+  row.className = "frag-row";
+  const barsTxt = frag.b ? (frag.b[0] === frag.b[1] ? "bar " + frag.b[0]
+    : "bars " + frag.b[0] + "–" + frag.b[1]) : "";
+  row.innerHTML =
+    '<a class="frag-hymn" href="variations.html?slug=' + encodeURIComponent(slug) + '">'
+      + escHtml((hymn.hymn_number ? hymn.hymn_number + "  " : "") + (hymn.title || slug)) + '</a>'
+    + '<span class="frag-phrase">v' + String(frag.vi).padStart(2,"0")
+      + '&nbsp;·&nbsp;' + phraseLetter(frag.pi) + '</span>'
+    + '<span class="frag-bars">' + barsTxt + '</span>'
+    + '<span class="frag-score">' + (score != null ? score.toFixed(3) : "—") + '</span>';
+  const tagsBox = document.createElement("span");
+  tagsBox.className = "frag-tags";
+  for (let i = 0; i < dims.length; i++) {
+    const n = nameTable[frag.dt[i] || 0];
+    if (!n) continue;
+    const tid = dims[i] + "." + n;
+    const t = document.createElement("span");
+    t.className = "tag" + (FILTER.has(tid) ? " active" : "");
+    t.textContent = n;
+    t.title = tid;
+    tagsBox.appendChild(t);
+  }
+  row.appendChild(tagsBox);
+  const actions = document.createElement("span");
+  actions.className = "frag-actions";
+  actions.innerHTML =
+    '<a href="' + PATH_FRAG(slug, frag.vi, frag.pi, "mid") + '" download>MIDI</a>'
+    + '<a href="' + PATH_FRAG(slug, frag.vi, frag.pi, "ly") + '" download>.ly</a>';
+  row.appendChild(actions);
+  return row;
+}
+
+function render() {
+  const root = document.getElementById("result-root");
+  root.innerHTML = "";
+  const hits = collectMatchingFragments();
+  const mode = document.getElementById("sort").value;
+  if (mode === "score_asc")
+    hits.sort((a,b) => (a.score || 0) - (b.score || 0));
+  else if (mode === "hymn")
+    hits.sort((a,b) => (a.hymn.title || a.slug).localeCompare(b.hymn.title || b.slug));
+  else
+    hits.sort((a,b) => (b.score || 0) - (a.score || 0));
+  const pageSize = parseInt(document.getElementById("page-size").value, 10) || 200;
+  const slice = hits.slice(0, pageSize);
+  document.getElementById("result-count").textContent =
+    hits.length + " matching · showing " + slice.length;
+  if (!hits.length) {
+    document.getElementById("empty-msg").style.display = "block";
+    return;
+  }
+  document.getElementById("empty-msg").style.display = "none";
+  const frag = document.createDocumentFragment();
+  for (const hit of slice) frag.appendChild(renderRow(hit));
+  root.appendChild(frag);
+}
+
+document.getElementById("sort").onchange = render;
+document.getElementById("page-size").onchange = render;
+document.getElementById("reset").onclick = () => {
+  FILTER.clear();
+  document.querySelectorAll(".tactic-row.active").forEach(r => r.classList.remove("active"));
+  render();
+};
+
+fetch(CATALOG_URL).then(r => r.json()).then(cat => {
+  CATALOG = cat;
+  const s = cat.corpus_stats;
+  document.getElementById("corpus-meta").textContent =
+    s.total_fragments + " fragments · " + s.total_variations + " variations · "
+    + s.total_hymns + " hymns";
+  renderSidebar();
+  renderCoverage();
+  render();
+}).catch(err => {
+  document.getElementById("result-root").innerHTML =
+    '<div id="empty-msg">Could not load catalog: ' + escHtml(String(err)) + '</div>';
+});
+</script>
+</body>
+</html>

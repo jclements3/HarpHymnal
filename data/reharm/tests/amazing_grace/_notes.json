@@ -1,0 +1,21 @@
+{
+  "hymn": "amazing_grace",
+  "ambiguities": [
+    {
+      "tactic": "connect_from.step",
+      "note": "connect_from.step: rendered as released (single-bar isolation can't convey shape-shift interval)"
+    },
+    {
+      "tactic": "connect_from.third",
+      "note": "connect_from.third: rendered as released (single-bar isolation can't convey shape-shift interval)"
+    },
+    {
+      "tactic": "connect_from.larger",
+      "note": "connect_from.larger: rendered as released (single-bar isolation can't convey shape-shift interval)"
+    },
+    {
+      "tactic": "lever.prepare_next",
+      "note": "lever.prepare_next: a single-bar demo can only hint; listen for the F-natural leaking in over the I chord"
+    }
+  ]
+}

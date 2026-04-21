@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>Shape-Chord Table — HarpHymnal Jazz</title>
+<style>
+    :root {
+      --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0;
+      --panel:#ffffff; --banner:#1F4E79;
+      --lhcol:#7B2B2B; --rhcol:#1F4E79;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { background: var(--bg); color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.5; }
+    #topbar { padding: 16px 24px; background: var(--banner); color: #fff;
+      display: flex; align-items: center; gap: 16px; }
+    #topbar a { color: #fff; text-decoration: none; font-size: 15px; }
+    #topbar h1 { font-size: 22px; flex: 1; }
+    main { padding: 24px; max-width: 1400px; margin: 0 auto; }
+    main h1, main h2, main h3 { color: var(--banner); margin: 20px 0 10px; }
+    main h1 { font-size: 28px; }
+    main h2 { font-size: 22px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+    main h3 { font-size: 18px; }
+    main p, main ul, main ol { margin-bottom: 12px; max-width: 900px; }
+    main ul, main ol { padding-left: 24px; }
+    main code { font-family: "Courier New", monospace; background: var(--line);
+      padding: 1px 5px; border-radius: 3px; font-size: 90%; }
+    main pre { background: var(--panel); border: 1px solid var(--line);
+      border-radius: 6px; padding: 12px 16px; overflow-x: auto;
+      font-family: "Courier New", monospace; font-size: 13px; margin-bottom: 14px; }
+    main table { border-collapse: collapse; margin-bottom: 16px; background: var(--panel);
+      font-size: 14px; }
+    main th, main td { padding: 6px 12px; border: 1px solid var(--line); text-align: left; }
+    main th { background: var(--banner); color: #fff; }
+    .lh { color: var(--lhcol); }
+    .rh { color: var(--rhcol); }
+    
+  main table { font-size: 13px; font-family: "Courier New", monospace; }
+  main td { text-align: center; }
+  main tr:nth-child(odd) td { background: #fafafa; }
+</style></head><body>
+
+<div id="topbar">
+  <a href="index.html">← Home</a>
+  <h1>Shape-Chord Table</h1>
+  <span style="font-size:13px; opacity:.8">39 hand shapes × 7 modes · key of C</span>
+</div>
+<main>
+<h2>39 hand shapes × 7 modes = 273 chord cells</h2>
+<p>Every combination of interval pattern (rows) and starting scale degree (columns) produces a unique chord.
+Concrete note names shown; see <a href="recipe.html">Recipe</a> for the algorithm.</p>
+<table>
+<tr><th>pattern</th><th>Ionian (1)</th><th>Dorian (2)</th><th>Phrygian (3)</th><th>Lydian (4)</th><th>Mixolydian (5)</th><th>Aeolian (6)</th><th>Locrian (7)</th></tr>
+<tr><td><strong>2</strong></td><td>Cs2₅</td><td>Dms2₅</td><td>Ems2₅</td><td>Fs2₅</td><td>Gs2₅</td><td>Ams2₅</td><td>B°s2₅</td></tr>
+<tr><td><strong>3</strong></td><td>C₅</td><td>Dm₅</td><td>Em₅</td><td>F₅</td><td>G₅</td><td>Am₅</td><td>B°₅</td></tr>
+<tr><td><strong>4</strong></td><td>Cs4₅</td><td>Dms4₅</td><td>Ems4₅</td><td>Fs4₅</td><td>Gs4₅</td><td>Ams4₅</td><td>B°s4₅</td></tr>
+<tr><td><strong>22</strong></td><td>C2₅</td><td>Dm2₅</td><td>Em2₅</td><td>F2₅</td><td>G2₅</td><td>Am2₅</td><td>B°2₅</td></tr>
+<tr><td><strong>23</strong></td><td>Cs24₅</td><td>Dms24₅</td><td>Ems24₅</td><td>Fs24₅</td><td>Gs24₅</td><td>Ams24₅</td><td>B°s24₅</td></tr>
+<tr><td><strong>24</strong></td><td>Cs2</td><td>Dms2</td><td>Ems2</td><td>Fs2</td><td>Gs2</td><td>Ams2</td><td>B°s2</td></tr>
+<tr><td><strong>32</strong></td><td>C4₅</td><td>Dm4₅</td><td>Em4₅</td><td>F4₅</td><td>G4₅</td><td>Am4₅</td><td>B°4₅</td></tr>
+<tr><td><strong>33</strong></td><td>C</td><td>Dm</td><td>Em</td><td>F</td><td>G</td><td>Am</td><td>B°</td></tr>
+<tr><td><strong>34</strong></td><td>C6₅</td><td>Dm6₅</td><td>Em6₅</td><td>F6₅</td><td>G6₅</td><td>Am6₅</td><td>B°6₅</td></tr>
+<tr><td><strong>42</strong></td><td>Cs4</td><td>Dms4</td><td>Ems4</td><td>Fs4</td><td>Gs4</td><td>Ams4</td><td>B°s4</td></tr>
+<tr><td><strong>43</strong></td><td>Cs46₅</td><td>Dms46₅</td><td>Ems46₅</td><td>Fs46₅</td><td>Gs46₅</td><td>Ams46₅</td><td>B°s46₅</td></tr>
+<tr><td><strong>44</strong></td><td>Cq</td><td>Dmq</td><td>Emq</td><td>Fq</td><td>Gq</td><td>Amq</td><td>B°q</td></tr>
+<tr><td><strong>222</strong></td><td>C24₅</td><td>Dm24₅</td><td>Em24₅</td><td>F24₅</td><td>G24₅</td><td>Am24₅</td><td>B°24₅</td></tr>
+<tr><td><strong>223</strong></td><td>C2</td><td>Dm2</td><td>Em2</td><td>F2</td><td>G2</td><td>Am2</td><td>B°2</td></tr>
+<tr><td><strong>224</strong></td><td>C26₅</td><td>Dm26₅</td><td>Em26₅</td><td>F26₅</td><td>G26₅</td><td>Am26₅</td><td>B°26₅</td></tr>
+<tr><td><strong>232</strong></td><td>Cs24</td><td>Dms24</td><td>Ems24</td><td>Fs24</td><td>Gs24</td><td>Ams24</td><td>B°s24</td></tr>
+<tr><td><strong>233</strong></td><td>Cs246₅</td><td>Dms246₅</td><td>Ems246₅</td><td>Fs246₅</td><td>Gs246₅</td><td>Ams246₅</td><td>B°s246₅</td></tr>
+<tr><td><strong>234</strong></td><td>Cs247₅</td><td>Dms247₅</td><td>Ems247₅</td><td>Fs247₅</td><td>Gs247₅</td><td>Ams247₅</td><td>B°s247₅</td></tr>
+<tr><td><strong>242</strong></td><td>Cs26</td><td>Dms26</td><td>Ems26</td><td>Fs26</td><td>Gs26</td><td>Ams26</td><td>B°s26</td></tr>
+<tr><td><strong>243</strong></td><td>Cs27</td><td>Dms27</td><td>Ems27</td><td>Fs27</td><td>Gs27</td><td>Ams27</td><td>B°s27</td></tr>
+<tr><td><strong>244</strong></td><td>Cs28</td><td>Dms28</td><td>Ems28</td><td>Fs28</td><td>Gs28</td><td>Ams28</td><td>B°s28</td></tr>
+<tr><td><strong>322</strong></td><td>C4</td><td>Dm4</td><td>Em4</td><td>F4</td><td>G4</td><td>Am4</td><td>B°4</td></tr>
+<tr><td><strong>323</strong></td><td>C46₅</td><td>Dm46₅</td><td>Em46₅</td><td>F46₅</td><td>G46₅</td><td>Am46₅</td><td>B°46₅</td></tr>
+<tr><td><strong>324</strong></td><td>C47₅</td><td>Dm47₅</td><td>Em47₅</td><td>F47₅</td><td>G47₅</td><td>Am47₅</td><td>B°47₅</td></tr>
+<tr><td><strong>332</strong></td><td>C6</td><td>Dm6</td><td>Em6</td><td>F6</td><td>G6</td><td>Am6</td><td>B°6</td></tr>
+<tr><td><strong>333</strong></td><td>C7</td><td>Dm7</td><td>Em7</td><td>F7</td><td>G7</td><td>Am7</td><td>Bø7</td></tr>
+<tr><td><strong>334</strong></td><td>C8</td><td>Dm8</td><td>Em8</td><td>F8</td><td>G8</td><td>Am8</td><td>B°8</td></tr>
+<tr><td><strong>342</strong></td><td>C67₅</td><td>Dm67₅</td><td>Em67₅</td><td>F67₅</td><td>G67₅</td><td>Am67₅</td><td>B°67₅</td></tr>
+<tr><td><strong>343</strong></td><td>C68₅</td><td>Dm68₅</td><td>Em68₅</td><td>F68₅</td><td>G68₅</td><td>Am68₅</td><td>B°68₅</td></tr>
+<tr><td><strong>344</strong></td><td>C69₅</td><td>Dm69₅</td><td>Em69₅</td><td>F69₅</td><td>G69₅</td><td>Am69₅</td><td>B°69₅</td></tr>
+<tr><td><strong>422</strong></td><td>Cs46</td><td>Dms46</td><td>Ems46</td><td>Fs46</td><td>Gs46</td><td>Ams46</td><td>B°s46</td></tr>
+<tr><td><strong>423</strong></td><td>Cs47</td><td>Dms47</td><td>Ems47</td><td>Fs47</td><td>Gs47</td><td>Ams47</td><td>B°s47</td></tr>
+<tr><td><strong>424</strong></td><td>Cs48</td><td>Dms48</td><td>Ems48</td><td>Fs48</td><td>Gs48</td><td>Ams48</td><td>B°s48</td></tr>
+<tr><td><strong>432</strong></td><td>Cs467₅</td><td>Dms467₅</td><td>Ems467₅</td><td>Fs467₅</td><td>Gs467₅</td><td>Ams467₅</td><td>B°s467₅</td></tr>
+<tr><td><strong>433</strong></td><td>Cs468₅</td><td>Dms468₅</td><td>Ems468₅</td><td>Fs468₅</td><td>Gs468₅</td><td>Ams468₅</td><td>B°s468₅</td></tr>
+<tr><td><strong>434</strong></td><td>Cs469₅</td><td>Dms469₅</td><td>Ems469₅</td><td>Fs469₅</td><td>Gs469₅</td><td>Ams469₅</td><td>B°s469₅</td></tr>
+<tr><td><strong>442</strong></td><td>Cs478₅</td><td>Dms478₅</td><td>Ems478₅</td><td>Fs478₅</td><td>Gs478₅</td><td>Ams478₅</td><td>B°s478₅</td></tr>
+<tr><td><strong>443</strong></td><td>Cs479₅</td><td>Dms479₅</td><td>Ems479₅</td><td>Fs479₅</td><td>Gs479₅</td><td>Ams479₅</td><td>B°s479₅</td></tr>
+<tr><td><strong>444</strong></td><td>Cq7</td><td>Dmq7</td><td>Emq7</td><td>Fq7</td><td>Gq7</td><td>Amq7</td><td>B°q7</td></tr>
+</table>
+</main></body></html>

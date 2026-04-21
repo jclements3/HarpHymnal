@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>HarpHymnal — Jazz Reharmonization</title>
+<style>
+  :root {
+    --bg:        #f7f3ea;
+    --ink:       #2a2a2a;
+    --muted:     #888;
+    --line:      #d8d0c0;
+    --panel:     #ffffff;
+    --panel-alt: #f0ece0;
+    --lhcol:     #7B2B2B;
+    --rhcol:     #1F4E79;
+    --jazz:      #8B5A2B;
+    --hymn:      #2C3E50;
+    --tap:       rgba(37, 99, 235, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%; width: 100%;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  #app {
+    display: flex; flex-direction: column;
+    width: 100%; min-height: 100%;
+  }
+
+  /* ──────── Home screen ──────── */
+  #home {
+    display: flex; flex-direction: column; min-height: 100%;
+    padding: 20px;
+  }
+  #home-title {
+    font-size: 28px; font-weight: bold;
+    padding-bottom: 14px; margin-bottom: 14px;
+    border-bottom: 2px solid var(--line);
+    color: var(--ink);
+  }
+  #home-title small {
+    font-size: 15px; font-weight: normal; color: var(--muted);
+    margin-left: 12px;
+  }
+  #tile-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px; padding: 4px; align-content: start;
+  }
+  .tile {
+    padding: 20px 18px;
+    border-radius: 12px;
+    background: var(--panel);
+    border: 2px solid var(--line);
+    cursor: pointer;
+    min-height: 120px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    text-decoration: none; color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .tile:hover, .tile:active { background: var(--tap); }
+  .tile-name {
+    font-size: 22px; font-weight: bold; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .tile-rule {
+    font-size: 13px; color: var(--muted);
+    font-style: italic; line-height: 1.3;
+  }
+  .tile-meta {
+    font-size: 13px; color: var(--muted); margin-top: 10px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .tile-count {
+    font-size: 13px; font-weight: bold;
+    padding: 3px 10px; border-radius: 12px;
+    background: var(--panel-alt); color: var(--ink);
+  }
+  .tile-banner {
+    height: 6px; border-radius: 3px 3px 0 0;
+    margin: -20px -18px 16px -18px;
+  }
+  .tile.hymns    .tile-banner { background: var(--hymn); }
+  .tile.hymns    { border-color: var(--hymn); }
+  .tile.jazz     .tile-banner { background: var(--jazz); }
+  .tile.jazz     { border-color: var(--jazz); }
+  .tile.legend   .tile-banner { background: var(--lhcol); }
+  .tile.legend   { border-color: var(--lhcol); }
+  .tile.handout  .tile-banner { background: var(--rhcol); }
+  .tile.handout  { border-color: var(--rhcol); }
+  .tile.sub      .tile-banner { background: #C0605A; }
+  .tile.sub      { border-color: #C0605A; }
+  .tile.app      .tile-banner { background: #4080A0; }
+  .tile.app      { border-color: #4080A0; }
+  .tile.voi      .tile-banner { background: #50A050; }
+  .tile.voi      { border-color: #50A050; }
+  .tile.pla      .tile-banner { background: #7B4A9E; }
+  .tile.pla      { border-color: #7B4A9E; }
+  .tile.tac      .tile-banner { background: #B58900; }
+  .tile.tac      { border-color: #B58900; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="home">
+    <div id="home-title">
+      HarpHymnal — Jazz
+      <small>reharmonized hymnal · key of C · pretty fractions</small>
+    </div>
+    <div id="tile-grid">
+
+      <a href="hymns.html" class="tile hymns">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Hymns</div>
+          <div class="tile-rule">original SATB hymns, native keys</div>
+        </div>
+        <div class="tile-meta">
+          <span>4-voice hymnal</span>
+          <span class="tile-count">279</span>
+        </div>
+      </a>
+
+      <a href="jazz.html" class="tile jazz">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Jazz</div>
+          <div class="tile-rule">47-string pedal-harp reharmonizations · 40 variations per hymn</div>
+        </div>
+        <div class="tile-meta">
+          <span>native keys · modal minor</span>
+          <span class="tile-count">279</span>
+        </div>
+      </a>
+
+      <a href="comparison.html" class="tile legend">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Comparison</div>
+          <div class="tile-rule">SATB vs Jazz, bar-by-bar side-by-side</div>
+        </div>
+        <div class="tile-meta">
+          <span>before/after</span>
+          <span class="tile-count">↔</span>
+        </div>
+      </a>
+
+      <a href="fractions.html" class="tile handout">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Fractions</div>
+          <div class="tile-rule">183 pretty voicings, bass + top + middle</div>
+        </div>
+        <div class="tile-meta">
+          <span>voicing library</span>
+          <span class="tile-count">183</span>
+        </div>
+      </a>
+
+      <a href="shape-chord.html" class="tile handout">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Shape-Chord Table</div>
+          <div class="tile-rule">39 hand shapes × 7 modes</div>
+        </div>
+        <div class="tile-meta">
+          <span>handout page 1</span>
+          <span class="tile-count">273</span>
+        </div>
+      </a>
+
+      <a href="recipe.html" class="tile legend">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Recipe</div>
+          <div class="tile-rule">pretty-fraction algorithm &amp; scoring</div>
+        </div>
+        <div class="tile-meta">
+          <span>docs</span>
+          <span class="tile-count">↗</span>
+        </div>
+      </a>
+
+      <a href="drills.html" class="tile jazz">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Drills</div>
+          <div class="tile-rule">108 cycle walks · chord name over pretty fraction</div>
+        </div>
+        <div class="tile-meta">
+          <span>practice tables</span>
+          <span class="tile-count">108</span>
+        </div>
+      </a>
+
+      <a href="substitution.html" class="tile sub">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Substitution</div>
+          <div class="tile-rule">third sub · quality sub · deceptive · common-tone pivot · modal reframing</div>
+        </div>
+        <div class="tile-meta">
+          <span>re-root the chord</span>
+          <span class="tile-count">5</span>
+        </div>
+      </a>
+
+      <a href="approach.html" class="tile app">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Approach</div>
+          <div class="tile-rule">step · third · dominant · suspension · double</div>
+        </div>
+        <div class="tile-meta">
+          <span>lead into the target</span>
+          <span class="tile-count">5</span>
+        </div>
+      </a>
+
+      <a href="voicing.html" class="tile voi">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Voicing</div>
+          <div class="tile-rule">inversion · density · stacking · pedal · voice leading · open/closed</div>
+        </div>
+        <div class="tile-meta">
+          <span>reshape the voicing</span>
+          <span class="tile-count">6</span>
+        </div>
+      </a>
+
+      <a href="placement.html" class="tile pla">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Placement</div>
+          <div class="tile-rule">anticipation · delay</div>
+        </div>
+        <div class="tile-meta">
+          <span>rhythmic shift</span>
+          <span class="tile-count">2</span>
+        </div>
+      </a>
+
+      <a href="reharm_home.html" class="tile tac">
+        <div class="tile-banner"></div>
+        <div>
+          <div class="tile-name">Reharm Tactics</div>
+          <div class="tile-rule">practice-week exploration assistant · variations &amp; fragments</div>
+        </div>
+        <div class="tile-meta">
+          <span>11160 variations · 57280 fragments</span>
+          <span class="tile-count">&gt;</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

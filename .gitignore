@@ -31,3 +31,47 @@ data/scores/
 
 # Generated audio artifacts (rebuilt on demand via cli.audio_build)
 data/audio/
+
+# Reharm-tactics bulk generated artifacts (all rebuildable from scripts)
+#   - 11,160 variation JSONs   : python -m trefoil.reharm.selector --all
+#   - 11,160 .mid + .ly        : python -m cli.reharm_render --all
+#   - 57,280 fragments         : python -m cli.reharm_cut --all
+#   - 80 per-tactic MIDI demos : python -m cli.reharm_solo
+#   - corpus catalog + shape library : their own generators
+data/reharm/variations/
+data/reharm/renders/
+data/reharm/fragments/
+data/reharm/catalog.json
+data/reharm/shape_library.json
+data/reharm/tests/*/*.mid
+
+# Generated SATB SVG + per-hymn jazz JSON + drill cards
+data/abc_svg/
+data/jazz/
+data/jazz_drills/
+
+# Generated web pages (rebuilt by their generators)
+jazz/compare/
+jazz/drills/
+jazz/variations.*.html
+jazz/_test_midi.html
+
+# Node (abc2svg) — managed by package-lock.json
+node_modules/
+
+# Claude/web-transport archives
+reharm_theory.tmd
+harphymnal.txt
+
+# Emacs auto-saves
+\#*\#
+
+# Screenshots (ad-hoc, not source)
+Screenshot*.png
+drill1*.png
+
+# Ad-hoc DRILLS exports (DRILLS.md is the source)
+DRILLS.html
+DRILLS.pdf
+DRILLS.tex
+DRILLS_tmp.html

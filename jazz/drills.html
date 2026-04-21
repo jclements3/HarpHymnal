@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Drills — HarpHymnal Jazz</title>
+<style>
+  :root { --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0; --panel:#ffffff; --jazz:#8B5A2B; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.5; }
+  #topbar { padding: 16px 24px; background: var(--jazz); color: #fff;
+    display: flex; align-items: center; gap: 16px; }
+  #topbar a { color: #fff; text-decoration: none; font-size: 15px; }
+  #topbar h1 { font-size: 22px; flex: 1; }
+  .fam-nav { padding: 10px 24px; background: var(--panel); border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; font-size: 15px; z-index: 10; }
+  .fam-nav a { color: var(--jazz); text-decoration: none; font-weight: bold;
+    padding: 3px 10px; border-radius: 4px; display: inline-block; }
+  .fam-nav a:hover { background: var(--line); }
+  main { padding: 20px 24px 60px; max-width: 1000px; margin: 0 auto; }
+  main > h2 { color: var(--jazz); margin-bottom: 8px; }
+  main > p.intro { color: var(--muted); margin-bottom: 20px; }
+
+  details.superfam { margin-bottom: 14px; border: 2px solid; border-radius: 8px;
+    background: var(--panel); overflow: hidden; }
+  details.superfam > summary { padding: 12px 18px; font-size: 18px; font-weight: bold;
+    color: #fff; cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; align-items: baseline; }
+  details.superfam > summary::-webkit-details-marker { display: none; }
+  details.superfam > summary::after { content: '▸'; transition: transform 0.15s; font-size: 14px; }
+  details.superfam[open] > summary::after { transform: rotate(90deg); }
+  .sf-count { font-size: 13px; font-weight: normal; opacity: .85; }
+  .sf-body { padding: 14px 18px; }
+
+  .subfam { margin-bottom: 14px; }
+  .subfam-title { font-size: 15px; font-weight: bold; color: var(--ink); margin-bottom: 6px; }
+  .drill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .drill-list a { text-decoration: none; color: var(--ink);
+    padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px;
+    background: #fafaf6; font-family: "Courier New", monospace; font-size: 13px; }
+  .drill-list a:hover { background: var(--line); }
+</style></head><body>
+<div id="topbar">
+  <a href="index.html">← Home</a>
+  <h1>Drills</h1>
+  <span style="font-size:13px; opacity:.85">chord pool walks · new jazz pool</span>
+</div>
+<div class="fam-nav"><a href="#sf-approach">Approach</a> · <a href="#sf-placement">Placement</a> · <a href="#sf-substitution">Substitution</a> · <a href="#sf-voicing">Voicing</a></div>
+<main>
+<h2>Jazz Drills</h2>
+<p class="intro">108 cycle-walk drills across 4 technique families. Click a drill to open its step-by-step walk.</p>
+<details class="superfam" id="sf-approach" style="border-color:#4080A0">
+  <summary style="background:#4080A0">Approach <span class="sf-count">(30 drills)</span></summary>
+  <div class="sf-body">
+<div class="subfam">
+  <div class="subfam-title">Dominant approach</div>
+  <div class="drill-list"><a href="drills/dominant_approach_2nds_ccw.html">2nds CCW</a><a href="drills/dominant_approach_2nds_cw.html">2nds CW</a><a href="drills/dominant_approach_3rds_ccw.html">3rds CCW</a><a href="drills/dominant_approach_3rds_cw.html">3rds CW</a><a href="drills/dominant_approach_4ths_ccw.html">4ths CCW</a><a href="drills/dominant_approach_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Double approach</div>
+  <div class="drill-list"><a href="drills/double_approach_2nds_ccw.html">2nds CCW</a><a href="drills/double_approach_2nds_cw.html">2nds CW</a><a href="drills/double_approach_3rds_ccw.html">3rds CCW</a><a href="drills/double_approach_3rds_cw.html">3rds CW</a><a href="drills/double_approach_4ths_ccw.html">4ths CCW</a><a href="drills/double_approach_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Step approach</div>
+  <div class="drill-list"><a href="drills/step_approach_2nds_ccw.html">2nds CCW</a><a href="drills/step_approach_2nds_cw.html">2nds CW</a><a href="drills/step_approach_3rds_ccw.html">3rds CCW</a><a href="drills/step_approach_3rds_cw.html">3rds CW</a><a href="drills/step_approach_4ths_ccw.html">4ths CCW</a><a href="drills/step_approach_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Suspension approach</div>
+  <div class="drill-list"><a href="drills/suspension_approach_2nds_ccw.html">2nds CCW</a><a href="drills/suspension_approach_2nds_cw.html">2nds CW</a><a href="drills/suspension_approach_3rds_ccw.html">3rds CCW</a><a href="drills/suspension_approach_3rds_cw.html">3rds CW</a><a href="drills/suspension_approach_4ths_ccw.html">4ths CCW</a><a href="drills/suspension_approach_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Third approach</div>
+  <div class="drill-list"><a href="drills/third_approach_2nds_ccw.html">2nds CCW</a><a href="drills/third_approach_2nds_cw.html">2nds CW</a><a href="drills/third_approach_3rds_ccw.html">3rds CCW</a><a href="drills/third_approach_3rds_cw.html">3rds CW</a><a href="drills/third_approach_4ths_ccw.html">4ths CCW</a><a href="drills/third_approach_4ths_cw.html">4ths CW</a></div>
+</div>
+  </div>
+</details>
+<details class="superfam" id="sf-placement" style="border-color:#7B4A9E">
+  <summary style="background:#7B4A9E">Placement <span class="sf-count">(12 drills)</span></summary>
+  <div class="sf-body">
+<div class="subfam">
+  <div class="subfam-title">Anticipation</div>
+  <div class="drill-list"><a href="drills/anticipation_2nds_ccw.html">2nds CCW</a><a href="drills/anticipation_2nds_cw.html">2nds CW</a><a href="drills/anticipation_3rds_ccw.html">3rds CCW</a><a href="drills/anticipation_3rds_cw.html">3rds CW</a><a href="drills/anticipation_4ths_ccw.html">4ths CCW</a><a href="drills/anticipation_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Delay</div>
+  <div class="drill-list"><a href="drills/delay_2nds_ccw.html">2nds CCW</a><a href="drills/delay_2nds_cw.html">2nds CW</a><a href="drills/delay_3rds_ccw.html">3rds CCW</a><a href="drills/delay_3rds_cw.html">3rds CW</a><a href="drills/delay_4ths_ccw.html">4ths CCW</a><a href="drills/delay_4ths_cw.html">4ths CW</a></div>
+</div>
+  </div>
+</details>
+<details class="superfam" id="sf-substitution" style="border-color:#C0605A">
+  <summary style="background:#C0605A">Substitution <span class="sf-count">(30 drills)</span></summary>
+  <div class="sf-body">
+<div class="subfam">
+  <div class="subfam-title">Common tone pivot</div>
+  <div class="drill-list"><a href="drills/common_tone_pivot_2nds_ccw.html">2nds CCW</a><a href="drills/common_tone_pivot_2nds_cw.html">2nds CW</a><a href="drills/common_tone_pivot_3rds_ccw.html">3rds CCW</a><a href="drills/common_tone_pivot_3rds_cw.html">3rds CW</a><a href="drills/common_tone_pivot_4ths_ccw.html">4ths CCW</a><a href="drills/common_tone_pivot_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Deceptive sub</div>
+  <div class="drill-list"><a href="drills/deceptive_sub_2nds_ccw.html">2nds CCW</a><a href="drills/deceptive_sub_2nds_cw.html">2nds CW</a><a href="drills/deceptive_sub_3rds_ccw.html">3rds CCW</a><a href="drills/deceptive_sub_3rds_cw.html">3rds CW</a><a href="drills/deceptive_sub_4ths_ccw.html">4ths CCW</a><a href="drills/deceptive_sub_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Modal reframing</div>
+  <div class="drill-list"><a href="drills/modal_reframing_2nds_ccw.html">2nds CCW</a><a href="drills/modal_reframing_2nds_cw.html">2nds CW</a><a href="drills/modal_reframing_3rds_ccw.html">3rds CCW</a><a href="drills/modal_reframing_3rds_cw.html">3rds CW</a><a href="drills/modal_reframing_4ths_ccw.html">4ths CCW</a><a href="drills/modal_reframing_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Quality sub</div>
+  <div class="drill-list"><a href="drills/quality_sub_2nds_ccw.html">2nds CCW</a><a href="drills/quality_sub_2nds_cw.html">2nds CW</a><a href="drills/quality_sub_3rds_ccw.html">3rds CCW</a><a href="drills/quality_sub_3rds_cw.html">3rds CW</a><a href="drills/quality_sub_4ths_ccw.html">4ths CCW</a><a href="drills/quality_sub_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Third sub</div>
+  <div class="drill-list"><a href="drills/third_sub_2nds_ccw.html">2nds CCW</a><a href="drills/third_sub_2nds_cw.html">2nds CW</a><a href="drills/third_sub_3rds_ccw.html">3rds CCW</a><a href="drills/third_sub_3rds_cw.html">3rds CW</a><a href="drills/third_sub_4ths_ccw.html">4ths CCW</a><a href="drills/third_sub_4ths_cw.html">4ths CW</a></div>
+</div>
+  </div>
+</details>
+<details class="superfam" id="sf-voicing" style="border-color:#50A050">
+  <summary style="background:#50A050">Voicing <span class="sf-count">(36 drills)</span></summary>
+  <div class="sf-body">
+<div class="subfam">
+  <div class="subfam-title">Density</div>
+  <div class="drill-list"><a href="drills/density_2nds_ccw.html">2nds CCW</a><a href="drills/density_2nds_cw.html">2nds CW</a><a href="drills/density_3rds_ccw.html">3rds CCW</a><a href="drills/density_3rds_cw.html">3rds CW</a><a href="drills/density_4ths_ccw.html">4ths CCW</a><a href="drills/density_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Inversion</div>
+  <div class="drill-list"><a href="drills/inversion_2nds_ccw.html">2nds CCW</a><a href="drills/inversion_2nds_cw.html">2nds CW</a><a href="drills/inversion_3rds_ccw.html">3rds CCW</a><a href="drills/inversion_3rds_cw.html">3rds CW</a><a href="drills/inversion_4ths_ccw.html">4ths CCW</a><a href="drills/inversion_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Open closed spread</div>
+  <div class="drill-list"><a href="drills/open_closed_spread_2nds_ccw.html">2nds CCW</a><a href="drills/open_closed_spread_2nds_cw.html">2nds CW</a><a href="drills/open_closed_spread_3rds_ccw.html">3rds CCW</a><a href="drills/open_closed_spread_3rds_cw.html">3rds CW</a><a href="drills/open_closed_spread_4ths_ccw.html">4ths CCW</a><a href="drills/open_closed_spread_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Pedal</div>
+  <div class="drill-list"><a href="drills/pedal_2nds_ccw.html">2nds CCW</a><a href="drills/pedal_2nds_cw.html">2nds CW</a><a href="drills/pedal_3rds_ccw.html">3rds CCW</a><a href="drills/pedal_3rds_cw.html">3rds CW</a><a href="drills/pedal_4ths_ccw.html">4ths CCW</a><a href="drills/pedal_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Stacking</div>
+  <div class="drill-list"><a href="drills/stacking_2nds_ccw.html">2nds CCW</a><a href="drills/stacking_2nds_cw.html">2nds CW</a><a href="drills/stacking_3rds_ccw.html">3rds CCW</a><a href="drills/stacking_3rds_cw.html">3rds CW</a><a href="drills/stacking_4ths_ccw.html">4ths CCW</a><a href="drills/stacking_4ths_cw.html">4ths CW</a></div>
+</div>
+<div class="subfam">
+  <div class="subfam-title">Voice leading</div>
+  <div class="drill-list"><a href="drills/voice_leading_2nds_ccw.html">2nds CCW</a><a href="drills/voice_leading_2nds_cw.html">2nds CW</a><a href="drills/voice_leading_3rds_ccw.html">3rds CCW</a><a href="drills/voice_leading_3rds_cw.html">3rds CW</a><a href="drills/voice_leading_4ths_ccw.html">4ths CCW</a><a href="drills/voice_leading_4ths_cw.html">4ths CW</a></div>
+</div>
+  </div>
+</details>
+</main>
+<script>
+  document.querySelectorAll('.fam-nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.open = true;
+    });
+  });
+</script>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hymn — HarpHymnal</title>
+<style>
+  :root {
+    --bg: #f7f3ea; --ink: #2a2a2a; --muted: #888; --line: #d8d0c0;
+    --panel: #ffffff; --hymn: #2C3E50;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  #topbar { padding: 16px 24px; background: var(--hymn); color: #fff;
+    display: flex; align-items: center; gap: 16px; }
+  #topbar a { color: #fff; text-decoration: none; font-size: 15px; }
+  #topbar h1 { font-size: 20px; flex: 1; }
+  #topbar .sub { font-size: 13px; opacity: .8; }
+  #score-frame {
+    flex: 1; width: 100%; border: 0; display: block;
+    background: #fff; height: calc(100vh - 60px);
+  }
+  #not-found { padding: 40px; color: var(--muted); text-align: center; }
+  #app { display: flex; flex-direction: column; height: 100%; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="topbar">
+    <a href="hymns.html">← Hymns</a>
+    <h1 id="title">Hymn</h1>
+    <span id="sub" class="sub"></span>
+  </div>
+  <iframe id="score-frame" src="about:blank"></iframe>
+</div>
+<script>
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  const titleEl = document.getElementById('title');
+  const subEl = document.getElementById('sub');
+  const frame = document.getElementById('score-frame');
+  if (!slug) {
+    titleEl.textContent = 'No hymn selected';
+    frame.style.display = 'none';
+    return;
+  }
+  // Humanize slug for initial title; will be overridden by doc title if available
+  titleEl.textContent = slug.split('_').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+  subEl.textContent = 'SATB score';
+  // Load the abc2svg-generated HTML
+  frame.src = '../data/abc_svg/' + slug + '.html';
+  frame.onload = function() {
+    try {
+      const doc = frame.contentDocument;
+      if (doc && doc.title) {
+        // abc2svg puts the file name in title; the hymn title is in an H1 or header element inside the SVG content
+        const t = doc.querySelector('text.f0, text.f1');
+        if (t) titleEl.textContent = t.textContent.trim();
+      }
+    } catch(e) {}
+  };
+})();
+</script>
+</body>
+</html>

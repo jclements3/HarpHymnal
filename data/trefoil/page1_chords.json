@@ -2629,5 +2629,12 @@
         }
       ]
     }
-  ]
+  ],
+  "range": {
+    "low": "C,,",
+    "high": "c'",
+    "octaves": 4,
+    "strings_in_C": 29,
+    "comment": "Jazz-hymnal voicing range: C2 to C6 (2 ledger lines below bass clef to 2 above treble). Any realized fraction must fit LH + gap + RH within this span (<=29 strings)."
+  }
 }

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Variations — Reharm Tactics</title>
+<style>
+:root {
+  --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0;
+  --panel:#ffffff; --panel-alt:#f0ece0; --banner:#B58900; --accent:#8F6B00;
+  --tag-bg:#eee8d5; --tap:rgba(181,137,0,0.15); --warn:#C0605A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.5; -webkit-tap-highlight-color:transparent; }
+#topbar { padding:14px 24px; background:var(--banner); color:#fff;
+  display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+#topbar a { color:#fff; text-decoration:none; font-size:15px; }
+#topbar h1 { font-size:22px; }
+#topbar .sub { font-size:13px; opacity:.9; }
+#controls { background:var(--panel); padding:12px 24px;
+  border-bottom:1px solid var(--line); display:flex; gap:16px; flex-wrap:wrap;
+  align-items:center; position:sticky; top:0; z-index:20; }
+#controls label { font-size:13px; color:var(--muted); margin-right:4px; }
+#controls select, #controls input { padding:4px 8px; border:1px solid var(--line);
+  border-radius:4px; background:white; font-size:13px; }
+.filter-group { display:flex; gap:6px; align-items:center; }
+#filter-checklist { display:flex; gap:6px; flex-wrap:wrap; max-height:100px;
+  overflow-y:auto; font-size:12px; color:var(--muted); }
+main { padding:16px 24px 60px; max-width:1200px; margin:0 auto; }
+.variation { background:var(--panel); border:1px solid var(--line);
+  border-radius:8px; margin-bottom:10px; }
+.variation summary { padding:12px 16px; cursor:pointer; list-style:none;
+  display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.variation summary::-webkit-details-marker { display:none; }
+.variation summary::after { content:'▸'; transition:transform 0.15s; font-size:14px;
+  color:var(--accent); }
+.variation[open] summary::after { transform:rotate(90deg); }
+.variation summary:hover { background:var(--panel-alt); }
+.v-head { flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.v-idx { font-family:monospace; font-weight:bold; color:var(--accent);
+  font-size:15px; min-width:40px; }
+.v-score { font-family:monospace; font-size:12px; color:var(--muted); }
+.v-score strong { color:var(--ink); font-size:13px; }
+.v-tags { display:flex; gap:4px; flex-wrap:wrap; }
+.tag { display:inline-block; background:var(--tag-bg); color:var(--accent);
+  padding:1px 6px; border-radius:10px; font-size:11px;
+  font-family:"DejaVu Sans Mono",Consolas,monospace; }
+.tag.dim { background:#e6dfc6; }
+.v-body { padding:12px 16px 16px; border-top:1px solid var(--line);
+  background:var(--panel-alt); }
+.per-bar-table { width:100%; border-collapse:collapse; font-size:12px;
+  margin-bottom:10px; }
+.per-bar-table th, .per-bar-table td { border:1px solid var(--line);
+  padding:4px 6px; text-align:left; }
+.per-bar-table th { background:var(--tag-bg); color:var(--accent); font-weight:600;
+  font-family:"DejaVu Sans Mono",Consolas,monospace; }
+.per-bar-table td { font-family:"DejaVu Sans Mono",Consolas,monospace;
+  font-size:11px; }
+.per-bar-table td.bar-col { font-weight:bold; color:var(--accent);
+  background:var(--panel); }
+.fragments-list { list-style:none; padding-left:0; margin-top:8px; }
+.fragments-list li { padding:8px 10px; background:var(--panel);
+  border:1px solid var(--line); border-radius:4px; margin-bottom:4px;
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap; font-size:12px; }
+.fragments-list .f-label { font-weight:bold; color:var(--accent);
+  font-family:monospace; min-width:60px; }
+.fragments-list .f-bars { font-family:monospace; color:var(--muted);
+  min-width:80px; }
+.fragments-list .f-tags { display:flex; gap:3px; flex-wrap:wrap; flex:1; }
+.fragments-list a { color:var(--accent); text-decoration:none; font-size:11px;
+  padding:2px 8px; border:1px solid var(--line); border-radius:3px;
+  font-family:monospace; background:white; }
+.fragments-list a:hover { background:var(--tag-bg); }
+.score-breakdown { font-family:monospace; font-size:11px; color:var(--muted);
+  margin:4px 0 8px; }
+.score-breakdown strong { color:var(--ink); }
+.harp-player { display:inline-flex; align-items:center; gap:6px;
+  background:var(--panel-alt); border:1px solid var(--line); border-radius:4px;
+  padding:4px 8px; margin:6px 0; font-size:13px; }
+.harp-player button { padding:2px 10px; border:1px solid var(--line);
+  border-radius:3px; background:white; cursor:pointer; font-family:monospace; }
+.harp-player button:hover { background:var(--line); }
+.harp-player button:disabled { opacity:0.5; cursor:wait; }
+.harp-player .hp-label { color:var(--muted); font-size:12px; }
+.harp-player .hp-status { color:var(--accent); font-size:11px; font-family:monospace;
+  margin-left:6px; }
+.frag-player { display:inline-block; margin-top:2px; }
+.v-links { margin-top:8px; display:flex; gap:8px; font-size:12px; }
+.v-links a { color:var(--accent); text-decoration:none; padding:3px 10px;
+  border:1px solid var(--line); border-radius:3px; background:white;
+  font-family:monospace; }
+.v-links a:hover { background:var(--tag-bg); }
+#empty-msg { text-align:center; padding:40px; color:var(--muted); font-style:italic; }
+</style>
+<!-- Strict-GM MIDI playback stack. Uses midi-player-js for MIDI parsing -->
+<!-- and soundfont-player's MusyngKite 'orchestral_harp' preset for tone. -->
+<!-- (Magenta's html-midi-player was doing AI-style instrument splitting  -->
+<!-- on polyphonic MIDI — spraying notes across drums/horns/bells. Using  -->
+<!-- a stricter GM stack keeps every note on Orchestral Harp.)            -->
+<script src="https://cdn.jsdelivr.net/npm/midi-player-js@2.0.16/browser/midiplayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/soundfont-player@0.12.0/dist/soundfont-player.min.js"></script>
+</head>
+<body>
+<div id="topbar">
+  <a href="reharm_home.html">&larr; Reharm</a>
+  <h1 id="hymn-title">…</h1>
+  <span class="sub" id="hymn-meta"></span>
+  <a href="hymns.html" style="margin-left:auto;">All hymns</a>
+</div>
+<div id="controls">
+  <div class="filter-group">
+    <label for="sort">Sort by</label>
+    <select id="sort">
+      <option value="score_desc">Score (high→low)</option>
+      <option value="score_asc">Score (low→high)</option>
+      <option value="idx">Variation index</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label for="sort-dim">… within dimension</label>
+    <select id="sort-dim">
+      <option value="">(none)</option>
+    </select>
+  </div>
+  <div class="filter-group" style="flex:1; min-width:300px;">
+    <label>Filter: contains tactic</label>
+    <div id="filter-checklist">(loading…)</div>
+  </div>
+</div>
+<main>
+  <div id="list-root"></div>
+  <div id="empty-msg" style="display:none;">No variations match your filter.</div>
+</main>
+
+<script>
+const CATALOG_URL = "../data/reharm/catalog.json";
+const RECENT_KEY  = "harphymnal.reharm.recent";
+const RECENT_MAX  = 12;
+
+function qs(k) {
+  return new URLSearchParams(location.search).get(k);
+}
+
+function tagRecent(slug) {
+  try {
+    const raw = localStorage.getItem(RECENT_KEY);
+    const arr = (raw ? JSON.parse(raw) : []).filter(x => x.slug !== slug);
+    arr.unshift({slug, ts: Date.now()});
+    localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0, RECENT_MAX)));
+  } catch (e) {}
+}
+
+function escHtml(s) {
+  return (s || "").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+let CATALOG = null;
+let SLUG = qs("slug") || "amazing_grace";
+let FILTER_SET = new Set();
+
+// --- Shared harp playback (one AudioContext + one orchestral_harp soundfont) ---
+let HARP_AC = null;
+let HARP_INST_PROMISE = null;
+let HARP_ACTIVE_PLAYER = null;
+let HARP_ACTIVE_CTRL = null;  // {statusEl, playBtn} of the currently-playing control
+
+function _harpAC() {
+  if (!HARP_AC) HARP_AC = new (window.AudioContext || window.webkitAudioContext)();
+  return HARP_AC;
+}
+function _loadHarp() {
+  if (!HARP_INST_PROMISE) {
+    HARP_INST_PROMISE = Soundfont.instrument(_harpAC(), "orchestral_harp",
+      {soundfont: "MusyngKite"});
+  }
+  return HARP_INST_PROMISE;
+}
+function _stopActive() {
+  if (HARP_ACTIVE_PLAYER) { try { HARP_ACTIVE_PLAYER.stop(); } catch (e) {} }
+  HARP_ACTIVE_PLAYER = null;
+  if (HARP_ACTIVE_CTRL) {
+    HARP_ACTIVE_CTRL.playBtn.textContent = "▶";
+    HARP_ACTIVE_CTRL.statusEl.textContent = "";
+  }
+  HARP_ACTIVE_CTRL = null;
+}
+function createHarpPlayer(midiUrl, label) {
+  const wrap = document.createElement("span");
+  wrap.className = "harp-player";
+  const playBtn = document.createElement("button");
+  playBtn.textContent = "▶"; playBtn.title = "play " + (label || midiUrl);
+  const stopBtn = document.createElement("button");
+  stopBtn.textContent = "■"; stopBtn.title = "stop";
+  const lbl = document.createElement("span");
+  lbl.className = "hp-label"; lbl.textContent = label || "";
+  const status = document.createElement("span");
+  status.className = "hp-status";
+  wrap.appendChild(playBtn); wrap.appendChild(stopBtn);
+  if (label) wrap.appendChild(lbl);
+  wrap.appendChild(status);
+
+  playBtn.onclick = async () => {
+    _stopActive();
+    playBtn.disabled = true; playBtn.textContent = "⋯"; status.textContent = "loading";
+    try {
+      const ac = _harpAC();
+      if (ac.state === "suspended") await ac.resume();
+      const harp = await _loadHarp();
+      const resp = await fetch(midiUrl);
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      const buf = await resp.arrayBuffer();
+      const player = new MidiPlayer.Player(event => {
+        if (event.name === "Note on" && event.velocity > 0) {
+          harp.play(event.noteName, ac.currentTime,
+            {gain: event.velocity / 127, duration: 2.5});
+        }
+      });
+      player.on("endOfFile", () => {
+        if (HARP_ACTIVE_PLAYER === player) _stopActive();
+      });
+      player.loadArrayBuffer(buf);
+      player.play();
+      HARP_ACTIVE_PLAYER = player;
+      HARP_ACTIVE_CTRL = {statusEl: status, playBtn};
+      playBtn.textContent = "▶"; status.textContent = "playing";
+    } catch (e) {
+      playBtn.textContent = "▶"; status.textContent = "error: " + e.message;
+    } finally {
+      playBtn.disabled = false;
+    }
+  };
+  stopBtn.onclick = _stopActive;
+  return wrap;
+}
+
+function dtToObj(dtArr, dims, table) {
+  const o = {};
+  for (let i = 0; i < dims.length; i++) {
+    const name = table[dtArr[i] || 0] || "";
+    if (name) o[dims[i]] = name;
+  }
+  return o;
+}
+
+function renderHeader(h) {
+  document.getElementById("hymn-title").textContent =
+    (h.hymn_number ? h.hymn_number + "  " : "") + (h.title || SLUG);
+  document.getElementById("hymn-meta").textContent =
+    [h.key, h.meter, h.mode].filter(Boolean).join(" · ");
+  document.title = (h.title || SLUG) + " — Reharm Variations";
+}
+
+function buildTacticFilterList() {
+  const list = document.getElementById("filter-checklist");
+  const nameTable = CATALOG.tactic_name_table;
+  const dims = CATALOG.dimension_order;
+  const hymn = CATALOG.hymns[SLUG];
+  // Collect all tactic ids seen in this hymn's variations/fragments.
+  const seen = new Set();
+  for (const v of hymn.variations) {
+    for (let i = 0; i < dims.length; i++) {
+      const name = nameTable[v.dt[i] || 0];
+      if (name) seen.add(dims[i] + "." + name);
+    }
+  }
+  for (const f of hymn.fragments) {
+    for (let i = 0; i < dims.length; i++) {
+      const name = nameTable[f.dt[i] || 0];
+      if (name) seen.add(dims[i] + "." + name);
+    }
+  }
+  const sorted = Array.from(seen).sort();
+  list.innerHTML = "";
+  for (const tid of sorted) {
+    const id = "f_" + tid.replace(/\./g,"_");
+    const span = document.createElement("span");
+    span.innerHTML =
+      '<input type="checkbox" id="' + id + '" data-tid="' + escHtml(tid) + '"/>'
+      + '<label for="' + id + '" style="cursor:pointer; margin-right:6px;">'
+      + escHtml(tid) + '</label>';
+    span.querySelector("input").onchange = (e) => {
+      const v = e.target.getAttribute("data-tid");
+      if (e.target.checked) FILTER_SET.add(v);
+      else FILTER_SET.delete(v);
+      render();
+    };
+    list.appendChild(span);
+  }
+  // Sort-by-dimension picker
+  const sd = document.getElementById("sort-dim");
+  sd.innerHTML = '<option value="">(none)</option>'
+    + dims.map(d => '<option value="' + d + '">' + d + '</option>').join("");
+}
+
+function variationContainsAllTactics(v, dims, nameTable, set) {
+  if (!set.size) return true;
+  const tactics = new Set();
+  for (let i = 0; i < dims.length; i++) {
+    const n = nameTable[v.dt[i] || 0];
+    if (n) tactics.add(dims[i] + "." + n);
+  }
+  // Also check fragments' tactics — stronger match if tactic appears in any
+  // bar of the variation, not only the top-1 summary.
+  const hymn = CATALOG.hymns[SLUG];
+  const frags = hymn.fragments.filter(f => f.vi === v.idx);
+  for (const f of frags) {
+    for (let i = 0; i < dims.length; i++) {
+      const n = nameTable[f.dt[i] || 0];
+      if (n) tactics.add(dims[i] + "." + n);
+    }
+  }
+  for (const need of set) {
+    if (!tactics.has(need)) return false;
+  }
+  return true;
+}
+
+function sortVariations(list, mode, dimKey) {
+  const dims = CATALOG.dimension_order;
+  const dimIdx = dims.indexOf(dimKey);
+  if (dimIdx >= 0) {
+    return list.slice().sort((a, b) => {
+      const an = CATALOG.tactic_name_table[a.dt[dimIdx] || 0] || "";
+      const bn = CATALOG.tactic_name_table[b.dt[dimIdx] || 0] || "";
+      if (an !== bn) return an.localeCompare(bn);
+      return (b.score || 0) - (a.score || 0);
+    });
+  }
+  if (mode === "idx") return list.slice().sort((a,b) => a.idx - b.idx);
+  if (mode === "score_asc") return list.slice().sort((a,b) => (a.score||0) - (b.score||0));
+  return list.slice().sort((a,b) => (b.score||0) - (a.score||0));
+}
+
+function fragmentPath(slug, vi, pi, ext) {
+  const vstr = vi.toString().padStart(2, "0");
+  return "../data/reharm/fragments/" + slug + "/v" + vstr + "_p" + pi + "." + ext;
+}
+function variationPath(slug, vi, ext) {
+  const vstr = vi.toString().padStart(2, "0");
+  return "../data/reharm/renders/" + slug + "/v" + vstr + "." + ext;
+}
+function variationJsonPath(slug, vi) {
+  const vstr = vi.toString().padStart(2, "0");
+  return "../data/reharm/variations/" + slug + "/v" + vstr + ".json";
+}
+
+function phraseLetter(pi) {
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (pi < 26) return letters[pi];
+  const f = Math.floor(pi / 26), s = pi % 26;
+  return letters[f - 1] + letters[s];
+}
+
+function renderVariation(v, hymn, dims, nameTable) {
+  const slug = SLUG;
+  const wrap = document.createElement("details");
+  wrap.className = "variation";
+
+  // Summary row
+  const summary = document.createElement("summary");
+  const head = document.createElement("div");
+  head.className = "v-head";
+  head.innerHTML = '<span class="v-idx">v' + String(v.idx).padStart(2, "0") + '</span>'
+    + '<span class="v-score"><strong>' + (v.score != null ? v.score.toFixed(3) : "—") + '</strong> score</span>'
+    + '<span class="v-score">' + v.fc + ' frag</span>';
+  const tagBox = document.createElement("span");
+  tagBox.className = "v-tags";
+  for (let i = 0; i < dims.length; i++) {
+    const name = nameTable[v.dt[i] || 0];
+    if (!name) continue;
+    const t = document.createElement("span");
+    t.className = "tag";
+    t.textContent = name;
+    t.title = dims[i] + "." + name;
+    tagBox.appendChild(t);
+  }
+  head.appendChild(tagBox);
+  summary.appendChild(head);
+  wrap.appendChild(summary);
+
+  // Body populated lazily on first expand. Otherwise 40 variations ×
+  // 5-6 fragment players would instantiate 200+ midi-player elements at
+  // page load and they'd all try to decode MIDI + fetch the soundfont
+  // simultaneously.
+  const body = document.createElement("div");
+  body.className = "v-body";
+  wrap.appendChild(body);
+
+  wrap.addEventListener("toggle", () => {
+    if (!wrap.open || wrap.dataset.loaded) return;
+    wrap.dataset.loaded = "1";
+
+    // 1. Full-variation harp player (strict GM).
+    const fullPlayer = createHarpPlayer(variationPath(slug, v.idx, "mid"), "full");
+    body.appendChild(fullPlayer);
+
+    // 2. Per-bar manifest placeholder (loaded below).
+    const bodyPlaceholder = document.createElement("div");
+    bodyPlaceholder.innerHTML = '<div style="color:var(--muted); font-size:12px; padding:8px 0;">'
+      + 'loading per-bar manifest…</div>';
+    body.appendChild(bodyPlaceholder);
+
+    // 3. Fragments header + list.
+    const fragHeading = document.createElement("div");
+    fragHeading.style.fontSize = "13px"; fragHeading.style.fontWeight = "bold";
+    fragHeading.style.color = "var(--accent)"; fragHeading.style.marginTop = "12px";
+    fragHeading.textContent = "Phrase-aligned fragments";
+    body.appendChild(fragHeading);
+    const fragUl = document.createElement("ul");
+    fragUl.className = "fragments-list";
+    const frags = hymn.fragments.filter(f => f.vi === v.idx).sort((a,b) => a.pi - b.pi);
+    for (const f of frags) {
+      const li = document.createElement("li");
+      const letter = phraseLetter(f.pi);
+      const barsTxt = f.b ? (f.b[0] === f.b[1] ? "bar " + f.b[0] : "bars " + f.b[0] + "–" + f.b[1]) : "";
+      const tagsBox = document.createElement("span");
+      tagsBox.className = "f-tags";
+      for (let i = 0; i < dims.length; i++) {
+        const name = nameTable[f.dt[i] || 0];
+        if (!name) continue;
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = name;
+        tag.title = dims[i] + "." + name;
+        tagsBox.appendChild(tag);
+      }
+      li.innerHTML = '<span class="f-label">phrase ' + letter + '</span>'
+        + '<span class="f-bars">' + barsTxt + '</span>';
+      li.appendChild(tagsBox);
+      const actions = document.createElement("span");
+      actions.innerHTML =
+        ' <a href="' + fragmentPath(slug, v.idx, f.pi, "mid") + '" download>MIDI</a>'
+        + ' <a href="' + fragmentPath(slug, v.idx, f.pi, "ly") + '" download>.ly</a>';
+      li.appendChild(actions);
+      const fp = createHarpPlayer(fragmentPath(slug, v.idx, f.pi, "mid"),
+        "phrase " + letter);
+      fp.classList.add("frag-player");
+      li.appendChild(fp);
+      fragUl.appendChild(li);
+    }
+    body.appendChild(fragUl);
+
+    // 4. v-links (full variation MIDI/ly + json + compare).
+    const linksDiv = document.createElement("div");
+    linksDiv.className = "v-links";
+    linksDiv.innerHTML =
+      '<a href="' + variationPath(slug, v.idx, "mid") + '" download>full MIDI</a>'
+      + ' <a href="' + variationPath(slug, v.idx, "ly") + '" download>full .ly</a>'
+      + ' <a href="' + variationJsonPath(slug, v.idx) + '" target="_blank">JSON</a>'
+      + ' <a href="compare/' + slug + '.html#v' + String(v.idx).padStart(2, "0") + '">compare</a>';
+    body.appendChild(linksDiv);
+
+    // 5. Fetch per-bar manifest and render table into the placeholder.
+    const _vkey = "v" + String(v.idx).padStart(2,"0");
+    const _pre = (window._PRELOADED_REHARM && window._PRELOADED_REHARM.variations) || {};
+    const _prom = _pre[_vkey]
+      ? Promise.resolve(_pre[_vkey])
+      : fetch(variationJsonPath(slug, v.idx)).then(r => r.json());
+    _prom.then(vdata => {
+      bodyPlaceholder.innerHTML = "";
+      const sb = document.createElement("div");
+      sb.className = "score-breakdown";
+      sb.innerHTML = '<strong>total_score</strong>: ' + (v.score != null ? v.score.toFixed(4) : "—")
+        + ' &middot; <strong>seed</strong>: ' + (vdata.seed || "—")
+        + ' &middot; <strong>hash</strong>: ' + String(vdata.tactics_hash || "").slice(0, 12);
+      bodyPlaceholder.appendChild(sb);
+
+      const table = document.createElement("table");
+      table.className = "per-bar-table";
+      const thead = document.createElement("thead");
+      let hrow = "<tr><th>bar</th><th>chord</th>";
+      for (const d of dims) hrow += "<th>" + d + "</th>";
+      hrow += "</tr>";
+      thead.innerHTML = hrow;
+      table.appendChild(thead);
+      const tbody = document.createElement("tbody");
+      for (const bar of (vdata.bars || [])) {
+        const tr = document.createElement("tr");
+        const ch = bar.chord_used || {};
+        const chord = (ch.translated || ch.numeral || "") + (ch.quality || "");
+        let html = '<td class="bar-col">' + (bar.bar != null ? bar.bar : "?") + '</td>'
+          + '<td>' + escHtml(chord) + '</td>';
+        const mf = bar.tactic_manifest || {};
+        for (const d of dims) {
+          const vv = mf[d] || "";
+          const short = vv.split(".").slice(1).join(".") || vv;
+          html += '<td>' + escHtml(short) + '</td>';
+        }
+        tr.innerHTML = html;
+        tbody.appendChild(tr);
+      }
+      table.appendChild(tbody);
+      bodyPlaceholder.appendChild(table);
+    }).catch(e => {
+      bodyPlaceholder.innerHTML = '<div style="color:var(--warn);">Could not load variation JSON: '
+        + escHtml(String(e)) + '</div>';
+    });
+  });
+
+  return wrap;
+}
+
+function render() {
+  const root = document.getElementById("list-root");
+  root.innerHTML = "";
+  const hymn = CATALOG.hymns[SLUG];
+  if (!hymn) {
+    root.innerHTML = '<div id="empty-msg">Unknown hymn slug: ' + escHtml(SLUG) + '</div>';
+    return;
+  }
+  const dims = CATALOG.dimension_order;
+  const nameTable = CATALOG.tactic_name_table;
+  const sortMode = document.getElementById("sort").value;
+  const sortDim = document.getElementById("sort-dim").value;
+  let vs = hymn.variations.filter(v =>
+    variationContainsAllTactics(v, dims, nameTable, FILTER_SET));
+  vs = sortVariations(vs, sortMode, sortDim);
+  if (!vs.length) {
+    document.getElementById("empty-msg").style.display = "block";
+    return;
+  }
+  document.getElementById("empty-msg").style.display = "none";
+  for (const v of vs) {
+    root.appendChild(renderVariation(v, hymn, dims, nameTable));
+  }
+}
+
+document.getElementById("sort").onchange = render;
+document.getElementById("sort-dim").onchange = render;
+
+// Prefer preloaded data (for static file:// pages); fall back to fetch
+// (for HTTP-served deployments).
+(function() {
+  const pre = document.getElementById("PRELOADED_REHARM");
+  if (pre) {
+    try { window._PRELOADED_REHARM = JSON.parse(pre.textContent); } catch (e) {}
+  }
+})();
+const _catalogLoader = window._PRELOADED_REHARM
+  ? Promise.resolve(window._PRELOADED_REHARM.catalog)
+  : fetch(CATALOG_URL).then(r => r.json());
+_catalogLoader.then(cat => {
+  CATALOG = cat;
+  const hymn = cat.hymns[SLUG];
+  if (!hymn) {
+    document.getElementById("hymn-title").textContent = "unknown hymn: " + SLUG;
+    return;
+  }
+  tagRecent(SLUG);
+  renderHeader(hymn);
+  buildTacticFilterList();
+  render();
+}).catch(err => {
+  document.getElementById("list-root").innerHTML =
+    '<div id="empty-msg">Could not load catalog: ' + escHtml(String(err)) +
+    '<br>If viewing via file://, run <code>python3 -m http.server</code> from the repo root and open http://localhost:8000/jazz/ instead.</div>';
+});
+</script>
+</body>
+</html>

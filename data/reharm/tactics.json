@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "generated_from": "REHARM_TACTICS.md + hand-edit",
+  "biases": [
+    {
+      "id": "density_axis",
+      "name": "Density axis",
+      "rule": "prefer 1-2 attacks per beat; reserve 3-4 attacks for arrivals (phrase ends, cadences, climaxes)",
+      "penalty_target": "high density in non-arrival bars"
+    },
+    {
+      "id": "spread_axis",
+      "name": "Vertical spread axis",
+      "rule": "prefer 3-5 octave spread; avoid SATB-like 2-octave middle-register cluster",
+      "penalty_target": "narrow spread in middle register for sustained passages"
+    },
+    {
+      "id": "satb_zone_avoidance",
+      "name": "SATB-zone avoidance",
+      "rule": "penalize combinations with high density + narrow spread + middle register + on-the-beat block attacks",
+      "penalty_target": "combined cluster of these four"
+    },
+    {
+      "id": "expose_extremes",
+      "name": "Expose the extremes",
+      "rule": "the audience tracks the highest and the lowest voice — keep both clear. Prefer voicings where the top (melody) and the bottom (bass) are registrally isolated from the middle; put color in the middle instead of close-position chord tones directly under the melody",
+      "penalty_target": "(a) melody + plus_1/plus_2 cluster just below the top; (b) bass crowded into mid-register fill rather than sitting low; (c) no LH strike below string 15 (C3) for the entire hymn"
+    }
+  ],
+  "dimensions": [
+    {"id": "shape",         "name": "Shape selection under the melody note"},
+    {"id": "register",      "name": "Register placement"},
+    {"id": "lh_activity",   "name": "Non-melody hand activity"},
+    {"id": "rh_activity",   "name": "Melody hand activity beyond the melody note"},
+    {"id": "connect_from",  "name": "Connection from previous measure"},
+    {"id": "connect_to",    "name": "Connection to next measure"},
+    {"id": "substitution",  "name": "Harmonic substitution at measure scale"},
+    {"id": "density",       "name": "Density"},
+    {"id": "texture",       "name": "Texture"},
+    {"id": "lever",         "name": "Lever state"},
+    {"id": "range",         "name": "Range exploitation"},
+    {"id": "phrase_role",   "name": "Measure role in phrase"}
+  ],
+  "tactics": [
+    {"id": "shape.full_4",        "dimension": "shape",    "name": "Full 4-finger library shape", "tags": ["full", "rooted"]},
+    {"id": "shape.three_finger",  "dimension": "shape",    "name": "3-finger (drop one chord tone)", "tags": ["full"]},
+    {"id": "shape.shell_37",      "dimension": "shape",    "name": "2-finger shell: 3rd + 7th", "tags": ["shell", "rootless"]},
+    {"id": "shape.root_10",       "dimension": "shape",    "name": "2-finger shell: root + 10th", "tags": ["shell", "rooted"]},
+    {"id": "shape.no_lh",         "dimension": "shape",    "name": "No left hand (melody alone)", "tags": ["sparse", "monophonic"], "conflicts": ["lh_activity.sustain", "lh_activity.arp_up", "lh_activity.arp_down", "lh_activity.bass_chord_chord", "lh_activity.chord_offbeat", "lh_activity.tremolo", "lh_activity.countermelody", "lh_activity.low_bass_grab", "lh_activity.partial_silence", "lh_activity.strike_and_ring"]},
+    {"id": "shape.quartal",       "dimension": "shape",    "name": "Quartal-tagged library shape", "tags": ["quartal", "color"]},
+    {"id": "shape.sus",           "dimension": "shape",    "name": "Sus-tagged library shape", "tags": ["sus", "color"]},
+    {"id": "shape.add9",          "dimension": "shape",    "name": "Shape with added 9", "tags": ["extension", "color"]},
+    {"id": "shape.add11",         "dimension": "shape",    "name": "Shape with added 11", "tags": ["extension", "color"]},
+    {"id": "shape.add13",         "dimension": "shape",    "name": "Shape with added 13", "tags": ["extension", "color"]},
+
+    {"id": "register.same",       "dimension": "register", "name": "Same register as previous measure", "tags": ["continuous"]},
+    {"id": "register.down_oct",   "dimension": "register", "name": "One octave lower", "tags": ["shift"]},
+    {"id": "register.up_oct",     "dimension": "register", "name": "One octave higher", "tags": ["shift"]},
+    {"id": "register.sub_bass",   "dimension": "register", "name": "Drop bass to sub-bass, keep rest", "tags": ["split", "low"]},
+    {"id": "register.wide",       "dimension": "register", "name": "Wide spread: bass low, melody high, empty middle", "tags": ["wide"], "conflicts": ["register.compressed"]},
+    {"id": "register.compressed", "dimension": "register", "name": "Compressed: both hands within two octaves", "tags": ["narrow", "satb_risk"], "conflicts": ["register.wide"]},
+
+    {"id": "lh_activity.sustain",          "dimension": "lh_activity", "name": "Sustain the shape (one attack, let ring)", "tags": ["sparse"], "conflicts": ["lh_activity.tremolo", "lh_activity.arp_up", "lh_activity.arp_down", "shape.no_lh"]},
+    {"id": "lh_activity.arp_up",           "dimension": "lh_activity", "name": "Arpeggiate low to high", "tags": ["active"], "conflicts": ["lh_activity.sustain", "shape.no_lh"]},
+    {"id": "lh_activity.arp_down",         "dimension": "lh_activity", "name": "Arpeggiate high to low", "tags": ["active"], "conflicts": ["lh_activity.sustain", "shape.no_lh"]},
+    {"id": "lh_activity.bass_chord_chord", "dimension": "lh_activity", "name": "Bass-chord-chord rhythm", "tags": ["pattern"], "conflicts": ["shape.no_lh"]},
+    {"id": "lh_activity.chord_offbeat",    "dimension": "lh_activity", "name": "Chord-only on offbeats", "tags": ["syncopated"], "conflicts": ["shape.no_lh"]},
+    {"id": "lh_activity.tremolo",          "dimension": "lh_activity", "name": "Tremolo between two shape tones", "tags": ["color"], "conflicts": ["lh_activity.sustain", "shape.no_lh"]},
+    {"id": "lh_activity.none",             "dimension": "lh_activity", "name": "No LH activity (because no LH shape)", "tags": ["derived"], "derived_from": "shape.no_lh", "note": "label tactic — selector picks this exactly when shape.no_lh is chosen, so the lh_activity dimension always has a legal pick"},
+    {"id": "lh_activity.partial_silence",  "dimension": "lh_activity", "name": "Partial silence — LH strikes on some beats, rests on others", "tags": ["sparse", "syncopated"], "conflicts": ["shape.no_lh"], "note": "classic sparse-comping pattern: LH hits e.g. beat 2-and + beat 4-and, rests on downbeats while the ring carries"},
+    {"id": "lh_activity.strike_and_ring",  "dimension": "lh_activity", "name": "Single strike at bar start, let harp ring", "tags": ["sparse", "harp"], "conflicts": ["shape.no_lh"], "note": "harp-idiomatic default: one LH attack on beat 1, no restrikes; the long-sustain of harp strings fills the measure"},
+    {"id": "lh_activity.countermelody",    "dimension": "lh_activity", "name": "Countermelody stepwise within the shape", "tags": ["active", "voice_lead"], "conflicts": ["shape.no_lh"]},
+    {"id": "lh_activity.low_bass_grab",    "dimension": "lh_activity", "name": "Low-bass grace note before LH shape strum", "tags": ["ornament", "bass", "expose_low"], "conflicts": ["shape.no_lh"], "note": "grace-note dive to a very low bass (e.g. sub-bass octave) played just before the LH chord strum; an ornament that anchors the bottom of the texture"},
+
+    {"id": "rh_activity.melody_alone",   "dimension": "rh_activity", "name": "Melody alone, one finger", "tags": ["sparse"]},
+    {"id": "rh_activity.melody_plus_1",  "dimension": "rh_activity", "name": "Melody + one chord tone below", "tags": ["doubled"], "conflicts": ["texture.single_line"]},
+    {"id": "rh_activity.melody_plus_2",  "dimension": "rh_activity", "name": "Melody + two chord tones below", "tags": ["doubled"], "conflicts": ["texture.single_line"]},
+    {"id": "rh_activity.melody_oct",     "dimension": "rh_activity", "name": "Melody doubled at the octave", "tags": ["doubled", "bright"]},
+    {"id": "rh_activity.neighbor",       "dimension": "rh_activity", "name": "Melody with diatonic neighbor ornament", "tags": ["ornament"]},
+    {"id": "rh_activity.anticipation",   "dimension": "rh_activity", "name": "Melody anticipating next measure's chord tone", "tags": ["voice_lead"]},
+    {"id": "rh_activity.passing_tone",   "dimension": "rh_activity", "name": "Melody held, inner finger adds passing tone", "tags": ["ornament"]},
+
+    {"id": "connect_from.same",         "dimension": "connect_from", "name": "Same shape repeated (zero motion)", "tags": ["stasis"]},
+    {"id": "connect_from.same_inv",     "dimension": "connect_from", "name": "Same shape inverted", "tags": ["minor_motion"]},
+    {"id": "connect_from.step",         "dimension": "connect_from", "name": "Shape shifted by step", "tags": ["voice_lead"]},
+    {"id": "connect_from.third",        "dimension": "connect_from", "name": "Shape shifted by third", "tags": ["voice_lead"]},
+    {"id": "connect_from.larger",       "dimension": "connect_from", "name": "Shape shifted by larger interval", "tags": ["leap"]},
+    {"id": "connect_from.released",     "dimension": "connect_from", "name": "Shape released, new shape struck fresh", "tags": ["break"]},
+    {"id": "connect_from.sustained",    "dimension": "connect_from", "name": "Shape sustained, new activity added", "tags": ["continuity"]},
+
+    {"id": "connect_to.land_down",      "dimension": "connect_to",   "name": "Land on target shape by downbeat", "tags": ["default"]},
+    {"id": "connect_to.anticipate",     "dimension": "connect_to",   "name": "Anticipate target shape on last beat", "tags": ["early"]},
+    {"id": "connect_to.delay",          "dimension": "connect_to",   "name": "Delay arrival to beat 2 of next measure", "tags": ["late"]},
+    {"id": "connect_to.step_bass",      "dimension": "connect_to",   "name": "Approach target by stepwise bass", "tags": ["voice_lead"]},
+    {"id": "connect_to.common_tone",    "dimension": "connect_to",   "name": "Approach target by common-tone pivot", "tags": ["voice_lead"]},
+
+    {"id": "substitution.as_written",   "dimension": "substitution", "name": "Use the written chord's library shape", "tags": ["default"]},
+    {"id": "substitution.diatonic",     "dimension": "substitution", "name": "Diatonic substitute (vi for I, iii for I, IV for ii)", "tags": ["sub"]},
+    {"id": "substitution.inversion",    "dimension": "substitution", "name": "Inversion for stepwise bass", "tags": ["bass_line"]},
+    {"id": "substitution.pedal",        "dimension": "substitution", "name": "Pedal point: hold previous chord, let melody imply new harmony", "tags": ["pedal"]},
+    {"id": "substitution.sus",          "dimension": "substitution", "name": "Sus version of the written chord", "tags": ["color"]},
+    {"id": "substitution.delay_change", "dimension": "substitution", "name": "Delay the chord change", "tags": ["late"]},
+
+    {"id": "density.one_attack",        "dimension": "density",      "name": "One attack total (sustain)", "tags": ["sparse"]},
+    {"id": "density.per_beat",          "dimension": "density",      "name": "One attack per beat", "tags": ["medium"]},
+    {"id": "density.two_per_beat",      "dimension": "density",      "name": "Two attacks per beat", "tags": ["dense", "satb_risk"]},
+    {"id": "density.syncopated",        "dimension": "density",      "name": "Syncopated: offbeats only", "tags": ["offbeat"]},
+    {"id": "density.front_loaded",      "dimension": "density",      "name": "Front-loaded", "tags": ["shape"]},
+    {"id": "density.back_loaded",       "dimension": "density",      "name": "Back-loaded", "tags": ["shape"]},
+
+    {"id": "texture.block",             "dimension": "texture",      "name": "Block attacks (hands together)", "tags": ["satb_risk"], "conflicts": ["texture.staggered", "texture.arp_both", "texture.rolled"]},
+    {"id": "texture.staggered",         "dimension": "texture",      "name": "Staggered attacks (hands alternate)", "tags": ["varied"], "conflicts": ["texture.block"]},
+    {"id": "texture.arp_both",          "dimension": "texture",      "name": "Arpeggiated across both hands", "tags": ["flowing"], "conflicts": ["texture.block"]},
+    {"id": "texture.rolled",            "dimension": "texture",      "name": "Rolled chord", "tags": ["harp"], "conflicts": ["texture.block"]},
+    {"id": "texture.bisbigliando",      "dimension": "texture",      "name": "Bisbigliando on two tones", "tags": ["harp", "color"]},
+    {"id": "texture.single_line",       "dimension": "texture",      "name": "Single-line only", "tags": ["monophonic"], "requires": ["shape.no_lh"], "conflicts": ["rh_activity.melody_plus_1", "rh_activity.melody_plus_2"], "note": "One melodic line, no harmony beneath. melody_alone and melody_oct are both compatible (octave-doubling still reads as a single line). Close-position doubling (melody_plus_1, melody_plus_2) is not — it becomes the 'kid banging' cluster the teacher warned about."},
+
+    {"id": "lever.no_flip",             "dimension": "lever",        "name": "No flip", "tags": ["default"]},
+    {"id": "lever.flip_and_back",       "dimension": "lever",        "name": "One flip at start, flip back at end", "tags": ["brief_chromatic"]},
+    {"id": "lever.flip_hold",           "dimension": "lever",        "name": "One flip at start, stay flipped", "tags": ["section_chromatic"]},
+    {"id": "lever.use_flipped",         "dimension": "lever",        "name": "Use already-flipped state", "tags": ["inherit"]},
+    {"id": "lever.prepare_next",        "dimension": "lever",        "name": "Prepare next measure's flip", "tags": ["anticipate"]},
+
+    {"id": "range.stay",                "dimension": "range",        "name": "Stay in current register band", "tags": ["stasis"]},
+    {"id": "range.migrate_up",          "dimension": "range",        "name": "Migrate up", "tags": ["shift"]},
+    {"id": "range.migrate_down",        "dimension": "range",        "name": "Migrate down", "tags": ["shift"]},
+    {"id": "range.split",               "dimension": "range",        "name": "Split: one hand stays, one moves", "tags": ["split"]},
+    {"id": "range.extreme",             "dimension": "range",        "name": "Reach to extreme for color", "tags": ["effect", "rare"], "note": "rare"},
+
+    {"id": "phrase_role.opening",         "dimension": "phrase_role", "name": "Opening of phrase", "tags": ["start"]},
+    {"id": "phrase_role.middle",          "dimension": "phrase_role", "name": "Middle of phrase", "tags": ["flow"]},
+    {"id": "phrase_role.cadence_approach","dimension": "phrase_role", "name": "Cadence approach (V→I or V→vi)", "tags": ["pre_cadence"]},
+    {"id": "phrase_role.cadence",         "dimension": "phrase_role", "name": "Cadence itself", "tags": ["arrival"]},
+    {"id": "phrase_role.release",         "dimension": "phrase_role", "name": "Post-cadence release", "tags": ["breath"]}
+  ]
+}

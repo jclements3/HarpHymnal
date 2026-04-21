@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reharm Tactics — Home</title>
+<style>
+:root {
+  --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0;
+  --panel:#ffffff; --panel-alt:#f0ece0; --banner:#B58900; --accent:#8F6B00;
+  --tag-bg:#eee8d5; --tap:rgba(181,137,0,0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.55; -webkit-tap-highlight-color:transparent; }
+#topbar { padding:14px 24px; background:var(--banner); color:#fff;
+  display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+#topbar a { color:#fff; text-decoration:none; font-size:15px; }
+#topbar h1 { font-size:22px; }
+#topbar .sub { font-size:13px; opacity:.9; }
+main { padding:24px 32px 60px; max-width:1000px; margin:0 auto; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:8px;
+  padding:18px 20px; margin-bottom:16px; }
+.panel h2 { color:var(--accent); font-size:18px; margin-bottom:10px;
+  border-bottom:1px solid var(--line); padding-bottom:4px; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+  gap:12px; margin-top:8px; }
+.card { display:flex; flex-direction:column; justify-content:space-between;
+  background:var(--panel-alt); border:2px solid var(--line); border-radius:8px;
+  padding:14px 16px; min-height:100px; text-decoration:none; color:inherit;
+  -webkit-tap-highlight-color:transparent; }
+.card:hover, .card:active { background:var(--tap); border-color:var(--accent); }
+.card-title { font-size:18px; font-weight:bold; margin-bottom:6px; color:var(--accent); }
+.card-sub   { font-size:13px; color:var(--muted); font-style:italic; }
+.card-meta  { font-size:12px; color:var(--muted); margin-top:8px;
+  font-family:"DejaVu Sans Mono",Consolas,monospace; }
+#recent-list { list-style:none; margin-top:8px; }
+#recent-list li { padding:6px 8px; border-radius:4px; }
+#recent-list li:hover { background:var(--panel-alt); }
+#recent-list a { color:var(--ink); text-decoration:none;
+  display:flex; justify-content:space-between; align-items:baseline; }
+#recent-list .h-num { font-family:monospace; color:var(--muted); font-size:12px;
+  min-width:34px; display:inline-block; text-align:right; margin-right:8px; }
+#recent-list .h-title { flex:1; }
+#recent-list .h-meta { font-family:monospace; color:var(--muted); font-size:12px; }
+.empty { color:var(--muted); font-style:italic; font-size:14px; }
+#clear-btn { float:right; font-size:12px; color:var(--muted); background:none;
+  border:1px solid var(--line); padding:3px 8px; border-radius:4px; cursor:pointer; }
+#clear-btn:hover { background:var(--panel-alt); }
+.stat-row { font-size:13px; color:var(--muted); margin-top:6px;
+  font-family:"DejaVu Sans Mono",Consolas,monospace; }
+</style>
+</head>
+<body>
+<div id="topbar">
+  <a href="index.html">&larr; Home</a>
+  <h1>Reharm Tactics</h1>
+  <span class="sub">practice-week exploration assistant</span>
+</div>
+<main>
+
+<div class="panel">
+  <h2>Start</h2>
+  <div class="card-grid">
+    <a class="card" id="card-hymns" href="jazz.html">
+      <div>
+        <div class="card-title">All jazz hymns (279)</div>
+        <div class="card-sub">pick a hymn and browse its 40 variations</div>
+      </div>
+      <div class="card-meta">279 &middot; 11160 variations &middot; 57280 fragments</div>
+    </a>
+    <a class="card" href="variations_browser.html">
+      <div>
+        <div class="card-title">Browse by tactic</div>
+        <div class="card-sub">corpus-wide fragment filter, grouped by dimension</div>
+      </div>
+      <div class="card-meta">&darr; fragments sorted by score</div>
+    </a>
+    <a class="card" href="reharm_tactics.html">
+      <div>
+        <div class="card-title">Design brief</div>
+        <div class="card-sub">tactic pool, biases, pipeline overview</div>
+      </div>
+      <div class="card-meta">REHARM_TACTICS.md web view</div>
+    </a>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>
+    Recent hymns
+    <button id="clear-btn" title="clear history">clear</button>
+  </h2>
+  <ul id="recent-list"><li class="empty">Nothing yet. Pick a hymn below to get started.</li></ul>
+</div>
+
+<div class="panel">
+  <h2>Jump to hymn</h2>
+  <select id="hymn-picker" style="width:100%; padding:10px; font-size:15px;
+          border:1px solid var(--line); border-radius:6px; background:white;">
+    <option value="">Loading…</option>
+  </select>
+  <div class="stat-row" id="picker-note">select a hymn to open its variations page</div>
+</div>
+
+</main>
+
+<script>
+const CATALOG_URL = "../data/reharm/catalog.json";
+const RECENT_KEY = "harphymnal.reharm.recent";
+const RECENT_MAX = 12;
+
+function readRecent() {
+  try {
+    const raw = localStorage.getItem(RECENT_KEY);
+    if (!raw) return [];
+    const arr = JSON.parse(raw);
+    return Array.isArray(arr) ? arr : [];
+  } catch (e) { return []; }
+}
+
+function writeRecent(arr) {
+  try { localStorage.setItem(RECENT_KEY, JSON.stringify(arr)); } catch (e) {}
+}
+
+function pushRecent(slug) {
+  const arr = readRecent().filter(x => x.slug !== slug);
+  arr.unshift({slug, ts: Date.now()});
+  writeRecent(arr.slice(0, RECENT_MAX));
+}
+
+function renderRecent(catalog) {
+  const ul = document.getElementById("recent-list");
+  const arr = readRecent().filter(x => catalog.hymns[x.slug]);
+  if (!arr.length) {
+    ul.innerHTML = '<li class="empty">Nothing yet. Pick a hymn below to get started.</li>';
+    return;
+  }
+  ul.innerHTML = "";
+  for (const r of arr) {
+    const h = catalog.hymns[r.slug];
+    const li = document.createElement("li");
+    const num = (h.hymn_number == null) ? "" : String(h.hymn_number);
+    li.innerHTML = '<a href="variations.' + encodeURIComponent(r.slug) + '.html">'
+      + '<span class="h-num">' + num + '</span>'
+      + '<span class="h-title">' + (h.title || r.slug).replace(/</g,"&lt;") + '</span>'
+      + '<span class="h-meta">' + [h.key, h.meter, h.mode].filter(Boolean).join(" &middot; ") + '</span>'
+      + '</a>';
+    ul.appendChild(li);
+  }
+}
+
+function renderPicker(catalog) {
+  const sel = document.getElementById("hymn-picker");
+  const entries = Object.entries(catalog.hymns)
+    .map(([slug, h]) => [slug, h])
+    .sort((a, b) => (a[1].title || a[0]).localeCompare(b[1].title || b[0]));
+  sel.innerHTML = '<option value="">— pick a hymn —</option>'
+    + entries.map(([slug, h]) => {
+        const num = (h.hymn_number == null) ? "" : "[" + h.hymn_number + "] ";
+        const meta = [h.key, h.meter, h.mode].filter(Boolean).join(" / ");
+        return '<option value="' + slug + '">' + num + (h.title || slug)
+          + (meta ? " · " + meta : "") + '</option>';
+    }).join("");
+  sel.onchange = () => {
+    if (sel.value) {
+      location.href = "variations." + encodeURIComponent(sel.value) + ".html";
+    }
+  };
+}
+
+document.getElementById("clear-btn").onclick = () => {
+  writeRecent([]);
+  location.reload();
+};
+
+fetch(CATALOG_URL).then(r => r.json()).then(catalog => {
+  renderRecent(catalog);
+  renderPicker(catalog);
+}).catch(err => {
+  document.getElementById("recent-list").innerHTML =
+    '<li class="empty">Could not load catalog.json (' + err + ').</li>';
+});
+</script>
+</body>
+</html>
