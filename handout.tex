@@ -1,6 +1,6 @@
 \documentclass[letterpaper,12pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage[letterpaper, landscape, margin=0.25in]{geometry}
+\usepackage[letterpaper, portrait, margin=0.4in]{geometry}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage[table]{xcolor}
@@ -13,6 +13,7 @@
 \usepackage{helvet}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{pifont}
 \usepackage{setspace}
 \usepackage{varwidth}
 \usetikzlibrary{arrows.meta,bending}
@@ -57,11 +58,15 @@
 \newsavebox{\trefoilbox}
 
 % ── chord notation macros ─────────────────────────────────────────────────────
-\newcommand{\osf}[1]{{\fontfamily{pplj}\selectfont #1}}
+\newcommand{\osf}[1]{{\fontfamily{phv}\selectfont #1}}
 \newcommand{\Ro}[1]{{\fontfamily{ppl}\fontseries{b}\selectfont #1}}
 \newcommand{\rp}{{\raisebox{0.55ex}{\footnotesize$+$}}}
 \newcommand{\halfdim}{$^{\scriptstyle\varnothing}$}
-\newcommand{\inv}[1]{$^{\osf{#1}}$}
+\newcommand{\inv}[1]{$^{\osf{#1}}$}           % legacy 1-arg superscript inversion (used internally by \rn)
+% \invc{col}{N} = inversion digit N in a circle colored by column (hdr1..hdr7 = Ionian..Locrian)
+\newcommand{\invc}[2]{\tikz[baseline=(a.base)]\node[circle,fill=hdr#1,inner sep=0.3pt,minimum size=2.2ex,text=white,font=\footnotesize\bfseries] (a) {#2};}
+\newcommand{\add}[1]{$^{#1}$}                 % superscript = added note(s)
+\newcommand{\no}[1]{$_{#1}$}                  % subscript = omitted note(s)
 \newcommand{\nd}{\rule[0.42ex]{4.5mm}{0.55pt}}
 
 \newcommand{\rn}[2]{\Ro{#1}\rndq{#2}}
@@ -210,67 +215,16 @@
   \noindent\colorbox{#1}{\color{white}\textbf{\strut\ #2\ }}\par\vspace{0.3mm}%
 }
 
-% HarpChords table on the LEFT + cycles on the RIGHT
-\noindent\begin{minipage}[t]{0.70\linewidth}
-\setlength{\tabcolsep}{2pt}
-\renewcommand{\arraystretch}{1.15}
-\fontsize{16}{19}\selectfont
-\arrayrulecolor{white}\setlength{\arrayrulewidth}{1pt}
-\begin{tabular}{@{}>{\bfseries}l
->{\columncolor{mode1}}w{c}{23mm}
->{\columncolor{mode2}}w{c}{23mm}
->{\columncolor{mode3}}w{c}{23mm}
->{\columncolor{mode4}}w{c}{23mm}
->{\columncolor{mode5}}w{c}{23mm}
->{\columncolor{mode6}}w{c}{23mm}
->{\columncolor{mode7}}w{c}{23mm}}
- &
-\cellcolor{hdr1}{\color{white}\fontsize{12}{13}\selectfont Ionian} &
-\cellcolor{hdr2}{\color{white}\fontsize{12}{13}\selectfont Dorian} &
-\cellcolor{hdr3}{\color{white}\fontsize{12}{13}\selectfont Phrygian} &
-\cellcolor{hdr4}{\color{white}\fontsize{12}{13}\selectfont Lydian} &
-\cellcolor{hdr5}{\color{white}\fontsize{12}{13}\selectfont Mixolydian} &
-\cellcolor{hdr6}{\color{white}\fontsize{12}{13}\selectfont Aeolian} &
-\cellcolor{hdr7}{\color{white}\fontsize{12}{13}\selectfont Locrian} \\
-{\fontsize{14}{16}\selectfont$\looparrowright$\raisebox{0.3ex}{\footnotesize+}} &
-\cellcolor{hdr1}{\color{white}\fontsize{20}{22}\selectfont\bfseries 1} &
-\cellcolor{hdr2}{\color{white}\fontsize{20}{22}\selectfont\bfseries 2} &
-\cellcolor{hdr3}{\color{white}\fontsize{20}{22}\selectfont\bfseries 3} &
-\cellcolor{hdr4}{\color{white}\fontsize{20}{22}\selectfont\bfseries 4} &
-\cellcolor{hdr5}{\color{white}\fontsize{20}{22}\selectfont\bfseries 5} &
-\cellcolor{hdr6}{\color{white}\fontsize{20}{22}\selectfont\bfseries 6} &
-\cellcolor{hdr7}{\color{white}\fontsize{20}{22}\selectfont\bfseries 7} \\
-\textbf{24} & \rn{I}{s2} & \rn{ii}{s2} & \nd & \rn{IV}{s2} & \rn{V}{s2} & \rn{vi}{s2} & \nd \\
-\hline
-\textbf{33} & \rn{I}{} & \rn{ii}{} & \rn{iii}{} & \rn{IV}{} & \rn{V}{} & \rn{vi}{} & \rn{vii}{°} \\
-\hline
-\textbf{34} & \rn{vi}{}\inv{1} & \rn{vii}{°}\inv{1} & \rn{I}{}\inv{1} & \rn{ii}{}\inv{1} & \rn{iii}{}\inv{1} & \rn{IV}{}\inv{1} & \rn{V}{}\inv{1} \\
-\hline
-\textbf{42} & \rn{I}{s4} & \rn{ii}{s4} & \rn{iii}{s4} & \nd & \rn{V}{s4} & \rn{vi}{s4} & \nd \\
-\hline
-\textbf{43} & \rn{IV}{}\inv{2} & \rn{V}{}\inv{2} & \rn{vi}{}\inv{2} & \rn{vii}{°}\inv{2} & \rn{I}{}\inv{2} & \rn{ii}{}\inv{2} & \rn{iii}{}\inv{2} \\
-\hline
-\textbf{44} & \nd & \rn{ii}{q} & \rn{iii}{q} & \nd & \rn{V}{q} & \rn{vi}{q} & \rn{vii}{q} \\
-\hline
-\textbf{233} & \rn{ii}{7}\inv{3} & \rn{iii}{7}\inv{3} & \rn{IV}{Δ}\inv{3} & \rn{V}{7}\inv{3} & \rn{vi}{7}\inv{3} & \rn{vii}{ø7}\inv{3} & \rn{I}{Δ}\inv{3} \\
-\hline
-\textbf{323} & \rn{IV}{Δ}\inv{2} & \rn{V}{7}\inv{2} & \rn{vi}{7}\inv{2} & \rn{vii}{ø7}\inv{2} & \rn{I}{Δ}\inv{2} & \rn{ii}{7}\inv{2} & \rn{iii}{7}\inv{2} \\
-\hline
-\textbf{332} & \rn{I}{6} & \rn{ii}{6} & \rn{I}{Δ}\inv{1} & \rn{IV}{6} & \rn{V}{6} & \rn{IV}{Δ}\inv{1} & \rn{V}{7}\inv{1} \\
-\hline
-\textbf{333} & \rn{I}{Δ} & \rn{ii}{7} & \rn{iii}{7} & \rn{IV}{Δ} & \rn{V}{7} & \rn{vi}{7} & \rn{vii}{ø7} \\
-\hline
-\textbf{334} & \rn{I}{+8} & \rn{ii}{+8} & \rn{iii}{+8} & \rn{IV}{+8} & \rn{V}{+8} & \rn{vi}{+8} & \rn{vii}{+8} \\
-\hline
-\textbf{433} & \rn{IV}{}\inv{2}\rp\osf{8} & \rn{V}{}\inv{2}\rp\osf{8} & \nd & \nd & \rn{I}{}\inv{2}\rp\osf{8} & \nd & \nd \\
-\hline
-\textbf{434} & \rn{ii}{7}\inv{3} & \rn{iii}{7}\inv{3} & \rn{IV}{Δ}\inv{3} & \rn{V}{7}\inv{3} & \rn{vi}{7}\inv{3} & \rn{vii}{ø7}\inv{3} & \rn{I}{Δ}\inv{3} \\
-\hline
-\textbf{444} & \nd & \rn{ii}{q7} & \rn{iii}{q7} & \nd & \nd & \rn{vi}{q7} & \rn{vii}{q7} \\
-\hline
-\end{tabular}
-\par\vspace{1mm}
-{\fontsize{11}{13}\selectfont
+% Page 1: HarpChords table + legend (full width, portrait)
+\noindent\begin{minipage}[t]{\linewidth}
+\input{page1.tex}
+\end{minipage}
+
+\clearpage
+
+% Page 2: Legend + Trefoil figure + CW/CCW traversal tables
+
+{\fontsize{9}{10.5}\selectfont
 \setlength{\tabcolsep}{2pt}
 \noindent
 \begin{tabular}[t]{@{}%
@@ -287,7 +241,9 @@ $q$  & quartal \\
 $s$\osf{2} / $s$\osf{4}  & sus2 / sus4 \\
 \osf{6}/$m$\osf{6}    & major/minor 6th \\
 \rp\osf{8}  & octave doubling \\
-$^{\osf{1,2,3}}$ & inversion (bass tone) \\
+\ding{182}\,\ding{183}\,\ding{184} & inversion (circled) \\
+$^{\osf{2,4,6}}$ & added note (superscript) \\
+$_{\osf{5}}$ & omitted note (subscript) \\
 \nd & non-diatonic \\
 \end{tabular}%
 \hspace{6mm}%
@@ -319,8 +275,10 @@ $^{\osf{1,2,3}}$ & inversion (bass tone) \\
 \osf{5333\,D43}        & LH=\Ro{V}\osf{7}(str 5), RH=\Ro{ii}\inv{1}(str 13) \\
 \end{tabular}
 }
-\end{minipage}\hspace{3mm}%
-\begin{minipage}[t]{0.30\linewidth}
+
+\vspace{4mm}
+
+\noindent\begin{minipage}[t]{\linewidth}
 \centering
 \input{trefoil.tikz}%
 \par\vspace{1mm}

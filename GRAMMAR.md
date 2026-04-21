@@ -17,12 +17,15 @@ letter     = "A" | "B" | "C" | "D" | "E" | "F" | "G" ;
 accidental = "♭" | "♯" ;
 
 (* ------- Roman numerals ------- *)
-roman      = numeral, [ quality ], [ inversion ] ;
 numeral    = "I"  | "ii"  | "iii" | "IV" | "V"  | "vi"  | "vii○"
            | "i"  | "ii○" | "III" | "iv" | "v"  | "VI"  | "VII" ;
 quality    = "Δ" | "Δ7" | "7" | "ø7" | "○7"
            | "6" | "9" | "s2" | "s4" | "q" | "q7" | "+8" ;
 inversion  = "¹" | "²" | "³" ;
+
+(* ------- Chord naming ------- *)
+legacy     = numeral, [ quality ] ;               (* traditional pitch-class name; no inversion; ambiguous — `ii7` tells you Dm7 somewhere, nothing about bass or voicing *)
+(* Note: the handout.tex uses legacy + inversion (e.g. `ii7³`); this form can collide across different shapes with the same pitch classes (rows 233 and 434 both reduce to `ii7³`). *)
 
 (* ------- Voicings ------- *)
 intervals  = interval, interval, { interval } ;
@@ -33,7 +36,7 @@ gap        = number ;                                   (* derived: min(position
                                                            collision (unplayable); gap<4 = preferred harmonic range *)
 
 (* ------- Chord names ------- *)
-chord      = roman ;
+chord      = ??? ;                                (* pattern-unique: each distinct shape gets a distinct name; design TBD *)
 bichord    = chord, chord ;
 
 (* ------- Pool ------- *)

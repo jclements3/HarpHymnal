@@ -1,0 +1,2633 @@
+{
+  "schema_version": 1,
+  "source": "handout.tex table 1 — HarpChords × Modes, all 39 hand shapes",
+  "_notes": "Each pattern is a hand shape (digits = diatonic intervals 2/3/4). Cells is length 7 (Ionian..Locrian). null = non-diatonic dash. Each chord = {numeral, quality?, inversion?, additions[], omissions[], alternates?[]}. Main chord is C-Ionian-centric (numeral reads relative to C major). Alternates can carry {context: 'mode-local' | 'dualism' | ...} and the alt chord spec for the same pitches under a different root assumption.",
+  "modes": [
+    {
+      "col": 1,
+      "name": "Ionian"
+    },
+    {
+      "col": 2,
+      "name": "Dorian"
+    },
+    {
+      "col": 3,
+      "name": "Phrygian"
+    },
+    {
+      "col": 4,
+      "name": "Lydian"
+    },
+    {
+      "col": 5,
+      "name": "Mixolydian"
+    },
+    {
+      "col": 6,
+      "name": "Aeolian"
+    },
+    {
+      "col": 7,
+      "name": "Locrian"
+    }
+  ],
+  "patterns": [
+    {
+      "pattern": "2",
+      "intervals": [
+        2
+      ],
+      "fingers": 2,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "3",
+      "intervals": [
+        3
+      ],
+      "fingers": 2,
+      "cells": [
+        {
+          "numeral": "I",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "4",
+      "intervals": [
+        4
+      ],
+      "fingers": 2,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "22",
+      "intervals": [
+        2,
+        2
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            2
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            2
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            2
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            2
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            2
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            2
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            2
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "23",
+      "intervals": [
+        2,
+        3
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "24",
+      "intervals": [
+        2,
+        4
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2"
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2"
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2"
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2"
+        },
+        {
+          "numeral": "V",
+          "quality": "s2"
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2"
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2"
+        }
+      ]
+    },
+    {
+      "pattern": "32",
+      "intervals": [
+        3,
+        2
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "33",
+      "intervals": [
+        3,
+        3
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I"
+        },
+        {
+          "numeral": "ii"
+        },
+        {
+          "numeral": "iii"
+        },
+        {
+          "numeral": "IV"
+        },
+        {
+          "numeral": "V"
+        },
+        {
+          "numeral": "vi"
+        },
+        {
+          "numeral": "vii°"
+        }
+      ]
+    },
+    {
+      "pattern": "34",
+      "intervals": [
+        3,
+        4
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "42",
+      "intervals": [
+        4,
+        2
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4"
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4"
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4"
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4"
+        },
+        {
+          "numeral": "V",
+          "quality": "s4"
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4"
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4"
+        }
+      ]
+    },
+    {
+      "pattern": "43",
+      "intervals": [
+        4,
+        3
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "44",
+      "intervals": [
+        4,
+        4
+      ],
+      "fingers": 3,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "q"
+        },
+        {
+          "numeral": "ii",
+          "quality": "q"
+        },
+        {
+          "numeral": "iii",
+          "quality": "q"
+        },
+        {
+          "numeral": "IV",
+          "quality": "q"
+        },
+        {
+          "numeral": "V",
+          "quality": "q"
+        },
+        {
+          "numeral": "vi",
+          "quality": "q"
+        },
+        {
+          "numeral": "vii°",
+          "quality": "q"
+        }
+      ]
+    },
+    {
+      "pattern": "222",
+      "intervals": [
+        2,
+        2,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            2,
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            2,
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            2,
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            2,
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            2,
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            2,
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            2,
+            4
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "223",
+      "intervals": [
+        2,
+        2,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            2
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            2
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            2
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            2
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            2
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            2
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "224",
+      "intervals": [
+        2,
+        2,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            2,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            2,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            2,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            2,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            2,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            2,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            2,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "232",
+      "intervals": [
+        2,
+        3,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "additions": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "233",
+      "intervals": [
+        2,
+        3,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "234",
+      "intervals": [
+        2,
+        3,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "242",
+      "intervals": [
+        2,
+        4,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "additions": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "243",
+      "intervals": [
+        2,
+        4,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "additions": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "244",
+      "intervals": [
+        2,
+        4,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s2",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s2",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s2",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s2",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s2",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s2",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s2",
+          "additions": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "322",
+      "intervals": [
+        3,
+        2,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            4
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "323",
+      "intervals": [
+        3,
+        2,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            4,
+            6
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "324",
+      "intervals": [
+        3,
+        2,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            4,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "332",
+      "intervals": [
+        3,
+        3,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "333",
+      "intervals": [
+        3,
+        3,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "h7"
+        }
+      ]
+    },
+    {
+      "pattern": "334",
+      "intervals": [
+        3,
+        3,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "342",
+      "intervals": [
+        3,
+        4,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "343",
+      "intervals": [
+        3,
+        4,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "344",
+      "intervals": [
+        3,
+        4,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "422",
+      "intervals": [
+        4,
+        2,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            6
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "423",
+      "intervals": [
+        4,
+        2,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            7
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "424",
+      "intervals": [
+        4,
+        2,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            8
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "432",
+      "intervals": [
+        4,
+        3,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            6,
+            7
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "433",
+      "intervals": [
+        4,
+        3,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            6,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "434",
+      "intervals": [
+        4,
+        3,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            6,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "442",
+      "intervals": [
+        4,
+        4,
+        2
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            7,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            7,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            7,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            7,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            7,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            7,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            7,
+            8
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "443",
+      "intervals": [
+        4,
+        4,
+        3
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "s4",
+          "additions": [
+            7,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "ii",
+          "quality": "s4",
+          "additions": [
+            7,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "iii",
+          "quality": "s4",
+          "additions": [
+            7,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "IV",
+          "quality": "s4",
+          "additions": [
+            7,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "V",
+          "quality": "s4",
+          "additions": [
+            7,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vi",
+          "quality": "s4",
+          "additions": [
+            7,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        },
+        {
+          "numeral": "vii°",
+          "quality": "s4",
+          "additions": [
+            7,
+            9
+          ],
+          "omissions": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "444",
+      "intervals": [
+        4,
+        4,
+        4
+      ],
+      "fingers": 4,
+      "cells": [
+        {
+          "numeral": "I",
+          "quality": "q7"
+        },
+        {
+          "numeral": "ii",
+          "quality": "q7"
+        },
+        {
+          "numeral": "iii",
+          "quality": "q7"
+        },
+        {
+          "numeral": "IV",
+          "quality": "q7"
+        },
+        {
+          "numeral": "V",
+          "quality": "q7"
+        },
+        {
+          "numeral": "vi",
+          "quality": "q7"
+        },
+        {
+          "numeral": "vii°",
+          "quality": "q7"
+        }
+      ]
+    }
+  ]
+}
