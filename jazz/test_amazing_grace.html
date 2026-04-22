@@ -109,7 +109,7 @@ button.play.ab-b { border-color:var(--accent); }
   border:1px solid var(--line); border-radius:50%; background:white;
   color:var(--muted); cursor:pointer; font:bold 12px serif; line-height:20px; }
 .tactic-card .help-btn:hover { background:var(--tag-bg); color:var(--accent); border-color:var(--accent); }
-.dim-section > summary .help-btn { margin-left:8px; }
+.dim-section > summary .help-btn { margin-left:auto; margin-right:10px; align-self:center; }
 
 /* Help modal */
 #help-overlay { position:fixed; inset:0; background:rgba(30,25,20,0.55);
@@ -445,6 +445,17 @@ async function buildSections() {
       "  ·  " + byDim[dim].length + " tactics";
     dimTitleWrap.appendChild(dimMetaEl);
     summary.appendChild(dimTitleWrap);
+    const dimHelpBtn = document.createElement("button");
+    dimHelpBtn.className = "help-btn";
+    dimHelpBtn.textContent = "?";
+    dimHelpBtn.title = "What is the " + dim + " dimension about?";
+    dimHelpBtn.setAttribute("aria-label", "Help for " + dim + " dimension");
+    dimHelpBtn.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      openDimHelp(dim);
+    });
+    summary.appendChild(dimHelpBtn);
     section.appendChild(summary);
 
     const grid = document.createElement("div");
@@ -662,6 +673,27 @@ function openHelp(tid) {
     parts.push('<div class="h-section"><div class="h-label">Derived from</div>' +
       renderPills([t.derived_from], "") + '</div>');
   }
+
+  document.getElementById("help-body").innerHTML = parts.join("");
+  document.getElementById("help-overlay").classList.add("show");
+}
+function openDimHelp(dimId) {
+  const dim = DIM_META[dimId];
+  if (!dim) return;
+  document.getElementById("help-title").textContent = dim.name || dimId;
+  document.getElementById("help-id").innerHTML =
+    'dimension: <code>' + htmlEscape(dimId) + '</code>';
+
+  const parts = [];
+  parts.push('<div class="h-section"><div class="h-label">What this dimension is about</div>');
+  if (dim.note) {
+    parts.push('<div class="h-note">' + htmlEscape(dim.note) + '</div>');
+  } else {
+    parts.push('<div class="h-note empty">No pedagogy note yet for this dimension. ' +
+      'Add one under the <code>note</code> field for the <code>' + htmlEscape(dimId) +
+      '</code> entry in <code>data/reharm/tactics.json</code>\'s <code>dimensions</code> list.</div>');
+  }
+  parts.push('</div>');
 
   document.getElementById("help-body").innerHTML = parts.join("");
   document.getElementById("help-overlay").classList.add("show");
