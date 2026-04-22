@@ -105,6 +105,40 @@ button.play.ab-b { border-color:var(--accent); }
 .tactic-card .tc-status { font-family:monospace; font-size:10px;
   color:var(--muted); flex:0 0 auto; min-width:54px; text-align:right; }
 .tactic-card.ambig .tc-name::after { content:" ※"; color:var(--warn); }
+.tactic-card .help-btn { flex:0 0 auto; width:22px; height:22px; padding:0;
+  border:1px solid var(--line); border-radius:50%; background:white;
+  color:var(--muted); cursor:pointer; font:bold 12px serif; line-height:20px; }
+.tactic-card .help-btn:hover { background:var(--tag-bg); color:var(--accent); border-color:var(--accent); }
+.dim-section > summary .help-btn { margin-left:8px; }
+
+/* Help modal */
+#help-overlay { position:fixed; inset:0; background:rgba(30,25,20,0.55);
+  display:none; align-items:center; justify-content:center; z-index:200; }
+#help-overlay.show { display:flex; }
+#help-modal { background:var(--panel); border-radius:8px; padding:18px 22px;
+  max-width:640px; width:calc(100% - 32px); max-height:88vh; overflow-y:auto;
+  box-shadow:0 6px 24px rgba(0,0,0,0.3); position:relative; }
+#help-modal .h-close { position:absolute; top:8px; right:12px;
+  background:none; border:none; font-size:22px; cursor:pointer; color:var(--muted); }
+#help-modal .h-close:hover { color:var(--ink); }
+#help-modal h2 { font-size:18px; margin-bottom:2px; }
+#help-modal .h-id { font-family:monospace; font-size:12px; color:var(--muted);
+  margin-bottom:14px; }
+#help-modal .h-section { margin-top:12px; }
+#help-modal .h-label { font-size:10px; letter-spacing:1px; color:var(--muted);
+  text-transform:uppercase; margin-bottom:4px; }
+#help-modal .h-note { background:var(--panel-alt); padding:10px 12px;
+  border-left:3px solid var(--accent); border-radius:3px; font-size:13px;
+  line-height:1.5; color:var(--ink); }
+#help-modal .h-note.empty { color:var(--muted); font-style:italic; border-left-color:var(--line); }
+#help-modal .h-pills { display:flex; flex-wrap:wrap; gap:4px; }
+#help-modal .h-pill { display:inline-block; padding:2px 8px;
+  background:var(--tag-bg); border:1px solid var(--line); border-radius:3px;
+  font-family:monospace; font-size:11px; color:var(--ink); }
+#help-modal .h-pill.conflict { background:var(--rate-bad-bg); border-color:#e6bcb8; }
+#help-modal .h-pill.requires { background:var(--rate-good-bg); border-color:#c7e1b8; }
+#help-modal .h-footer { margin-top:16px; padding-top:10px;
+  border-top:1px solid var(--line); font-size:11px; color:var(--muted); }
 #global-stop { position:fixed; top:12px; right:16px; z-index:100;
   padding:6px 14px; border:1px solid var(--line); background:white;
   border-radius:4px; font-family:monospace; cursor:pointer; }
@@ -134,6 +168,19 @@ button.play.ab-b { border-color:var(--accent); }
 </div>
 
 <button id="global-stop" onclick="_stopActive()">■ Stop</button>
+
+<!-- Help modal: opened from per-tactic ⓘ buttons. -->
+<div id="help-overlay" role="dialog" aria-modal="true" aria-labelledby="help-title">
+  <div id="help-modal">
+    <button class="h-close" aria-label="Close" onclick="closeHelp()">×</button>
+    <h2 id="help-title"></h2>
+    <div class="h-id" id="help-id"></div>
+    <div id="help-body"></div>
+    <div class="h-footer">
+      Deeper pedagogy lives in <code>REHARM_TACTICS.md</code> at the repo root.
+    </div>
+  </div>
+</div>
 
 <main>
 
@@ -210,6 +257,10 @@ button.play.ab-b { border-color:var(--accent); }
     });
   };
 })();
+
+// --- Tactic catalog (populated in buildSections, read by help modal) ----- //
+const TACTIC_BY_ID = {};
+const DIM_META = {};
 
 // --- Local-storage scoring ------------------------------------------------ //
 const HYMN_SLUG = "amazing_grace";
@@ -357,6 +408,7 @@ async function buildSections() {
   const byDim = {};
   for (const t of tactics.tactics) {
     (byDim[t.dimension] = byDim[t.dimension] || []).push(t);
+    TACTIC_BY_ID[t.id] = t;
   }
 
   const cadenceTactics = new Set([
@@ -369,7 +421,10 @@ async function buildSections() {
     return 5;
   }
   const dimMeta = {};
-  for (const d of (tactics.dimensions || [])) dimMeta[d.id] = d.name;
+  for (const d of (tactics.dimensions || [])) {
+    dimMeta[d.id] = d.name;
+    DIM_META[d.id] = d;
+  }
 
   const container = document.getElementById("sections");
 
@@ -465,6 +520,14 @@ async function buildSections() {
       status.className = "tc-status";
       card.appendChild(status);
 
+      const helpBtn = document.createElement("button");
+      helpBtn.className = "help-btn";
+      helpBtn.textContent = "?";
+      helpBtn.title = "What is " + t.id + "? (theory + relationships)";
+      helpBtn.setAttribute("aria-label", "Help for " + t.id);
+      helpBtn.addEventListener("click", () => openHelp(t.id));
+      card.appendChild(helpBtn);
+
       btnA.addEventListener("click", () => playMidi(midOrig, btnA, status));
       btnB.addEventListener("click", () => playMidi(midTact, btnB, status,
           () => {
@@ -551,6 +614,62 @@ function importScores(file) {
   reader.readAsText(file);
 }
 
+// --- Help modal ----------------------------------------------------------- //
+function htmlEscape(s) {
+  return String(s).replace(/[&<>"']/g, c => (
+    {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+function renderPills(ids, cls) {
+  if (!ids || !ids.length) return "";
+  return '<div class="h-pills">' +
+    ids.map(id => '<span class="h-pill ' + cls + '">' + htmlEscape(id) + '</span>').join("") +
+    '</div>';
+}
+function openHelp(tid) {
+  const t = TACTIC_BY_ID[tid];
+  if (!t) return;
+  document.getElementById("help-title").textContent = t.name || tid;
+  const dim = DIM_META[t.dimension] || {};
+  document.getElementById("help-id").innerHTML =
+    '<code>' + htmlEscape(tid) + '</code> &nbsp;·&nbsp; dimension: <b>' +
+    htmlEscape(t.dimension) + '</b>' +
+    (dim.name ? ' <span style="color:var(--muted)">(' + htmlEscape(dim.name) + ')</span>' : '');
+
+  const parts = [];
+  parts.push('<div class="h-section"><div class="h-label">Theory note</div>');
+  if (t.note) {
+    parts.push('<div class="h-note">' + htmlEscape(t.note) + '</div>');
+  } else {
+    parts.push('<div class="h-note empty">No pedagogy note yet for this tactic. ' +
+      'Add one under the <code>note</code> field for <code>' + htmlEscape(tid) +
+      '</code> in <code>data/reharm/tactics.json</code>.</div>');
+  }
+  parts.push('</div>');
+
+  if (t.tags && t.tags.length) {
+    parts.push('<div class="h-section"><div class="h-label">Tags</div>' +
+      renderPills(t.tags, "") + '</div>');
+  }
+  if (t.requires && t.requires.length) {
+    parts.push('<div class="h-section"><div class="h-label">Requires</div>' +
+      renderPills(t.requires, "requires") + '</div>');
+  }
+  if (t.conflicts && t.conflicts.length) {
+    parts.push('<div class="h-section"><div class="h-label">Conflicts with</div>' +
+      renderPills(t.conflicts, "conflict") + '</div>');
+  }
+  if (t.derived_from) {
+    parts.push('<div class="h-section"><div class="h-label">Derived from</div>' +
+      renderPills([t.derived_from], "") + '</div>');
+  }
+
+  document.getElementById("help-body").innerHTML = parts.join("");
+  document.getElementById("help-overlay").classList.add("show");
+}
+function closeHelp() {
+  document.getElementById("help-overlay").classList.remove("show");
+}
+
 // --- Wire-up -------------------------------------------------------------- //
 (function() {
   const btn = document.getElementById("baseline-btn");
@@ -561,6 +680,12 @@ function importScores(file) {
   document.getElementById("import-file").addEventListener("change", e => {
     if (e.target.files && e.target.files[0]) importScores(e.target.files[0]);
     e.target.value = "";
+  });
+
+  const overlay = document.getElementById("help-overlay");
+  overlay.addEventListener("click", e => { if (e.target === overlay) closeHelp(); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && overlay.classList.contains("show")) closeHelp();
   });
 })();
 
