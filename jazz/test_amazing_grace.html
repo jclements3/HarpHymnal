@@ -31,6 +31,20 @@ html, body { background:var(--bg); color:var(--ink);
 #topbar .io-controls button:hover,
 #topbar .io-controls label:hover { background:var(--tag-bg); }
 #topbar .io-controls input[type=file] { display:none; }
+#topbar #vol-wrap { display:inline-flex; align-items:center; gap:6px;
+  background:#fff; color:var(--accent); padding:4px 10px;
+  border-radius:4px; font-size:13px; }
+#topbar #vol-slider { -webkit-appearance:none; appearance:none;
+  width:120px; height:4px; background:var(--line); border-radius:2px;
+  outline:none; cursor:pointer; }
+#topbar #vol-slider::-webkit-slider-thumb { -webkit-appearance:none;
+  appearance:none; width:16px; height:16px; background:var(--accent);
+  border-radius:50%; cursor:pointer; }
+#topbar #vol-slider::-moz-range-thumb { width:16px; height:16px;
+  background:var(--accent); border-radius:50%; cursor:pointer;
+  border:none; }
+#topbar #vol-readout { min-width:36px; text-align:right;
+  font-family:monospace; font-size:11px; color:var(--muted); }
 main { padding:20px 28px 60px; max-width:1400px; margin:0 auto; }
 .caption { background:var(--panel); border-left:4px solid var(--accent);
   padding:10px 14px; margin:16px 0; font-size:14px; color:var(--ink); }
@@ -164,6 +178,12 @@ button.play.ab-b { border-color:var(--accent); }
   <h1>192 Amazing Grace — Single-Tactic Audition</h1>
   <span class="sub">G major · 3/4 · snippet A/B + 0–5 scoring</span>
   <span class="io-controls">
+    <span id="vol-wrap" title="Playback volume">
+      <span aria-hidden="true">🔈</span>
+      <input type="range" id="vol-slider" min="0" max="100" value="80"
+             aria-label="Playback volume"/>
+      <span id="vol-readout">80%</span>
+    </span>
     <button id="export-btn">Export scores</button>
     <label for="import-file">Import scores</label>
     <input type="file" id="import-file" accept="application/json"/>
@@ -292,28 +312,59 @@ function allScores() {
 }
 
 // --- Shared harp playback ------------------------------------------------- //
-let HARP_AC = null, HARP_INST_PROMISE = null;
+let HARP_AC = null, HARP_INST_PROMISE = null, HARP_MASTER_GAIN = null;
 let HARP_ACTIVE_PLAYER = null, HARP_ACTIVE_BTN = null, HARP_ACTIVE_STATUS = null;
+// Active notes keyed by MIDI pitch number, so Note off can stop the
+// matching Note on rather than relying on a fixed decay-time cap.
+let HARP_ACTIVE_NOTES = new Map();
+
+const VOL_STORAGE_KEY = "amazing_grace.volume";
 
 function _harpAC() {
   if (!HARP_AC) HARP_AC = new (window.AudioContext || window.webkitAudioContext)();
   return HARP_AC;
 }
+function _masterGain() {
+  if (!HARP_MASTER_GAIN) {
+    const ac = _harpAC();
+    HARP_MASTER_GAIN = ac.createGain();
+    const stored = parseFloat(localStorage.getItem(VOL_STORAGE_KEY));
+    const vol = Number.isFinite(stored) ? stored : 0.8;
+    HARP_MASTER_GAIN.gain.value = vol;
+    HARP_MASTER_GAIN.connect(ac.destination);
+  }
+  return HARP_MASTER_GAIN;
+}
+function setMasterVolume(v) {
+  const g = _masterGain();
+  g.gain.value = v;
+  localStorage.setItem(VOL_STORAGE_KEY, String(v));
+}
 function _loadHarp() {
   if (!HARP_INST_PROMISE) {
     // Point soundfont-player at the local vendor/soundfont/ dir so the
     // tablet works offline. Override the default https://gleitz.github.io/...
+    // Route all note output through the master gain so the volume
+    // slider in the top bar controls playback level.
     HARP_INST_PROMISE = Soundfont.instrument(_harpAC(), "orchestral_harp", {
       soundfont: "MusyngKite",
+      destination: _masterGain(),
       nameToUrl: (name, _sf, format) =>
         "vendor/soundfont/" + name + "-" + (format || "mp3") + ".js",
     });
   }
   return HARP_INST_PROMISE;
 }
+function _silenceActiveNotes() {
+  for (const note of HARP_ACTIVE_NOTES.values()) {
+    try { note.stop(); } catch (_) {}
+  }
+  HARP_ACTIVE_NOTES.clear();
+}
 function _stopActive() {
   if (HARP_ACTIVE_PLAYER) { try { HARP_ACTIVE_PLAYER.stop(); } catch (_) {} }
   HARP_ACTIVE_PLAYER = null;
+  _silenceActiveNotes();
   if (HARP_ACTIVE_BTN) {
     HARP_ACTIVE_BTN.classList.remove("active");
     HARP_ACTIVE_BTN.textContent = HARP_ACTIVE_BTN.dataset.playLabel || "▶";
@@ -336,12 +387,44 @@ async function playMidi(midiUrl, btn, statusEl, onStart) {
     if (!resp.ok) throw new Error("HTTP " + resp.status);
     const buf = await resp.arrayBuffer();
     const player = new MidiPlayer.Player(event => {
+      // Ignore events from stale players after _stopActive has moved on.
+      if (HARP_ACTIVE_PLAYER !== player) return;
       if (event.name === "Note on" && event.velocity > 0) {
-        harp.play(event.noteName, ac.currentTime,
-          {gain: event.velocity / 127, duration: 2.5});
+        // If this pitch is already ringing, release the previous voice
+        // before starting a new one (avoids runaway note stacks).
+        const prev = HARP_ACTIVE_NOTES.get(event.noteNumber);
+        if (prev) { try { prev.stop(); } catch (_) {} }
+        // Omit `duration` so soundfont-player keeps the note ringing
+        // until we explicitly .stop() it on Note off — matches real
+        // harp behaviour where every pluck rings into the next.
+        const note = harp.play(event.noteName, ac.currentTime,
+          {gain: event.velocity / 127});
+        HARP_ACTIVE_NOTES.set(event.noteNumber, note);
+      } else if (event.name === "Note off" ||
+                 (event.name === "Note on" && event.velocity === 0)) {
+        const note = HARP_ACTIVE_NOTES.get(event.noteNumber);
+        if (note) {
+          try { note.stop(ac.currentTime + 1.2); } catch (_) {}
+          HARP_ACTIVE_NOTES.delete(event.noteNumber);
+        }
       }
     });
-    player.on("endOfFile", () => { if (HARP_ACTIVE_PLAYER === player) _stopActive(); });
+    player.on("endOfFile", () => {
+      if (HARP_ACTIVE_PLAYER !== player) return;
+      // Let the final notes ring out rather than cutting them dead.
+      HARP_ACTIVE_PLAYER = null;
+      if (HARP_ACTIVE_BTN) {
+        HARP_ACTIVE_BTN.classList.remove("active");
+        HARP_ACTIVE_BTN.textContent = HARP_ACTIVE_BTN.dataset.playLabel || "▶";
+        HARP_ACTIVE_BTN = null;
+      }
+      if (HARP_ACTIVE_STATUS) {
+        HARP_ACTIVE_STATUS.textContent = "";
+        HARP_ACTIVE_STATUS = null;
+      }
+      // 2.5s ring-out, then release everything.
+      setTimeout(_silenceActiveNotes, 2500);
+    });
     player.loadArrayBuffer(buf);
     player.play();
     HARP_ACTIVE_PLAYER = player;
@@ -721,6 +804,21 @@ function closeHelp() {
     if (e.target.files && e.target.files[0]) importScores(e.target.files[0]);
     e.target.value = "";
   });
+
+  // --- Volume slider (persists across sessions via localStorage) ------- //
+  const volSlider = document.getElementById("vol-slider");
+  const volReadout = document.getElementById("vol-readout");
+  if (volSlider && volReadout) {
+    const stored = parseFloat(localStorage.getItem(VOL_STORAGE_KEY));
+    const initial = Number.isFinite(stored) ? stored : 0.8;
+    volSlider.value = String(Math.round(initial * 100));
+    volReadout.textContent = volSlider.value + "%";
+    volSlider.addEventListener("input", () => {
+      const v = parseInt(volSlider.value, 10) / 100;
+      setMasterVolume(v);
+      volReadout.textContent = volSlider.value + "%";
+    });
+  }
 
   const overlay = document.getElementById("help-overlay");
   overlay.addEventListener("click", e => { if (e.target === overlay) closeHelp(); });
