@@ -8,7 +8,17 @@ task syncJazzAssets(type: Copy) {
     from("${repoRoot}/jazz") { into 'jazz' }
     from("${repoRoot}/data/reharm") { into 'data/reharm' }
 }
-tasks.whenTaskAdded { t -> if (t.name == 'preBuild') t.dependsOn syncJazzAssets }
+// Hook every preBuild variant + the AGP asset-merge tasks. `whenTaskAdded`
+// against just 'preBuild' missed variant-specific tasks and also ran too late
+// in some graph orderings, so incremental builds kept shipping stale HTML.
+tasks.configureEach { t ->
+    if (t.name == 'preBuild' || t.name.startsWith('pre') && t.name.endsWith('Build')) {
+        t.dependsOn syncJazzAssets
+    }
+    if (t.name.startsWith('merge') && t.name.endsWith('Assets')) {
+        t.dependsOn syncJazzAssets
+    }
+}
 
 android {
     namespace 'com.harp.jazzhymnal'
