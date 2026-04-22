@@ -110,7 +110,59 @@ This file should never lag `origin/main`.
 
 ## Notes for home-laptop Claude on next pickup
 
-Direct brief so you can pick up quickly without re-deriving everything:
+### What happened in the 2026-04-21 lab evening session (top of `origin/main` is `9d7136f` — update and re-pick)
+
+The lab had the tablet plugged in and did a big UX/audio pass on the
+Amazing Grace survey page. All 9 commits below are on main; the
+tablet (P90YPDU16Y251200164, package `com.harp.jazzhymnal`) has the
+latest APK installed.
+
+Ordered by what matters most for anyone touching this next:
+
+1. **`9d7136f` — Jazz Version reference track** next to Full Baseline.
+   See `jazz/test_amazing_grace.html` lines ~230-260 for the two
+   `<section class="baseline">` blocks. The Jazz MIDI is rendered
+   from `data/reharm/variations/amazing_grace/v24.json` (picked
+   from 40 generated seeds by a jazz-tag weighting script). If the
+   user wants a different jazz feel, re-run the selector with a
+   higher `--n`, adjust the weights in the compose script (history
+   is in the commit message), pick a different winner, re-render via
+   `trefoil.reharm.render_midi.render_variation_midi`, commit
+   `data/reharm/tests/amazing_grace/_jazz.mid`.
+
+2. **`e26fcab`, `8546816` — playback fixes**: volume slider (0–300%,
+   default 200%), master `GainNode`, note-off honored with 1.2s
+   release, sqrt-velocity curve. The storage key is
+   `amazing_grace.volume.v2`; do NOT revert to v1. If the user's
+   tablet system media volume is still low (`settings get system
+   volume_music` returned 5 out of ~15), they may need to bump it on
+   hardware — there's no reliable way to set it from adb on this
+   device.
+
+3. **`d011ce8` — offline MIDI stack bundled** under `jazz/vendor/`.
+   NEVER revert these scripts to CDN URLs — the tablet has no wifi
+   and will crash with "Soundfont is not defined". Bundle size is
+   ~1.8 MB total (mostly the MusyngKite orchestral_harp soundfont).
+   If switching soundfonts, download the new sample bank to
+   `jazz/vendor/soundfont/<instrument>-mp3.js` and update the
+   `instrument` name in `_loadHarp()`.
+
+4. **`c55d000` — all 79 tactic notes + all 12 dimension notes**
+   populated in `data/reharm/tactics.json`. If the user says a
+   specific note reads wrong, fix just that `note` field; no
+   pipeline regeneration needed.
+
+5. **`5349c62` — saxophone launcher icon** replaces the drill on the
+   home screen. PNGs in `jazzhymnal/app/src/main/res/mipmap-*/
+   ic_launcher*.png` regenerated via NotoColorEmoji. The user earlier
+   confused the `JazzHymnal` and `Drills` icons (both were brown
+   drill icons); now they're visually distinct.
+
+6. **`df38417` — `syncJazzAssets` Gradle fix**. If an installDebug
+   still ships stale HTML, fall back to `./gradlew clean
+   installDebug`.
+
+### Direct brief so you can pick up quickly without re-deriving everything:
 
 1. **Tablet already has `38a89c9` installed from the lab.** No
    reinstall needed unless something has landed between that commit
@@ -160,6 +212,41 @@ Direct brief so you can pick up quickly without re-deriving everything:
 
 ## Recent pushes (newest first)
 
+- **2026-04-21 lab** — `9d7136f` `survey: Jazz Version reference track
+  alongside Full Baseline` — generated 40 Amazing Grace variations via
+  `trefoil.reharm.selector`, scored them by a jazz-tag weight, and
+  rendered the winner (`v24`: 7× chord_offbeat, 6× rolled, 5× each
+  of sus/quartal/diatonic/anticipate/common_tone, 4× syncopated) to
+  `data/reharm/tests/amazing_grace/_jazz.mid`. Added a second
+  `<section class="baseline">` block with a ▶ `jazz-btn`, wired the
+  same way as `baseline-btn`.
+- **2026-04-21 lab** — `e26fcab` `survey: louder default + wider slider
+  range + sqrt-velocity curve` — tablet reported "can barely hear".
+  Slider range 0–100 → 0–300, default 80% → 200%, storage key bumped
+  to `amazing_grace.volume.v2` so the legacy cached value can't keep
+  it quiet. Per-note gain switched from `velocity/127` to
+  `sqrt(velocity/127)` to lift mid-velocity notes. Tablet's system
+  `volume_music=5` (low) suggests users may also need to bump the
+  hardware media volume.
+- **2026-04-21 lab** — `8546816` `survey: volume slider + note-off
+  honored in MIDI playback` — added `🔈 [slider] %` widget to top bar
+  driving a master `GainNode`. Rewrote the `MidiPlayer` event
+  callback: Note-on starts a note with no hardcoded duration (rings
+  naturally), Note-off stops it with a 1.2s release tail. Active
+  notes tracked in `Map<noteNumber, note>` so the right voice
+  releases. `endOfFile` frees the UI but leaves the final chord
+  ringing for 2.5s before a forced silence. Volume persists via
+  `localStorage`.
+- **2026-04-21 lab** — `d011ce8` `survey: bundle MIDI playback libs
+  offline (tablet has no wifi)` — root cause of "Soundfont is not
+  defined" error was `cdn.jsdelivr.net` failing to load on an offline
+  tablet. Vendored `midi-player-js@2.0.16` + `soundfont-player@0.12.0`
+  + the MusyngKite `orchestral_harp-mp3.js` (~1.7 MB) into
+  `jazz/vendor/`, swapped the CDN `<script src>` for local paths,
+  and passed a `nameToUrl` override to `Soundfont.instrument`.
+- **2026-04-21 lab** — `105b1b1` `HANDOFF.md: direct brief section for
+  home-laptop Claude` — added the "Notes for home-laptop Claude on
+  next pickup" block.
 - **2026-04-21 lab** — `c55d000` `tactics: populate music-theory notes
   for all 79 tactics` — filled the `note` field on all 73 previously-
   empty tactics across 12 dimensions (shape/register/lh_activity/
