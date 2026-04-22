@@ -151,9 +151,11 @@ button.play.ab-b { border-color:var(--accent); }
 </style>
 
 <!-- Strict-GM MIDI playback stack — midi-player-js parses SMF,
-     soundfont-player plays MusyngKite orchestral_harp samples. -->
-<script src="https://cdn.jsdelivr.net/npm/midi-player-js@2.0.16/browser/midiplayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/soundfont-player@0.12.0/dist/soundfont-player.min.js"></script>
+     soundfont-player plays MusyngKite orchestral_harp samples.
+     Libraries + soundfont are bundled locally (vendor/) so the tablet
+     works offline. Do NOT swap for CDN URLs — the tablet has no wifi. -->
+<script src="vendor/midiplayer.min.js"></script>
+<script src="vendor/soundfont-player.min.js"></script>
 </head>
 <body>
 
@@ -299,8 +301,13 @@ function _harpAC() {
 }
 function _loadHarp() {
   if (!HARP_INST_PROMISE) {
-    HARP_INST_PROMISE = Soundfont.instrument(_harpAC(), "orchestral_harp",
-      {soundfont: "MusyngKite"});
+    // Point soundfont-player at the local vendor/soundfont/ dir so the
+    // tablet works offline. Override the default https://gleitz.github.io/...
+    HARP_INST_PROMISE = Soundfont.instrument(_harpAC(), "orchestral_harp", {
+      soundfont: "MusyngKite",
+      nameToUrl: (name, _sf, format) =>
+        "vendor/soundfont/" + name + "-" + (format || "mp3") + ".js",
+    });
   }
   return HARP_INST_PROMISE;
 }
