@@ -92,9 +92,11 @@ This file should never lag `origin/main`.
   `./gradlew installDebug` will pick them up automatically via
   `syncJazzAssets`.
 - **Theory notes for tactics** (the Help modal surfaces whatever is in
-  `tactics.json`'s `note` field; 6/79 have content today). Filling the
-  remaining 73 is low priority but user-visible — either side can
-  incrementally edit `data/reharm/tactics.json`.
+  `tactics.json`'s `note` field; 6/79 tactics have content today).
+  Filling the remaining 73 is low priority but user-visible — either
+  side can incrementally edit `data/reharm/tactics.json`. *Dimension-
+  level notes* (all 12) landed in `97861fd`; tactic-level notes are
+  the remaining gap.
 
 ### Role overrides this week
 - 2026-04-21 — home-Claude (tablet was plugged in) scaffolded
@@ -105,6 +107,13 @@ This file should never lag `origin/main`.
 
 ## Recent pushes (newest first)
 
+- **2026-04-21 lab** — `97861fd` `tactics survey: dimension-level help
+  buttons + theory notes` — added `?` help button to each dim-section
+  `<summary>` in `test_amazing_grace.html` + `openDimHelp()` handler;
+  populated `note` field on all 12 dimensions in `tactics.json` (shape,
+  register, lh_activity, rh_activity, connect_from/to, substitution,
+  density, texture, lever, range, phrase_role). APK rebuilt and
+  installed on the tablet from the lab (device was connected).
 - **2026-04-21 lab** — `d4dfb63` `reharm_solo: land Amazing Grace survey-audio
   fixtures` — ran `cli.reharm_solo --hymn amazing_grace --all`, committed
   158 tactic/original MIDI pairs + `_baseline.mid`. Narrowed `.gitignore`:
