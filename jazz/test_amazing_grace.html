@@ -238,6 +238,19 @@ button.play.ab-b { border-color:var(--accent); }
   </span>
 </section>
 
+<section class="baseline">
+  <h2>Jazz Version</h2>
+  <button class="play" id="jazz-btn"
+          data-mid="../data/reharm/tests/amazing_grace/_jazz.mid"
+          data-label="Jazz">▶</button>
+  <span class="tc-status" id="jazz-status"></span>
+  <span class="baseline-blurb">
+    A jazz reharmonization using sus and quartal shapes, diatonic
+    substitutions, syncopated offbeat LH, rolled/staggered texture,
+    and anticipated chord changes across the whole 16 bars.
+  </span>
+</section>
+
 <div class="collapse-controls">
   <button onclick="setAllOpen(true)">expand all</button>
   <button onclick="setAllOpen(false)">collapse all</button>
@@ -806,6 +819,11 @@ function closeHelp() {
   const btn = document.getElementById("baseline-btn");
   const status = document.getElementById("baseline-status");
   if (btn) btn.addEventListener("click", () => playMidi(btn.dataset.mid, btn, status));
+
+  const jazzBtn = document.getElementById("jazz-btn");
+  const jazzStatus = document.getElementById("jazz-status");
+  if (jazzBtn) jazzBtn.addEventListener("click",
+    () => playMidi(jazzBtn.dataset.mid, jazzBtn, jazzStatus));
 
   document.getElementById("export-btn").addEventListener("click", exportScores);
   document.getElementById("import-file").addEventListener("change", e => {
