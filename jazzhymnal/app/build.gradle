@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+// Sync jazz/ HTML + data/reharm/ from the repo root into assets/ before each build,
+// so there's a single source of truth and no committed duplicate tree.
+task syncJazzAssets(type: Copy) {
+    def repoRoot = rootProject.projectDir.parentFile
+    into "${projectDir}/src/main/assets"
+    from("${repoRoot}/jazz") { into 'jazz' }
+    from("${repoRoot}/data/reharm") { into 'data/reharm' }
+}
+tasks.whenTaskAdded { t -> if (t.name == 'preBuild') t.dependsOn syncJazzAssets }
+
+android {
+    namespace 'com.harp.jazzhymnal'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.harp.jazzhymnal"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "0.1.0"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+}

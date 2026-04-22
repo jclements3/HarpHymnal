@@ -178,6 +178,39 @@ button.play.ab-b { border-color:var(--accent); }
 </main>
 
 <script>
+// --- file:// fetch polyfill ------------------------------------------------ //
+// Android WebView blocks fetch() on file:// origins even with
+// setAllowFileAccessFromFileURLs + setAllowUniversalAccessFromFileURLs.
+// Legacy XHR still works, so route fetch through it when running on file://.
+(function () {
+  if (location.protocol !== "file:" || window.__fileFetchPatched) return;
+  window.__fileFetchPatched = true;
+  const originalFetch = window.fetch ? window.fetch.bind(window) : null;
+  window.fetch = function (input, init) {
+    const url = (typeof input === "string") ? input : (input && input.url);
+    const isHttp = /^https?:/i.test(url || "");
+    if (isHttp && originalFetch) return originalFetch(input, init);
+    return new Promise((resolve, reject) => {
+      try {
+        const xhr = new XMLHttpRequest();
+        xhr.open((init && init.method) || "GET", url, true);
+        xhr.responseType = "arraybuffer";
+        xhr.onload = () => {
+          const body = xhr.response ? new Uint8Array(xhr.response) : new Uint8Array();
+          const resp = new Response(new Blob([body]), {
+            status: xhr.status || 200,
+            statusText: xhr.statusText || "OK",
+          });
+          Object.defineProperty(resp, "url", { value: url });
+          resolve(resp);
+        };
+        xhr.onerror = () => reject(new TypeError("XHR fallback failed: " + url));
+        xhr.send((init && init.body) || null);
+      } catch (e) { reject(e); }
+    });
+  };
+})();
+
 // --- Local-storage scoring ------------------------------------------------ //
 const HYMN_SLUG = "amazing_grace";
 const LS_PREFIX = "harphymnal.scores." + HYMN_SLUG + ".";
@@ -473,12 +506,19 @@ function exportScores() {
     exported_at: new Date().toISOString(),
     scores: allScores(),
   };
-  const blob = new Blob([JSON.stringify(payload, null, 2)],
-                        {type: "application/json"});
+  const text = JSON.stringify(payload, null, 2);
+  const filename = HYMN_SLUG + "_scores.json";
+  // Native-app path: when running inside JazzHymnal the bridge writes to Downloads/.
+  if (typeof window.Android !== "undefined" && window.Android.saveScores) {
+    const saved = window.Android.saveScores(filename, text);
+    alert(saved || ("Saved " + filename));
+    return;
+  }
+  const blob = new Blob([text], {type: "application/json"});
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = HYMN_SLUG + "_scores.json";
+  a.download = filename;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
