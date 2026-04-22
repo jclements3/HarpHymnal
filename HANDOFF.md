@@ -85,12 +85,6 @@ This file should never lag `origin/main`.
   Modal closes on backdrop / `×` / Escape.
 
 ### Outstanding blockers
-- **Audio for the survey**: the per-tactic MIDIs
-  (`data/reharm/tests/amazing_grace/*.mid`) are gitignored and not yet
-  pushed by the lab. Until they land, the ▶ A / ▶ B buttons fail.
-  Lab → run `python3 -m cli.reharm_solo --hymn amazing_grace --all`
-  and commit the `.mid` + `_baseline.mid` + `_notes.json` (the latter
-  two are already in the repo; confirm they're still current).
 - **Per-hymn variation pages**: `jazz/variations.<slug>.html` (gitignored)
   need `data/reharm/catalog.json` + `shape_library.json` first. Lab →
   after running selector/catalog, run `python3 trefoil/build_variations_pages.py`
@@ -111,6 +105,12 @@ This file should never lag `origin/main`.
 
 ## Recent pushes (newest first)
 
+- **2026-04-21 lab** — `d4dfb63` `reharm_solo: land Amazing Grace survey-audio
+  fixtures` — ran `cli.reharm_solo --hymn amazing_grace --all`, committed
+  158 tactic/original MIDI pairs + `_baseline.mid`. Narrowed `.gitignore`:
+  `data/reharm/tests/<slug>/*.mid` are now tracked (survey fixture, not
+  bulk render). Unblocks the ▶ A / ▶ B survey buttons — home-Claude will
+  pick them up on the next `./gradlew installDebug`.
 - **2026-04-21 home** — `3e1b638` `jazzhymnal: new WebView-wrapper tablet
   app` — scaffolded `jazzhymnal/`, added "Evaluate (Amazing Grace)" tile
   on `jazz/index.html`, XHR fetch shim + `window.Android.saveScores`
