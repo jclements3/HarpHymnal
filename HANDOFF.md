@@ -91,12 +91,10 @@ This file should never lag `origin/main`.
   and push the generated HTML. Home → needs them in the APK; the next
   `./gradlew installDebug` will pick them up automatically via
   `syncJazzAssets`.
-- **Theory notes for tactics** (the Help modal surfaces whatever is in
-  `tactics.json`'s `note` field; 6/79 tactics have content today).
-  Filling the remaining 73 is low priority but user-visible — either
-  side can incrementally edit `data/reharm/tactics.json`. *Dimension-
-  level notes* (all 12) landed in `97861fd`; tactic-level notes are
-  the remaining gap.
+- ~~Theory notes for tactics~~ **resolved in `c55d000`** — all 79
+  tactics now have populated `note` fields and all 12 dimensions have
+  theory notes (from `97861fd`). Every 🎷 help button in the Amazing
+  Grace survey opens a substantive pedagogy paragraph.
 
 ### Role overrides this week
 - 2026-04-21 — home-Claude (tablet was plugged in) scaffolded
@@ -107,6 +105,18 @@ This file should never lag `origin/main`.
 
 ## Recent pushes (newest first)
 
+- **2026-04-21 lab** — `c55d000` `tactics: populate music-theory notes
+  for all 79 tactics` — filled the `note` field on all 73 previously-
+  empty tactics across 12 dimensions (shape/register/lh_activity/
+  rh_activity/connect_from/connect_to/substitution/density/texture/
+  lever/range/phrase_role). Each note is 1–3 sentences framed for a
+  harpist, grounded in the 118-fraction pool vocabulary. APK rebuilt +
+  installed on the tablet.
+- **2026-04-21 lab** — `5349c62` `jazzhymnal: saxophone launcher icon`
+  — replaced the drill launcher icon with 🎷 rendered from
+  NotoColorEmoji at all 5 mipmap densities. Also earlier
+  `df38417` fixed the `syncJazzAssets` Gradle hook so future builds
+  don't ship stale HTML.
 - **2026-04-21 lab** — `97861fd` `tactics survey: dimension-level help
   buttons + theory notes` — added `?` help button to each dim-section
   `<summary>` in `test_amazing_grace.html` + `openDimHelp()` handler;
