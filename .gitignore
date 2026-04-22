@@ -36,14 +36,14 @@ data/audio/
 #   - 11,160 variation JSONs   : python -m trefoil.reharm.selector --all
 #   - 11,160 .mid + .ly        : python -m cli.reharm_render --all
 #   - 57,280 fragments         : python -m cli.reharm_cut --all
-#   - 80 per-tactic MIDI demos : python -m cli.reharm_solo
 #   - corpus catalog + shape library : their own generators
+# NOTE: per-tactic MIDI demos under data/reharm/tests/<slug>/ are TRACKED —
+# they are survey fixtures for the tablet A/B evaluation UI, not bulk output.
 data/reharm/variations/
 data/reharm/renders/
 data/reharm/fragments/
 data/reharm/catalog.json
 data/reharm/shape_library.json
-data/reharm/tests/*/*.mid
 
 # Generated SATB SVG + per-hymn jazz JSON + drill cards
 data/abc_svg/
