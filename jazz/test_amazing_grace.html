@@ -35,7 +35,7 @@ html, body { background:var(--bg); color:var(--ink);
   background:#fff; color:var(--accent); padding:4px 10px;
   border-radius:4px; font-size:13px; }
 #topbar #vol-slider { -webkit-appearance:none; appearance:none;
-  width:120px; height:4px; background:var(--line); border-radius:2px;
+  width:180px; height:4px; background:var(--line); border-radius:2px;
   outline:none; cursor:pointer; }
 #topbar #vol-slider::-webkit-slider-thumb { -webkit-appearance:none;
   appearance:none; width:16px; height:16px; background:var(--accent);
@@ -178,11 +178,11 @@ button.play.ab-b { border-color:var(--accent); }
   <h1>192 Amazing Grace — Single-Tactic Audition</h1>
   <span class="sub">G major · 3/4 · snippet A/B + 0–5 scoring</span>
   <span class="io-controls">
-    <span id="vol-wrap" title="Playback volume">
+    <span id="vol-wrap" title="Playback volume (0–300%)">
       <span aria-hidden="true">🔈</span>
-      <input type="range" id="vol-slider" min="0" max="100" value="80"
+      <input type="range" id="vol-slider" min="0" max="300" value="200"
              aria-label="Playback volume"/>
-      <span id="vol-readout">80%</span>
+      <span id="vol-readout">200%</span>
     </span>
     <button id="export-btn">Export scores</button>
     <label for="import-file">Import scores</label>
@@ -318,7 +318,9 @@ let HARP_ACTIVE_PLAYER = null, HARP_ACTIVE_BTN = null, HARP_ACTIVE_STATUS = null
 // matching Note on rather than relying on a fixed decay-time cap.
 let HARP_ACTIVE_NOTES = new Map();
 
-const VOL_STORAGE_KEY = "amazing_grace.volume";
+// v2: range extended to 0–300 with a 2.0 default, the v1 key (0–100)
+// range) is ignored so legacy cached values don't keep the tablet quiet.
+const VOL_STORAGE_KEY = "amazing_grace.volume.v2";
 
 function _harpAC() {
   if (!HARP_AC) HARP_AC = new (window.AudioContext || window.webkitAudioContext)();
@@ -329,7 +331,10 @@ function _masterGain() {
     const ac = _harpAC();
     HARP_MASTER_GAIN = ac.createGain();
     const stored = parseFloat(localStorage.getItem(VOL_STORAGE_KEY));
-    const vol = Number.isFinite(stored) ? stored : 0.8;
+    // Default is 2.0 (200%) because the MusyngKite harp samples + the
+    // velocity/127 scaler combine to a low effective level on the
+    // tablet. Slider ranges 0–300% so the user can push further.
+    const vol = Number.isFinite(stored) ? stored : 2.0;
     HARP_MASTER_GAIN.gain.value = vol;
     HARP_MASTER_GAIN.connect(ac.destination);
   }
@@ -394,11 +399,14 @@ async function playMidi(midiUrl, btn, statusEl, onStart) {
         // before starting a new one (avoids runaway note stacks).
         const prev = HARP_ACTIVE_NOTES.get(event.noteNumber);
         if (prev) { try { prev.stop(); } catch (_) {} }
+        // Per-note gain: compress the velocity curve so softer velocities
+        // stay audible. sqrt(v/127) lifts v=64 from 0.50 → 0.71 while
+        // leaving v=127 at 1.0. Masters the soundfont's low baseline.
+        const gain = Math.sqrt(event.velocity / 127);
         // Omit `duration` so soundfont-player keeps the note ringing
         // until we explicitly .stop() it on Note off — matches real
         // harp behaviour where every pluck rings into the next.
-        const note = harp.play(event.noteName, ac.currentTime,
-          {gain: event.velocity / 127});
+        const note = harp.play(event.noteName, ac.currentTime, {gain});
         HARP_ACTIVE_NOTES.set(event.noteNumber, note);
       } else if (event.name === "Note off" ||
                  (event.name === "Note on" && event.velocity === 0)) {
@@ -810,7 +818,8 @@ function closeHelp() {
   const volReadout = document.getElementById("vol-readout");
   if (volSlider && volReadout) {
     const stored = parseFloat(localStorage.getItem(VOL_STORAGE_KEY));
-    const initial = Number.isFinite(stored) ? stored : 0.8;
+    // Slider displays % 0–300; gain value is %/100. Default 200%.
+    const initial = Number.isFinite(stored) ? stored : 2.0;
     volSlider.value = String(Math.round(initial * 100));
     volReadout.textContent = volSlider.value + "%";
     volSlider.addEventListener("input", () => {
