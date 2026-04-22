@@ -105,11 +105,12 @@ button.play.ab-b { border-color:var(--accent); }
 .tactic-card .tc-status { font-family:monospace; font-size:10px;
   color:var(--muted); flex:0 0 auto; min-width:54px; text-align:right; }
 .tactic-card.ambig .tc-name::after { content:" ※"; color:var(--warn); }
-.tactic-card .help-btn { flex:0 0 auto; width:22px; height:22px; padding:0;
+.tactic-card .help-btn { flex:0 0 auto; width:24px; height:24px; padding:0;
   border:1px solid var(--line); border-radius:50%; background:white;
-  color:var(--muted); cursor:pointer; font:bold 12px serif; line-height:20px; }
-.tactic-card .help-btn:hover { background:var(--tag-bg); color:var(--accent); border-color:var(--accent); }
-.dim-section > summary .help-btn { margin-left:auto; margin-right:10px; align-self:center; }
+  cursor:pointer; font-size:14px; line-height:22px; text-align:center; }
+.tactic-card .help-btn:hover { background:var(--tag-bg); border-color:var(--accent); }
+.dim-section > summary .help-btn { margin-left:auto; margin-right:10px;
+  align-self:center; width:26px; height:26px; font-size:15px; line-height:24px; }
 
 /* Help modal */
 #help-overlay { position:fixed; inset:0; background:rgba(30,25,20,0.55);
@@ -447,7 +448,7 @@ async function buildSections() {
     summary.appendChild(dimTitleWrap);
     const dimHelpBtn = document.createElement("button");
     dimHelpBtn.className = "help-btn";
-    dimHelpBtn.textContent = "?";
+    dimHelpBtn.textContent = "🎷";
     dimHelpBtn.title = "What is the " + dim + " dimension about?";
     dimHelpBtn.setAttribute("aria-label", "Help for " + dim + " dimension");
     dimHelpBtn.addEventListener("click", e => {
@@ -533,7 +534,7 @@ async function buildSections() {
 
       const helpBtn = document.createElement("button");
       helpBtn.className = "help-btn";
-      helpBtn.textContent = "?";
+      helpBtn.textContent = "🎷";
       helpBtn.title = "What is " + t.id + "? (theory + relationships)";
       helpBtn.setAttribute("aria-label", "Help for " + t.id);
       helpBtn.addEventListener("click", () => openHelp(t.id));
