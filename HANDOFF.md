@@ -100,6 +100,61 @@ This file should never lag `origin/main`.
 - 2026-04-21 — home-Claude (tablet was plugged in) scaffolded
   `jazzhymnal/` and wired the survey export bridge. Normally the lab
   would own the bundled-app path.
+- 2026-04-21 — lab-Claude installed the APK directly on the tablet
+  (device was plugged into the lab today, contrary to the usual role
+  split). The tablet already has `38a89c9` installed; home doesn't
+  need to re-run `./gradlew installDebug` unless the user has worked
+  on the repo since.
+
+---
+
+## Notes for home-laptop Claude on next pickup
+
+Direct brief so you can pick up quickly without re-deriving everything:
+
+1. **Tablet already has `38a89c9` installed from the lab.** No
+   reinstall needed unless something has landed between that commit
+   and your pickup. Check: `adb shell dumpsys package com.harp.jazzhymnal
+   | grep versionName` then compare against `git log` — or just skip
+   the install if the user isn't asking for new UI.
+
+2. **`syncJazzAssets` was broken.** The old `tasks.whenTaskAdded
+   { if (t.name == 'preBuild') … }` missed variant-specific tasks and
+   let stale HTML ship. Fix landed in `df38417` via
+   `tasks.configureEach` that hooks every `pre*Build` and `merge*Assets`
+   task. If an `./gradlew installDebug` still seems to serve an old
+   view, fall back to `./gradlew clean installDebug`.
+
+3. **Launcher icon is now 🎷** (`5349c62`). If the user complains it
+   looks off on a specific density bucket, PNGs live under
+   `jazzhymnal/app/src/main/res/mipmap-*/ic_launcher*.png`, regenerated
+   via NotoColorEmoji. Source generator is ad-hoc Python — if it needs
+   to be rerun, the script is in the commit message and `/tmp/`.
+
+4. **All 79 tactics + 12 dimensions have pedagogy notes** populated in
+   `data/reharm/tactics.json`. The 🎷 help buttons in the Amazing Grace
+   survey (`jazz/test_amazing_grace.html`) now open substantive theory
+   paragraphs on every row and every section header. If the user
+   reports a specific note reads wrong, fix just that `note` field
+   and push — no pipeline re-run required.
+
+5. **Survey audio fixtures are tracked now** (`d4dfb63`). The
+   `.gitignore` line `data/reharm/tests/*/*.mid` was removed; the 158
+   per-tactic MIDIs + `_baseline.mid` under `data/reharm/tests/amazing_grace/`
+   are in the repo and bundled into the APK via `syncJazzAssets`. Do
+   not re-add that ignore line — the comment above it explains why.
+
+6. **Expect the user to commit `scores_<timestamp>.json` files** under
+   `data/reharm/tests/amazing_grace/` from the tablet. When those
+   arrive, the lab will fold them back into the generator. If they
+   show up in your session, just verify they parse cleanly and leave
+   them for the lab to act on.
+
+7. **Still open**: per-hymn variation pages `jazz/variations.<slug>.html`
+   are gitignored and blocked on `catalog.json` + `shape_library.json`
+   being generated. If the user asks for variations on a hymn other
+   than Amazing Grace, you likely can't build them from the home
+   laptop — redirect to the lab or do a lightweight static stub.
 
 ---
 
