@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Docs — HarpHymnal Jazz</title>
+<style>
+  :root { --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0; --panel:#ffffff; --jazz:#8B5A2B; --accent:#1F4E79; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55;
+    -webkit-tap-highlight-color: transparent; }
+  #topbar { padding: 16px 24px; background: var(--jazz); color: #fff;
+    display: flex; align-items: center; gap: 16px; }
+  #topbar a { color: #fff; text-decoration: none; font-size: 15px; }
+  #topbar h1 { font-size: 22px; flex: 1; }
+
+  .doc-nav { padding: 10px 24px; background: var(--panel); border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 10;
+    display: flex; flex-wrap: wrap; gap: 6px 4px; }
+  .doc-nav a { color: var(--jazz); text-decoration: none; font-weight: bold;
+    padding: 6px 12px; border-radius: 4px; font-size: 14px;
+    border: 1px solid transparent; }
+  .doc-nav a:hover { background: var(--line); }
+  .doc-nav a.active { background: var(--jazz); color: #fff; border-color: var(--jazz); }
+
+  main { padding: 24px; max-width: 900px; margin: 0 auto; }
+  #status { color: var(--muted); font-style: italic; padding: 40px 0; text-align: center; }
+  #content { font-size: 16px; }
+
+  /* Markdown styling */
+  #content h1 { font-size: 28px; color: var(--jazz); margin: 0 0 14px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--line); }
+  #content h2 { font-size: 22px; color: var(--accent); margin: 28px 0 10px; }
+  #content h3 { font-size: 18px; margin: 22px 0 8px; }
+  #content h4 { font-size: 16px; margin: 18px 0 6px; color: var(--ink); }
+  #content p  { margin: 10px 0; }
+  #content ul, #content ol { margin: 10px 0 10px 28px; }
+  #content li { margin: 4px 0; }
+  #content a  { color: var(--accent); }
+  #content code {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.92em; background: var(--panel); border: 1px solid var(--line);
+    padding: 1px 5px; border-radius: 3px;
+  }
+  #content pre {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+    padding: 12px 14px; margin: 12px 0; overflow-x: auto; line-height: 1.4;
+  }
+  #content pre code { background: transparent; border: 0; padding: 0; font-size: 0.9em; }
+  #content blockquote {
+    border-left: 4px solid var(--jazz); padding: 4px 14px; margin: 12px 0;
+    color: #555; background: rgba(139, 90, 43, 0.05);
+  }
+  #content table {
+    border-collapse: collapse; margin: 14px 0; font-size: 14px;
+    width: 100%; max-width: 100%;
+  }
+  #content th, #content td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; }
+  #content th { background: var(--panel); }
+  #content hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
+  #content img { max-width: 100%; }
+</style></head><body>
+
+<div id="topbar">
+  <a href="index.html">&larr; Home</a>
+  <h1>Docs</h1>
+  <span style="font-size:13px; opacity:.85">offline · bundled with the APK</span>
+</div>
+
+<nav class="doc-nav" id="doc-nav"></nav>
+
+<main>
+  <div id="status">Loading&hellip;</div>
+  <article id="content" style="display:none"></article>
+</main>
+
+<script src="vendor/marked.min.js"></script>
+<script>
+  // Docs registry — ordered, user-facing only.
+  const DOCS = [
+    { slug: 'TREFOIL',        title: 'Trefoil',        file: 'docs/TREFOIL.md',
+      blurb: '118-fraction pool · 6 paths · pedagogy' },
+    { slug: 'RECIPE',         title: 'Recipe',         file: 'docs/RECIPE.md',
+      blurb: 'pretty-fraction algorithm + scoring' },
+    { slug: 'REHARM_TACTICS', title: 'Reharm Tactics', file: 'docs/REHARM_TACTICS.md',
+      blurb: '8-phase reharm pipeline' },
+    { slug: 'ChordAnalysis',  title: 'Chord Analysis', file: 'docs/ChordAnalysis.md',
+      blurb: 'RN + quality + voicing notes' },
+    { slug: 'handout',        title: 'Handout',        file: 'docs/handout.md',
+      blurb: 'shape-chord handout text' },
+    { slug: 'HARP_IDIOM',     title: 'Harp Idiom',     file: 'docs/HARP_IDIOM.md',
+      blurb: 'what sits well under the hands' },
+  ];
+
+  const nav = document.getElementById('doc-nav');
+  const status = document.getElementById('status');
+  const content = document.getElementById('content');
+
+  DOCS.forEach((d) => {
+    const a = document.createElement('a');
+    a.href = '#' + d.slug;
+    a.textContent = d.title;
+    a.dataset.slug = d.slug;
+    a.title = d.blurb;
+    nav.appendChild(a);
+  });
+
+  function loadMarkdown(url, cb) {
+    // WebView blocks fetch() on file:// origins; XMLHttpRequest works.
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200 || xhr.status === 0) cb(null, xhr.responseText);
+      else cb(new Error('HTTP ' + xhr.status + ' for ' + url));
+    };
+    xhr.onerror = function () { cb(new Error('network error for ' + url)); };
+    try { xhr.send(); } catch (e) { cb(e); }
+  }
+
+  function selectDoc(slug) {
+    const doc = DOCS.find((d) => d.slug === slug) || DOCS[0];
+    for (const a of nav.querySelectorAll('a')) {
+      a.classList.toggle('active', a.dataset.slug === doc.slug);
+    }
+    status.style.display = '';
+    status.textContent = 'Loading ' + doc.title + '…';
+    content.style.display = 'none';
+    content.innerHTML = '';
+
+    loadMarkdown(doc.file, function (err, text) {
+      if (err) {
+        status.textContent = 'Could not load ' + doc.file + ': ' + err.message;
+        return;
+      }
+      content.innerHTML = marked.parse(text);
+      status.style.display = 'none';
+      content.style.display = '';
+      document.title = doc.title + ' — HarpHymnal Docs';
+      window.scrollTo(0, 0);
+    });
+  }
+
+  function slugFromHash() {
+    const h = (location.hash || '').replace(/^#/, '');
+    return h || DOCS[0].slug;
+  }
+
+  window.addEventListener('hashchange', function () { selectDoc(slugFromHash()); });
+  selectDoc(slugFromHash());
+</script>
+</body></html>
