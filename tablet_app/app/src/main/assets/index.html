@@ -116,6 +116,8 @@
   .tile.reharmhymnal { border-color: #8B6914; }
   .tile.reharm       .tile-banner { background: #C9A227; }
   .tile.reharm { border-color: #C9A227; }
+  .tile.docs         .tile-banner { background: #1F4E79; }
+  .tile.docs { border-color: #1F4E79; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -898,6 +900,16 @@
       onTap:  enterReharm,
     });
     grid.appendChild(reharm);
+
+    // Docs tile — FIFTH (bundled user-facing pedagogy: Trefoil, Recipe, etc.).
+    const docs = makeTile({
+      family: 'docs',
+      name:   'Docs',
+      rule:   'Trefoil · Recipe · Reharm Tactics · Chord Analysis · Handout · Harp Idiom',
+      count:  6,
+      onTap:  () => { window.location.href = 'docs.html'; },
+    });
+    grid.appendChild(docs);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────
