@@ -1,0 +1,128 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+	"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	color="black" viewBox="0 0 760.40 132.65" preserveAspectRatio="xMidYMid meet">
+<style type="text/css">
+.fill {fill: currentColor}
+.stroke {stroke: currentColor; fill: none}
+text{white-space: pre}
+</style>
+<title>/home/james.clements/projects/retab/drills.abc (25) tune 25</title>
+<!-- Creator: abcm2ps-8.14.11 -->
+<!-- CreationDate: Apr 23, 2026 20:44 -->
+<!-- CommandLine: -g -O drill /home/james.clements/projects/retab/drills.abc -->
+<g stroke-width="0.70">
+<!-- title: 25. 3/4 Ballad — dotted half held -->
+</g>
+<g stroke-width="0.70" style="font:12.00px Georgia">
+<text x="380.20" y="15.60" text-anchor="middle">25. 3/4 Ballad — dotted half held</text>
+</g>
+<g stroke-width="0.70" transform="scale(0.700)" style="font:12.00px Georgia">
+<defs>
+<ellipse id="hd" rx="4.1" ry="2.9"
+	transform="rotate(-20)" class="fill"/>
+</defs>
+<use x="85.14" y="61.64" xlink:href="#hd"/>
+<path d="M88.64 61.64v-21.00" class="stroke"/>
+</g>
+<g stroke-width="0.70" style="font:bold 15.00px Times">
+<text x="67.30" y="45.25">= 60</text>
+<path class="stroke" stroke-width="1"
+	d="M90.90 102.25v-24.00"/>
+<path class="stroke" stroke-width="1"
+	d="M136.90 102.25v-24.00"/>
+<path class="stroke" stroke-width="1"
+	d="M182.90 102.25v-24.00"/>
+<path class="stroke" stroke-width="3"
+	d="M232.00 102.25v-24.00"/>
+<path class="stroke" stroke-width="1"
+	d="M227.50 102.25v-24.00"/>
+<path d="m10.00 102.25
+	h223.50
+	M10.00 96.25
+	h223.50
+	M10.00 90.25
+	h223.50
+	M10.00 84.25
+	h223.50
+	M10.00 78.25
+	h223.50
+	" class="stroke"/>
+</g>
+<g stroke-width="0.70" style="font:12.00px Helvetica">
+<text x="55.50" y="60.85">C</text>
+<text x="56.40" y="125.85">8</text>
+<text x="102.10" y="60.85">F</text>
+<text x="102.40" y="116.85">8</text>
+<text x="147.20" y="60.85">G</text>
+<text x="148.40" y="113.85">8</text>
+<text x="193.50" y="60.85">C</text>
+<text x="194.40" y="125.85">8</text>
+<defs>
+<path id="ubclef" class="fill" d="m-200 -87
+	c124 -35 222 -78 254 -236
+	43 -228 -167 -246 -192 -103
+	59 -80 157 22 92 78
+	-62 47 -115 -22 -106 -88
+	21 -141 270 -136 274 52
+	-1 175 -106 264 -322 297
+	m357 -250
+	c0 -36 51 -34 51 0
+	0 37 -51 36 -51 0
+	m-2 -129
+	c0 -36 51 -34 51 0
+	0 38 -51 37 -51 0"/>
+<use id="bclef" transform="translate(0,18) scale(0.045)"
+	xlink:href="#ubclef"/>
+</defs>
+<use x="22.00" y="84.25" xlink:href="#bclef"/>
+<g style="font:bold 16px serif"
+	transform="translate(40.50,101.75) scale(1.2,1)">
+	<text text-anchor="middle">4</text>
+	<text y="-12" text-anchor="middle">3</text>
+</g>
+<defs>
+<path id="Hd" class="fill" d="m3 -1.6
+	c-1 -1.8 -7 1.4 -6 3.2
+	1 1.8 7 -1.4 6 -3.2
+	m0.5 -0.3
+	c2 3.8 -5 7.6 -7 3.8
+	-2 -3.8 5 -7.6 7 -3.8"/>
+</defs>
+<use x="59.00" y="81.25" xlink:href="#Hd"/>
+<circle class="fill" cx="68.70" cy="81.25" r="1.2"/>
+<path d="M55.50 81.25v31.00" class="stroke"/>
+<use x="59.00" y="93.25" xlink:href="#Hd"/>
+<circle class="fill" cx="68.70" cy="93.25" r="1.2"/>
+<use x="59.00" y="87.25" xlink:href="#Hd"/>
+<circle class="fill" cx="68.70" cy="87.25" r="1.2"/>
+<defs>
+<path id="hl" class="stroke" d="m-6 0h12"/>
+</defs>
+<use x="105.00" y="72.25" xlink:href="#hl"/>
+<use x="105.00" y="72.25" xlink:href="#Hd"/>
+<circle class="fill" cx="113.70" cy="69.25" r="1.2"/>
+<path d="M101.50 72.25v31.00" class="stroke"/>
+<use x="105.00" y="84.25" xlink:href="#Hd"/>
+<circle class="fill" cx="113.70" cy="81.25" r="1.2"/>
+<use x="105.00" y="78.25" xlink:href="#Hd"/>
+<circle class="fill" cx="113.70" cy="75.25" r="1.2"/>
+<use x="151.00" y="72.25" xlink:href="#hl"/>
+<use x="151.00" y="69.25" xlink:href="#Hd"/>
+<circle class="fill" cx="159.70" cy="69.25" r="1.2"/>
+<path d="M147.50 69.25v31.00" class="stroke"/>
+<use x="151.00" y="81.25" xlink:href="#Hd"/>
+<circle class="fill" cx="159.70" cy="81.25" r="1.2"/>
+<use x="151.00" y="75.25" xlink:href="#Hd"/>
+<circle class="fill" cx="159.70" cy="75.25" r="1.2"/>
+<use x="197.10" y="81.25" xlink:href="#Hd"/>
+<circle class="fill" cx="205.80" cy="81.25" r="1.2"/>
+<path d="M193.60 81.25v31.00" class="stroke"/>
+<use x="197.10" y="93.25" xlink:href="#Hd"/>
+<circle class="fill" cx="205.80" cy="93.25" r="1.2"/>
+<use x="197.10" y="87.25" xlink:href="#Hd"/>
+<circle class="fill" cx="205.80" cy="87.25" r="1.2"/>
+</g>
+</svg>

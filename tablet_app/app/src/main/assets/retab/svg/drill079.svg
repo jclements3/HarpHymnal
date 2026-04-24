@@ -1,0 +1,119 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+	"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	color="black" viewBox="0 0 760.40 123.25" preserveAspectRatio="xMidYMid meet">
+<style type="text/css">
+.fill {fill: currentColor}
+.stroke {stroke: currentColor; fill: none}
+text{white-space: pre}
+</style>
+<title>/home/james.clements/projects/retab/drills.abc (79) tune 79</title>
+<!-- Creator: abcm2ps-8.14.11 -->
+<!-- CreationDate: Apr 23, 2026 20:44 -->
+<!-- CommandLine: -g -O drill /home/james.clements/projects/retab/drills.abc -->
+<g stroke-width="0.70">
+<!-- title: 79. Cluster Chord -->
+</g>
+<g stroke-width="0.70" style="font:12.00px Georgia">
+<text x="380.20" y="15.60" text-anchor="middle">79. Cluster Chord</text>
+</g>
+<g stroke-width="0.70" style="font:7.00px Georgia">
+<text x="750.40" y="31.00" text-anchor="end">Three adjacent notes stacked, held whole-note</text>
+</g>
+<g stroke-width="0.70" transform="scale(0.700)" style="font:7.00px Georgia">
+<defs>
+<ellipse id="hd" rx="4.1" ry="2.9"
+	transform="rotate(-20)" class="fill"/>
+</defs>
+<use x="86.57" y="71.64" xlink:href="#hd"/>
+<path d="M90.07 71.64v-21.00" class="stroke"/>
+</g>
+<g stroke-width="0.70" style="font:bold 15.00px Times">
+<text x="68.30" y="52.25">= 60</text>
+<path class="stroke" stroke-width="1"
+	d="M88.00 100.25v-24.00"/>
+<path class="stroke" stroke-width="1"
+	d="M130.20 100.25v-24.00"/>
+<path class="stroke" stroke-width="1"
+	d="M172.30 100.25v-24.00"/>
+<path class="stroke" stroke-width="3"
+	d="M216.90 100.25v-24.00"/>
+<path class="stroke" stroke-width="1"
+	d="M212.40 100.25v-24.00"/>
+<path d="m10.00 100.25
+	h208.40
+	M10.00 94.25
+	h208.40
+	M10.00 88.25
+	h208.40
+	M10.00 82.25
+	h208.40
+	M10.00 76.25
+	h208.40
+	" class="stroke"/>
+</g>
+<g stroke-width="0.70" style="font:12.00px Helvetica">
+<text x="56.50" y="67.85">C</text>
+<text x="99.20" y="67.85">F</text>
+<text x="140.50" y="67.85">G</text>
+<text x="182.90" y="67.85">C</text>
+<defs>
+<path id="utclef" class="fill" d="m-50 -90
+	c-72 -41 -72 -158 52 -188
+	150 -10 220 188 90 256
+	-114 52 -275 0 -293 -136
+	-15 -181 93 -229 220 -334
+	88 -87 79 -133 62 -210
+	-51 33 -94 105 -89 186
+	17 267 36 374 49 574
+	6 96 -19 134 -77 135
+	-80 1 -126 -93 -61 -133
+	85 -41 133 101 31 105
+	23 17 92 37 90 -92
+	-10 -223 -39 -342 -50 -617
+	0 -90 0 -162 96 -232
+	56 72 63 230 22 289
+	-74 106 -257 168 -255 316
+	9 153 148 185 252 133
+	86 -65 29 -192 -80 -176
+	-71 12 -105 67 -59 124"/>
+<use id="tclef" transform="translate(0,6) scale(0.045)"
+	xlink:href="#utclef"/>
+</defs>
+<use x="22.00" y="94.25" xlink:href="#tclef"/>
+<g style="font:bold 16px serif"
+	transform="translate(40.50,99.75) scale(1.2,1)">
+	<text text-anchor="middle">4</text>
+	<text y="-12" text-anchor="middle">4</text>
+</g>
+<defs>
+<path id="hl1" class="stroke" d="m-7 0h14"/>
+</defs>
+<use x="61.00" y="106.25" xlink:href="#hl1"/>
+<defs>
+<path id="HD" class="fill" d="m-2.7 -1.4
+	c1.5 -2.8 6.9 0 5.3 2.7
+	-1.5 2.8 -6.9 0 -5.3 -2.7
+	m8.3 1.4
+	c0 -1.5 -2.2 -3 -5.6 -3
+	-3.4 0 -5.6 1.5 -5.6 3
+	0 1.5 2.2 3 5.6 3
+	3.4 0 5.6 -1.5 5.6 -3"/>
+</defs>
+<use x="61.00" y="106.25" xlink:href="#HD"/>
+<use x="70.40" y="103.25" xlink:href="#HD"/>
+<use x="61.00" y="100.25" xlink:href="#HD"/>
+<use x="103.20" y="97.25" xlink:href="#HD"/>
+<use x="112.50" y="94.25" xlink:href="#HD"/>
+<use x="103.20" y="91.25" xlink:href="#HD"/>
+<use x="145.30" y="94.25" xlink:href="#HD"/>
+<use x="154.70" y="91.25" xlink:href="#HD"/>
+<use x="145.30" y="88.25" xlink:href="#HD"/>
+<use x="187.40" y="106.25" xlink:href="#hl1"/>
+<use x="187.40" y="106.25" xlink:href="#HD"/>
+<use x="196.80" y="103.25" xlink:href="#HD"/>
+<use x="187.40" y="100.25" xlink:href="#HD"/>
+</g>
+</svg>
