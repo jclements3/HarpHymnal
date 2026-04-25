@@ -96,32 +96,28 @@ composition whose skeleton happens to be a hymn.
 
 ## Status of the Retab Hymnal
 
-The `hymnal/retab_hymnal.py` emitter currently lands at **L6 (partial L7)**
-for all 279 hymns in the OpenHymnal corpus:
+`hymnal/retab_hymnal.py` now ships **all seven levels** as independently
+selectable passes. The emitter accepts `--level 1..7`; `RETAB_LEVELS`
+dispatches to per-level functions, and `build_hymnal.py --levels 1..7`
+bulk-builds every level for every hymn into
+`tablet_app/assets/retab/hymns/L<n>/`. The tablet's Retab Hymnal tile
+has an L1–L7 selector in the banner; the user picks the level per hymn.
 
-- L3: block-135 trefoil always applied ✅
-- L4: phrase-role articulation (opening/middle/cadence_approach/cadence) ✅
-- L5: octave-1 low-bass ditto on opening + cadence bars ✅
-- L6: contour matching ✅
-  - Cadence-approach arpeggio direction matches motion to the cadence chord
-    (ascending for rising-4th cadences V→I / ii→V; descending for
-    falling-4th / plagal IV→I)
-  - Middle-bar anticipation: when the next bar's chord differs AND there
-    are ≥4 beat groups, the second half-bar walks toward the new chord's
-    root via a directional arpeggio instead of repeating the block
-- L7: ✅
-  - Rolled chords (`!arpeggio!`) on the low-bass opening + cadence strikes
-    — C1–B1 arrivals read as a harp wash instead of a piano attack
-  - Final-cadence RH octave doubling — the hymn's last bar is rendered as
-    two-note chords (melody + octave above), climaxing into octaves 5–6
-  - Counter-motion under sustained soprano — middle bars where the melody
-    is one long held note get a running 1-3-5-3 LH arpeggio instead of
-    the usual two-block pattern
-  - Bisbigliando annotation (`"_bisb."`) on the hymn's final tonic hold
-    when the last note fills ≥ 95 % of the bar — roughly 23 % of the
-    corpus (65/279), a rare gesture as intended
-  - L6 common-tone pivot for 3rd motion — when the next chord is a
-    3rd away, the anticipation holds the two common chord tones instead
-    of arpeggiating, giving the voice leading a real pivot feel
-  - Deferred: glissandos between phrases (low impact — few hymns have
-    phrase-end rest space for a gliss)
+L1 and L2 are new code paths that bypass the trefoil pipeline. L3–L7
+are feature-gated inside the existing `lh_pattern()` — each level turns
+on the next feature:
+
+| Level | Feature added on top of L-1                          |
+|---    |---                                                   |
+| L3    | Block-135 trefoil triads + no-piano-stomp walk       |
+| L4    | Phrase-role articulation (opening / middle / cadence)|
+| L5    | Low-bass octave-1 anchors on opening + cadence       |
+| L6    | Contour matching: arpeggio direction follows motion  |
+| L7    | Rolled chords, final-cadence octave doubling,        |
+|       | counter-motion under held melody, bisbigliando       |
+
+`build_abc(hymn)` with no `level=` kwarg is byte-identical to the
+pre-refactor L6+partial-L7 output, so legacy calls keep working.
+
+Deferred: inter-phrase glissandos (few hymns have phrase-end rest space
+to support a gliss cleanly).

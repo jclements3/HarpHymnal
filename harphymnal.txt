@@ -1,0 +1,1588 @@
+# HarpHymnal - Source Archive
+
+Bundle of the canonical encoding-system docs plus project context.
+For the web-claude to pick up where the local session left off.
+
+Files: 8
+
+Format: <FS>filename<RS>content where FS=0x1C, RS=0x1D
+
+---
+README.md# Harp Setup Encoding System
+
+A compact notation for diatonic music on a lever harp. **The system encodes hand setups — moments where the hands are placed on specific strings — and progressions of those setups. It is not a music notation: rhythm, articulation, strike order after assembly, dynamics, and timing are deliberately outside its scope.** What it captures is *what is set on the strings*; how those strings are subsequently played is the player's interpretation.
+
+The system also ignores traditional chord names and harmonic function. There are no roman numerals, no `Cmaj7` / `Dm7sus4` quality labels, no tonic/dominant categories. The vocabulary is the set of hand configurations that pass two filters: the hand can reach them, and they sound musical.
+
+---
+
+## Document structure
+
+A piece is written as a **header block** followed by one or more **rows** of setup codes:
+
+```
+Title: <piece title>     (optional)
+Key:   <key root>        (required)
+---
+<row of setups>
+<row of setups>
+...
+```
+
+`Key:` resolves what mode digits mean — the mode digit is the scale degree of the bottom finger within the named key (e.g. in `Key: C`, mode 1 = C; in `Key: G`, mode 1 = G). One header per piece.
+
+Below the `---` separator, each row is a sequence of setups. Rows are sequential phrases; position resets between rows, so each row's first setup must be fully-positioned.
+
+---
+
+## Setups
+
+A **setup** is one moment where the hands are placed on the strings. Setups are separated by dashes (`-`); the dash means *both hands lift and reset to the next position*.
+
+Within a setup, you can specify a single shape (one hand sets it) or two shapes (both hands set together):
+
+```
+<shape>           — bare shape: either hand sets it (player picks)
+L<shape>          — left hand sets this shape
+R<shape>          — right hand sets this shape
+<shape> R <shape> — both hands set together: first is LH, second is RH
+```
+
+The `R` between two shapes within a setup is a **divider**, not a prefix. It signals that the prior shape is for the LH and the following shape is for the RH (both placed simultaneously).
+
+Most setups are bare (no marker) — the markers cluster around the exceptions where a specific hand or both-hands assignment matters.
+
+---
+
+## Shape syntax
+
+A shape is one hand's placement: 1–4 fingers on specific strings, all set simultaneously. Each shape takes one of three forms:
+
+```
+absolute:      [octave] x [mode] [interval] [interval] [interval]
+                   ↑          ↑       ↑          ↑          ↑
+                  1-7        1-7    2-f        2-f        2-f
+
+relative:    ^ [count] x [mode] [interval] [interval] [interval]
+                  ↑          ↑       ↑          ↑          ↑
+                 0-7        1-7    2-f        2-f        2-f
+
+continuation:  [gap] [interval] [interval] [interval]
+                  ↑       ↑           ↑           ↑
+                 2-f     2-f         2-f         2-f
+```
+
+The first character of the shape decides its form:
+
+- **Digit followed by `x`** → **absolute**: explicit harp octave (1–7, indexed bottom up); digit after `x` is the mode (1–7) of the bottom finger; remaining digits are intra-shape intervals from one finger to the next, reading bottom (ring) to top (thumb).
+- **`^` followed by digit and `x`** → **relative**: octave is the prior shape's octave + count; otherwise identical to absolute. `^0x` is "same octave as prior."
+- **Bare digit (no `x`)** → **continuation**: first digit is the **gap interval** from the prior shape's top finger to this shape's bottom finger; remaining digits are intra-shape intervals.
+
+A row's first setup must use an absolute shape (no prior to chain from). Within a row, any mix is allowed.
+
+Mode digits: `1` Ionian, `2` Dorian, `3` Phrygian, `4` Lydian, `5` Mixolydian, `6` Aeolian, `7` Locrian.
+
+The number of intervals tells you the chord size: 0 intervals → single note; 1 → dyad; 2 → triad; 3 → tetrad. A continuation shape with only the gap digit is a single melodic note placed at the gap above the prior top finger.
+
+---
+
+## Interval digits
+
+Codes use single hex characters for every digit. Interval names count the endpoints (a 3rd is two scale steps apart):
+
+| Digit | Interval name | Scale steps |
+|---|---|---|
+| `2` | 2nd | 1 |
+| `3` | 3rd | 2 |
+| `4` | 4th | 3 |
+| `5` | 5th | 4 |
+| `6` | 6th | 5 |
+| `7` | 7th | 6 |
+| `8` | 8th (octave) | 7 |
+| `9` | 9th | 8 |
+| `a` | 10th | 9 |
+| `b` | 11th | 10 |
+| `c` | 12th | 11 |
+| `d` | 13th | 12 |
+| `e` | 14th | 13 |
+| `f` | 15th (double octave) | 14 |
+
+Hex `f` is the cap. Wider intervals exceed any single-hand voicing and aren't expressible in one digit.
+
+The digit `1` (a unison) is **invalid in any interval position** — two fingers can't sound the same string. `1` only ever appears as a mode digit or octave digit.
+
+---
+
+## Subscripts: assembly order
+
+Digits in a shape map to fingers by position: **1st digit = ring, 2nd = middle, 3rd = index, 4th = thumb**. This mapping is fixed.
+
+By default, the fingers all settle on the strings together (block-strike) or in natural bottom-up order (default roll). The encoding doesn't distinguish these — the player picks based on context.
+
+**Subscripts mark exceptions to the default assembly order.** A subscript on a digit says *when that digit's finger plants in the assembly sequence*:
+
+| Subscript | Plants |
+|---|---|
+| `₁` | first  |
+| `₂` | second |
+| `₃` | third  |
+| `₄` | fourth (last) |
+
+So `1x1₁3₂3₃3₄` is the default bottom-up assembly written explicitly: ring plants 1st, middle 2nd, index 3rd, thumb 4th.
+
+`1x1₄3₃3₂3₁` reverses the order: thumb plants 1st, then index, middle, ring last. A top-down assembly.
+
+`1x1₂3₁3₄3₃` plants middle 1st (anchor), then ring 2nd, then thumb 3rd, index last.
+
+If you use subscripts, mark all four fingers — partial subscripts are ambiguous.
+
+The subscripts describe the *recipe for assembling the shape*, not the order in which the strings are struck after assembly.
+
+---
+
+## Operators
+
+| Operator | Meaning |
+|---|---|
+| `-` | Setup separator. Both hands lift and reset to the next setup. |
+| `*N` | Literal repeat. The prior atom (a setup or parenthesized group) is repeated `N` times in succession. For continuation shapes, each iteration chains from the prior repeat's top finger, so the position evolves. |
+| `~` | Palindrome with apex de-duplication. The prior expression is then traversed in reverse; the topmost note isn't re-entered on the way back. |
+
+`R` and `L` are markers, not operators — they mark which hand sets a shape, sticky-inheriting forward through subsequent shapes until overridden.
+
+---
+
+## Reserved meanings
+
+- **Digit `1`** appears only as a mode digit or octave digit (in fully-positioned shapes). Never as an interval digit (unison) or continuation gap.
+- **`x` is a literal character**, not a digit. It signals absolute or relative form.
+- **`^` is a literal character**, not a digit. It signals the relative form, always followed by a digit and `x`.
+- **Hex `f` is the cap on every interval.** A 15th is the widest interval expressible in one digit.
+- **No descending intervals** within a shape. Every interval reads upward.
+- **Continuation gap is also upward** — from prior top finger to next bottom finger.
+- **Hand markers** (`R`, `L`) are non-hex alphabetics, so the parser distinguishes them by character class. No separator needed: `R1x1333` parses cleanly.
+
+---
+
+## Examples
+
+| Code | Reading |
+|---|---|
+| `1x13` | Ionian dyad in octave 1: C1 + 3rd up = C1–E1 (key C). |
+| `2x2d` | Dorian dyad in octave 2: D2 + 13th = D2–B3. |
+| `2x233` | Dorian triad: D2–F2–A2. |
+| `1x7333` | Locrian tetrad: B1–D2–F2–A2 (root-position Bø7 voicing). |
+| `1x1333-3333` | Two third-stacked tetrads chained by continuation: C1–E1–G1–B1 then D2–F2–A2–C3. |
+| `1x1333-3333*5~` | Thirds-up sweep across the harp: C1 to G7 in 4-note tetrads, then mirrored back. |
+| `1x135-^1x135*5~` | Open-Imaj7 voicing climbed octave-by-octave (relative-octave compression), then mirrored. |
+| `1x1-3*23~` | Single-note 3rd-step walk: C1 ascending in melodic 3rds to G7 and back. |
+| `R1x1333` | RH alone sets a third-stack tetrad. |
+| `1x6 R 1x1333` | Two-hand setup: LH on a single bass note (mode 6 = A1), RH on the third-stack tetrad. |
+| `1x1₄3₃3₂3₁` | Single shape, top-down assembly: thumb anchors first, ring lands last. |
+
+---
+
+## Physical constraints
+
+A harp is played with four fingers per hand: thumb (highest pitch), index, middle, ring (lowest pitch). The encoding maps directly onto these:
+
+```
+       thumb  ──┐
+                │  position 4 (top finger)
+       index  ──┤
+                │  position 3
+       middle ──┤
+                │  position 2
+       ring   ──┘  position 1 (bottom finger)
+```
+
+When reading a shape like `1x1336`, the interval digits correspond to inter-finger gaps from bottom to top:
+
+- **1st interval digit** (`3` here): ring → middle gap
+- **2nd interval digit** (`3` here): middle → index gap
+- **3rd interval digit** (`6` here): index → thumb gap
+
+Each finger pair has its own physical reach limit. The values below are best-guess defaults; the actual numbers for a given player should be calibrated using the drills in `VERIFY.md`.
+
+| Finger pair | Position in code | Comfortable | Hard ceiling |
+|---|---|---|---|
+| Ring–middle | 1st interval | 3rd | 4th |
+| Middle–index | 2nd interval | 4th | 5th |
+| Index–thumb | 3rd interval | 5th | 6th |
+| Thumb–ring (dyad only) | only interval | 6th | 13th |
+
+The thumb is the most independent and reaches the farthest. The ring is shortest and weakest. So **the encoding's natural shape is small intervals at the bottom (ring side), larger intervals at the top (thumb side)** — the opposite of how piano voicings are typically organized.
+
+A shape is **physically setable** if every interval digit fits within its position's hard ceiling. Codes that violate this can still be enumerated, but represent setups requiring two hands or assembly that exceeds the calibrated reach.
+
+---
+
+## What the encoding captures
+
+Each setup carries five layers of information simultaneously:
+
+1. **Specific notes**: given the header's key, every shape unambiguously specifies which strings are involved.
+2. **Pitch-class set**: the harmonic content.
+3. **Voicing**: same notes in different inversions or spreads get different codes. Each physical setup is a distinct entity.
+4. **Quality / character**: the combination of mode root and intervals determines whether the setup sounds major, minor, diminished, suspended, etc., without needing a separate quality label.
+5. **Setability**: directly readable from the digit positions and finger-pair limits.
+
+Chord names like "Cmaj7" or "Dm7sus4(no5)" are deliberately not part of the encoding. Traditional chord names have inconsistencies around no-3, no-5, sus stacking, and quartal voicings, and the same physical sonority often has multiple legitimate names depending on context. The encoding sidesteps this by describing **what is set on the strings** rather than how the resulting chord should be theoretically labeled.
+
+---
+
+## Algorithmic properties
+
+Because the encoding is purely structural, several operations become mechanical:
+
+- **Sortable** — codes naturally cluster by mode, then by interval shape.
+- **Compact** — every setable shape fits in 2–4 characters of intervals plus the position prefix; setup sequences scale linearly, with `*N`, `~`, and `^Nx` compressing repetitive patterns.
+- **Self-parsing** — first-character class decides shape form; `-` separates setups; positional rules within a shape make digit roles unambiguous.
+- **Generative** — enumerate all combinations of legal digits → derive the full setup vocabulary.
+- **Transposable for free** — shapes never reference a specific key, only scale degrees within the header's key. To play in a different key, change the `Key:` header; every shape stays the same.
+- **Comparable** — voice-leading distance between two setups is computable from their codes; continuation shapes make inter-setup gaps explicit.
+- **Filterable** — physical-reach rules become simple per-position bounds checks.
+
+---
+
+## Aesthetic scoring
+
+Once setability is established, shapes can be ranked by acoustic beauty using rules that operate on the digits themselves, agnostic of chord names:
+
+| Rule | Effect |
+|---|---|
+| Stepwise clash (interval = `2`) in low octave | penalty |
+| Three adjacent stepwise intervals | heavy penalty |
+| At least one wide interval (≥ `5`) | reward |
+| Top interval (> bottom interval) | reward (open-top profile) |
+| Top note on color scale degree (3, 5, 7, 9) | reward |
+| Pitch-class diversity (4 distinct pitches in a tetrad) | reward |
+| Mode characteristic-tone present | mode-specific reward |
+| Mode avoid-note present alongside the major 3rd | mode-specific penalty |
+| Locrian tonic-instability | mode-specific penalty |
+
+The scoring reveals which shape codes are **universally beautiful** (work in any modal context) versus **mode-conditional**.
+
+---
+
+## Visualization format
+
+The grid below shows every shape that is both physically setable and aesthetically beautiful in at least one mode. Rows are indexed by interval-only pattern (the mode digit dropped, since each row evaluates the shape across all 7 mode columns). An `x` marks intersections where the shape sounds good rooted on that mode's tonic.
+
+Mode columns: **I**onian, **D**orian, **P**hrygian, **L**ydian, **M**ixolydian, **A**eolian, **L**ocrian.
+
+```
+code  I D P L M A L
+      1 2 3 4 5 6 7
+----- -------------
+34    x x x x x x  
+35    x x x x x x x
+44    x     x x    
+45          x      
+236       x x      
+326     x x x   x  
+335   x x x x x x x
+344   x x x x x x x
+353   x x x x x x  
+425   x x x x x x  
+434   x x x x x x  
+443   x   x x x    
+246       x        
+255       x        
+336   x x x x x x x
+345   x x x x x x x
+354   x x x x x x  
+426     x x x   x x
+435   x x x x x x x
+444         x      
+256       x x      
+346   x x x x x x x
+355   x x x x x x x
+436   x x x x x x x
+445   x     x x    
+356   x x x x x x x
+446   x x x x x x x
+455   x x x x x x  
+456   x x x x x x x
+```
+
+**29 beautiful shape patterns total**, distributed as:
+
+- **12 universal-winner rows** (solid `x x x x x x x`) — shapes that sound good in any mode. The dependable anchors: `35`, `335`, `344`, `336`, `345`, `435`, `346`, `355`, `436`, `356`, `446`, `456`. They all share the open-top profile (large index–thumb interval at the top).
+- **17 mode-conditional rows** with partial coverage. Patterns like `45` and `444` only sing in Lydian; `246` and `255` only in Phrygian.
+
+To turn a row pattern into a complete setup, prepend a position prefix: pick a mode column (which becomes the mode digit) and an octave, then write `<octave>x<mode><pattern>`. For example, `444` in column 4 (Lydian) at harp octave 3 → `3x4444` — bottom finger on the 4th scale degree of your key in octave 3, with three 4ths stacked upward.
+
+The patterns themselves aren't usable as continuation codes — the digit roles are different (continuation: 1st digit = gap; setup pattern: digits = intra-shape intervals).
+
+---
+
+## Working pool
+
+For one player's hand at the default reach guess (ring–middle ≤ 4th, middle–index ≤ 5th, index–thumb ≤ 6th):
+
+| Category | Count |
+|---|---|
+| Mathematically possible patterns at span ≤ 12 | 231 |
+| Physically setable patterns | 74 |
+| × 7 modal columns | 518 cells |
+| Beautiful and setable (sweet-spot cells) | ≈ 130 |
+| Universal-winner patterns | ≈ 12 |
+| Mode-conditional beautiful patterns | ≈ 17 |
+
+These counts depend on the aesthetic threshold and per-finger reach calibration. They define a working setup vocabulary roughly the size of a typical jazz fake-book chord set, but organized by physical setability rather than by harmonic function.
+
+---
+
+## Limitations
+
+- The encoding is purely diatonic to the header's key. Non-diatonic notes (chromatic alterations, lever flips) are outside its scope.
+- **Rhythm, articulation, strike order, timing, and dynamics are out of scope.** The encoding describes what is set on the strings; how those strings are subsequently played is the player's interpretation. There's no way to encode "this setup is held for two beats" or "roll bottom-up at 80 bpm" — those belong to a different layer.
+- Setup *function* (tonic, dominant, predominant) is not encoded. Function is a property of progressions, not isolated setups.
+- Aesthetic scoring uses heuristic rules; calibration against the player's actual ear is necessary for the final 10–20% of accuracy.
+- Hand-reach calibration in the table above is a best guess. The drills in `VERIFY.md` produce the actual numbers — once those results are available, the table here will be replaced.
+- True simultaneous polyphony beyond two-hand setups (e.g., overlapping voices held across multiple beats) isn't expressible. Each setup is a single moment of hand placement; sustained voices across setups aren't notated.
+- `~` palindromes the prior expression as-given; it does not auto-extend across the harp's range. Range-spanning sweeps must be written explicitly (or compressed via `*N` on continuation / relative shapes).
+VERIFY.md# Reach calibration drills
+
+The README's per-finger reach table is a best guess. Play these drills and
+fill in the **Result** column with what your hand actually does. Then the
+table can be replaced with calibrated numbers.
+
+For each shape, plant all designated fingers at once and hold for a beat.
+The shape passes if every finger lands on its string without releasing
+the others. Mark each row:
+
+- `ok`   — comfortable, can plant repeatedly without strain
+- `hard` — possible once with effort, can't sustain
+- `no`   — impossible
+
+Run each section twice — once with **right hand**, once with **left hand**.
+The hands aren't always equal.
+
+Header for every drill below:
+
+```
+Title: Reach calibration
+Key:   C
+---
+```
+
+These drills are pure shape-setup tests. They don't use sequence operators
+or subscripts — under the new encoding, subscripts indicate assembly order
+(when each finger plants), not finger labels. For reach calibration we
+want the simplest setups possible.
+
+---
+
+## 1. Dyad reach (ring + middle, then ring + thumb)
+
+A 2-digit shape is a dyad. By default the player picks which two fingers
+to use — for small intervals, ring + middle is natural; for wide intervals,
+ring + thumb (skipping middle and index entirely).
+
+**Play each dyad twice: once with ring + middle, once with ring + thumb.**
+Record both columns.
+
+| Code   | Interval | Ring+middle | Ring+thumb |
+|--------|----------|-------------|------------|
+| `3x12` | 2nd      |             |            |
+| `3x13` | 3rd      |             |            |
+| `3x14` | 4th      |             |            |
+| `3x15` | 5th      |             |            |
+| `3x16` | 6th      |             |            |
+| `3x17` | 7th      |             |            |
+| `3x18` | 8th (octave) |         |            |
+| `3x19` | 9th      |             |            |
+| `3x1a` | 10th     |             |            |
+| `3x1b` | 11th     |             |            |
+| `3x1c` | 12th     |             |            |
+| `3x1d` | 13th     |             |            |
+| `3x1e` | 14th     |             |            |
+| `3x1f` | 15th (double octave) |  |            |
+
+The transition point — where ring + middle gives out and ring + thumb takes
+over — is the calibrated **ring-middle ceiling**. The largest interval you
+can plant with ring + thumb is the **thumb-ring ceiling**.
+
+---
+
+## 2. Middle-index reach (within a triad)
+
+A triad with **ring-middle locked at a 2nd** isolates middle-index as the
+variable. The ring plants on C3, middle on D3 (just a 2nd up — minimal
+stretch), then index varies.
+
+| Code     | Middle-index interval | Result |
+|----------|-----------------------|--------|
+| `3x123`  | 3rd                   |        |
+| `3x124`  | 4th                   |        |
+| `3x125`  | 5th                   |        |
+| `3x126`  | 6th                   |        |
+| `3x127`  | 7th                   |        |
+| `3x128`  | 8th                   |        |
+| `3x129`  | 9th                   |        |
+
+The largest interval you can plant cleanly is the **middle-index ceiling**.
+
+---
+
+## 3. Index-thumb reach (within a tetrad)
+
+A tetrad with **ring-middle and middle-index both locked at 2nd** isolates
+index-thumb as the variable.
+
+| Code      | Index-thumb interval | Result |
+|-----------|----------------------|--------|
+| `3x1223`  | 3rd                  |        |
+| `3x1224`  | 4th                  |        |
+| `3x1225`  | 5th                  |        |
+| `3x1226`  | 6th                  |        |
+| `3x1227`  | 7th                  |        |
+| `3x1228`  | 8th                  |        |
+| `3x1229`  | 9th                  |        |
+
+The largest interval you can plant cleanly is the **index-thumb ceiling**.
+
+---
+
+## 4. Combined hand spread (open-top vs open-bottom)
+
+Real shapes plant all four fingers simultaneously, and the spreads compound.
+These drills test cumulative reach.
+
+**Open-top (small bottom intervals, big top):**
+
+| Code      | Top interval | Total span | Result |
+|-----------|--------------|------------|--------|
+| `3x1223`  | 3rd          | 6th        |        |
+| `3x1224`  | 4th          | 7th        |        |
+| `3x1225`  | 5th          | 8th        |        |
+| `3x1226`  | 6th          | 9th        |        |
+| `3x1227`  | 7th          | 10th       |        |
+| `3x1228`  | 8th          | 11th       |        |
+
+**Open-bottom (small top intervals, big bottom):**
+
+| Code      | Bottom interval | Total span | Result |
+|-----------|-----------------|------------|--------|
+| `3x1322`  | 3rd             | 6th        |        |
+| `3x1422`  | 4th             | 7th        |        |
+| `3x1522`  | 5th             | 8th        |        |
+| `3x1622`  | 6th             | 9th        |        |
+| `3x1722`  | 7th             | 10th       |        |
+
+Open-top tetrads typically reach further than open-bottom — short ring +
+long thumb is the natural geometry.
+
+---
+
+## 5. Inter-setup gap (continuation jump)
+
+Tests the hand-jump distance between two consecutive setups played by the
+same hand. Single-note → single-note keeps the test clean.
+
+Play at one note per second. The gap passes if you can re-plant without
+hesitation or fishing for the string.
+
+| Code       | Gap to next note | Result |
+|------------|------------------|--------|
+| `1x1-2`    | 2nd              |        |
+| `1x1-3`    | 3rd              |        |
+| `1x1-5`    | 5th              |        |
+| `1x1-8`    | 8th (octave)     |        |
+| `1x1-a`    | 10th             |        |
+| `1x1-d`    | 13th             |        |
+| `1x1-f`    | 15th             |        |
+
+This number isn't currently in the README's reach table — there's no
+guidance on how big a continuation gap can be in practice. Whatever value
+you land on becomes the new entry.
+
+---
+
+## Reporting
+
+When you're done, fill in this summary so the README's reach table can be
+replaced with real numbers:
+
+```
+Right hand:
+  Ring-middle:    comfortable __, ceiling __
+  Middle-index:   comfortable __, ceiling __
+  Index-thumb:    comfortable __, ceiling __
+  Thumb-ring:     comfortable __, ceiling __
+  Open-top span:  comfortable __, ceiling __
+  Open-bottom:    comfortable __, ceiling __
+  Inter-setup gap: comfortable __, ceiling __
+
+Left hand:
+  Ring-middle:    comfortable __, ceiling __
+  Middle-index:   comfortable __, ceiling __
+  Index-thumb:    comfortable __, ceiling __
+  Thumb-ring:     comfortable __, ceiling __
+  Open-top span:  comfortable __, ceiling __
+  Open-bottom:    comfortable __, ceiling __
+  Inter-setup gap: comfortable __, ceiling __
+```
+
+The sections are arranged so you can stop at any point and still have
+useful data. If you only have time for one, do **section 1** — it
+calibrates the two most-load-bearing pairs (ring-middle and thumb-ring)
+and is the test most likely to show the existing table is wrong.
+DRILLS.md# Drills
+
+Practice patterns under the harp setup encoding. See `README.md` for the
+full notation; `VERIFY.md` for reach calibration; `HANDOUT.md` for the
+catalog of beautiful patterns.
+
+Each drill is a sequence of **setups** separated by dashes. The operators
+`*N` (literal repeat), `~` (palindrome), and `^Nx` (relative octave)
+compress repetitive material.
+
+All drills below use header `Key: C`. To play in another key, change the
+key — every code stays the same.
+
+```
+Title: <drill title>
+Key:   C
+---
+<drill code>
+```
+
+---
+
+## 1. Thirds sweep — workhorse warmup
+
+```
+1x1333-3333*5~
+```
+
+Six third-stacked tetrads spanning the harp from C1 to G7, then mirrored.
+
+Shapes: `C1 E1 G1 B1` / `D2 F2 A2 C3` / `E3 G3 B3 D4` / `F4 A4 C5 E5` /
+`G5 B5 D6 F6` / `A6 C7 E7 G7`. Continuation `3333` chains by a 3rd (gap)
+plus three more 3rds (intervals), so every consecutive note across the
+whole chain is a 3rd apart. All reaches comfortable.
+
+---
+
+## 2. Single-line third walk
+
+```
+1x1-3*23~
+```
+
+24 single notes ascending in melodic 3rds: `C1 E1 G1 B1 D2 F2 A2 ... E7 G7`,
+then descending. No chord shapes — pure single-finger work, alternating
+fingers (or hands) on each note. Trains cross-under and finger-over.
+
+---
+
+## 3. Open Imaj7 (no-5) arpeggio — six-octave spread
+
+```
+1x135-^1x135*5~
+```
+
+The triad C-E-B in every octave. Six shapes, oct 1-6. The relative form
+`^1x135` advances exactly one octave from the prior shape. Builds
+middle-index reach (E to B is a 5th, at the comfortable limit).
+
+---
+
+## 4. Cmaj9 (no-3-no-5) octave climb — sparkle
+
+```
+1x1355-^1x1355*5~
+```
+
+The tetrad `C E B F` in every octave: `C1 E1 B1 F2` / `C2 E2 B2 F3` /
+... / `C6 E6 B6 F7`. Six octaves up and back. The 11 (F) on top of every
+shape is a clean modern color — root, 3rd, 7th, 11th, no 5th.
+
+---
+
+## 5. Lydian quartal stack — modern color
+
+```
+1x4444-4444*2~
+```
+
+Three tetrads of stacked 4ths starting on F (mode 4 = Lydian in key C):
+`F1 B1 E2 A2` / `D3 G3 C4 F4` / `B4 E5 A5 D6`. The F→B is the Lydian #4.
+
+**Ring-middle is at the hard ceiling (a 4th)** — also doubles as a
+stretch test. Drop to `1x4334-^2x4334*2~` for a milder Fmaj7 climb if
+the ring strains.
+
+---
+
+## 6. Modal exploration — same shape, every mode
+
+```
+3x1333-3x2333-3x3333-3x4333-3x5333-3x6333-3x7333~
+```
+
+The same `333` interval pattern (three 3rds stacked) starting on every
+mode of C major, all in octave 3. Hear the mode colors:
+
+| Setup | Mode | Sounds like |
+|---|---|---|
+| `3x1333` | Ionian | Cmaj7 |
+| `3x2333` | Dorian | Dm7 |
+| `3x3333` | Phrygian | Em7 |
+| `3x4333` | Lydian | Fmaj7 |
+| `3x5333` | Mixolydian | G7 |
+| `3x6333` | Aeolian | Am7 |
+| `3x7333` | Locrian | Bø7 |
+
+Seven setups, palindromed.
+
+---
+
+## 7. Open-top tetrad cycle
+
+```
+1x1346-^1x1346*5~
+```
+
+A `346` tetrad (universal-winner pattern) climbed octave-by-octave:
+`C1 E1 A1 F2` / `C2 E2 A2 F3` / ... / `C6 E6 A6 F7`. Open major spread —
+root, 3rd, 6th, 11th. Six octaves, palindromed.
+
+---
+
+## 8. Two-hand chord progression — bass under chord
+
+```
+1x1 R 3x1333 - 1x4 R 3x4333 - 1x5 R 3x5333 - 1x1 R 3x1333
+```
+
+Four setups, both hands set together at each dash. LH plays a single
+bass note (root of the chord, low octave); RH plays the corresponding
+maj7 / 7 tetrad in middle range. Progression: I → IV → V → I in C.
+
+| Setup | LH | RH |
+|---|---|---|
+| 1 | C1 | C3 E3 G3 B3 (Cmaj7) |
+| 2 | F1 | F3 A3 C4 E4 (Fmaj7) |
+| 3 | G1 | G3 B3 D4 F4 (G7) |
+| 4 | C1 | C3 E3 G3 B3 (Cmaj7) |
+
+No palindrome — let the I sit at the end as resolution.
+
+---
+
+## 9. Top-down assembly — anchor the apex
+
+```
+1x1₄3₃3₂3₁-^1x1₄3₃3₂3₁*5~
+```
+
+Same shape and chain as drill 7-ish, but with subscript-marked assembly
+order: thumb plants first (₁), then index (₂), middle (₃), ring last (₄).
+Useful when you want to anchor the top note before the lower fingers
+arrive — common for arrival chords where the melody sits on top.
+
+The default for the same shape would just be `1x1336` (no subscripts),
+which sets all fingers together or rolls bottom-up.
+
+---
+
+## 10. Palindrome study — small but expressive
+
+```
+1x1336~
+```
+
+Just one shape, palindromed. Plays C1 E1 G1 E2, then reverses for
+E2 G1 E1 C1. Seven notes total (the apex E2 is not re-struck on the way
+back). Useful for hearing how the palindrome operator behaves on a
+single shape.
+
+---
+
+## Reading the codes
+
+If a code looks dense, parse it like this:
+
+1. Split on `-` to get individual setups.
+2. For each setup, look for `R` divider or `L`/`R` prefix to assign hands.
+3. For each shape inside, the first character decides the form:
+   - Digit + `x` → absolute (`Nx<mode><intervals>`)
+   - `^` + digit + `x` → relative octave (`^Nx<mode><intervals>`)
+   - Bare digit → continuation (first digit = gap from prior top finger)
+
+Subscripts `₁₂₃₄` on digits indicate non-default assembly order; without
+subscripts the default is block-strike or bottom-up roll.
+
+---
+
+## Practice notes
+
+- Most drills are written to span the whole harp's range. If you can't
+  reach the highest setups yet, drop the trailing repetitions: e.g.
+  `*5` → `*3` covers four octaves instead of six.
+- `~` palindromes the prior expression as-given. To make a drill stop
+  at a specific point on the way back (e.g., go up to the 4th octave
+  but only return to oct 2), write the descent explicitly.
+- The relative form `^Nx` always advances from the **immediately prior**
+  shape, not from a fixed origin. So a chain `1x... -^1x... -^1x...`
+  goes oct 1 → 2 → 3.
+HANDOUT.md# Beautiful Patterns Handout
+
+Quick reference of shape patterns under the harp setup encoding. To turn
+any pattern into a complete setup, prepend a position prefix
+`<octave>x<mode>` (or `^<count>x<mode>`) and read the result as a setup
+code. See `README.md` for the full notation, `DRILLS.md` for practice
+sequences.
+
+All patterns below are **interval-only** — the digits between the mode
+and any operators. They describe the shape, not where on the harp it sits.
+
+---
+
+## Universal-winner patterns (12 shapes that sound good in every mode)
+
+These are the dependable anchors — pick any mode 1-7 and any octave, and
+the result will sound musical. They all share the **open-top profile**
+(large index-thumb interval at the top).
+
+| Pattern | Notes (in mode 1, octave 3, key C) | Character |
+|---|---|---|
+| `35`   | C3 E3 B3            | Open major-7 with no 5th |
+| `335`  | C3 E3 G3 D4         | Cmaj9 (no 7) |
+| `336`  | C3 E3 G3 E4         | Cmaj triad with octaved 3rd on top |
+| `344`  | C3 E3 A3 D4         | Add 6/9 voicing |
+| `345`  | C3 E3 A3 E4         | Add 6 with octaved 3rd |
+| `346`  | C3 E3 A3 F4         | Add 6 + 11 — open color |
+| `355`  | C3 E3 B3 F4         | Cmaj7 + 11 |
+| `356`  | C3 E3 B3 G4         | Cmaj9 spread (5 on top) |
+| `435`  | C3 F3 A3 E4         | Sus + 6 + 3 |
+| `436`  | C3 F3 A3 F4         | Add 11 + 6 + octaved 11 |
+| `446`  | C3 F3 B3 G4         | Add 11 + maj7 + 9 |
+| `456`  | C3 F3 B3 A4         | Add 11 + maj7 + 13 — wide spread |
+
+To play any of these in mode 5 (Mixolydian) at octave 2, write
+`2x5<pattern>` — e.g. `2x5346` = `G2 B2 E3 C4`.
+
+---
+
+## Mode-conditional gems
+
+Some shapes only sing in specific modes:
+
+| Pattern | Mode(s) | Notes (key C, mode-relevant octave) | Why it works there |
+|---|---|---|---|
+| `444` | Lydian only       | F1 B1 E2 A2 | Quartal stack with the Lydian #4 |
+| `45`  | Lydian only       | F2 C3       | The 4-step gap — F to C in F Lydian is the 5th |
+| `246` | Phrygian only     | E E F D     | Stepwise + wide top |
+| `255` | Phrygian only     | E F C G     | Phrygian's bII flavor |
+| `34`  | All except Locrian | C E A      | Open triad |
+| `353` | All except Locrian | C E B F    | Bright open triad with maj7 |
+| `426` | Dorian, Phrygian, Lydian, Locrian | varies | Quartal blend |
+| `443` | Ionian, Phrygian, Lydian, Mixolydian | varies | Quartal+third spread |
+
+---
+
+## Common setup forms
+
+### Single notes
+
+```
+1x1   = C1                  (key C — bottom of the harp)
+3x4   = F3                  (mode 4 in octave 3 in key C)
+^2x1  = same shape as prior, advanced 2 octaves
+1x6   = A1                  (mode 6 = Aeolian root in oct 1)
+```
+
+### Dyads
+
+For dyad intervals up to a 4th, the player uses ring + middle. For wider
+dyads, ring + thumb (skipping middle and index entirely). The encoding
+itself is silent on which fingers are used — the choice falls out of the
+interval size.
+
+```
+3x13   = C3 E3      (3rd, ring + middle)
+3x15   = C3 G3      (5th, ring + thumb territory)
+3x18   = C3 C4      (octave, ring + thumb)
+3x1d   = C3 A4      (13th, ring + thumb at full stretch)
+3x1f   = C3 C5      (double octave, max dyad)
+```
+
+### Universal-winner triads
+
+```
+3x135   = C3 E3 B3        (open Cmaj7-no-5)
+3x244   = D3 F3 B3 D4     (Dm 6/9 — actually a tetrad, mode 2)
+3x534   = G3 B3 E4 A4     (G mixolydian add-6, tetrad)
+```
+
+### Universal-winner tetrads (the workhorses)
+
+```
+3x1335  = C3 E3 G3 D4     (Cmaj9-no-7)
+3x1344  = C3 E3 A3 D4     (Cadd6/9)
+3x1346  = C3 E3 A3 F4     (Cadd6+11)
+3x1355  = C3 E3 B3 F4     (Cmaj7+11)
+3x1356  = C3 E3 B3 G4     (Cmaj9 spread)
+3x1456  = C3 F3 B3 A4     (Cadd11+maj7+13)
+```
+
+---
+
+## Sequence patterns
+
+### Octave climb (every octave)
+
+```
+<absolute>-^1x<pattern>*N~
+```
+
+The relative form `^1x` advances exactly one octave per repeat. Useful
+when you want to hear the same voicing in every register.
+
+Examples:
+- `1x135-^1x135*5~` — six-octave climb of the open Imaj7 triad.
+- `1x1346-^1x1346*5~` — six-octave climb of the `346` open tetrad.
+- `1x4444-^1x4444*5~` — six-octave climb of Lydian quartal.
+
+### Continuation chain (chains by the shape's last interval)
+
+```
+1x<mode><intervals>-<intervals>*N~
+```
+
+When a shape's last interval matches the desired chain interval, the
+continuation form chains continuously across dashes. Works best for
+self-similar shapes (all 3rds, all 4ths, etc.).
+
+Examples:
+- `1x1333-3333*5~` — continuous third-stack from C1 to G7.
+- `1x1444-4444*N~` — continuous fourth-stack (where range allows).
+- `1x1-3*23~` — single-note third-step walk (single notes chain by 3rds).
+
+### Modal cycle
+
+```
+<oct>x1<intervals>-<oct>x2<intervals>-<oct>x3<intervals>-...-<oct>x7<intervals>~
+```
+
+Seven setups in one octave, varying mode digit 1→7. Same intervals each
+time, so the shape stays constant — only the mode-color changes.
+
+### Two-hand setup (LH bass + RH chord)
+
+```
+<lh-shape> R <rh-shape>
+```
+
+The `R` divider says: prior shape is LH, following is RH; both set
+simultaneously. Useful for chord-progression accompaniments.
+
+Examples:
+- `1x1 R 3x1335` — single-note bass C1 under a Cmaj9-no-7 voicing.
+- `1x4 R 3x4335` — F1 bass under Fmaj9-no-7.
+- `1x5 R 3x5333` — G1 bass under G7.
+
+---
+
+## Quick-pick by situation
+
+| Situation | Pattern |
+|---|---|
+| **Warmup / hand-spread** | Drill 1: `1x1333-3333*5~` |
+| **Calibrate reach** | `VERIFY.md` drills |
+| **Mode exploration** | Drill 6: same intervals, varying mode digit |
+| **Voicing study** | Universal-winner tetrads at one octave, varying mode |
+| **Sustained color** | `1x4444` (Lydian quartal) — set, ring, listen |
+| **Bass + chord progression** | Drill 8 — I-IV-V-I with two-hand setups |
+| **Octave-by-octave climb** | Any pattern with `^1x<...>*5~` |
+| **Continuous arpeggio** | Continuation form `1x1<...>-<...>*N~` |
+| **Sparse top-note color** | Tetrads ending in 5 or 6 (e.g. `1335`, `1346`, `1456`) |
+
+---
+
+## Patterns to avoid
+
+These are setable but rarely musical:
+
+- **All 2nds in the low octave** — `1x1222` in oct 1 sounds muddy
+  (stepwise clash penalty stacks).
+- **Three adjacent stepwise intervals** — heavy aesthetic penalty.
+- **Locrian root-position voicings** — the tonic instability of mode 7
+  makes most root-rooted Locrian shapes feel unresolved. Use mode 7
+  shapes as passing color (e.g., as a bø7 in a progression), not as a
+  home.
+- **Bottom-heavy spreads** — large ring-middle interval with small upper
+  pairs (e.g., `1x1622`). Hand geometry favors open-top, not open-bottom.
+
+---
+
+## Practice tip
+
+Pick one universal-winner tetrad and run drill 6 on it (modal cycle).
+You'll hear the same shape recolored seven different ways without ever
+moving the hand far. Then pick another and repeat. Twelve patterns × 7
+modes = 84 distinct voicings — enough vocabulary for any hymn arrangement.
+HANDOFF.md# HANDOFF.md — lab-Claude ↔ home-laptop-Claude sync
+
+Two Claude sessions touch this repo. They share one `origin/main`; neither
+has a persistent view of the other's memory. This file is how they stay
+aligned. **Both sides update this file when they push.**
+
+`PROMPT.md` is the long-form task handoff (what-to-do-next brief).
+`HANDOFF.md` (this file) is the short, running ledger of *who owns what,
+what just landed, what's blocked*.
+
+---
+
+## Role split (refreshed 2026-04-24 after consolidation `5f2b46b`)
+
+### LAB machine (beefy, CPU-heavy, usually not wired to the tablet)
+- **Owns** all Python pipelines: `retab/build_hymnal.py`,
+  `reharm/build_hymnal.py`, `retab/retab_hymnal.py`,
+  `reharm/reharm_hymnal.py`, the drill builders, audio bakes, etc.
+- **Owns** `data/hymns/*.json`, `data/reharm/*` (new layout — the old
+  tactics/variations tree was deleted in `5f2b46b`), and everything
+  under `data/audio/` (gitignored m4a bundle).
+- **Reads** `PROMPT.md` at session start for the long-form task brief.
+
+### HOME laptop (has the tablet plugged in)
+- **Owns** `tablet_app/` (Android WebView app, package
+  `com.harp.harphymnal.drills`, app name **HarpHymnal**).
+- **Builds + installs** the APK:
+  ```bash
+  cd tablet_app
+  ./gradlew installDebug               # build + install to connected device
+  # fallback if assets look stale:
+  ./gradlew clean installDebug
+  ```
+  **There is no `syncJazzAssets` task anymore.** The consolidation moved
+  all tablet-bound assets directly into
+  `tablet_app/app/src/main/assets/` (flat layout: `index.html`,
+  `retab/`, `reharm/`, `hymns/`, `audio/`, `docs/`, `vendor/`,
+  `docs.html`, `harphymnal_*.js`). Gradle picks them up via the default
+  `mergeDebugAssets`.
+- Tablet: Lenovo P90, serial `P90YPDU16Y251200164`, connected via USB
+  at the lab this week. If it shows up only as "MIDI" under `lsusb`,
+  swipe down → switch USB mode to File Transfer → re-enable USB debugging.
+
+### USER
+- Moves any tablet-side exports off the device and commits them under
+  the relevant `data/…` path when a rating/feedback loop is live.
+- Pulls on the tablet-connected machine and runs the `installDebug`
+  when new UI changes need to land.
+
+### Note to the home laptop
+**HANDOFF.md was stale for 3 days before this rewrite.** Everything
+below pre-dating 2026-04-24 talked about `jazzhymnal/` + package
+`com.harp.jazzhymnal` + `syncJazzAssets` — all three are gone. Trust
+the filesystem and `git log`, not any older push-entry prose.
+
+---
+
+## Push protocol (keep the ledger honest)
+
+When either side pushes:
+
+1. **Prepend a dated bullet** under *Recent pushes* below (newest first).
+2. **Move any now-unblocked items** out of *Outstanding blockers*.
+3. If a role boundary just shifted — note it under *Role overrides this week*.
+
+Commit the HANDOFF.md change in the **same push** as the actual work.
+This file should never lag `origin/main`.
+
+---
+
+## Current state (2026-04-25)
+
+`origin/main` head: `a84fc2d` (HANDOFF refresh for post-consolidation tablet_app layout).
+
+### Encoding-system rewrite — in progress this session, not yet committed
+
+The repo-root encoding spec has been rewritten end-to-end today. The
+**previous** README described a chord-naming system (Roman numeral chords
++ mode/intervals + handout chord labels). The **current** README describes
+a fundamentally different system: a **shape-setup encoding** that catalogs
+hand placements on the strings and progressions of those placements,
+explicitly *not* music notation.
+
+**Key reframe (do not lose this):** the system encodes *what is set on
+the strings before playing*. Rhythm, articulation, strike order after
+assembly, timing, and dynamics are deliberately outside scope. Most of
+what looks like "playing notation" (operators, hand markers, the dash
+separator) is actually about sequences of *setups*, not sequences of
+*played notes*. There's a project-memory entry under
+`memory/project_encoding_scope.md` — read that first if you didn't
+participate in today's session.
+
+**What changed in the file system today (uncommitted):**
+
+- `README.md` — full rewrite. Three shape forms: absolute
+  `Nx<mode><intervals>`, relative `^Nx<mode><intervals>`, continuation
+  `<gap><intervals>`. Disambiguator is the first character class.
+  Subscripts now mean **assembly order** (which finger plants 1st-4th
+  in the set sequence), not finger labels — the previous README had
+  this wrong. Hand markers: bare shape = either hand; `L<shape>` /
+  `R<shape>` pin a hand; `<shape> R <shape>` is a two-hand setup
+  (LH-then-RH simultaneous). Header block: `Title:` + `Key:` (no
+  `Meter:` — rhythm is out of scope).
+- `VERIFY.md` — reach-calibration drills. User has not run these yet;
+  when they do, the per-finger reach ceilings in the README's table
+  will be replaced with calibrated numbers.
+- `DRILLS.md` — full replacement. Old chord-pool letter notation
+  (`cegDFA` etc.) is gone. Ten drills under the new grammar, including
+  the canonical thirds sweep (`1x1333-3333*5~`), modal cycle, two-hand
+  bass+chord progression, and a top-down assembly study.
+- `HANDOUT.md` — new file. Quick-reference catalog of the 12
+  universal-winner shape patterns plus mode-conditional gems, common
+  setup forms (single notes, dyads, triads, tetrads), and sequence
+  patterns. Different in purpose from the older `handout.md`/`handout.tex`
+  which use the previous chord-name system; those are unchanged.
+
+**What did NOT change:**
+
+- `tablet_app/` — untouched. The Android app's docs viewer still points
+  at `docs/*.md` files (older system). No tablet-side updates today.
+- `retab/`, `reharm/` — untouched. Their CLAUDE.md files still describe
+  Roman-numeral pipelines. The new encoding system hasn't been wired
+  into those pipelines yet.
+- `data/`, `legacy/`, `source/` — untouched.
+
+**For the home-laptop Claude:**
+
+If you're picking up this session, read in order:
+1. `memory/project_encoding_scope.md` (scope clarification)
+2. `README.md` (the new spec)
+3. `DRILLS.md` (sample sequences under the new grammar)
+4. `HANDOUT.md` (the pattern catalog)
+5. `VERIFY.md` (calibration drills, awaiting user results)
+
+Open questions still on the table:
+- Reach calibration — user hasn't run VERIFY.md yet; default reach
+  ceilings in README's table are best-guess until then.
+- Minor-key encoding convention (`Key: Am` vs relative-major-with-mode-6)
+  — was raised in session, not resolved. Defer until the first minor-key
+  piece needs to be encoded.
+- Multi-row composition is sequential phrases (decided); true
+  simultaneity (parallel rows or `&` operator) is deferred.
+- The retab/reharm pipelines still use the OLD chord-name system; if
+  the user wants those rewritten under the new encoding, that's a
+  separate large piece of work.
+
+### Tablet state (unchanged today)
+
+Tablet was last installed from commit `4899801` (Docs tile + markdown
+viewer). Today's encoding-system rewrite is repo-root only and does not
+affect the tablet APK.
+
+### What's live on the tablet (installed today from the lab)
+- **Home screen**: 5 tiles — Retab, Retab Hymnal, Reharm Hymnal, Reharm,
+  **Docs** (new, deep-blue banner).
+- **Retab** — style drills + RH pockets (existing).
+- **Retab Hymnal** — trefoil LH patterns over all hymns, L1–L7 selectors.
+- **Reharm Hymnal** — diatonic jazz reharmonisation of all hymns,
+  L1–L7 selectors.
+- **Reharm** — jazz/pool/substitution/approach/voicing drill jumps.
+- **Docs (NEW, `4899801`)** — in-app markdown viewer at `docs.html`,
+  renders 6 user-facing .md files with a vendored `marked.min.js`. All
+  offline, no wifi. Top-nav per doc, deep-linkable via `#slug` hash.
+  Files:
+  - `tablet_app/app/src/main/assets/docs.html` — the viewer
+  - `tablet_app/app/src/main/assets/docs/TREFOIL.md`
+  - `tablet_app/app/src/main/assets/docs/RECIPE.md`
+  - `tablet_app/app/src/main/assets/docs/REHARM_TACTICS.md`
+  - `tablet_app/app/src/main/assets/docs/ChordAnalysis.md`
+  - `tablet_app/app/src/main/assets/docs/handout.md`
+  - `tablet_app/app/src/main/assets/docs/HARP_IDIOM.md`
+  - `tablet_app/app/src/main/assets/vendor/marked.min.js` (35 KB)
+  Note: these .md files are **copies** of the repo-root canonical docs
+  (except `HARP_IDIOM.md` whose source lives under `docs/`). If a doc
+  is edited at the repo root, re-copy into `tablet_app/…/docs/` before
+  building. A Gradle sync task to dedupe is a good future clean-up but
+  is not in place yet.
+
+### Consolidation summary (`5f2b46b`, 2026-04-24)
+- `jazzhymnal/` — **deleted.** Package `com.harp.jazzhymnal` uninstalled
+  from the tablet. `tablet_app/` is the only Android project now.
+- `trefoil/reharm/` — deleted. Old reharm Python.
+- `data/reharm/` — old tactics/variations/fixture tree deleted.
+- `retab/` and `reharm/` — imported as subtrees of this repo (not git
+  subtrees; plain `cp`). Their upstream standalone repos are orphaned.
+- Launcher icon: pink-notes-on-burgundy (visible on the tablet).
+- `jazz/` — still tracked (25 HTML files), but **nothing references
+  it anymore.** Orphaned pre-consolidation artifact. Do not edit
+  anything in `jazz/` expecting it to reach the tablet.
+
+### Outstanding
+- **Root-level pedagogy docs drift risk.** `tablet_app/…/docs/*.md`
+  are manually-maintained copies of the repo-root `.md` files. If
+  someone edits `TREFOIL.md` at the root and doesn't re-copy, the
+  tablet view will lag. A ~5-line Gradle copy task (or a pre-build
+  shell script) would make this self-healing. Non-blocking.
+- **HANDOFF.md's pre-2026-04-24 entries** (below) reference `jazz/`,
+  `jazzhymnal/`, `tactics.json`, per-tactic survey MIDIs under
+  `data/reharm/tests/amazing_grace/` — none of that is live anymore.
+  Left in place as historical record but should not be acted on.
+
+### Role overrides this week
+- **2026-04-24 — lab-Claude ran `./gradlew installDebug` directly**
+  (tablet plugged into the lab, not home). Tablet now has commit
+  `4899801` installed. Home doesn't need to re-install unless something
+  lands after this handoff.
+- **2026-04-24 — lab-Claude did the Docs feature end-to-end** (normally
+  UI is home territory). Safe to pick up where it left off; all files
+  are in the live `tablet_app/` tree.
+
+---
+
+## Notes for home-laptop Claude on next pickup
+
+### What happened in the 2026-04-24 lab session (top of `origin/main` is `4899801`)
+
+1. **Consolidation (`5f2b46b`) — read this first.** Anything you
+   remembered about `jazzhymnal/`, `com.harp.jazzhymnal`, or
+   `syncJazzAssets` is dead. The tablet app is now `tablet_app/`,
+   package `com.harp.harphymnal.drills`, flat assets at
+   `tablet_app/app/src/main/assets/`. Build with
+   `cd tablet_app && ./gradlew installDebug` — no special asset-sync
+   plumbing, just standard Gradle.
+
+2. **Docs feature shipped (`4899801`)**: new **Docs** tile on the home
+   screen (5th, deep-blue) → opens `docs.html`, which is a vendored
+   `marked.min.js` markdown viewer. It XHR-loads from `./docs/*.md`
+   (fetch is still blocked on `file://` in WebView; the viewer uses
+   `XMLHttpRequest` directly — do not "modernize" this to `fetch()`).
+   Six docs currently exposed: Trefoil, Recipe, Reharm Tactics, Chord
+   Analysis, Handout, Harp Idiom.
+
+3. **There was a false-start push `2f9f3c2`** — first attempt landed
+   the Docs feature into `jazz/` (the orphaned pre-consolidation tree).
+   Build ran UP-TO-DATE and nothing shipped. `4899801` is the correct
+   re-land into `tablet_app/`. If git log looks confusing in that
+   stretch, that's why.
+
+4. **Tablet already has `4899801` installed** from the lab today.
+   Check via:
+   ```bash
+   adb shell dumpsys package com.harp.harphymnal.drills | grep versionName
+   ```
+   No reinstall needed unless you push new UI changes.
+
+5. **The orphan `jazz/` tree** will probably be deleted eventually.
+   Don't accidentally edit a file there thinking it'll ship.
+
+### Still open (non-blocking)
+- Deduplicate docs: make `tablet_app/…/docs/` a build-time copy of
+  repo-root `.md` files instead of a manual mirror.
+- Refresh HANDOFF.md further if retab/reharm story evolves — the
+  pre-2026-04-24 Recent pushes below are frozen historical context.
+
+---
+
+## Recent pushes (newest first)
+
+- **2026-04-24 lab** — `4899801` `tablet_app: Docs tile + markdown viewer
+  (re-land from dead jazz/)` — landed `docs.html` + vendored
+  `marked.min.js` + 6 bundled markdown files into
+  `tablet_app/app/src/main/assets/`. Added the 5th Docs tile (deep-blue
+  `#1F4E79`) to the home grid. Reverted the stale `jazz/index.html`
+  edit from `2f9f3c2`. APK installed on the tablet.
+- **2026-04-24 lab** — `2f9f3c2` `jazzhymnal: Docs tile + in-app markdown
+  viewer` — **SUPERSEDED by `4899801`.** Landed under `jazz/`, which
+  was already dead after `5f2b46b`; nothing from this push reached the
+  APK. Kept for history only.
+- **2026-04-24 lab** — `5f2b46b` `Consolidate retab + reharm into
+  HarpHymnal, drop OBE subprojects` — major restructure. Deleted
+  `jazzhymnal/`, `trefoil/reharm/`, `data/reharm/` (old), old top-level
+  `reharm/`. Imported `retab/` and `reharm/` as non-subtree copies.
+  Renamed app to "HarpHymnal" and shipped pink-notes-on-burgundy
+  launcher icons. Tablet has `com.harp.jazzhymnal` uninstalled.
+
+--- everything below here pre-dates the 2026-04-24 consolidation ---
+--- treat as historical context; do not act on it ---
+
+- **2026-04-21 lab** — `17ac251` `HANDOFF.md: log 2026-04-21 evening
+  lab session (9d7136f back to d011ce8)` — pure docs entry.
+- **2026-04-21 lab** — `9d7136f` `survey: Jazz Version reference track
+  alongside Full Baseline` — generated 40 Amazing Grace variations via
+  `trefoil.reharm.selector`, scored them by a jazz-tag weight, and
+  rendered the winner (`v24`: 7× chord_offbeat, 6× rolled, 5× each
+  of sus/quartal/diatonic/anticipate/common_tone, 4× syncopated) to
+  `data/reharm/tests/amazing_grace/_jazz.mid`. Added a second
+  `<section class="baseline">` block with a ▶ `jazz-btn`, wired the
+  same way as `baseline-btn`. (`data/reharm/tests/` and `jazz/` now
+  obsolete.)
+- **2026-04-21 lab** — `e26fcab` `survey: louder default + wider slider
+  range + sqrt-velocity curve` — tablet reported "can barely hear".
+  Slider range 0–100 → 0–300, default 80% → 200%, storage key bumped
+  to `amazing_grace.volume.v2`. Per-note gain switched from
+  `velocity/127` to `sqrt(velocity/127)` to lift mid-velocity notes.
+- **2026-04-21 lab** — `8546816` `survey: volume slider + note-off
+  honored in MIDI playback` — added `🔈 [slider] %` widget driving a
+  master `GainNode`. Rewrote the `MidiPlayer` event callback so
+  Note-on/Note-off are honored with a 1.2s release tail.
+- **2026-04-21 lab** — `d011ce8` `survey: bundle MIDI playback libs
+  offline (tablet has no wifi)` — vendored `midi-player-js@2.0.16` +
+  `soundfont-player@0.12.0` + MusyngKite `orchestral_harp-mp3.js` into
+  `jazz/vendor/` (now orphaned post-consolidation, but the "no wifi,
+  bundle offline" principle still holds for anything shipped to the
+  tablet).
+- **2026-04-21 lab** — `105b1b1` `HANDOFF.md: direct brief section for
+  home-laptop Claude`.
+- **2026-04-21 lab** — `c55d000` `tactics: populate music-theory notes
+  for all 79 tactics` — filled the `note` field on all 73 previously-
+  empty tactics across 12 dimensions. (`data/reharm/tactics.json` was
+  deleted in `5f2b46b`.)
+- **2026-04-21 lab** — `5349c62` `jazzhymnal: saxophone launcher icon`
+  — replaced the drill launcher icon with 🎷. (Replaced again by the
+  pink-notes-on-burgundy icon in `5f2b46b`.)
+- **2026-04-21 lab** — `97861fd` `tactics survey: dimension-level help
+  buttons + theory notes`.
+- **2026-04-21 lab** — `d4dfb63` `reharm_solo: land Amazing Grace survey-audio
+  fixtures` — committed 158 tactic/original MIDI pairs. (Deleted in
+  `5f2b46b`.)
+- **2026-04-21 home** — `3e1b638` `jazzhymnal: new WebView-wrapper tablet
+  app` — scaffolded `jazzhymnal/`. (Project deleted in `5f2b46b`.)
+- **2026-04-21 home** — (same push) Help-icon modal on tactic rows in
+  `test_amazing_grace.html`.
+- **2026-04-21 lab** — `b06dde6` `Audition rig → snippet A/B + 0-5
+  scoring; TREFOIL corrections; lab handoff`.
+- **2026-04-20 lab** — `74c3472` `Reharm Tactics: 8-phase pipeline from
+  tactic pool to tablet UI`.
+
+---
+
+## When in doubt
+
+- Look at `PROMPT.md` for the full task brief.
+- Look at `CLAUDE.md` for file-precedence rules.
+- Look at `tablet_app/app/build.gradle` if asset plumbing behaves oddly.
+- `git log --stat 5f2b46b` if you want to see exactly what the
+  consolidation moved or deleted.
+CLAUDE.md# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## STOP — read these first
+
+1. **`SDD.md`** — software design document: pipeline, grammar v4, directory layout.
+2. **`GRAMMAR.md`** — authoritative EBNF v4. Every script parses through `grammar/` primitives.
+3. **`ROADMAP.md`** — living plan (formerly `PLAN.md`).
+4. **`ISSUES.md`** — known bugs, bad-sounding moments, Trefoil vocabulary gaps.
+5. **`TREFOIL.md`** — pedagogy of the 118-fraction vocabulary (formerly `HARP_CHORD_SYSTEM.md`).
+
+**File precedence when docs disagree:**
+`source/HarpChordSystem.tex` > `source/HarpTrefoil.tex` (byte-mirror) > `TREFOIL.md` > derived `data/trefoil/HarpTrefoil.json`
+
+`source/HarpChordSystem.tex` is the canonical pedagogy — never modify. `source/HarpTrefoil.tex` is the new-brand byte-exact mirror; `tests/test_pool_fidelity.py` rejects drift. Derived JSON/PDF live under `data/trefoil/` and are rebuilt by `trefoil/rebuild.py`.
+
+## Directory layout (new)
+
+```
+source/        READ-ONLY canonical inputs (HarpChordSystem.tex, HarpTrefoil.tex, OpenHymnal.abc)
+grammar/       @dataclass types, parse/, emit/, validate/ — heart of the refactor
+trefoil/       the 118-fraction pool + 6 trefoil paths
+techniques/    18 pure-function operators (substitution/approach/voicing/placement)
+parsers/       ABC/... → grammar objects
+renderers/     grammar objects → LilyPond/LaTeX/HTML/ABC
+mapper/        RN + key + melody → best fraction
+reharm/        apply techniques to hymns
+drills/        generate drill pages procedurally
+cli/           command-line entry points (python -m cli.<name>)
+data/          generated artifacts (hymns/, reharms/, scores/, drills/, trefoil/)
+viewer/        web front-end
+tests/         pytest
+legacy/        old code and data, frozen — nothing new imports from here
+```
+
+Nothing in `legacy/` is ever modified; new scripts never import from `legacy.*`.
+
+## Project purpose
+
+HarpHymnal is a **data-pipeline project**, not an application. It turns one large ABC source file (`OpenHymnal.abc`, 370 hymns) into 294 self-contained JSON records (`hymnal_export/*.json`) that carry enough structural information to rebuild grand-staff / SSAATTBB / organ-pedal / lead-sheet renderings downstream. There is no server, test suite, or build system — just a small set of Python scripts run from the command line.
+
+## Dependencies
+
+Only one: `music21`. Install once with:
+
+```bash
+pip install music21 --break-system-packages
+```
+
+## Commands
+
+All scripts live in `tools/` and have hard-coded default paths `/mnt/project/OpenHymnal.abc` and `/mnt/project/HarpChordSystem.json` (an artifact of the environment they were originally authored in). From this repo you must pass `--hymnal` and `--vocab` explicitly, or run from a working dir where those paths resolve.
+
+```bash
+# Export a single hymn (title is a substring match)
+python3 tools/export_hymn.py "Amazing Grace" \
+    --hymnal OpenHymnal.abc --vocab HarpChordSystem.json \
+    -o hymnal_export/Amazing_Grace.json
+
+# Re-export the full corpus (~5 min)
+python3 tools/export_hymn.py --all \
+    --hymnal OpenHymnal.abc --vocab HarpChordSystem.json \
+    -o hymnal_export/
+
+# Inspect the parser's intermediate output for one hymn
+python3 tools/hymn_parser.py "Joy to the World" --hymnal OpenHymnal.abc
+
+# Query the chord mapper directly (RN, key, optional melody note)
+python3 tools/harp_mapper.py V7 D G4 --vocab HarpChordSystem.json
+
+# Convert a comprehensive export JSON to a lead-sheet-ready "reharm" JSON
+python3 tools/export_to_reharm.py hymnal_export/Silent_Night.json -o reharm/Silent_Night.json
+python3 tools/export_to_reharm.py --all hymnal_export/ --out-dir reharm/
+
+# Render a reharm JSON into a LaTeX lead sheet (consumed by HymnReharmTemplate.tex)
+python3 tools/fill_template.py reharm/Silent_Night.json -o Silent_Night.tex
+```
+
+There are no linters, tests, or CI. "Does it work" means: the script runs, and the JSON it produces round-trips cleanly through the next stage of the pipeline.
+
+## Pipeline architecture
+
+The stages are **strictly linear** — each consumes the previous stage's output. Understanding this ordering is the key to working in this repo:
+
+```
+OpenHymnal.abc                            (ground-truth source)
+    │
+    ▼   hymn_parser.py
+parsed voices + SATB beats + RN regions + phrases   (in-memory only; CLI prints it)
+    │
+    ▼   export_hymn.py  (calls hymn_parser internally + harp_mapper)
+hymnal_export/<Title>.json                (comprehensive machine record — THE dataset)
+    │
+    ▼   export_to_reharm.py
+reharm JSON                               (lead-sheet view: one chord/bar, phrase letters, LaTeX-escaped)
+    │
+    ▼   fill_template.py  (+ HymnReharmTemplate.tex)
+LaTeX → PDF lead sheet                    (see samples/*.pdf for output examples)
+```
+
+`harp_mapper.py` is a pure library used by `export_hymn.py` during stage 2, and also exposed as a CLI for manual lookups. It does not read or write files of its own.
+
+### What each stage is responsible for
+
+- **`hymn_parser.py`** — ABC text in, structured music data out. It handles three ABC voice-layout conventions (see README for the full list, including `[V: S1V1..S2V2]` explicit SATB, 2-staff piano reduction with packed chords like `[Ac]`, and 3-staff arrangements with organ pedal). It also re-derives `!fermata!` positions by scanning the raw ABC text because music21's ABC parser silently drops fermata decorations. Tonic detection is weighted voting across six signals (bass-first/last, melody-first/last, common-bass-pc, header); header wins ties.
+
+- **`harp_mapper.py`** — given a roman numeral + key + (optional) melody note, score the 118-fraction pool (paths + reserve) and return the best LH/RH fraction. The pool is **strictly diatonic by design** — no tritone subs, no ♭II7, no altered dominants, no harmonic-minor V. For minor-key hymns, RNs are translated to the relative major because the pool entries are Ionian-labeled. The mapper is **cycle-aware**: it detects 2nds/3rds/4ths cycle transitions between adjacent RNs and picks `paths` entries with CW/CCW direction inferred from melodic contour (ascending → CW, descending → CCW). Harmonic-minor V is handled by one of four substitution strategies (`bVII_backdoor` / `III_deceptive` / `pedal_i` / `modal_v`) and the chosen strategy is recorded on the assignment as `harmonic_substitution`, with the original RN preserved as `requested_rn`.
+
+- **`export_hymn.py`** — the integrator. Produces one JSON per hymn containing: raw ABC source verbatim, metadata, music/key/meter, per-voice note streams, SATB beat grid, bar-level / half-bar / smoothed harmony regions, phrase boundaries, syllable-aligned lyrics per verse, and harp chord assignments with alternates. This JSON is **the** dataset — everything downstream should read it rather than re-parsing ABC.
+
+- **`export_to_reharm.py`** — downsamples the comprehensive JSON into a lead-sheet view. Collapses to one chord per bar, assigns phrase letters (A, B, C...), inherits a cycle color per phrase, infers a strategy hint, splits verse text into per-phrase chunks, and crucially **LaTeX-escapes every user-visible string** (titles, lyrics, metadata — see the `LATEX_ESCAPES` + `UNICODE_MAP` tables at the top of the file; any new user-visible field added downstream must pass through them).
+
+- **`fill_template.py`** — emits LaTeX built around `HymnReharmTemplate.tex`'s `\rn{root}{quality}` macro. Translating mapper output (e.g. `"iii¹"`, `"IV²+8"`) into quality codes the macro's switch table understands is the main complexity here; see the comment at the top of the file for the exact mapping.
+
+## JSON schema
+
+The full comprehensive-export schema is documented in `README.md` and reproduced in the header docstring of `tools/export_hymn.py`. Before modifying it, read the README section "JSON schema per hymn" — downstream consumers (`export_to_reharm.py`, any future renderer) depend on these exact field names, and several fields carry non-obvious invariants:
+
+- `voices.S1V1` / `S1V2` use the **top pitch** of any chord; `S2V1` / `S2V2` use the **bottom pitch**; `pitches_all` carries all pitches so SSAATTBB splitters can redistribute later.
+- `extra_voices.S3V2` / `S3V3` is present only for 3-staff arrangements (preserved for future organ-pedal rendering — don't drop it).
+- `modal_name` is authoritative for mode-aware rendering (accidentals, key sig). `mode` is only "major" or "minor". Consumers should prefer `modal_name`.
+- `lyrics.verses[*].syllables` is exactly `len(Note+Chord events in S1V1)` — rests are excluded, melismas produce entries with empty text and `continues_previous=true`.
+- Shared refrains: when an ABC line-group has only one `w:` line while others have several, that single line is broadcast across all verses.
+- Each `harp_chord_assignments` entry carries `harmonic_substitution` (nullable) and `requested_rn` so downstream renderers can annotate substitutions.
+
+## Known limitations to respect
+
+These are deliberate design choices, not bugs — do not "fix" them without understanding the tradeoff (all documented in more detail in README):
+
+- **Harmonic-minor V can't live in the 118-fraction pool** — it requires a chromatic leading tone. The mapper falls back to one of four substitution strategies; this is by design.
+- **Regions on dense chorales can be noisy** — music21 labels passing chords as things like `#IVø7` or `V42`. The per-bar downsampling uses a downbeat-weighted vote but some residue is expected.
+- **Phrase detection**: fermatas preferred (~16% of corpus), cadence-based fallback (~84%). Hymns with neither may degrade to one-phrase-per-4-bars.
+
+## Corpus regeneration
+
+`hymnal_export/` is checked in. Don't regenerate it casually — a full `--all` run takes ~5 minutes and will touch 294 files. Prefer exporting single titles for iteration, and only run `--all` when a genuinely cross-corpus change (schema addition, new analytical field, parser bug fix affecting many hymns) is ready to land.
+
+## Housekeeping notes
+
+- `tools/export_to_reharm.py` and `samples/export_to_reharm.py` are duplicates (identical size and purpose). The `tools/` copy is the canonical one; the `samples/` copy appears to be a snapshot and should not be edited.
+- `samples/` holds reference PDFs (output examples) plus a `files (1).zip` archive — treat as read-only artifacts, not source.
+retab/CLAUDE.md# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+`retab` is a small document-authoring workspace (not a code project, no build system, not a git repo). It contains two unrelated deliverables and the fonts used to render them.
+
+- `handout.tex` — LaTeX source for the **HarpChords** reference handout: a printed one/two-pager documenting a chord-naming system for lever harp. It enumerates every strict-diatonic 2–4-finger voicing (span ≤ 10 strings) in C, cross-tabulated across the 7 diatonic modes (Ionian…Locrian). The document is a dense `longtable` of ~129 shapes \xD7 7 modes plus a grammar legend.
+- `GENRES.md` — A flat reference list of music genres and sub-genres. Hierarchical bullet list, no code. `GENRES.md~` is an editor backup and should be ignored.
+- `fonts/` — JuliaMono in every weight (TTF + WOFF2 in `fonts/webfonts/`) plus the upstream tarball `JuliaMono.tar.gz` and its `LICENSE`. These ship with the repo so the handout/web copies render identically anywhere.
+
+## The HarpChords notation (handout.tex)
+
+When editing the handout, these are the invariants the table and the grammar section must stay consistent on — they are easy to break silently:
+
+- **Shape**: starting scale-degree + diatonic interval deltas (inclusive: `3` = up a 3rd). `t` is the ASCII stand-in for `\top` = 10. Span = (sum of intervals) − (fingers − 1).
+- **Name grammar**: `<root><triad-qual?><quality?><additions…>_<omissions?>^<inversion?>`. Subscripts mark *low-octave* triad-pitch omissions; a matching upper-octave copy does **not** fill a low omission. This is the subtle rule most edits get wrong.
+- **Absolute pitch**: every name specifies exactly which strings are played; pitch classes are never collapsed across octaves. All 903 names are globally unique — if you add or rename rows, re-check uniqueness.
+- Row ordering in the main `longtable` is `(finger-count, span, pattern lex)`.
+- Qualities: `s2` sus2, `s4` sus4, `q` quartal triad, `q7` quartal 7, `h7` half-dim 7 (Locrian only), `+8` triad + octave-doubled root.
+
+## Build
+
+No Makefile. The handout uses `\usepackage{fontspec}` and `\setmonofont`, so it must be compiled with **XeLaTeX** or **LuaLaTeX**, not pdfLaTeX:
+
+```
+xelatex handout.tex
+```
+
+The current `\setmonofont{DejaVu Sans Mono}` relies on a system font; the bundled JuliaMono is not currently wired into `handout.tex` — swapping the monofont to JuliaMono is a one-line change if desired.
+reharm/CLAUDE.md# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+**Reharm** is the companion project to **Retab**. Where Retab changes the
+*texture* of an SATB hymn (re-tabulating it as idiomatic harp composition),
+Reharm changes the *harmony* — substituting diatonic jazz-idiomatic chords
+under the same melody, still playable on a 47-string lever harp.
+
+Reharm is a **new** project. An earlier attempt at reharm lived in
+`../HarpHymnal/reharm/`, `../HarpHymnal/trefoil/reharm/`, and
+`../HarpHymnal/data/reharm/` — it sprawled across schema/selector/renderer
+modules before nailing the product. This rewrite applies the tactics that
+made Retab land:
+
+1. **A clear 7-level ladder** (see `REHARM.md`) so each increment is legible.
+   The axis is *technique sophistication within the diatonic collection* —
+   NOT distance-from-original-key. Every level stays in the hymn's key
+   signature.
+2. **A strictly limited chord pool** (14 chord symbols total: 7 diatonic
+   triads + 7 diatonic 7ths) enumerated in code. Non-diatonic chords
+   would require lever flips and are forbidden.
+3. **Single-file emitter + single bulk builder**, matching Retab's shape.
+4. **End-to-end deliverable each level** — every level produces compilable
+   ABC that renders on the tablet, not just intermediate structures.
+
+## The instrument
+
+Same target as Retab: 47-string lever harp. All the Retab harp-idiom rules
+apply here unchanged:
+
+- **No piano stomping** — never re-strike the same triad on consecutive
+  beats. Let strings ring, or walk through chord tones.
+- **C1–B1 is drumming range** — low-bass anchor tones go there only on
+  opening + cadence; everywhere else the triad base is octave 2.
+- **Zero lever flips.** Hard constraint. Every pitch emitted at every
+  level is diatonic to the hymn's key. No secondary dominants, no modal
+  interchange, no distant-key modulation, no tritone subs. Anything
+  requiring an accidental is a bug. This is the central narrowing that
+  distinguishes Reharm's ladder from textbook jazz-reharm pedagogy.
+
+## Project layout
+
+- `REHARM.md` — the 7-level ladder (axis: distance from vocal harmony
+  toward idiomatic diatonic-jazz reharm). This is the steering document.
+- `HANDOFF.md` — cross-machine sync for when this project is worked on
+  from multiple machines.
+- `hymnal/reharm_hymnal.py` — the emitter. Reads a HarpHymnal-style hymn
+  JSON and emits grand-staff ABC. Takes a `--level` 1–7.
+- `hymnal/build_hymnal.py` — bulk builder. Iterates `data/hymns/*.json`
+  from the HarpHymnal data tree, runs the emitter, invokes `abcm2ps -g`,
+  installs SVGs to the tablet app under `assets/reharm/`.
+
+## Data
+
+Hymn source: `../HarpHymnal/data/hymns/*.json` (279 hymns, same format
+Retab consumes). Each file has:
+
+- `title`, `slug`
+- `key.root`, `key.mode` (major/minor)
+- `meter.beats`, `meter.unit`
+- `bars[].chord = {numeral, quality, inversion}` — the seed harmony
+- `bars[].melody[]` — pitch + duration events
+- `phrases[].ibars` — phrase bar ranges (for opening/middle/cadence roles)
+
+## Build
+
+No project-local build system. Run the emitter on a single hymn:
+
+```
+python hymnal/reharm_hymnal.py --level 2 \
+    ../HarpHymnal/data/hymns/abide_with_me.json -o /tmp/abide.abc
+abcm2ps /tmp/abide.abc -O /tmp/abide -g
+```
+
+Bulk build all 279 hymns at a given level (the builder does `from
+reharm_hymnal import ...` as a sibling import, so run it from `hymnal/`):
+
+```
+cd hymnal && python build_hymnal.py --level 2
+```
+
+Output lands in `hymnal/build/L<level>/` by default; `-o` overrides.
+Requires `abcm2ps` on PATH (same dependency as Retab).
+
+## Current implementation state
+
+Only **L1** is implemented (`apply_level_1` — strips chord quality to emit
+plain diatonic triads). `apply_level_2` through `apply_level_7` raise
+`NotImplementedError`, so bulk builds at L2+ will fail every hymn until
+each level is filled in. Next level to implement is L2 (pool expansion
+only, no root motion).
+
+## Architecture
+
+The emitter is a **pipeline of level passes** over `hymn["bars"][i]["chord"]`:
+
+1. `REHARM_LEVELS[N]` picks the pass for `--level N` and transforms the
+   hymn's chord dicts in place (on a deep copy).
+2. `build_abc` validates every resulting chord against `CHORD_POOL` via
+   `validate_chord_pool` before rendering. The pool contains exactly 14
+   entries (7 diatonic triads + 7 diatonic 7ths). A chord outside the
+   pool is a hard failure — this is the flip-free guardrail.
+3. `lh_pattern` renders each chord into bass-clef ABC using the harp
+   voicing rules (walk through tones mid-phrase, single strike + ring at
+   openings and cadences).
+
+Levels are **not strictly additive.** L1–L3 share the pool-substitution
+shape and compose cleanly. L4 (relative-minor reharm) and L5 (modal
+reharm) re-centre whole phrases and replace the lower passes for those
+phrases rather than layering on. L6 (non-functional + slash chords) and
+L7 (voice-leading-first) are whole-hymn aesthetics that replace the
+chord-choice logic entirely.
+
+### Minor-mode handling
+
+Hymn JSONs in minor keys carry Aeolian-mode numerals (`i`, `iv`, `V`,
+`bVII`). The emitter translates these to relative-major Ionian numerals
+via `AEOLIAN_TO_IONIAN` at validation- and render-time, then emits in
+the relative major key (`relative_major(key_root, mode)`). The chord
+pool is expressed in Ionian labels only — don't add minor-mode entries.
+
+## Relationship to Retab
+
+Retab is a sibling project (`../retab/`). Reharm *reuses* Retab's melody
+rendering, pitch-to-ABC conversion, and LH-walking rhythm logic — those
+are generic harp-idiom building blocks. The reharm-specific novelty is in
+the **chord-substitution pipeline** that sits between the hymn's written
+chord and the LH voicing.
+
+For now the shared logic is **duplicated** into `reharm/hymnal/` rather
+than imported from `../retab/`. Short-term duplication beats cross-project
+imports while both codebases are still settling.
+
+## Tablet integration
+
+The HarpHymnal tablet app (`../HarpHymnal/tablet_app/`) has a **Reharm**
+tile already wired (the old reharm tile — drill-oriented). A new
+**Reharm Hymnal** tile (mirroring the existing Retab Hymnal tile) is the
+intended end-state once the emitter reaches L4+. For now, do not wire the
+tablet app until the level being produced is worth browsing.
+
+## 7-bit ASCII in code
+
+Keep Python source 7-bit ASCII. Unicode is fine inside generated ABC
+strings (superscripts, Δ, ø, °) because abcm2ps renders them, but the
+source files themselves should stay ASCII to match the project-family
+convention.

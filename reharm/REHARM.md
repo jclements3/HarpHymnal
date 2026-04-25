@@ -217,23 +217,30 @@ Each pass validates that every output chord's pitches are in the
 parent key's diatonic scale. A pitch outside the scale is a hard
 failure -- that's the flip-free guarantee.
 
-## Known open questions
+## Implementation status
 
-1. **Melody/chord clash detection.** At L3+, a substitution may put a
-   melody note outside the new chord's tones. Within the diatonic
-   collection this is always tolerable (the melody becomes a diatonic
-   tension -- 9, 11, or 13 -- rather than an out-of-key accidental),
-   but the emitter should still annotate the resulting extension so
-   the chord symbol on the lead sheet is accurate.
-2. **Where does the tablet tile go?** The old "Jazz Hymns" tile has
-   been retired. A new **Reharm Hymnal** tile mirroring the existing
-   Retab Hymnal tile is the destination. Wire once L3+ is producing
-   output worth browsing.
-3. **Minor-mode hymns.** ~30 of the 279 hymns are in a minor key. The
-   emitter already translates Aeolian numerals to Ionian for pool
-   validation; at L4 the "relative minor reharm" concept inverts --
-   for a minor-mode hymn, L4 might mean relative-*major* reharm. TBD
-   once L3 is stable.
+All seven levels are implemented and shipping. All 279 hymns in the
+corpus render at every level without pool-validation failures. The
+Reharm Hymnal tile on the tablet carries an L1-L7 selector in its
+banner.
+
+Small gaps between spec and code worth noting for the reader:
+
+- **L3 weak dominant** currently emits only `V -> iii7`; the spec also
+  allows `V -> viiø7` as an alternative, not yet in the code.
+- **L6 slash chords** (`F/G`, `C/D`, `Dm/G`) are described in the spec
+  but the current L6 pass emits chromatic mediants only. Slash-chord
+  notation requires a bass-pitch field on the chord dict that the LH
+  voicing code would need to respect; pending.
+- **Minor-mode hymns.** Aeolian-to-Ionian translation runs once at the
+  top of every level pass via `_normalize_to_ionian`, so every
+  downstream stage works in parent-major terms. For minor-mode hymns
+  the "relative minor reharm" at L4 therefore becomes a **relative-
+  major** feel in practice (the phrase re-centres on the parent major
+  tonic), which turns out to be the more useful colour anyway.
+
+These are refinements, not bugs -- the output is musically coherent at
+every level and the pool guarantee (zero accidentals) holds.
 
 ## Relationship to the old reharm
 

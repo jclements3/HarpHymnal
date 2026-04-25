@@ -68,9 +68,87 @@ This file should never lag `origin/main`.
 
 ---
 
-## Current state (2026-04-24)
+## Current state (2026-04-25)
 
-`origin/main` head: `4899801` (Docs tile + markdown viewer in `tablet_app/`).
+`origin/main` head: `a84fc2d` (HANDOFF refresh for post-consolidation tablet_app layout).
+
+### Encoding-system rewrite — in progress this session, not yet committed
+
+The repo-root encoding spec has been rewritten end-to-end today. The
+**previous** README described a chord-naming system (Roman numeral chords
++ mode/intervals + handout chord labels). The **current** README describes
+a fundamentally different system: a **shape-setup encoding** that catalogs
+hand placements on the strings and progressions of those placements,
+explicitly *not* music notation.
+
+**Key reframe (do not lose this):** the system encodes *what is set on
+the strings before playing*. Rhythm, articulation, strike order after
+assembly, timing, and dynamics are deliberately outside scope. Most of
+what looks like "playing notation" (operators, hand markers, the dash
+separator) is actually about sequences of *setups*, not sequences of
+*played notes*. There's a project-memory entry under
+`memory/project_encoding_scope.md` — read that first if you didn't
+participate in today's session.
+
+**What changed in the file system today (uncommitted):**
+
+- `README.md` — full rewrite. Three shape forms: absolute
+  `Nx<mode><intervals>`, relative `^Nx<mode><intervals>`, continuation
+  `<gap><intervals>`. Disambiguator is the first character class.
+  Subscripts now mean **assembly order** (which finger plants 1st-4th
+  in the set sequence), not finger labels — the previous README had
+  this wrong. Hand markers: bare shape = either hand; `L<shape>` /
+  `R<shape>` pin a hand; `<shape> R <shape>` is a two-hand setup
+  (LH-then-RH simultaneous). Header block: `Title:` + `Key:` (no
+  `Meter:` — rhythm is out of scope).
+- `VERIFY.md` — reach-calibration drills. User has not run these yet;
+  when they do, the per-finger reach ceilings in the README's table
+  will be replaced with calibrated numbers.
+- `DRILLS.md` — full replacement. Old chord-pool letter notation
+  (`cegDFA` etc.) is gone. Ten drills under the new grammar, including
+  the canonical thirds sweep (`1x1333-3333*5~`), modal cycle, two-hand
+  bass+chord progression, and a top-down assembly study.
+- `HANDOUT.md` — new file. Quick-reference catalog of the 12
+  universal-winner shape patterns plus mode-conditional gems, common
+  setup forms (single notes, dyads, triads, tetrads), and sequence
+  patterns. Different in purpose from the older `handout.md`/`handout.tex`
+  which use the previous chord-name system; those are unchanged.
+
+**What did NOT change:**
+
+- `tablet_app/` — untouched. The Android app's docs viewer still points
+  at `docs/*.md` files (older system). No tablet-side updates today.
+- `retab/`, `reharm/` — untouched. Their CLAUDE.md files still describe
+  Roman-numeral pipelines. The new encoding system hasn't been wired
+  into those pipelines yet.
+- `data/`, `legacy/`, `source/` — untouched.
+
+**For the home-laptop Claude:**
+
+If you're picking up this session, read in order:
+1. `memory/project_encoding_scope.md` (scope clarification)
+2. `README.md` (the new spec)
+3. `DRILLS.md` (sample sequences under the new grammar)
+4. `HANDOUT.md` (the pattern catalog)
+5. `VERIFY.md` (calibration drills, awaiting user results)
+
+Open questions still on the table:
+- Reach calibration — user hasn't run VERIFY.md yet; default reach
+  ceilings in README's table are best-guess until then.
+- Minor-key encoding convention (`Key: Am` vs relative-major-with-mode-6)
+  — was raised in session, not resolved. Defer until the first minor-key
+  piece needs to be encoded.
+- Multi-row composition is sequential phrases (decided); true
+  simultaneity (parallel rows or `&` operator) is deferred.
+- The retab/reharm pipelines still use the OLD chord-name system; if
+  the user wants those rewritten under the new encoding, that's a
+  separate large piece of work.
+
+### Tablet state (unchanged today)
+
+Tablet was last installed from commit `4899801` (Docs tile + markdown
+viewer). Today's encoding-system rewrite is repo-root only and does not
+affect the tablet APK.
 
 ### What's live on the tablet (installed today from the lab)
 - **Home screen**: 5 tiles — Retab, Retab Hymnal, Reharm Hymnal, Reharm,
