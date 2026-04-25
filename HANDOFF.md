@@ -144,11 +144,12 @@ Open questions still on the table:
   the user wants those rewritten under the new encoding, that's a
   separate large piece of work.
 
-### Tablet state (unchanged today)
+### Tablet state (updated today)
 
-Tablet was last installed from commit `4899801` (Docs tile + markdown
-viewer). Today's encoding-system rewrite is repo-root only and does not
-affect the tablet APK.
+Tablet now has commit `806b86f` installed (encoding rewrite + new docs
+tiles). `lastUpdateTime` per `dumpsys`: 2026-04-25. Built and installed
+from the lab via `./gradlew installDebug` (tablet still plugged in here
+from yesterday's session). Home doesn't need to reinstall.
 
 ### What's live on the tablet (installed today from the lab)
 - **Home screen**: 5 tiles — Retab, Retab Hymnal, Reharm Hymnal, Reharm,
