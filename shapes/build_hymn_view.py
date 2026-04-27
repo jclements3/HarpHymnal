@@ -48,7 +48,11 @@ from voice_lead import (  # noqa: E402
 )
 from render_phrase_svg import render_phrase_svg  # noqa: E402
 from render_phrase_midi import render_phrase_midi  # noqa: E402
-from render_chopin_piano import render_phrase_piano_svg  # noqa: E402
+from render_chopin_piano import (  # noqa: E402
+    render_phrase_piano_svg,
+    render_phrase_piano_svg_l2,
+    render_phrase_piano_svg_l3,
+)
 
 # Diatonic letter index for scale-step calculations (Tonic C of any major key
 # normalises against this 7-letter cycle; key-root offset gives the degree).
@@ -473,8 +477,8 @@ def render_hymn(hymn_path: Path, chopin_only: bool = False) -> str:
         '</p>'
     )
 
-    # Level selector — only for the multi-level Hymns view; the Chopin
-    # tab's pages skip it (one view, no buttons).
+    # Level selector — full 17-level switcher on the Hymns view; a
+    # 3-level (L1/L2/L3) chopin sub-selector on the Chopin tab.
     if not chopin_only:
         rows.append('<div class="level-selector">')
         rows.append('<strong>Level:</strong>')
@@ -486,6 +490,18 @@ def render_hymn(hymn_path: Path, chopin_only: bool = False) -> str:
 
         rows.append('<p class="level-desc" id="level-desc">'
                     f'{LEVEL_DESC["chopin"]}</p>')
+    else:
+        rows.append('<div class="chopin-level-selector">')
+        rows.append('<strong>Chopin level:</strong>')
+        for clvl, label in (('L1', 'L1 — sustained pad'),
+                            ('L2', 'L2 — arpeggiated'),
+                            ('L3', 'L3 — ornamented')):
+            active = ' active' if clvl == 'L1' else ''
+            rows.append(f'<button class="chopin-lvl-btn{active}" data-clvl="{clvl}">'
+                        f'{label}</button>')
+        rows.append('</div>')
+        rows.append('<p class="chopin-lvl-desc" id="chopin-lvl-desc">'
+                    'Melody on top; ATB voice-led pad held per chord change beneath.</p>')
 
     # Pre-compute the voice-leading chain for the whole hymn. Soprano is
     # pinned to the actual melody (SATB extractor's S1V1 downbeat); the
@@ -557,10 +573,27 @@ def render_hymn(hymn_path: Path, chopin_only: bool = False) -> str:
                 if 0 < b <= len(bars)
             ]
             if chopin_only:
-                svg = render_phrase_piano_svg(
+                # Emit all three Chopin levels — the JS swaps them with the
+                # chopin-lvl-btn selector. L1 is the active default.
+                svg_l1 = render_phrase_piano_svg(
                     phrase_bar_dicts, phrase_voicings_all,
                     key['root'], key.get('mode', 'major'),
                     meter['beats'], meter['unit'],
+                )
+                svg_l2 = render_phrase_piano_svg_l2(
+                    phrase_bar_dicts, phrase_voicings_all,
+                    key['root'], key.get('mode', 'major'),
+                    meter['beats'], meter['unit'],
+                )
+                svg_l3 = render_phrase_piano_svg_l3(
+                    phrase_bar_dicts, phrase_voicings_all,
+                    key['root'], key.get('mode', 'major'),
+                    meter['beats'], meter['unit'],
+                )
+                svg = (
+                    f'<span class="clvl-svg L1 active">{svg_l1}</span>'
+                    f'<span class="clvl-svg L2">{svg_l2}</span>'
+                    f'<span class="clvl-svg L3">{svg_l3}</span>'
                 )
             else:
                 svg = render_phrase_svg(phrase_voicings)
@@ -720,6 +753,23 @@ def render_hymn(hymn_path: Path, chopin_only: bool = False) -> str:
       document.body.classList.toggle('auto-active', level === 'auto');
       document.body.classList.toggle('chopin-active', level === 'chopin');
       document.getElementById('level-desc').textContent = descs[level] || '';
+    });
+  });
+
+  const CLVL_DESC = {
+    'L1': 'L1 — Melody on top; ATB voice-led pad held per chord change.',
+    'L2': 'L2 — Same harmony as L1, but LH plays oom-pah-pah: bass on beat 1, [tenor+alto] chord on remaining beats. Melody-only RH.',
+    'L3': 'L3 — L1 plus an ornamented soprano: a diatonic passing tone is inserted between any two adjacent melody notes a 3rd or wider apart.'
+  };
+  document.querySelectorAll('.chopin-lvl-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const clvl = btn.dataset.clvl;
+      document.querySelectorAll('.chopin-lvl-btn.active').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.clvl-svg.active').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.clvl-svg.' + clvl).forEach(s => s.classList.add('active'));
+      const desc = document.getElementById('chopin-lvl-desc');
+      if (desc) desc.textContent = CLVL_DESC[clvl] || '';
     });
   });
 

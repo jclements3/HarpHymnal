@@ -70,9 +70,8 @@ This file should never lag `origin/main`.
 
 ## Current state (2026-04-27)
 
-`origin/main` head moves to this push (Shapes-area landing — Chopin
-piano render, Strings column, QRG tab, Recent bar, 3-column letter
-grid, F#-minor fix). Tablet has the matching APK installed.
+`origin/main` head moves to this push (Chopin sub-levels L1/L2/L3 on
+all 279 chopin pages). Tablet has the matching APK installed.
 
 ### Encoding-system rewrite — in progress this session, not yet committed
 
@@ -259,8 +258,24 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
-- **2026-04-27 home** — Shapes area is now a full sub-app under the
-  Shapes tile (6th tile on home, plum `#4A2545`). Major work this session:
+- **2026-04-27 home** — Chopin pages now have a 3-level sub-selector:
+  **L1 sustained pad** (default — held ATB whole-notes beneath rhythmic
+  melody), **L2 arpeggiated** (LH oom-pah-pah: bass quarter on beat 1,
+  `[tenor+alto]` chord on each remaining beat; melody-only RH), and
+  **L3 ornamented** (held pad like L1, but the soprano gets one
+  diatonic passing tone inserted between any two adjacent melody notes
+  a 3rd or wider apart). Same harmonic skeleton across all three —
+  only the surface texture changes. Each phrase emits all three SVGs
+  inline; CSS `.clvl-svg` toggles visibility, JS swaps on button click.
+  Implementations (`build_phrase_abc_l2/l3` + `_l2_*` / `_l3_*`
+  helpers) live in `shapes/render_chopin_piano.py`. The Hymns-tab
+  per-bar table is unchanged (the L1/L2/L3 split is purely a chopin
+  surface-texture concept). All 279 chopin pages rebuilt; APK
+  reinstalled. Hymns-tab pages were untouched, so the previous push's
+  Strings column / Shape table layout still applies there.
+- **2026-04-27 home** — `e6916b2` Shapes area is now a full sub-app
+  under the Shapes tile (6th tile on home, plum `#4A2545`). Major
+  work that landed:
   - **Hymns + Chopin sub-tabs.** Both top-nav tabs land on A-Z navigators
     over all 279 hymns. Shared "Recent" bar above search records hymn
     visits in `localStorage['shapes.recent']` (capped at 10, cleared via

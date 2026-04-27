@@ -147,6 +147,226 @@ def render_phrase_piano_svg(phrase_bars: list[dict], voicings: list[Voicing],
     return render_svg(abc)
 
 
+def _l2_beat_layout(beats: int, unit: int) -> tuple[int, int]:
+    """Return `(beat_units, num_beats)` in sixteenth-notes for L2.
+
+    Simple meters (x/4) treat each quarter as one beat (4 sixteenths).
+    Compound meters (x/8 with `beats` divisible by 3) treat each
+    dotted-quarter as one beat (6 sixteenths). Anything else falls
+    back to the simple rule with `beat_units = bar_units / beats`.
+    """
+    bar_units = _bar_units(beats, unit)
+    if unit == 4:
+        return 4, beats
+    if unit == 8 and beats % 3 == 0:
+        return 6, beats // 3
+    if unit == 2:
+        return 8, beats
+    # Generic fallback: split the bar evenly into `beats` beats.
+    if beats > 0 and bar_units % beats == 0:
+        return bar_units // beats, beats
+    return bar_units, 1
+
+
+def _l2_bar_bass_abc(v: Voicing, beat_units: int, num_beats: int) -> str:
+    """Render one bar of the L2 oom-pah-pah pattern for the bass staff.
+
+    Beat 1: a single bass quarter-note (the voicing's B).
+    Beats 2..N: an [T A] chord stack (tenor + alto) of the bar's voicing.
+    Each "beat" here is `beat_units` sixteenth-notes long.
+    """
+    parts = [_abc_pitch(v.b.letter, v.b.accidental, v.b.octave) + str(beat_units)]
+    for _ in range(num_beats - 1):
+        parts.append(_chord_token([v.t, v.a], beat_units))
+    return ' '.join(parts)
+
+
+def build_phrase_abc_l2(phrase_bars: list[dict], voicings: list[Voicing],
+                        key_root: str, mode: str, beats: int, unit: int,
+                        title: str = '') -> str:
+    """ABC for a single phrase using the L2 ("arpeggiated pad") layout.
+
+    Treble: melody at original rhythm. Bass: oom-pah-pah — bass quarter
+    on beat 1 then [T A] chord stacks on every subsequent beat. Same
+    voicing chain as L1; only the surface rhythm of the bass differs.
+    """
+    bar_units = _bar_units(beats, unit)
+    beat_units, num_beats = _l2_beat_layout(beats, unit)
+    abc_key = key_root + ('m' if mode == 'minor' else '')
+
+    soprano_lines, bass_lines = [], []
+    for bar, v in zip(phrase_bars, voicings):
+        soprano_lines.append(_melody_to_abc(bar, 4) or f'z{bar_units}')
+        if v is None:
+            bass_lines.append(f'z{bar_units}')
+        else:
+            bass_lines.append(_l2_bar_bass_abc(v, beat_units, num_beats))
+
+    return (
+        'X: 1\n'
+        f'T: {title}\n'
+        f'M: {beats}/{unit}\n'
+        'L: 1/16\n'
+        f'K: {abc_key}\n'
+        '%%staves [S BL]\n'
+        '%%scale 0.7\n'
+        '%%staffsep 22\n'
+        '%%musicspace 4\n'
+        '%%maxshrink 1.0\n'
+        'V: S clef=treble\n'
+        'V: BL clef=bass\n'
+        '[V: S] ' + (' | '.join(soprano_lines) + ' |') + '\n'
+        '[V: BL] ' + (' | '.join(bass_lines) + ' |') + '\n'
+    )
+
+
+def render_phrase_piano_svg_l2(phrase_bars: list[dict], voicings: list[Voicing],
+                               key_root: str, mode: str, beats: int, unit: int) -> str:
+    """Render one phrase as an inline-SVG L2 piano arrangement."""
+    if not phrase_bars or not voicings:
+        return ''
+    abc = build_phrase_abc_l2(phrase_bars, voicings, key_root, mode, beats, unit)
+    return render_svg(abc)
+
+
+# ---------------------------------------------------------------------------
+# Level 3 — ornamented (decorated soprano over held pad)
+# ---------------------------------------------------------------------------
+
+_L3_LETTERS = list('CDEFGAB')
+
+
+def _l3_step_index(letter: str, octave: int) -> int:
+    """Absolute diatonic-step index (letters only — no accidentals).
+    Two pitches A and B differ by `_l3_step_index(B) - _l3_step_index(A)`
+    diatonic steps, regardless of accidentals."""
+    return octave * 7 + _L3_LETTERS.index(letter)
+
+
+def _l3_step_from_index(idx: int) -> tuple[str, int]:
+    """Inverse of `_l3_step_index`."""
+    return _L3_LETTERS[idx % 7], idx // 7
+
+
+def _melody_to_abc_l3(bar: dict, sixteenths_per_beat: int) -> str:
+    """Decorated melody for one bar.
+
+    Between two adjacent melody notes within the bar whose absolute diatonic
+    step distance is >= 2 (a third or wider), splice a single passing tone
+    on the way: halve n1's duration and emit a passing-tone of the natural
+    letter one diatonic step from n1 toward n2 for the second half.
+
+    Skips: unisons, seconds (already stepwise), rests on either side, and
+    any pair where halving n1 would yield a sub-sixteenth duration (n1's
+    sixteenth count must be >= 2 and even — i.e. >=2 and divisible by 2).
+    """
+    events = bar.get('melody') or []
+    # Build a flat list of (kind, pitch_or_None, dur_q) for easier traversal.
+    seq = []
+    for ev in events:
+        if ev.get('kind') == 'note':
+            p = ev['pitch']
+            seq.append(('note', p, ev.get('duration') or 0))
+        elif ev.get('kind') == 'rest':
+            seq.append(('rest', None, ev.get('duration') or 0))
+        # else: skip unknown kinds
+    parts = []
+    for i, (kind, p, dur_q) in enumerate(seq):
+        n = max(1, round(dur_q * sixteenths_per_beat))
+        if kind == 'rest':
+            parts.append(f'z{n}')
+            continue
+        # Look ahead for a note neighbour in the SAME bar.
+        nxt = None
+        if i + 1 < len(seq):
+            nk, np_, _ = seq[i + 1]
+            if nk == 'note':
+                nxt = np_
+        # Default: emit n1 at its full duration with no decoration.
+        emit_decorated = False
+        passing_tone = None
+        if nxt is not None:
+            l1, o1 = p['letter'], p['octave']
+            l2, o2 = nxt['letter'], nxt['octave']
+            i1 = _l3_step_index(l1, o1)
+            i2 = _l3_step_index(l2, o2)
+            step_dist = i2 - i1
+            abs_dist = abs(step_dist)
+            # >=2 means third-or-wider; require halving to land on >=1 sixteenth
+            if abs_dist >= 2 and n >= 2 and (n % 2) == 0:
+                direction = 1 if step_dist > 0 else -1
+                pt_idx = i1 + direction
+                pt_letter, pt_octave = _l3_step_from_index(pt_idx)
+                passing_tone = (pt_letter, pt_octave)
+                emit_decorated = True
+        if emit_decorated:
+            half = n // 2
+            parts.append(_abc_pitch(p['letter'], _norm_acc(p.get('accidental')),
+                                    p['octave']) + str(half))
+            # Passing tone: natural letter (drop accidental — diatonic by letter).
+            parts.append(_abc_pitch(passing_tone[0], '', passing_tone[1]) +
+                         str(half))
+        else:
+            parts.append(_abc_pitch(p['letter'], _norm_acc(p.get('accidental')),
+                                    p['octave']) + str(n))
+    return ' '.join(parts)
+
+
+def build_phrase_abc_l3(phrase_bars: list[dict], voicings: list[Voicing],
+                        key_root: str, mode: str, beats: int, unit: int,
+                        title: str = '') -> str:
+    """ABC for a single phrase, Level 3 — decorated soprano over held pad.
+
+    LH (T+B) and RH alto are identical to L1; only the soprano line is
+    decorated with one diatonic passing tone per qualifying gap (third or
+    wider, both notes within the same bar, halving stays >= 1 sixteenth).
+    """
+    bar_units = _bar_units(beats, unit)
+    abc_key = key_root + ('m' if mode == 'minor' else '')
+
+    soprano_lines, alto_lines, tenor_lines, bass_lines = [], [], [], []
+    for bar, v in zip(phrase_bars, voicings):
+        soprano_lines.append(_melody_to_abc_l3(bar, 4) or f'z{bar_units}')
+        if v is None:
+            alto_lines.append(f'z{bar_units}')
+            tenor_lines.append(f'z{bar_units}')
+            bass_lines.append(f'z{bar_units}')
+        else:
+            alto_lines.append(_chord_token([v.a], bar_units))
+            tenor_lines.append(_chord_token([v.t], bar_units))
+            bass_lines.append(_chord_token([v.b], bar_units))
+
+    return (
+        'X: 1\n'
+        f'T: {title}\n'
+        f'M: {beats}/{unit}\n'
+        'L: 1/16\n'
+        f'K: {abc_key}\n'
+        '%%staves [(S A) (T B)]\n'
+        '%%scale 0.7\n'
+        '%%staffsep 22\n'
+        '%%musicspace 4\n'
+        '%%maxshrink 1.0\n'
+        'V: S clef=treble\n'
+        'V: A clef=treble\n'
+        'V: T clef=bass\n'
+        'V: B clef=bass\n'
+        '[V: S] ' + (' | '.join(soprano_lines) + ' |') + '\n'
+        '[V: A] ' + (' | '.join(alto_lines) + ' |') + '\n'
+        '[V: T] ' + (' | '.join(tenor_lines) + ' |') + '\n'
+        '[V: B] ' + (' | '.join(bass_lines) + ' |') + '\n'
+    )
+
+
+def render_phrase_piano_svg_l3(phrase_bars: list[dict], voicings: list[Voicing],
+                               key_root: str, mode: str, beats: int, unit: int) -> str:
+    """Render one phrase as an L3 (ornamented) inline-SVG piano arrangement."""
+    if not phrase_bars or not voicings:
+        return ''
+    abc = build_phrase_abc_l3(phrase_bars, voicings, key_root, mode, beats, unit)
+    return render_svg(abc)
+
+
 def build_abc(hymn: dict) -> str:
     title = hymn.get('title') or 'Untitled'
     key = hymn.get('key') or {}

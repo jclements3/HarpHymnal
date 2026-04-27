@@ -99,6 +99,23 @@ code {
   font-style: italic;
   color: var(--muted);
 }
+/* Chopin sub-selector — three levels (sustained pad / arpeggiated /
+   ornamented) on chopin/<slug>.html pages. */
+.chopin-level-selector {
+  display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center;
+  margin: 1rem 0 0.5rem;
+}
+.chopin-level-selector strong { margin-right: 0.5rem; }
+.chopin-lvl-btn {
+  font-family: ui-monospace, monospace; font-size: 0.85rem;
+  padding: 0.25rem 0.6rem; border: 1px solid var(--rule);
+  background: var(--bg); color: var(--fg); border-radius: 3px; cursor: pointer;
+}
+.chopin-lvl-btn:hover { background: var(--code-bg); }
+.chopin-lvl-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.chopin-lvl-desc { margin: 0.5rem 0 1rem; font-style: italic; color: var(--muted); }
+.clvl-svg { display: none; }
+.clvl-svg.active { display: inline; }
 /* Per-level shape/chord/strings cells: only the active level is visible. */
 .lvl-shape, .lvl-chord, .lvl-strings { display: none; }
 .lvl-shape.active, .lvl-chord.active, .lvl-strings.active { display: inline; }
