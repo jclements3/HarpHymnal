@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>shapes/ — encoding-system docs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="shape-nav">
+  <a href="index.html">index</a>
+  <a href="QRG.html">QRG</a>
+  <a href="README.html">README</a>
+  <a href="DRILLS.html">DRILLS</a>
+  <a href="SAMPLES.html">SAMPLES</a>
+  <a href="HANDOUT.html">HANDOUT</a>
+  <a href="VERIFY.html">VERIFY</a>
+  <a href="Chords.html">Chords</a>
+  <a href="hymns/index.html">Hymns</a>
+  <a href="chopin/index.html">Chopin</a>
+  <a href="HANDOFF.html">HANDOFF</a>
+  <a href="NEXTSESSION.html">NEXTSESSION</a>
+</nav>
+
+<h1>shapes/ — encoding-system docs</h1>
+
+<p>Rendered HTML of the shape-encoding markdown docs. The caret marks
+the degree (mode root) in every shape token, drawn as a LaTeX-style hat
+above the digit — for example <code>1x<span class="deg">1̂</span>333</code>,
+<code>3R<span class="deg">5̂</span></code>,
+<code>+2x<span class="deg">1̂</span>55</code>. Continuation digits after
+the <code>$</code> operator stay bare. The markdown source keeps the
+literal <code>^N</code> form for ASCII keyboard input and
+grep-friendliness; the HTML build at <code>build_html.py</code> rewrites
+<code>^N</code> as <code>&lt;span class="deg"&gt;N̂&lt;/span&gt;</code>
+where the inner text is the digit followed by Unicode combining
+circumflex U+0302. The hat is rendered by the vendored
+<a href="font/JuliaMono-Medium.ttf">JuliaMono</a> webfont, which
+anchors combining diacritics correctly above digits where most
+system monospace fonts (and DejaVu Sans Mono) do not. Copy-paste
+yields literal <code>1̂</code>, round-trippable through any
+Unicode-aware tool.</p>
+
+<ul>
+  <li><a href="QRG.html">QRG</a> — quick reference: how to read one shape token</li>
+  <li><a href="README.html">README</a> — full encoding spec and grammar BNF</li>
+  <li><a href="DRILLS.html">DRILLS</a> — 56 practice sequences under the new grammar</li>
+  <li><a href="SAMPLES.html">SAMPLES</a> — 21 acoustically-motivated shape combinations</li>
+  <li><a href="HANDOUT.html">HANDOUT</a> — quick-reference catalog of beautiful patterns</li>
+  <li><a href="VERIFY.html">VERIFY</a> — reach-calibration drills (not yet run)</li>
+  <li><a href="Chords.html">Chords</a> — shape ↔ chord-match table (every interval pattern × every degree)</li>
+  <li><a href="hymns/index.html">Hymns</a>
+  <a href="chopin/index.html">Chopin</a> — practice pages with shape tables per hymn</li>
+  <li><a href="HANDOFF.html">HANDOFF</a> — repo state ledger</li>
+  <li><a href="NEXTSESSION.html">NEXTSESSION</a> — hand-off brief from the SAMPLES session</li>
+</ul>
+
+<h2>Quick orientation</h2>
+
+<p>A shape is <code>octave? degree intervals?</code> with an optional
+<code>repeat</code> operator at the end. The grammar production is:</p>
+
+<pre><code>shape:     octave? degree intervals? repeat?
+  octave:    [+-]?[1-7][xLR]
+  degree:    '^' [1-7] subscript?
+  intervals: interval (,? interval){0,6}
+  interval:  [2-f] subscript?
+  subscript: [₁-₈]
+  repeat:    (back_to_back | octave_climb) (count | * | ~)?
+</code></pre>
+
+<p>Examples (with <code>Tonic: C</code>) — ASCII source on the left,
+rendered form on the right:</p>
+
+<table>
+<thead><tr><th>ASCII (<code>^N</code>)</th><th>Rendered (hat above N)</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td><code>1x^13</code></td><td><code>1x<span class="deg">1̂</span>3</code></td><td>Ionian dyad in octave 1: C1–E1</td></tr>
+<tr><td><code>3x^1333</code></td><td><code>3x<span class="deg">1̂</span>333</code></td><td>Ionian tetrad in octave 3: C3–E3–G3–B3</td></tr>
+<tr><td><code>1L^6 1R^1333</code></td><td><code>1L<span class="deg">6̂</span> 1R<span class="deg">1̂</span>333</code></td><td>LH bass A1, RH stacked-thirds tetrad on C</td></tr>
+<tr><td><code>1x^1333,3333</code></td><td><code>1x<span class="deg">1̂</span>333,3333</code></td><td>Two-hand 8-finger tower (one held configuration)</td></tr>
+<tr><td><code>1x^1333$~</code></td><td><code>1x<span class="deg">1̂</span>333$~</code></td><td>Stacked-thirds chain to top of harp, mirrored back</td></tr>
+<tr><td><code>1x^1₄3₃3₂3₁</code></td><td><code>1x<span class="deg">1̂</span>₄3₃3₂3₁</code></td><td>Top-down assembly: thumb plants first, ring last</td></tr>
+</tbody>
+</table>
+
+</body>
+</html>

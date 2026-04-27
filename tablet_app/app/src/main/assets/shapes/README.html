@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="shape-nav">
+  <a href="index.html">index</a>
+  <a href="QRG.html">QRG</a>
+  <a href="README.html">README</a>
+  <a href="DRILLS.html">DRILLS</a>
+  <a href="SAMPLES.html">SAMPLES</a>
+  <a href="HANDOUT.html">HANDOUT</a>
+  <a href="VERIFY.html">VERIFY</a>
+  <a href="Chords.html">Chords</a>
+  <a href="hymns/index.html">Hymns</a>
+  <a href="chopin/index.html">Chopin</a>
+  <a href="HANDOFF.html">HANDOFF</a>
+  <a href="NEXTSESSION.html">NEXTSESSION</a>
+</nav>
+<header id="title-block-header">
+<h1 class="title">README</h1>
+</header>
+<h1 id="harp-shape-encoding-system">Harp Shape Encoding System</h1>
+<h2 id="why-this-encoding-exists">Why this encoding exists</h2>
+<p>On the pedal harp, the hand commits to a configuration <strong>before it touches the strings</strong>. You form the shape in the air — fingers spread to specific intervals, each finger aimed at a specific string — and only then do you bring the hand down to engage. You cannot search for the notes once you’ve made contact; by then it’s too late. The shape has to be right in the air, a foot from the harp, or it won’t be right at all.</p>
+<p>This encoding is built around that fact. Every code in the system describes a <strong>pre-contact hand shape</strong>: exactly what spread the fingers must form, which finger is assigned to which string, and (when it matters) the order in which the fingers land during the approach. The notation’s job ends the moment the hand reaches the strings. Everything after contact — rhythm, articulation, strike order, dynamics, sustain, roll vs. block — is the player’s interpretation.</p>
+<p>This is why the encoding looks the way it does:</p>
+<ul>
+<li><strong>Fingers map to fixed positions</strong> (ring, middle, index, thumb) so the hand can be pre-formed without ambiguity.</li>
+<li><strong>Intervals read bottom-up</strong> because that’s how the hand opens outward as it forms the spread.</li>
+<li><strong>Per-finger-pair reach limits are first-class</strong> — a shape the hand can’t pre-form is unplayable, regardless of what the strings would sound like.</li>
+<li><strong>Rhythm and strike order are absent</strong> because those happen <em>after</em> the encoding’s job is done.</li>
+<li><strong>Chord names are absent</strong> because the player needs the physical configuration, not a harmonic label that still has to be translated into one.</li>
+</ul>
+<p>A piece in this system is a sequence of these pre-shapes — what each hand commits to, snapshot by snapshot — separated by spaces.</p>
+<hr />
+<h2 id="goals">Goals</h2>
+<p>This encoding is the input format for an optimization problem: <strong>given a piece of music, choose the sequence of shapes and the pedal-change schedule that plays the piece on a pedal harp.</strong></p>
+<p>The optimizer takes a score (raw ABC, currently) and produces an encoded piece in this format. The encoding’s job is to make the optimizer’s output playable, comparable, and scoreable from text alone — no audio, no MIDI, no score lookup needed downstream.</p>
+<h3 id="optimizer-objectives">Optimizer objectives</h3>
+<p>Hard constraints (the optimizer must satisfy these or report failure):</p>
+<ul>
+<li><strong>Setability</strong> — every shape’s interval digits fit within the per-finger-pair reach limits (see <em>Physical constraints</em>).</li>
+<li><strong>Pedal feasibility</strong> — every pedal change has enough physical time for the foot to move; pedal state at each shape supports the pitches that shape names.</li>
+<li><strong>Coverage</strong> — at every moment the music sounds, the held shape’s pitch-set contains the pitches the optimizer commits to playing (typically melody + bass; inner voices are the optimizer’s choice). A <strong>moment</strong> is a point where the encoder commits to a held configuration; the optimizer chooses moment boundaries. Coverage applies at every moment including single-voice anacrusis, mid-phrase voice entries, and voices that drop out before the next harmonic change. A single sounding pitch is covered by a single-note shape (one finger).</li>
+</ul>
+<p>Soft objectives (the optimizer weighs these against each other; weighting is left to the algorithm):</p>
+<ul>
+<li><strong>Coast</strong> — fewer, denser shapes are preferred over more, sparser ones. The hand should hold one configuration as long as the music allows.</li>
+<li><strong>Pedal economy</strong> — fewer pedal changes are preferred over more; pedal-change moments cluster at phrase boundaries rather than mid-phrase.</li>
+<li><strong>Voice-leading</strong> — adjacent shapes share fingers when possible; shape-to-shape moves minimize finger travel.</li>
+<li><strong>Acoustic quality</strong> — shapes from the universal-winner / mode-conditional vocabulary (see <em>Aesthetic scoring</em>) are preferred over lower-scoring shapes that satisfy the same coverage.</li>
+<li><strong>Aggressive setup</strong> — when several shapes can cover the same harmonic stretch, prefer the one with more fingers planted (tetrad over triad over dyad). Front-load the hand work so the music can coast.</li>
+</ul>
+<p>The optimizer is not required to reproduce every voice in the source. SATB hymns, in particular, are inputs whose four voices the optimizer reads to determine harmony, melody, and bass — not voices the optimizer must clone. Interior voice details are the optimizer’s discretion, subject to the coverage constraint above.</p>
+<h3 id="why-this-encoding-makes-the-optimizer-tractable">Why this encoding makes the optimizer tractable</h3>
+<p>The properties enumerated under <em>Algorithmic properties</em> below aren’t accidental — they’re the contract the encoding offers the optimizer. Setability is a per-position bounds check; voice-leading distance is a digit-by-digit comparison; transposition is a header swap; the full shape vocabulary is enumerable. Each cost-function term the optimizer needs reduces to text operations on the encoding.</p>
+<hr />
+<h2 id="whats-deliberately-out-of-scope">What’s deliberately out of scope</h2>
+<p>Because the encoding describes pre-contact configurations and nothing else, several things you might expect to find are not here:</p>
+<ul>
+<li><strong>Rhythm, articulation, strike order, dynamics, timing — including how long a shape is held and which fingers pluck within it.</strong> Outside the scope of what the hand commits to in the air.</li>
+<li><strong>Traditional chord names and harmonic function.</strong> No roman numerals, no <code>Cmaj7</code> / <code>Dm7sus4</code> quality labels, no tonic/dominant categories. The vocabulary is the set of hand configurations that pass two filters: the hand can reach them, and they sound musical.</li>
+</ul>
+<hr />
+<h2 id="document-structure">Document structure</h2>
+<p>A piece is written as a <strong>header block</strong> followed by one or more <strong>rows</strong> of shapes:</p>
+<pre><code>Title:  &lt;piece title&gt;     (optional)
+Number: &lt;NNN&gt;             (required, zero-padded 3 digits)
+Tonic:  &lt;pitch class&gt;     (required)
+Pedals: &lt;braille cell&gt;    (required)
+---
+&lt;row of shapes&gt;
+&lt;row of shapes&gt;
+...
+</code></pre>
+<p><code>Number:</code> is the piece’s index within its book (hymnal, drill set, etc.) — each book has its own independent numbering sequence.</p>
+<p><code>Tonic:</code> is the pitch class that mode digit 1 points at. A piece in C major has <code>Tonic: C</code>. A piece in E natural minor has <code>Tonic: E</code>. A piece in D Dorian has <code>Tonic: D</code>. The tonic is the home note of the piece — wherever its phrases resolve. The value is a single pitch class (<code>C</code>, <code>D</code>, <code>E</code>, <code>F</code>, <code>G</code>, <code>A</code>, <code>B</code>) optionally followed by <code>#</code> or <code>b</code>.</p>
+<p><code>Pedals:</code> is the initial pedal-position braille cell string (see <em>Pedal positions</em> below) — exactly 4 braille characters, no other form is legal. It specifies which 7 pitches are live on the strings — the diatonic pitch set the shapes operate on. The tonic must be one of those 7 pitches. Pedal cells appearing inline mid-piece signal pedal changes.</p>
+<p>Together, <code>Tonic:</code> and <code>Pedals:</code> fully resolve every shape: the digits name scale degrees relative to the tonic, and the pedal state determines what pitch each scale degree actually sounds. Major, minor, and modal pieces all use the same two fields — only their values differ. A piece in E natural minor has <code>Tonic: E</code> plus G-major-signature pedals; a piece in C major has <code>Tonic: C</code> plus C-major-signature pedals; harmonic-minor and melodic-minor inflections appear as inline pedal cells, not as a different tonic.</p>
+<p>Below the <code>---</code> separator, each row is a sequence of shapes separated by spaces. Rows are sequential phrases; position resets between rows.</p>
+<p>For <strong>songs</strong>, the first shape of each row must include an absolute octave prefix (since registration on the harp matters). For <strong>drills</strong>, the first shape may omit the octave prefix entirely — the player chooses any octave to practice in, and subsequent shapes inherit from there.</p>
+<hr />
+<h2 id="pedal-positions">Pedal positions</h2>
+<p>A pedal harp has 7 pedals, one per pitch class (D, C, B, E, F, G, A), each with three positions: flat (raised), natural (middle notch), and sharp (depressed). The pedal state determines which 7 pitches the strings sound — i.e., the diatonic pitch set the shapes operate on.</p>
+<p>Pedal positions are notated as <strong>4 braille cells = 8 columns</strong>:</p>
+<pre><code>  cell 1   cell 2   cell 3   cell 4
+   D C      B ⫶      E F      G A
+</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Pedal</th>
+<th>Foot</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>D</td>
+<td>left</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>C</td>
+<td>left</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>B</td>
+<td>left</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>split marker</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>E</td>
+<td>right</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>F</td>
+<td>right</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>G</td>
+<td>right</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>A</td>
+<td>right</td>
+</tr>
+</tbody>
+</table>
+<p>Column 4 is the <strong>always-on split marker</strong> between the two feet — all three of its dots are filled (dots 4, 5, 6 of cell 2). It carries no pedal information; it just visually divides left from right.</p>
+<p><strong>Dot height within a column = pedal position:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Row</th>
+<th>Dot position</th>
+<th>Pedal position</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>top</td>
+<td>flat (raised)</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>middle</td>
+<td>natural</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>bottom</td>
+<td>sharp (depressed)</td>
+</tr>
+</tbody>
+</table>
+<p>Each pedal column has exactly one dot raised, showing its current position. A complete pedal cell therefore has 7 informational dots (one per pedal) plus 3 split-marker dots = 10 dots across the 4 cells.</p>
+<h3 id="example-b-major">Example: B♭ major</h3>
+<p><code>Pedals: ⠒⠹⠑⠒</code></p>
+<p>Reading: D♮ C♮ B♭ | E♭ F♮ G♮ A♮ (the textual decomposition is gloss for the reader, not a legal value).</p>
+<pre><code>cell 1   cell 2   cell 3   cell 4
+· ·      ● ●      ● ·      · ·
+● ●      · ●      · ●      ● ●
+· ·      · ●      · ·      · ·
+ D C      B ⫶      E F      G A
+</code></pre>
+<ul>
+<li>Cell 1 <code>⠒</code> (dots 2,5): D♮ C♮ — both naturals, middle row</li>
+<li>Cell 2 <code>⠹</code> (dots 1,4,5,6): B♭ + split — B flat top dot, split column full</li>
+<li>Cell 3 <code>⠑</code> (dots 1,5): E♭ F♮ — E flat top dot, F natural middle</li>
+<li>Cell 4 <code>⠒</code> (dots 2,5): G♮ A♮ — both naturals, middle row</li>
+</ul>
+<h3 id="inline-pedal-changes">Inline pedal changes</h3>
+<p>A pedal cell may also appear inline between shapes whenever the pedal state changes. Inline cells are written in full — every pedal’s position is re-specified, not just the ones that moved. This keeps each cell self-contained: at any point in the piece you can read the most recent pedal cell and know the complete pedal state.</p>
+<p>Inline pedal cells provide the chromatic-alteration mechanism the rest of the encoding doesn’t address. The shape grammar itself is purely diatonic to the current pedal state; pedal cells are the only way non-diatonic pitches enter the piece.</p>
+<p><strong>Syntax.</strong> Inline cells are standalone tokens, space-separated like shapes. Every shape after a cell uses the new pedal state until the next cell:</p>
+<pre><code>3R<span class="deg">5̂</span>333 ⠒⠹⠑⠒ 3R<span class="deg">5̂</span>333
+</code></pre>
+<p>Pedal-change physical timing (when the foot actually moves) is the player’s interpretation, subject to the optimizer’s pedal-feasibility constraint.</p>
+<p><strong>Tonic does not change inline — only <code>Pedals:</code> does.</strong> <code>Tonic:</code> is fixed for the whole piece. Local tonicizations and modulations are encoded as shapes whose mode digit reflects the chord’s relationship to the <em>piece’s</em> tonic (a B♭ chord in a piece with <code>Tonic: F</code> is mode 4, not mode 1). Inline pedal cells handle the chromatic pitches the local harmony requires.</p>
+<hr />
+<p>A <strong>shape</strong> is one hand’s pre-contact configuration — what one hand commits to in the air before landing on the strings. Shapes are separated by spaces; each space means the hand lifts off, resets in the air, and forms the next configuration before approaching the strings again.</p>
+<p>A shape can also be <strong>held</strong> while individual fingers pluck within it. The shape describes the configuration the hand commits to; how long it stays committed and which fingers strike when are the player’s interpretation. A new shape is only needed when the harmony moves outside what the held shape can cover, or when the melody leaves the fingers currently planted. A bar of music where the harmony stays put and the melody walks across notes already in the hand is <strong>one shape</strong>, not several.</p>
+<p>Whether two adjacent shapes are played sequentially or simultaneously is the player’s interpretation, the same way rhythm and articulation are. The encoding does not enforce a separate notion of “moment” over and above the shape itself.</p>
+<hr />
+<h2 id="shape-syntax">Shape syntax</h2>
+<p>A shape has up to three parts: an optional octave prefix, a degree, and zero to seven intervals. Operators may be appended to expand a shape into a sequence.</p>
+<pre><code>shape:     octave? degree intervals? repeat?
+  octave:    [+-]?[1-7][xLR]
+  degree:    &#39;^&#39; [1-7] subscript?
+  intervals: interval (,? interval){0,6}    with comma required if total intervals &gt;= 4
+  interval:  [2-f] subscript?
+  subscript: [₁-₈]
+  repeat:    (back_to_back | octave_climb) (count | * | ~)?
+  back_to_back: &#39;$&#39;{1,7}                    N dollar signs = last N digits as repeating unit
+  octave_climb: &#39;&amp;&#39;
+  count:     [1-9]+
+</code></pre>
+<p>The maximum of 7 intervals corresponds to 8 fingers (2 hands × 4 fingers): 7 inter-finger gaps among 8 fingers. The <code>intervals</code> rule is optional because zero-interval shapes (single notes, e.g. <code>1L<span class="deg">1̂</span></code>) are valid one-finger shapes used heavily in two-hand textures (LH bass + RH chord).</p>
+<p>The <code>back_to_back</code> rule’s count of <code>$</code> signs is <strong>semantic, not stylistic</strong>: <code>$</code> repeats the last 1 digit as the unit, <code>$$</code> the last 2, <code>$$$</code> the last 3, and so on (see <em>Operators</em> for the table).</p>
+<h3 id="octave-prefix">Octave prefix</h3>
+<p>The octave prefix is <strong>optional</strong>. It has three forms:</p>
+<ul>
+<li><strong>Absolute</strong>: <code>1x</code> … <code>7x</code> (or with <code>L</code>/<code>R</code> in the letter slot) — explicit harp octave 1–7, indexed bottom up. <strong>Octave N spans the pitches C(N) through B(N).</strong> Octave 1 = C1–B1 (with C1 at MIDI note 24, the lowest C on a typical 47-string concert pedal harp); octave 2 = C2–B2; octave 4 contains middle C (C4); octave 7 = C7–B7. The bottom finger of a shape with prefix <code>Nx</code> sits on the named degree’s pitch within octave N.</li>
+<li><strong>Relative</strong>: <code>+1x</code>, <code>-2L</code>, etc. — the prior shape’s octave plus or minus N. Sign required.</li>
+<li><strong>Absent</strong>: same octave as the prior shape (sticky inheritance). If the prior octave was itself unstated (drill context), this one is also unstated and the player picks.</li>
+</ul>
+<h3 id="letter-slot">Letter slot</h3>
+<p>When the octave prefix is present, it ends with a letter:</p>
+<ul>
+<li><code>x</code> — either hand (player picks)</li>
+<li><code>L</code> — left hand</li>
+<li><code>R</code> — right hand</li>
+</ul>
+<p>When the octave prefix is absent, the letter slot is also absent. Hand assignment is inherited from the prior shape.</p>
+<h3 id="degree">Degree</h3>
+<p>A <code>^</code> caret followed by a single digit <code>1</code>–<code>7</code> naming the scale degree of the bottom finger relative to the header’s <code>Tonic:</code>. The caret marks the digit as the degree (mode root) and disambiguates it from the interval digits that follow. This is the mode root of the shape:</p>
+<ul>
+<li><code><span class="deg">1̂</span></code> Ionian, <code><span class="deg">2̂</span></code> Dorian, <code><span class="deg">3̂</span></code> Phrygian, <code><span class="deg">4̂</span></code> Lydian, <code><span class="deg">5̂</span></code> Mixolydian, <code><span class="deg">6̂</span></code> Aeolian, <code><span class="deg">7̂</span></code> Locrian.</li>
+</ul>
+<h3 id="intervals">Intervals</h3>
+<p>Zero to seven hex digits <code>2</code>–<code>f</code>, each an interval gap between adjacent fingers reading bottom-up:</p>
+<ul>
+<li>0 intervals → single note (one finger)</li>
+<li>1 interval → dyad (two fingers)</li>
+<li>2 intervals → triad</li>
+<li>3 intervals → tetrad (one full hand)</li>
+<li>4–7 intervals → two-hand shape (more fingers than one hand can pre-form)</li>
+</ul>
+<p>When a shape has <strong>4 or more intervals</strong>, both hands are involved. The intervals before a comma are LH; the intervals after are RH:</p>
+<pre><code>1x<span class="deg">1̂</span>336,33   — 6 fingers: LH on degree 1 with intervals 336, RH picks up with intervals 33
+</code></pre>
+<p>The comma marks where LH’s top finger ends and RH’s bottom finger begins. For one-hand shapes (≤ 3 intervals), no comma is used.</p>
+<p><strong>When to use the comma form vs. separate shapes.</strong> The comma form (<code>1x<span class="deg">1̂</span>333,3333</code>) describes one held 8-finger tower — both hands committed to a single contiguous stack. This fits sustained-harmony textures (drones, plainsong cadences, final chords). It rarely fits hymn-style writing, where the harmony moves before a single tower pays off. For LH-bass + RH-chord textures with a register gap between the hands, or any texture where the two hands re-set independently, write separate space-separated shapes with explicit <code>L</code>/<code>R</code> letters: <code>1L<span class="deg">1̂</span> 3R<span class="deg">5̂</span>333</code>. The two forms are not interchangeable: comma = one held configuration, separate = two independent configurations.</p>
+<hr />
+<h2 id="interval-digits">Interval digits</h2>
+<p>Interval names count the endpoints (a 3rd is two scale steps apart):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Digit</th>
+<th>Interval name</th>
+<th>Scale steps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>2</code></td>
+<td>2nd</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><code>3</code></td>
+<td>3rd</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><code>4</code></td>
+<td>4th</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><code>5</code></td>
+<td>5th</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><code>6</code></td>
+<td>6th</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><code>7</code></td>
+<td>7th</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td><code>8</code></td>
+<td>8th (octave)</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td><code>9</code></td>
+<td>9th</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td><code>a</code></td>
+<td>10th</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><code>b</code></td>
+<td>11th</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td><code>c</code></td>
+<td>12th</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td><code>d</code></td>
+<td>13th</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td><code>e</code></td>
+<td>14th</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td><code>f</code></td>
+<td>15th (double octave)</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>Hex <code>f</code> is the cap. Wider intervals exceed any two-hand voicing and aren’t expressible in one digit.</p>
+<p>The digit <code>1</code> is <strong>invalid as an intra-shape interval</strong> — two fingers in a single hand can’t sound the same string.</p>
+<hr />
+<h2 id="subscripts-assembly-order">Subscripts: assembly order</h2>
+<p>Digits in a shape map to fingers by position: <strong>1st digit = ring, 2nd = middle, 3rd = index, 4th = thumb</strong> (for each hand independently when the shape is two-hand). This mapping is fixed.</p>
+<p>By default, the fingers all settle on the strings together (block-strike) or in natural bottom-up order (default roll). The encoding doesn’t distinguish these — the player picks based on context.</p>
+<p><strong>Subscripts mark exceptions to the default assembly order.</strong> A subscript on a digit says <em>when that digit’s finger plants in the assembly sequence</em>:</p>
+<p>The degree digit also takes a subscript — it represents the bottom finger (ring), so it gets a subscript when subscripts are used at all (see the rule below: “if you use subscripts, mark every finger”).</p>
+<table>
+<thead>
+<tr class="header">
+<th>Subscript</th>
+<th>Plants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>₁</code></td>
+<td>first</td>
+</tr>
+<tr class="even">
+<td><code>₂</code></td>
+<td>second</td>
+</tr>
+<tr class="odd">
+<td><code>₃</code></td>
+<td>third</td>
+</tr>
+<tr class="even">
+<td><code>₄</code></td>
+<td>fourth</td>
+</tr>
+<tr class="odd">
+<td><code>₅</code></td>
+<td>fifth</td>
+</tr>
+<tr class="even">
+<td><code>₆</code></td>
+<td>sixth</td>
+</tr>
+<tr class="odd">
+<td><code>₇</code></td>
+<td>seventh</td>
+</tr>
+<tr class="even">
+<td><code>₈</code></td>
+<td>eighth (last)</td>
+</tr>
+</tbody>
+</table>
+<p>So <code>1x<span class="deg">1̂</span>₁3₂3₃3₄</code> is the default bottom-up assembly written explicitly: ring plants 1st, middle 2nd, index 3rd, thumb 4th.</p>
+<p><code>1x<span class="deg">1̂</span>₄3₃3₂3₁</code> reverses the order: thumb plants 1st, then index, middle, ring last. A top-down assembly.</p>
+<p><code>1x<span class="deg">1̂</span>₂3₁3₄3₃</code> plants middle 1st (anchor), then ring 2nd, then thumb 3rd, index last.</p>
+<p>If you use subscripts, mark every finger in the shape — partial subscripts are ambiguous. A one-hand shape uses ₁–₄; a two-hand shape numbers globally across both hands (₁–₈), so the very first finger to plant in either hand gets ₁, regardless of which hand it’s in.</p>
+<p>The subscripts describe the <em>recipe for assembling the shape</em>, not the order in which the strings are struck after assembly.</p>
+<hr />
+<h2 id="operators">Operators</h2>
+<p>Operators expand a shape into a <strong>sequence of shapes</strong>. They appear at the end of a shape token.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>$N</code></td>
+<td>Repeat back-to-back. Take the last 1 digit as the repeating unit; append the unit N more times as new shapes.</td>
+</tr>
+<tr class="even">
+<td><code>$$N</code></td>
+<td>Same, with the last 2 digits as the unit.</td>
+</tr>
+<tr class="odd">
+<td><code>$$$N</code>, <code>$$$$N</code>, …</td>
+<td>Last 3, 4, … digits as the unit.</td>
+</tr>
+<tr class="even">
+<td><code>&amp;N</code></td>
+<td>Repeat octave-aligned. The whole shape is re-stamped one octave higher per iteration; N is the count of additional iterations.</td>
+</tr>
+</tbody>
+</table>
+<p>The count <code>N</code> may be:</p>
+<ul>
+<li>a numeric literal (<code>1</code>, <code>2</code>, …) — append exactly N iterations</li>
+<li><code>*</code> — fill until the harp’s range cap is reached</li>
+<li><code>~</code> — fill to cap, then mirror back down with apex de-duplication (the topmost shape isn’t re-entered on the way back)</li>
+</ul>
+<p>Default count (operator with no count) is <strong>once</strong> — one additional iteration.</p>
+<p>Operators expand purely textually within a single shape token. Inline pedal cells are separate tokens and cannot appear inside an operator expansion. To change pedals during what would otherwise be one operator expansion, split it: <code>1x<span class="deg">1̂</span>35&amp;3 ⠒⠹⠑⠒ +4x<span class="deg">1̂</span>35&amp;3</code>.</p>
+<h3 id="worked-examples-with-tonic-c">Worked examples (with <code>Tonic: C</code>)</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Expansion</th>
+<th>Notes produced</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1x<span class="deg">1̂</span>4$</code></td>
+<td><code>1x<span class="deg">1̂</span>4 4</code></td>
+<td>C1-F1, then F1-B1</td>
+</tr>
+<tr class="even">
+<td><code>1x<span class="deg">1̂</span>4$3</code></td>
+<td><code>1x<span class="deg">1̂</span>4 4 4 4</code></td>
+<td>Quartal climb: C1-F1, F1-B1, B1-E2, E2-A2</td>
+</tr>
+<tr class="odd">
+<td><code>1x<span class="deg">1̂</span>35&amp;</code></td>
+<td><code>1x<span class="deg">1̂</span>35 +1x<span class="deg">1̂</span>35</code></td>
+<td>Cmaj triad in octave 1, then octave 2</td>
+</tr>
+<tr class="even">
+<td><code>1x<span class="deg">1̂</span>35&amp;3</code></td>
+<td>Cmaj triads in octaves 1, 2, 3, 4</td>
+<td>Stacked triads climbing</td>
+</tr>
+<tr class="odd">
+<td><code>1x<span class="deg">1̂</span>35&amp;*</code></td>
+<td>Cmaj triads from octave 1 to as high as fits</td>
+<td>Full-range climb</td>
+</tr>
+<tr class="even">
+<td><code>1x<span class="deg">1̂</span>35&amp;~</code></td>
+<td>Climb to top, then mirror back down</td>
+<td>Full-range there-and-back</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reserved-meanings">Reserved meanings</h2>
+<ul>
+<li><strong><code>^</code></strong> marks the degree (mode root). Every shape has exactly one <code>^</code>, immediately preceding the degree digit. Bare digits not preceded by <code>^</code> are intervals (or operator continuations after <code>$</code>).</li>
+<li><strong>Digit <code>1</code></strong> is valid as a mode digit (when prefixed with <code>^</code>), an octave digit, or a relative-octave count. It is <strong>not</strong> valid as an intra-shape interval.</li>
+<li><strong><code>x</code>, <code>L</code>, <code>R</code></strong> are letter-slot characters, not digits. They follow the octave digit and declare hand assignment: <code>x</code> = either, <code>L</code> = left, <code>R</code> = right.</li>
+<li><strong><code>+</code> / <code>-</code> signs</strong> turn an absolute octave digit into a relative one (<code>+1x</code> = prior octave + 1; <code>-2L</code> = prior octave − 2).</li>
+<li><strong>Hex <code>f</code> is the cap on every interval.</strong> A 15th is the widest interval expressible in one digit.</li>
+<li><strong>No descending intervals</strong> within a shape. Every interval reads upward.</li>
+<li><strong>The comma</strong> in a shape’s interval list marks the LH/RH split for two-hand shapes (≥ 4 intervals).</li>
+<li><strong><code>$</code>, <code>&amp;</code>, <code>*</code>, <code>~</code></strong> are operators; they appear at the end of a shape.</li>
+</ul>
+<hr />
+<h2 id="examples">Examples</h2>
+<p>With <code>Tonic: C</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1x<span class="deg">1̂</span>3</code></td>
+<td>Ionian dyad in octave 1: C1 + 3rd up = C1–E1.</td>
+</tr>
+<tr class="even">
+<td><code>2x<span class="deg">2̂</span>d</code></td>
+<td>Dorian dyad in octave 2: D2 + 13th = D2–B3.</td>
+</tr>
+<tr class="odd">
+<td><code>2x<span class="deg">2̂</span>33</code></td>
+<td>Dorian triad: D2–F2–A2.</td>
+</tr>
+<tr class="even">
+<td><code>1x<span class="deg">7̂</span>333</code></td>
+<td>Locrian tetrad: B1–D2–F2–A2 (root-position Bø7 voicing).</td>
+</tr>
+<tr class="odd">
+<td><code>1x<span class="deg">1̂</span>333,3333</code></td>
+<td>Two-hand stacked-thirds shape spanning 8 fingers: LH on C1-E1-G1-B1, RH picks up with D2-F2-A2-C3.</td>
+</tr>
+<tr class="even">
+<td><code>1x<span class="deg">1̂</span>333 +1x<span class="deg">1̂</span>333</code></td>
+<td>Two shapes: stacked-thirds tetrad in octave 1, then the same tetrad in octave 2.</td>
+</tr>
+<tr class="odd">
+<td><code>1L<span class="deg">6̂</span> 1R<span class="deg">1̂</span>333</code></td>
+<td>LH on a single bass note (degree 6 = A1), then RH on the third-stack tetrad.</td>
+</tr>
+<tr class="even">
+<td><code>1x<span class="deg">1̂</span>35&amp;3</code></td>
+<td>Open Imaj voicing climbed octave by octave, four iterations.</td>
+</tr>
+<tr class="odd">
+<td><code>1x<span class="deg">1̂</span>35&amp;~</code></td>
+<td>Same voicing climbed to the top of the harp, then mirrored back down.</td>
+</tr>
+<tr class="even">
+<td><code>1x<span class="deg">1̂</span>₄3₃3₂3₁</code></td>
+<td>Single shape, top-down assembly: thumb anchors first, ring lands last.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="physical-constraints">Physical constraints</h2>
+<p>A pedal harp is played with four fingers per hand: thumb (highest pitch), index, middle, ring (lowest pitch). The encoding maps directly onto these:</p>
+<pre><code>       thumb  --+
+                |  position 4 (top finger)
+       index  --+
+                |  position 3
+       middle --+
+                |  position 2
+       ring   --+  position 1 (bottom finger)
+</code></pre>
+<p>When reading a shape like <code>1x<span class="deg">1̂</span>336</code>, the interval digits correspond to inter-finger gaps from bottom to top:</p>
+<ul>
+<li><strong>1st interval digit</strong> (<code>3</code> here): ring → middle gap</li>
+<li><strong>2nd interval digit</strong> (<code>3</code> here): middle → index gap</li>
+<li><strong>3rd interval digit</strong> (<code>6</code> here): index → thumb gap</li>
+</ul>
+<p>Each finger pair has its own physical reach limit. The values below are best-guess defaults; the actual numbers for a given player should be calibrated using the drills in <code>VERIFY.md</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Finger pair</th>
+<th>Position in code</th>
+<th>Comfortable</th>
+<th>Hard ceiling</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ring–middle</td>
+<td>1st interval</td>
+<td>3rd</td>
+<td>4th</td>
+</tr>
+<tr class="even">
+<td>Middle–index</td>
+<td>2nd interval</td>
+<td>4th</td>
+<td>5th</td>
+</tr>
+<tr class="odd">
+<td>Index–thumb</td>
+<td>3rd interval</td>
+<td>5th</td>
+<td>6th</td>
+</tr>
+<tr class="even">
+<td>Thumb–ring (dyad only)</td>
+<td>only interval</td>
+<td>6th</td>
+<td>13th</td>
+</tr>
+</tbody>
+</table>
+<p>The thumb is the most independent and reaches the farthest. The ring is shortest and weakest. So <strong>the encoding’s natural shape is small intervals at the bottom (ring side), larger intervals at the top (thumb side)</strong> — the opposite of how piano voicings are typically organized.</p>
+<p>A shape is <strong>physically setable</strong> if every interval digit fits within its position’s hard ceiling. Codes that violate this can still be enumerated, but represent shapes requiring two hands or assembly that exceeds the calibrated reach.</p>
+<p>For two-hand shapes (≥ 4 intervals with a comma), each side of the comma is an independent one-hand shape and must satisfy the per-finger-pair limits within itself.</p>
+<hr />
+<h2 id="what-the-encoding-captures">What the encoding captures</h2>
+<p>Each shape carries five layers of information simultaneously:</p>
+<ol>
+<li><strong>Specific notes</strong>: given the header’s <code>Tonic:</code> and <code>Pedals:</code>, every shape unambiguously specifies which strings are involved.</li>
+<li><strong>Pitch-class set</strong>: the harmonic content.</li>
+<li><strong>Voicing</strong>: same notes in different inversions or spreads get different codes. Each physical shape is a distinct entity.</li>
+<li><strong>Quality / character</strong>: the combination of mode root and intervals determines whether the shape sounds major, minor, diminished, suspended, etc., without needing a separate quality label.</li>
+<li><strong>Setability</strong>: directly readable from the digit positions and finger-pair limits.</li>
+</ol>
+<p>Chord names like “Cmaj7” or “Dm7sus4(no5)” are deliberately not part of the encoding. Traditional chord names have inconsistencies around no-3, no-5, sus stacking, and quartal voicings, and the same physical sonority often has multiple legitimate names depending on context. The encoding sidesteps this by describing <strong>the pre-contact configuration of the hand</strong> rather than how the resulting chord should be theoretically labeled.</p>
+<hr />
+<h2 id="algorithmic-properties">Algorithmic properties</h2>
+<p>Because the encoding is purely structural, several operations become mechanical:</p>
+<ul>
+<li><strong>Sortable</strong> — codes naturally cluster by mode, then by interval shape.</li>
+<li><strong>Compact</strong> — every setable shape fits in 2–4 characters of intervals plus the position prefix; shape sequences scale linearly, with <code>$+</code>, <code>&amp;</code>, <code>*</code>, and <code>~</code> compressing repetitive patterns.</li>
+<li><strong>Self-parsing</strong> — first-character class decides shape form; spaces separate shapes; positional rules within a shape make digit roles unambiguous.</li>
+<li><strong>Generative</strong> — enumerate all combinations of legal digits → derive the full shape vocabulary.</li>
+<li><strong>Transposable for free</strong> — shapes never reference a specific pitch, only scale degrees relative to the header’s <code>Tonic:</code>. To play in a different key, change <code>Tonic:</code> and <code>Pedals:</code>; every shape stays the same.</li>
+<li><strong>Comparable</strong> — voice-leading distance between two shapes is computable from their codes.</li>
+<li><strong>Filterable</strong> — physical-reach rules become simple per-position bounds checks.</li>
+</ul>
+<hr />
+<h2 id="aesthetic-scoring">Aesthetic scoring</h2>
+<p>Once setability is established, shapes can be ranked by acoustic beauty using rules that operate on the digits themselves, agnostic of chord names:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Rule</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Stepwise clash (interval = <code>2</code>) in low octave</td>
+<td>penalty</td>
+</tr>
+<tr class="even">
+<td>Three adjacent stepwise intervals</td>
+<td>heavy penalty</td>
+</tr>
+<tr class="odd">
+<td>At least one wide interval (≥ <code>5</code>)</td>
+<td>reward</td>
+</tr>
+<tr class="even">
+<td>Top interval (&gt; bottom interval)</td>
+<td>reward (open-top profile)</td>
+</tr>
+<tr class="odd">
+<td>Top note on color scale degree (3, 5, 7, 9)</td>
+<td>reward</td>
+</tr>
+<tr class="even">
+<td>Pitch-class diversity (4 distinct pitches in a tetrad)</td>
+<td>reward</td>
+</tr>
+<tr class="odd">
+<td>Mode characteristic-tone present</td>
+<td>mode-specific reward</td>
+</tr>
+<tr class="even">
+<td>Mode avoid-note present alongside the major 3rd</td>
+<td>mode-specific penalty</td>
+</tr>
+<tr class="odd">
+<td>Locrian tonic-instability</td>
+<td>mode-specific penalty</td>
+</tr>
+</tbody>
+</table>
+<p>The scoring reveals which shape codes are <strong>universally beautiful</strong> (work in any modal context) versus <strong>mode-conditional</strong>.</p>
+<hr />
+<h2 id="visualization-format">Visualization format</h2>
+<p>The grid below shows every shape that is both physically setable and aesthetically beautiful in at least one mode. Rows are indexed by interval-only pattern (the mode digit dropped, since each row evaluates the shape across all 7 mode columns). An <code>x</code> marks intersections where the shape sounds good rooted on that mode’s tonic.</p>
+<p>Mode columns: <strong>I</strong>onian, <strong>D</strong>orian, <strong>P</strong>hrygian, <strong>L</strong>ydian, <strong>M</strong>ixolydian, <strong>A</strong>eolian, <strong>L</strong>ocrian.</p>
+<pre><code>code  I D P L M A L
+      1 2 3 4 5 6 7
+----- -------------
+34    x x x x x x  
+35    x x x x x x x
+44    x     x x    
+45          x      
+236       x x      
+326     x x x   x  
+335   x x x x x x x
+344   x x x x x x x
+353   x x x x x x  
+425   x x x x x x  
+434   x x x x x x  
+443   x   x x x    
+246       x        
+255       x        
+336   x x x x x x x
+345   x x x x x x x
+354   x x x x x x  
+426     x x x   x x
+435   x x x x x x x
+444         x      
+256       x x      
+346   x x x x x x x
+355   x x x x x x x
+436   x x x x x x x
+445   x     x x    
+356   x x x x x x x
+446   x x x x x x x
+455   x x x x x x  
+456   x x x x x x x
+</code></pre>
+<p><strong>29 beautiful shape patterns total</strong>, distributed as:</p>
+<ul>
+<li><strong>12 universal-winner rows</strong> (solid <code>x x x x x x x</code>) — shapes that sound good in any mode. The dependable anchors: <code>35</code>, <code>335</code>, <code>344</code>, <code>336</code>, <code>345</code>, <code>435</code>, <code>346</code>, <code>355</code>, <code>436</code>, <code>356</code>, <code>446</code>, <code>456</code>. They all share the open-top profile (large index–thumb interval at the top).</li>
+<li><strong>17 mode-conditional rows</strong> with partial coverage. Patterns like <code>45</code> and <code>444</code> only sing in Lydian; <code>246</code> and <code>255</code> only in Phrygian.</li>
+</ul>
+<p>To turn a row pattern into a complete shape, prepend a position prefix: pick a mode column (which becomes the mode digit) and an octave, then write <code>&lt;octave&gt;&lt;hand&gt;^&lt;mode&gt;&lt;pattern&gt;</code> where <code>&lt;hand&gt;</code> is <code>x</code>, <code>L</code>, or <code>R</code>. For example, <code>444</code> in column 4 (Lydian) at harp octave 3 → <code>3x<span class="deg">4̂</span>444</code> — bottom finger on the 4th scale degree of your key in octave 3, with three 4ths stacked upward, either hand.</p>
+<hr />
+<h2 id="working-pool">Working pool</h2>
+<p>For one player’s hand at the default reach guess (ring–middle ≤ 4th, middle–index ≤ 5th, index–thumb ≤ 6th):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mathematically possible patterns at span ≤ 12</td>
+<td>231</td>
+</tr>
+<tr class="even">
+<td>Physically setable patterns</td>
+<td>74</td>
+</tr>
+<tr class="odd">
+<td>× 7 modal columns</td>
+<td>518 cells</td>
+</tr>
+<tr class="even">
+<td>Beautiful and setable (sweet-spot cells)</td>
+<td>≈ 130</td>
+</tr>
+<tr class="odd">
+<td>Universal-winner patterns</td>
+<td>≈ 12</td>
+</tr>
+<tr class="even">
+<td>Mode-conditional beautiful patterns</td>
+<td>≈ 17</td>
+</tr>
+</tbody>
+</table>
+<p>These counts depend on the aesthetic threshold and per-finger reach calibration. They define a working shape vocabulary roughly the size of a typical jazz fake-book chord set, but organized by physical setability rather than by harmonic function.</p>
+<hr />
+<h2 id="limitations">Limitations</h2>
+<p>The encoding is the optimizer’s output format, not a universal music-notation system. Several deliberate constraints follow from that:</p>
+<p><strong>Constraints the encoding imposes on the optimizer (not bugs):</strong></p>
+<ul>
+<li>Shapes are purely diatonic to the current pedal state. Chromatic alterations enter the piece only through pedal-cell changes (see <em>Pedal positions</em>); within a stretch of unchanged pedals, every shape is diatonic. The optimizer’s job is to schedule pedal changes so the diatonic regions cover the music.</li>
+<li>Each shape is a single pre-contact configuration. Within a single held shape, any subset of its fingers can be sustained or replucked freely — that’s articulation, not encoding. Sustained voices that cross <em>between</em> shapes (a held tone bridging a shape change) aren’t notated; the optimizer either re-attacks the held voice or chooses shape boundaries that don’t break it.</li>
+<li>Shape <em>function</em> (tonic, dominant, predominant) is not encoded. Function is the optimizer’s input, derived from the source; the encoded output is the chosen voicings only.</li>
+<li>Rhythm, articulation, strike order, timing, and dynamics are out of scope. The encoding describes the pre-contact configuration of the hand; how the strings are subsequently played is the player’s interpretation. The optimizer chooses <em>what</em> to set; the player decides <em>how</em> to play it.</li>
+</ul>
+<p><strong>Limits on the encoding itself:</strong></p>
+<ul>
+<li>Aesthetic scoring uses heuristic rules; calibration against the player’s actual ear is necessary for the final 10–20% of accuracy.</li>
+<li>Hand-reach calibration in the <em>Physical constraints</em> table is a best guess. The drills in <code>VERIFY.md</code> produce the actual numbers — once those results are available, the table will be replaced.</li>
+<li><code>~</code> and <code>*</code> apply to the operator they’re part of — they don’t auto-extend other expressions across the harp’s range.</li>
+</ul>
+</body>
+</html>

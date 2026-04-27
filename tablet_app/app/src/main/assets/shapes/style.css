@@ -1,0 +1,248 @@
+/* Minimal stylesheet for the shape-encoding docs.
+   Goal: shape codes (with ^) read clearly; tables are scannable. */
+
+:root {
+  --fg: #1a1a1a;
+  --bg: #fafaf7;
+  --muted: #555;
+  --rule: #d8d4cc;
+  --code-bg: #f0ece4;
+  --accent: #8a3324;
+}
+
+html { font: 16px/1.55 -apple-system, "Segoe UI", system-ui, sans-serif; }
+body {
+  color: var(--fg); background: var(--bg);
+  max-width: 100rem; margin: 1.5rem auto; padding: 0 1rem 3rem;
+}
+
+nav.shape-nav {
+  position: sticky; top: 0; z-index: 1;
+  background: var(--bg); border-bottom: 1px solid var(--rule);
+  padding: 0.5rem 0; margin: -2rem -1.25rem 2rem;
+  padding-left: 1.25rem; padding-right: 1.25rem;
+}
+nav.shape-nav a { margin-right: 0.75rem; text-decoration: none; color: var(--accent); }
+nav.shape-nav a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4 { line-height: 1.2; }
+h1 { border-bottom: 2px solid var(--rule); padding-bottom: 0.3rem; }
+h2 { border-bottom: 1px solid var(--rule); padding-bottom: 0.2rem; margin-top: 2.5rem; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+
+/* Vendored JuliaMono. Designed for technical / math typesetting; anchors
+   combining diacritics correctly over digits so `1` + U+0302 renders as
+   a real hat directly above the 1. DejaVu Sans Mono has the glyph but
+   doesn't position it correctly over digits, so we explicitly avoid it. */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('font/JuliaMono-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('font/JuliaMono-SemiBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+code, pre code {
+  font-family: 'JuliaMono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.95em;
+}
+code {
+  background: var(--code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* Degree marker: the build replaces `^N` with the digit followed by
+   Unicode combining circumflex U+0302. The .deg span forces JuliaMono
+   regardless of context — table-header cells, prose, etc. — because
+   only JuliaMono anchors the combining mark correctly above digits.
+   Other fonts let the hat drift onto the next glyph. */
+.deg {
+  font-family: 'JuliaMono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Hymn practice page: per-level shape selector + tables. */
+.level-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin: 1rem 0 0.5rem;
+}
+.level-selector strong { margin-right: 0.5rem; }
+.level-btn {
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.level-btn:hover { background: var(--code-bg); }
+.level-btn.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.level-desc {
+  margin: 0.5rem 0 1.5rem;
+  font-style: italic;
+  color: var(--muted);
+}
+/* Per-level shape/chord/strings cells: only the active level is visible. */
+.lvl-shape, .lvl-chord, .lvl-strings { display: none; }
+.lvl-shape.active, .lvl-chord.active, .lvl-strings.active { display: inline; }
+
+/* 47-string harp visualization in the per-bar table. Rendered in a strict
+   monospace so each character lines up with one harp string. */
+.strings-row {
+  font-family: 'JuliaMono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  white-space: pre;
+}
+td.strings-cell { padding-left: 0.6rem; }
+
+/* Per-level conditional sections: shown only when their level's class is
+   set on <body> (toggled by the level-selector JS). */
+.auto-only { display: none; }
+body.auto-active .auto-only { display: block; }
+.chopin-only { display: none; }
+body.chopin-active .chopin-only { display: block; }
+
+/* Packed-notes SVG snippet rendered for each phrase under the chopin level. */
+.phrase-svg {
+  margin: 0.5rem 0 0.75rem;
+  padding: 0.4rem 0.7rem;
+  background: var(--bg);
+  border-left: 3px solid var(--accent);
+  overflow-x: auto;
+  position: relative;
+}
+.play-phrase {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  line-height: 1;
+}
+.play-phrase:hover { opacity: 0.85; }
+.play-phrase.playing { background: #2a6a3a; }
+.phrase-svg svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.phrase-anchor {
+  margin: 0.5rem 0;
+  padding: 0.4rem 0.7rem;
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+  font-size: 0.95em;
+}
+
+/* Chopin-level voice-motion annotation in the Shape column. */
+.motion {
+  font-family: 'JuliaMono', monospace;
+  font-size: 0.78em;
+  letter-spacing: 0.02em;
+  margin-right: 0.4em;
+  color: var(--muted);
+}
+.motion .hold       { color: var(--muted); opacity: 0.6; }
+.motion .move-up    { color: #2a6a3a; font-weight: bold; }
+.motion .move-down  { color: var(--accent); font-weight: bold; }
+
+/* Auto-level markers in the Shape column. */
+.coast {
+  font-size: 0.78em;
+  color: var(--muted);
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  margin-right: 0.3em;
+}
+.reset {
+  font-size: 0.78em;
+  color: var(--accent);
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+
+table.hymn-bars { border-collapse: collapse; margin: 0.5rem 0 1.5rem; }
+table.hymn-bars th, table.hymn-bars td {
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--rule);
+  vertical-align: middle;
+}
+table.hymn-bars thead th { background: var(--code-bg); }
+table.hymn-bars td.shape-cell,
+table.hymn-bars td.chord-cell,
+table.hymn-bars td.strings-cell { white-space: nowrap; }
+
+/* Chord-match table on index.html: tightly packed, monospaced cells. */
+table.chord-match {
+  font-size: 0.9em;
+  border-collapse: collapse;
+}
+table.chord-match th, table.chord-match td {
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+table.chord-match thead th {
+  background: var(--code-bg);
+}
+table.chord-match tbody th {
+  font-weight: normal;
+  text-align: right;
+}
+table.chord-match tbody td:last-child {
+  text-align: left;
+  color: var(--muted);
+  font-style: italic;
+  white-space: normal;
+}
+pre {
+  background: var(--code-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+pre code { background: transparent; padding: 0; }
+
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td {
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--code-bg); }
+
+blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 1rem 0;
+  padding: 0.25rem 0.9rem;
+  color: var(--muted);
+}

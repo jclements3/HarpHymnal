@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>HANDOFF</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="shape-nav">
+  <a href="index.html">index</a>
+  <a href="QRG.html">QRG</a>
+  <a href="README.html">README</a>
+  <a href="DRILLS.html">DRILLS</a>
+  <a href="SAMPLES.html">SAMPLES</a>
+  <a href="HANDOUT.html">HANDOUT</a>
+  <a href="VERIFY.html">VERIFY</a>
+  <a href="Chords.html">Chords</a>
+  <a href="hymns/index.html">Hymns</a>
+  <a href="chopin/index.html">Chopin</a>
+  <a href="HANDOFF.html">HANDOFF</a>
+  <a href="NEXTSESSION.html">NEXTSESSION</a>
+</nav>
+<header id="title-block-header">
+<h1 class="title">HANDOFF</h1>
+</header>
+<h1 id="handoffmd--lab-claude--home-laptop-claude-sync">HANDOFF.md — lab-Claude ↔︎ home-laptop-Claude sync</h1>
+<p>Two Claude sessions touch this repo. They share one <code>origin/main</code>; neither has a persistent view of the other’s memory. This file is how they stay aligned. <strong>Both sides update this file when they push.</strong></p>
+<p><code>PROMPT.md</code> is the long-form task handoff (what-to-do-next brief). <code>HANDOFF.md</code> (this file) is the short, running ledger of <em>who owns what, what just landed, what’s blocked</em>.</p>
+<hr />
+<h2 id="role-split-refreshed-2026-04-24-after-consolidation-5f2b46b">Role split (refreshed 2026-04-24 after consolidation <code>5f2b46b</code>)</h2>
+<h3 id="lab-machine-beefy-cpu-heavy-usually-not-wired-to-the-tablet">LAB machine (beefy, CPU-heavy, usually not wired to the tablet)</h3>
+<ul>
+<li><strong>Owns</strong> all Python pipelines: <code>retab/build_hymnal.py</code>, <code>reharm/build_hymnal.py</code>, <code>retab/retab_hymnal.py</code>, <code>reharm/reharm_hymnal.py</code>, the drill builders, audio bakes, etc.</li>
+<li><strong>Owns</strong> <code>data/hymns/*.json</code>, <code>data/reharm/*</code> (new layout — the old tactics/variations tree was deleted in <code>5f2b46b</code>), and everything under <code>data/audio/</code> (gitignored m4a bundle).</li>
+<li><strong>Reads</strong> <code>PROMPT.md</code> at session start for the long-form task brief.</li>
+</ul>
+<h3 id="home-laptop-has-the-tablet-plugged-in">HOME laptop (has the tablet plugged in)</h3>
+<ul>
+<li><p><strong>Owns</strong> <code>tablet_app/</code> (Android WebView app, package <code>com.harp.harphymnal.drills</code>, app name <strong>HarpHymnal</strong>).</p></li>
+<li><p><strong>Builds + installs</strong> the APK:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="bu">cd</span> tablet_app</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="ex">./gradlew</span> installDebug               # build + install to connected device</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="co"># fallback if assets look stale:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">./gradlew</span> clean installDebug</span></code></pre></div>
+<p><strong>There is no <code>syncJazzAssets</code> task anymore.</strong> The consolidation moved all tablet-bound assets directly into <code>tablet_app/app/src/main/assets/</code> (flat layout: <code>index.html</code>, <code>retab/</code>, <code>reharm/</code>, <code>hymns/</code>, <code>audio/</code>, <code>docs/</code>, <code>vendor/</code>, <code>docs.html</code>, <code>harphymnal_*.js</code>). Gradle picks them up via the default <code>mergeDebugAssets</code>.</p></li>
+<li><p>Tablet: Lenovo P90, serial <code>P90YPDU16Y251200164</code>, connected via USB at the lab this week. If it shows up only as “MIDI” under <code>lsusb</code>, swipe down → switch USB mode to File Transfer → re-enable USB debugging.</p></li>
+</ul>
+<h3 id="user">USER</h3>
+<ul>
+<li>Moves any tablet-side exports off the device and commits them under the relevant <code>data/…</code> path when a rating/feedback loop is live.</li>
+<li>Pulls on the tablet-connected machine and runs the <code>installDebug</code> when new UI changes need to land.</li>
+</ul>
+<h3 id="note-to-the-home-laptop">Note to the home laptop</h3>
+<p><strong>HANDOFF.md was stale for 3 days before this rewrite.</strong> Everything below pre-dating 2026-04-24 talked about <code>jazzhymnal/</code> + package <code>com.harp.jazzhymnal</code> + <code>syncJazzAssets</code> — all three are gone. Trust the filesystem and <code>git log</code>, not any older push-entry prose.</p>
+<hr />
+<h2 id="push-protocol-keep-the-ledger-honest">Push protocol (keep the ledger honest)</h2>
+<p>When either side pushes:</p>
+<ol>
+<li><strong>Prepend a dated bullet</strong> under <em>Recent pushes</em> below (newest first).</li>
+<li><strong>Move any now-unblocked items</strong> out of <em>Outstanding blockers</em>.</li>
+<li>If a role boundary just shifted — note it under <em>Role overrides this week</em>.</li>
+</ol>
+<p>Commit the HANDOFF.md change in the <strong>same push</strong> as the actual work. This file should never lag <code>origin/main</code>.</p>
+<hr />
+<h2 id="current-state-2026-04-25">Current state (2026-04-25)</h2>
+<p><code>origin/main</code> head: <code>a84fc2d</code> (HANDOFF refresh for post-consolidation tablet_app layout).</p>
+<h3 id="encoding-system-rewrite--in-progress-this-session-not-yet-committed">Encoding-system rewrite — in progress this session, not yet committed</h3>
+<p>The repo-root encoding spec has been rewritten end-to-end today. The <strong>previous</strong> README described a chord-naming system (Roman numeral chords</p>
+<ul>
+<li>mode/intervals + handout chord labels). The <strong>current</strong> README describes a fundamentally different system: a <strong>shape-setup encoding</strong> that catalogs hand placements on the strings and progressions of those placements, explicitly <em>not</em> music notation.</li>
+</ul>
+<p><strong>Key reframe (do not lose this):</strong> the system encodes <em>what is committed to in the air before the hand touches the strings</em>. Rhythm, articulation, strike order after contact, timing, and dynamics are deliberately outside scope. Most of what looks like “playing notation” (operators, hand markers, space-separated shape sequences) is actually about sequences of <em>pre-contact configurations</em>, not sequences of <em>played notes</em>. There’s a project-memory entry under <code>memory/project_encoding_scope.md</code> — read that first if you didn’t participate in today’s session.</p>
+<p><strong>What changed in the file system today (uncommitted):</strong></p>
+<ul>
+<li><code>README.md</code> — full rewrite. Three octave-prefix forms: absolute (<code>1x</code>, <code>2L</code>, <code>7R</code> — explicit harp octave 1–7 plus letter slot for hand), relative (<code>+1x</code>, <code>-2L</code> — sign required, prior-octave plus/minus N), and absent (sticky inheritance from prior shape; drill context may leave it unstated entirely). Disambiguator is the first character class. Subscripts now mean <strong>assembly order</strong> (which finger plants 1st–8th in the assembly sequence; ₁–₄ for one-hand shapes, ₁–₈ global for two-hand), not finger labels — the previous README had this wrong. Hand assignment lives in the <strong>letter slot</strong> of the octave prefix (<code>x</code> = either, <code>L</code> = left, <code>R</code> = right): <code>1L<span class="deg">6̂</span></code> is a left-hand shape, <code>1R<span class="deg">1̂</span>333</code> is right-hand. Two-hand shapes (≥ 4 intervals) use a comma inside one shape to split LH and RH intervals (<code>1x<span class="deg">1̂</span>333,3333</code>). Shapes within a row are space-separated. Header block: <code>Title:</code> (optional) + <code>Key:</code> (required), separated from rows by <code>---</code>. No <code>Meter:</code> — rhythm is out of scope.</li>
+<li><code>VERIFY.md</code> — reach-calibration drills. User has not run these yet; when they do, the per-finger reach ceilings in the README’s table will be replaced with calibrated numbers.</li>
+<li><code>DRILLS.md</code> — full replacement. Old chord-pool letter notation (<code>cegDFA</code> etc.) is gone. Drills under the new grammar, including the canonical thirds chain (<code>1x<span class="deg">1̂</span>333$~</code>), modal cycle, two-hand bass+chord progressions (<code>1L<span class="deg">1̂</span> 3R<span class="deg">1̂</span>333 …</code>), and a top-down assembly study using subscripts (<code>1x<span class="deg">1̂</span>₄3₃3₂3₁</code>).</li>
+<li><code>HANDOUT.md</code> — new file. Quick-reference catalog of the 12 universal-winner shape patterns plus mode-conditional gems, common setup forms (single notes, dyads, triads, tetrads), and sequence patterns. Different in purpose from the older <code>handout.md</code>/<code>handout.tex</code> which use the previous chord-name system; those are unchanged.</li>
+</ul>
+<p><strong>What did NOT change:</strong></p>
+<ul>
+<li><code>tablet_app/</code> — untouched. The Android app’s docs viewer still points at <code>docs/*.md</code> files (older system). No tablet-side updates today.</li>
+<li><code>retab/</code>, <code>reharm/</code> — untouched. Their CLAUDE.md files still describe Roman-numeral pipelines. The new encoding system hasn’t been wired into those pipelines yet.</li>
+<li><code>data/</code>, <code>legacy/</code>, <code>source/</code> — untouched.</li>
+</ul>
+<p><strong>For the home-laptop Claude:</strong></p>
+<p>If you’re picking up this session, read in order:</p>
+<ol>
+<li><code>memory/project_encoding_scope.md</code> (scope clarification)</li>
+<li><code>README.md</code> (the new spec)</li>
+<li><code>DRILLS.md</code> (sample sequences under the new grammar)</li>
+<li><code>HANDOUT.md</code> (the pattern catalog)</li>
+<li><code>VERIFY.md</code> (calibration drills, awaiting user results)</li>
+</ol>
+<p>Open questions still on the table:</p>
+<ul>
+<li>Reach calibration — user hasn’t run VERIFY.md yet; default reach ceilings in README’s table are best-guess until then.</li>
+<li>Minor-key encoding convention (<code>Key: Am</code> vs relative-major-with-mode-6) — was raised in session, not resolved. Defer until the first minor-key piece needs to be encoded.</li>
+<li>Multi-row composition is sequential phrases (decided); true parallel-row simultaneity is deferred. The <code>$</code> and <code>&amp;</code> operators are in the spec for shape-sequence expansion (back-to-back repeat; octave-aligned re-stamp).</li>
+<li>The retab/reharm pipelines still use the OLD chord-name system; if the user wants those rewritten under the new encoding, that’s a separate large piece of work.</li>
+</ul>
+<h3 id="tablet-state-unchanged-today">Tablet state (unchanged today)</h3>
+<p>Tablet was last installed from commit <code>4899801</code> (Docs tile + markdown viewer). Today’s encoding-system rewrite is repo-root only and does not affect the tablet APK.</p>
+<h3 id="whats-live-on-the-tablet-installed-today-from-the-lab">What’s live on the tablet (installed today from the lab)</h3>
+<ul>
+<li><strong>Home screen</strong>: 5 tiles — Retab, Retab Hymnal, Reharm Hymnal, Reharm, <strong>Docs</strong> (new, deep-blue banner).</li>
+<li><strong>Retab</strong> — style drills + RH pockets (existing).</li>
+<li><strong>Retab Hymnal</strong> — trefoil LH patterns over all hymns, L1–L7 selectors.</li>
+<li><strong>Reharm Hymnal</strong> — diatonic jazz reharmonisation of all hymns, L1–L7 selectors.</li>
+<li><strong>Reharm</strong> — jazz/pool/substitution/approach/voicing drill jumps.</li>
+<li><strong>Docs (NEW, <code>4899801</code>)</strong> — in-app markdown viewer at <code>docs.html</code>, renders 6 user-facing .md files with a vendored <code>marked.min.js</code>. All offline, no wifi. Top-nav per doc, deep-linkable via <code>#slug</code> hash. Files:
+<ul>
+<li><code>tablet_app/app/src/main/assets/docs.html</code> — the viewer</li>
+<li><code>tablet_app/app/src/main/assets/docs/TREFOIL.md</code></li>
+<li><code>tablet_app/app/src/main/assets/docs/RECIPE.md</code></li>
+<li><code>tablet_app/app/src/main/assets/docs/REHARM_TACTICS.md</code></li>
+<li><code>tablet_app/app/src/main/assets/docs/ChordAnalysis.md</code></li>
+<li><code>tablet_app/app/src/main/assets/docs/handout.md</code></li>
+<li><code>tablet_app/app/src/main/assets/docs/HARP_IDIOM.md</code></li>
+<li><code>tablet_app/app/src/main/assets/vendor/marked.min.js</code> (35 KB) Note: these .md files are <strong>copies</strong> of the repo-root canonical docs (except <code>HARP_IDIOM.md</code> whose source lives under <code>docs/</code>). If a doc is edited at the repo root, re-copy into <code>tablet_app/…/docs/</code> before building. A Gradle sync task to dedupe is a good future clean-up but is not in place yet.</li>
+</ul></li>
+</ul>
+<h3 id="consolidation-summary-5f2b46b-2026-04-24">Consolidation summary (<code>5f2b46b</code>, 2026-04-24)</h3>
+<ul>
+<li><code>jazzhymnal/</code> — <strong>deleted.</strong> Package <code>com.harp.jazzhymnal</code> uninstalled from the tablet. <code>tablet_app/</code> is the only Android project now.</li>
+<li><code>trefoil/reharm/</code> — deleted. Old reharm Python.</li>
+<li><code>data/reharm/</code> — old tactics/variations/fixture tree deleted.</li>
+<li><code>retab/</code> and <code>reharm/</code> — imported as subtrees of this repo (not git subtrees; plain <code>cp</code>). Their upstream standalone repos are orphaned.</li>
+<li>Launcher icon: pink-notes-on-burgundy (visible on the tablet).</li>
+<li><code>jazz/</code> — still tracked (25 HTML files), but <strong>nothing references it anymore.</strong> Orphaned pre-consolidation artifact. Do not edit anything in <code>jazz/</code> expecting it to reach the tablet.</li>
+</ul>
+<h3 id="outstanding">Outstanding</h3>
+<ul>
+<li><strong>Root-level pedagogy docs drift risk.</strong> <code>tablet_app/…/docs/*.md</code> are manually-maintained copies of the repo-root <code>.md</code> files. If someone edits <code>TREFOIL.md</code> at the root and doesn’t re-copy, the tablet view will lag. A ~5-line Gradle copy task (or a pre-build shell script) would make this self-healing. Non-blocking.</li>
+<li><strong>HANDOFF.md’s pre-2026-04-24 entries</strong> (below) reference <code>jazz/</code>, <code>jazzhymnal/</code>, <code>tactics.json</code>, per-tactic survey MIDIs under <code>data/reharm/tests/amazing_grace/</code> — none of that is live anymore. Left in place as historical record but should not be acted on.</li>
+</ul>
+<h3 id="role-overrides-this-week">Role overrides this week</h3>
+<ul>
+<li><strong>2026-04-24 — lab-Claude ran <code>./gradlew installDebug</code> directly</strong> (tablet plugged into the lab, not home). Tablet now has commit <code>4899801</code> installed. Home doesn’t need to re-install unless something lands after this handoff.</li>
+<li><strong>2026-04-24 — lab-Claude did the Docs feature end-to-end</strong> (normally UI is home territory). Safe to pick up where it left off; all files are in the live <code>tablet_app/</code> tree.</li>
+</ul>
+<hr />
+<h2 id="notes-for-home-laptop-claude-on-next-pickup">Notes for home-laptop Claude on next pickup</h2>
+<h3 id="what-happened-in-the-2026-04-24-lab-session-top-of-originmain-is-4899801">What happened in the 2026-04-24 lab session (top of <code>origin/main</code> is <code>4899801</code>)</h3>
+<ol>
+<li><p><strong>Consolidation (<code>5f2b46b</code>) — read this first.</strong> Anything you remembered about <code>jazzhymnal/</code>, <code>com.harp.jazzhymnal</code>, or <code>syncJazzAssets</code> is dead. The tablet app is now <code>tablet_app/</code>, package <code>com.harp.harphymnal.drills</code>, flat assets at <code>tablet_app/app/src/main/assets/</code>. Build with <code>cd tablet_app &amp;&amp; ./gradlew installDebug</code> — no special asset-sync plumbing, just standard Gradle.</p></li>
+<li><p><strong>Docs feature shipped (<code>4899801</code>)</strong>: new <strong>Docs</strong> tile on the home screen (5th, deep-blue) → opens <code>docs.html</code>, which is a vendored <code>marked.min.js</code> markdown viewer. It XHR-loads from <code>./docs/*.md</code> (fetch is still blocked on <code>file://</code> in WebView; the viewer uses <code>XMLHttpRequest</code> directly — do not “modernize” this to <code>fetch()</code>). Six docs currently exposed: Trefoil, Recipe, Reharm Tactics, Chord Analysis, Handout, Harp Idiom.</p></li>
+<li><p><strong>There was a false-start push <code>2f9f3c2</code></strong> — first attempt landed the Docs feature into <code>jazz/</code> (the orphaned pre-consolidation tree). Build ran UP-TO-DATE and nothing shipped. <code>4899801</code> is the correct re-land into <code>tablet_app/</code>. If git log looks confusing in that stretch, that’s why.</p></li>
+<li><p><strong>Tablet already has <code>4899801</code> installed</strong> from the lab today. Check via:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="ex">adb</span> shell dumpsys package com.harp.harphymnal.drills <span class="kw">|</span> <span class="fu">grep</span> versionName</span></code></pre></div>
+<p>No reinstall needed unless you push new UI changes.</p></li>
+<li><p><strong>The orphan <code>jazz/</code> tree</strong> will probably be deleted eventually. Don’t accidentally edit a file there thinking it’ll ship.</p></li>
+</ol>
+<h3 id="still-open-non-blocking">Still open (non-blocking)</h3>
+<ul>
+<li>Deduplicate docs: make <code>tablet_app/…/docs/</code> a build-time copy of repo-root <code>.md</code> files instead of a manual mirror.</li>
+<li>Refresh HANDOFF.md further if retab/reharm story evolves — the pre-2026-04-24 Recent pushes below are frozen historical context.</li>
+</ul>
+<hr />
+<h2 id="recent-pushes-newest-first">Recent pushes (newest first)</h2>
+<ul>
+<li><strong>2026-04-24 lab</strong> — <code>4899801</code> <code>tablet_app: Docs tile + markdown viewer (re-land from dead jazz/)</code> — landed <code>docs.html</code> + vendored <code>marked.min.js</code> + 6 bundled markdown files into <code>tablet_app/app/src/main/assets/</code>. Added the 5th Docs tile (deep-blue <code>#1F4E79</code>) to the home grid. Reverted the stale <code>jazz/index.html</code> edit from <code>2f9f3c2</code>. APK installed on the tablet.</li>
+<li><strong>2026-04-24 lab</strong> — <code>2f9f3c2</code> <code>jazzhymnal: Docs tile + in-app markdown viewer</code> — <strong>SUPERSEDED by <code>4899801</code>.</strong> Landed under <code>jazz/</code>, which was already dead after <code>5f2b46b</code>; nothing from this push reached the APK. Kept for history only.</li>
+<li><strong>2026-04-24 lab</strong> — <code>5f2b46b</code> <code>Consolidate retab + reharm into HarpHymnal, drop OBE subprojects</code> — major restructure. Deleted <code>jazzhymnal/</code>, <code>trefoil/reharm/</code>, <code>data/reharm/</code> (old), old top-level <code>reharm/</code>. Imported <code>retab/</code> and <code>reharm/</code> as non-subtree copies. Renamed app to “HarpHymnal” and shipped pink-notes-on-burgundy launcher icons. Tablet has <code>com.harp.jazzhymnal</code> uninstalled.</li>
+</ul>
+<p>— everything below here pre-dates the 2026-04-24 consolidation — — treat as historical context; do not act on it —</p>
+<ul>
+<li><strong>2026-04-21 lab</strong> — <code>17ac251</code> <code>HANDOFF.md: log 2026-04-21 evening lab session (9d7136f back to d011ce8)</code> — pure docs entry.</li>
+<li><strong>2026-04-21 lab</strong> — <code>9d7136f</code> <code>survey: Jazz Version reference track alongside Full Baseline</code> — generated 40 Amazing Grace variations via <code>trefoil.reharm.selector</code>, scored them by a jazz-tag weight, and rendered the winner (<code>v24</code>: 7× chord_offbeat, 6× rolled, 5× each of sus/quartal/diatonic/anticipate/common_tone, 4× syncopated) to <code>data/reharm/tests/amazing_grace/_jazz.mid</code>. Added a second <code>&lt;section class="baseline"&gt;</code> block with a ▶ <code>jazz-btn</code>, wired the same way as <code>baseline-btn</code>. (<code>data/reharm/tests/</code> and <code>jazz/</code> now obsolete.)</li>
+<li><strong>2026-04-21 lab</strong> — <code>e26fcab</code> <code>survey: louder default + wider slider range + sqrt-velocity curve</code> — tablet reported “can barely hear”. Slider range 0–100 → 0–300, default 80% → 200%, storage key bumped to <code>amazing_grace.volume.v2</code>. Per-note gain switched from <code>velocity/127</code> to <code>sqrt(velocity/127)</code> to lift mid-velocity notes.</li>
+<li><strong>2026-04-21 lab</strong> — <code>8546816</code> <code>survey: volume slider + note-off honored in MIDI playback</code> — added <code>🔈 [slider] %</code> widget driving a master <code>GainNode</code>. Rewrote the <code>MidiPlayer</code> event callback so Note-on/Note-off are honored with a 1.2s release tail.</li>
+<li><strong>2026-04-21 lab</strong> — <code>d011ce8</code> <code>survey: bundle MIDI playback libs offline (tablet has no wifi)</code> — vendored <code>midi-player-js@2.0.16</code> + <code>soundfont-player@0.12.0</code> + MusyngKite <code>orchestral_harp-mp3.js</code> into <code>jazz/vendor/</code> (now orphaned post-consolidation, but the “no wifi, bundle offline” principle still holds for anything shipped to the tablet).</li>
+<li><strong>2026-04-21 lab</strong> — <code>105b1b1</code> <code>HANDOFF.md: direct brief section for home-laptop Claude</code>.</li>
+<li><strong>2026-04-21 lab</strong> — <code>c55d000</code> <code>tactics: populate music-theory notes for all 79 tactics</code> — filled the <code>note</code> field on all 73 previously- empty tactics across 12 dimensions. (<code>data/reharm/tactics.json</code> was deleted in <code>5f2b46b</code>.)</li>
+<li><strong>2026-04-21 lab</strong> — <code>5349c62</code> <code>jazzhymnal: saxophone launcher icon</code> — replaced the drill launcher icon with 🎷. (Replaced again by the pink-notes-on-burgundy icon in <code>5f2b46b</code>.)</li>
+<li><strong>2026-04-21 lab</strong> — <code>97861fd</code> <code>tactics survey: dimension-level help buttons + theory notes</code>.</li>
+<li><strong>2026-04-21 lab</strong> — <code>d4dfb63</code> <code>reharm_solo: land Amazing Grace survey-audio fixtures</code> — committed 158 tactic/original MIDI pairs. (Deleted in <code>5f2b46b</code>.)</li>
+<li><strong>2026-04-21 home</strong> — <code>3e1b638</code> <code>jazzhymnal: new WebView-wrapper tablet app</code> — scaffolded <code>jazzhymnal/</code>. (Project deleted in <code>5f2b46b</code>.)</li>
+<li><strong>2026-04-21 home</strong> — (same push) Help-icon modal on tactic rows in <code>test_amazing_grace.html</code>.</li>
+<li><strong>2026-04-21 lab</strong> — <code>b06dde6</code> <code>Audition rig → snippet A/B + 0-5 scoring; TREFOIL corrections; lab handoff</code>.</li>
+<li><strong>2026-04-20 lab</strong> — <code>74c3472</code> <code>Reharm Tactics: 8-phase pipeline from tactic pool to tablet UI</code>.</li>
+</ul>
+<hr />
+<h2 id="when-in-doubt">When in doubt</h2>
+<ul>
+<li>Look at <code>PROMPT.md</code> for the full task brief.</li>
+<li>Look at <code>CLAUDE.md</code> for file-precedence rules.</li>
+<li>Look at <code>tablet_app/app/build.gradle</code> if asset plumbing behaves oddly.</li>
+<li><code>git log --stat 5f2b46b</code> if you want to see exactly what the consolidation moved or deleted.</li>
+</ul>
+</body>
+</html>

@@ -68,9 +68,11 @@ This file should never lag `origin/main`.
 
 ---
 
-## Current state (2026-04-25)
+## Current state (2026-04-27)
 
-`origin/main` head: `a84fc2d` (HANDOFF refresh for post-consolidation tablet_app layout).
+`origin/main` head moves to this push (Shapes-area landing — Chopin
+piano render, Strings column, QRG tab, Recent bar, 3-column letter
+grid, F#-minor fix). Tablet has the matching APK installed.
 
 ### Encoding-system rewrite — in progress this session, not yet committed
 
@@ -257,6 +259,40 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
+- **2026-04-27 home** — Shapes area is now a full sub-app under the
+  Shapes tile (6th tile on home, plum `#4A2545`). Major work this session:
+  - **Hymns + Chopin sub-tabs.** Both top-nav tabs land on A-Z navigators
+    over all 279 hymns. Shared "Recent" bar above search records hymn
+    visits in `localStorage['shapes.recent']` (capped at 10, cleared via
+    inline link). Letter groups now lay out in a 3-column CSS grid so all
+    20 letters in the corpus fit on one screen at 1920×1200 — tap a
+    letter card to expand its hymn list inline within its column.
+  - **Chopin pages** = grand-staff piano arrangement of each hymn:
+    melody at original rhythm on top, voice-led ATB pad held per chord
+    change beneath. Renders via `shapes/render_chopin_piano.py` (one ABC
+    score per phrase → abcm2ps → inline SVG). Replaced the prior
+    whole-note phrase grid (`render_phrase_svg.py`) on chopin pages.
+  - **Strings column.** New first column on every per-bar shape table:
+    a 47-character monospace row mapping the active level's pitches onto
+    the harp's 47 strings — `·` for unplayed, the natural letter
+    (C/D/E/F/G/A/B) for touched (sharps/flats share a string with the
+    natural). Swaps with the level selector exactly like Shape and
+    Chord. Source pitches: chopin = the Voicing's S/A/T/B; SATB =
+    the bar's actual SATB; retab/reharm = expanded shape templates.
+  - **QRG tab.** New `shapes/QRG.html` between `index` and `README` —
+    one-page reference for reading a token (octave, hand, hatted
+    degree, intervals). Linked into all 558 per-hymn pages.
+  - **Layout.** Bumped body `max-width: 56rem → 100rem` so the nav fits
+    on one line and the per-bar table stops wrapping.
+  - **Bug fix.** Added `E#`, `B#`, `Cb`, `Fb` to `voice_lead.py`'s
+    `PC` dict — the only two F#-minor hymns
+    (`if_god_had_not_been_on_our_side`, `none_other_lamb`) had been
+    failing on a `KeyError: 'E#'` and were absent from the corpus.
+    Coverage is now 279/279.
+  - APK reinstalled on the tablet (`com.harp.harphymnal.drills`,
+    P90YPDU16Y251200164). Tablet's `tablet_app/app/src/main/assets/shapes/`
+    mirror is checked in — gradle's default `mergeDebugAssets` picks
+    it up; no extra sync task.
 - **2026-04-24 lab** — `4899801` `tablet_app: Docs tile + markdown viewer
   (re-land from dead jazz/)` — landed `docs.html` + vendored
   `marked.min.js` + 6 bundled markdown files into

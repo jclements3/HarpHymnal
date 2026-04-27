@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>QRG</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="shape-nav">
+  <a href="index.html">index</a>
+  <a href="QRG.html">QRG</a>
+  <a href="README.html">README</a>
+  <a href="DRILLS.html">DRILLS</a>
+  <a href="SAMPLES.html">SAMPLES</a>
+  <a href="HANDOUT.html">HANDOUT</a>
+  <a href="VERIFY.html">VERIFY</a>
+  <a href="Chords.html">Chords</a>
+  <a href="hymns/index.html">Hymns</a>
+  <a href="chopin/index.html">Chopin</a>
+  <a href="HANDOFF.html">HANDOFF</a>
+  <a href="NEXTSESSION.html">NEXTSESSION</a>
+</nav>
+<header id="title-block-header">
+<h1 class="title">QRG</h1>
+</header>
+<h1 id="quick-reference">Quick Reference</h1>
+<p>How to read one shape token. For everything else, see <a href="README.html">README</a>.</p>
+<p>A <strong>shape</strong> is what one hand commits to in the air before it touches the strings — which fingers go where, in what spread. Spaces separate shapes: each space means the hand lifts and forms the next configuration.</p>
+<h2 id="anatomy">Anatomy</h2>
+<pre><code>2L<span class="deg">1̂</span> 5
+│ │ │ │
+│ │ │ └─ intervals: gaps between adjacent fingers, bottom-up
+│ │ └─── degree (1-7) with the hat: the bottom finger&#39;s scale degree
+│ └───── hand: L (left) or R (right)
+└─────── octave (1-7): bottom-up; octave 4 contains middle C
+</code></pre>
+<p>The <strong>hat</strong> (<code>^</code>) is the only thing that distinguishes the degree digit from an interval digit. It renders as a literal hat over the number.</p>
+<h2 id="the-four-parts">The four parts</h2>
+<p><strong>Octave.</strong> <code>1</code> to <code>7</code>, indexed bottom-up on the concert pedal harp. Octave 4 contains middle C. <code>+1L</code> / <code>-2R</code> are relative. No prefix means "same octave as the previous shape".</p>
+<p><strong>Hand.</strong> <code>L</code> = left, <code>R</code> = right. (Drills also use <code>x</code> = "either".)</p>
+<p><strong>Degree.</strong> <code><span class="deg">1̂</span></code> to <code><span class="deg">7̂</span></code>. The pitch the bottom finger lands on, named relative to the piece's tonic. In C major: <code><span class="deg">1̂</span></code> = C, <code><span class="deg">3̂</span></code> = E, <code><span class="deg">5̂</span></code> = G.</p>
+<p><strong>Intervals.</strong> Each digit after the degree is the gap to the next finger up, in scale steps. <code>2</code> = step, <code>3</code> = third, <code>4</code> = fourth, … hex <code>a</code>-<code>f</code> continue past <code>9</code>. Read bottom-up.</p>
+<h2 id="worked-examples-tonic-c-c-major-pedals">Worked examples (Tonic: C, C-major pedals)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Token</th>
+<th>Notes</th>
+<th>Reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>3L<span class="deg">1̂</span></code></td>
+<td>C3</td>
+<td>one finger on C3</td>
+</tr>
+<tr class="even">
+<td><code>3R<span class="deg">1̂</span> 3</code></td>
+<td>C4 E4</td>
+<td>two fingers, a third apart</td>
+</tr>
+<tr class="odd">
+<td><code>3R<span class="deg">1̂</span> 33</code></td>
+<td>C4 E4 G4</td>
+<td>triad: root + third + third = 1·3·5</td>
+</tr>
+<tr class="even">
+<td><code>2L<span class="deg">5̂</span> 4</code></td>
+<td>G2 C3</td>
+<td>bass fifth-to-octave-tonic</td>
+</tr>
+<tr class="odd">
+<td><code>4R<span class="deg">3̂</span> 5</code></td>
+<td>E4 B4</td>
+<td>wide third (a fifth gap) on the 3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="two-hands-in-one-bar">Two hands in one bar</h2>
+<p>LH and RH shapes appear space-separated, low to high:</p>
+<pre><code>2L<span class="deg">1̂</span> 5   3R<span class="deg">3̂</span> 5
+LH bass    RH upper
+</code></pre>
+<h2 id="not-covered-here">Not covered here</h2>
+<p>Subscripts <code>₁-₈</code>, operators <code>$ &amp; * ~</code>, two-hand split notation, the header block (<code>Title:</code> / <code>Number:</code> / <code>Tonic:</code> / <code>Pedals:</code> / braille pedal cells), inline pedal changes, reach calibration. All in <a href="README.html">README</a>.</p>
+</body>
+</html>

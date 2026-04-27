@@ -118,6 +118,8 @@
   .tile.reharm { border-color: #C9A227; }
   .tile.docs         .tile-banner { background: #1F4E79; }
   .tile.docs { border-color: #1F4E79; }
+  .tile.shapes       .tile-banner { background: #4A2545; }
+  .tile.shapes { border-color: #4A2545; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -910,6 +912,16 @@
       onTap:  () => { window.location.href = 'docs.html'; },
     });
     grid.appendChild(docs);
+
+    // Shapes tile — SIXTH (shape-encoding system + voice-led Chopin view).
+    const shapes = makeTile({
+      family: 'shapes',
+      name:   'Shapes',
+      rule:   'shape encoding · chord-match · phrase-anchor · Chopin voice-leading',
+      count:  '↗',
+      onTap:  () => { window.location.href = 'shapes/index.html'; },
+    });
+    grid.appendChild(shapes);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────
