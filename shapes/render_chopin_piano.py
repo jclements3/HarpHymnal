@@ -26,11 +26,54 @@ REPO = Path(__file__).resolve().parents[1]
 SHAPES = REPO / 'shapes'
 
 
-def _abc_pitch(letter: str, accidental: str, octave: int) -> str:
-    acc = {'#': '^', 'b': '_', '': ''}.get(accidental, '')
+# Key-signature accidental tables (sharps/flats added in standard order).
+_SHARP_ORDER = ['F', 'C', 'G', 'D', 'A', 'E', 'B']
+_FLAT_ORDER  = ['B', 'E', 'A', 'D', 'G', 'C', 'F']
+_MAJOR_FIFTHS = {
+    'C':  0, 'G':  1, 'D':  2, 'A':  3, 'E':  4, 'B':  5, 'F#': 6, 'C#': 7,
+    'F': -1, 'Bb': -2, 'Eb': -3, 'Ab': -4, 'Db': -5, 'Gb': -6, 'Cb': -7,
+}
+_MINOR_FIFTHS = {
+    'A':  0, 'E':  1, 'B':  2, 'F#': 3, 'C#': 4, 'G#': 5, 'D#': 6, 'A#': 7,
+    'D': -1, 'G': -2, 'C': -3, 'F': -4, 'Bb': -5, 'Eb': -6, 'Ab': -7,
+}
+
+
+def _key_accidentals(key_root: str, mode: str) -> dict:
+    """Letters → '#' or 'b' for what the key signature already alters."""
+    table = _MINOR_FIFTHS if mode == 'minor' else _MAJOR_FIFTHS
+    n = table.get(key_root, 0)
+    out = {}
+    if n > 0:
+        for letter in _SHARP_ORDER[:n]:
+            out[letter] = '#'
+    elif n < 0:
+        for letter in _FLAT_ORDER[:-n]:
+            out[letter] = 'b'
+    return out
+
+
+def _abc_pitch(letter: str, accidental: str, octave: int,
+               bar_state: dict | None = None) -> str:
+    """Emit one ABC pitch token.
+
+    When `bar_state` is supplied, only emit an accidental marker if the
+    note's accidental differs from what's currently in force for that
+    letter (initially the key signature, then whatever was last emitted
+    in this bar). This matches abcm2ps's bar-persistence rule and avoids
+    re-marking accidentals already implied by the key signature."""
+    if bar_state is None:
+        marker = {'#': '^', 'b': '_', '': ''}.get(accidental, '')
+    else:
+        cur = bar_state.get(letter, '')
+        if accidental == cur:
+            marker = ''
+        else:
+            marker = {'#': '^', 'b': '_', '': '='}[accidental]
+            bar_state[letter] = accidental
     if octave >= 5:
-        return acc + letter.lower() + ("'" * (octave - 5))
-    return acc + letter.upper() + ("," * (4 - octave))
+        return marker + letter.lower() + ("'" * (octave - 5))
+    return marker + letter.upper() + ("," * (4 - octave))
 
 
 def _norm_acc(a) -> str:
@@ -50,12 +93,14 @@ def _melody_pitches(bar: dict) -> list[Voice]:
     return out
 
 
-def _melody_to_abc(bar: dict, sixteenths_per_beat: int) -> str:
+def _melody_to_abc(bar: dict, sixteenths_per_beat: int,
+                   bar_state: dict | None = None) -> str:
     """Render the bar's melody as an ABC token sequence under L:1/16.
 
     Durations in the JSON are in quarter-note lengths; convert each to an
     integer count of sixteenth-notes and emit `<pitch><count>`. Rests inside
-    the melody are emitted as `z<count>`.
+    the melody are emitted as `z<count>`. Threads `bar_state` so accidentals
+    are not re-marked when the key signature already covers them.
     """
     parts = []
     for ev in bar.get('melody') or []:
@@ -67,7 +112,8 @@ def _melody_to_abc(bar: dict, sixteenths_per_beat: int) -> str:
         if ev.get('kind') != 'note':
             continue
         p = ev['pitch']
-        parts.append(_abc_pitch(p['letter'], _norm_acc(p.get('accidental')), p['octave']) + str(n))
+        parts.append(_abc_pitch(p['letter'], _norm_acc(p.get('accidental')),
+                                p['octave'], bar_state) + str(n))
     return ' '.join(parts)
 
 
@@ -78,8 +124,9 @@ def _bar_chord_pcs(bar: dict, key_root: str) -> list[str]:
     return chord_letters(num, qual, key_root)
 
 
-def _chord_token(voices: list[Voice], count: int) -> str:
-    pitches = [_abc_pitch(v.letter, v.accidental, v.octave) for v in
+def _chord_token(voices: list[Voice], count: int,
+                 bar_state: dict | None = None) -> str:
+    pitches = [_abc_pitch(v.letter, v.accidental, v.octave, bar_state) for v in
                sorted(voices, key=lambda x: x.midi())]
     return '[' + ''.join(pitches) + ']' + str(count)
 
@@ -98,18 +145,19 @@ def build_phrase_abc(phrase_bars: list[dict], voicings: list[Voicing],
     A/T/B pitches for that bar. Empty/melody-less bars get rests."""
     bar_units = _bar_units(beats, unit)
     abc_key = key_root + ('m' if mode == 'minor' else '')
+    key_acc = _key_accidentals(key_root, mode)
 
     soprano_lines, alto_lines, tenor_lines, bass_lines = [], [], [], []
     for bar, v in zip(phrase_bars, voicings):
-        soprano_lines.append(_melody_to_abc(bar, 4) or f'z{bar_units}')
+        soprano_lines.append(_melody_to_abc(bar, 4, dict(key_acc)) or f'z{bar_units}')
         if v is None:
             alto_lines.append(f'z{bar_units}')
             tenor_lines.append(f'z{bar_units}')
             bass_lines.append(f'z{bar_units}')
         else:
-            alto_lines.append(_chord_token([v.a], bar_units))
-            tenor_lines.append(_chord_token([v.t], bar_units))
-            bass_lines.append(_chord_token([v.b], bar_units))
+            alto_lines.append(_chord_token([v.a], bar_units, dict(key_acc)))
+            tenor_lines.append(_chord_token([v.t], bar_units, dict(key_acc)))
+            bass_lines.append(_chord_token([v.b], bar_units, dict(key_acc)))
 
     return (
         'X: 1\n'
@@ -163,16 +211,18 @@ def _l2_beat_layout(beats: int, unit: int) -> tuple[int, int]:
     return bar_units, 1
 
 
-def _l2_bar_bass_abc(v: Voicing, beat_units: int, num_beats: int) -> str:
+def _l2_bar_bass_abc(v: Voicing, beat_units: int, num_beats: int,
+                     bar_state: dict | None = None) -> str:
     """Render one bar of the L2 oom-pah-pah pattern for the bass staff.
 
     Beat 1: a single bass quarter-note (the voicing's B).
     Beats 2..N: an [T A] chord stack (tenor + alto) of the bar's voicing.
     Each "beat" here is `beat_units` sixteenth-notes long.
     """
-    parts = [_abc_pitch(v.b.letter, v.b.accidental, v.b.octave) + str(beat_units)]
+    parts = [_abc_pitch(v.b.letter, v.b.accidental, v.b.octave, bar_state) +
+             str(beat_units)]
     for _ in range(num_beats - 1):
-        parts.append(_chord_token([v.t, v.a], beat_units))
+        parts.append(_chord_token([v.t, v.a], beat_units, bar_state))
     return ' '.join(parts)
 
 
@@ -188,14 +238,15 @@ def build_phrase_abc_l2(phrase_bars: list[dict], voicings: list[Voicing],
     bar_units = _bar_units(beats, unit)
     beat_units, num_beats = _l2_beat_layout(beats, unit)
     abc_key = key_root + ('m' if mode == 'minor' else '')
+    key_acc = _key_accidentals(key_root, mode)
 
     soprano_lines, bass_lines = [], []
     for bar, v in zip(phrase_bars, voicings):
-        soprano_lines.append(_melody_to_abc(bar, 4) or f'z{bar_units}')
+        soprano_lines.append(_melody_to_abc(bar, 4, dict(key_acc)) or f'z{bar_units}')
         if v is None:
             bass_lines.append(f'z{bar_units}')
         else:
-            bass_lines.append(_l2_bar_bass_abc(v, beat_units, num_beats))
+            bass_lines.append(_l2_bar_bass_abc(v, beat_units, num_beats, dict(key_acc)))
 
     return (
         'X: 1\n'
@@ -243,7 +294,8 @@ def _l3_step_from_index(idx: int) -> tuple[str, int]:
     return _L3_LETTERS[idx % 7], idx // 7
 
 
-def _melody_to_abc_l3(bar: dict, sixteenths_per_beat: int) -> str:
+def _melody_to_abc_l3(bar: dict, sixteenths_per_beat: int,
+                      bar_state: dict | None = None) -> str:
     """Decorated melody for one bar.
 
     Between two adjacent melody notes within the bar whose absolute diatonic
@@ -297,13 +349,13 @@ def _melody_to_abc_l3(bar: dict, sixteenths_per_beat: int) -> str:
         if emit_decorated:
             half = n // 2
             parts.append(_abc_pitch(p['letter'], _norm_acc(p.get('accidental')),
-                                    p['octave']) + str(half))
+                                    p['octave'], bar_state) + str(half))
             # Passing tone: natural letter (drop accidental — diatonic by letter).
-            parts.append(_abc_pitch(passing_tone[0], '', passing_tone[1]) +
-                         str(half))
+            parts.append(_abc_pitch(passing_tone[0], '', passing_tone[1],
+                                    bar_state) + str(half))
         else:
             parts.append(_abc_pitch(p['letter'], _norm_acc(p.get('accidental')),
-                                    p['octave']) + str(n))
+                                    p['octave'], bar_state) + str(n))
     return ' '.join(parts)
 
 
@@ -318,18 +370,19 @@ def build_phrase_abc_l3(phrase_bars: list[dict], voicings: list[Voicing],
     """
     bar_units = _bar_units(beats, unit)
     abc_key = key_root + ('m' if mode == 'minor' else '')
+    key_acc = _key_accidentals(key_root, mode)
 
     soprano_lines, alto_lines, tenor_lines, bass_lines = [], [], [], []
     for bar, v in zip(phrase_bars, voicings):
-        soprano_lines.append(_melody_to_abc_l3(bar, 4) or f'z{bar_units}')
+        soprano_lines.append(_melody_to_abc_l3(bar, 4, dict(key_acc)) or f'z{bar_units}')
         if v is None:
             alto_lines.append(f'z{bar_units}')
             tenor_lines.append(f'z{bar_units}')
             bass_lines.append(f'z{bar_units}')
         else:
-            alto_lines.append(_chord_token([v.a], bar_units))
-            tenor_lines.append(_chord_token([v.t], bar_units))
-            bass_lines.append(_chord_token([v.b], bar_units))
+            alto_lines.append(_chord_token([v.a], bar_units, dict(key_acc)))
+            tenor_lines.append(_chord_token([v.t], bar_units, dict(key_acc)))
+            bass_lines.append(_chord_token([v.b], bar_units, dict(key_acc)))
 
     return (
         'X: 1\n'
