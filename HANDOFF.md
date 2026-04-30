@@ -70,10 +70,12 @@ This file should never lag `origin/main`.
 
 ## Current state (2026-04-29)
 
-`origin/main` head is `de2681a` — Chopin Hymnal home-screen tile,
-key-signature-aware chopin ABC, and the orphan piano-prototype CLI
-removed. Tablet has the matching APK installed (`com.harp.harphymnal.drills`,
-P90YPDU16Y251200164).
+`origin/main` head is `0a9bee4` — caret-digit STACKS reference page
+under `shapes/`, JuliaMono webfont in `viewer/`, four printable
+theory-handout PDFs under `docs/handouts/` (with tablet mirror).
+Tablet APK from earlier today (`de2681a`) is still on the P90; this
+push only changes assets/CSS/fonts so a `./gradlew installDebug`
+will pick everything up — no Kotlin/Java changes.
 
 Home grid is now **7 tiles** (added Chopin Hymnal between Reharm
 Hymnal and Reharm): Retab · Retab Hymnal · Reharm Hymnal · **Chopin
@@ -268,6 +270,31 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
+- **2026-04-29 home** — `0a9bee4` `shapes/STACKS, viewer fonts:
+  caret-digit reference + JuliaMono in viewer`. Reviewed an external
+  tarball of harp-theory artifacts (`~/Downloads/harp-theory-artifacts.tar.gz`
+  — diatonic chord-stacks, fingerings, diads, chromatic-intervals
+  handouts) and folded the directly-relevant parts into the project.
+  New `shapes/STACKS.md` consolidates the chord-stacks table, diatonic
+  diads, and an alternative-fingerings sampler in caret-digit (^1..^7)
+  notation — the user explicitly liked carets over RN for *generic-
+  interval / scale-degree* contexts (saved as
+  `feedback_caret_digits_in_tables.md` in memory). RN remains in
+  *functional* contexts (mapper output, lead-sheet labels,
+  `render_rn_markup` over score bars). `shapes/build_html.py` adds
+  `STACKS` to the `DOCS` list; `_nav.html` and `index.html` updated
+  to expose the new page; pandoc rebuild propagated the new nav link
+  through every shape doc. Brought `viewer/` to parity with
+  `shapes/style.css`: copied `JuliaMono-{Medium,SemiBold}.ttf` into
+  `viewer/font/` and added `@font-face` + `.deg` to `viewer/app.css`.
+  Bundled the four standalone PDFs (printable landscape layout) under
+  `docs/handouts/` with their .tex sources, plus a tablet-side mirror
+  at `tablet_app/app/src/main/assets/docs/handouts/` (PDFs only).
+  STACKS.md links to `../docs/handouts/` which resolves on both
+  desktop (repo root) and tablet (assets root). Tablet shapes mirror
+  rebuilt; existing `shapes/font/` JuliaMono already covers .deg
+  rendering on the tablet — no font copy needed there. APK rebuild
+  picks up the new asset files via standard `mergeDebugAssets`.
 - **2026-04-29 home** — `de2681a` `tablet_app: home-screen Chopin
   Hymnal tile`. New 4th tile on the home grid (deep purple `#3A1B36`,
   count 279) navigates straight to `shapes/chopin/index.html`. Sits
