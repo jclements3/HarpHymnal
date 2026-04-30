@@ -68,22 +68,33 @@ This file should never lag `origin/main`.
 
 ---
 
-## Current state (2026-04-29)
+## Current state (2026-04-30)
 
-`origin/main` head is `0a9bee4` — caret-digit STACKS reference page
-under `shapes/`, JuliaMono webfont in `viewer/`, four printable
-theory-handout PDFs under `docs/handouts/` (with tablet mirror).
-Tablet APK from earlier today (`de2681a`) is still on the P90; this
-push only changes assets/CSS/fonts so a `./gradlew installDebug`
-will pick everything up — no Kotlin/Java changes.
+`origin/main` head is `2610908` — Boddie Source 44-page facsimile.
+This session landed the entire **Boddie Hymnal** feature end-to-end
+(four commits, 4ab1641 → c64a9a6 → 35d46da → 2610908). APK rebuilt +
+installed on the P90 from this machine; home doesn't need to
+reinstall.
 
-Home grid is now **7 tiles** (added Chopin Hymnal between Reharm
-Hymnal and Reharm): Retab · Retab Hymnal · Reharm Hymnal · **Chopin
-Hymnal (new, deep-purple `#3A1B36`)** · Reharm · Docs · Shapes. The
-new tile taps straight to `shapes/chopin/index.html` (the existing
-A-Z navigator), mirroring how Retab Hymnal / Reharm Hymnal jump
-directly into their hymn lists rather than routing through a
-sub-index.
+Home grid is now **10 tiles** (added three Boddie tiles after Chopin
+Hymnal): Retab · Retab Hymnal · Reharm Hymnal · Chopin Hymnal ·
+**Boddie Hymnal (new, deep blue `#1F3A5F`, 279)** · **Boddie Drills
+(new, lighter blue `#4178A8`, 131)** · **Boddie Source (new, purple
+`#6F4A8A`, 44 pages)** · Reharm · Docs · Shapes.
+
+The Boddie family is **conceptually orthogonal** to Retab/Reharm/
+Chopin: those families transform texture / harmony / voicing across
+multiple sophistication levels (L1-L7 etc.). Boddie is a *single
+voice* — Brook Boddie's published arrangement idiom — so it has one
+output per hymn, no level switcher. User explicitly said "do not do
+multiple levels like you did for retab, reharm, and chopin. This is
+just one shot to mimic the Boddie style." Don't refactor it into a
+ladder.
+
+Memory pointers added this session:
+- `project_boddie_hymnal.md` — what the Boddie style is
+- `project_boddie_range_policy.md` — 47-string pedal-harp range
+  policy (C1-C2 drone-only, >G7 glissando-only, regular C2-G7)
 
 ### Encoding-system rewrite — in progress this session, not yet committed
 
@@ -214,6 +225,15 @@ from yesterday's session). Home doesn't need to reinstall.
   Left in place as historical record but should not be acted on.
 
 ### Role overrides this week
+- **2026-04-30 — lab-Claude ran `./gradlew assembleDebug` + `adb
+  install -r` directly** (tablet plugged into the lab again this
+  week). Tablet now has commit `2610908` installed. Home doesn't
+  need to re-install unless something lands after this handoff.
+- **2026-04-30 — lab-Claude did the Boddie feature end-to-end**
+  (Python emitter + drill generator + tablet UI + APK install).
+  Three Boddie tiles + viewer panels are all in `tablet_app/...`,
+  the catalog JS lives at `tablet_app/...assets/boddie/boddie_*.js`,
+  and 410 SVGs + 44 source PNGs are bundled. Safe to pick up.
 - **2026-04-24 — lab-Claude ran `./gradlew installDebug` directly**
   (tablet plugged into the lab, not home). Tablet now has commit
   `4899801` installed. Home doesn't need to re-install unless something
@@ -270,6 +290,60 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
+- **2026-04-30 lab** — `2610908` `tablet_app: add Boddie Source tile --
+  44-page facsimile of Brook's Vol. 1`. Rasterised the source PDF
+  (`The-Brook-Boddie-Hymnal-Vol-1-E-flat-version-j6brq2.pdf`, kept
+  untracked — copyright watermark) at 110 DPI to 44 PNG pages under
+  `tablet_app/app/src/main/assets/boddie/source/page-NN.png` (5.0 MB
+  total). Added a third Boddie tile (purple `#6F4A8A`) plus a simple
+  prev/next page-flipper viewer panel. Android WebView does NOT render
+  PDFs natively, so the per-page-image route is the cleanest in-app
+  solution. `pdftoppm` (poppler) is the converter if the source ever
+  needs re-rasterising.
+- **2026-04-30 lab** — `35d46da` `tablet_app: home tiles + viewer
+  panels for Boddie Hymnal & Boddie Drills`. Two new tiles wired into
+  the home grid alongside the existing Hymnal tiles. **Boddie Hymnal**
+  (deep blue `#1F3A5F`, 279 entries) clones Reharm Hymnal's
+  letter-grouped index + search + SVG pane but **drops the level
+  switcher** — Boddie is a single-output style, no L1/L2/L3.
+  **Boddie Drills** (lighter blue `#4178A8`, 131 cards) is a simple
+  card flipper with no index. Both load catalogs from
+  `boddie/boddie_hymns.js` / `boddie/boddie_drills.js`. APK rebuilt +
+  installed on the P90 from this machine.
+- **2026-04-30 lab** — `c64a9a6` `boddie: 131 Boddie Drills cards
+  driven from the Chords.html chord matrix`. Drill set originally a
+  naive 7×4 (RN × key) = 28 grid; user redirected it mid-session to
+  use the (interval-pattern × scale-degree) chord matrix in
+  `shapes/build_chord_table.py` as the basis. Now: one card per
+  chord-bearing matrix cell. Skipped 4 dyad rows (28 cells), the `45`
+  triad row that degenerates to a 4th-dyad name (7 cells), and 2
+  dissonant `(♭9)` cells in row `335` → 131 cards. Each card is a
+  2-bar ABC fragment in C major: bar 1 = drone+bass octave pluck then
+  7-eighth ascending arpeggio of the cell's exact pitch set; bar 2 =
+  wide rolled chord with fermata + the rolled treble vertical above.
+  Titled by the matrix's chord name (`Cmaj7`, `F6/D`, `Bø7`, …).
+  Imports `PATTERNS`, `shape_pitches`, `short_chord_name` from
+  `shapes/build_chord_table.py` so the deck stays in sync if that
+  table is ever extended.
+- **2026-04-30 lab** — `4ab1641` `boddie: add Boddie Hymnal emitter
+  + 279 hymns rendered in Brook Boddie style`. New `boddie/` project
+  modelled on `reharm/hymnal/` but **single-output, no level loop**.
+  User read in *The Brook Boddie Hymnal Vol. 1* (Seraphim Music 2020,
+  16 pieces) and asked the corpus be re-styled in Brook's idiom: bass
+  note + ascending eighth-note arpeggio LH, melody pass-through with
+  octave doubling on cadence bars, `!arpeggio!` rolls on cadence
+  chords + final chord, `!breath!` at non-final phrase ends, fermata
+  + L.V. on the close, `Q:1/4=72 "Slowly, with great expression"`.
+  Harmony is the Reharm L2 14-chord pool (triads lifted to diatonic
+  7ths) — Boddie does NOT reharmonize, just enriches. Range policy
+  for the **47-string pedal harp** (NOT lever harp like Brook's
+  source): C2-G7 regular, C1-C2 LH octave-pluck drone-only on
+  opening + cadence (avoids muddiness), >G7 reserved for glissando
+  flourishes (not yet emitted). Style fingerprint in `boddie/BODDIE.md`;
+  range policy saved in user memory `project_boddie_range_policy.md`.
+  All 279 hymns rendered cleanly (one early failure on
+  `lift_high_the_cross` traced to a final-bar with all-zero-duration
+  events; fix: skip decoration when no voiced token exists).
 - **2026-04-29 home** — `0a9bee4` `shapes/STACKS, viewer fonts:
   caret-digit reference + JuliaMono in viewer`. Reviewed an external
   tarball of harp-theory artifacts (`~/Downloads/harp-theory-artifacts.tar.gz`
