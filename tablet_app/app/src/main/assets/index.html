@@ -126,6 +126,8 @@
   .tile.boddiehymnal { border-color: #1F3A5F; }
   .tile.boddiedrills  .tile-banner { background: #4178A8; }
   .tile.boddiedrills  { border-color: #4178A8; }
+  .tile.boddiesource .tile-banner { background: #6F4A8A; }
+  .tile.boddiesource { border-color: #6F4A8A; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -486,6 +488,48 @@
     flex-shrink: 0;
   }
   #boddiehymnal-controls button { flex: 1; }
+
+  /* ──────── Boddie Source screen (44-page Brook Boddie Hymnal Vol. 1 facsimile) ──────── */
+  #boddiesource { display: none; flex-direction: column; height: 100%; }
+  #boddiesource.active { display: flex; }
+  #boddiesource-banner {
+    padding: 12px 20px;
+    color: #fff;
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0;
+    background: #6F4A8A;
+  }
+  #boddiesource-title { font-size: 22px; font-weight: bold; flex: 1; }
+  #boddiesource-counter {
+    font-size: 18px; font-weight: bold;
+    padding: 6px 14px; border-radius: 18px;
+    background: rgba(255,255,255,0.25); color: #fff;
+    min-width: 90px; text-align: center;
+  }
+  #boddiesource-home-btn {
+    background: rgba(255,255,255,0.25); color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    font-size: 16px; padding: 8px 14px; font-weight: bold;
+  }
+  #boddiesource-home-btn:active { background: rgba(255,255,255,0.45); }
+  #boddiesource-card-area {
+    flex: 1; padding: 8px; overflow: auto;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  #boddiesource-card {
+    background: var(--panel);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px; max-width: 920px; width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  #boddiesource-card img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  #boddiesource-controls {
+    padding: 10px; display: flex; gap: 10px;
+    border-top: 1px solid var(--line); background: var(--panel);
+    flex-shrink: 0;
+  }
+  #boddiesource-controls button { flex: 1; }
 
   /* ──────── Boddie Drills screen (28 figuration cards; lighter blue) ──────── */
   #boddiedrills { display: none; flex-direction: column; height: 100%; }
@@ -963,6 +1007,22 @@
     </footer>
   </section>
 
+  <!-- ════════════════ BODDIE SOURCE (44-page Brook Boddie Hymnal Vol. 1 facsimile) ════════════════ -->
+  <section id="boddiesource">
+    <header id="boddiesource-banner">
+      <button id="boddiesource-home-btn" type="button">&larr; Home</button>
+      <div id="boddiesource-title">The Brook Boddie Hymnal · Vol. 1 (E-flat edition)</div>
+      <div id="boddiesource-counter">0 / 0</div>
+    </header>
+    <div id="boddiesource-card-area">
+      <div id="boddiesource-card"><!-- PNG inserted by JS --></div>
+    </div>
+    <footer id="boddiesource-controls">
+      <button id="boddiesource-btn-prev" type="button">&larr; Prev</button>
+      <button id="boddiesource-btn-next" type="button">Next &rarr;</button>
+    </footer>
+  </section>
+
   <!-- ════════════════ BODDIE DRILLS (Boddie LH arpeggio + RH dyad cards) ════════════════ -->
   <section id="boddiedrills">
     <header id="boddiedrill-banner">
@@ -1111,6 +1171,16 @@
       onTap:  enterBoddieDrills,
     });
     grid.appendChild(boddieDrills);
+
+    // Boddie Source tile — 44-page facsimile of Brook's published volume.
+    const boddieSource = makeTile({
+      family: 'boddiesource',
+      name:   'Boddie Source',
+      rule:   'Brook Boddie Hymnal Vol. 1 · E-flat edition',
+      count:  44,
+      onTap:  enterBoddieSource,
+    });
+    grid.appendChild(boddieSource);
 
     // Reharm tile — FOURTH (sub-page of jazz/pool/substitution/approach/voicing drills).
     const reharmCount = (DATA.jumps || []).length;
@@ -1659,6 +1729,40 @@
     card.appendChild(img);
   }
 
+  // ──────────── Boddie Source (44-page facsimile of Brook's Vol. 1) ────────────
+  let boddieSourcePage = 1;
+  const BODDIE_SOURCE_PAGES = 44;
+
+  function enterBoddieSource() {
+    $('home').style.display = 'none';
+    $('boddiesource').classList.add('active');
+    boddieSourcePage = 1;
+    showBoddieSourcePage();
+  }
+
+  function exitBoddieSource() {
+    $('boddiesource').classList.remove('active');
+    $('home').style.display = 'flex';
+  }
+
+  function showBoddieSourcePage() {
+    if (boddieSourcePage < 1) boddieSourcePage = 1;
+    if (boddieSourcePage > BODDIE_SOURCE_PAGES) boddieSourcePage = BODDIE_SOURCE_PAGES;
+    $('boddiesource-counter').textContent = boddieSourcePage + ' / ' + BODDIE_SOURCE_PAGES;
+    const card = $('boddiesource-card');
+    card.innerHTML = '';
+    const pageStr = (boddieSourcePage < 10 ? '0' : '') + boddieSourcePage;
+    const src = 'boddie/source/page-' + pageStr + '.png';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = 'Page ' + boddieSourcePage;
+    img.onerror = () => {
+      card.innerHTML = '<div class="empty-note">Could not load ' + src + '</div>';
+    };
+    card.appendChild(img);
+    card.scrollTop = 0;
+  }
+
   // ──────────── Retab screen (style drills & RH pocket patterns) ────────────
   let retabIdx = 0;
 
@@ -1993,6 +2097,9 @@
   $('boddiedrill-home-btn').addEventListener('click', exitBoddieDrills);
   $('boddiedrill-btn-prev').addEventListener('click', () => { boddieDrillIdx--; showBoddieDrillCard(); });
   $('boddiedrill-btn-next').addEventListener('click', () => { boddieDrillIdx++; showBoddieDrillCard(); });
+  $('boddiesource-home-btn').addEventListener('click', exitBoddieSource);
+  $('boddiesource-btn-prev').addEventListener('click', () => { boddieSourcePage--; showBoddieSourcePage(); });
+  $('boddiesource-btn-next').addEventListener('click', () => { boddieSourcePage++; showBoddieSourcePage(); });
   $('reharmhymnal-home-btn').addEventListener('click', exitReharmHymnal);
   $('reharmhymnal-btn-prev').addEventListener('click', () => { reharmHymnalIdx--; showReharmHymnalCard(); });
   $('reharmhymnal-btn-next').addEventListener('click', () => { reharmHymnalIdx++; showReharmHymnalCard(); });
