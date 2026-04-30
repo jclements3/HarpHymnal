@@ -68,10 +68,20 @@ This file should never lag `origin/main`.
 
 ---
 
-## Current state (2026-04-27)
+## Current state (2026-04-29)
 
-`origin/main` head moves to this push (Chopin sub-levels L1/L2/L3 on
-all 279 chopin pages). Tablet has the matching APK installed.
+`origin/main` head is `de2681a` — Chopin Hymnal home-screen tile,
+key-signature-aware chopin ABC, and the orphan piano-prototype CLI
+removed. Tablet has the matching APK installed (`com.harp.harphymnal.drills`,
+P90YPDU16Y251200164).
+
+Home grid is now **7 tiles** (added Chopin Hymnal between Reharm
+Hymnal and Reharm): Retab · Retab Hymnal · Reharm Hymnal · **Chopin
+Hymnal (new, deep-purple `#3A1B36`)** · Reharm · Docs · Shapes. The
+new tile taps straight to `shapes/chopin/index.html` (the existing
+A-Z navigator), mirroring how Retab Hymnal / Reharm Hymnal jump
+directly into their hymn lists rather than routing through a
+sub-index.
 
 ### Encoding-system rewrite — in progress this session, not yet committed
 
@@ -258,6 +268,35 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
+- **2026-04-29 home** — `de2681a` `tablet_app: home-screen Chopin
+  Hymnal tile`. New 4th tile on the home grid (deep purple `#3A1B36`,
+  count 279) navigates straight to `shapes/chopin/index.html`. Sits
+  between Reharm Hymnal and Reharm so the three Hymnal tiles cluster
+  visually. Native Android Back from inside chopin returns to the home
+  grid via WebView history. APK reinstalled on the P90.
+- **2026-04-29 home** — `03dbbf3` `shapes/chopin: respect key
+  signature when emitting accidentals`. Fixes a long-running visual
+  bug where every sharped/flatted note in a chopin phrase ABC was
+  marked twice — once via `K:` and once via an explicit `^`/`_`
+  marker on each note. Added `_key_accidentals(root, mode)` (returns
+  `{letter: '#'|'b'}` for what the key sig already alters) and a
+  per-bar `bar_state` dict threaded through `_abc_pitch`,
+  `_melody_to_abc`, `_chord_token`, `_l2_bar_bass_abc`, and
+  `_melody_to_abc_l3`. Now: a pitch matching the key sig emits no
+  marker; a contradicting natural emits `=`; an unusual chromatic
+  still emits `^`/`_` correctly. Verified against G-major (V7's F#
+  goes bare), Eb-major-with-chromatic (`^F` for F#, `=A` for an A
+  natural), and key-sig persistence across the bar. All 279 chopin
+  pages rebuilt + synced into `tablet_app/app/src/main/assets/shapes/chopin/`,
+  APK reinstalled.
+- **2026-04-29 home** — `f57a62e` `shapes/chopin: drop standalone
+  piano-prototype CLI`. Removed the orphan
+  `shapes/chopin/piano/silent_night.html` prototype and the
+  whole-hymn `render_page` / `main` / `build_abc` / `argparse` block
+  from `render_chopin_piano.py` (only the phrase-level
+  `build_phrase_abc{,_l2,_l3}` + `render_phrase_piano_svg{,_l2,_l3}`
+  functions remain — those are what `build_hymn_view.py` actually
+  calls). APK reinstalled.
 - **2026-04-27 home** — Chopin pages now have a 3-level sub-selector:
   **L1 sustained pad** (default — held ATB whole-notes beneath rhythmic
   melody), **L2 arpeggiated** (LH oom-pah-pah: bass quarter on beat 1,
