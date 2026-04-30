@@ -76,11 +76,12 @@ This session landed the entire **Boddie Hymnal** feature end-to-end
 installed on the P90 from this machine; home doesn't need to
 reinstall.
 
-Home grid is now **10 tiles** (added three Boddie tiles after Chopin
-Hymnal): Retab · Retab Hymnal · Reharm Hymnal · Chopin Hymnal ·
-**Boddie Hymnal (new, deep blue `#1F3A5F`, 279)** · **Boddie Drills
-(new, lighter blue `#4178A8`, 131)** · **Boddie Source (new, purple
-`#6F4A8A`, 44 pages)** · Reharm · Docs · Shapes.
+Home grid is now **11 tiles** (added three Boddie tiles after Chopin
+Hymnal plus Eb Shapes after Boddie Source): Retab · Retab Hymnal ·
+Reharm Hymnal · Chopin Hymnal · **Boddie Hymnal (new, deep blue
+`#1F3A5F`, 279)** · **Boddie Drills (new, lighter blue `#4178A8`,
+131)** · **Boddie Source (new, purple `#6F4A8A`, 44 pages)** ·
+**Eb Shapes (new, green `#2C7C5A`, 24)** · Reharm · Docs · Shapes.
 
 The Boddie family is **conceptually orthogonal** to Retab/Reharm/
 Chopin: those families transform texture / harmony / voicing across
@@ -290,6 +291,23 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
+- **2026-04-30 lab** — `eb_shapes: 24 shape-sweep drills for the
+  33-string Eb harp + tablet tile`. New `eb_shapes/build_drills.py`
+  generator that drives from `shapes/build_chord_table.py`'s 24
+  interval-pattern rows. **One drill per shape, NOT per cell** — the
+  user wants to practice the *shape itself*, not every (shape ×
+  scale-degree) instance. Each drill walks every in-range (degree x
+  octave) combination of the shape and renders them as quarter-note
+  rolled chords sorted low→high. Default range: **C2 to G6** (the
+  canonical 33-string Eb lever-harp tuning, 33 diatonic strings
+  inclusive). 21-31 positions per drill depending on shape width
+  (dyad-3 packs 31; tetrad-456 packs 21). All in K:Eb so the harp's
+  natural tuning applies without lever flips. Treble/bass split at G3.
+  New green `#2C7C5A` "Eb Shapes" tile (prev/next card flipper, 24
+  cards). Note: had to drop to `%%scale 0.72` + 22cm pagewidth + 3
+  bars/system to avoid abcm2ps "Line too much shrunk" — adjust upward
+  if the user wants larger notation. APK rebuilt + installed on the
+  P90 from this machine.
 - **2026-04-30 lab** — `2610908` `tablet_app: add Boddie Source tile --
   44-page facsimile of Brook's Vol. 1`. Rasterised the source PDF
   (`The-Brook-Boddie-Hymnal-Vol-1-E-flat-version-j6brq2.pdf`, kept
