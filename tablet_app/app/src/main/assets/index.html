@@ -122,6 +122,10 @@
   .tile.shapes { border-color: #4A2545; }
   .tile.chopinhymnal .tile-banner { background: #3A1B36; }
   .tile.chopinhymnal { border-color: #3A1B36; }
+  .tile.boddiehymnal .tile-banner { background: #1F3A5F; }
+  .tile.boddiehymnal { border-color: #1F3A5F; }
+  .tile.boddiedrills  .tile-banner { background: #4178A8; }
+  .tile.boddiedrills  { border-color: #4178A8; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -387,6 +391,143 @@
     flex-shrink: 0;
   }
   #reharmhymnal-controls button { flex: 1; }
+
+  /* ──────── Boddie Hymnal screen (single-output Brook Boddie style; deep blue) ──────── */
+  #boddiehymnal { display: none; flex-direction: column; height: 100%; }
+  #boddiehymnal.active { display: flex; }
+  #boddiehymnal-banner {
+    padding: 12px 20px;
+    color: #fff;
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0;
+    background: #1F3A5F;
+  }
+  #boddiehymnal-title { font-size: 22px; font-weight: bold; flex: 1; }
+  #boddiehymnal-sub   { font-size: 13px; font-style: italic; opacity: 0.92; }
+  #boddiehymnal-meta  {
+    font-size: 13px; opacity: 0.95;
+    padding: 4px 10px; border-radius: 12px;
+    background: rgba(255,255,255,0.18); margin-right: 8px;
+  }
+  #boddiehymnal-counter {
+    font-size: 18px; font-weight: bold;
+    padding: 6px 14px; border-radius: 18px;
+    background: rgba(255,255,255,0.25); color: #fff;
+    min-width: 90px; text-align: center;
+  }
+  #boddiehymnal-home-btn {
+    background: rgba(255,255,255,0.25); color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    font-size: 16px; padding: 8px 14px; font-weight: bold;
+  }
+  #boddiehymnal-home-btn:active { background: rgba(255,255,255,0.45); }
+  #boddiehymnal-search-bar {
+    padding: 6px 10px; background: #11233D;
+    border-bottom: 1px solid #06121F;
+    display: flex; gap: 8px; align-items: center;
+    flex-shrink: 0;
+  }
+  #boddiehymnal-search {
+    flex: 1; font-size: 15px; padding: 6px 10px;
+    border: 1px solid #06121F; border-radius: 6px;
+    background: #fff; color: #06121F;
+  }
+  #boddiehymnal-count { color: #c4d0e8; font-size: 13px; min-width: 66px; text-align: right; }
+  #boddiehymnal-split { flex: 1; display: flex; min-height: 0; }
+  #boddiehymnal-index {
+    width: 300px; min-width: 220px; background: #06121F; color: #e8eef8;
+    overflow-y: auto; border-right: 1px solid #000; flex-shrink: 0;
+  }
+  .boddiehymnal-letter-group { border-bottom: 1px solid #1c2c46; }
+  .boddiehymnal-letter-header {
+    padding: 10px 16px; font-size: 18px; font-weight: 700;
+    cursor: pointer; background: #11233D; color: #e8eef8;
+    display: flex; justify-content: space-between; align-items: center;
+    user-select: none;
+  }
+  .boddiehymnal-letter-header:hover { background: #1f3a5f; }
+  .boddiehymnal-letter-header .boddiehymnal-letter-count {
+    font-size: 13px; font-weight: 400; color: #c4d0e8;
+  }
+  .boddiehymnal-letter-header::before {
+    content: '▸'; display: inline-block; width: 16px; margin-right: 6px;
+    transition: transform 0.1s ease;
+  }
+  .boddiehymnal-letter-group.open .boddiehymnal-letter-header::before { transform: rotate(90deg); }
+  .boddiehymnal-letter-items { display: none; background: #06121F; }
+  .boddiehymnal-letter-group.open .boddiehymnal-letter-items { display: block; }
+  .boddiehymnal-item {
+    padding: 9px 16px 9px 38px; cursor: pointer; font-size: 15px;
+    color: #d6e0ef; border-bottom: 1px solid #11233D; line-height: 1.3;
+  }
+  .boddiehymnal-item:hover { background: #1c2c46; }
+  .boddiehymnal-item.selected { background: #1F3A5F; color: #fff; font-weight: 600; }
+  .boddiehymnal-item-num { color: #a0b4d8; font-size: 12px; margin-right: 6px; font-variant-numeric: tabular-nums; }
+  .boddiehymnal-item.selected .boddiehymnal-item-num { color: #d6e0ff; }
+  .boddiehymnal-item-meta { font-size: 11px; color: #6a7a9b; }
+  .boddiehymnal-item.selected .boddiehymnal-item-meta { color: #c8d6f4; }
+  #boddiehymnal-pane {
+    flex: 1; overflow: auto; background: var(--bg);
+    padding: 8px;
+    display: flex; flex-direction: column; align-items: center;
+    min-width: 0;
+  }
+  #boddiehymnal-card {
+    background: var(--panel);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px; width: 100%; max-width: 1100px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  #boddiehymnal-card svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  #boddiehymnal-card .empty-note { padding: 40px; color: var(--muted); text-align: center; }
+  #boddiehymnal-controls {
+    padding: 10px; display: flex; gap: 10px;
+    border-top: 1px solid var(--line); background: var(--panel);
+    flex-shrink: 0;
+  }
+  #boddiehymnal-controls button { flex: 1; }
+
+  /* ──────── Boddie Drills screen (28 figuration cards; lighter blue) ──────── */
+  #boddiedrills { display: none; flex-direction: column; height: 100%; }
+  #boddiedrills.active { display: flex; }
+  #boddiedrill-banner {
+    padding: 12px 20px;
+    color: #fff;
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0;
+    background: #4178A8;
+  }
+  #boddiedrill-title { font-size: 22px; font-weight: bold; flex: 1; }
+  #boddiedrill-counter {
+    font-size: 18px; font-weight: bold;
+    padding: 6px 14px; border-radius: 18px;
+    background: rgba(255,255,255,0.25); color: #fff;
+    min-width: 90px; text-align: center;
+  }
+  #boddiedrill-home-btn {
+    background: rgba(255,255,255,0.25); color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    font-size: 16px; padding: 8px 14px; font-weight: bold;
+  }
+  #boddiedrill-home-btn:active { background: rgba(255,255,255,0.45); }
+  #boddiedrill-card-area {
+    flex: 1; padding: 8px; overflow: auto;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  #boddiedrill-card {
+    background: var(--panel);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px; width: 100%; max-width: 1100px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  #boddiedrill-card svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  #boddiedrill-controls {
+    padding: 10px; display: flex; gap: 10px;
+    border-top: 1px solid var(--line); background: var(--panel);
+    flex-shrink: 0;
+  }
+  #boddiedrill-controls button { flex: 1; }
 
   /* ──────── Reharm sub-page (jazz/pool/substitution/approach/voicing tiles) ──────── */
   #reharm { display: none; flex-direction: column; height: 100%; padding: 20px; }
@@ -668,6 +809,8 @@
 <script src="retab/retab_drills.js"></script>
 <script src="retab/retab_hymns.js"></script>
 <script src="reharm/reharm_hymns.js"></script>
+<script src="boddie/boddie_hymns.js"></script>
+<script src="boddie/boddie_drills.js"></script>
 </head>
 <body>
 <div id="app">
@@ -793,6 +936,49 @@
     </footer>
   </section>
 
+  <!-- ════════════════ BODDIE HYMNAL (Brook Boddie style; single output, no levels) ════════════════ -->
+  <section id="boddiehymnal">
+    <header id="boddiehymnal-banner">
+      <button id="boddiehymnal-home-btn" type="button">&larr; Home</button>
+      <div style="flex:1; display:flex; flex-direction:column;">
+        <div id="boddiehymnal-title">—</div>
+        <div id="boddiehymnal-sub"></div>
+      </div>
+      <div id="boddiehymnal-meta"></div>
+      <div id="boddiehymnal-counter">0 / 0</div>
+    </header>
+    <div id="boddiehymnal-search-bar">
+      <input id="boddiehymnal-search" type="search" placeholder="Search title or 042…" autocomplete="off" />
+      <span id="boddiehymnal-count"></span>
+    </div>
+    <div id="boddiehymnal-split">
+      <nav id="boddiehymnal-index"><!-- A-Z collapsible groups --></nav>
+      <div id="boddiehymnal-pane">
+        <div id="boddiehymnal-card"><!-- SVG inserted by JS --></div>
+      </div>
+    </div>
+    <footer id="boddiehymnal-controls">
+      <button id="boddiehymnal-btn-prev" type="button">&larr; Prev</button>
+      <button id="boddiehymnal-btn-next" type="button">Next &rarr;</button>
+    </footer>
+  </section>
+
+  <!-- ════════════════ BODDIE DRILLS (Boddie LH arpeggio + RH dyad cards) ════════════════ -->
+  <section id="boddiedrills">
+    <header id="boddiedrill-banner">
+      <button id="boddiedrill-home-btn" type="button">&larr; Home</button>
+      <div id="boddiedrill-title">—</div>
+      <div id="boddiedrill-counter">0 / 0</div>
+    </header>
+    <div id="boddiedrill-card-area">
+      <div id="boddiedrill-card"><!-- SVG inserted by JS --></div>
+    </div>
+    <footer id="boddiedrill-controls">
+      <button id="boddiedrill-btn-prev" type="button">&larr; Prev</button>
+      <button id="boddiedrill-btn-next" type="button">Next &rarr;</button>
+    </footer>
+  </section>
+
   <!-- ════════════════ REHARM (jazz/pool/substitution/approach/voicing tiles) ════════════════ -->
   <section id="reharm">
     <h1 id="reharm-header">
@@ -903,6 +1089,28 @@
       onTap:  () => { window.location.href = 'shapes/chopin/index.html'; },
     });
     grid.appendChild(chopinHymnal);
+
+    // Boddie Hymnal tile — Brook Boddie style figuration (single output).
+    const boddieHymnalCount = (window.BODDIE_HYMNS || []).length;
+    const boddieHymnal = makeTile({
+      family: 'boddiehymnal',
+      name:   'Boddie Hymnal',
+      rule:   'Brook Boddie style · LH arp + rolled chords',
+      count:  boddieHymnalCount || '↗',
+      onTap:  enterBoddieHymnal,
+    });
+    grid.appendChild(boddieHymnal);
+
+    // Boddie Drills tile — figuration practice cards.
+    const boddieDrillCount = (window.BODDIE_DRILLS || []).length;
+    const boddieDrills = makeTile({
+      family: 'boddiedrills',
+      name:   'Boddie Drills',
+      rule:   'arpeggio + rolled-chord cards · 7 RNs × 4 keys',
+      count:  boddieDrillCount || '↗',
+      onTap:  enterBoddieDrills,
+    });
+    grid.appendChild(boddieDrills);
 
     // Reharm tile — FOURTH (sub-page of jazz/pool/substitution/approach/voicing drills).
     const reharmCount = (DATA.jumps || []).length;
@@ -1274,6 +1482,183 @@
     card.appendChild(img);
   }
 
+  // ──────────── Boddie Hymnal (single-output Brook Boddie style; no levels) ────────────
+  let boddieHymnalIdx = 0;
+
+  function enterBoddieHymnal() {
+    if (!window.BODDIE_HYMNS || !window.BODDIE_HYMNS.length) {
+      alert('Boddie Hymnal data not loaded.');
+      return;
+    }
+    $('home').style.display = 'none';
+    $('boddiehymnal').classList.add('active');
+    $('boddiehymnal-search').value = '';
+    boddieHymnalIdx = 0;
+    renderBoddieHymnalIndex('');
+    showBoddieHymnalCard();
+  }
+
+  function exitBoddieHymnal() {
+    $('boddiehymnal').classList.remove('active');
+    $('home').style.display = 'flex';
+  }
+
+  function renderBoddieHymnalIndex(query) {
+    const idx = $('boddiehymnal-index');
+    idx.innerHTML = '';
+    const q = (query || '').trim().toLowerCase();
+    const all = window.BODDIE_HYMNS || [];
+    const matches = q
+      ? all.filter(h => h.title.toLowerCase().includes(q)
+                     || (h.num || '').includes(q)
+                     || (h.slug || '').toLowerCase().includes(q))
+      : all;
+    $('boddiehymnal-count').textContent = matches.length + ' / ' + all.length;
+
+    const groups = {};
+    for (const h of matches) {
+      const t = (h.title || '').replace(/^['"]+/, '');
+      const letter = /[A-Z]/i.test(t[0]) ? t[0].toUpperCase() : '#';
+      (groups[letter] = groups[letter] || []).push(h);
+    }
+    const letters = Object.keys(groups).sort((a, b) => {
+      if (a === '#') return 1;
+      if (b === '#') return -1;
+      return a.localeCompare(b);
+    });
+
+    for (const letter of letters) {
+      const hymns = groups[letter];
+      const group = document.createElement('div');
+      group.className = 'boddiehymnal-letter-group';
+      group.dataset.letter = letter;
+      if (q) group.classList.add('open');
+
+      const header = document.createElement('div');
+      header.className = 'boddiehymnal-letter-header';
+      header.innerHTML =
+        '<span>' + escapeHtml(letter) + '</span>' +
+        '<span class="boddiehymnal-letter-count">' + hymns.length + '</span>';
+      header.addEventListener('click', () => group.classList.toggle('open'));
+      group.appendChild(header);
+
+      const items = document.createElement('div');
+      items.className = 'boddiehymnal-letter-items';
+      for (const h of hymns) {
+        const item = document.createElement('div');
+        item.className = 'boddiehymnal-item';
+        const realIdx = (window.BODDIE_HYMNS || []).indexOf(h);
+        if (realIdx === boddieHymnalIdx) item.classList.add('selected');
+        const meta = [h.key, h.meter].filter(Boolean).join(' · ');
+        const numSpan = h.num ? '<span class="boddiehymnal-item-num">' + escapeHtml(h.num) + '</span>' : '';
+        item.innerHTML =
+          numSpan + escapeHtml(h.title) +
+          (meta ? '<div class="boddiehymnal-item-meta">' + escapeHtml(meta) + '</div>' : '');
+        item.addEventListener('click', () => {
+          boddieHymnalIdx = realIdx;
+          renderBoddieHymnalIndex($('boddiehymnal-search').value);
+          showBoddieHymnalCard();
+        });
+        items.appendChild(item);
+      }
+      group.appendChild(items);
+      idx.appendChild(group);
+    }
+
+    if (!matches.length) {
+      idx.innerHTML = '<div class="empty-note" style="color:#a0b4d8; padding:20px">No hymns match.</div>';
+    }
+  }
+
+  function showBoddieHymnalCard() {
+    const hymns = window.BODDIE_HYMNS || [];
+    const n = hymns.length;
+    if (!n) return;
+    if (boddieHymnalIdx < 0) boddieHymnalIdx = 0;
+    if (boddieHymnalIdx >= n) boddieHymnalIdx = n - 1;
+    const h = hymns[boddieHymnalIdx];
+
+    const prefix = h.num ? h.num + '. ' : '';
+    $('boddiehymnal-title').textContent = prefix + h.title;
+    $('boddiehymnal-sub').textContent = [h.key, h.meter].filter(Boolean).join(' · ');
+    $('boddiehymnal-meta').textContent = h.bars + ' bars';
+    $('boddiehymnal-counter').textContent = (boddieHymnalIdx + 1) + ' / ' + n;
+
+    const firstLetter = (h.title || '').replace(/^['"]+/, '')[0] || '';
+    const letter = /[A-Z]/i.test(firstLetter) ? firstLetter.toUpperCase() : '#';
+    const group = document.querySelector(
+      '.boddiehymnal-letter-group[data-letter="' + letter + '"]');
+    if (group) group.classList.add('open');
+    document.querySelectorAll('.boddiehymnal-item.selected')
+      .forEach(el => el.classList.remove('selected'));
+    const items = document.querySelectorAll('.boddiehymnal-item');
+    for (const el of items) {
+      if (el.textContent.startsWith(h.num || '') && el.textContent.includes(h.title)) {
+        el.classList.add('selected');
+        el.scrollIntoView({ block: 'nearest' });
+        break;
+      }
+    }
+
+    const card = $('boddiehymnal-card');
+    card.innerHTML = '';
+    const svgPath = h.svg;
+    const img = document.createElement('img');
+    img.src = svgPath;
+    img.alt = h.title;
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.display = 'block';
+    img.style.margin = '0 auto';
+    img.onerror = () => {
+      card.innerHTML = '<div class="empty-note">Could not load ' + svgPath + '</div>';
+    };
+    card.appendChild(img);
+  }
+
+  // ──────────── Boddie Drills (figuration practice cards) ────────────
+  let boddieDrillIdx = 0;
+
+  function enterBoddieDrills() {
+    if (!window.BODDIE_DRILLS || !window.BODDIE_DRILLS.length) {
+      alert('Boddie Drills data not loaded.');
+      return;
+    }
+    $('home').style.display = 'none';
+    $('boddiedrills').classList.add('active');
+    boddieDrillIdx = 0;
+    showBoddieDrillCard();
+  }
+
+  function exitBoddieDrills() {
+    $('boddiedrills').classList.remove('active');
+    $('home').style.display = 'flex';
+  }
+
+  function showBoddieDrillCard() {
+    const drills = window.BODDIE_DRILLS || [];
+    const n = drills.length;
+    if (!n) return;
+    if (boddieDrillIdx < 0) boddieDrillIdx = 0;
+    if (boddieDrillIdx >= n) boddieDrillIdx = n - 1;
+    const d = drills[boddieDrillIdx];
+    $('boddiedrill-title').textContent = d.title;
+    $('boddiedrill-counter').textContent = (boddieDrillIdx + 1) + ' / ' + n;
+    const card = $('boddiedrill-card');
+    card.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = d.svg;
+    img.alt = d.title;
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.display = 'block';
+    img.style.margin = '0 auto';
+    img.onerror = () => {
+      card.innerHTML = '<div class="empty-note">Could not load ' + d.svg + '</div>';
+    };
+    card.appendChild(img);
+  }
+
   // ──────────── Retab screen (style drills & RH pocket patterns) ────────────
   let retabIdx = 0;
 
@@ -1601,6 +1986,13 @@
   });
 
   // Reharm Hymnal screen button wiring
+  $('boddiehymnal-home-btn').addEventListener('click', exitBoddieHymnal);
+  $('boddiehymnal-btn-prev').addEventListener('click', () => { boddieHymnalIdx--; showBoddieHymnalCard(); });
+  $('boddiehymnal-btn-next').addEventListener('click', () => { boddieHymnalIdx++; showBoddieHymnalCard(); });
+  $('boddiehymnal-search').addEventListener('input', (e) => renderBoddieHymnalIndex(e.target.value));
+  $('boddiedrill-home-btn').addEventListener('click', exitBoddieDrills);
+  $('boddiedrill-btn-prev').addEventListener('click', () => { boddieDrillIdx--; showBoddieDrillCard(); });
+  $('boddiedrill-btn-next').addEventListener('click', () => { boddieDrillIdx++; showBoddieDrillCard(); });
   $('reharmhymnal-home-btn').addEventListener('click', exitReharmHymnal);
   $('reharmhymnal-btn-prev').addEventListener('click', () => { reharmHymnalIdx--; showReharmHymnalCard(); });
   $('reharmhymnal-btn-next').addEventListener('click', () => { reharmHymnalIdx++; showReharmHymnalCard(); });
