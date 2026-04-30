@@ -1,0 +1,140 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[letterpaper,landscape,top=0.35in,bottom=0.35in,left=0.35in,right=0.35in]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[table]{xcolor}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{bandcol}{HTML}{F0F4F8}
+\definecolor{naturalcol}{HTML}{1F4E79}
+\definecolor{rarecol}{HTML}{8A8A8A}
+\definecolor{hdrcol}{HTML}{2C3E50}
+\definecolor{accentcol}{HTML}{C0605A}
+
+% accidentals
+\newcommand{\sh}{$\sharp$}
+\newcommand{\fl}{$\flat$}
+\newcommand{\dsh}{$\times$}
+\newcommand{\dfl}{$\flat\flat$}
+
+% spelling shortcuts
+\newcommand{\nat}[1]{{\color{naturalcol}\bfseries #1}}     % natural / common
+\newcommand{\rare}[1]{{\color{rarecol}#1}}                  % rare double accidentals
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Chromatic Notes \& Their Interval Aliases}\quad
+{\itshape Same pitch, different name --- because intervals are letter-distance, not sound.}
+\end{center}
+\vspace{-2mm}
+
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{4pt}
+
+\newcommand{\TBLHEAD}{%
+\rowcolor{hdrcol}
+{\color{white}\bfseries\#} &
+{\color{white}\bfseries Spellings (natural \& enharmonic)} &
+{\color{white}\bfseries Interval names from C} &
+{\color{white}\bfseries Where you meet it} \\
+}
+
+\begin{minipage}[t]{0.498\linewidth}
+\rowcolors{2}{white}{bandcol}
+\begin{tabular}{@{}>{\centering\arraybackslash}p{4mm}
+                  >{\raggedright\arraybackslash}p{27mm}
+                  >{\raggedright\arraybackslash}p{34mm}
+                  >{\raggedright\arraybackslash}p{56mm}@{}}
+\TBLHEAD
+0 & \nat{C} \,/\, D\dfl \,/\, B\sh
+  & P1 \,/\, d2 \,/\, A7
+  & C is tonic; B\sh\ from F\sh\ major \\
+1 & \nat{C\sh} \,/\, \nat{D\fl} \,/\, \rare{B\dsh}
+  & A1 \,/\, m2 \,/\, \rare{AA7}
+  & sharp keys vs.\ flat keys \\
+2 & \nat{D} \,/\, \rare{C\dsh} \,/\, E\dfl
+  & M2 \,/\, \rare{AA1} \,/\, d3
+  & E\dfl\ in strict dim7 spellings \\
+3 & \nat{D\sh} \,/\, \nat{E\fl} \,/\, \rare{F\dfl}
+  & A2 \,/\, m3 \,/\, \rare{dd4}
+  & D\sh\ = harmonic-minor (\fl 6 to \sh 7) \\
+4 & \nat{E} \,/\, F\fl \,/\, \rare{D\dsh}
+  & M3 \,/\, d4 \,/\, \rare{AA2}
+  & F\fl\ in melodic-minor harmony \\
+5 & \nat{F} \,/\, E\sh \,/\, \rare{G\dfl}
+  & P4 \,/\, A3 \,/\, \rare{dd5}
+  & E\sh\ from F\sh/C\sh\ major \\
+6 & \nat{F\sh} \,/\, \nat{G\fl} \,/\, \rare{E\dsh}
+  & A4 \,/\, d5 \,/\, \rare{AA3}
+  & \textbf{the tritone}; F\sh\ up, G\fl\ down \\
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.498\linewidth}
+\rowcolors{2}{white}{bandcol}
+\begin{tabular}{@{}>{\centering\arraybackslash}p{4mm}
+                  >{\raggedright\arraybackslash}p{27mm}
+                  >{\raggedright\arraybackslash}p{34mm}
+                  >{\raggedright\arraybackslash}p{56mm}@{}}
+\TBLHEAD
+7  & \nat{G} \,/\, \rare{F\dsh} \,/\, A\dfl
+   & P5 \,/\, \rare{AA4} \,/\, d6
+   & F\dsh\ in deep sharp keys \\
+8  & \nat{G\sh} \,/\, \nat{A\fl}
+   & A5 \,/\, m6
+   & G\sh\ in augmented triads (C\,E\,G\sh) \\
+9  & \nat{A} \,/\, \rare{G\dsh} \,/\, B\dfl
+   & M6 \,/\, \rare{AA5} \,/\, \textbf{d7}
+   & B\dfl\ = the d7 in every \textbf{dim7 chord} \\
+10 & \nat{A\sh} \,/\, \nat{B\fl} \,/\, \rare{C\dfl}
+   & \textbf{A6} \,/\, m7 \,/\, \rare{dd8}
+   & A\sh\ = the A6 in \textbf{German +6 chords} \\
+11 & \nat{B} \,/\, C\fl \,/\, \rare{A\dsh}
+   & M7 \,/\, d8 \,/\, \rare{AA6}
+   & C\fl\ from G\fl\ major \\
+12 & \nat{C} \,/\, B\sh \,/\, D\dfl
+   & P8 \,/\, A7 \,/\, d9
+   & octave; usually written P8 \\[4pt]
+\end{tabular}
+\end{minipage}
+
+\vspace{2mm}
+
+\begin{minipage}[t]{0.32\linewidth}
+\colorbox{bandcol}{%
+\begin{minipage}{0.95\linewidth}\vspace{1mm}
+\textbf{The rule.}\\[1pt]
+Count letter-names first (C\,$\to$\,D\,$\to$\,E\dots\ inclusive of both ends gives the interval \emph{number}); \emph{then} adjust quality with accidentals.\\[2pt]
+C-to-B is always a 7th, no matter what accidentals attach. Sharpening the B to B\sh\ makes it an \emph{augmented} 7th --- never a unison, even though it sounds like one.
+\vspace{1mm}\end{minipage}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\colorbox{bandcol}{%
+\begin{minipage}{0.95\linewidth}\vspace{1mm}
+\textbf{Quality cycle (letter-distance fixed)}\\[1pt]
+\emph{Perfect} intervals (1, 4, 5, 8):\\
+\quad dd $\to$ d $\to$ \textbf{P} $\to$ A $\to$ AA\\[2pt]
+\emph{Major/minor} intervals (2, 3, 6, 7):\\
+\quad dd $\to$ d $\to$ \textbf{m} $\to$ \textbf{M} $\to$ A $\to$ AA\\[2pt]
+Each step = 1 semitone. A = augmented, d = diminished; doubled = AA / dd.
+\vspace{1mm}\end{minipage}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\colorbox{bandcol}{%
+\begin{minipage}{0.95\linewidth}\vspace{1mm}
+\textbf{Why the spelling matters.}\\[1pt]
+Enharmonic equivalence is about \emph{pitch}; interval naming is about \emph{spelling} --- two coordinate systems that happen to land on the same key.\\[2pt]
+Notation, voice leading, and key signatures all live in spelling-space, so the ``wrong'' enharmonic obscures function (e.g.\ a German +6 spelled as a dominant 7th hides its resolution to V).
+\vspace{1mm}\end{minipage}}
+\end{minipage}
+
+\vspace{1.5mm}
+{\small\itshape Reading guide: \nat{Bold blue} = the natural, in-the-wild spelling for that pitch. Plain = a forced spelling that arises in a specific key or chord. \rare{Grey} = theoretical / extremely rare in real repertoire. Bold black names in the table (\textbf{d7}, \textbf{A6}) flag the two enharmonic spellings that are the \emph{normal} ones in real harmony.}
+
+\end{document}

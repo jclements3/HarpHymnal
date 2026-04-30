@@ -20,7 +20,7 @@ import subprocess
 from pathlib import Path
 
 HERE = Path(__file__).parent
-DOCS = ['QRG', 'README', 'DRILLS', 'SAMPLES', 'HANDOUT', 'VERIFY', 'HANDOFF', 'NEXTSESSION']
+DOCS = ['QRG', 'README', 'DRILLS', 'SAMPLES', 'HANDOUT', 'STACKS', 'VERIFY', 'HANDOFF', 'NEXTSESSION']
 
 DEG_RE = re.compile(r'\^([1-7])')
 

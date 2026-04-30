@@ -52,8 +52,35 @@ button, a { font: inherit; color: inherit; }
 button { background: none; border: 0; padding: 0; cursor: pointer; }
 a { text-decoration: none; }
 
-code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+/* JuliaMono — anchors combining circumflex (U+0302) correctly over digit
+   glyphs so `1̂` reads as a clean LaTeX-style hat. Most system monospace
+   fonts (and DejaVu Sans Mono) let the hat drift onto the next glyph. */
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('font/JuliaMono-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'JuliaMono';
+  src: url('font/JuliaMono-SemiBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+code { font-family: 'JuliaMono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
        font-size: 0.9em; }
+
+/* Caret-digit (scale-degree) marker: shape-encoding docs and the
+   STACKS reference write `^N` in markdown which the build pass rewrites
+   as `<span class="deg">N̂</span>`. The span forces JuliaMono so the
+   combining hat sits squarely over the digit, and tints in accent
+   colour for visual contrast. */
+.deg {
+  font-family: 'JuliaMono', ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color: var(--accent);
+  font-weight: bold;
+}
 
 /* ──────────────────────────── topbar ──────────────────────────── */
 
