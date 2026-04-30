@@ -128,6 +128,8 @@
   .tile.boddiedrills  { border-color: #4178A8; }
   .tile.boddiesource .tile-banner { background: #6F4A8A; }
   .tile.boddiesource { border-color: #6F4A8A; }
+  .tile.ebshapes    .tile-banner { background: #2C7C5A; }
+  .tile.ebshapes    { border-color: #2C7C5A; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -488,6 +490,48 @@
     flex-shrink: 0;
   }
   #boddiehymnal-controls button { flex: 1; }
+
+  /* ──────── Eb Shapes screen (24 sweep drills for the 33-string Eb harp) ──────── */
+  #ebshapes { display: none; flex-direction: column; height: 100%; }
+  #ebshapes.active { display: flex; }
+  #ebshapes-banner {
+    padding: 12px 20px;
+    color: #fff;
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0;
+    background: #2C7C5A;
+  }
+  #ebshapes-title { font-size: 22px; font-weight: bold; flex: 1; }
+  #ebshapes-counter {
+    font-size: 18px; font-weight: bold;
+    padding: 6px 14px; border-radius: 18px;
+    background: rgba(255,255,255,0.25); color: #fff;
+    min-width: 90px; text-align: center;
+  }
+  #ebshapes-home-btn {
+    background: rgba(255,255,255,0.25); color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    font-size: 16px; padding: 8px 14px; font-weight: bold;
+  }
+  #ebshapes-home-btn:active { background: rgba(255,255,255,0.45); }
+  #ebshapes-card-area {
+    flex: 1; padding: 8px; overflow: auto;
+    background: var(--bg);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  #ebshapes-card {
+    background: var(--panel);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px; max-width: 1100px; width: 100%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  #ebshapes-card svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  #ebshapes-controls {
+    padding: 10px; display: flex; gap: 10px;
+    border-top: 1px solid var(--line); background: var(--panel);
+    flex-shrink: 0;
+  }
+  #ebshapes-controls button { flex: 1; }
 
   /* ──────── Boddie Source screen (44-page Brook Boddie Hymnal Vol. 1 facsimile) ──────── */
   #boddiesource { display: none; flex-direction: column; height: 100%; }
@@ -855,6 +899,7 @@
 <script src="reharm/reharm_hymns.js"></script>
 <script src="boddie/boddie_hymns.js"></script>
 <script src="boddie/boddie_drills.js"></script>
+<script src="eb_shapes/eb_shape_drills.js"></script>
 </head>
 <body>
 <div id="app">
@@ -1004,6 +1049,22 @@
     <footer id="boddiehymnal-controls">
       <button id="boddiehymnal-btn-prev" type="button">&larr; Prev</button>
       <button id="boddiehymnal-btn-next" type="button">Next &rarr;</button>
+    </footer>
+  </section>
+
+  <!-- ════════════════ EB SHAPES (24 sweep drills for the 33-string Eb harp) ════════════════ -->
+  <section id="ebshapes">
+    <header id="ebshapes-banner">
+      <button id="ebshapes-home-btn" type="button">&larr; Home</button>
+      <div id="ebshapes-title">—</div>
+      <div id="ebshapes-counter">0 / 0</div>
+    </header>
+    <div id="ebshapes-card-area">
+      <div id="ebshapes-card"><!-- SVG inserted by JS --></div>
+    </div>
+    <footer id="ebshapes-controls">
+      <button id="ebshapes-btn-prev" type="button">&larr; Prev</button>
+      <button id="ebshapes-btn-next" type="button">Next &rarr;</button>
     </footer>
   </section>
 
@@ -1181,6 +1242,17 @@
       onTap:  enterBoddieSource,
     });
     grid.appendChild(boddieSource);
+
+    // Eb Shapes tile — one sweep drill per shape, 33-string Eb harp.
+    const ebShapeCount = (window.EB_SHAPE_DRILLS || []).length;
+    const ebShapes = makeTile({
+      family: 'ebshapes',
+      name:   'Eb Shapes',
+      rule:   '33-string Eb harp · low → high sweep · one drill per shape',
+      count:  ebShapeCount || '↗',
+      onTap:  enterEbShapes,
+    });
+    grid.appendChild(ebShapes);
 
     // Reharm tile — FOURTH (sub-page of jazz/pool/substitution/approach/voicing drills).
     const reharmCount = (DATA.jumps || []).length;
@@ -1729,6 +1801,49 @@
     card.appendChild(img);
   }
 
+  // ──────────── Eb Shapes (one sweep drill per shape, 33-string Eb harp) ────────────
+  let ebShapesIdx = 0;
+
+  function enterEbShapes() {
+    if (!window.EB_SHAPE_DRILLS || !window.EB_SHAPE_DRILLS.length) {
+      alert('Eb Shapes data not loaded.');
+      return;
+    }
+    $('home').style.display = 'none';
+    $('ebshapes').classList.add('active');
+    ebShapesIdx = 0;
+    showEbShapesCard();
+  }
+
+  function exitEbShapes() {
+    $('ebshapes').classList.remove('active');
+    $('home').style.display = 'flex';
+  }
+
+  function showEbShapesCard() {
+    const drills = window.EB_SHAPE_DRILLS || [];
+    const n = drills.length;
+    if (!n) return;
+    if (ebShapesIdx < 0) ebShapesIdx = 0;
+    if (ebShapesIdx >= n) ebShapesIdx = n - 1;
+    const d = drills[ebShapesIdx];
+    $('ebshapes-title').textContent = d.title + '   (' + d.iterations + ' positions)';
+    $('ebshapes-counter').textContent = (ebShapesIdx + 1) + ' / ' + n;
+    const card = $('ebshapes-card');
+    card.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = d.svg;
+    img.alt = d.title;
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.display = 'block';
+    img.style.margin = '0 auto';
+    img.onerror = () => {
+      card.innerHTML = '<div class="empty-note">Could not load ' + d.svg + '</div>';
+    };
+    card.appendChild(img);
+  }
+
   // ──────────── Boddie Source (44-page facsimile of Brook's Vol. 1) ────────────
   let boddieSourcePage = 1;
   const BODDIE_SOURCE_PAGES = 44;
@@ -2100,6 +2215,9 @@
   $('boddiesource-home-btn').addEventListener('click', exitBoddieSource);
   $('boddiesource-btn-prev').addEventListener('click', () => { boddieSourcePage--; showBoddieSourcePage(); });
   $('boddiesource-btn-next').addEventListener('click', () => { boddieSourcePage++; showBoddieSourcePage(); });
+  $('ebshapes-home-btn').addEventListener('click', exitEbShapes);
+  $('ebshapes-btn-prev').addEventListener('click', () => { ebShapesIdx--; showEbShapesCard(); });
+  $('ebshapes-btn-next').addEventListener('click', () => { ebShapesIdx++; showEbShapesCard(); });
   $('reharmhymnal-home-btn').addEventListener('click', exitReharmHymnal);
   $('reharmhymnal-btn-prev').addEventListener('click', () => { reharmHymnalIdx--; showReharmHymnalCard(); });
   $('reharmhymnal-btn-next').addEventListener('click', () => { reharmHymnalIdx++; showReharmHymnalCard(); });
