@@ -120,6 +120,8 @@
   .tile.docs { border-color: #1F4E79; }
   .tile.shapes       .tile-banner { background: #4A2545; }
   .tile.shapes { border-color: #4A2545; }
+  .tile.chopinhymnal .tile-banner { background: #3A1B36; }
+  .tile.chopinhymnal { border-color: #3A1B36; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -891,6 +893,16 @@
       onTap:  enterReharmHymnal,
     });
     grid.appendChild(reharmHymnal);
+
+    // Chopin Hymnal tile — voice-led 4-voice pad applied to hymns (L1/L2/L3).
+    const chopinHymnal = makeTile({
+      family: 'chopinhymnal',
+      name:   'Chopin Hymnal',
+      rule:   'voice-led pad · L1 / L2 / L3',
+      count:  279,
+      onTap:  () => { window.location.href = 'shapes/chopin/index.html'; },
+    });
+    grid.appendChild(chopinHymnal);
 
     // Reharm tile — FOURTH (sub-page of jazz/pool/substitution/approach/voicing drills).
     const reharmCount = (DATA.jumps || []).length;
