@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shape Drills</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: 'JuliaMono';
+    font-weight: 400;
+    src: url('https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Regular.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JuliaMono';
+    font-weight: 500;
+    src: url('https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Medium.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'JuliaMono';
+    font-weight: 700;
+    src: url('https://cdn.jsdelivr.net/gh/cormullion/juliamono/webfonts/JuliaMono-Bold.woff2') format('woff2');
+    font-display: swap;
+  }
+</style>
+
+<style>
+  :root {
+    --paper: #f3ecdc;
+    --paper-dark: #e8dfc8;
+    --ink: #1a1612;
+    --ink-soft: #4a3f33;
+    --rule: #c5b896;
+    --accent: #8b2a1a;
+    --accent-dark: #6a1f12;
+    --gold: #a8741a;
+    --rh: #8b2a1a;
+    --lh: #2a4d6e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'EB Garamond', 'Hoefler Text', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  body {
+    background-image:
+      radial-gradient(ellipse at top left, rgba(139,42,26,0.04), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(168,116,26,0.05), transparent 60%);
+    padding: 2rem 1rem 4rem;
+  }
+  .frame { max-width: 1080px; margin: 0 auto; }
+
+  header.masthead {
+    border-top: 4px double var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 1.5rem 0 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  header.masthead h1 {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: 0.01em;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  header.masthead .sub {
+    font-family: 'JuliaMono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  header.masthead .sub::before,
+  header.masthead .sub::after { content: ' \00b7 '; color: var(--accent); }
+  .intro {
+    max-width: 760px;
+    margin: 1.4rem auto 0;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .intro em { color: var(--accent); font-style: italic; }
+  .intro code {
+    font-family: 'JuliaMono', monospace;
+    font-size: 0.92em;
+    background: var(--paper-dark);
+    padding: 0.1rem 0.3rem;
+    border: 1px solid var(--rule);
+  }
+
+  .picker {
+    margin: 1.5rem 0 1.4rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.2rem 0;
+  }
+  .picker-label {
+    font-family: 'JuliaMono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-bottom: 0.9rem;
+  }
+  .picker-label span.mark { color: var(--accent); }
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 4px;
+  }
+  @media (max-width: 900px) { .keys { grid-template-columns: repeat(8, 1fr); } }
+  @media (max-width: 480px) { .keys { grid-template-columns: repeat(5, 1fr); } }
+  .key-btn {
+    font-family: 'JuliaMono', monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: var(--paper-dark);
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 0.55rem 0.4rem 0.5rem;
+    cursor: pointer;
+    transition: background 0.12s ease, color 0.12s ease;
+    border-radius: 0;
+    line-height: 1;
+    position: relative;
+  }
+  .key-btn:hover { background: var(--ink); color: var(--paper); }
+  .key-btn.active {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent-dark);
+    box-shadow: inset 0 0 0 2px var(--paper);
+  }
+
+  .settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 1rem;
+    align-items: baseline;
+    justify-content: center;
+    font-family: 'JuliaMono', monospace;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+  }
+  .settings > span {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+  }
+  .toggle {
+    display: inline-flex;
+    border: 1px solid var(--ink);
+    background: var(--paper-dark);
+    margin-left: 0.5rem;
+  }
+  .toggle button {
+    font-family: 'JuliaMono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    background: transparent;
+    color: var(--ink);
+    border: none;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+  .toggle button + button { border-left: 1px solid var(--ink); }
+  .toggle button:hover { background: rgba(26,22,18,0.08); }
+  .toggle button.active { background: var(--ink); color: var(--paper); }
+  .toggle .range-detail {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-top: 0.2rem;
+    opacity: 0.7;
+  }
+
+  .scale-card {
+    background: var(--paper-dark);
+    border: 1px solid var(--ink);
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .scale-card::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+  .scale-card h2 {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+  .scale-card .scale-display {
+    font-family: 'JuliaMono', monospace;
+    font-size: 1.05rem;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    margin-top: 0.6rem;
+  }
+  .scale-card .scale-display .note {
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    margin-right: 0.2rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .scale-card .meta {
+    font-family: 'JuliaMono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin-top: 0.7rem;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+    justify-content: center;
+    font-family: 'JuliaMono', monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin: 0.4rem 0 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .legend.hidden { display: none; }
+  .legend .swatch { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .legend .swatch .ch { font-weight: 700; font-size: 1rem; letter-spacing: 0; }
+  .legend .lh-mark { color: var(--lh); }
+  .legend .rh-mark { color: var(--rh); }
+
+  pre.drills {
+    font-family: 'JuliaMono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    background: #fbf6e8;
+    border: 1px solid var(--rule);
+    padding: 1.3rem 1.4rem;
+    overflow-x: auto;
+    color: var(--ink);
+    white-space: pre;
+    box-shadow: 0 1px 0 var(--rule), 0 2px 4px rgba(26,22,18,0.04);
+  }
+  pre.drills.wide { font-size: 0.7rem; }
+  pre.drills .section-title { color: var(--accent); font-weight: 700; }
+  pre.drills .section-blurb { color: var(--ink-soft); font-style: italic; font-family: 'EB Garamond', serif; font-size: 0.95rem; }
+  pre.drills .header-strings { color: var(--ink); font-weight: 700; }
+  pre.drills .header-degrees { color: var(--gold); }
+  pre.drills .played { color: var(--ink); font-weight: 500; }
+  pre.drills .played-rh { color: var(--rh); font-weight: 700; }
+  pre.drills .played-lh { color: var(--lh); font-weight: 700; }
+  pre.drills .unplayed { color: rgba(26,22,18,0.22); }
+  pre.drills .symbol { color: var(--accent); font-weight: 500; }
+  pre.drills .equiv { color: var(--ink-soft); }
+  pre.drills .chord-name { color: var(--ink); font-weight: 700; }
+  pre.drills .comment { color: var(--ink-soft); font-style: italic; font-family: 'EB Garamond', serif; font-size: 0.92rem; }
+  pre.drills .shape-tag { color: var(--accent); font-weight: 700; font-size: 1rem; }
+  pre.drills .shape-desc { color: var(--ink-soft); font-style: italic; font-family: 'EB Garamond', serif; font-size: 0.95rem; }
+  pre.drills .chord-roster { color: var(--ink-soft); font-family: 'EB Garamond', serif; font-size: 0.92rem; }
+  pre.drills .chord-roster b { color: var(--ink); font-weight: 600; font-style: normal; }
+
+  footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-family: 'JuliaMono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+  }
+  footer .ornament { color: var(--accent); margin: 0 0.5rem; }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <header class="masthead">
+    <h1>Shape Drills</h1>
+    <div class="sub">Single-hand stacks &amp; polychords &middot; grouped by hand-shape</div>
+    <p class="intro">
+      A merged catalog of single-hand chord drills and two-hand polychords,
+      with a <em>By Shape</em> mode that collapses every chord to its underlying
+      interval-step pattern. Practice each shape once and you cover every chord
+      that uses it. Notation: <code>33</code> = up a 3rd, then up another 3rd
+      (a stacked triad). <code>33~3~33</code> = LH triad, jump up a 3rd, RH triad.
+    </p>
+  </header>
+
+  <div class="picker">
+    <div class="picker-label">Set the levers <span class="mark">&rarr;</span> Pick a key</div>
+    <div class="keys" id="keys"></div>
+  </div>
+
+  <div class="settings">
+    <span>Harp</span>
+    <div class="toggle" id="harp-toggle">
+      <button data-harp="lever" class="active">Lever 30<span class="range-detail">C2 - D6</span></button>
+      <button data-harp="pedal">Pedal 47<span class="range-detail">C1 - G7</span></button>
+    </div>
+    <span>Mode</span>
+    <div class="toggle" id="mode-toggle">
+      <button data-mode="catalog" class="active">Catalog</button>
+      <button data-mode="shapes">By Shape</button>
+    </div>
+    <span>Show</span>
+    <div class="toggle" id="scope-toggle">
+      <button data-scope="all" class="active">All</button>
+      <button data-scope="single">Single hand</button>
+      <button data-scope="poly">Polychords</button>
+    </div>
+  </div>
+
+  <div id="scale-card-wrap"></div>
+
+  <div class="legend" id="legend">
+    <span class="swatch"><span class="ch lh-mark">C</span> Left hand (lower triad)</span>
+    <span class="swatch"><span class="ch rh-mark">G</span> Right hand (upper triad)</span>
+  </div>
+
+  <pre class="drills" id="output"></pre>
+
+  <footer>
+    a tool for harpists <span class="ornament">&#10086;</span> shape over name <span class="ornament">&#10086;</span> let the strings ring
+  </footer>
+
+</div>
+
+<script>
+// ============================================================================
+// THEORY HELPERS
+// ============================================================================
+const KEYS = [
+  ['Cb','C','b'],['Gb','G','b'],['Db','D','b'],['Ab','A','b'],
+  ['Eb','E','b'],['Bb','B','b'],['F','F',''],['C','C',''],
+  ['G','G',''],['D','D',''],['A','A',''],['E','E',''],
+  ['B','B',''],['F#','F','#'],['C#','C','#'],
+];
+const LETTERS = ['C','D','E','F','G','A','B'];
+const NATURAL_PC = {C:0,D:2,E:4,F:5,G:7,A:9,B:11};
+const MAJOR_STEPS = [0,2,4,5,7,9,11];
+const ACC_MAP = {'':'','#':'♯','b':'♭','bb':'𝄫','x':'𝄪'};
+const DIATONIC_QUALITY = {1:'maj',2:'min',3:'min',4:'maj',5:'maj',6:'min',7:'dim'};
+
+function buildScale(tonicLetter, tonicAcc) {
+  const tonicIdx = LETTERS.indexOf(tonicLetter);
+  const tonicPc = ((NATURAL_PC[tonicLetter] +
+                    (tonicAcc === '#' ? 1 : tonicAcc === 'b' ? -1 : 0)) % 12 + 12) % 12;
+  const scale = [];
+  for (let i = 0; i < 7; i++) {
+    const letter = LETTERS[(tonicIdx + i) % 7];
+    const targetPc = (tonicPc + MAJOR_STEPS[i]) % 12;
+    const naturalPc = NATURAL_PC[letter];
+    let diff = ((targetPc - naturalPc) % 12 + 12) % 12;
+    if (diff > 6) diff -= 12;
+    let acc;
+    if (diff === 0) acc = '';
+    else if (diff === 1) acc = '#';
+    else if (diff === -1) acc = 'b';
+    else if (diff === 2) acc = 'x';
+    else if (diff === -2) acc = 'bb';
+    else acc = '?' + diff;
+    scale.push([letter, acc]);
+  }
+  return scale;
+}
+
+function buildStrings(scale, bassLetter, bassOctave, numStrings) {
+  const letterToDegree = {};
+  scale.forEach(([l,a], i) => { letterToDegree[l] = [i+1, a]; });
+  const bassIdx = LETTERS.indexOf(bassLetter);
+  const out = [];
+  for (let i = 0; i < numStrings; i++) {
+    const letter = LETTERS[(bassIdx + i) % 7];
+    let crossings = 0;
+    for (let step = 0; step < i; step++) {
+      const nextPos = (bassIdx + step + 1) % 7;
+      if (nextPos === 0) crossings++;
+    }
+    const octave = bassOctave + crossings;
+    const [degree, acc] = letterToDegree[letter];
+    out.push({letter, accidental: acc, degree, octave, idx: i});
+  }
+  return out;
+}
+
+function fmtNote(letter, acc) {
+  return letter + (ACC_MAP[acc] !== undefined ? ACC_MAP[acc] : acc);
+}
+
+function combineAccidentals(scaleAcc, symbolAcc) {
+  const offsets = {'':0,'#':1,'b':-1,'x':2,'bb':-2,'♯':1,'♭':-1};
+  const total = (offsets[scaleAcc] || 0) + (offsets[symbolAcc] || 0);
+  if (total === 0) return '';
+  if (total === 1) return '#';
+  if (total === -1) return 'b';
+  if (total === 2) return 'x';
+  if (total === -2) return 'bb';
+  return '?' + total;
+}
+
+function chordNameForSymbol(symbol, scale) {
+  const slashIdx = symbol.indexOf('/');
+  let mainPart, bassPart;
+  if (slashIdx >= 0) { mainPart = symbol.slice(0, slashIdx); bassPart = symbol.slice(slashIdx + 1); }
+  else { mainPart = symbol; bassPart = null; }
+  const re = /^([♭♯])?(\d)̂(.*)$/;
+  const m = mainPart.match(re);
+  if (!m) return symbol;
+  const rootAcc = m[1] || '';
+  const rootDeg = parseInt(m[2], 10);
+  const quality = m[3];
+  const [letter, scaleAcc] = scale[rootDeg - 1];
+  let chordAcc = scaleAcc;
+  if (rootAcc) chordAcc = combineAccidentals(scaleAcc, rootAcc);
+  let chordName = fmtNote(letter, chordAcc) + quality;
+  if (bassPart !== null) {
+    const bm = bassPart.match(re);
+    if (bm) {
+      const bAccSym = bm[1] || '';
+      const bDeg = parseInt(bm[2], 10);
+      const bExtra = bm[3];
+      const [bLetter, bScaleAcc] = scale[bDeg - 1];
+      let bAcc = bScaleAcc;
+      if (bAccSym) bAcc = combineAccidentals(bScaleAcc, bAccSym);
+      chordName += '/' + fmtNote(bLetter, bAcc) + bExtra;
+    } else { chordName += '/' + bassPart; }
+  }
+  return chordName;
+}
+
+function chordSymbolFromTriad(rootDeg, scale) {
+  const [letter, acc] = scale[rootDeg - 1];
+  const q = DIATONIC_QUALITY[rootDeg];
+  let suffix = '';
+  if (q === 'min') suffix = 'm';
+  else if (q === 'dim') suffix = '°';
+  return fmtNote(letter, acc) + suffix;
+}
+
+function visualWidth(s) {
+  let w = 0;
+  for (const ch of s) {
+    const cp = ch.codePointAt(0);
+    if (cp >= 0x0300 && cp <= 0x036F) continue;
+    w++;
+  }
+  return w;
+}
+function padVisual(s, width) {
+  const vw = visualWidth(s);
+  return vw < width ? s + ' '.repeat(width - vw) : s;
+}
+
+function escapeHTML(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// ============================================================================
+// SHAPE COMPUTATION
+// ============================================================================
+// Interval name from scale-degree a UP to next b: 1->3 = 3rd, 5->2 = 5th, etc.
+function intervalUp(a, b) {
+  const steps = (((b - a - 1) % 7) + 7) % 7 + 1;
+  return steps + 1;
+}
+function singleShape(stack) {
+  const gaps = [];
+  for (let i = 0; i < stack.length - 1; i++) gaps.push(intervalUp(stack[i], stack[i+1]));
+  return gaps.join('');
+}
+function polyShape(lhd, rhd) {
+  const top = ((lhd - 1 + 4) % 7) + 1;
+  return '33~' + intervalUp(top, rhd) + '~33';
+}
+
+// Plain-English description for common shapes (pedagogical hints).
+const SHAPE_DESC = {
+  '5':       'just a fifth (root + 5) - the open power chord',
+  '24':      'second + fourth - sus2 (3 replaced by 2)',
+  '33':      'third + third - root-position triad',
+  '34':      'third + fourth - first-inversion triad (3rd in bass)',
+  '42':      'fourth + second - sus4 (3 replaced by 4)',
+  '43':      'fourth + third - second-inversion triad (5th in bass)',
+  '44':      'fourth + fourth - quartal three-note voicing',
+  '233':     'second + third + third - 7th chord, 3rd in bass',
+  '323':     'third + second + third - 7th chord, 5th in bass',
+  '332':     'third + third + second - 7th chord 1st inv (also 6 chord, m6)',
+  '333':     'three thirds - root-position 7th chord',
+  '335':     'third + third + fifth - add9 (root + triad + 9 above)',
+  '337':     'third + third + seventh - add11 (root + triad + 11 above)',
+  '423':     'fourth + second + third - 7th sus (sus 7th, delayed resolution)',
+  '433':     'fourth + third + third - tonic triad over IV pedal (or 1/5 voicing)',
+  '444':     'three fourths - quartal four-note (Dorian / open)',
+  '533':     'fifth + third + third - ii minor over V pedal (pre-cadential)',
+  '633':     'sixth + third + third - relative minor over tonic pedal',
+  '733':     'seventh + third + third - subdominant over dominant pedal',
+  '3324':    'three+three+two+four - 6/9 chord (triad + 6 + 9)',
+  '3333':    'four thirds - root-position 9th chord',
+  '4444':    'four fourths - quartal five-note (“So What” voicing)',
+  '5333':    'fifth + three thirds - V7 over tonic pedal (V/I drone)',
+  '33333':   'five thirds - root-position 11th chord',
+  '33335':   'four thirds + fifth - 13th chord skipping the 11',
+  '333333':  'six thirds - full diatonic 13th chord (all 7 scale degrees)',
+  '33~2~33': 'LH triad, step up a 2nd, RH triad - tight stack (e.g. 1̂~6̂)',
+  '33~3~33': 'LH triad, up a 3rd, RH triad - layered diatonic stack',
+  '33~5~33': 'LH triad, up a 5th, RH triad - dominant-spaced (e.g. 4̂~5̂)',
+  '33~6~33': 'LH triad, up a 6th, RH triad - wide pre-octave gap',
+  '33~7~33': 'LH triad, up a 7th, RH triad - near-octave gap',
+  '33~8~33': 'LH triad, full octave gap, RH triad - widest spacing',
+};
+
+// ============================================================================
+// SINGLE-HAND CATALOG (from drills.html)
+// ============================================================================
+const SECTIONS_SINGLE = [
+  ["Diatonic triads (root position)", [
+    [[1,3,5], "1̂", "tonic, the home chord ({1} {3} {5})"],
+    [[2,4,6], "2̂m", "supertonic minor ({2} {4} {6})"],
+    [[3,5,7], "3̂m", "mediant minor, tonic substitute ({3} {5} {7})"],
+    [[4,6,1], "4̂", "subdominant ({4} {6} {1})"],
+    [[5,7,2], "5̂", "dominant ({5} {7} {2})"],
+    [[6,1,3], "6̂m", "submediant minor, relative minor ({6} {1} {3})"],
+    [[7,2,4], "7̂°", "leading-tone diminished ({7} {2} {4})"],
+  ]],
+  ["Triad inversions (first inversion = 3rd in bass)", [
+    [[3,5,1], "1̂/3̂", "tonic, 3rd in bass"],
+    [[4,6,2], "2̂m/4̂", "supertonic minor, 3rd in bass"],
+    [[5,7,3], "3̂m/5̂", "mediant minor, 3rd in bass"],
+    [[6,1,4], "4̂/6̂", "subdominant, 3rd in bass"],
+    [[7,2,5], "5̂/7̂", "dominant in first inversion (smooth approach to 1̂)"],
+    [[1,3,6], "6̂m/1̂", "submediant minor, 3rd in bass"],
+    [[2,4,7], "7̂°/2̂", "leading-tone diminished, 3rd in bass"],
+  ]],
+  ["Triad inversions (second inversion = 5th in bass)", [
+    [[5,1,3], "1̂/5̂", "tonic, 5th in bass (cadential 6/4)"],
+    [[6,2,4], "2̂m/6̂", "supertonic minor, 5th in bass"],
+    [[7,3,5], "3̂m/7̂", "mediant minor, 5th in bass"],
+    [[1,4,6], "4̂/1̂", "subdominant over tonic pedal"],
+    [[2,5,7], "5̂/2̂", "dominant, 5th in bass"],
+    [[3,6,1], "6̂m/3̂", "submediant minor, 5th in bass"],
+    [[4,7,2], "7̂°/4̂", "leading-tone diminished, 5th in bass"],
+  ]],
+  ["Diatonic seventh chords (root position)", [
+    [[1,3,5,7], "1̂Δ", "tonic major 7"],
+    [[2,4,6,1], "2̂m7", "ii7, the most common predominant"],
+    [[3,5,7,2], "3̂m7", "iii7, tonic substitute"],
+    [[4,6,1,3], "4̂Δ", "IV major 7"],
+    [[5,7,2,4], "5̂7", "dominant 7"],
+    [[6,1,3,5], "6̂m7", "vi7, relative minor 7"],
+    [[7,2,4,6], "7̂⌀", "half-diminished, rootless dominant"],
+  ]],
+  ["Seventh chord inversions (3rd in bass)", [
+    [[3,5,7,1], "1̂Δ/3̂", "tonic major 7, 3rd in bass"],
+    [[4,6,1,2], "2̂m7/4̂", "ii7, 3rd in bass"],
+    [[6,1,3,4], "4̂Δ/6̂", "IV major 7, 3rd in bass"],
+    [[7,2,4,5], "5̂7/7̂", "dominant 7, 3rd in bass - common voice-leading to 1̂"],
+    [[1,3,5,6], "6̂m7/1̂", "vi7, 3rd in bass (same notes as 1̂6)"],
+  ]],
+  ["Seventh chord inversions (5th and 7th in bass)", [
+    [[5,7,1,3], "1̂Δ/5̂", "tonic major 7, 5th in bass"],
+    [[7,1,3,5], "1̂Δ/7̂", "tonic major 7, 7th in bass - moody"],
+    [[2,4,5,7], "5̂7/2̂", "dominant 7, 5th in bass"],
+    [[4,5,7,2], "5̂7/4̂", "dominant 7, 7th in bass - leans hard to 3̂"],
+    [[1,2,4,6], "2̂m7/1̂", "ii7, 7th in bass"],
+  ]],
+  ["Sixth chords (major triad + major 6th)", [
+    [[1,3,5,6], "1̂6", "tonic 6 (same notes as 6̂m7)"],
+    [[4,6,1,2], "4̂6", "IV6 (same notes as 2̂m7)"],
+    [[5,7,2,3], "5̂6", "V6 - uncommon but playable"],
+  ]],
+  ["Minor sixth chord (only one diatonic option)", [
+    [[2,4,6,7], "2̂m6", "ii minor 6 (Dorian flavor)"],
+  ]],
+  ["Suspended 2nd chords (sus2)", [
+    [[1,2,5], "1̂sus2", "tonic with 2 replacing 3"],
+    [[2,3,6], "2̂sus2", "supertonic sus2"],
+    [[4,5,1], "4̂sus2", "subdominant sus2"],
+    [[5,6,2], "5̂sus2", "dominant sus2"],
+    [[6,7,3], "6̂sus2", "submediant sus2"],
+  ]],
+  ["Suspended 4th chords (sus4)", [
+    [[1,4,5], "1̂sus", "tonic with 4 replacing 3"],
+    [[2,5,6], "2̂sus", "supertonic sus4"],
+    [[3,6,7], "3̂sus", "mediant sus4"],
+    [[5,1,2], "5̂sus", "dominant sus, delays resolution"],
+    [[6,2,3], "6̂sus", "submediant sus4"],
+  ]],
+  ["Power chords (root + 5th, no 3rd)", [
+    [[1,5], "1̂5", "tonic power chord"],
+    [[2,6], "2̂5", "supertonic power chord"],
+    [[3,7], "3̂5", "mediant power chord"],
+    [[4,1], "4̂5", "subdominant power chord"],
+    [[5,2], "5̂5", "dominant power chord"],
+    [[6,3], "6̂5", "submediant power chord"],
+  ]],
+  ["add9 chords (triad + 9, no 7)", [
+    [[1,3,5,2], "1̂add9", "tonic add 9"],
+    [[2,4,6,3], "2̂madd9", "ii minor add 9"],
+    [[4,6,1,5], "4̂add9", "IV add 9"],
+    [[5,7,2,6], "5̂add9", "V add 9"],
+    [[6,1,3,7], "6̂madd9", "vi minor add 9"],
+  ]],
+  ["add11 chords (triad + 11, no 7)", [
+    [[1,3,5,4], "1̂add11", "tonic add 11 (rare - 3-4 clash)"],
+    [[2,4,6,5], "2̂madd11", "ii minor add 11"],
+    [[3,5,7,6], "3̂madd11", "iii minor add 11"],
+    [[5,7,2,1], "5̂add11", "V add 11 (clash - usually voiced sus)"],
+    [[6,1,3,2], "6̂madd11", "vi minor add 11"],
+    [[7,2,4,3], "7̂°add11", "vii° add 11"],
+    [[4,6,1,7], "4̂add♯11", "IV Lydian add ♯11 (the diatonic 7̂)"],
+  ]],
+  ["6/9 chords", [
+    [[1,3,5,6,2], "1̂6/9", "tonic 6/9, very harp-friendly"],
+    [[4,6,1,2,5], "4̂6/9", "IV 6/9"],
+    [[5,7,2,3,6], "5̂6/9", "V 6/9"],
+  ]],
+  ["Minor 6/9", [
+    [[2,4,6,7,3], "2̂m6/9", "ii minor 6/9 - Dorian-flavored"],
+  ]],
+  ["9th chords (7th + 9)", [
+    [[1,3,5,7,2], "1̂Δ9", "tonic major 9"],
+    [[2,4,6,1,3], "2̂m9", "ii minor 9"],
+    [[3,5,7,2,4], "3̂m♭9", "iii minor with diatonic ♭9 - dissonant"],
+    [[4,6,1,3,5], "4̂Δ9", "IV major 9"],
+    [[5,7,2,4,6], "5̂9", "dominant 9"],
+    [[6,1,3,5,7], "6̂m9", "vi minor 9"],
+    [[7,2,4,6,1], "7̂⌀♭9", "half-dim with diatonic ♭9"],
+  ]],
+  ["11th chords", [
+    [[2,4,6,1,3,5], "2̂m11", "ii minor 11"],
+    [[3,5,7,2,4,6], "3̂m11", "iii minor 11 (♭9 still present)"],
+    [[4,6,1,3,5,7], "4̂Δ♯11", "IV Lydian - the 11 here IS ♯11"],
+    [[5,7,2,4,6,1], "5̂11", "dominant 11 - clashes; usually voiced as 5̂9sus"],
+    [[6,1,3,5,7,2], "6̂m11", "vi minor 11"],
+    [[7,2,4,6,1,3], "7̂⌀11", "half-dim 11"],
+  ]],
+  ["13th chords", [
+    [[1,3,5,7,2,6], "1̂Δ13", "tonic major 13 (skip 11 - would clash)"],
+    [[2,4,6,1,3,5,7], "2̂m13", "ii minor 13 - full diatonic Dorian stack"],
+    [[4,6,1,3,5,7,2], "4̂Δ13", "IV Lydian 13 - all 7 scale degrees"],
+    [[5,7,2,4,6,3], "5̂13", "dominant 13 (skip the 11)"],
+    [[6,1,3,5,7,2,4], "6̂m♭13", "vi minor 13 - the 13 here is ♭13"],
+  ]],
+  ["Seventh chord suspensions", [
+    [[5,1,2,4], "5̂7sus", "dominant 7 sus - classic delayed-resolution"],
+    [[1,4,5,7], "1̂Δsus", "tonic major 7 sus"],
+    [[2,5,6,1], "2̂m7sus", "ii sus 7"],
+    [[6,2,3,5], "6̂m7sus", "vi sus 7"],
+  ]],
+  ["Pedal-tone slash chords", [
+    [[1,4,6,1], "4̂/1̂", "subdominant over tonic pedal"],
+    [[5,4,6,1], "4̂/5̂", "subdominant over dominant pedal"],
+    [[5,1,3,5], "1̂/5̂", "tonic over dominant pedal - opening sound"],
+    [[1,2,4,6], "2̂m/1̂", "ii minor over tonic pedal - moody"],
+    [[5,2,4,6], "2̂m/5̂", "ii minor over dominant pedal - pre-cadential"],
+    [[1,6,1,3], "6̂m/1̂", "relative minor over tonic pedal"],
+    [[1,3,5,7], "3̂m/1̂", "mediant minor over tonic pedal (same notes as 1̂Δ)"],
+    [[1,5,7,2,4], "5̂7/1̂", "dominant 7 over tonic pedal - V over I drone"],
+  ]],
+  ["Quartal three-note voicings (stacked 4ths)", [
+    [[1,4,7], "1̂q", "tonic quartal - contains tritone"],
+    [[2,5,1], "2̂q", "supertonic quartal - open sound"],
+    [[3,6,2], "3̂q", "mediant quartal"],
+    [[4,7,3], "4̂q", "subdominant quartal - contains tritone"],
+    [[5,1,4], "5̂q", "dominant quartal"],
+    [[6,2,5], "6̂q", "submediant quartal"],
+    [[7,3,6], "7̂q", "leading-tone quartal"],
+  ]],
+  ["Quartal four-note voicings", [
+    [[1,4,7,3], "1̂q4", "tonic quartal, 4 notes"],
+    [[2,5,1,4], "2̂q4", "supertonic quartal - Dorian flavor"],
+    [[3,6,2,5], "3̂q4", "mediant quartal, 4 notes"],
+    [[5,1,4,7], "5̂q4", "dominant quartal, 4 notes"],
+    [[6,2,5,1], "6̂q4", "submediant quartal, 4 notes"],
+  ]],
+  ["Quartal five-note voicings (“So What” style)", [
+    [[2,5,1,4,7], "2̂q5", "five-note quartal - Dorian vamp voicing"],
+    [[3,6,2,5,1], "3̂q5", "five-note quartal on 3̂"],
+    [[5,1,4,7,3], "5̂q5", "five-note quartal on 5̂"],
+    [[6,2,5,1,4], "6̂q5", "five-note quartal on 6̂"],
+  ]],
+];
+
+// ============================================================================
+// POLYCHORD CATALOG (from polychords.html)
+// ============================================================================
+const SECTIONS_POLY = [
+  ["Triads stacked over 1̂  (tonic colors)",
+   "Lower hand holds the tonic. The upper hand selects the extension flavor.",
+   [
+     [1,5, "1̂9 13", "dominant over tonic - the open, suspended-tonic sound"],
+     [1,6, "1̂6/9", "submediant over tonic - the classic shimmering 6/9"],
+     [1,2, "1̂̂9", "supertonic over tonic - 1̂ with 9 and 11 stacked above"],
+     [1,3, "1̂̂9 (no root in RH)", "mediant over tonic - same notes as 1̂Δ with 9 added"],
+     [1,7, "1̂̂9", "leading-tone diminished over tonic - dense, all upper extensions"],
+   ]],
+  ["Triads stacked over 2̂m  (Dorian colors)",
+   "Lower hand holds the supertonic minor. Upper triads add 9, 11, 13.",
+   [
+     [2,4, "2̂m11", "subdominant over supertonic - a thick m11"],
+     [2,1, "2̂m11 13", "tonic over supertonic - supertonic with 11 and 13"],
+     [2,5, "2̂m11", "dominant over supertonic - floats between 5̂sus and 2̂m11"],
+     [2,3, "2̂m9 11", "mediant over supertonic - layered 9 and 11"],
+     [2,6, "2̂m9", "submediant over supertonic - 9 and 11 with no 7 to clash"],
+   ]],
+  ["Triads stacked over 4̂  (Lydian colors)",
+   "Lower hand holds the subdominant. Upper triads naturally produce Lydian ♯11 and major 13 voicings.",
+   [
+     [4,5, "4̂Δ♯11 13", "dominant over subdominant - the bright Lydian 13"],
+     [4,1, "4̂̂9 13", "tonic over subdominant - 1̂/4̂ sound, gospel-flavored"],
+     [4,2, "4̂̂9", "supertonic over subdominant - 4̂̂9, smooth"],
+     [4,3, "4̂Δ♯11", "mediant over subdominant - the floating Lydian sound"],
+     [4,6, "4̂6/9", "submediant over subdominant - a 4̂ 6/9 voicing"],
+   ]],
+  ["Triads stacked over 5̂  (dominant colors)",
+   "Lower hand holds the dominant. Upper triads give 9, 11, 13 and sus colors.",
+   [
+     [5,1, "5̂11sus", "tonic over dominant - the iconic suspended dominant"],
+     [5,2, "5̂13 (no 11)", "supertonic over dominant - 5̂13 voicing"],
+     [5,4, "5̂13sus", "subdominant over dominant - full pre-cadential tension"],
+     [5,6, "5̂9 13", "submediant over dominant - 6̂m7 over 5̂ = 5̂13 sound"],
+     [5,3, "5̂11", "mediant over dominant - thick; the 11 (=4̂) clashes lightly"],
+     [5,7, "5̂9", "leading-tone over dominant - 5̂9 with sharper edge"],
+   ]],
+  ["Triads stacked over 6̂m  (relative-minor colors)",
+   "Lower hand holds the submediant minor. Upper triads color the relative minor with 9s and 11s.",
+   [
+     [6,1, "6̂m9", "tonic over submediant - 6̂m9, gentle"],
+     [6,2, "6̂m11", "supertonic over submediant - 6̂m11"],
+     [6,5, "6̂m11 13", "dominant over submediant - the full Aeolian extension"],
+     [6,4, "6̂m11", "subdominant over submediant - same notes as 4̂6/9"],
+     [6,3, "6̂m̂9", "mediant over submediant - dense, contains all of 1̂Δ"],
+   ]],
+  ["Triads stacked over 3̂m  (Phrygian colors)",
+   "Lower hand holds the mediant minor. Upper triads add 11 and ♭13.",
+   [
+     [3,4, "3̂m11", "subdominant over mediant - 4̂ over 3̂m gives a m11 sound"],
+     [3,1, "3̂m♭13", "tonic over mediant - the ♭13 gives a Phrygian flavor"],
+     [3,2, "3̂m11", "supertonic over mediant - stacked 11s"],
+     [3,6, "3̂m♭13", "submediant over mediant - same notes as 1̂̂9 rooted lower"],
+     [3,5, "3̂m♭13 (rare)", "dominant over mediant - dense, exotic"],
+   ]],
+  ["Triads stacked over 7̂°  (leading-tone colors)",
+   "Lower hand holds the leading-tone diminished.",
+   [
+     [7,1, "5̂9 (rootless)", "tonic over leading-tone - the classic rootless V9"],
+     [7,2, "7̂⌀11", "supertonic over leading-tone - 7̂⌀11"],
+     [7,4, "7̂⌀11", "subdominant over leading-tone - same notes, different bass weight"],
+     [7,5, "5̂79 (variant)", "dominant over leading-tone - a strong pull to 1̂"],
+   ]],
+];
+
+// ============================================================================
+// PLACEMENT
+// ============================================================================
+// Single-hand: stack walks up the harp, looping the pattern to the top.
+function renderVoicing(stack, strings) {
+  const placements = [];
+  let bassIdx = null;
+  for (const s of strings) {
+    if (s.degree === stack[0]) { bassIdx = s.idx; break; }
+  }
+  if (bassIdx === null) return null;
+  placements.push(bassIdx);
+  let stackPos = 1;
+  while (true) {
+    const targetDeg = stack[stackPos % stack.length];
+    const prev = placements[placements.length - 1];
+    let nextIdx = null;
+    for (const s of strings) {
+      if (s.idx > prev && s.degree === targetDeg) { nextIdx = s.idx; break; }
+    }
+    if (nextIdx === null) break;
+    placements.push(nextIdx);
+    stackPos++;
+  }
+  const set = new Set(placements);
+  let out = '';
+  for (const s of strings) out += set.has(s.idx) ? s.letter : '.';
+  return out;
+}
+
+// Polychord: LH triad in root pos at bottom, RH triad in root pos above LH-top.
+function placeTriad(rootDeg, strings, startAfterIdx) {
+  const third = ((rootDeg - 1 + 2) % 7) + 1;
+  const fifth = ((rootDeg - 1 + 4) % 7) + 1;
+  const wantSeq = [rootDeg, third, fifth];
+  const positions = [];
+  let searchStart = startAfterIdx + 1;
+  for (const want of wantSeq) {
+    let found = null;
+    for (let i = searchStart; i < strings.length; i++) {
+      if (strings[i].degree === want) { found = i; break; }
+    }
+    if (found === null) return null;
+    positions.push(found);
+    searchStart = found + 1;
+  }
+  return positions;
+}
+function renderPolychordPlacement(lhRoot, rhRoot, strings) {
+  const lhPos = placeTriad(lhRoot, strings, -1);
+  if (!lhPos) return null;
+  const rhPos = placeTriad(rhRoot, strings, lhPos[lhPos.length - 1]);
+  if (!rhPos) return null;
+  return { lhPositions: lhPos, rhPositions: rhPos };
+}
+
+// ============================================================================
+// COLORIZED ROW BUILDERS
+// ============================================================================
+function colorizeSingle(rowStr) {
+  let out = '';
+  for (const ch of rowStr) {
+    if (ch === '.') out += '<span class="unplayed">.</span>';
+    else out += '<span class="played">' + escapeHTML(ch) + '</span>';
+  }
+  return out;
+}
+function colorizePoly(strings, lhSet, rhSet) {
+  let out = '';
+  for (const s of strings) {
+    if (lhSet.has(s.idx)) out += '<span class="played-lh">' + escapeHTML(s.letter) + '</span>';
+    else if (rhSet.has(s.idx)) out += '<span class="played-rh">' + escapeHTML(s.letter) + '</span>';
+    else out += '<span class="unplayed">.</span>';
+  }
+  return out;
+}
+
+function formatComment(template, scale) {
+  let out = template;
+  for (let d = 1; d <= 7; d++) {
+    const [l, a] = scale[d - 1];
+    out = out.split('{' + d + '}').join(fmtNote(l, a));
+  }
+  return out;
+}
+
+// ============================================================================
+// CATALOG MODE - render sections in their original organization
+// ============================================================================
+function buildCatalogHTML(scope, scale, strings) {
+  // First pass: gather rows + measure column widths
+  const singleRows = [];
+  const polyRows = [];
+  let maxSym = 0, maxName = 0, maxEquiv = 0;
+
+  if (scope === 'all' || scope === 'single') {
+    for (const [title, items] of SECTIONS_SINGLE) {
+      const rows = [];
+      for (const [stack, symbol, commentTemplate] of items) {
+        const row = renderVoicing(stack, strings);
+        if (!row || row.length !== strings.length) continue;
+        const chordName = chordNameForSymbol(symbol, scale);
+        const comment = formatComment(commentTemplate, scale);
+        const shape = singleShape(stack);
+        rows.push({ row, symbol, chordName, comment, shape });
+        maxSym = Math.max(maxSym, visualWidth(symbol));
+        maxName = Math.max(maxName, visualWidth(chordName));
+      }
+      if (rows.length) singleRows.push({ title, rows });
+    }
+  }
+
+  if (scope === 'all' || scope === 'poly') {
+    for (const [title, blurb, items] of SECTIONS_POLY) {
+      const rows = [];
+      for (const [lh, rh, equivalent, comment] of items) {
+        const placement = renderPolychordPlacement(lh, rh, strings);
+        if (!placement) continue;
+        const symbol = String(rh) + '̂~' + String(lh) + '̂';
+        const letterStack = chordSymbolFromTriad(rh, scale) + '~' + chordSymbolFromTriad(lh, scale);
+        const shape = polyShape(lh, rh);
+        rows.push({
+          lhSet: new Set(placement.lhPositions),
+          rhSet: new Set(placement.rhPositions),
+          symbol, letterStack, equivalent, comment, shape,
+        });
+        maxSym = Math.max(maxSym, visualWidth(symbol));
+        maxName = Math.max(maxName, visualWidth(letterStack));
+        maxEquiv = Math.max(maxEquiv, visualWidth(equivalent));
+      }
+      if (rows.length) polyRows.push({ title, blurb, rows });
+    }
+  }
+
+  let html = '';
+  for (const { title, rows } of singleRows) {
+    html += '\n<span class="section-title">-- ' + escapeHTML(title) + ' --</span>\n';
+    for (const { row, symbol, chordName, comment, shape } of rows) {
+      html += colorizeSingle(row);
+      html += '  <span class="symbol">' + escapeHTML(padVisual(symbol, maxSym)) + '</span>';
+      html += '  <span class="chord-name">' + escapeHTML(padVisual(chordName, maxName)) + '</span>';
+      html += '  <span class="shape-tag">[' + shape + ']</span>';
+      html += '  <span class="comment">' + escapeHTML(comment) + '</span>\n';
+    }
+  }
+  for (const { title, blurb, rows } of polyRows) {
+    html += '\n<span class="section-title">-- ' + escapeHTML(title) + ' --</span>\n';
+    html += '<span class="section-blurb">' + escapeHTML(blurb) + '</span>\n\n';
+    for (const { lhSet, rhSet, symbol, letterStack, equivalent, comment, shape } of rows) {
+      html += colorizePoly(strings, lhSet, rhSet);
+      html += '  <span class="symbol">' + escapeHTML(padVisual(symbol, maxSym)) + '</span>';
+      html += '  <span class="chord-name">' + escapeHTML(padVisual(letterStack, maxName)) + '</span>';
+      html += '  <span class="equiv">= ' + escapeHTML(padVisual(equivalent, maxEquiv)) + '</span>';
+      html += '  <span class="shape-tag">[' + shape + ']</span>';
+      html += '  <span class="comment">' + escapeHTML(comment) + '</span>\n';
+    }
+  }
+  return html;
+}
+
+// ============================================================================
+// SHAPES MODE - one row per unique shape, with chord roster underneath
+// ============================================================================
+function buildShapesHTML(scope, scale, strings) {
+  // Gather by shape, then pick one representative chord per shape (the first
+  // entry encountered, which tends to be the tonic-rooted variant).
+  const byShape = new Map();  // shape -> { kind, rep, members[] }
+
+  function add(shape, kind, member) {
+    if (!byShape.has(shape)) byShape.set(shape, { kind, rep: member, members: [] });
+    byShape.get(shape).members.push(member);
+  }
+
+  if (scope === 'all' || scope === 'single') {
+    for (const [, items] of SECTIONS_SINGLE) {
+      for (const [stack, symbol, commentTemplate] of items) {
+        const shape = singleShape(stack);
+        const chordName = chordNameForSymbol(symbol, scale);
+        const comment = formatComment(commentTemplate, scale);
+        add(shape, 'single', { stack, symbol, chordName, comment });
+      }
+    }
+  }
+  if (scope === 'all' || scope === 'poly') {
+    for (const [, , items] of SECTIONS_POLY) {
+      for (const [lh, rh, equivalent, comment] of items) {
+        const shape = polyShape(lh, rh);
+        const symbol = String(rh) + '̂~' + String(lh) + '̂';
+        const letterStack = chordSymbolFromTriad(rh, scale) + '~' + chordSymbolFromTriad(lh, scale);
+        add(shape, 'poly', { lh, rh, symbol, letterStack, equivalent, comment });
+      }
+    }
+  }
+
+  // Sort: single shapes first, ordered by length then lexicographically; then
+  // polychord shapes ordered by the inter-hand gap.
+  const shapeKeys = Array.from(byShape.keys());
+  shapeKeys.sort((a, b) => {
+    const aPoly = a.includes('~'), bPoly = b.includes('~');
+    if (aPoly !== bPoly) return aPoly ? 1 : -1;
+    if (!aPoly) {
+      if (a.length !== b.length) return a.length - b.length;
+      return a < b ? -1 : a > b ? 1 : 0;
+    }
+    const aGap = parseInt(a.split('~')[1], 10);
+    const bGap = parseInt(b.split('~')[1], 10);
+    return aGap - bGap;
+  });
+
+  // Measure column widths from representatives
+  let maxSym = 0, maxName = 0;
+  for (const shape of shapeKeys) {
+    const { kind, rep } = byShape.get(shape);
+    const sym = rep.symbol;
+    const nm = kind === 'single' ? rep.chordName : rep.letterStack;
+    maxSym = Math.max(maxSym, visualWidth(sym));
+    maxName = Math.max(maxName, visualWidth(nm));
+  }
+
+  let html = '';
+  let currentBlock = null;  // 'single' | 'poly'
+
+  for (const shape of shapeKeys) {
+    const entry = byShape.get(shape);
+    if (entry.kind !== currentBlock) {
+      currentBlock = entry.kind;
+      const blockLabel = entry.kind === 'single'
+        ? '== Single-hand shapes =='
+        : '== Polychord shapes (LH triad ~ gap ~ RH triad) ==';
+      html += '\n<span class="section-title">' + escapeHTML(blockLabel) + '</span>\n';
+    }
+
+    // Render the representative voicing
+    let rowHtml;
+    let symPad, namePad;
+    if (entry.kind === 'single') {
+      const row = renderVoicing(entry.rep.stack, strings);
+      if (!row) continue;
+      rowHtml = colorizeSingle(row);
+      symPad = padVisual(entry.rep.symbol, maxSym);
+      namePad = padVisual(entry.rep.chordName, maxName);
+    } else {
+      const placement = renderPolychordPlacement(entry.rep.lh, entry.rep.rh, strings);
+      if (!placement) continue;
+      rowHtml = colorizePoly(strings, new Set(placement.lhPositions), new Set(placement.rhPositions));
+      symPad = padVisual(entry.rep.symbol, maxSym);
+      namePad = padVisual(entry.rep.letterStack, maxName);
+    }
+
+    const desc = SHAPE_DESC[shape] || '';
+
+    html += '\n';
+    html += rowHtml;
+    html += '  <span class="shape-tag">[' + shape + ']</span>';
+    html += '  <span class="symbol">' + escapeHTML(symPad) + '</span>';
+    html += '  <span class="chord-name">' + escapeHTML(namePad) + '</span>';
+    html += '  <span class="shape-desc">' + escapeHTML(desc) + '</span>\n';
+
+    // Chord roster: list every chord that uses this shape
+    const symbols = entry.members.map(m => {
+      if (entry.kind === 'single') return '<b>' + escapeHTML(m.chordName) + '</b> (' + escapeHTML(m.symbol) + ')';
+      return '<b>' + escapeHTML(m.letterStack) + '</b> (' + escapeHTML(m.symbol) + ')';
+    });
+    const indent = ' '.repeat(strings.length);
+    html += indent + '  <span class="chord-roster">used by: ' + symbols.join(', ') + '</span>\n';
+  }
+
+  return html;
+}
+
+// ============================================================================
+// SCALE CARD + HEADER
+// ============================================================================
+function buildHeaderHTML(strings, bassLetter, bassOctave) {
+  const headerStrings = strings.map(s => s.letter).join('');
+  const headerDegrees = strings.map(s => s.degree).join('');
+  let html = '';
+  html += '<span class="header-strings">' + escapeHTML(headerStrings) + '</span>';
+  html += '  <span class="comment">String layout (low → high, lowest is ' + bassLetter + bassOctave + ')</span>\n';
+  html += '<span class="header-degrees">' + escapeHTML(headerDegrees) + '</span>';
+  html += '  <span class="comment">Scale degrees</span>\n';
+  return html;
+}
+
+function renderScaleCard(keyName, scaleDisplay, numStrings, bassDisplay, harpLabel) {
+  const keyEntry = KEYS.find(k => k[0] === keyName);
+  const [, tonicLetter, tonicAcc] = keyEntry;
+  const keyDisplay = fmtNote(tonicLetter, tonicAcc);
+  let html = '<div class="scale-card">';
+  html += '<h2>' + escapeHTML(keyDisplay) + ' major</h2>';
+  html += '<div class="scale-display">';
+  for (const n of scaleDisplay) html += '<span class="note">' + escapeHTML(n) + '</span>';
+  html += '</div>';
+  html += '<div class="meta">' + escapeHTML(harpLabel) + ' &middot; ' +
+          numStrings + ' strings &middot; lowest is ' +
+          escapeHTML(bassDisplay) + ' &middot; tune levers/pedals to match</div>';
+  html += '</div>';
+  return html;
+}
+
+// ============================================================================
+// UI
+// ============================================================================
+const HARP_PRESETS = {
+  lever: { numStrings: 30, bassLetter: 'C', bassOctave: 2, label: '30-string lever harp' },
+  pedal: { numStrings: 47, bassLetter: 'C', bassOctave: 1, label: '47-string pedal harp' },
+};
+let currentKey = 'C';
+let currentHarp = 'lever';
+let currentMode = 'catalog';
+let currentScope = 'all';
+
+function buildKeyButtons() {
+  const wrap = document.getElementById('keys');
+  wrap.innerHTML = '';
+  for (const [keyName, letter, acc] of KEYS) {
+    const btn = document.createElement('button');
+    btn.className = 'key-btn';
+    btn.dataset.key = keyName;
+    btn.innerHTML = escapeHTML(fmtNote(letter, acc));
+    btn.addEventListener('click', () => selectKey(keyName));
+    wrap.appendChild(btn);
+  }
+}
+
+function selectKey(k)   { currentKey = k;   syncToggle('keys', 'data-key', k);   rerender(); }
+function selectHarp(h)  { currentHarp = h;  syncToggle('harp-toggle', 'data-harp', h); rerender(); }
+function selectMode(m)  { currentMode = m;  syncToggle('mode-toggle', 'data-mode', m); rerender(); }
+function selectScope(s) { currentScope = s; syncToggle('scope-toggle', 'data-scope', s); rerender(); }
+
+function syncToggle(containerId, attr, value) {
+  const sel = (containerId === 'keys') ? '.key-btn' : '.toggle button';
+  document.querySelectorAll('#' + containerId + ' ' + sel).forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute(attr) === value);
+  });
+}
+
+function rerender() {
+  const preset = HARP_PRESETS[currentHarp];
+  const keyEntry = KEYS.find(k => k[0] === currentKey);
+  if (!keyEntry) return;
+  const [, tonicLetter, tonicAcc] = keyEntry;
+  const scale = buildScale(tonicLetter, tonicAcc);
+  const strings = buildStrings(scale, preset.bassLetter, preset.bassOctave, preset.numStrings);
+  const scaleDisplay = scale.map(([l, a]) => fmtNote(l, a));
+
+  document.getElementById('scale-card-wrap').innerHTML = renderScaleCard(
+    currentKey, scaleDisplay, preset.numStrings,
+    preset.bassLetter + preset.bassOctave, preset.label);
+
+  // Legend visible only when polychords appear
+  const legend = document.getElementById('legend');
+  const showLegend = currentScope === 'all' || currentScope === 'poly';
+  legend.classList.toggle('hidden', !showLegend);
+
+  let html = buildHeaderHTML(strings, preset.bassLetter, preset.bassOctave);
+  if (currentMode === 'catalog') html += buildCatalogHTML(currentScope, scale, strings);
+  else html += buildShapesHTML(currentScope, scale, strings);
+
+  const out = document.getElementById('output');
+  out.innerHTML = html;
+  out.classList.toggle('wide', currentHarp === 'pedal');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  buildKeyButtons();
+  document.querySelectorAll('#harp-toggle button').forEach(b =>
+    b.addEventListener('click', () => selectHarp(b.dataset.harp)));
+  document.querySelectorAll('#mode-toggle button').forEach(b =>
+    b.addEventListener('click', () => selectMode(b.dataset.mode)));
+  document.querySelectorAll('#scope-toggle button').forEach(b =>
+    b.addEventListener('click', () => selectScope(b.dataset.scope)));
+  selectKey('C');
+});
+</script>
+
+</body>
+</html>

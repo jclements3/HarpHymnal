@@ -130,6 +130,8 @@
   .tile.boddiesource { border-color: #6F4A8A; }
   .tile.ebshapes    .tile-banner { background: #2C7C5A; }
   .tile.ebshapes    { border-color: #2C7C5A; }
+  .tile.shapedrills .tile-banner { background: #8B2A1A; }
+  .tile.shapedrills { border-color: #8B2A1A; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1284,6 +1286,16 @@
       onTap:  () => { window.location.href = 'shapes/index.html'; },
     });
     grid.appendChild(shapes);
+
+    // Shape Drills tile — combined single-hand + polychord catalog with shape-grouping mode.
+    const shapeDrills = makeTile({
+      family: 'shapedrills',
+      name:   'Shape Drills',
+      rule:   'single-hand + polychord catalog · grouped by hand-shape',
+      count:  '↗',
+      onTap:  () => { window.location.href = 'shapedrills.html'; },
+    });
+    grid.appendChild(shapeDrills);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────
