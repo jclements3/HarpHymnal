@@ -68,6 +68,71 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-02 — second push: VS Code ABC tooling)
+
+`origin/main` head is `7623c9a` — workspace `.vscode/` configs for
+ABC playback + PostScript preview via Ubuntu tools. Home-laptop
+session, independent of the earlier chord-handout push (`26abe7a`).
+
+### What this push landed
+
+- `.vscode/tasks.json` — three tasks that delegate to Ubuntu CLI tools,
+  spawning via `cmd.exe` (no PowerShell, no recursive WSL wrapping):
+  - **ABC: Play (abc2midi + fluidsynth)** — generates one .mid per `X:`
+    block, plays through fluidsynth with FluidR3_GM soundfont, cleans
+    up temp .mid files on exit.
+  - **ABC: Render PS (abcm2ps)** — `abcm2ps -O preview.ps`, opens it in
+    VS Code, then SendKeys to trigger the PostScript Preview extension
+    and close the redundant `preview.ps` editor tab — leaves you with
+    just the rendered preview pane next to your `.abc` source.
+  - **ABC: Export MIDI (abc2midi)** — writes `<basename>.mid` next to
+    the source.
+- `.vscode/abc-tasks.sh` — bash helper script the tasks invoke.
+  Resolves `${relativeFile}` (with backslash-to-slash conversion for
+  Windows paths), runs the right Ubuntu tool, opens results via
+  `cmd.exe /c code -r` and `cmd.exe /c start`.
+- `.vscode/settings.json` — workspace-scoped terminal config:
+  - Default terminal profile: `WSL Ubuntu-22.04 (HarpHymnal)` that
+    `--cd`'s into `/home/clementsj/projects/HarpHymnal` on open
+    (eliminates the `Failed to translate Z:\...` warning that fires
+    when a WSL terminal inherits the Z:-mapped workspace cwd).
+  - `automationProfile.windows` set to `cmd.exe` so tasks bypass the
+    user's WSL-default integrated terminal and avoid recursive
+    `wsl.exe -e wsl.exe` wrapping.
+- `.gitignore` — replaced bare `.vscode/` with `.vscode/*` + explicit
+  un-ignores for the three files above. Same pattern as the
+  pre-existing `.claude/*` block.
+
+### What lab needs to do once
+
+1. `git pull` to get the new `.vscode/` and `.gitignore`.
+2. One-time install (only Ubuntu side, only if not already there):
+   ```bash
+   sudo apt install fluidsynth fluid-soundfont-gm abcm2ps abcmidi
+   ```
+   (`abcm2ps` + `abcmidi` are usually already installed per the project
+   tooling; `fluidsynth` was added 2026-05-02 specifically for this.)
+3. **User-level keybindings live outside the repo** (in
+   `%APPDATA%\Code\User\keybindings.json` on Windows). To match the
+   home-laptop hotkey scheme, add:
+   - `Ctrl+Alt+P` → run task `ABC: Play (abc2midi + fluidsynth)`
+   - `Ctrl+Alt+V` → run task `ABC: Render PS (abcm2ps)`
+   - `Ctrl+Alt+E` → run task `ABC: Export MIDI (abc2midi)`
+   - `Ctrl+Alt+Shift+V` → command `postscript-preview.sidePreview`
+   - `Ctrl+K 9` → `runCommands` chain
+     [`focusFirstEditorGroup`, `closeActiveEditor`] (used internally by
+     the SendKeys close-the-`preview.ps`-tab trick)
+   - VS Code extensions assumed: `softaware.abc-music` (live preview),
+     `ishiharaf.abc-tools` (alt preview + MIDI export),
+     `ahnafnafee.postscript-preview` (PS preview pane).
+
+### Why none of this is in the repo at user level
+
+VS Code `keybindings.json` is per-user, per-machine, and not project-
+scoped — there is no clean way to ship it from the workspace.
+
+---
+
 ## Current state (2026-05-02)
 
 `origin/main` head is `26abe7a` — chord handout PDF (4-page, US Letter,
