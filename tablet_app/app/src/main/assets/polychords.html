@@ -655,67 +655,67 @@ function padVisual(s, width) {
 
 const SECTIONS = [
   ["Triads stacked over 1\u0302  (tonic colors)",
-   "Lower hand holds the tonic. The upper hand selects the extension flavor \u2014 major 9, sus, Lydian \u266f11, or 6/9.",
+   "Lower hand holds the tonic. The upper hand selects the extension flavor \u2014 major 9, 11, 13, or 6 \u2014 depending on which triad sits above.",
    [
-     [1, 5, "1\u03029 13", "dominant over tonic \u2014 the open, suspended-tonic sound (1 3 5 / 5 7 2)"],
-     [1, 6, "1\u03026/9", "submediant over tonic \u2014 the classic shimmering 6/9 (1 3 5 / 6 1 3)"],
-     [1, 2, "1\u0302\u03029", "supertonic over tonic \u2014 1\u0302 with 9 and 11 stacked above (1 3 5 / 2 4 6)"],
-     [1, 3, "1\u0302\u03029 (no root in RH)", "mediant over tonic \u2014 same notes as 1\u0302\u0394 with 9 added (1 3 5 / 3 5 7)"],
-     [1, 7, "1\u0302\u03029", "leading-tone diminished over tonic \u2014 dense, all upper extensions (1 3 5 / 7 2 4)"],
+     [1, 5, "1\u0302\u03949", "dominant over tonic \u2014 the open, suspended-tonic sound (1 3 5 / 5 7 2)"],
+     [1, 6, "1\u03026", "submediant over tonic \u2014 the classic shimmering 6 (1 3 5 / 6 1 3)"],
+     [1, 2, "1\u030213_7", "supertonic over tonic \u2014 9, 11, 13 stacked above the triad, no 7 (1 3 5 / 2 4 6)"],
+     [1, 3, "1\u0302\u0394", "mediant over tonic \u2014 same notes as 1\u0302\u03947 (1 3 5 / 3 5 7)"],
+     [1, 7, "1\u0302\u039411", "leading-tone diminished over tonic \u2014 \u039411 with all upper extensions (1 3 5 / 7 2 4)"],
    ]],
   ["Triads stacked over 2\u0302m  (Dorian / supertonic colors)",
    "Lower hand holds the supertonic minor. Upper triads add 9, 11, 13 \u2014 the Dorian palette.",
    [
-     [2, 4, "2\u0302m11", "subdominant over supertonic \u2014 a thick m11 (2 4 6 / 4 6 1)"],
-     [2, 1, "2\u0302m11 13", "tonic over supertonic \u2014 supertonic with 11 and 13 (2 4 6 / 1 3 5)"],
-     [2, 5, "2\u0302m11", "dominant over supertonic \u2014 floats between 5\u0302sus and 2\u0302m11 (2 4 6 / 5 7 2)"],
-     [2, 3, "2\u0302m9 11", "mediant over supertonic \u2014 layered 9 and 11 (2 4 6 / 3 5 7)"],
-     [2, 6, "2\u0302m9", "submediant over supertonic \u2014 9 and 11 with no 7 to clash (2 4 6 / 6 1 3)"],
+     [2, 4, "2\u0302m7", "subdominant over supertonic \u2014 basic m7 voicing (2 4 6 / 4 6 1)"],
+     [2, 1, "2\u0302m11", "tonic over supertonic \u2014 m11, full Dorian stack (2 4 6 / 1 3 5)"],
+     [2, 5, "2\u0302m13_7", "dominant over supertonic \u2014 m13 voicing, no 7; floats between 5\u0302sus and m11 (2 4 6 / 5 7 2)"],
+     [2, 3, "2\u0302m13_7", "mediant over supertonic \u2014 m13 voicing, no 7; layered 9 and 11 below (2 4 6 / 3 5 7)"],
+     [2, 6, "2\u0302m9", "submediant over supertonic \u2014 m9, no 7-9 clash above (2 4 6 / 6 1 3)"],
    ]],
   ["Triads stacked over 4\u0302  (subdominant / Lydian colors)",
-   "Lower hand holds the subdominant. Upper triads naturally produce Lydian \u266f11 and major 13 voicings (the 11 above 4\u0302 is the diatonic 7\u0302).",
+   "Lower hand holds the subdominant. Upper triads naturally produce Lydian-flavored 11 and major 13 voicings \u2014 the diatonic 11 from 4\u0302 is the 7\u0302 of the parent scale (chord-theory \u266f11).",
    [
-     [4, 5, "4\u0302\u0394\u266f11 13", "dominant over subdominant \u2014 the bright Lydian 13 (4 6 1 / 5 7 2)"],
-     [4, 1, "4\u0302\u03029 13", "tonic over subdominant \u2014 1\u0302/4\u0302 sound, gospel-flavored (4 6 1 / 1 3 5)"],
-     [4, 2, "4\u0302\u03029", "supertonic over subdominant \u2014 4\u0302\u03029, smooth (4 6 1 / 2 4 6)"],
-     [4, 3, "4\u0302\u0394\u266f11", "mediant over subdominant \u2014 the floating Lydian sound (4 6 1 / 3 5 7)"],
-     [4, 6, "4\u03026/9", "submediant over subdominant \u2014 a 4\u0302 6/9 voicing (4 6 1 / 6 1 3)"],
+     [4, 5, "4\u0302\u039413_7", "dominant over subdominant \u2014 the bright Lydian 13 (4 6 1 / 5 7 2)"],
+     [4, 1, "4\u0302\u03949", "tonic over subdominant \u2014 1\u0302/4\u0302 sound, gospel-flavored (4 6 1 / 1 3 5)"],
+     [4, 2, "4\u03026", "supertonic over subdominant \u2014 4\u03026 (4 6 1 / 2 4 6)"],
+     [4, 3, "4\u0302\u039411", "mediant over subdominant \u2014 the floating Lydian sound (4 6 1 / 3 5 7)"],
+     [4, 6, "4\u0302\u0394", "submediant over subdominant \u2014 same notes as 4\u0302\u03947 (4 6 1 / 6 1 3)"],
    ]],
   ["Triads stacked over 5\u0302  (dominant colors, fully diatonic)",
    "Lower hand holds the dominant. Upper triads give 9, 11, 13 and sus colors. The classic jazz move 2\u0302m~5\u03027 lives here as 4\u0302~5\u0302.",
    [
-     [5, 1, "5\u030211sus", "tonic over dominant \u2014 the iconic suspended dominant; resolves to 1\u0302 (5 7 2 / 1 3 5)"],
-     [5, 2, "5\u030213 (no 11)", "supertonic over dominant \u2014 5\u030213 voicing, avoids the 11 clash (5 7 2 / 2 4 6)"],
-     [5, 4, "5\u030213sus", "subdominant over dominant \u2014 full pre-cadential tension (5 7 2 / 4 6 1)"],
-     [5, 6, "5\u03029 13", "submediant over dominant \u2014 6\u0302m7 over 5\u0302 = 5\u030213 sound (5 7 2 / 6 1 3)"],
-     [5, 3, "5\u030211", "mediant over dominant \u2014 thick; the 11 (=4\u0302) clashes lightly (5 7 2 / 3 5 7)"],
-     [5, 7, "5\u03029", "leading-tone over dominant \u2014 5\u03029 with sharper edge (5 7 2 / 7 2 4)"],
+     [5, 1, "5\u030213_7", "tonic over dominant \u2014 the iconic suspended-dominant sound (no 7); resolves to 1\u0302 (5 7 2 / 1 3 5)"],
+     [5, 2, "5\u03029", "supertonic over dominant \u2014 dominant 9, avoids the 11 clash (5 7 2 / 2 4 6)"],
+     [5, 4, "5\u030211", "subdominant over dominant \u2014 full dominant-11 pre-cadential tension (5 7 2 / 4 6 1)"],
+     [5, 6, "5\u030213_7", "submediant over dominant \u2014 6\u0302m7 over 5\u0302 = dominant-13 sound, no 7 (5 7 2 / 6 1 3)"],
+     [5, 3, "5\u03026", "mediant over dominant \u2014 triad + 13 only; the 11 (=4\u0302) is absent (5 7 2 / 3 5 7)"],
+     [5, 7, "5\u03027", "leading-tone over dominant \u2014 basic dominant 7 voicing (5 7 2 / 7 2 4)"],
    ]],
   ["Triads stacked over 6\u0302m  (relative-minor colors)",
    "Lower hand holds the submediant minor. Upper triads color the relative minor with 9s and 11s. Renumber as 1\u0302 of natural minor for an Aeolian read.",
    [
-     [6, 1, "6\u0302m9", "tonic over submediant \u2014 6\u0302m9, gentle (6 1 3 / 1 3 5)"],
-     [6, 2, "6\u0302m11", "supertonic over submediant \u2014 6\u0302m11 (6 1 3 / 2 4 6)"],
-     [6, 5, "6\u0302m11 13", "dominant over submediant \u2014 the full Aeolian extension (6 1 3 / 5 7 2)"],
-     [6, 4, "6\u0302m11", "subdominant over submediant \u2014 same notes as 4\u03026/9 (6 1 3 / 4 6 1)"],
-     [6, 3, "6\u0302m\u03029", "mediant over submediant \u2014 dense, contains all of 1\u0302\u0394 (6 1 3 / 3 5 7)"],
+     [6, 1, "6\u0302m7", "tonic over submediant \u2014 basic m7 voicing (6 1 3 / 1 3 5)"],
+     [6, 2, "6\u0302m13_7", "supertonic over submediant \u2014 m13 with no 7 (6 1 3 / 2 4 6)"],
+     [6, 5, "6\u0302m11", "dominant over submediant \u2014 full Aeolian m11 (6 1 3 / 5 7 2)"],
+     [6, 4, "6\u0302m13_7", "subdominant over submediant \u2014 same notes as 4\u0302\u0394 rooted lower (6 1 3 / 4 6 1)"],
+     [6, 3, "6\u0302m9", "mediant over submediant \u2014 dense, contains all of 1\u0302\u0394 (6 1 3 / 3 5 7)"],
    ]],
   ["Triads stacked over 3\u0302m  (mediant / Phrygian colors)",
-   "Lower hand holds the mediant minor \u2014 the most ambiguous diatonic minor. Upper triads add 11 and \u266d13 (the 6\u0302 of the parent scale).",
+   "Lower hand holds the mediant minor \u2014 the most ambiguous diatonic minor. Upper triads add 9, 11, 13 \u2014 the diatonic 13 from 3\u0302 is a half-step above 5\u0302 (Phrygian flavor).",
    [
-     [3, 4, "3\u0302m11", "subdominant over mediant \u2014 4\u0302 over 3\u0302m gives a m11 sound (3 5 7 / 4 6 1)"],
-     [3, 1, "3\u0302m\u266d13", "tonic over mediant \u2014 the \u266d13 gives a Phrygian flavor (3 5 7 / 1 3 5)"],
-     [3, 2, "3\u0302m11", "supertonic over mediant \u2014 stacked 11s (3 5 7 / 2 4 6)"],
-     [3, 6, "3\u0302m\u266d13", "submediant over mediant \u2014 same notes as 1\u0302\u03029 rooted lower (3 5 7 / 6 1 3)"],
-     [3, 5, "3\u0302m\u266d13 (rare)", "dominant over mediant \u2014 dense, exotic (3 5 7 / 5 7 2)"],
+     [3, 4, "3\u0302m11", "subdominant over mediant \u2014 Phrygian m11 with diatonic 9 and 13 (3 5 7 / 4 6 1)"],
+     [3, 1, "3\u0302m13_7", "tonic over mediant \u2014 m13 with no 7, Phrygian flavor (3 5 7 / 1 3 5)"],
+     [3, 2, "3\u0302m11", "supertonic over mediant \u2014 Phrygian m11 with stacked extensions (3 5 7 / 2 4 6)"],
+     [3, 6, "3\u0302m13_7", "submediant over mediant \u2014 m13 with no 7; same notes as 1\u0302\u03949 rooted lower (3 5 7 / 6 1 3)"],
+     [3, 5, "3\u0302m7", "rare; dominant over mediant \u2014 basic m7 (3 5 7 / 5 7 2)"],
    ]],
   ["Triads stacked over 7\u0302\u00b0  (leading-tone colors)",
    "Lower hand holds the leading-tone diminished. A tonic triad above gives the rootless dominant 9 sound; others stretch into rich half-diminished extensions.",
    [
-     [7, 1, "5\u03029 (rootless)", "tonic over leading-tone \u2014 the classic rootless V9 (7 2 4 / 1 3 5)"],
-     [7, 2, "7\u0302\u230011", "supertonic over leading-tone \u2014 7\u0302\u230011 (7 2 4 / 2 4 6)"],
-     [7, 4, "7\u0302\u230011", "subdominant over leading-tone \u2014 same notes, different bass weight (7 2 4 / 4 6 1)"],
-     [7, 5, "5\u030279 (variant)", "dominant over leading-tone \u2014 a strong pull to 1\u0302 (7 2 4 / 5 7 2)"],
+     [7, 1, "5\u03029_1", "tonic over leading-tone \u2014 the classic rootless V9 (7 2 4 / 1 3 5)"],
+     [7, 2, "7\u0302\u2300", "supertonic over leading-tone \u2014 basic half-dim 7 voicing (7 2 4 / 2 4 6)"],
+     [7, 4, "7\u0302\u23009", "subdominant over leading-tone \u2014 half-dim 9, Locrian flavor (7 2 4 / 4 6 1)"],
+     [7, 5, "7\u0302\u230013_7", "variant; dominant over leading-tone \u2014 strong pull to 1\u0302 (7 2 4 / 5 7 2)"],
    ]],
 ];
 
@@ -724,6 +724,13 @@ const SECTIONS = [
 // =============================================================================
 function escapeHTML(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// Render a chord symbol with `_<hex>+` markers as <sub>X</sub>. Hex digits
+// after `_` mean "subtract this chord tone" (e.g. `_B` = no 11, `_79` = no 7
+// and no 9). Project convention.
+function renderChord(s) {
+  return escapeHTML(s).replace(/_([0-9A-Fa-f]+)/g, '<sub>$1</sub>');
 }
 
 function colorizeLayout(strings, lhSet, rhSet) {
@@ -798,9 +805,9 @@ function generateOutput(keyName, numStrings, bassLetter, bassOctave) {
       const namePad = padVisual(letterName, maxName);
       const equivPad = padVisual(equivalent, maxEquiv);
       html += colorizeLayout(strings, lhSet, rhSet);
-      html += '  <span class="symbol">' + escapeHTML(symPad) + '</span>';
-      html += '  <span class="chord-name">' + escapeHTML(namePad) + '</span>';
-      html += '  <span class="equiv">= ' + escapeHTML(equivPad) + '</span>';
+      html += '  <span class="symbol">' + renderChord(symPad) + '</span>';
+      html += '  <span class="chord-name">' + renderChord(namePad) + '</span>';
+      html += '  <span class="equiv">= ' + renderChord(equivPad) + '</span>';
       html += '  <span class="comment">' + escapeHTML(comment) + '</span>\n';
     }
   }

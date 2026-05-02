@@ -632,7 +632,7 @@ const SECTIONS = [
     [[5, 7, 2, 1], "5\u0302add11", "V add 11 (clash \u2014 usually voiced sus)"],
     [[6, 1, 3, 2], "6\u0302madd11", "vi minor add 11"],
     [[7, 2, 4, 3], "7\u0302\u00b0add11", "vii\u00b0 add 11"],
-    [[4, 6, 1, 7], "4\u0302add\u266f11", "IV Lydian add \u266f11 (the diatonic 7\u0302)"],
+    [[4, 6, 1, 7], "4\u0302add11", "IV Lydian add 11 (the diatonic 7\u0302 \u2014 chord-theory \u266f11)"],
   ]],
   ["6/9 chords (major triad + 6 + 9)", [
     [[1, 3, 5, 6, 2], "1\u03026/9", "tonic 6/9, very harp-friendly"],
@@ -645,26 +645,26 @@ const SECTIONS = [
   ["9th chords (7th chord + 9)", [
     [[1, 3, 5, 7, 2], "1\u0302\u03949", "tonic major 9"],
     [[2, 4, 6, 1, 3], "2\u0302m9", "ii minor 9"],
-    [[3, 5, 7, 2, 4], "3\u0302m\u266d9", "iii minor with diatonic \u266d9 \u2014 dissonant"],
+    [[3, 5, 7, 2, 4], "3\u0302m9", "iii minor 9 \u2014 the diatonic 9 here is the half-step above 1\u0302, dissonant"],
     [[4, 6, 1, 3, 5], "4\u0302\u03949", "IV major 9"],
     [[5, 7, 2, 4, 6], "5\u03029", "dominant 9"],
     [[6, 1, 3, 5, 7], "6\u0302m9", "vi minor 9"],
-    [[7, 2, 4, 6, 1], "7\u0302\u2300\u266d9", "half-dim with diatonic \u266d9"],
+    [[7, 2, 4, 6, 1], "7\u0302\u23009", "half-dim 9 \u2014 the diatonic 9 here is the half-step above 7\u0302"],
   ]],
   ["11th chords (9th chord + 11)", [
     [[2, 4, 6, 1, 3, 5], "2\u0302m11", "ii minor 11"],
-    [[3, 5, 7, 2, 4, 6], "3\u0302m11", "iii minor 11 (\u266d9 still present)"],
-    [[4, 6, 1, 3, 5, 7], "4\u0302\u0394\u266f11", "IV Lydian \u2014 the 11 here IS \u266f11"],
+    [[3, 5, 7, 2, 4, 6], "3\u0302m11", "iii minor 11 (the half-step 9 is still in the stack)"],
+    [[4, 6, 1, 3, 5, 7], "4\u0302\u039411", "IV Lydian \u2014 all-diatonic 11 (chord-theory \u266f11)"],
     [[5, 7, 2, 4, 6, 1], "5\u030211", "dominant 11 \u2014 clashes; usually voiced as 5\u03029sus"],
     [[6, 1, 3, 5, 7, 2], "6\u0302m11", "vi minor 11"],
     [[7, 2, 4, 6, 1, 3], "7\u0302\u230011", "half-dim 11"],
   ]],
   ["13th chords", [
-    [[1, 3, 5, 7, 2, 6], "1\u0302\u039413", "tonic major 13 (skip 11 \u2014 would clash)"],
+    [[1, 3, 5, 7, 2, 6], "1\u0302\u039413_B", "tonic major 13 (skip 11 \u2014 would clash)"],
     [[2, 4, 6, 1, 3, 5, 7], "2\u0302m13", "ii minor 13 \u2014 full diatonic Dorian stack"],
     [[4, 6, 1, 3, 5, 7, 2], "4\u0302\u039413", "IV Lydian 13 \u2014 all 7 scale degrees"],
-    [[5, 7, 2, 4, 6, 3], "5\u030213", "dominant 13 (skip the 11)"],
-    [[6, 1, 3, 5, 7, 2, 4], "6\u0302m\u266d13", "vi minor 13 \u2014 the 13 here is \u266d13"],
+    [[5, 7, 2, 4, 6, 3], "5\u030213_B", "dominant 13 (skip the 11)"],
+    [[6, 1, 3, 5, 7, 2, 4], "6\u0302m13", "vi minor 13 \u2014 the 13 here is the diatonic 6, a half-step from 7\u0302"],
   ]],
   ["Seventh chord suspensions", [
     [[5, 1, 2, 4], "5\u03027sus", "dominant 7 sus \u2014 classic delayed-resolution"],
@@ -711,6 +711,13 @@ const SECTIONS = [
 // =============================================================================
 function escapeHTML(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// Render a chord symbol with `_<hex>+` markers as <sub>X</sub>. Hex digits
+// after `_` mean "subtract this chord tone" (e.g. `_B` = no 11, `_79` = no 7
+// and no 9). Project convention.
+function renderChord(s) {
+  return escapeHTML(s).replace(/_([0-9A-Fa-f]+)/g, '<sub>$1</sub>');
 }
 
 function colorizeLayout(layoutStr) {
@@ -765,8 +772,8 @@ function generateOutput(keyName, numStrings, bassLetter, bassOctave) {
       const chordPad = padVisual(chordName, maxChord);
       // Replace trailing spaces with literal spaces preserved by white-space:pre
       html += colorizeLayout(row);
-      html += '  <span class="symbol">' + escapeHTML(symPad) + '</span>';
-      html += '  <span class="chord-name">' + escapeHTML(chordPad) + '</span>';
+      html += '  <span class="symbol">' + renderChord(symPad) + '</span>';
+      html += '  <span class="chord-name">' + renderChord(chordPad) + '</span>';
       html += '  <span class="comment">' + escapeHTML(comment) + '</span>\n';
     }
   }

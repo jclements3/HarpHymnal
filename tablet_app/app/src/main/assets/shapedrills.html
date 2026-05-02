@@ -485,6 +485,13 @@ function escapeHTML(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Render a chord symbol with `_<hex>+` markers as <sub>X</sub>. Hex digits
+// after `_` mean "subtract this chord tone" — e.g. `_B` (=11) means "no 11",
+// `_79` means "no 7 and no 9". Project convention.
+function renderChord(s) {
+  return escapeHTML(s).replace(/_([0-9A-Fa-f]+)/g, '<sub>$1</sub>');
+}
+
 // ============================================================================
 // SHAPE COMPUTATION
 // ============================================================================
@@ -637,7 +644,7 @@ const SECTIONS_SINGLE = [
     [[5,7,2,1], "5̂add11", "V add 11 (clash - usually voiced sus)"],
     [[6,1,3,2], "6̂madd11", "vi minor add 11"],
     [[7,2,4,3], "7̂°add11", "vii° add 11"],
-    [[4,6,1,7], "4̂add♯11", "IV Lydian add ♯11 (the diatonic 7̂)"],
+    [[4,6,1,7], "4̂add11", "IV Lydian add 11 (the diatonic 7̂ — chord-theory ♯11)"],
   ]],
   ["6/9 chords", [
     [[1,3,5,6,2], "1̂6/9", "tonic 6/9, very harp-friendly"],
@@ -650,26 +657,26 @@ const SECTIONS_SINGLE = [
   ["9th chords (7th + 9)", [
     [[1,3,5,7,2], "1̂Δ9", "tonic major 9"],
     [[2,4,6,1,3], "2̂m9", "ii minor 9"],
-    [[3,5,7,2,4], "3̂m♭9", "iii minor with diatonic ♭9 - dissonant"],
+    [[3,5,7,2,4], "3̂m9", "iii minor 9 — the diatonic 9 here is the half-step above 1̂, dissonant"],
     [[4,6,1,3,5], "4̂Δ9", "IV major 9"],
     [[5,7,2,4,6], "5̂9", "dominant 9"],
     [[6,1,3,5,7], "6̂m9", "vi minor 9"],
-    [[7,2,4,6,1], "7̂⌀♭9", "half-dim with diatonic ♭9"],
+    [[7,2,4,6,1], "7̂⌀9", "half-dim 9 — the diatonic 9 here is the half-step above 7̂"],
   ]],
   ["11th chords", [
     [[2,4,6,1,3,5], "2̂m11", "ii minor 11"],
-    [[3,5,7,2,4,6], "3̂m11", "iii minor 11 (♭9 still present)"],
-    [[4,6,1,3,5,7], "4̂Δ♯11", "IV Lydian - the 11 here IS ♯11"],
+    [[3,5,7,2,4,6], "3̂m11", "iii minor 11 (the half-step 9 is still in the stack)"],
+    [[4,6,1,3,5,7], "4̂Δ11", "IV Lydian — all-diatonic 11 (chord-theory ♯11)"],
     [[5,7,2,4,6,1], "5̂11", "dominant 11 - clashes; usually voiced as 5̂9sus"],
     [[6,1,3,5,7,2], "6̂m11", "vi minor 11"],
     [[7,2,4,6,1,3], "7̂⌀11", "half-dim 11"],
   ]],
   ["13th chords", [
-    [[1,3,5,7,2,6], "1̂Δ13", "tonic major 13 (skip 11 - would clash)"],
+    [[1,3,5,7,2,6], "1̂Δ13_B", "tonic major 13 (skip 11 — would clash)"],
     [[2,4,6,1,3,5,7], "2̂m13", "ii minor 13 - full diatonic Dorian stack"],
     [[4,6,1,3,5,7,2], "4̂Δ13", "IV Lydian 13 - all 7 scale degrees"],
-    [[5,7,2,4,6,3], "5̂13", "dominant 13 (skip the 11)"],
-    [[6,1,3,5,7,2,4], "6̂m♭13", "vi minor 13 - the 13 here is ♭13"],
+    [[5,7,2,4,6,3], "5̂13_B", "dominant 13 (skip the 11)"],
+    [[6,1,3,5,7,2,4], "6̂m13", "vi minor 13 — the 13 here is the diatonic 6, a half-step from 7̂"],
   ]],
   ["Seventh chord suspensions", [
     [[5,1,2,4], "5̂7sus", "dominant 7 sus - classic delayed-resolution"],
@@ -718,65 +725,65 @@ const SECTIONS_POLY = [
   ["Triads stacked over 1̂  (tonic colors)",
    "Lower hand holds the tonic. The upper hand selects the extension flavor.",
    [
-     [1,5, "1̂9 13", "dominant over tonic - the open, suspended-tonic sound"],
-     [1,6, "1̂6/9", "submediant over tonic - the classic shimmering 6/9"],
-     [1,2, "1̂̂9", "supertonic over tonic - 1̂ with 9 and 11 stacked above"],
-     [1,3, "1̂̂9 (no root in RH)", "mediant over tonic - same notes as 1̂Δ with 9 added"],
-     [1,7, "1̂̂9", "leading-tone diminished over tonic - dense, all upper extensions"],
+     [1,5, "1̂Δ9", "dominant over tonic - the open, suspended-tonic sound"],
+     [1,6, "1̂6", "submediant over tonic - the classic shimmering 6"],
+     [1,2, "1̂13_7", "supertonic over tonic - 9, 11, 13 stacked above the triad, no 7"],
+     [1,3, "1̂Δ", "mediant over tonic - same notes as 1̂Δ7"],
+     [1,7, "1̂Δ11", "leading-tone diminished over tonic - Δ11 with all upper extensions"],
    ]],
   ["Triads stacked over 2̂m  (Dorian colors)",
    "Lower hand holds the supertonic minor. Upper triads add 9, 11, 13.",
    [
-     [2,4, "2̂m11", "subdominant over supertonic - a thick m11"],
-     [2,1, "2̂m11 13", "tonic over supertonic - supertonic with 11 and 13"],
-     [2,5, "2̂m11", "dominant over supertonic - floats between 5̂sus and 2̂m11"],
-     [2,3, "2̂m9 11", "mediant over supertonic - layered 9 and 11"],
-     [2,6, "2̂m9", "submediant over supertonic - 9 and 11 with no 7 to clash"],
+     [2,4, "2̂m7", "subdominant over supertonic - basic m7 voicing"],
+     [2,1, "2̂m11", "tonic over supertonic - m11, full Dorian stack"],
+     [2,5, "2̂m13_7", "dominant over supertonic - m13, no 7; floats between 5̂sus and m11"],
+     [2,3, "2̂m13_7", "mediant over supertonic - m13, no 7; layered 9 and 11 below"],
+     [2,6, "2̂m9", "submediant over supertonic - m9, no 7-9 clash above"],
    ]],
   ["Triads stacked over 4̂  (Lydian colors)",
-   "Lower hand holds the subdominant. Upper triads naturally produce Lydian ♯11 and major 13 voicings.",
+   "Lower hand holds the subdominant. Upper triads naturally produce Lydian-flavored 11 and major 13 voicings — the diatonic 11 from 4̂ is what chord theory calls ♯11.",
    [
-     [4,5, "4̂Δ♯11 13", "dominant over subdominant - the bright Lydian 13"],
-     [4,1, "4̂̂9 13", "tonic over subdominant - 1̂/4̂ sound, gospel-flavored"],
-     [4,2, "4̂̂9", "supertonic over subdominant - 4̂̂9, smooth"],
-     [4,3, "4̂Δ♯11", "mediant over subdominant - the floating Lydian sound"],
-     [4,6, "4̂6/9", "submediant over subdominant - a 4̂ 6/9 voicing"],
+     [4,5, "4̂Δ13_7", "dominant over subdominant - the bright Lydian 13"],
+     [4,1, "4̂Δ9", "tonic over subdominant - 1̂/4̂ sound, gospel-flavored"],
+     [4,2, "4̂6", "supertonic over subdominant - 4̂6, smooth"],
+     [4,3, "4̂Δ11", "mediant over subdominant - the floating Lydian sound"],
+     [4,6, "4̂Δ", "submediant over subdominant - same notes as 4̂Δ7"],
    ]],
   ["Triads stacked over 5̂  (dominant colors)",
    "Lower hand holds the dominant. Upper triads give 9, 11, 13 and sus colors.",
    [
-     [5,1, "5̂11sus", "tonic over dominant - the iconic suspended dominant"],
-     [5,2, "5̂13 (no 11)", "supertonic over dominant - 5̂13 voicing"],
-     [5,4, "5̂13sus", "subdominant over dominant - full pre-cadential tension"],
-     [5,6, "5̂9 13", "submediant over dominant - 6̂m7 over 5̂ = 5̂13 sound"],
-     [5,3, "5̂11", "mediant over dominant - thick; the 11 (=4̂) clashes lightly"],
-     [5,7, "5̂9", "leading-tone over dominant - 5̂9 with sharper edge"],
+     [5,1, "5̂13_7", "tonic over dominant - the iconic suspended-dominant sound, no 7; resolves to 1̂"],
+     [5,2, "5̂9", "supertonic over dominant - dominant 9, avoids the 11 clash"],
+     [5,4, "5̂11", "subdominant over dominant - full dominant-11 pre-cadential tension"],
+     [5,6, "5̂13_7", "submediant over dominant - 6̂m7 over 5̂ = dominant-13 sound, no 7"],
+     [5,3, "5̂6", "mediant over dominant - triad + 13 only; the 11 (=4̂) is absent"],
+     [5,7, "5̂7", "leading-tone over dominant - basic dominant 7 voicing"],
    ]],
   ["Triads stacked over 6̂m  (relative-minor colors)",
    "Lower hand holds the submediant minor. Upper triads color the relative minor with 9s and 11s.",
    [
-     [6,1, "6̂m9", "tonic over submediant - 6̂m9, gentle"],
-     [6,2, "6̂m11", "supertonic over submediant - 6̂m11"],
-     [6,5, "6̂m11 13", "dominant over submediant - the full Aeolian extension"],
-     [6,4, "6̂m11", "subdominant over submediant - same notes as 4̂6/9"],
-     [6,3, "6̂m̂9", "mediant over submediant - dense, contains all of 1̂Δ"],
+     [6,1, "6̂m7", "tonic over submediant - basic m7 voicing"],
+     [6,2, "6̂m13_7", "supertonic over submediant - m13 with no 7"],
+     [6,5, "6̂m11", "dominant over submediant - full Aeolian m11"],
+     [6,4, "6̂m13_7", "subdominant over submediant - same notes as 4̂Δ rooted lower"],
+     [6,3, "6̂m9", "mediant over submediant - dense, contains all of 1̂Δ"],
    ]],
   ["Triads stacked over 3̂m  (Phrygian colors)",
-   "Lower hand holds the mediant minor. Upper triads add 11 and ♭13.",
+   "Lower hand holds the mediant minor. Upper triads add 9, 11, 13 — diatonic 9 from 3̂ is the half-step above 3̂ (Phrygian flavor); diatonic 13 from 3̂ is the half-step above 5̂.",
    [
-     [3,4, "3̂m11", "subdominant over mediant - 4̂ over 3̂m gives a m11 sound"],
-     [3,1, "3̂m♭13", "tonic over mediant - the ♭13 gives a Phrygian flavor"],
-     [3,2, "3̂m11", "supertonic over mediant - stacked 11s"],
-     [3,6, "3̂m♭13", "submediant over mediant - same notes as 1̂̂9 rooted lower"],
-     [3,5, "3̂m♭13 (rare)", "dominant over mediant - dense, exotic"],
+     [3,4, "3̂m11", "subdominant over mediant - Phrygian m11 with diatonic 9 and 13"],
+     [3,1, "3̂m13_7", "tonic over mediant - m13 with no 7, Phrygian flavor"],
+     [3,2, "3̂m11", "supertonic over mediant - Phrygian m11 with stacked extensions"],
+     [3,6, "3̂m13_7", "submediant over mediant - m13 with no 7; same notes as 1̂Δ9 rooted lower"],
+     [3,5, "3̂m7", "rare; dominant over mediant - basic m7"],
    ]],
   ["Triads stacked over 7̂°  (leading-tone colors)",
    "Lower hand holds the leading-tone diminished.",
    [
-     [7,1, "5̂9 (rootless)", "tonic over leading-tone - the classic rootless V9"],
-     [7,2, "7̂⌀11", "supertonic over leading-tone - 7̂⌀11"],
-     [7,4, "7̂⌀11", "subdominant over leading-tone - same notes, different bass weight"],
-     [7,5, "5̂79 (variant)", "dominant over leading-tone - a strong pull to 1̂"],
+     [7,1, "5̂9_1", "tonic over leading-tone - the classic rootless V9"],
+     [7,2, "7̂⌀", "supertonic over leading-tone - basic half-dim 7 voicing"],
+     [7,4, "7̂⌀9", "subdominant over leading-tone - half-dim 9, Locrian flavor"],
+     [7,5, "7̂⌀13_7", "variant; dominant over leading-tone - strong pull to 1̂"],
    ]],
 ];
 
@@ -919,8 +926,8 @@ function buildCatalogHTML(scope, scale, strings) {
     html += '\n<span class="section-title">-- ' + escapeHTML(title) + ' --</span>\n';
     for (const { row, symbol, chordName, comment, shape } of rows) {
       html += colorizeSingle(row);
-      html += '  <span class="symbol">' + escapeHTML(padVisual(symbol, maxSym)) + '</span>';
-      html += '  <span class="chord-name">' + escapeHTML(padVisual(chordName, maxName)) + '</span>';
+      html += '  <span class="symbol">' + renderChord(padVisual(symbol, maxSym)) + '</span>';
+      html += '  <span class="chord-name">' + renderChord(padVisual(chordName, maxName)) + '</span>';
       html += '  <span class="shape-tag">[' + shape + ']</span>';
       html += '  <span class="comment">' + escapeHTML(comment) + '</span>\n';
     }
@@ -930,9 +937,9 @@ function buildCatalogHTML(scope, scale, strings) {
     html += '<span class="section-blurb">' + escapeHTML(blurb) + '</span>\n\n';
     for (const { lhSet, rhSet, symbol, letterStack, equivalent, comment, shape } of rows) {
       html += colorizePoly(strings, lhSet, rhSet);
-      html += '  <span class="symbol">' + escapeHTML(padVisual(symbol, maxSym)) + '</span>';
-      html += '  <span class="chord-name">' + escapeHTML(padVisual(letterStack, maxName)) + '</span>';
-      html += '  <span class="equiv">= ' + escapeHTML(padVisual(equivalent, maxEquiv)) + '</span>';
+      html += '  <span class="symbol">' + renderChord(padVisual(symbol, maxSym)) + '</span>';
+      html += '  <span class="chord-name">' + renderChord(padVisual(letterStack, maxName)) + '</span>';
+      html += '  <span class="equiv">= ' + renderChord(padVisual(equivalent, maxEquiv)) + '</span>';
       html += '  <span class="shape-tag">[' + shape + ']</span>';
       html += '  <span class="comment">' + escapeHTML(comment) + '</span>\n';
     }
@@ -1034,14 +1041,14 @@ function buildShapesHTML(scope, scale, strings) {
     html += '\n';
     html += rowHtml;
     html += '  <span class="shape-tag">[' + shape + ']</span>';
-    html += '  <span class="symbol">' + escapeHTML(symPad) + '</span>';
-    html += '  <span class="chord-name">' + escapeHTML(namePad) + '</span>';
+    html += '  <span class="symbol">' + renderChord(symPad) + '</span>';
+    html += '  <span class="chord-name">' + renderChord(namePad) + '</span>';
     html += '  <span class="shape-desc">' + escapeHTML(desc) + '</span>\n';
 
     // Chord roster: list every chord that uses this shape
     const symbols = entry.members.map(m => {
-      if (entry.kind === 'single') return '<b>' + escapeHTML(m.chordName) + '</b> (' + escapeHTML(m.symbol) + ')';
-      return '<b>' + escapeHTML(m.letterStack) + '</b> (' + escapeHTML(m.symbol) + ')';
+      if (entry.kind === 'single') return '<b>' + renderChord(m.chordName) + '</b> (' + renderChord(m.symbol) + ')';
+      return '<b>' + renderChord(m.letterStack) + '</b> (' + renderChord(m.symbol) + ')';
     });
     const indent = ' '.repeat(strings.length);
     html += indent + '  <span class="chord-roster">used by: ' + symbols.join(', ') + '</span>\n';
