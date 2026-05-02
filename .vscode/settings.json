@@ -1,0 +1,14 @@
+{
+  "// purpose": "Open new terminals at the WSL-native workspace path (avoids 'Failed to translate Z:\\...') and force tasks to spawn via cmd.exe (avoids recursive wsl.exe wrapping in tasks).",
+  "terminal.integrated.profiles.windows": {
+    "WSL Ubuntu-22.04 (HarpHymnal)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": ["-d", "Ubuntu-22.04", "--cd", "/home/clementsj/projects/HarpHymnal"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "WSL Ubuntu-22.04 (HarpHymnal)",
+  "terminal.integrated.automationProfile.windows": {
+    "path": "C:\\Windows\\System32\\cmd.exe",
+    "args": ["/d", "/c"]
+  }
+}

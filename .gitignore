@@ -9,7 +9,13 @@ venv/
 .DS_Store
 *.swp
 .idea/
-.vscode/
+
+# VS Code: track shared workspace configs (tasks/settings/helpers); ignore
+# machine-local state (launch history, debug breakpoints, etc.)
+.vscode/*
+!.vscode/tasks.json
+!.vscode/settings.json
+!.vscode/abc-tasks.sh
 
 # LaTeX build artifacts
 *.aux
@@ -23,8 +29,10 @@ venv/
 # Scratch archives (reference only, not source)
 samples/files (1).zip
 
-# Claude Code agent worktrees (scratch, managed by the CLI)
-.claude/
+# Claude Code config: track shared `settings.json`; ignore everything else
+# (worktrees, machine-local `settings.local.json`, agents, etc.)
+.claude/*
+!.claude/settings.json
 
 # Generated score artifacts (rebuilt on demand via cli.scores_build)
 data/scores/
