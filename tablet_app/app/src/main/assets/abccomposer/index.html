@@ -121,6 +121,10 @@
   #panes.panes-zoomed-render .pane-render,
   #panes.panes-zoomed-chat   .pane-chat { flex: 1 1 100%; border-right: none; }
 
+  /* ─── swipe-right on render: render absorbs chat (editor stays 50%) ─── */
+  #panes.panes-expanded-render .pane-chat { display: none; }
+  #panes.panes-expanded-render .pane-render { flex: 1 1 auto; border-right: none; }
+
   /* ─── stripchart (dark motif) ─── */
   /* abcjs sets inline style="display: inline-block" on #abcjs-target after
      it renders, which trumps a stylesheet `display:none` -- so the score /
@@ -470,6 +474,7 @@ const LS = {
   sys:    "abccomposer.systemPrompt",
   hist:   "abccomposer.chatHistory",
   zoom:   "abccomposer.zoom",
+  expand: "abccomposer.expand",
   view:   "abccomposer.view",
 };
 function lsGet(k, fallback) {
@@ -887,6 +892,9 @@ function applyZoom(which) {
   for (const k of Object.keys(ZOOM_CLASSES)) panesEl.classList.remove(ZOOM_CLASSES[k]);
   if (which && ZOOM_CLASSES[which]) panesEl.classList.add(ZOOM_CLASSES[which]);
   lsSet(LS.zoom, which || "");
+  // Any zoom toggle also clears the swipe-expand state.
+  panesEl.classList.remove("panes-expanded-render");
+  lsSet(LS.expand, "");
   // Let abcjs and CodeMirror re-flow into the new width.
   setTimeout(() => {
     try { window.dispatchEvent(new Event("resize")); } catch (e) {}
@@ -895,10 +903,25 @@ function applyZoom(which) {
   }, 30);
 }
 function toggleZoom(which) {
+  // If we're currently in swipe-expand mode, double-tap is "go back".
+  if (lsGet(LS.expand, "")) { applyZoom(""); return; }
   const cur = lsGet(LS.zoom, "");
   applyZoom(cur === which ? "" : which);
 }
+function applyExpandRender() {
+  // Clear any zoom first, then expand the render pane.
+  for (const k of Object.keys(ZOOM_CLASSES)) panesEl.classList.remove(ZOOM_CLASSES[k]);
+  lsSet(LS.zoom, "");
+  panesEl.classList.add("panes-expanded-render");
+  lsSet(LS.expand, "render");
+  setTimeout(() => {
+    try { window.dispatchEvent(new Event("resize")); } catch (e) {}
+    try { cm.refresh(); } catch (e) {}
+    if (viewMode === "stripchart") renderStripchart(cm.getValue());
+  }, 30);
+}
 applyZoom(lsGet(LS.zoom, ""));
+if (lsGet(LS.expand, "") === "render") applyExpandRender();
 
 (function wireDoubleTap() {
   // After a touch-detected double-tap fires, the browser will ALSO synthesize
@@ -944,6 +967,35 @@ applyZoom(lsGet(LS.zoom, ""));
       }
     }, { passive: false });
   }
+})();
+
+// ────────────────────────────────────────────────────────────────────
+// 4c.  Swipe-right on the render pane: expand it to absorb the chat
+// pane (editor stays at 50%, render takes the right 50%, chat hides).
+// Double-tap any pane goes back to default 50/25/25.
+// ────────────────────────────────────────────────────────────────────
+(function wireSwipeExpand() {
+  const renderPane = document.querySelector(".pane-render");
+  if (!renderPane) return;
+  let sx = 0, sy = 0, st = 0, tracking = false;
+  renderPane.addEventListener("pointerdown", (ev) => {
+    if (ev.pointerType !== "touch" && ev.pointerType !== "mouse") return;
+    sx = ev.clientX; sy = ev.clientY; st = Date.now();
+    tracking = true;
+  });
+  renderPane.addEventListener("pointerup", (ev) => {
+    if (!tracking) return;
+    tracking = false;
+    const dx = ev.clientX - sx;
+    const dy = ev.clientY - sy;
+    const dt = Date.now() - st;
+    // swipe right: positive dx, mostly horizontal, quick
+    if (dt < 600 && dx > 60 && Math.abs(dy) < 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      ev.preventDefault();
+      applyExpandRender();
+    }
+  });
+  renderPane.addEventListener("pointercancel", () => { tracking = false; });
 })();
 
 // ────────────────────────────────────────────────────────────────────
