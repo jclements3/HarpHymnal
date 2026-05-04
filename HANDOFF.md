@@ -68,6 +68,112 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-03 — easyabc_vim: vim mode for EasyABC)
+
+New top-level dir `easyabc_vim/` packages an embedded vi keybinding layer
++ file-watcher mode for [jwdj/EasyABC](https://github.com/jwdj/EasyABC).
+Home-laptop session; user is on a corporate Windows box with the project
+mounted as `Z:\` from a Linux dev machine, so all build/run actually
+happens on the Linux side.
+
+### What this push landed
+
+- `easyabc_vim/` — six Python modules + install script + idempotent
+  patcher + README, all driven from this repo so a fresh box (lab box,
+  reinstalls) gets a working `easyabc` with vim bindings via one command:
+  ```bash
+  ./easyabc_vim/install.sh
+  ```
+  That clones `jwdj/EasyABC` into `tmp/EasyABC`, drops the vi modules
+  in, runs `patch.py` against the upstream `easy_abc.py`, and writes
+  `~/.local/bin/easyabc` pointing at the patched copy.
+- The vi layer (built by four parallel sub-agents and integrated by a
+  fifth):
+  - `vi_motions.py` — pure-position motions (`hjkl`, words, line, doc, %, fFtT)
+  - `vi_operators.py` — `d/c/y` + paste + register state
+  - `vi_search.py`    — `/ ? n N`, `:s/pat/rep/[g]`, `:%s/...`
+  - `vi_mode.py`      — mode state machine, key dispatch, F12 toggle
+- `aui_compat.py` — monkeypatches wxPython 4.x `auibar.DrawSeparator`
+  to use integer division (the shipped method does
+  `rect.x += rect.width/2` and crashes the paint loop on Py3 — was
+  spamming hundreds of tracebacks per session).
+- `test_vi.py` — self-contained harness that mocks `wx`/`wx.stc`,
+  fakes a Scintilla buffer, drives synthetic key events through ViMode
+  and asserts buffer/cursor state. ~27 tests covering motions,
+  operators, modes, ex commands, undo/redo, F12 toggle. **Not yet
+  run on a real Python install** — home-laptop has only the Windows
+  Python stub. Lab box: `python3 ~/projects/HarpHymnal/tmp/EasyABC/test_vi.py`
+  is the first thing to run after install; anything failing there is
+  what to fix before the user touches the GUI.
+- Vim-as-editor workflow: ex command `:watch` polls the loaded file's
+  mtime every 500 ms and reloads on change (editor goes read-only so
+  vim is the source of truth). Pair with `vim foo.abc` in another
+  terminal — save in vim, EasyABC re-renders the score within 500 ms.
+  `:play` / `:stop` route to EasyABC's existing transport.
+- `.gitignore` — adds `tmp/` (the upstream-clone scratch dir) and
+  `stripchart.mp4` (a reference screen-record dropped at repo root).
+
+### Vi feature subset implemented
+
+`hjkl`, `wWbBeE`, `0 ^ $`, `gg G`, `%`, `f F t T`, counts, operators
+`d c y` + motion (or doubled for line), shortcuts `x X D C Y dd cc yy
+s S r{c} ~`, insert entries `i a I A o O`, visual mode (`v V`), `u`
+/ `Ctrl-R`, search `/ ? n N`, ex `:w :q :wq :s/pat/rep/ :%s/...
+:e <file> :reload :play :stop :watch :nowatch`. F12 disables vi mode
+entirely (escape hatch — useful if it's misbehaving).
+
+Intentionally NOT implemented: marks, named registers, macros (`q`),
+text objects (`iw`, `i"`), Ctrl-D/U/F/B scroll, dot-repeat,
+visual-block. Add later if needed.
+
+### What lab needs to do once
+
+1. `git pull`
+2. `sudo apt install python3-wxgtk4.0 fluidsynth git`  (skip any already
+   present)
+3. `./easyabc_vim/install.sh`
+4. `python3 ~/projects/HarpHymnal/tmp/EasyABC/test_vi.py` and **report
+   any FAIL/ERROR back** — that's the fastest fix loop.
+5. `easyabc` to launch. Should land in NORMAL mode immediately;
+   status bar shows `-- NORMAL --`. F12 to disable vi mode if needed.
+
+### What's queued but not started: stripchart visualizer
+
+The user wants a piano-roll view alongside (or replacing) the music
+score pane — see `stripchart.mp4` at repo root for the target look.
+Confirmed scope:
+- **Data source**: live ABC text in the editor (NOT HarpHymnal's
+  export pipeline — needs to work on any tune, not just hymns).
+- **Rendering**: another way to view/play the MIDI; new pane in the
+  AUI layout.
+- **Colors**: rainbow assigned to the diatonic scale degrees; the
+  chord track below uses the same rainbow, colored by chord root's
+  scale degree.
+- **Playhead**: synced to EasyABC's MIDI playback (`OnPlayTimer` at
+  `easy_abc.py:4810`).
+
+Estimated 1-2 days of wxPython panel work. Should hook in next to
+`MusicScorePanel` in the existing AUI manager. Will need its own
+`StripchartPanel` class with `wx.PaintDC` rendering, plus a tap on
+the play timer for playhead position. Not started — flagged here for
+the lab box if it picks this up first.
+
+### Known issues to investigate
+
+- The lab box is a **pure Linux machine** (the user said "if you
+  were on a pure ubuntu machine like in the lab you could do it") —
+  so test_vi.py + future iterative work is much faster there than
+  on the home Windows box, where the project lives behind a Z:
+  network share that WSL/Windows-Python can't reach. **Lab Claude
+  should run test_vi.py and the GUI directly via Bash**, no shim
+  pipeline needed.
+- GTK warnings during launch (`gtk_box_gadget_distribute: assertion
+  'size >= 0' failed`, `Unable to load sb_h_double_arrow from the
+  cursor theme`) are upstream wxPython/GTK on Ubuntu 22.04 — not
+  caused by anything we did, can be ignored.
+
+---
+
 ## Current state (2026-05-02 — second push: VS Code ABC tooling)
 
 `origin/main` head is `7623c9a` — workspace `.vscode/` configs for

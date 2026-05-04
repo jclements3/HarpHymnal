@@ -81,3 +81,10 @@ drill1*.png
 DRILLS.html
 DRILLS.tex
 DRILLS_tmp.html
+
+# Scratch clones / experiments — see easyabc_vim/install.sh which clones
+# jwdj/EasyABC into tmp/EasyABC reproducibly.
+tmp/
+
+# Stripchart screen-record (reference, not source)
+stripchart.mp4
