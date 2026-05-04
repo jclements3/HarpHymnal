@@ -570,7 +570,10 @@ const LS = {
   key:    "abccomposer.apiKey",
   model:  "abccomposer.model",
   maxtok: "abccomposer.maxTokens",
-  sys:    "abccomposer.systemPrompt",
+  // sys key bumped to .v2 on 2026-05-04 so any pre-harp-rules custom system
+  // prompt saved by the user is orphaned and the new DEFAULT_SYSTEM (with
+  // the embedded pedal-harp composition rules) becomes the active prompt.
+  sys:    "abccomposer.systemPrompt.v2",
   hist:   "abccomposer.chatHistory",
   zoom:   "abccomposer.zoom",
   expand: "abccomposer.expand",
@@ -1515,7 +1518,7 @@ function loadText(path) {
 // via My Files). Edits to the buffer are preserved if the user has
 // modified it -- we only overwrite when the buffer is byte-identical
 // to a known prior seed.
-const BOOTSTRAP_VERSION = "v20";
+const BOOTSTRAP_VERSION = "v21";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;
