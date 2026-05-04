@@ -833,7 +833,6 @@ function renderStripchart(abc) {
   const BAR_NUM_H = 16;
   const GUTTER_W = 36;
 
-  const containerW = stripTarget.clientWidth  || 600;
   const containerH = stripTarget.clientHeight || 500;
 
   // Merge events + bar positions across all lines.
@@ -853,12 +852,16 @@ function renderStripchart(abc) {
   }
   if (barPositions[barPositions.length - 1] !== totalBeats) barPositions.push(totalBeats);
 
-  const innerW = Math.max(containerW - GUTTER_W - 16, totalBeats * PX_PER_BEAT);
-  const fullW  = innerW + GUTTER_W;
+  // Bar widths are LOCKED to PX_PER_BEAT regardless of container size --
+  // expanding the render pane (or rotating the tablet) must NOT stretch
+  // bars to fill the new viewport. Short songs render as a narrow strip
+  // inside a wider container; that's intentional.
+  const innerW   = Math.max(1, totalBeats * PX_PER_BEAT);
+  const fullW    = innerW + GUTTER_W;
   // Main row height = pane height minus header + bar-num + chord-track + a little padding
-  const ROW_H  = Math.max(200, containerH - BAR_NUM_H - CHORD_H - 4);
-  const LANE_H = ROW_H / N_STRINGS;
-  const xPerBeat = innerW / Math.max(totalBeats, 1);
+  const ROW_H    = Math.max(200, containerH - BAR_NUM_H - CHORD_H - 4);
+  const LANE_H   = ROW_H / N_STRINGS;
+  const xPerBeat = PX_PER_BEAT;
 
   // ── Render one timeline ─────────────────────────────────────────
   // Note bars across the whole song.
@@ -1591,31 +1594,42 @@ function baseName(fn) {
   return s || "untitled";
 }
 
-function activeRenderSvg() {
-  const host = (viewMode === "stripchart") ? stripTarget : renderTarget;
-  return host ? host.querySelector("svg") : null;
-}
-
 function dataUrlToBase64(s) {
   if (!s) return "";
   const i = s.indexOf("base64,");
   return i >= 0 ? s.slice(i + 7) : s;
 }
 
+function serializeAllSvgs(host) {
+  if (!host) return "";
+  const svgs = host.querySelectorAll("svg");
+  let out = "";
+  const ser = new XMLSerializer();
+  svgs.forEach(s => { out += ser.serializeToString(s); });
+  return out;
+}
+
 function buildHtmlSnapshot(title, abcSrc) {
-  const svg = activeRenderSvg();
-  const svgXml = svg ? new XMLSerializer().serializeToString(svg) : "<p>(no render)</p>";
+  // .html is the "music" view: render the score (always present in
+  // renderTarget) on top, optional stripchart below, source at the
+  // bottom. Independent of which view is currently active in the app.
+  const scoreXml = serializeAllSvgs(renderTarget) || "<p>(score not rendered)</p>";
+  const stripXml = serializeAllSvgs(stripTarget);
   const safeTitle = String(title).replace(/&/g, "&amp;").replace(/</g, "&lt;");
   const safeAbc   = String(abcSrc).replace(/&/g, "&amp;").replace(/</g, "&lt;");
   return '<!doctype html><html><head><meta charset="utf-8"/>'
     + '<title>' + safeTitle + '</title>'
     + '<style>body{font-family:system-ui,sans-serif;margin:24px;color:#222;}'
     + 'svg{max-width:100%;height:auto;}'
+    + 'h3{margin-top:32px;border-top:1px solid #ddd;padding-top:12px;}'
     + 'pre{font-family:ui-monospace,Menlo,monospace;font-size:12px;'
     + 'white-space:pre-wrap;background:#f5f5f5;padding:12px;border-radius:4px;}'
-    + '@media print{body{margin:0;}pre{display:none;}}</style></head><body>'
+    + '@media print{body{margin:0;}.stripchart-block,pre{display:none;}}'
+    + '</style></head><body>'
     + '<h2>' + safeTitle + '</h2>'
-    + '<div class="render">' + svgXml + '</div>'
+    + '<div class="score">' + scoreXml + '</div>'
+    + (stripXml ? '<div class="stripchart-block"><h3>Stripchart</h3>'
+                  + stripXml + '</div>' : '')
     + '<h3>Source</h3><pre>' + safeAbc + '</pre>'
     + '</body></html>';
 }
@@ -1758,11 +1772,13 @@ document.getElementById("btn-save").onclick = async () => {
     }
   } catch (e) { note(htmlName, false, String(e && e.message || e)); }
 
-  // --- 4) PDF (PNG snapshot of active render → Java wraps in Letter) -
+  // --- 4) PDF (PNG snapshot of the SCORE → Java wraps in Letter) ----
+  // Always render the music score, regardless of which view is active.
+  // PDF is for sharing/printing; the stripchart is a debug visualization.
   const pdfName = base + ".pdf";
   try {
-    const svg = activeRenderSvg();
-    if (!svg) throw new Error("no SVG in active render");
+    const svg = renderTarget ? renderTarget.querySelector("svg") : null;
+    if (!svg) throw new Error("no score SVG to snapshot");
     const pngB64 = await svgToPngBase64(svg);
     if (!pngB64) throw new Error("png render failed");
     if (hasPdf) {
