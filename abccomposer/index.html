@@ -783,17 +783,28 @@ function renderStripchart(abc) {
     return;
   }
 
-  // Determine vertical pitch range across all lines.
-  let pMin = 127, pMax = 0;
-  for (const ln of data.lines) for (const ev of ln.events)
-    for (const m of ev.midis) { if (m < pMin) pMin = m; if (m > pMax) pMax = m; }
-  if (pMin > pMax) { pMin = 60; pMax = 72; }
-  pMin -= 1; pMax += 1;
+  // 47-string pedal harp lane mapping. Each diatonic string gets one
+  // horizontal lane; chromatic notes (rare in this corpus) round to
+  // their letter. C1..G7 = string indices 0..46 with C1 at the bottom.
+  const N_STRINGS = 47;
+  const PC_TO_LETTER_IDX = { 0: 0, 2: 1, 4: 2, 5: 3, 7: 4, 9: 5, 11: 6 };
+  function midiToString(m) {
+    const pc = ((m % 12) + 12) % 12;
+    let li = PC_TO_LETTER_IDX[pc];
+    if (li == null) {
+      // chromatic -> snap to the nearest white-key letter
+      const nearest = [0, 0, 2, 2, 4, 5, 5, 7, 7, 9, 9, 11];
+      li = PC_TO_LETTER_IDX[nearest[pc]];
+    }
+    const oct = Math.floor(m / 12) - 1;       // MIDI 60 -> octave 4
+    return (oct - 1) * 7 + li;                // C1 (oct 1) -> 0
+  }
 
-  const ROW_H = 110;
+  const LANE_H = 5;                            // px per string lane
+  const ROW_H = N_STRINGS * LANE_H;            // 47 * 5 = 235
   const CHORD_H = 28;
-  const BAR_NUM_H = 16;          // top strip with bar numbers (per row)
-  const GUTTER_W = 28;           // left gutter with scale-degree labels
+  const BAR_NUM_H = 16;
+  const GUTTER_W = 32;
   const containerW = stripTarget.clientWidth || 600;
   const fullW = Math.max(200, containerW - 24);
   const innerW = fullW - GUTTER_W;
@@ -809,7 +820,6 @@ function renderStripchart(abc) {
     const ln = data.lines[li];
     if (!ln.totalBeats) continue;
     const xPerBeat = innerW / ln.totalBeats;
-    const noteH = (ROW_H - 4) / (pMax - pMin);
 
     rowMeta.push({
       startBeat: cumBeats,
@@ -819,33 +829,42 @@ function renderStripchart(abc) {
     });
     cumBeats += ln.totalBeats;
 
-    // Note bars
+    // Note bars: each note rendered on its harp-string lane. Multiple
+    // notes from the same event (chords like [CEG]) stack on different
+    // lanes within the same x range, so chords show up as multiple
+    // simultaneous colored bars.
     let bars = "";
     for (const ev of ln.events) {
       if (ev.rest || !ev.midis.length) continue;
       const x = ev.start * xPerBeat;
       const w = Math.max(2, ev.dur * xPerBeat - 1);
       for (const m of ev.midis) {
-        const y = (pMax - m) * noteH;
+        const sIdx = midiToString(m);
+        if (sIdx < 0 || sIdx >= N_STRINGS) continue;
+        const y = (N_STRINGS - 1 - sIdx) * LANE_H;
         const fill = colorForPitch(m, data.tonicPc);
         bars += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) +
-                '" width="' + w.toFixed(1) + '" height="' + Math.max(3, noteH - 1).toFixed(1) +
-                '" fill="' + fill + '" stroke="#1e1f29" stroke-width="0.4" rx="1"/>';
+                '" width="' + w.toFixed(1) + '" height="' + (LANE_H - 0.5).toFixed(1) +
+                '" fill="' + fill + '" stroke="#1e1f29" stroke-width="0.3" rx="1"/>';
       }
     }
-    // Bar separators (dim grey on dark bg)
+    // Bar separators
     let seps = "";
     for (const bp of ln.barPositions) {
       const x = bp * xPerBeat;
       seps += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
               '" y2="' + ROW_H + '" stroke="#6272a4" stroke-width="0.5"/>';
     }
-    // Faint horizontal pitch grid every 12 semitones
+    // Horizontal grid: every C (every 7 lanes) gets a slightly stronger
+    // line; other lanes get a faint hairline so the eye reads octave
+    // boundaries.
     let grid = "";
-    for (let m = Math.ceil(pMin / 12) * 12; m <= pMax; m += 12) {
-      const y = (pMax - m) * noteH;
+    for (let s = 0; s < N_STRINGS; s++) {
+      const y = (N_STRINGS - 1 - s) * LANE_H;
+      const isC = (s % 7 === 0);
       grid += '<line x1="0" y1="' + y.toFixed(1) + '" x2="' + innerW +
-              '" y2="' + y.toFixed(1) + '" stroke="#3a3d4f" stroke-width="0.5"/>';
+              '" y2="' + y.toFixed(1) + '" stroke="' + (isC ? "#3a3d4f" : "#262833") +
+              '" stroke-width="' + (isC ? 0.5 : 0.3) + '"/>';
     }
     // Chord track underneath
     let chordTrack = '<rect x="0" y="0" width="' + innerW + '" height="' + CHORD_H +
@@ -898,16 +917,17 @@ function renderStripchart(abc) {
     }
     cumBars += Math.max(0, ln.barPositions.length - 1);
 
-    // Left gutter: 8 lane labels (1-8) for scale-degree orientation. Even
-    // spacing across the row height -- conceptual y-axis legend rather
-    // than strict MIDI mapping.
+    // Left gutter: octave labels at every C (every 7 strings). C1 at
+    // bottom, C7 at top -- the harp has 47 strings = 6 full octaves +
+    // C7..G7 on top.
     let gutter = '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + ROW_H +
                  '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
-    for (let k = 1; k <= 8; k++) {
-      const y = ((8 - k) + 0.5) * (ROW_H / 8);
-      gutter += '<text x="' + (GUTTER_W / 2).toFixed(1) + '" y="' + (y + 4).toFixed(1) +
-                '" text-anchor="middle" font-size="11" font-weight="600" fill="#bd93f9">' +
-                k + '</text>';
+    for (let oct = 1; oct <= 7; oct++) {
+      const sIdx = (oct - 1) * 7;            // C of this octave
+      const y = (N_STRINGS - 1 - sIdx) * LANE_H + LANE_H / 2 + 3;
+      gutter += '<text x="' + (GUTTER_W / 2).toFixed(1) + '" y="' + y.toFixed(1) +
+                '" text-anchor="middle" font-size="9" font-weight="600" fill="#bd93f9">' +
+                'C' + oct + '</text>';
     }
 
     html += '<div class="strip-row" data-row="' + (rowMeta.length - 1) + '">' +
