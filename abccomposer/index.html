@@ -580,6 +580,62 @@ function extractStripchartData(vobj) {
   return { tonicPc, lines };
 }
 
+// Stripchart playhead state -- populated per-render, consumed by the
+// requestAnimationFrame loop in startStripchartPlayback().
+let stripState = null;
+let stripRafId = null;
+let stripStartedAtMs = 0;
+
+function setPlayheadBeat(beat) {
+  if (!stripState) return;
+  for (let i = 0; i < stripState.lines.length; i++) {
+    const ln = stripState.lines[i];
+    const ph = stripTarget.querySelector('.strip-row[data-row="' + i + '"] .playhead');
+    if (!ph) continue;
+    if (beat >= ln.startBeat && beat < ln.endBeat) {
+      const x = (beat - ln.startBeat) * ln.xPerBeat;
+      ph.setAttribute("transform", "translate(" + x.toFixed(1) + ",0)");
+      ph.setAttribute("opacity", "1");
+    } else if (beat >= ln.endBeat) {
+      // park playhead at end of finished rows
+      ph.setAttribute("transform", "translate(" + (ln.totalBeats * ln.xPerBeat).toFixed(1) + ",0)");
+      ph.setAttribute("opacity", "0.3");
+    } else {
+      ph.setAttribute("transform", "translate(0,0)");
+      ph.setAttribute("opacity", "0.3");
+    }
+  }
+}
+
+function startStripchartPlayback() {
+  if (!stripState) return;
+  if (stripRafId) cancelAnimationFrame(stripRafId);
+  const beatsPerMs = stripState.qpm / 60000;
+  stripStartedAtMs = performance.now();
+  function step() {
+    const elapsed = performance.now() - stripStartedAtMs;
+    const beat = elapsed * beatsPerMs;
+    setPlayheadBeat(beat);
+    if (beat < stripState.totalBeats) {
+      stripRafId = requestAnimationFrame(step);
+    } else {
+      stripRafId = null;
+    }
+  }
+  stripRafId = requestAnimationFrame(step);
+}
+
+function stopStripchartPlayback() {
+  if (stripRafId) { cancelAnimationFrame(stripRafId); stripRafId = null; }
+  setPlayheadBeat(0);
+}
+
+function tempoQpmFromAbc(abc) {
+  // Q:1/4=80 -> 80 ; Q:80 -> 80 ; default 120.
+  const m = /^\s*Q\s*:\s*(?:\d+\/\d+\s*=\s*)?(\d+)/m.exec(abc || "");
+  return m ? parseInt(m[1], 10) : 120;
+}
+
 function renderStripchart(abc) {
   // Parse only — don't disturb the score DOM.
   let vobj = null;
@@ -619,12 +675,25 @@ function renderStripchart(abc) {
   const containerW = stripTarget.clientWidth || 600;
   const innerW = Math.max(200, containerW - 24);
 
+  // Build per-row metadata for the playhead loop. Row i covers
+  // [cumBeats[i], cumBeats[i+1]) in the global timeline.
+  const rowMeta = [];
+  let cumBeats = 0;
+
   let html = "";
   for (let li = 0; li < data.lines.length; li++) {
     const ln = data.lines[li];
     if (!ln.totalBeats) continue;
     const xPerBeat = innerW / ln.totalBeats;
     const noteH = (ROW_H - 4) / (pMax - pMin);
+
+    rowMeta.push({
+      startBeat: cumBeats,
+      endBeat:   cumBeats + ln.totalBeats,
+      totalBeats: ln.totalBeats,
+      xPerBeat:  xPerBeat,
+    });
+    cumBeats += ln.totalBeats;
 
     // Note bars
     let bars = "";
@@ -678,14 +747,17 @@ function renderStripchart(abc) {
       }
     }
 
-    // Playhead in the middle of every row (visual reference, not animated).
-    const playX = innerW / 2;
-    const playhead = '<polygon points="' +
-      (playX - 5) + ',-2 ' + (playX + 5) + ',-2 ' + playX + ',6" fill="#222"/>' +
-      '<line x1="' + playX + '" y1="0" x2="' + playX + '" y2="' + ROW_H +
-      '" stroke="#222" stroke-width="1" stroke-dasharray="3,2"/>';
+    // Playhead element -- rendered at x=0; SVG transform on .playhead group
+    // animates it horizontally during playback. Opacity 0.3 when this row
+    // isn't the active one.
+    const playhead =
+      '<g class="playhead" opacity="0.3" transform="translate(0,0)">' +
+        '<polygon points="-5,-2 5,-2 0,6" fill="#bd2222"/>' +
+        '<line x1="0" y1="0" x2="0" y2="' + ROW_H +
+          '" stroke="#bd2222" stroke-width="1.5" stroke-dasharray="3,2"/>' +
+      '</g>';
 
-    html += '<div class="strip-row">' +
+    html += '<div class="strip-row" data-row="' + (rowMeta.length - 1) + '">' +
       '<svg viewBox="0 0 ' + innerW + ' ' + ROW_H + '" preserveAspectRatio="none" height="' + ROW_H + '">' +
         grid + seps + bars + playhead +
       '</svg>' +
@@ -696,6 +768,12 @@ function renderStripchart(abc) {
   }
 
   stripTarget.innerHTML = html;
+  stripState = {
+    lines: rowMeta,
+    totalBeats: cumBeats,
+    qpm: tempoQpmFromAbc(abc),
+  };
+  setPlayheadBeat(0);
   setStatus("stripchart ok", "ok");
 }
 
@@ -825,6 +903,10 @@ async function play() {
     await createSynth.init({ visualObj });
     await synthControl.setTune(visualObj, false, {});
     synthControl.play();
+    // Animate the stripchart playhead in step with audio playback (best-
+    // effort: drives off performance.now() + ABC tempo rather than the
+    // synth's own clock, so it can drift slightly on long tunes).
+    if (viewMode === "stripchart") startStripchartPlayback();
     setStatus("playing", "ok");
   } catch (e) {
     setStatus("audio: " + (e && e.message || e), "err");
@@ -832,6 +914,7 @@ async function play() {
 }
 function stop() {
   if (synthControl) { try { synthControl.pause(); } catch (e) {} }
+  stopStripchartPlayback();
   setStatus("stopped");
 }
 
