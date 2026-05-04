@@ -638,44 +638,58 @@ function extractStripchartData(vobj) {
   const lines = [];
   for (const line of vobj.lines) {
     if (!line.staff) continue;
-    // Use the first voice on the first staff per line.
-    const staff = line.staff[0];
-    if (!staff || !staff.voices || !staff.voices[0]) continue;
-    const voice = staff.voices[0];
+    // Walk ALL staves and ALL voices, merging into one event list per
+    // line. Each voice has its own cursor (0..n) -- voices play in
+    // parallel within the same line, so we don't accumulate cursors
+    // across them. barPositions are derived from the union of all
+    // voices' bar lines plus the line's total length.
     const events = [];
-    let cursor = 0;
-    let lastChord = null;
-    const barPositions = [0];
-    for (const elem of voice) {
-      if (elem.el_type === "bar") {
-        barPositions.push(cursor);
-        continue;
-      }
-      if (elem.el_type === "note") {
-        const dur = (elem.duration || 0) * 8; // duration is fraction of whole note; *8 -> eighth-beat units
-        if (elem.chord && elem.chord.length) {
-          lastChord = elem.chord[0].name || lastChord;
+    const barPosSet = new Set([0]);
+    let lineTotalBeats = 0;
+
+    for (const staff of line.staff) {
+      if (!staff || !staff.voices) continue;
+      for (const voice of staff.voices) {
+        let cursor = 0;
+        for (const elem of voice) {
+          if (elem.el_type === "bar") {
+            barPosSet.add(cursor);
+            continue;
+          }
+          if (elem.el_type === "note") {
+            const dur = (elem.duration || 0) * 8;
+            const chord = elem.chord && elem.chord[0] ? elem.chord[0].name : null;
+            if (elem.rest) {
+              events.push({ start: cursor, dur, midis: [], chord, rest: true });
+            } else if (elem.pitches && elem.pitches.length) {
+              const midis = elem.pitches.map(p => abcPitchToMidi(p.pitch));
+              events.push({ start: cursor, dur, midis, chord, rest: false });
+            }
+            cursor += dur;
+          }
         }
-        if (elem.rest) {
-          events.push({ start: cursor, dur, midis: [], chord: elem.chord && elem.chord[0] ? elem.chord[0].name : null, rest: true });
-        } else if (elem.pitches && elem.pitches.length) {
-          const midis = elem.pitches.map(p => abcPitchToMidi(p.pitch));
-          events.push({ start: cursor, dur, midis, chord: elem.chord && elem.chord[0] ? elem.chord[0].name : null, rest: false });
-        }
-        cursor += dur;
+        if (cursor > lineTotalBeats) lineTotalBeats = cursor;
       }
     }
-    if (barPositions[barPositions.length - 1] !== cursor) barPositions.push(cursor);
-    lines.push({ events, totalBeats: cursor, barPositions });
+
+    barPosSet.add(lineTotalBeats);
+    const barPositions = Array.from(barPosSet).sort((a, b) => a - b);
+    if (lineTotalBeats > 0) lines.push({ events, totalBeats: lineTotalBeats, barPositions });
   }
   return { tonicPc, lines };
 }
 
 // Stripchart playhead state -- populated per-render, consumed by the
 // requestAnimationFrame loop in startStripchartPlayback().
+//
+// stripPlayheadAnchor: { wallMs, beat } tagged each time the synth's
+// eventCallback fires, so RAF interpolates from a beat that was
+// recently true in the audio. This keeps the playhead in lock-step
+// with playback even if the audio is slightly slower than nominal qpm.
 let stripState = null;
 let stripRafId = null;
 let stripStartedAtMs = 0;
+let stripPlayheadAnchor = null;
 
 function setPlayheadBeat(beat) {
   if (!stripState) return;
@@ -703,9 +717,13 @@ function startStripchartPlayback() {
   if (stripRafId) cancelAnimationFrame(stripRafId);
   const beatsPerMs = stripState.qpm / 60000;
   stripStartedAtMs = performance.now();
+  // Set initial anchor at the start so the playhead has something to
+  // interpolate from before the synth's first eventCallback fires.
+  stripPlayheadAnchor = { wallMs: stripStartedAtMs, beat: 0 };
   function step() {
-    const elapsed = performance.now() - stripStartedAtMs;
-    const beat = elapsed * beatsPerMs;
+    const a = stripPlayheadAnchor;
+    const elapsed = performance.now() - a.wallMs;
+    const beat = a.beat + elapsed * beatsPerMs;
     setPlayheadBeat(beat);
     if (beat < stripState.totalBeats) {
       stripRafId = requestAnimationFrame(step);
@@ -718,7 +736,18 @@ function startStripchartPlayback() {
 
 function stopStripchartPlayback() {
   if (stripRafId) { cancelAnimationFrame(stripRafId); stripRafId = null; }
+  stripPlayheadAnchor = null;
   setPlayheadBeat(0);
+}
+
+// Called by abcjs SynthController on each visible event (note/rest/chord)
+// during playback. Re-anchors the playhead to the synth's actual time so
+// the visual stays in lock-step with the audio.
+function syncPlayheadFromSynth(event) {
+  if (!event || !stripState) return;
+  if (event.milliseconds == null) return;
+  const beat = (event.milliseconds / 1000) * (stripState.qpm / 60);
+  stripPlayheadAnchor = { wallMs: performance.now(), beat };
 }
 
 function tempoQpmFromAbc(abc) {
@@ -1121,12 +1150,13 @@ async function play() {
     synthControl.load("#audio-host", null, {
       displayPlay: false, displayProgress: false, displayClock: false,
     });
-    // SynthController loads soundfonts itself when given a soundFontUrl;
-    // the previous code mixed in a separate CreateSynth which only
-    // loaded the first couple of notes' buffers and the rest played silent.
+    // Load all soundfonts before playing so there's no silent first
+    // pass while samples download. eventCallback re-anchors the
+    // stripchart playhead per visible event for tight audio sync.
     await synthControl.setTune(visualObj, false, {
       soundFontUrl: "https://paulrosen.github.io/midi-js-soundfonts/FluidR3_GM/",
       chordsOff: false,
+      eventCallback: (event) => syncPlayheadFromSynth(event),
     });
     synthControl.play();
     // Animate the stripchart playhead in step with audio playback (best-
