@@ -864,7 +864,10 @@ function renderStripchart(abc) {
   const xPerBeat = PX_PER_BEAT;
 
   // ── Render one timeline ─────────────────────────────────────────
-  // Note bars across the whole song.
+  // Standard music-staff orientation: highest pitches at TOP, lowest at
+  // BOTTOM. Ascending pitches visually ascend. sIdx 0 = scientific C1 =
+  // lowest pitch sits at the bottom; gutter labels use harp octave
+  // numbering (C1 = highest = top of chart, C7 = lowest = bottom).
   let bars = "";
   for (const ev of allEvents) {
     if (ev.rest || !ev.midis.length) continue;
@@ -894,11 +897,10 @@ function renderStripchart(abc) {
   // red (tonic-anchor); F lines are blue (subdominant-anchor).
   let grid = "";
   // Faint rainbow tint per lane: each string gets a full-width rect at
-  // ~10% alpha in its scale-degree color. String index 0 is C1 (degree
-  // 1 = red), index 1 = D (orange), ..., index 6 = B (pink); the
-  // pattern repeats every 7 strings up the harp. The note bars drawn
-  // later sit on top of these tints in the same hue, so a note's color
-  // is the lane it lives on.
+  // ~10% alpha in its scale-degree color. String index 0 (scientific C1
+  // = harp C7, the lowest pitch) sits at the BOTTOM of the chart; index
+  // 46 (G7, highest) at the TOP. Rainbow pattern (C=red, D=orange, ...,
+  // B=pink) repeats every 7 strings up the chart.
   for (let s = 0; s < N_STRINGS; s++) {
     const y = (N_STRINGS - 1 - s) * LANE_H;
     const deg = (s % 7) + 1;
@@ -913,6 +915,9 @@ function renderStripchart(abc) {
             '" y2="' + y.toFixed(1) +
             '" stroke="#262833" stroke-width="0.3"/>';
   }
+  // Octave-boundary highlight at the BOTTOM edge of each C and F lane
+  // (sits below the gutter label, separating each octave-block from the
+  // next octave down on screen).
   function strongLine(s, color) {
     const yBottom = (N_STRINGS - 1 - s) * LANE_H + LANE_H;
     if (yBottom <= 0 || yBottom >= ROW_H) return "";
@@ -972,10 +977,10 @@ function renderStripchart(abc) {
                (bi + 1) + '</text>';
   }
   // Left gutter -- HARP octave numbering (1=highest, 4=middle C / red
-  // string, 7=lowest). Internally we count strings from C1 (scientific)
-  // upwards; on the harp, that scientific octave N reads as harp octave
-  // (8 - N). Middle C (scientific C4 = harp C4) is highlighted red to
-  // match the physical instrument's red middle-C string.
+  // string, 7=lowest). Standard music-staff orientation: harp C1
+  // (highest pitch) at TOP, harp C7 (lowest) at BOTTOM. Middle C = C4
+  // is highlighted red to match the physical instrument's red middle-C
+  // string.
   let gutter = '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + ROW_H +
                '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
   for (let sciOct = 1; sciOct <= 7; sciOct++) {
@@ -1480,7 +1485,7 @@ function loadText(path) {
 // via My Files). Edits to the buffer are preserved if the user has
 // modified it -- we only overwrite when the buffer is byte-identical
 // to a known prior seed.
-const BOOTSTRAP_VERSION = "v12";
+const BOOTSTRAP_VERSION = "v13";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;

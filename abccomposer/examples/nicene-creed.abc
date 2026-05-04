@@ -65,10 +65,11 @@ V:2 clef=bass    name="LH"
 w: I be- lieve I be- lieve
 [V:2]  [C,,G,,C,E,] [F,,A,,D,F,] | [E,,B,,E,G,]4 | "drone"E,,, z [F,,,A,,,C,,F,,] [G,,,D,,G,,B,,] | [C,,E,,A,,C,]4 |
 %
-% Bars 5-7 -- drone + iter 3 head (vii°², V7) + iter 3 tail (IΔ7) + final drone
+% Bars 5-7 -- drone + iter 3 head (vii°², V7) + iter 3 tail (IΔ7) + final drone + closing scale
+%   Bar 7 is 4 beats: drone (q) + rest (q) + rest (q) + ascending C major scale (8 x 32nds, C3->C4)
 % 5
-[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f'']        | "IΔ7"[b'c''e''g'']4 | z2            |]
-w: I be- lieve
-[V:2]  "drone"A,,, z [B,,,D,,F,,B,,] [G,,,B,,,F,,G,,] | [C,,,G,,,C,,E,,]4   | "drone"C,,, z |]
+[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f'']        | "IΔ7"[b'c''e''g'']4 | z3 C,/8D,/8E,/8F,/8G,/8A,/8B,/8C/8 |]
+w: I be- lieve _
+[V:2]  "drone"A,,, z [B,,,D,,F,,B,,] [G,,,B,,,F,,G,,] | [C,,,G,,,C,,E,,]4   | "drone"C,,, z3                             |]
 %
 % --- Phase 2 (Locrian) below this line, to come ---
