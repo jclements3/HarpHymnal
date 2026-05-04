@@ -335,7 +335,8 @@
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
     <button id="btn-open">Open</button>
-    <button id="btn-hymnal" title="Browse the bundled OpenHymnal corpus">📚 Hymnal</button>
+    <button id="btn-myfiles" title="Browse Documents/HarpHymnal/ on this device">📁 My Files</button>
+    <button id="btn-hymnal"  title="Browse the bundled OpenHymnal corpus">📚 Hymnal</button>
     <select id="examples-pick" title="Load a bundled example">
       <option value="">Examples ▾</option>
     </select>
@@ -383,6 +384,21 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+<!-- ─── My Files picker modal (Documents/HarpHymnal/) ─── -->
+<div class="modal-bg" id="myfiles-modal">
+  <div class="modal" style="display:flex;flex-direction:column;width:560px;max-width:92vw;height:78vh;">
+    <h2 style="margin-bottom:6px;">📁 Documents/HarpHymnal/</h2>
+    <div class="hymnal-count" id="myfiles-count" style="margin-bottom:8px;">…</div>
+    <input type="text" id="myfiles-search" class="hymnal-search"
+           placeholder="Filter by filename…" autocomplete="off"/>
+    <div class="hymnal-list" id="myfiles-list"></div>
+    <div class="actions">
+      <button id="btn-myfiles-refresh">Refresh</button>
+      <button id="btn-myfiles-cancel">Cancel</button>
+    </div>
   </div>
 </div>
 
@@ -1153,6 +1169,94 @@ document.getElementById("btn-open").onclick = () =>
   document.getElementById("file-input").click();
 
 // ────────────────────────────────────────────────────────────────────
+// My Files picker modal -- lists Documents/HarpHymnal/ via the native
+// Bridge (Android only). On desktop the button is harmless: clicking
+// it shows an empty list with a "(no files; this needs the tablet
+// app)" message.
+// ────────────────────────────────────────────────────────────────────
+const myfilesModal  = document.getElementById("myfiles-modal");
+const myfilesSearch = document.getElementById("myfiles-search");
+const myfilesList   = document.getElementById("myfiles-list");
+const myfilesCount  = document.getElementById("myfiles-count");
+let myfilesCache    = [];
+
+function renderMyFiles(filter) {
+  const q = (filter || "").trim().toLowerCase();
+  const rows = myfilesCache.filter(r => !q || r.name.toLowerCase().includes(q));
+  myfilesList.innerHTML = "";
+  if (!rows.length) {
+    const div = document.createElement("div");
+    div.className = "hy empty";
+    div.textContent = q
+      ? "no matches"
+      : (window.Bridge ? "no files in Documents/HarpHymnal/ yet"
+                       : "(needs the tablet app)");
+    myfilesList.appendChild(div);
+  } else {
+    for (const r of rows) {
+      const div = document.createElement("div");
+      div.className = "hy";
+      div.textContent = r.name;
+      div.dataset.id = r.id;
+      div.dataset.name = r.name;
+      myfilesList.appendChild(div);
+    }
+  }
+  myfilesCount.textContent = rows.length + " of " + myfilesCache.length + " files";
+}
+
+function refreshMyFiles() {
+  if (!window.Bridge || typeof window.Bridge.listAbc !== "function") {
+    myfilesCache = [];
+    renderMyFiles("");
+    return;
+  }
+  try {
+    const json = window.Bridge.listAbc();
+    myfilesCache = JSON.parse(json || "[]");
+  } catch (e) {
+    myfilesCache = [];
+  }
+  renderMyFiles(myfilesSearch.value);
+}
+
+document.getElementById("btn-myfiles").onclick = () => {
+  myfilesModal.classList.add("show");
+  myfilesSearch.value = "";
+  refreshMyFiles();
+};
+document.getElementById("btn-myfiles-cancel").onclick = () =>
+  myfilesModal.classList.remove("show");
+document.getElementById("btn-myfiles-refresh").onclick = refreshMyFiles;
+myfilesSearch.addEventListener("input", () => renderMyFiles(myfilesSearch.value));
+myfilesList.addEventListener("click", (ev) => {
+  const row = ev.target.closest(".hy[data-name]");
+  if (!row) return;
+  const id   = row.dataset.id;
+  const name = row.dataset.name;
+  let txt = "";
+  try {
+    if (id && id !== "-1" && typeof window.Bridge.readAbcById === "function") {
+      txt = window.Bridge.readAbcById(parseInt(id, 10));
+    } else if (typeof window.Bridge.readAbcByName === "function") {
+      txt = window.Bridge.readAbcByName(name);
+    }
+  } catch (e) {
+    setStatus("read failed: " + (e && e.message || e), "err");
+    return;
+  }
+  if (!txt) {
+    setStatus("read returned empty", "err");
+    return;
+  }
+  cm.setValue(txt);
+  fname.value = name;
+  lsSet(LS.fname, name);
+  setStatus("loaded " + name, "ok");
+  myfilesModal.classList.remove("show");
+});
+
+// ────────────────────────────────────────────────────────────────────
 // Hymnal picker modal -- searchable list of all bundled OpenHymnal tunes.
 // ────────────────────────────────────────────────────────────────────
 const hymnalModal = document.getElementById("hymnal-modal");
@@ -1273,10 +1377,29 @@ document.getElementById("file-input").onchange = (ev) => {
 };
 
 document.getElementById("btn-save").onclick = () => {
-  const blob = new Blob([cm.getValue()], { type: "text/plain;charset=utf-8" });
+  const filename = fname.value || "untitled.abc";
+  const content = cm.getValue();
+  // On the tablet (Android WebView with the Bridge), write directly to
+  // Documents/HarpHymnal/ via MediaStore so the file lands in a
+  // predictable, browseable location instead of Downloads/.
+  if (window.Bridge && typeof window.Bridge.saveAbc === "function") {
+    try {
+      const result = window.Bridge.saveAbc(filename, content);
+      if (result && result.startsWith("OK")) {
+        setStatus("saved → Documents/HarpHymnal/" + filename, "ok");
+        return;
+      }
+      setStatus("save: " + (result || "unknown error"), "err");
+      // fall through to download fallback if Bridge failed
+    } catch (e) {
+      setStatus("Bridge.saveAbc threw: " + (e && e.message || e), "err");
+    }
+  }
+  // Browser / desktop fallback: trigger a download to the OS default folder.
+  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  a.href = url; a.download = fname.value || "untitled.abc";
+  a.href = url; a.download = filename;
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 };
