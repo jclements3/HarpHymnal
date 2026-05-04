@@ -16,36 +16,37 @@
 %   On a harp every string sustains, so striking the same chord nine
 %   times in a row would smear into a muddy column. Instead, every
 %   strike is a different diatonic chord -- 9 unique 4-note voicings
-%   in each hand (8 notes per strike, well inside the 10-strings-per-
-%   hand limit). The progression walks the complete diatonic family
-%   plus V7 and a final IΔ7. Inversions are mixed (root / 1st / 2nd)
-%   so adjacent strikes share tones and the voice leading stays close.
-%   RH harp 4->1 (climbing); LH harp 6->7 (descending into drone).
+%   in each hand. RH climbs; LH bass DESCENDS across all 9 chords
+%   (sIdx 14 -> 7, roughly one octave) so the gesture truly settles
+%   into the drone register, even though chord notes themselves stay
+%   at C2 or above (C1..B1 is reserved for single-pitch drones only).
 %
-%      Iter 1 (RH harp 4..3, LH harp 6..5):    I    -> ii¹  -> iii
-%      Iter 2 (RH harp 3..2, LH harp 7..6):    IV²  -> V    -> vi¹
-%      Iter 3 (RH harp 2..1, LH harp 7..6):    vii°² -> V7  -> IΔ7
+%      Iter 1 (RH C4..C5, LH C2..C4):     I -> ii¹  -> iii
+%      Iter 2 (RH C5..D6, LH C2..D3):     IV² -> V² -> vi¹
+%      Iter 3 (RH C5..G6, LH C2..F3):     vii°² -> V7² -> IΔ7
 %
-%   Iter 3 voicings live strictly above iter 2's top (D6): vii°² uses
-%   5th-in-bass (F6 B6 D7 F7), V7 keeps G6 B6 D7 F7, IΔ7 climbs to
-%   B6 C7 E7 G7 (rootless 7-1-3-5 -- harp string 1 is G7).
-%   Strike 9 (IΔ7) LH on harp 7-6 (C1 G1 C2 E2, root-5-octave-10:
-%   the climactic C1 anchor stays, and the top E2 keeps the 10-string
-%   span legal).
+%   LH BASS NOTE PROGRESSION (descending C major motion):
+%      I (C3) -> ii¹ (F2) -> iii (E2) -> IV² (C2) -> V² (D2) -> vi¹ (C2)
+%      -> vii°² (F2) -> V7² (D2) -> IΔ7 (C2)
+%      sIdx:  14    10      9      7       8       7      10       8       7
 %
-%   Rhythm (anthem skeleton, with C1..B1 organ-drone hits):
+%   Iter 3 voicings live in C5..G6 (was C6..G7, dropped one octave for
+%   listener accessibility -- the angel-zone is still reached via the
+%   bar 7 closing scale that ends on G7).
+%
+%   Rhythm (anthem skeleton, with C1..B1 organ-pedal-drone hits):
 %     Bar 1 (pickup, 2 beats): q q                  -- "I" "be"  of iter 1
 %     Bar 2 (4 beats):         whole                -- "lieve"   of iter 1
-%     Bar 3 (4 beats):         drone-q + rest-q + q q   -- drone hit, then "I" "be" iter 2
+%     Bar 3 (4 beats):         drone-q + rest-q + q q   -- drone, then "I" "be" iter 2
 %     Bar 4 (4 beats):         whole                -- "lieve"   of iter 2
-%     Bar 5 (4 beats):         drone-q + rest-q + q q   -- drone hit, then "I" "be" iter 3
+%     Bar 5 (4 beats):         drone-q + rest-q + q q   -- drone, then "I" "be" iter 3
 %     Bar 6 (4 beats):         whole                -- "lieve"   of iter 3
-%     Bar 7 (tail, 2 beats):   drone-q + rest-q     -- final drone hit, then ring
+%     Bar 7 (4 beats):         drone-q + rest-q + rest-q + closing-scale-q
 %
-%   Drone pitches (LH only; V:1 rests through the drone window):
-%     after iter 1 lieve (iii)   -> E1  (root of iii on harp 7)
-%     after iter 2 lieve (vi¹)   -> A1  (root of vi  on harp 7)
-%     after iter 3 lieve (IΔ7)   -> C1  (tonic, lowest string, harp 7)
+%   DRONE PITCHES descend C major triad (G1 -> E1 -> C1, a 3rd each):
+%     after iter 1 lieve (iii)   -> G1  (5th of C major, MIDI 31)
+%     after iter 2 lieve (vi¹)   -> E1  (3rd of C major, MIDI 28)
+%     after iter 3 lieve (IΔ7)   -> C1  (tonic, lowest string, MIDI 24)
 %
 %   Phase 2 (Locrian) follows -- TBD.
 %
@@ -59,22 +60,102 @@ K:C
 V:1 clef=treble  name="RH"
 V:2 clef=bass    name="LH"
 %
-% Bars 1-4 -- iter 1 (I, ii¹, iii) + drone + iter 2 head (IV², V) + iter 2 tail (vi¹)
-%   IMPORTANT: C1..B1 (the lowest harp octave) is RESERVED for single-pitch organ-pedal drones
-%   that reinforce the church mode. NEVER place chord notes there. All chord voicings live at
-%   C2 or above; only "drone"X,,, single notes occupy C1..B1.
+% Bars 1-4 -- iter 1 (I, ii¹, iii) + drone + iter 2 head (IV², V²) + iter 2 tail (vi¹)
+%   RULES: C1..B1 reserved for single-pitch drones only. ALL chord notes >= C2.
+%          LH bass strictly DESCENDS across all 9 strikes (C3 -> C2, sIdx 14 -> 7).
+%          Drones descend C major triad: G1 -> E1 -> C1.
 % 1
-[V:1]  "I"[CEGc] "ii¹"[FAdf]     | "iii"[EGBe]4  | z2 "IV²"[cfac'] "V"[dgbd']                | "vi¹"[ceac']4  |
+[V:1]  "I"[CEGc] "ii¹"[FAdf]   | "iii"[EGBe]4   | z2 "IV²"[cfac'] "V²"[dgbd']               | "vi¹"[ceac']4  |
 w: I be- lieve I be- lieve
-[V:2]  [C,,G,,C,E,] [F,,A,,D,F,] | [E,,B,,E,G,]4 | "drone"E,,, z [C,,F,,A,,C,] [G,,D,G,B,] | [C,,E,,A,,C,]4 |
+[V:2]  [C,E,G,C] [F,,A,,D,F,]  | [E,,G,,B,,E,]4 | "drone"G,,, z [C,,F,,A,,C,] [D,,G,,B,,D,] | [C,,E,,A,,C,]4 |
 %
-% Bars 5-7 -- drone + iter 3 head (vii°², V7) + iter 3 tail (IΔ7) + final drone + closing scale
+% Bars 5-7 -- drone + iter 3 head (vii°², V7²) + iter 3 tail (IΔ7) + final drone + closing scale
+%   Iter 3 RH lives in C5..G6 (was C6..G7 -- dropped one octave for accessibility; the very top
+%   of the harp is still reached via the bar 7 closing scale ending on G7).
 %   Bar 7 is 4 beats: drone (q) + rest (q) + rest (q) + ascending C major scale (8 x 32nds, G6->G7).
-%   Run lives strictly ABOVE C6 in the top harp octave -- ends on G7, the highest string.
-%   ABC: lowercase c..b = C5..B5; one apostrophe = +octave (C6..B6); two apostrophes = +2 octaves (C7..B7).
+%   ABC: C = C4 (middle C); c = C5; c' = C6; c'' = C7. One apostrophe = +octave (lowercase).
 % 5
-[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f''] | "IΔ7"[b'c''e''g'']4 | z3 g'/8a'/8b'/8c''/8d''/8e''/8f''/8g''/8 |]
+[V:1]  z2 "vii°²"[fbd'f'] "V7²"[gbd'f']        | "IΔ7"[bce'g']4 | z3 g'/8a'/8b'/8c''/8d''/8e''/8f''/8g''/8 |
 w: I be- lieve _
-[V:2]  "drone"A,,, z [F,,B,,D,F,] [G,,D,F,B,] | [C,,G,,B,,E,]4      | "drone"C,,, z3                          |]
+[V:2]  "drone"E,,, z [F,,B,,D,F,] [D,,G,,B,,F,] | [C,,G,,B,,E,]4 | "drone"C,,, z3                           |
 %
-% --- Phase 2 (Locrian) below this line, to come ---
+% PHASE 2 -- Locrian. Slow (q=64), pp, atmospheric. Opposite character to Phase 1:
+%   instead of nine block-chord strikes per "I believe", the texture is a continuous
+%   low pedal-tone drone (B1 = B,,,) under sustained chord pads in the LH and a slow
+%   bassoon-like RH line carrying the text. One syllable per long note (h / h. / w).
+%
+%   MODAL CENTRE: B Locrian. The tonic triad is i° (B D F -- a diminished triad),
+%   intentionally unstable; Locrian is the only mode whose tonic is dim, so the
+%   final cadence on i° leaves the prayer unresolved -- fitting for "I believe in
+%   ... maker of all things visible AND INVISIBLE", the unseen kept in suspension.
+%
+%   DRONE SCHEME: B,,, (B1, MIDI 23 -- second-lowest string) struck once per
+%   4-bar phrase boundary. The long bass strings ring 8-15 sec naturally, so a
+%   single strike covers the phrase without re-articulation. C1..B1 zone is
+%   organ-pedal-drone only (single pitches, no chords), per the harp range policy.
+%
+%   HARMONIC PLAN (diatonic to C major / B Locrian -- no accidentals):
+%     Phrase 1 "I believe in one God"             : i° -> bVII -> bVI -> bII
+%     Phrase 2 "the Father almighty"              : bIII -> iv -> bVI -> i°
+%     Phrase 3 "maker of heaven and earth"        : i°/v° -> bIII -> bVII -> i°
+%     Phrase 4 "of all things visible and ..."    : bII/iv -> bVI -> bVII -> i°
+%
+%   BAR 8 -- SEGUE "Fall of the Angels": a single descending line of 16
+%   sixteenth-notes by PERFECT FOURTHS spanning the full harp range, F7 -> C1.
+%   This is the dramatic transition from Phase 1's Ionian climax (RH closing
+%   scale ending on G7, the highest string) into Phase 2's Locrian "dark
+%   creation -- making something from the void". The run literally falls from
+%   the angel zone (C6..G7, last touched at G7) down to the void (C1, the
+%   lowest string), each step a perfect fourth -- the wide leaps give a sense
+%   of cascading descent, not a smooth scale.
+%   It is a monophonic melodic gesture, NOT a chord, so it is an AUTHORIZED
+%   EXCEPTION to the "no chord notes in C1..B1" rule -- a single line passing
+%   through is fine; only stacked pitches in the drone zone would muddy.
+%   Sequence: F7 C7 G6 D6 A5 E5 B4 F4 C4 G3 D3 A2 E2 B1 F1 C1.
+%   16 notes by descending 4ths land precisely on C1; silence breathes before
+%   bar 9 lifts the B1 drone for Locrian's modal centre.
+%
+%   PHRASE 4 ANGEL-ZONE TOUCH: in bar 23 the RH carries the syllable "in-" of
+%   "invisible" with a single grace-note {f''} (F7) -- a whisper in C6..G7, one
+%   unrepeated breath of light, then the line settles back to B4 for the final
+%   "ble" on the unresolved i°. No flourish, no chord -- one grace note, gone.
+%
+% Bar 8 -- SEGUE "Fall of the Angels": 16 sixteenth-notes by descending 4ths,
+%          F7 -> C1 (full harp range). Single monophonic line, not a chord.
+% 8
+[V:1]  [Q:1/4=64] "Fall of the Angels"z4                                                              |
+w: *
+[V:2]  f''/4 c''/4 g'/4 d'/4 a/4 e/4 B/4 F/4 C/4 G,/4 D,/4 A,,/4 E,,/4 B,,,/4 F,,,/4 C,,,/4           |
+%
+% Bars 9-12 -- Phrase 1: "I believe in one God"   (i° -> bVII -> bVI -> bII)
+%   Drone B,,, (q) struck on bar 9 downbeat then i° pad (dotted-half = 3) sustains.
+%   Pads in bars 10-12 are whole notes (4) under whole/half RH lines.
+% 9
+[V:1]  "i°"B4                 | "bVII"c2 B2             | "bVI"d2 c2               | "bII"B4              |
+w: I be- lieve in one God
+[V:2]  "drone"B,,, [B,,D,F,]3 | [A,,C,E,]4              | [G,,B,,D,]4             | [C,E,G,]4            |
+%
+% Bars 13-16 -- Phrase 2: "the Father almighty"   (bIII -> iv -> bVI -> i°)
+% 13
+[V:1]  "bIII"c4               | "iv"d2 e2               | "bVI"d2 c2               | "i°"B4               |
+w: the Fa- ther al- might- y
+[V:2]  "drone"B,,, [D,F,A,]3  | [E,G,B,]4               | [G,,B,,D,]4             | [B,,D,F,]4           |
+%
+% Bars 17-20 -- Phrase 3: "maker of heaven and earth"   (i° -> v° -> bIII -> bVII -> i°)
+%   Bar 17 splits LH into drone(q) + i°(q) + v°(h) so the colour shifts mid-bar.
+% 17
+[V:1]  "i°"c2 B2                       | "bIII"d2 c2    | "bVII"c2 B2              | "i°"B4               |
+w: ma- ker of heav- en and earth
+[V:2]  "drone"B,,, [B,,D,F,] [F,A,C]2  | [D,F,A,]4      | [A,,C,E,]4               | [B,,D,F,]4           |
+%
+% Bars 21-24 -- Phrase 4: "of all things visible and invisible"   (bII/iv -> bVI -> bVII -> i°)
+%   Bar 21 LH splits drone(q) + bII(q) + iv(h). RH lifts to C5..F5 (4 quarters).
+%   Bar 23 places ONE grace note {f''} on the syllable "in-" (of "invisible") --
+%   a single whisper in the angel-zone (C6..G7), not a flourish. Three syllables
+%   "in- vis- i-" are set q q h (q+q+h = 4 beats), with the grace decorating
+%   the first "in-" quarter. Bar 22 sets "i- ble and" as q q h.
+%   Final bar 24: i° pad whole + B,,, drone, unresolved Locrian centre.
+% 21
+[V:1]  "bII"c d e f                    | "bVI"g f e2    | "bVII"{f''}c d e2        | "i°"B4              |]
+w: of all things vis- i- ble and in- vis- i- ble
+[V:2]  "drone"B,,, [C,E,G,] [E,G,B,]2  | [G,,B,,D,]4   | [A,,C,E,]4               | "drone"B,,, [B,,D,F,]3 |]

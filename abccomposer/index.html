@@ -1515,7 +1515,7 @@ function loadText(path) {
 // via My Files). Edits to the buffer are preserved if the user has
 // modified it -- we only overwrite when the buffer is byte-identical
 // to a known prior seed.
-const BOOTSTRAP_VERSION = "v16";
+const BOOTSTRAP_VERSION = "v18";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;
