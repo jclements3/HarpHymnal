@@ -1,10 +1,17 @@
-// abccomposer service worker — cache-first for the app shell, pass-through
-// for everything else (notably api.anthropic.com so chat works online).
+// abccomposer service worker.
 //
-// Bump CACHE_NAME on every release that ships changed app-shell files;
+// Strategy:
+//   - HTML / navigation requests: network-first (fall back to cache offline).
+//     This guarantees that pushing a new index.html lands on the next reload
+//     without manual cache busts.
+//   - Same-origin static assets (vendor/, icons, manifest): cache-first.
+//   - Cross-origin (api.anthropic.com, CDNs): pass through entirely.
+//   - Non-GET (the chat POST): pass through entirely.
+//
+// Bump CACHE_NAME on every release that ships changed app-shell files.
 // activate() purges old caches.
 
-const CACHE_NAME = "abccomposer-v1";
+const CACHE_NAME = "abccomposer-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -43,14 +50,29 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;                    // POST to anthropic etc.
   const url = new URL(req.url);
-  if (url.origin !== location.origin) return;           // CDNs / api.anthropic.com pass through
+  if (url.origin !== location.origin) return;          // CDNs / api.anthropic.com pass through
 
+  const accept = req.headers.get("accept") || "";
+  const isNav = req.mode === "navigate" || accept.includes("text/html");
+
+  if (isNav) {
+    // Network-first for HTML so new releases land on next reload.
+    e.respondWith(
+      fetch(req).then((resp) => {
+        const clone = resp.clone();
+        caches.open(CACHE_NAME).then((c) => c.put(req, clone));
+        return resp;
+      }).catch(() => caches.match(req))
+    );
+    return;
+  }
+
+  // Cache-first for static same-origin assets.
   e.respondWith(
     caches.match(req).then((hit) => {
       if (hit) return hit;
       return fetch(req).then((resp) => {
-        // Opportunistically cache app-shell-shaped GETs that succeeded.
-        if (resp.ok && /\.(html|css|js|webmanifest|png|svg|woff2?)$/.test(url.pathname)) {
+        if (resp.ok && /\.(css|js|webmanifest|png|svg|woff2?)$/.test(url.pathname)) {
           const clone = resp.clone();
           caches.open(CACHE_NAME).then((c) => c.put(req, clone));
         }
