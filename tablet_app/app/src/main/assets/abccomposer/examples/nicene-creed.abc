@@ -1,0 +1,52 @@
+% Nicene Creed (1662 BCP) -- harp composition in progress.
+%
+% Concept:
+%   - Diatonic throughout (no lever flips, no accidentals)
+%   - Touches each of the seven church modes across the full piece
+%       Ionian -> ... -> Locrian (and other intermediate modes)
+%   - Explores the full 47-string pedal-harp range (C1..G7) over the
+%     course of the piece.  Range policy:
+%       C1-C2 : drone only, LH octave plucks, sparingly
+%       C2-G7 : regular play range
+%       >G7   : not used (would be glissando-only intros/codas)
+%
+% PHASE 1 -- "I believe" anthem in C Ionian.
+%   Three iterations of "I believe", scale degrees 5-6-7-(8 implied) of
+%   C Ionian (G A B), RH rising one octave each iteration, LH descending
+%   one octave each iteration.  Iteration 3 sends the LH into the
+%   drone-only zone, so it switches from melodic descent to a C1-C2
+%   octave-pluck drone.
+%
+%   Rhythm per iteration:  q q (half tied to half) + half rest = 8 beats
+%   = 2 bars of 4/4.  Whole note "lieve" = 4 beats, written as half-tied-
+%   to-half because q+q+whole = 6 beats won't fit one 4/4 bar alone.
+%
+%   Phase 2 (Locrian) follows -- TBD.
+%
+X:1
+T:Nicene Creed (1662) -- Phase 1: "I believe"
+C:For 47-string pedal harp; diatonic; touches all 7 church modes
+M:4/4
+L:1/4
+Q:1/4=60
+K:C
+V:1 clef=treble  name="RH"
+V:2 clef=bass    name="LH"
+%
+% Iteration 1 -- mid register
+[V:1] "I"G A B2- | B2 z2 |
+w: I be- lieve _
+[V:2] G, F, E,2- | E,2 z2 |
+%
+% Iteration 2 -- RH up an octave, LH down an octave
+[V:1] g a b2- | b2 z2 |
+w: I be- lieve _
+[V:2] G,, F,, E,,2- | E,,2 z2 |
+%
+% Iteration 3 -- RH at top of normal range (G6 A6 B6),
+%                LH plays C1+C2 octave-pluck drone (drone-only zone)
+[V:1] g' a' b'2- | b'2 z2 |
+w: I be- lieve _
+[V:2] [C,,,C,,] [C,,,C,,] [C,,,C,,]2- | [C,,,C,,]2 z2 |
+%
+% --- Phase 2 (Locrian) below this line, to come ---
