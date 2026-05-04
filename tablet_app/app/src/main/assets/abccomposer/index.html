@@ -76,6 +76,11 @@
   #toolbar button.primary:hover { background: #d6acff; border-color: #d6acff; }
   #toolbar #btn-settings { font-size: 18px; padding: 4px 10px; }
   #toolbar #btn-print    { font-size: 16px; padding: 4px 10px; }
+  #toolbar #examples-pick {
+    background: #44475a; color: var(--ink);
+    border: 1px solid var(--muted); border-radius: 5px;
+    padding: 6px 10px; font-size: 14px; font-family: inherit;
+  }
 
   /* ─── Print: only the active render pane, on white paper ─── */
   @media print {
@@ -303,7 +308,10 @@
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
     <button id="btn-open">Open</button>
-    <input type="file" id="file-input" accept=".abc,text/plain" style="display:none"/>
+    <select id="examples-pick" title="Load a bundled example">
+      <option value="">Examples ▾</option>
+    </select>
+    <input type="file" id="file-input" style="display:none"/>
     <button id="btn-save">Save</button>
     <button id="btn-play" class="primary">▶ Play</button>
     <button id="btn-stop">■ Stop</button>
@@ -1101,6 +1109,39 @@ document.getElementById("btn-new").onclick = () => {
 
 document.getElementById("btn-open").onclick = () =>
   document.getElementById("file-input").click();
+
+// Examples dropdown -- loads bundled .abc files from APK assets via fetch.
+// Add new files to abccomposer/examples/ and reference them here.
+const EXAMPLES = [
+  { label: "Nicene Creed (1662) — Phase 1", path: "examples/nicene-creed.abc" },
+];
+{
+  const sel = document.getElementById("examples-pick");
+  for (const ex of EXAMPLES) {
+    const opt = document.createElement("option");
+    opt.value = ex.path;
+    opt.textContent = ex.label;
+    sel.appendChild(opt);
+  }
+  sel.addEventListener("change", async () => {
+    const path = sel.value;
+    if (!path) return;
+    try {
+      const r = await fetch(path);
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const txt = await r.text();
+      cm.setValue(txt);
+      const fn = path.split("/").pop();
+      fname.value = fn;
+      lsSet(LS.fname, fn);
+      setStatus("loaded " + fn, "ok");
+    } catch (e) {
+      setStatus("load failed: " + (e && e.message || e), "err");
+    } finally {
+      sel.value = "";   // reset dropdown to placeholder
+    }
+  });
+}
 document.getElementById("file-input").onchange = (ev) => {
   const f = ev.target.files[0]; if (!f) return;
   const r = new FileReader();
