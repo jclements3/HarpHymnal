@@ -1268,9 +1268,8 @@ let hymnalIndex = null;
 async function loadHymnalIndex() {
   if (hymnalIndex) return hymnalIndex;
   try {
-    const r = await fetch("examples/hymns/index.json");
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    hymnalIndex = await r.json();
+    const txt = await loadText("examples/hymns/index.json");
+    hymnalIndex = JSON.parse(txt);
   } catch (e) {
     hymnalIndex = [];
     hymnalCount.textContent = "(failed to load index: " + (e && e.message || e) + ")";
@@ -1319,9 +1318,7 @@ hymnalList.addEventListener("click", async (ev) => {
   if (!row) return;
   const path = row.dataset.path;
   try {
-    const r = await fetch(path);
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    const txt = await r.text();
+    const txt = await loadText(path);
     cm.setValue(txt);
     const fn = path.split("/").pop();
     fname.value = fn;
@@ -1332,6 +1329,62 @@ hymnalList.addEventListener("click", async (ev) => {
   }
   hymnalModal.classList.remove("show");
 });
+
+// loadText(path) -- like fetch(path).then(r=>r.text()) but works on
+// file:// URLs in Android WebView, where fetch() throws "Failed to
+// fetch" even with setAllowFileAccessFromFileURLs(true). XHR on file://
+// returns status 0 on success, so we accept that as well as 2xx.
+function loadText(path) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    try { xhr.open("GET", path, true); } catch (e) { reject(e); return; }
+    xhr.onload = () => {
+      if (xhr.status === 0 || (xhr.status >= 200 && xhr.status < 400)) {
+        resolve(xhr.responseText);
+      } else {
+        reject(new Error("HTTP " + xhr.status));
+      }
+    };
+    xhr.onerror = () => reject(new Error("xhr error"));
+    try { xhr.send(); } catch (e) { reject(e); }
+  });
+}
+
+// Bootstrap: copy bundled examples into Documents/HarpHymnal/ on first
+// launch. Always writes a debug record to Documents/HarpHymnal/ so we
+// can see what happened via adb even if the page's status bar gets
+// overwritten by the score/stripchart render.
+const BOOTSTRAP_VERSION = "v5";
+async function bootstrapMyFiles() {
+  if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
+  if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;
+
+  const log = ["start:" + new Date().toISOString()];
+
+  // Step 1: prove Bridge works at all with a constant string.
+  try {
+    const r1 = window.Bridge.saveAbc("_bootstrap.log", "init");
+    log.push("ping:" + r1);
+  } catch (e) {
+    log.push("ping-throw:" + (e && e.message || e));
+  }
+
+  // Step 2: load the bundled file via XHR (fetch fails on file://).
+  try {
+    const txt = await loadText("examples/nicene-creed.abc");
+    log.push("load:bytes=" + txt.length);
+    const r2 = window.Bridge.saveAbc("nicene-creed.abc", txt);
+    log.push("save:" + r2);
+  } catch (e) {
+    log.push("load-throw:" + (e && e.message || e));
+  }
+
+  log.push("end:" + new Date().toISOString());
+  // Persist diagnostics to a file we can inspect via adb.
+  try { window.Bridge.saveAbc("_bootstrap.log", log.join("\n")); } catch (e) {}
+  lsSet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "done");
+}
+bootstrapMyFiles();
 
 // Examples dropdown -- loads bundled .abc files from APK assets via fetch.
 // Add new files to abccomposer/examples/ and reference them here.
@@ -1350,9 +1403,7 @@ const EXAMPLES = [
     const path = sel.value;
     if (!path) return;
     try {
-      const r = await fetch(path);
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      const txt = await r.text();
+      const txt = await loadText(path);
       cm.setValue(txt);
       const fn = path.split("/").pop();
       fname.value = fn;

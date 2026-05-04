@@ -177,7 +177,10 @@ public class MainActivity extends Activity {
             } else {
                 ContentValues values = new ContentValues();
                 values.put(MediaStore.MediaColumns.DISPLAY_NAME, filename);
-                values.put(MediaStore.MediaColumns.MIME_TYPE, "text/plain");
+                // Use a non-text MIME so MediaStore doesn't auto-append ".txt"
+                // when the display_name's extension (.abc) isn't a known
+                // text-family suffix on Android.
+                values.put(MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream");
                 values.put(MediaStore.MediaColumns.RELATIVE_PATH, REL_DIR);
                 target = resolver.insert(collection, values);
             }
