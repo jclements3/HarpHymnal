@@ -654,9 +654,19 @@ function colorForDegree(midi, tonicPc) {
   return DEGREE_COLORS[deg];
 }
 
-// abcjs pitch (note.pitches[i].pitch) is its own scheme: integer where
-// 0 = middle C in treble (C4 in concert).  Convert to MIDI by +60.
-function abcPitchToMidi(p) { return p + 60; }
+// abcjs `note.pitches[i].pitch` is a DIATONIC-step offset from middle C
+// (C4 = 0, D4 = 1, E4 = 2, ..., C5 = 7, C6 = 14, C7 = 21, ...). Each
+// integer is one note-name step, NOT one semitone. Convert to chromatic
+// MIDI by combining the octave shift with the C-major scale's semitone
+// pattern. The previous `p + 60` formula treated diatonic steps as
+// semitones and squashed every note above middle C by ~5 semitones per
+// octave, dropping the highest and lowest octaves off the stripchart.
+const DIATONIC_SEMITONES = [0, 2, 4, 5, 7, 9, 11]; // C D E F G A B
+function abcPitchToMidi(p) {
+  const octaveOffset = Math.floor(p / 7);
+  const stepInOctave = ((p % 7) + 7) % 7;
+  return 60 + octaveOffset * 12 + DIATONIC_SEMITONES[stepInOctave];
+}
 
 function extractStripchartData(vobj) {
   // Returns { tonicPc, lines: [ { events: [{startBeat, durBeats, midis[], chord, isRest, barAt}], totalBeats, barPositions:[] } ] }
@@ -1486,7 +1496,7 @@ function loadText(path) {
 // via My Files). Edits to the buffer are preserved if the user has
 // modified it -- we only overwrite when the buffer is byte-identical
 // to a known prior seed.
-const BOOTSTRAP_VERSION = "v13";
+const BOOTSTRAP_VERSION = "v14";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;

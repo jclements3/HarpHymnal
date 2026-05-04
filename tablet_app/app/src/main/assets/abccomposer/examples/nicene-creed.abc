@@ -66,9 +66,13 @@ w: I be- lieve I be- lieve
 [V:2]  [C,,G,,C,E,] [F,,A,,D,F,] | [E,,B,,E,G,]4 | "drone"E,,, z [F,,,A,,,C,,F,,] [G,,,D,,G,,B,,] | [C,,E,,A,,C,]4 |
 %
 % Bars 5-7 -- drone + iter 3 head (vii°², V7) + iter 3 tail (IΔ7) + final drone + closing scale
-%   Bar 7 is 4 beats: drone (q) + rest (q) + rest (q) + ascending C major scale (8 x 32nds, C3->C4)
+%   Bar 7 is 4 beats: drone (q) + rest (q) + rest (q) + descending-pitch C major run (8 x 32nds, C7->C6).
+%   The run sits in the top harp octave (above harp C6 = scientific C3), pitches DESCEND (c'' b' a' g'
+%   f' e' d' c' = C7 B6 A6 G6 F6 E6 D6 C6) so on the flipped harp-view stripchart it visually ASCENDS
+%   (highest pitches at the bottom, scale travels upward toward harp C6).
+%   In ABC: lowercase c..b = C5..B5; one apostrophe = +octave (C6..B6); two apostrophes = +2 octaves (C7..B7).
 % 5
-[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f'']        | "IΔ7"[b'c''e''g'']4 | z3 C,/8D,/8E,/8F,/8G,/8A,/8B,/8C/8 |]
+[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f'']        | "IΔ7"[b'c''e''g'']4 | z3 c''/8b'/8a'/8g'/8f'/8e'/8d'/8c'/8 |]
 w: I be- lieve _
 [V:2]  "drone"A,,, z [B,,,D,,F,,B,,] [G,,,B,,,F,,G,,] | [C,,,G,,,C,,E,,]4   | "drone"C,,, z3                             |]
 %
