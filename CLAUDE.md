@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## STOP — read these first
 
-1. **`SDD.md`** — software design document: pipeline, grammar v4, directory layout.
-2. **`GRAMMAR.md`** — authoritative EBNF v4. Every script parses through `grammar/` primitives.
-3. **`ROADMAP.md`** — living plan (formerly `PLAN.md`).
-4. **`ISSUES.md`** — known bugs, bad-sounding moments, Trefoil vocabulary gaps.
-5. **`TREFOIL.md`** — pedagogy of the 118-fraction vocabulary (formerly `HARP_CHORD_SYSTEM.md`).
+1. **`HARP_RULES.md`** — pedal-harp composition constraints (range zones, drones, hand span, voicing, octave conventions, stripchart color scheme). Required reading before composing or reviewing any harp music in this repo. The same rules are also embedded in `abccomposer/index.html`'s `DEFAULT_SYSTEM` prompt for the tablet's built-in Claude chat.
+2. **`SDD.md`** — software design document: pipeline, grammar v4, directory layout.
+3. **`GRAMMAR.md`** — authoritative EBNF v4. Every script parses through `grammar/` primitives.
+4. **`ROADMAP.md`** — living plan (formerly `PLAN.md`).
+5. **`ISSUES.md`** — known bugs, bad-sounding moments, Trefoil vocabulary gaps.
+6. **`TREFOIL.md`** — pedagogy of the 118-fraction vocabulary (formerly `HARP_CHORD_SYSTEM.md`).
 
 **File precedence when docs disagree:**
 `source/HarpChordSystem.tex` > `source/HarpTrefoil.tex` (byte-mirror) > `TREFOIL.md` > derived `data/trefoil/HarpTrefoil.json`
