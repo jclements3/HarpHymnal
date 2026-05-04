@@ -43,29 +43,38 @@
   #toolbar {
     flex: 0 0 auto;
     display: flex; align-items: center; gap: 8px;
-    padding: 6px 12px;
+    padding: 8px 14px;
     background: var(--bg-alt);
     border-bottom: 1px solid var(--line);
-    font-size: 13px;
+    font-size: 14px;
   }
   #toolbar .brand {
-    font-weight: 700; color: var(--accent);
-    margin-right: 12px; letter-spacing: 0.5px;
+    font-weight: 700; color: var(--accent); font-size: 15px;
+    margin-right: 14px; letter-spacing: 0.5px;
   }
   #toolbar input[type=text] {
-    background: var(--panel); color: var(--ink);
-    border: 1px solid var(--line); border-radius: 4px;
-    padding: 4px 8px; font-size: 13px; width: 220px;
+    background: #44475a; color: var(--ink);
+    border: 1px solid var(--muted); border-radius: 5px;
+    padding: 6px 10px; font-size: 14px; width: 240px;
     font-family: inherit;
+  }
+  #toolbar input[type=text]:focus {
+    outline: none; border-color: var(--accent);
   }
   #toolbar button {
-    background: var(--panel); color: var(--ink);
-    border: 1px solid var(--line); border-radius: 4px;
-    padding: 5px 10px; cursor: pointer; font-size: 13px;
+    background: #44475a; color: var(--ink);
+    border: 1px solid var(--muted); border-radius: 5px;
+    padding: 6px 12px; cursor: pointer; font-size: 14px;
+    font-weight: 500;
     font-family: inherit;
   }
-  #toolbar button:hover { background: var(--line); }
-  #toolbar button.primary { border-color: var(--accent); color: var(--accent); }
+  #toolbar button:hover { background: var(--muted); border-color: var(--ink); }
+  #toolbar button.primary {
+    background: var(--accent); color: var(--bg);
+    border-color: var(--accent); font-weight: 600;
+  }
+  #toolbar button.primary:hover { background: #d6acff; border-color: #d6acff; }
+  #toolbar #btn-settings { font-size: 18px; padding: 4px 10px; }
   #toolbar .spacer { flex: 1; }
   #toolbar .status { color: var(--muted); font-size: 12px; }
   #toolbar .status.ok { color: var(--green); }
@@ -82,9 +91,9 @@
     border-right: 1px solid var(--line);
   }
   .pane:last-child { border-right: none; }
-  .pane-editor { flex: 0 0 40%; }
-  .pane-render { flex: 0 0 40%; background: #f8f8f2; color: #21222c; }
-  .pane-chat   { flex: 0 0 20%; background: var(--bg-alt); }
+  .pane-editor { flex: 0 0 50%; }
+  .pane-render { flex: 0 0 25%; background: #f8f8f2; color: #21222c; }
+  .pane-chat   { flex: 0 0 25%; background: var(--bg-alt); }
 
   .pane-header {
     flex: 0 0 auto;
@@ -100,9 +109,10 @@
   /* ─── editor ─── */
   .CodeMirror {
     height: 100% !important;
-    font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
-    font-size: 14px;
-    line-height: 1.5;
+    font-family: "JetBrains Mono", "Fira Code", "DejaVu Sans Mono",
+                 "Liberation Mono", "Consolas", monospace;
+    font-size: 18px;
+    line-height: 1.55;
   }
   .cm-abc-header { color: var(--orange); font-weight: 600; }
   .cm-abc-comment { color: var(--muted); font-style: italic; }
