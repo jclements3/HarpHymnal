@@ -95,6 +95,36 @@
   .pane-render { flex: 0 0 25%; background: #f8f8f2; color: #21222c; }
   .pane-chat   { flex: 0 0 25%; background: var(--bg-alt); }
 
+  /* ─── pane double-tap zoom ─── */
+  #panes.panes-zoomed-editor .pane-render,
+  #panes.panes-zoomed-editor .pane-chat,
+  #panes.panes-zoomed-render .pane-editor,
+  #panes.panes-zoomed-render .pane-chat,
+  #panes.panes-zoomed-chat   .pane-editor,
+  #panes.panes-zoomed-chat   .pane-render { display: none; }
+  #panes.panes-zoomed-editor .pane-editor,
+  #panes.panes-zoomed-render .pane-render,
+  #panes.panes-zoomed-chat   .pane-chat { flex: 1 1 100%; border-right: none; }
+
+  /* ─── stripchart ─── */
+  #stripchart-target {
+    width: 100%; height: 100%; min-height: 100%;
+    background: #f8f8f2; color: #21222c;
+    overflow: auto; padding: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+    display: none;
+  }
+  #stripchart-target.show { display: block; }
+  #abcjs-target.hide { display: none; }
+  .strip-row {
+    position: relative;
+    margin-bottom: 10px;
+    border: 1px solid #c0c0c0;
+    background: #ffffff;
+  }
+  .strip-row svg { display: block; width: 100%; }
+  #toolbar #btn-view { font-family: inherit; min-width: 36px; }
+
   .pane-header {
     flex: 0 0 auto;
     padding: 4px 10px;
@@ -254,6 +284,7 @@
     <button id="btn-save">Save</button>
     <button id="btn-play" class="primary">▶ Play</button>
     <button id="btn-stop">■ Stop</button>
+    <button id="btn-view" title="Toggle score / stripchart view">♫</button>
     <span class="spacer"></span>
     <span class="status" id="render-status">ready</span>
     <button id="btn-settings">⚙</button>
@@ -274,6 +305,7 @@
       <div class="pane-header" style="color:#21222c;">Score (live abcjs render)</div>
       <div class="pane-body">
         <div id="abcjs-target"></div>
+        <div id="stripchart-target"></div>
       </div>
     </div>
 
@@ -417,6 +449,8 @@ const LS = {
   maxtok: "abccomposer.maxTokens",
   sys:    "abccomposer.systemPrompt",
   hist:   "abccomposer.chatHistory",
+  zoom:   "abccomposer.zoom",
+  view:   "abccomposer.view",
 };
 function lsGet(k, fallback) {
   try { const v = localStorage.getItem(k); return v == null ? fallback : v; }
@@ -441,19 +475,21 @@ const cm = CodeMirror.fromTextArea(ta, {
 });
 
 // ────────────────────────────────────────────────────────────────────
-// 4.  Live abcjs render (debounced)
+// 4.  Live abcjs render (debounced) + stripchart view
 // ────────────────────────────────────────────────────────────────────
 const renderTarget = document.getElementById("abcjs-target");
+const stripTarget  = document.getElementById("stripchart-target");
 const renderStatus = document.getElementById("render-status");
 let visualObj = null;
 let synthControl = null;
+let viewMode = lsGet(LS.view, "score"); // "score" | "stripchart"
 
 function setStatus(text, cls) {
   renderStatus.textContent = text;
   renderStatus.className = "status" + (cls ? " " + cls : "");
 }
 
-function render(abc) {
+function renderScore(abc) {
   try {
     const out = ABCJS.renderAbc(renderTarget, abc, {
       responsive: "resize",
@@ -469,6 +505,219 @@ function render(abc) {
   }
 }
 
+// --- Stripchart rendering --------------------------------------------
+// Rainbow color per scale degree (1..7). Accidentals shift hue ±15°.
+const DEGREE_HUE = { 1: 0, 2: 30, 3: 55, 4: 120, 5: 220, 6: 270, 7: 300 };
+// MIDI semitone offsets for major-scale degrees from tonic.
+const MAJOR_DEGREE_BY_SEMI = {
+  0: { deg: 1, alt: 0 },  1: { deg: 2, alt: -1 },
+  2: { deg: 2, alt: 0 },  3: { deg: 3, alt: -1 },
+  4: { deg: 3, alt: 0 },  5: { deg: 4, alt: 0 },
+  6: { deg: 4, alt: +1 }, 7: { deg: 5, alt: 0 },
+  8: { deg: 6, alt: -1 }, 9: { deg: 6, alt: 0 },
+  10:{ deg: 7, alt: -1 },11:{ deg: 7, alt: 0 },
+};
+const KEY_TONIC_PC = {
+  "C":0,"G":7,"D":2,"A":9,"E":4,"B":11,"F#":6,"C#":1,
+  "F":5,"Bb":10,"Eb":3,"Ab":8,"Db":1,"Gb":6,"Cb":11,
+  "Am":9,"Em":4,"Bm":11,"F#m":6,"C#m":1,"G#m":8,"D#m":3,"A#m":10,
+  "Dm":2,"Gm":7,"Cm":0,"Fm":5,"Bbm":10,"Ebm":3,"Abm":8,
+};
+
+function colorForPitch(midi, tonicPc) {
+  const semi = ((midi - tonicPc) % 12 + 12) % 12;
+  const info = MAJOR_DEGREE_BY_SEMI[semi] || { deg: 1, alt: 0 };
+  const hue = (DEGREE_HUE[info.deg] + info.alt * 15 + 360) % 360;
+  const sat = 80, lit = info.alt === 0 ? 50 : (info.alt > 0 ? 60 : 40);
+  return "hsl(" + hue + "," + sat + "%," + lit + "%)";
+}
+
+// abcjs pitch (note.pitches[i].pitch) is its own scheme: integer where
+// 0 = middle C in treble (C4 in concert).  Convert to MIDI by +60.
+function abcPitchToMidi(p) { return p + 60; }
+
+function extractStripchartData(vobj) {
+  // Returns { tonicPc, lines: [ { events: [{startBeat, durBeats, midis[], chord, isRest, barAt}], totalBeats, barPositions:[] } ] }
+  if (!vobj || !vobj.lines) return null;
+  const keyName = (vobj.getKeySignature && vobj.getKeySignature().root) || "C";
+  const keyMode = (vobj.getKeySignature && vobj.getKeySignature().mode) || "";
+  const lookup = keyName + (keyMode === "m" ? "m" : "");
+  const tonicPc = (KEY_TONIC_PC[lookup] != null) ? KEY_TONIC_PC[lookup] : 0;
+
+  const lines = [];
+  for (const line of vobj.lines) {
+    if (!line.staff) continue;
+    // Use the first voice on the first staff per line.
+    const staff = line.staff[0];
+    if (!staff || !staff.voices || !staff.voices[0]) continue;
+    const voice = staff.voices[0];
+    const events = [];
+    let cursor = 0;
+    let lastChord = null;
+    const barPositions = [0];
+    for (const elem of voice) {
+      if (elem.el_type === "bar") {
+        barPositions.push(cursor);
+        continue;
+      }
+      if (elem.el_type === "note") {
+        const dur = (elem.duration || 0) * 8; // duration is fraction of whole note; *8 -> eighth-beat units
+        if (elem.chord && elem.chord.length) {
+          lastChord = elem.chord[0].name || lastChord;
+        }
+        if (elem.rest) {
+          events.push({ start: cursor, dur, midis: [], chord: elem.chord && elem.chord[0] ? elem.chord[0].name : null, rest: true });
+        } else if (elem.pitches && elem.pitches.length) {
+          const midis = elem.pitches.map(p => abcPitchToMidi(p.pitch));
+          events.push({ start: cursor, dur, midis, chord: elem.chord && elem.chord[0] ? elem.chord[0].name : null, rest: false });
+        }
+        cursor += dur;
+      }
+    }
+    if (barPositions[barPositions.length - 1] !== cursor) barPositions.push(cursor);
+    lines.push({ events, totalBeats: cursor, barPositions });
+  }
+  return { tonicPc, lines };
+}
+
+function renderStripchart(abc) {
+  // Parse only — don't disturb the score DOM.
+  let vobj = null;
+  try {
+    if (ABCJS.parseOnly) {
+      const parsed = ABCJS.parseOnly(abc);
+      vobj = parsed && parsed[0] ? parsed[0] : null;
+    } else {
+      // Fallback: render off-screen to grab visualObj.
+      const tmp = document.createElement("div");
+      const out = ABCJS.renderAbc(tmp, abc, { add_classes: true });
+      vobj = out && out[0] ? out[0] : null;
+    }
+  } catch (e) {
+    stripTarget.innerHTML = '<div class="render-error">' +
+      String(e && e.message || e) + '</div>';
+    setStatus("stripchart parse error", "err");
+    return;
+  }
+
+  const data = extractStripchartData(vobj);
+  if (!data || !data.lines.length) {
+    stripTarget.innerHTML = '<div class="render-error">No notes to chart.</div>';
+    setStatus("stripchart: empty", "err");
+    return;
+  }
+
+  // Determine vertical pitch range across all lines.
+  let pMin = 127, pMax = 0;
+  for (const ln of data.lines) for (const ev of ln.events)
+    for (const m of ev.midis) { if (m < pMin) pMin = m; if (m > pMax) pMax = m; }
+  if (pMin > pMax) { pMin = 60; pMax = 72; }
+  pMin -= 1; pMax += 1;
+
+  const ROW_H = 110;
+  const CHORD_H = 28;
+  const containerW = stripTarget.clientWidth || 600;
+  const innerW = Math.max(200, containerW - 24);
+
+  let html = "";
+  for (let li = 0; li < data.lines.length; li++) {
+    const ln = data.lines[li];
+    if (!ln.totalBeats) continue;
+    const xPerBeat = innerW / ln.totalBeats;
+    const noteH = (ROW_H - 4) / (pMax - pMin);
+
+    // Note bars
+    let bars = "";
+    for (const ev of ln.events) {
+      if (ev.rest || !ev.midis.length) continue;
+      const x = ev.start * xPerBeat;
+      const w = Math.max(2, ev.dur * xPerBeat - 1);
+      for (const m of ev.midis) {
+        const y = (pMax - m) * noteH;
+        const fill = colorForPitch(m, data.tonicPc);
+        bars += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) +
+                '" width="' + w.toFixed(1) + '" height="' + Math.max(3, noteH - 1).toFixed(1) +
+                '" fill="' + fill + '" stroke="#222" stroke-width="0.3"/>';
+      }
+    }
+    // Bar separators
+    let seps = "";
+    for (const bp of ln.barPositions) {
+      const x = bp * xPerBeat;
+      seps += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
+              '" y2="' + ROW_H + '" stroke="#999" stroke-width="0.5"/>';
+    }
+    // Faint horizontal pitch grid every 12 semitones
+    let grid = "";
+    for (let m = Math.ceil(pMin / 12) * 12; m <= pMax; m += 12) {
+      const y = (pMax - m) * noteH;
+      grid += '<line x1="0" y1="' + y.toFixed(1) + '" x2="' + innerW +
+              '" y2="' + y.toFixed(1) + '" stroke="#eee" stroke-width="0.5"/>';
+    }
+    // Chord track underneath
+    let chordTrack = '<rect x="0" y="0" width="' + innerW + '" height="' + CHORD_H +
+                     '" fill="#f0f0e6" stroke="#aaa" stroke-width="0.5"/>';
+    // Bar lines on chord track
+    for (const bp of ln.barPositions) {
+      const x = bp * xPerBeat;
+      chordTrack += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
+                    '" y2="' + CHORD_H + '" stroke="#999" stroke-width="0.5"/>';
+    }
+    // Chord labels: take first chord seen in each bar window.
+    for (let bi = 0; bi < ln.barPositions.length - 1; bi++) {
+      const a = ln.barPositions[bi], b = ln.barPositions[bi + 1];
+      let label = null;
+      for (const ev of ln.events) {
+        if (ev.start >= a && ev.start < b && ev.chord) { label = ev.chord; break; }
+      }
+      if (label) {
+        const xMid = (a + b) / 2 * xPerBeat;
+        chordTrack += '<text x="' + xMid.toFixed(1) + '" y="' + (CHORD_H - 9) +
+                      '" text-anchor="middle" font-size="12" font-weight="600" fill="#21222c">' +
+                      escapeHtml(label) + '</text>';
+      }
+    }
+
+    // Playhead in the middle of every row (visual reference, not animated).
+    const playX = innerW / 2;
+    const playhead = '<polygon points="' +
+      (playX - 5) + ',-2 ' + (playX + 5) + ',-2 ' + playX + ',6" fill="#222"/>' +
+      '<line x1="' + playX + '" y1="0" x2="' + playX + '" y2="' + ROW_H +
+      '" stroke="#222" stroke-width="1" stroke-dasharray="3,2"/>';
+
+    html += '<div class="strip-row">' +
+      '<svg viewBox="0 0 ' + innerW + ' ' + ROW_H + '" preserveAspectRatio="none" height="' + ROW_H + '">' +
+        grid + seps + bars + playhead +
+      '</svg>' +
+      '<svg viewBox="0 0 ' + innerW + ' ' + CHORD_H + '" preserveAspectRatio="none" height="' + CHORD_H + '">' +
+        chordTrack +
+      '</svg>' +
+    '</div>';
+  }
+
+  stripTarget.innerHTML = html;
+  setStatus("stripchart ok", "ok");
+}
+
+function applyView() {
+  const btn = document.getElementById("btn-view");
+  if (viewMode === "stripchart") {
+    renderTarget.classList.add("hide");
+    stripTarget.classList.add("show");
+    if (btn) btn.textContent = "▦";
+  } else {
+    renderTarget.classList.remove("hide");
+    stripTarget.classList.remove("show");
+    if (btn) btn.textContent = "♫";
+  }
+}
+
+function render(abc) {
+  // Always keep the score visualObj fresh (Play uses it).
+  renderScore(abc);
+  if (viewMode === "stripchart") renderStripchart(abc);
+}
+
 let renderTimer = null;
 function scheduleRender() {
   clearTimeout(renderTimer);
@@ -480,7 +729,66 @@ cm.on("change", () => {
   scheduleRender();
 });
 
+applyView();
 render(cm.getValue());
+
+// ────────────────────────────────────────────────────────────────────
+// 4b.  Pane double-tap zoom
+// ────────────────────────────────────────────────────────────────────
+const panesEl = document.getElementById("panes");
+const ZOOM_CLASSES = {
+  editor: "panes-zoomed-editor",
+  render: "panes-zoomed-render",
+  chat:   "panes-zoomed-chat",
+};
+function applyZoom(which) {
+  for (const k of Object.keys(ZOOM_CLASSES)) panesEl.classList.remove(ZOOM_CLASSES[k]);
+  if (which && ZOOM_CLASSES[which]) panesEl.classList.add(ZOOM_CLASSES[which]);
+  lsSet(LS.zoom, which || "");
+  // Let abcjs and CodeMirror re-flow into the new width.
+  setTimeout(() => {
+    try { window.dispatchEvent(new Event("resize")); } catch (e) {}
+    try { cm.refresh(); } catch (e) {}
+    if (viewMode === "stripchart") renderStripchart(cm.getValue());
+  }, 30);
+}
+function toggleZoom(which) {
+  const cur = lsGet(LS.zoom, "");
+  applyZoom(cur === which ? "" : which);
+}
+applyZoom(lsGet(LS.zoom, ""));
+
+(function wireDoubleTap() {
+  const map = [
+    ["editor", document.querySelector(".pane-editor")],
+    ["render", document.querySelector(".pane-render")],
+    ["chat",   document.querySelector(".pane-chat")],
+  ];
+  for (const [name, el] of map) {
+    if (!el) continue;
+    el.addEventListener("dblclick", (ev) => {
+      // Don't hijack double-clicks on text inputs / textareas / buttons.
+      const t = ev.target;
+      if (t && t.closest && t.closest("input, textarea, button, .CodeMirror, select")) return;
+      toggleZoom(name);
+    });
+    // Pointer-based double-tap fallback for touch (header & body backgrounds).
+    let lastTap = 0;
+    el.addEventListener("pointerdown", (ev) => {
+      if (ev.pointerType !== "touch") return;
+      const t = ev.target;
+      if (t && t.closest && t.closest("input, textarea, button, .CodeMirror, select")) return;
+      const now = Date.now();
+      if (now - lastTap < 350) {
+        ev.preventDefault();
+        toggleZoom(name);
+        lastTap = 0;
+      } else {
+        lastTap = now;
+      }
+    }, { passive: false });
+  }
+})();
 
 // ────────────────────────────────────────────────────────────────────
 // 5.  Audio (abcjs synth)
@@ -558,6 +866,13 @@ document.getElementById("btn-save").onclick = () => {
 
 document.getElementById("btn-play").onclick = play;
 document.getElementById("btn-stop").onclick = stop;
+
+document.getElementById("btn-view").onclick = () => {
+  viewMode = (viewMode === "stripchart") ? "score" : "stripchart";
+  lsSet(LS.view, viewMode);
+  applyView();
+  if (viewMode === "stripchart") renderStripchart(cm.getValue());
+};
 
 // ────────────────────────────────────────────────────────────────────
 // 7.  Settings modal
