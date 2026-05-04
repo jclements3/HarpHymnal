@@ -1,0 +1,15 @@
+{
+  "name": "ABC Composer",
+  "short_name": "ABC Composer",
+  "description": "Vim-mode ABC editor with live abcjs render and Claude chat.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1e1f29",
+  "theme_color": "#bd93f9",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

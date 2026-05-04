@@ -132,6 +132,8 @@
   .tile.ebshapes    { border-color: #2C7C5A; }
   .tile.shapedrills .tile-banner { background: #8B2A1A; }
   .tile.shapedrills { border-color: #8B2A1A; }
+  .tile.composer    .tile-banner { background: #6B46C1; }
+  .tile.composer    { border-color: #6B46C1; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1296,6 +1298,16 @@
       onTap:  () => { window.location.href = 'shapedrills.html'; },
     });
     grid.appendChild(shapeDrills);
+
+    // Composer tile — vim-mode ABC editor with live render + Claude chat.
+    const composer = makeTile({
+      family: 'composer',
+      name:   'Composer',
+      rule:   'vim ABC editor · live abcjs render · Claude chat',
+      count:  '↗',
+      onTap:  () => { window.location.href = 'abccomposer/index.html'; },
+    });
+    grid.appendChild(composer);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────

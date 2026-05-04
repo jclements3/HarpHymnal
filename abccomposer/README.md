@@ -16,18 +16,51 @@ api.anthropic.com directly). All deps are vendored under `vendor/`.
 
 ## Run it
 
+Three deployment shapes share one source tree:
+
+### 1. As a tab in any browser
+
 ```bash
 xdg-open /home/james.clements/projects/HarpHymnal/abccomposer/index.html
-# or any other browser launcher
+# or any browser launcher
 ```
 
-For the audio (`▶ Play` button) you need a browser context that allows
-the WebAudio API. `file://` works in Firefox; Chrome may want you to
-serve the directory:
+For the audio (`▶ Play` button) you need WebAudio. `file://` works in
+Firefox; Chrome may need a real http origin:
 
 ```bash
 cd abccomposer && python3 -m http.server 8765
 # then http://localhost:8765/
+```
+
+### 2. As a standalone desktop app (PWA)
+
+`manifest.webmanifest` + `sw.js` make this a real installable app:
+
+1. Serve over `http://localhost` (file:// can't register a service worker).
+2. Open `http://localhost:8765/` in Chrome / Edge / Firefox-on-Linux.
+3. Address bar → install button (or ⋮ menu → "Install ABC Composer").
+4. App opens in its own window, gets a launcher icon, works offline.
+
+The service worker caches the app shell (`index.html`, `vendor/*`, icons)
+on first load. `api.anthropic.com` is **not** cached — chat needs the
+network. Bump `CACHE_NAME` in `sw.js` whenever you ship changed shell
+files; `activate()` purges old caches automatically.
+
+### 3. On the Lenovo P90 tablet
+
+The tablet's WebView (`tablet_app/`) has a **Composer** tile that
+opens the same `index.html` shipped under
+`tablet_app/app/src/main/assets/abccomposer/`. The Android manifest
+gained `INTERNET` permission for the chat call. Service-worker
+registration is silently skipped on `file:///android_asset/` URLs
+(SWs require an http(s) origin), so the tablet runs without offline
+caching — the assets are bundled in the APK anyway, which is the
+same effect.
+
+To reinstall on the device:
+```bash
+cd tablet_app && ./gradlew installDebug
 ```
 
 ## First-time setup

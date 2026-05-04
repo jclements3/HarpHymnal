@@ -68,6 +68,66 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-04 — abccomposer wired as desktop PWA + tablet tile)
+
+`abccomposer/` (landed earlier today as `64d7ef3`) is now installable
+as a real desktop app and reachable as the **Composer** tile on the
+P90 home grid. Same source files for both — single bundle, three
+delivery shapes (browser tab / installed PWA / WebView tile).
+
+### What this push landed (on top of `64d7ef3`)
+
+- `abccomposer/manifest.webmanifest` — PWA manifest (name, start_url,
+  display:standalone, theme-color `#bd93f9`, icons 192 + 512).
+- `abccomposer/sw.js` — cache-first service worker for the app shell.
+  Same-origin GETs for `*.html|css|js|webmanifest|png|svg|woff*` get
+  cached on success; cross-origin and non-GET pass through (so the
+  POST to `api.anthropic.com` is never intercepted). Bump
+  `CACHE_NAME` to invalidate.
+- `abccomposer/icon-192.png` + `icon-512.png` — purple square with
+  a centered eighth-note glyph, generated from PIL/DejaVu-Sans-Bold.
+- `abccomposer/index.html` — added `<link rel=manifest>`,
+  `theme-color` meta, and a guarded
+  `navigator.serviceWorker.register("sw.js")` (only on http(s), so
+  it's a no-op under `file://` and `file:///android_asset/`).
+- `abccomposer/README.md` — three-mode run guide (browser tab /
+  installable PWA / tablet tile).
+
+### Tablet wiring
+
+- `tablet_app/app/src/main/AndroidManifest.xml` — added
+  `<uses-permission android:name="android.permission.INTERNET" />`.
+  `usesCleartextTraffic="false"` is fine because anthropic is HTTPS.
+- `tablet_app/app/src/main/assets/abccomposer/` — full mirror of the
+  top-level `abccomposer/` tree minus README/examples (Gradle picks
+  up via the default `mergeDebugAssets`).
+- `tablet_app/app/src/main/assets/index.html` — 13th tile **Composer**
+  (family `composer`, banner `#6B46C1`, opens
+  `abccomposer/index.html`).
+
+Tablet still pending reinstall this week on top of the earlier
+`9278b16` + `26abe7a` + this commit.
+
+### Catalog drift risk (extended)
+
+`abccomposer/` is now mirrored across **two** trees:
+`/abccomposer/` (canonical, dev-served) and
+`/tablet_app/app/src/main/assets/abccomposer/` (APK bundle). Plain
+recursive copy on every change is the current pattern. If this
+becomes painful, switch to a Gradle `sourceSets.main.assets.srcDirs`
+override pointing at `../../abccomposer` so the APK reads the
+canonical tree directly — non-blocking until then.
+
+### Smoke test (this push)
+
+`python3 -m http.server 8765` + `google-chrome --headless --dump-dom`:
+page loads, CodeMirror mounts, abcjs renders default tune, no
+console errors, `manifest.webmanifest` link in DOM, SW registration
+line in DOM, `/manifest.webmanifest` returns
+`application/manifest+json`, `/sw.js` returns `text/javascript`.
+
+---
+
 ## Current state (2026-05-04 — abccomposer: in-browser ABC editor + Claude chat)
 
 New top-level app `abccomposer/` — single self-contained `index.html`
