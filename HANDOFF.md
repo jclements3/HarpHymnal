@@ -68,6 +68,133 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-04 evening — Nicene Creed Phase 1+2 + harp rules + composer feature pile)
+
+### TL;DR for the home-laptop / tablet sessions
+
+The home laptop has been doing heavy work on `abccomposer/` and on the
+in-progress **Nicene Creed** harp composition (`abccomposer/examples/
+nicene-creed.abc`). This is a multi-phase pedal-harp setting of the
+1662 Nicene Creed that traverses all 7 church modes. The composition
+header now embeds the full 8-phase modal plan (read the top of
+`abccomposer/examples/nicene-creed.abc`).
+
+**Phase 1 (C Ionian, "I believe" anthem) and Phase 2 (B Locrian,
+"Creation from the void") are written and audible.** A bar-8 segue
+"Fall of the Angels" bridges them with a 16-sixteenth descending
+perfect-fourths run from F7 down to C1, voice-split across the staff
+(treble half above middle C, bass half below).
+
+### Read these BEFORE composing or reviewing harp music
+
+- **`HARP_RULES.md`** (NEW, repo-root, version-controlled) — the
+  pedal-harp composition constraints. Range zones (C1..B1 drone-only,
+  C2..C6 primary, C6..G7 fluff), hand span (10 strings max), 4-finger
+  rule (no pinky), drones-as-single-pitches, ABC octave convention
+  (C = C4 middle C, c = C5, c' = C6, c'' = C7), stripchart color
+  scheme (degree → rainbow). Same content lives in three places kept
+  in sync (see header of HARP_RULES.md):
+    1. `HARP_RULES.md` (this file, version-controlled)
+    2. `abccomposer/index.html` `DEFAULT_SYSTEM` (tablet chat prompt)
+    3. local Claude memory (per-machine, not git)
+- **`CLAUDE.md`** "STOP — read these first" now lists HARP_RULES.md as
+  item #1.
+
+### `abccomposer/` feature pile landed today
+
+- **Save All button** writes 4 artifacts in one tap to
+  `Documents/HarpHymnal/<base>.{abc,mid,html,pdf}`. Bridge gained
+  `saveAbcBase64` (binary blobs via base64) and `saveAbcPdfFromPng`
+  (wraps a canvas-rendered PNG of the score in a single-page Letter
+  PDF). MIDI generation uses `ABCJS.synth.getMidiFile` in `binary`
+  mode — note the API returns an *array* of per-tune Uint8Arrays;
+  unwrap the outer array, then duck-type the buffer (cross-realm
+  `instanceof Uint8Array` is unreliable). `.html` and `.pdf` always
+  snapshot the **score**, not whichever view is active.
+- **Stripchart pitch fix** — `abcPitchToMidi(p) = p + 60` was wrong;
+  abcjs's `pitch` is a *diatonic-step* offset from middle C, not a
+  semitone offset. The wrong formula squashed every note above middle
+  C by ~5 semitones per octave and dropped the entire top + bottom
+  octaves off the chart. Fixed to use the C-major chromatic pattern
+  `[0,2,4,5,7,9,11]` per diatonic step.
+- **Stripchart orientation** — standard music-staff: high pitches at
+  TOP, low at BOTTOM, gutter labels SCIENTIFIC (C1 bass at bottom,
+  C7 treble at top, middle C red). Earlier flipped "harp-view"
+  experiment was reverted; the user uses scientific octave numbering
+  throughout, NOT harp octave numbering. Trust the ABC convention as
+  source of truth.
+- **Stripchart bar widths LOCKED** to `PX_PER_BEAT` (5 px/beat); short
+  songs render as a narrow strip in a wider container. Swipe-expand
+  no longer regrows the bars.
+- **Polychord chord-track support** — `chord1~chord2` labels render
+  with the upper RN white on top, divider, lower RN purple beneath.
+- **Composer chat `DEFAULT_SYSTEM`** embeds the full harp rules so
+  on-tablet Claude follows them automatically — no per-prompt
+  reminders needed.
+- **Bootstrap version v20** (was v10 yesterday; re-seeds the editor's
+  `nicene-creed.abc` on first launch after install).
+
+### Nicene Creed — what's composed (`abccomposer/examples/nicene-creed.abc`)
+
+- **Modal plan in the file's header** (8 phases, all 7 modes touched):
+  Ionian → Locrian → Lydian → Mixolydian → Phrygian → Dorian → Aeolian
+  → Ionian return. Mode↔theme rationale documented in the comment
+  block. Open TBDs: bar count per phase, segues between phases, Amen
+  length.
+- **Phase 1 (C Ionian, bars 1-7)** — "I believe" anthem, 3 iterations,
+  9 unique 4-note RH+LH voicings, LH bass strictly DESCENDS C3 → C2,
+  drones descend C major triad G1 → E1 → C1, bar 7 closing G6→G7
+  ascending scale.
+- **Bar 8 SEGUE "Fall of the Angels"** — 16 sixteenth-notes by
+  descending perfect 4ths spanning the full harp F7 → C1. Split across
+  middle C: high half (F7..F4) on V:1 treble beats 1-2, low half
+  (C4..C1) on V:2 bass beats 3-4. Beams in groups of 4 sixteenths per
+  beat. Tempo shifts inline to ♩=64.
+- **Phase 2 (B Locrian, bars 9-24)** — slow pp atmospheric texture
+  modeled on user-supplied sample image (`images/sample-locrean.png`).
+  4 phrases × 4 bars: i°→♭VII→♭VI→♭II / ♭III→iv→♭VI→i° / i°→v°→♭III→
+  ♭VII→i° / ♭II→iv→♭VI→♭VII→i°. Sustained B1 drone re-struck per
+  phrase. RH carries text in slow legato. Bars with B4 wholes (the
+  "pink" notes in the stripchart's degree-7 colour) are now dotted-
+  half + 1-beat tremolo cell above C6 on the bar's chord tones —
+  the angel-zone fluff layer matching the sample image's piano-RH
+  shimmer. One grace `{f''}` (F7) on "in-" of "invisible".
+- **Composition rules respected**: no chord notes in C1..B1 (drones
+  only), all chord notes ≥ C2, 4 notes/hand max, 10-string span max,
+  diatonic only.
+
+### Tablet status
+
+- **Latest APK installed** on P90 (build `70b6ba4`) with bootstrap v20.
+- Custom IME `com.harp.harphymnal.drills/.NumpadKeyboardService` is
+  the active keyboard.
+- `Documents/HarpHymnal/` already has the latest `nicene-creed.abc`
+  (re-seeded from the bundled example on first launch after install).
+
+### Workflow note for git-on-tablet
+
+The user has git installed on the tablet. To pull the latest on the
+tablet:
+```bash
+git -C <repo-checkout> pull --ff-only
+```
+The bundled APK assets already contain the latest composition and the
+embedded harp rules in DEFAULT_SYSTEM, so the tablet's built-in Claude
+chat is already current. `git pull` only matters if the user wants the
+composition or `HARP_RULES.md` outside the app (e.g. for a Claude Code
+session running directly on the tablet).
+
+### Open questions (user-directed)
+
+- Bar count per phase for phases 3-8 — Phase 2 was 16 bars; should
+  the meatier text (Phase 3 "Lord Jesus Christ ... Light of Light ...
+  by whom all things were made") run longer?
+- Segues like the Fall of the Angels between every phase, or only at
+  the major thematic shifts (Locrian↔Lydian crossing, Passion↔Resurrection)?
+- The Amen — single bar or extended cadenza?
+
+---
+
 ## Current state (2026-05-04 — abccomposer wired as desktop PWA + tablet tile)
 
 `abccomposer/` (landed earlier today as `64d7ef3`) is now installable
@@ -747,6 +874,82 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
+- **2026-05-04 home** — `70b6ba4` `nicene-creed: modal plan in ABC header +
+  bar 8 beam fix`. Modal plan persisted as a comment table at the top
+  of `abccomposer/examples/nicene-creed.abc` (8 phases mapped to all 7
+  church modes, framed by C Ionian at both ends — Ionian→Locrian→
+  Lydian→Mixolydian→Phrygian→Dorian→Aeolian→Ionian-return). Bar 8
+  sixteenth-note run beaming corrected: notes connected without spaces
+  beam together, spaces break the beam — one space per beat boundary,
+  no spaces within a beam group. BOOTSTRAP_VERSION v19→v20.
+- **2026-05-04 home** — `73591b3` `HARP_RULES.md: portable copy of harp
+  composition rules + CLAUDE.md pointer`. NEW `HARP_RULES.md` at repo
+  root checks the pedal-harp composition rules into git so they travel
+  with `git pull`. Same content lives in three places (kept in sync per
+  HARP_RULES.md header): repo-root file, abccomposer's DEFAULT_SYSTEM
+  prompt, and Claude Code's local memory. CLAUDE.md "STOP — read these
+  first" now lists HARP_RULES.md as item #1.
+- **2026-05-04 home** — `6515f68` `nicene-creed: split bar 8 across
+  treble/bass + add fluff-angel layer to pink wholes`. Bar 8 voice-
+  split: high half F7..F4 on V:1 treble beats 1-2, low half C4..C1
+  on V:2 bass beats 3-4 (no million-ledger-line spaghetti). Fluff-
+  angel layer on bars 9, 12, 16, 20, 24 RH (where pink/B-pitched
+  whole notes lived): each B4 whole → B4 dotted-half + beat-4 high
+  tremolo cell of 8 thirty-second-note repeats above C6 on the bar's
+  chord tones. Adds the third textural strand from the user's Locrian
+  sample image (drone + pads + slow text + high shimmer).
+- **2026-05-04 home** — `13047cb` `nicene-creed: Phase 2 (B Locrian)
+  + bar 8 segue "Fall of the Angels"`. Phase 1 LH bass now strictly
+  descends C3→C2 (was bouncing); drones descend C major triad
+  G1→E1→C1; iter 3 RH dropped one octave to C5..G6. Phase 1 bar 7
+  final barline `|]`→`|` so music continues. Bar 8 SEGUE "Fall of the
+  Angels" — 16 sixteenths by descending perfect 4ths, F7→C1 (full harp
+  range). Phase 2 bars 9-24 in B Locrian, slow pp atmospheric, sustained
+  B1 drone + LH chord pads + slow bassoon-like RH carrying the text.
+  Final cadence on i° (BDF, diminished) leaves the prayer unresolved
+  — Locrian is the only mode whose tonic is dim, fitting "all things
+  visible AND INVISIBLE".
+- **2026-05-04 home** — `10caa9b` `abccomposer: stripchart in standard
+  music-staff orientation, scientific labels`. Reverted the earlier
+  flipped "harp-view" experiment; the user uses scientific octave
+  numbering throughout, NOT harp numbering. C1 (bass) at bottom, C7
+  (treble) at top, middle C red. Ascending pitches visually ascend.
+  Project memory + composer DEFAULT_SYSTEM both corrected.
+- **2026-05-04 home** — `5f841cd` `abccomposer: keep stripchart in
+  standard orientation; nicene-creed bar 7 closing scale`. Bar 7
+  extended from 2 to 4 beats: drone C1 (q) + 2 beats rest + ascending
+  C major scale on beat 4 (8 × 32nds, originally C3→C4, later raised).
+- **2026-05-04 home** — `1a6978f` `abccomposer: fix abcPitchToMidi --
+  diatonic step != semitone`. The stripchart parser converted abcjs's
+  `note.pitches[i].pitch` to MIDI with `p + 60`, treating each step
+  as a semitone. abcjs's pitch is a DIATONIC-step offset from middle
+  C (C4=0, D4=1, ..., C5=7, C6=14, C7=21). Treating diatonic steps as
+  semitones squashed every note above middle C by ~5 semitones per
+  octave, dropping the entire top + bottom octaves off the chart.
+  Fix combines the octave shift with the C-major chromatic pattern
+  `[0,2,4,5,7,9,11]` indexed by `stepInOctave`.
+- **2026-05-04 home** — `e0cbf6e` `abccomposer: Save All MIDI working;
+  quarter-note drones in nicene-creed`. Fixed MIDI export — abcjs's
+  binary mode returns an array of per-tune Uint8Arrays (one per X:
+  block); unwrap the outer array, then duck-type the inner buffer.
+  All four artifacts now save cleanly: `.abc` text, `.mid` (validated
+  MThd header), `.html` SVG snapshot, `.pdf` Letter (validated %PDF-1.4
+  header). `_save_debug.txt` diagnostic file added.
+- **2026-05-04 home** — `6961b47` `abccomposer: stripchart bars locked
+  to PX_PER_BEAT; HTML+PDF render the score`. Bar widths locked to
+  PX_PER_BEAT (5 px/beat) regardless of container size — short songs
+  render as a narrow strip in a wider container; swipe-expand no
+  longer regrows bars. `.html` and `.pdf` artifacts now snapshot the
+  music score, not whichever view is active.
+- **2026-05-04 home** — `fcd53a8` `abccomposer: Save All emits
+  .abc/.mid/.html/.pdf; polychord chord track; nicene-creed bars
+  aligned`. New Save All async-emits all four artifacts. Bridge gains
+  `saveAbcBase64` (binary blobs via base64) and `saveAbcPdfFromPng`
+  (canvas-rendered PNG → single-page Letter PDF). Stripchart chord
+  track parses `chord1~chord2` polychord syntax (upper RN on top with
+  divider, lower RN purple beneath). nicene-creed.abc reflowed so
+  [V:1]/[V:2] cells are column-aligned with vertical bar separators.
+  Editor font 15px → 14px. BOOTSTRAP_VERSION v10 → v11.
 - **2026-05-02 home** — `26abe7a` `tablet_app: chord handout PDF +
   audit-driven polychord label cleanup`. New chord handout (4-page A4
   US Letter, B&W, XeLaTeX/JuliaMono) catalog-mirrors shapedrills.html
