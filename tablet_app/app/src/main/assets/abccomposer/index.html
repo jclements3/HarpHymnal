@@ -973,29 +973,69 @@ if (lsGet(LS.expand, "") === "render") applyExpandRender();
 // 4c.  Swipe-right on the render pane: expand it to absorb the chat
 // pane (editor stays at 50%, render takes the right 50%, chat hides).
 // Double-tap any pane goes back to default 50/25/25.
+//
+// Uses raw touch events rather than pointer events: Android WebView
+// likes to claim pointer streams for native scroll handling, so
+// pointerup can fire late or not at all on a swipe. Touch events with
+// preventDefault on horizontal-dominant moves keep the gesture ours.
 // ────────────────────────────────────────────────────────────────────
 (function wireSwipeExpand() {
   const renderPane = document.querySelector(".pane-render");
   if (!renderPane) return;
-  let sx = 0, sy = 0, st = 0, tracking = false;
-  renderPane.addEventListener("pointerdown", (ev) => {
-    if (ev.pointerType !== "touch" && ev.pointerType !== "mouse") return;
-    sx = ev.clientX; sy = ev.clientY; st = Date.now();
-    tracking = true;
-  });
-  renderPane.addEventListener("pointerup", (ev) => {
+
+  let sx = 0, sy = 0, st = 0, tracking = false, claimed = false;
+
+  renderPane.addEventListener("touchstart", (ev) => {
+    if (ev.touches.length !== 1) { tracking = false; return; }
+    const t = ev.touches[0];
+    sx = t.clientX; sy = t.clientY; st = Date.now();
+    tracking = true; claimed = false;
+  }, { passive: true });
+
+  renderPane.addEventListener("touchmove", (ev) => {
+    if (!tracking || ev.touches.length !== 1) return;
+    const t = ev.touches[0];
+    const dx = t.clientX - sx;
+    const dy = t.clientY - sy;
+    // Once the move looks like a horizontal swipe, claim it so the
+    // WebView doesn't steal it for scrolling.
+    if (!claimed && Math.abs(dx) > 20 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      claimed = true;
+    }
+    if (claimed) ev.preventDefault();
+  }, { passive: false });
+
+  renderPane.addEventListener("touchend", (ev) => {
     if (!tracking) return;
     tracking = false;
-    const dx = ev.clientX - sx;
-    const dy = ev.clientY - sy;
+    const t = ev.changedTouches && ev.changedTouches[0];
+    if (!t) return;
+    const dx = t.clientX - sx;
+    const dy = t.clientY - sy;
     const dt = Date.now() - st;
-    // swipe right: positive dx, mostly horizontal, quick
-    if (dt < 600 && dx > 60 && Math.abs(dy) < 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-      ev.preventDefault();
+    if (dt < 700 && dx > 60 && Math.abs(dy) < 60 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      applyExpandRender();
+    }
+  }, { passive: true });
+
+  renderPane.addEventListener("touchcancel", () => { tracking = false; }, { passive: true });
+
+  // Desktop mouse-drag fallback (kept off touch devices via pointerType check).
+  let mx = 0, my = 0, mt = 0, dragging = false;
+  renderPane.addEventListener("mousedown", (ev) => {
+    if (ev.button !== 0) return;
+    mx = ev.clientX; my = ev.clientY; mt = Date.now(); dragging = true;
+  });
+  renderPane.addEventListener("mouseup", (ev) => {
+    if (!dragging) return;
+    dragging = false;
+    const dx = ev.clientX - mx;
+    const dy = ev.clientY - my;
+    const dt = Date.now() - mt;
+    if (dt < 700 && dx > 60 && Math.abs(dy) < 60 && Math.abs(dx) > Math.abs(dy) * 1.2) {
       applyExpandRender();
     }
   });
-  renderPane.addEventListener("pointercancel", () => { tracking = false; });
 })();
 
 // ────────────────────────────────────────────────────────────────────
