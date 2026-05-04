@@ -53,7 +53,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 a { text-decoration: none; }
 
 /* JuliaMono — anchors combining circumflex (U+0302) correctly over digit
-   glyphs so `1̂` reads as a clean LaTeX-style hat. Most system monospace
+   glyphs so `I` reads as a clean LaTeX-style hat. Most system monospace
    fonts (and DejaVu Sans Mono) let the hat drift onto the next glyph. */
 @font-face {
   font-family: 'JuliaMono';

@@ -127,8 +127,11 @@ def _melody_str(melody: list[dict]) -> str:
     return ' '.join(parts)
 
 
+_DEG_ROMAN = {1: 'I', 2: 'ii', 3: 'iii', 4: 'IV', 5: 'V', 6: 'vi', 7: 'vii°'}
+
+
 def _hat(d: int) -> str:
-    return f'<span class="deg">{d}̂</span>'
+    return f'<b class="deg">{_DEG_ROMAN[d]}</b>'
 
 
 # 47-string concert pedal harp: position 1 = C1, position 47 = G7. Sharps
@@ -205,8 +208,8 @@ def _shape_html(template: str, degree: int) -> str:
     """Inline the degree digit (with its hat span) into a shape template."""
     if degree == 0 or template is None:
         return ''
-    rendered = template.replace('{N}', f'<HAT>{degree}</HAT>')
-    rendered = rendered.replace('<HAT>', '<span class="deg">').replace('</HAT>', '̂</span>')
+    rendered = template.replace('{N}', _DEG_ROMAN[degree])
+    rendered = rendered.replace('<HAT>', '<b class="deg">').replace('</HAT>', '</b>')
     return rendered
 
 
@@ -252,8 +255,8 @@ def _satb_shape_html(s: Pitch | None, a: Pitch | None,
     bt = _interval_digit(bt_steps)
     asp = _interval_digit(as_steps)
     return (
-        f'{b.octave}L<span class="deg">{bass_deg}̂</span>{bt} '
-        f'{a.octave}R<span class="deg">{alto_deg}̂</span>{asp}'
+        f'{b.octave}L<b class="deg">{_DEG_ROMAN[bass_deg]}</b>{bt} '
+        f'{a.octave}R<b class="deg">{_DEG_ROMAN[alto_deg]}</b>{asp}'
     )
 
 

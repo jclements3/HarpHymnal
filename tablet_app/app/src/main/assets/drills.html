@@ -483,13 +483,15 @@ function chordNameForSymbol(symbol, scale) {
   } else {
     mainPart = symbol; bassPart = null;
   }
-  // Match: optional flat/sharp, digit, caret (U+0302), then quality
-  const re = /^([\u266D\u266F])?(\d)\u0302(.*)$/;
+  // Roman numeral chord symbol: optional \u266D/\u266F, Roman (case = quality),
+  // optional \u00B0 dim mark, then the rest as the quality suffix.
+  const re = /^([\u266D\u266F])?(VII|III|VI|IV|II|V|I|vii|iii|vi|iv|ii|v|i)(\u00B0?)(.*)$/;
+  const ROMAN_DEG = {i:1, ii:2, iii:3, iv:4, v:5, vi:6, vii:7};
   const m = mainPart.match(re);
   if (!m) return symbol;
   const rootAcc = m[1] || '';
-  const rootDeg = parseInt(m[2], 10);
-  const quality = m[3];
+  const rootDeg = ROMAN_DEG[m[2].toLowerCase()];
+  const quality = (m[3] || '') + (m[4] || '');
   const [letter, scaleAcc] = scale[rootDeg - 1];
   let chordAcc = scaleAcc;
   if (rootAcc) chordAcc = combineAccidentals(scaleAcc, rootAcc);
@@ -498,8 +500,8 @@ function chordNameForSymbol(symbol, scale) {
     const bm = bassPart.match(re);
     if (bm) {
       const bAccSym = bm[1] || '';
-      const bDeg = parseInt(bm[2], 10);
-      const bExtra = bm[3];
+      const bDeg = ROMAN_DEG[bm[2].toLowerCase()];
+      const bExtra = (bm[3] || '') + (bm[4] || '');
       const [bLetter, bScaleAcc] = scale[bDeg - 1];
       let bAcc = bScaleAcc;
       if (bAccSym) bAcc = combineAccidentals(bScaleAcc, bAccSym);
@@ -716,8 +718,21 @@ function escapeHTML(s) {
 // Render a chord symbol with `_<hex>+` markers as <sub>X</sub>. Hex digits
 // after `_` mean "subtract this chord tone" (e.g. `_B` = no 11, `_79` = no 7
 // and no 9). Project convention.
+// Render a chord symbol with the Roman numeral portion bolded. Polychord
+// stacks (IV~iii) split on tilde; slash bass (V/I) bolds both sides.
+const _ROMAN_RE = /^([♭♯])?(VII|III|VI|IV|II|V|I|vii|iii|vi|iv|ii|v|i)(°?)(.*)$/;
+function _boldRomanPiece(piece) {
+  const m = piece.match(_ROMAN_RE);
+  if (!m) return escapeHTML(piece);
+  const acc = m[1] || '', roman = m[2], dim = m[3] || '', suffix = m[4] || '';
+  return escapeHTML(acc) + '<b>' + roman + dim + '</b>' + escapeHTML(suffix);
+}
 function renderChord(s) {
-  return escapeHTML(s).replace(/_([0-9A-Fa-f]+)/g, '<sub>$1</sub>');
+  return s.split('~').map(part => {
+    const slashIdx = part.indexOf('/');
+    if (slashIdx < 0) return _boldRomanPiece(part);
+    return _boldRomanPiece(part.slice(0, slashIdx)) + '/' + _boldRomanPiece(part.slice(slashIdx + 1));
+  }).join('~');
 }
 
 function colorizeLayout(layoutStr) {

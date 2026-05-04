@@ -3,7 +3,7 @@
 Reference tables for **generic-interval** harp work. The caret digits
 ^1–^7 name *scale-degree positions in the major scale*, not chord
 function. Where Roman numerals say "in this key, this is the dominant",
-caret digits say "stack these intervals on degree N̂ and you get this
+caret digits say "stack these intervals on degree N and you get this
 sonority — true in every key."
 
 Quality glyphs follow the canonical handout:
@@ -163,7 +163,7 @@ seventh of the key"; `IV²` is "the subdominant in second inversion". They
 carry harmonic intent.
 
 **Caret digits** assert *interval geometry* — `^57` is "stack three
-thirds on degree 5̂"; `^4²` is "stack a 4th and a 3rd starting from 4̂".
+thirds on degree V"; `^4²` is "stack a 4th and a 3rd starting from IV".
 They're true in every key and stay silent on what the chord means
 *harmonically*.
 

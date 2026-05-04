@@ -35,7 +35,7 @@
 <h1 class="title">STACKS</h1>
 </header>
 <h1 id="stacks-diads--fingerings">Stacks, Diads &amp; Fingerings</h1>
-<p>Reference tables for <strong>generic-interval</strong> harp work. The caret digits <span class="deg">1̂</span>–<span class="deg">7̂</span> name <em>scale-degree positions in the major scale</em>, not chord function. Where Roman numerals say "in this key, this is the dominant", caret digits say "stack these intervals on degree N̂ and you get this sonority — true in every key."</p>
+<p>Reference tables for <strong>generic-interval</strong> harp work. The caret digits <span class="deg">I</span>–<span class="deg">VII</span> name <em>scale-degree positions in the major scale</em>, not chord function. Where Roman numerals say "in this key, this is the dominant", caret digits say "stack these intervals on degree N and you get this sonority — true in every key."</p>
 <p>Quality glyphs follow the canonical handout: <code>Δ</code> = M7, <code>°</code> = dim, <code>ø7</code> = half-dim 7, <code>7</code> = dom 7, <code>m7</code>, <code>q</code> = quartal, <code>s2</code>/<code>s4</code> = sus, <code>+8</code> = octave doubling, <code>¹²³</code> = inversion (bass tone).</p>
 <p>Companion PDFs (printable, full landscape layout) live under <a href="../docs/handouts/"><code>docs/handouts/</code></a>:</p>
 <ul>
@@ -50,572 +50,572 @@
 <ul>
 <li><strong>Columns</strong>: scale degree of the <strong>bottom</strong> note of the stack.</li>
 <li><strong>Rows</strong>: a stack of generic intervals. <code>3,3</code> = stack a third, then another third; <code>3,3,3</code> = three stacked thirds.</li>
-<li><strong>Cells</strong>: most-abbreviated chord name. The caret digit (<span class="deg">1̂</span>, <span class="deg">2̂</span>, …) marks the <strong>root</strong> of the chord, not the bottom note. Quality follows. Empty cells are diatonic stacks that don't form a recognized tertian / sus / quartal / added-6 sonority (genuine clusters like <span class="deg">1̂</span>-<span class="deg">2̂</span>-<span class="deg">3̂</span>).</li>
+<li><strong>Cells</strong>: most-abbreviated chord name. The caret digit (<span class="deg">I</span>, <span class="deg">II</span>, …) marks the <strong>root</strong> of the chord, not the bottom note. Quality follows. Empty cells are diatonic stacks that don't form a recognized tertian / sus / quartal / added-6 sonority (genuine clusters like <span class="deg">I</span>-<span class="deg">II</span>-<span class="deg">III</span>).</li>
 </ul>
 <p>Constraints: each interval ≤ 12, sum ≤ 12, ordered (<code>3,2 ≠ 2,3</code>). All-empty rows omitted; the generator script in the standalone PDF produces the full 130-row version.</p>
 <table>
 <thead>
 <tr class="header">
 <th>Stack</th>
-<th><span class="deg">1̂</span></th>
-<th><span class="deg">2̂</span></th>
-<th><span class="deg">3̂</span></th>
-<th><span class="deg">4̂</span></th>
-<th><span class="deg">5̂</span></th>
-<th><span class="deg">6̂</span></th>
-<th><span class="deg">7̂</span></th>
+<th><span class="deg">I</span></th>
+<th><span class="deg">II</span></th>
+<th><span class="deg">III</span></th>
+<th><span class="deg">IV</span></th>
+<th><span class="deg">V</span></th>
+<th><span class="deg">VI</span></th>
+<th><span class="deg">VII</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>2</td>
-<td><span class="deg">1̂</span><span class="deg">2̂</span></td>
-<td><span class="deg">2̂</span><span class="deg">3̂</span></td>
-<td><span class="deg">3̂</span><span class="deg">4̂</span></td>
-<td><span class="deg">4̂</span><span class="deg">5̂</span></td>
-<td><span class="deg">5̂</span><span class="deg">6̂</span></td>
-<td><span class="deg">6̂</span><span class="deg">7̂</span></td>
-<td><span class="deg">7̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">I</span><span class="deg">II</span></td>
+<td><span class="deg">II</span><span class="deg">III</span></td>
+<td><span class="deg">III</span><span class="deg">IV</span></td>
+<td><span class="deg">IV</span><span class="deg">V</span></td>
+<td><span class="deg">V</span><span class="deg">VI</span></td>
+<td><span class="deg">VI</span><span class="deg">VII</span></td>
+<td><span class="deg">VII</span><span class="deg">I</span></td>
 </tr>
 <tr class="even">
 <td>3</td>
-<td><span class="deg">1̂</span><span class="deg">3̂</span></td>
-<td><span class="deg">2̂</span><span class="deg">4̂</span></td>
-<td><span class="deg">3̂</span><span class="deg">5̂</span></td>
-<td><span class="deg">4̂</span><span class="deg">6̂</span></td>
-<td><span class="deg">5̂</span><span class="deg">7̂</span></td>
-<td><span class="deg">6̂</span><span class="deg">1̂</span></td>
-<td><span class="deg">7̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">I</span><span class="deg">III</span></td>
+<td><span class="deg">II</span><span class="deg">IV</span></td>
+<td><span class="deg">III</span><span class="deg">V</span></td>
+<td><span class="deg">IV</span><span class="deg">VI</span></td>
+<td><span class="deg">V</span><span class="deg">VII</span></td>
+<td><span class="deg">VI</span><span class="deg">I</span></td>
+<td><span class="deg">VII</span><span class="deg">II</span></td>
 </tr>
 <tr class="odd">
 <td>4</td>
-<td><span class="deg">1̂</span><span class="deg">4̂</span></td>
-<td><span class="deg">2̂</span><span class="deg">5̂</span></td>
-<td><span class="deg">3̂</span><span class="deg">6̂</span></td>
-<td><span class="deg">4̂</span><span class="deg">7̂</span></td>
-<td><span class="deg">5̂</span><span class="deg">1̂</span></td>
-<td><span class="deg">6̂</span><span class="deg">2̂</span></td>
-<td><span class="deg">7̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">I</span><span class="deg">IV</span></td>
+<td><span class="deg">II</span><span class="deg">V</span></td>
+<td><span class="deg">III</span><span class="deg">VI</span></td>
+<td><span class="deg">IV</span><span class="deg">VII</span></td>
+<td><span class="deg">V</span><span class="deg">I</span></td>
+<td><span class="deg">VI</span><span class="deg">II</span></td>
+<td><span class="deg">VII</span><span class="deg">III</span></td>
 </tr>
 <tr class="even">
 <td>5</td>
-<td><span class="deg">1̂</span><span class="deg">5̂</span></td>
-<td><span class="deg">2̂</span><span class="deg">6̂</span></td>
-<td><span class="deg">3̂</span><span class="deg">7̂</span></td>
-<td><span class="deg">4̂</span><span class="deg">1̂</span></td>
-<td><span class="deg">5̂</span><span class="deg">2̂</span></td>
-<td><span class="deg">6̂</span><span class="deg">3̂</span></td>
-<td><span class="deg">7̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">I</span><span class="deg">V</span></td>
+<td><span class="deg">II</span><span class="deg">VI</span></td>
+<td><span class="deg">III</span><span class="deg">VII</span></td>
+<td><span class="deg">IV</span><span class="deg">I</span></td>
+<td><span class="deg">V</span><span class="deg">II</span></td>
+<td><span class="deg">VI</span><span class="deg">III</span></td>
+<td><span class="deg">VII</span><span class="deg">IV</span></td>
 </tr>
 <tr class="odd">
 <td>6</td>
-<td><span class="deg">1̂</span><span class="deg">6̂</span></td>
-<td><span class="deg">2̂</span><span class="deg">7̂</span></td>
-<td><span class="deg">3̂</span><span class="deg">1̂</span></td>
-<td><span class="deg">4̂</span><span class="deg">2̂</span></td>
-<td><span class="deg">5̂</span><span class="deg">3̂</span></td>
-<td><span class="deg">6̂</span><span class="deg">4̂</span></td>
-<td><span class="deg">7̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">I</span><span class="deg">VI</span></td>
+<td><span class="deg">II</span><span class="deg">VII</span></td>
+<td><span class="deg">III</span><span class="deg">I</span></td>
+<td><span class="deg">IV</span><span class="deg">II</span></td>
+<td><span class="deg">V</span><span class="deg">III</span></td>
+<td><span class="deg">VI</span><span class="deg">IV</span></td>
+<td><span class="deg">VII</span><span class="deg">V</span></td>
 </tr>
 <tr class="even">
 <td>7</td>
-<td><span class="deg">1̂</span><span class="deg">7̂</span></td>
-<td><span class="deg">2̂</span><span class="deg">1̂</span></td>
-<td><span class="deg">3̂</span><span class="deg">2̂</span></td>
-<td><span class="deg">4̂</span><span class="deg">3̂</span></td>
-<td><span class="deg">5̂</span><span class="deg">4̂</span></td>
-<td><span class="deg">6̂</span><span class="deg">5̂</span></td>
-<td><span class="deg">7̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">I</span><span class="deg">VII</span></td>
+<td><span class="deg">II</span><span class="deg">I</span></td>
+<td><span class="deg">III</span><span class="deg">II</span></td>
+<td><span class="deg">IV</span><span class="deg">III</span></td>
+<td><span class="deg">V</span><span class="deg">IV</span></td>
+<td><span class="deg">VI</span><span class="deg">V</span></td>
+<td><span class="deg">VII</span><span class="deg">VI</span></td>
 </tr>
 <tr class="odd">
 <td>8</td>
-<td><span class="deg">1̂</span><span class="deg">1̂</span></td>
-<td><span class="deg">2̂</span><span class="deg">2̂</span></td>
-<td><span class="deg">3̂</span><span class="deg">3̂</span></td>
-<td><span class="deg">4̂</span><span class="deg">4̂</span></td>
-<td><span class="deg">5̂</span><span class="deg">5̂</span></td>
-<td><span class="deg">6̂</span><span class="deg">6̂</span></td>
-<td><span class="deg">7̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">I</span><span class="deg">I</span></td>
+<td><span class="deg">II</span><span class="deg">II</span></td>
+<td><span class="deg">III</span><span class="deg">III</span></td>
+<td><span class="deg">IV</span><span class="deg">IV</span></td>
+<td><span class="deg">V</span><span class="deg">V</span></td>
+<td><span class="deg">VI</span><span class="deg">VI</span></td>
+<td><span class="deg">VII</span><span class="deg">VII</span></td>
 </tr>
 <tr class="even">
 <td>2,4</td>
-<td><span class="deg">1̂</span>s2</td>
-<td><span class="deg">2̂</span>s2</td>
+<td><span class="deg">I</span>s2</td>
+<td><span class="deg">II</span>s2</td>
 <td></td>
-<td><span class="deg">4̂</span>s2</td>
-<td><span class="deg">5̂</span>s2</td>
-<td><span class="deg">6̂</span>s2</td>
+<td><span class="deg">IV</span>s2</td>
+<td><span class="deg">V</span>s2</td>
+<td><span class="deg">VI</span>s2</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2,7</td>
-<td><span class="deg">1̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">1̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">II</span>+8</td>
+<td><span class="deg">II</span><span class="deg">III</span>+8</td>
+<td><span class="deg">III</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">V</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">I</span>+8</td>
 </tr>
 <tr class="even">
 <td>2,8</td>
-<td><span class="deg">1̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">1̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">II</span>+8</td>
+<td><span class="deg">II</span><span class="deg">III</span>+8</td>
+<td><span class="deg">III</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">V</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">I</span>+8</td>
 </tr>
 <tr class="odd">
 <td>3,3</td>
-<td><span class="deg">1̂</span></td>
-<td><span class="deg">2̂</span>m</td>
-<td><span class="deg">3̂</span>m</td>
-<td><span class="deg">4̂</span></td>
-<td><span class="deg">5̂</span></td>
-<td><span class="deg">6̂</span>m</td>
-<td><span class="deg">7̂</span>°</td>
+<td><span class="deg">I</span></td>
+<td><span class="deg">II</span>m</td>
+<td><span class="deg">III</span>m</td>
+<td><span class="deg">IV</span></td>
+<td><span class="deg">V</span></td>
+<td><span class="deg">VI</span>m</td>
+<td><span class="deg">VII</span>°</td>
 </tr>
 <tr class="even">
 <td>3,4</td>
-<td><span class="deg">6̂</span>m¹</td>
-<td><span class="deg">7̂</span>°¹</td>
-<td><span class="deg">1̂</span>¹</td>
-<td><span class="deg">2̂</span>m¹</td>
-<td><span class="deg">3̂</span>m¹</td>
-<td><span class="deg">4̂</span>¹</td>
-<td><span class="deg">5̂</span>¹</td>
+<td><span class="deg">VI</span>m¹</td>
+<td><span class="deg">VII</span>°¹</td>
+<td><span class="deg">I</span>¹</td>
+<td><span class="deg">II</span>m¹</td>
+<td><span class="deg">III</span>m¹</td>
+<td><span class="deg">IV</span>¹</td>
+<td><span class="deg">V</span>¹</td>
 </tr>
 <tr class="odd">
 <td>3,6</td>
-<td><span class="deg">1̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">2̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">III</span>+8</td>
+<td><span class="deg">II</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">III</span><span class="deg">V</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">I</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">II</span>+8</td>
 </tr>
 <tr class="even">
 <td>3,8</td>
-<td><span class="deg">1̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">2̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">III</span>+8</td>
+<td><span class="deg">II</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">III</span><span class="deg">V</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">I</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">II</span>+8</td>
 </tr>
 <tr class="odd">
 <td>4,2</td>
-<td><span class="deg">1̂</span>s4</td>
-<td><span class="deg">2̂</span>s4</td>
-<td><span class="deg">3̂</span>s4</td>
+<td><span class="deg">I</span>s4</td>
+<td><span class="deg">II</span>s4</td>
+<td><span class="deg">III</span>s4</td>
 <td></td>
-<td><span class="deg">5̂</span>s4</td>
-<td><span class="deg">6̂</span>s4</td>
+<td><span class="deg">V</span>s4</td>
+<td><span class="deg">VI</span>s4</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>4,3</td>
-<td><span class="deg">4̂</span>²</td>
-<td><span class="deg">5̂</span>²</td>
-<td><span class="deg">6̂</span>m²</td>
-<td><span class="deg">7̂</span>°²</td>
-<td><span class="deg">1̂</span>²</td>
-<td><span class="deg">2̂</span>m²</td>
-<td><span class="deg">3̂</span>m²</td>
+<td><span class="deg">IV</span>²</td>
+<td><span class="deg">V</span>²</td>
+<td><span class="deg">VI</span>m²</td>
+<td><span class="deg">VII</span>°²</td>
+<td><span class="deg">I</span>²</td>
+<td><span class="deg">II</span>m²</td>
+<td><span class="deg">III</span>m²</td>
 </tr>
 <tr class="odd">
 <td>4,4</td>
 <td></td>
-<td><span class="deg">2̂</span>q</td>
-<td><span class="deg">3̂</span>q</td>
+<td><span class="deg">II</span>q</td>
+<td><span class="deg">III</span>q</td>
 <td></td>
-<td><span class="deg">5̂</span>q</td>
-<td><span class="deg">6̂</span>q</td>
-<td><span class="deg">7̂</span>q</td>
+<td><span class="deg">V</span>q</td>
+<td><span class="deg">VI</span>q</td>
+<td><span class="deg">VII</span>q</td>
 </tr>
 <tr class="even">
 <td>4,5</td>
-<td><span class="deg">1̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">3̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">II</span><span class="deg">V</span>+8</td>
+<td><span class="deg">III</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">V</span><span class="deg">I</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">II</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">III</span>+8</td>
 </tr>
 <tr class="odd">
 <td>4,8</td>
-<td><span class="deg">1̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">3̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">II</span><span class="deg">V</span>+8</td>
+<td><span class="deg">III</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">V</span><span class="deg">I</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">II</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">III</span>+8</td>
 </tr>
 <tr class="even">
 <td>5,4</td>
-<td><span class="deg">1̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">4̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">V</span>+8</td>
+<td><span class="deg">II</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">III</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">I</span>+8</td>
+<td><span class="deg">V</span><span class="deg">II</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">III</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">IV</span>+8</td>
 </tr>
 <tr class="odd">
 <td>5,5</td>
-<td><span class="deg">1̂</span>s2</td>
-<td><span class="deg">2̂</span>s2</td>
+<td><span class="deg">I</span>s2</td>
+<td><span class="deg">II</span>s2</td>
 <td></td>
-<td><span class="deg">4̂</span>s2</td>
-<td><span class="deg">5̂</span>s2</td>
-<td><span class="deg">6̂</span>s2</td>
+<td><span class="deg">IV</span>s2</td>
+<td><span class="deg">V</span>s2</td>
+<td><span class="deg">VI</span>s2</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>5,6</td>
-<td><span class="deg">1̂</span></td>
-<td><span class="deg">2̂</span>m</td>
-<td><span class="deg">3̂</span>m</td>
-<td><span class="deg">4̂</span></td>
-<td><span class="deg">5̂</span></td>
-<td><span class="deg">6̂</span>m</td>
-<td><span class="deg">7̂</span>°</td>
+<td><span class="deg">I</span></td>
+<td><span class="deg">II</span>m</td>
+<td><span class="deg">III</span>m</td>
+<td><span class="deg">IV</span></td>
+<td><span class="deg">V</span></td>
+<td><span class="deg">VI</span>m</td>
+<td><span class="deg">VII</span>°</td>
 </tr>
 <tr class="odd">
 <td>5,7</td>
-<td><span class="deg">1̂</span>s4</td>
-<td><span class="deg">2̂</span>s4</td>
-<td><span class="deg">3̂</span>s4</td>
+<td><span class="deg">I</span>s4</td>
+<td><span class="deg">II</span>s4</td>
+<td><span class="deg">III</span>s4</td>
 <td></td>
-<td><span class="deg">5̂</span>s4</td>
-<td><span class="deg">6̂</span>s4</td>
+<td><span class="deg">V</span>s4</td>
+<td><span class="deg">VI</span>s4</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>6,3</td>
-<td><span class="deg">1̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">5̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">II</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">III</span><span class="deg">I</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">II</span>+8</td>
+<td><span class="deg">V</span><span class="deg">III</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">V</span>+8</td>
 </tr>
 <tr class="odd">
 <td>6,5</td>
-<td><span class="deg">6̂</span>m¹</td>
-<td><span class="deg">7̂</span>°¹</td>
-<td><span class="deg">1̂</span>¹</td>
-<td><span class="deg">2̂</span>m¹</td>
-<td><span class="deg">3̂</span>m¹</td>
-<td><span class="deg">4̂</span>¹</td>
-<td><span class="deg">5̂</span>¹</td>
+<td><span class="deg">VI</span>m¹</td>
+<td><span class="deg">VII</span>°¹</td>
+<td><span class="deg">I</span>¹</td>
+<td><span class="deg">II</span>m¹</td>
+<td><span class="deg">III</span>m¹</td>
+<td><span class="deg">IV</span>¹</td>
+<td><span class="deg">V</span>¹</td>
 </tr>
 <tr class="even">
 <td>6,6</td>
-<td><span class="deg">4̂</span>²</td>
-<td><span class="deg">5̂</span>²</td>
-<td><span class="deg">6̂</span>m²</td>
-<td><span class="deg">7̂</span>°²</td>
-<td><span class="deg">1̂</span>²</td>
-<td><span class="deg">2̂</span>m²</td>
-<td><span class="deg">3̂</span>m²</td>
+<td><span class="deg">IV</span>²</td>
+<td><span class="deg">V</span>²</td>
+<td><span class="deg">VI</span>m²</td>
+<td><span class="deg">VII</span>°²</td>
+<td><span class="deg">I</span>²</td>
+<td><span class="deg">II</span>m²</td>
+<td><span class="deg">III</span>m²</td>
 </tr>
 <tr class="odd">
 <td>7,2</td>
-<td><span class="deg">1̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">6̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">II</span><span class="deg">I</span>+8</td>
+<td><span class="deg">III</span><span class="deg">II</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">III</span>+8</td>
+<td><span class="deg">V</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">V</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">VI</span>+8</td>
 </tr>
 <tr class="even">
 <td>7,5</td>
 <td></td>
-<td><span class="deg">2̂</span>q</td>
-<td><span class="deg">3̂</span>q</td>
+<td><span class="deg">II</span>q</td>
+<td><span class="deg">III</span>q</td>
 <td></td>
-<td><span class="deg">5̂</span>q</td>
-<td><span class="deg">6̂</span>q</td>
-<td><span class="deg">7̂</span>q</td>
+<td><span class="deg">V</span>q</td>
+<td><span class="deg">VI</span>q</td>
+<td><span class="deg">VII</span>q</td>
 </tr>
 <tr class="odd">
 <td>8,2</td>
-<td><span class="deg">1̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">1̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">II</span>+8</td>
+<td><span class="deg">II</span><span class="deg">III</span>+8</td>
+<td><span class="deg">III</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">V</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">I</span>+8</td>
 </tr>
 <tr class="even">
 <td>8,3</td>
-<td><span class="deg">1̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">2̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">III</span>+8</td>
+<td><span class="deg">II</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">III</span><span class="deg">V</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">I</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">II</span>+8</td>
 </tr>
 <tr class="odd">
 <td>8,4</td>
-<td><span class="deg">1̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">3̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">II</span><span class="deg">V</span>+8</td>
+<td><span class="deg">III</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">V</span><span class="deg">I</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">II</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">III</span>+8</td>
 </tr>
 <tr class="even">
 <td>2,3,3</td>
-<td><span class="deg">2̂</span>m7³</td>
-<td><span class="deg">3̂</span>m7³</td>
-<td><span class="deg">4̂</span>Δ³</td>
-<td><span class="deg">5̂</span>7³</td>
-<td><span class="deg">6̂</span>m7³</td>
-<td><span class="deg">7̂</span>ø7³</td>
-<td><span class="deg">1̂</span>Δ³</td>
+<td><span class="deg">II</span>m7³</td>
+<td><span class="deg">III</span>m7³</td>
+<td><span class="deg">IV</span>Δ³</td>
+<td><span class="deg">V</span>7³</td>
+<td><span class="deg">VI</span>m7³</td>
+<td><span class="deg">VII</span>ø7³</td>
+<td><span class="deg">I</span>Δ³</td>
 </tr>
 <tr class="odd">
 <td>2,4,4</td>
-<td><span class="deg">1̂</span>s2+8</td>
-<td><span class="deg">2̂</span>s2+8</td>
+<td><span class="deg">I</span>s2+8</td>
+<td><span class="deg">II</span>s2+8</td>
 <td></td>
-<td><span class="deg">4̂</span>s2+8</td>
-<td><span class="deg">5̂</span>s2+8</td>
-<td><span class="deg">6̂</span>s2+8</td>
+<td><span class="deg">IV</span>s2+8</td>
+<td><span class="deg">V</span>s2+8</td>
+<td><span class="deg">VI</span>s2+8</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2,4,5</td>
-<td><span class="deg">1̂</span>s2+8</td>
-<td><span class="deg">2̂</span>s2+8</td>
+<td><span class="deg">I</span>s2+8</td>
+<td><span class="deg">II</span>s2+8</td>
 <td></td>
-<td><span class="deg">4̂</span>s2+8</td>
-<td><span class="deg">5̂</span>s2+8</td>
-<td><span class="deg">6̂</span>s2+8</td>
+<td><span class="deg">IV</span>s2+8</td>
+<td><span class="deg">V</span>s2+8</td>
+<td><span class="deg">VI</span>s2+8</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2,7,2</td>
-<td><span class="deg">1̂</span><span class="deg">2̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">1̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">II</span>+8</td>
+<td><span class="deg">II</span><span class="deg">III</span>+8</td>
+<td><span class="deg">III</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">V</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">I</span>+8</td>
 </tr>
 <tr class="even">
 <td>3,2,3</td>
-<td><span class="deg">4̂</span>Δ²</td>
-<td><span class="deg">5̂</span>7²</td>
-<td><span class="deg">6̂</span>m7²</td>
-<td><span class="deg">7̂</span>ø7²</td>
-<td><span class="deg">1̂</span>Δ²</td>
-<td><span class="deg">2̂</span>m7²</td>
-<td><span class="deg">3̂</span>m7²</td>
+<td><span class="deg">IV</span>Δ²</td>
+<td><span class="deg">V</span>7²</td>
+<td><span class="deg">VI</span>m7²</td>
+<td><span class="deg">VII</span>ø7²</td>
+<td><span class="deg">I</span>Δ²</td>
+<td><span class="deg">II</span>m7²</td>
+<td><span class="deg">III</span>m7²</td>
 </tr>
 <tr class="odd">
 <td>3,2,4</td>
 <td></td>
-<td><span class="deg">2̂</span>q7</td>
-<td><span class="deg">3̂</span>q7</td>
+<td><span class="deg">II</span>q7</td>
+<td><span class="deg">III</span>q7</td>
 <td></td>
 <td></td>
-<td><span class="deg">6̂</span>q7</td>
-<td><span class="deg">7̂</span>q7</td>
+<td><span class="deg">VI</span>q7</td>
+<td><span class="deg">VII</span>q7</td>
 </tr>
 <tr class="even">
 <td>3,3,2</td>
-<td><span class="deg">1̂</span>6</td>
-<td><span class="deg">2̂</span>m6</td>
-<td><span class="deg">1̂</span>Δ¹</td>
-<td><span class="deg">4̂</span>6</td>
-<td><span class="deg">5̂</span>6</td>
-<td><span class="deg">4̂</span>Δ¹</td>
-<td><span class="deg">5̂</span>7¹</td>
+<td><span class="deg">I</span>6</td>
+<td><span class="deg">II</span>m6</td>
+<td><span class="deg">I</span>Δ¹</td>
+<td><span class="deg">IV</span>6</td>
+<td><span class="deg">V</span>6</td>
+<td><span class="deg">IV</span>Δ¹</td>
+<td><span class="deg">V</span>7¹</td>
 </tr>
 <tr class="odd">
 <td>3,3,3</td>
-<td><span class="deg">1̂</span>Δ</td>
-<td><span class="deg">2̂</span>m7</td>
-<td><span class="deg">3̂</span>m7</td>
-<td><span class="deg">4̂</span>Δ</td>
-<td><span class="deg">5̂</span>7</td>
-<td><span class="deg">6̂</span>m7</td>
-<td><span class="deg">7̂</span>ø7</td>
+<td><span class="deg">I</span>Δ</td>
+<td><span class="deg">II</span>m7</td>
+<td><span class="deg">III</span>m7</td>
+<td><span class="deg">IV</span>Δ</td>
+<td><span class="deg">V</span>7</td>
+<td><span class="deg">VI</span>m7</td>
+<td><span class="deg">VII</span>ø7</td>
 </tr>
 <tr class="even">
 <td>3,3,4</td>
-<td><span class="deg">1̂</span>+8</td>
-<td><span class="deg">2̂</span>m+8</td>
-<td><span class="deg">3̂</span>m+8</td>
-<td><span class="deg">4̂</span>+8</td>
-<td><span class="deg">5̂</span>+8</td>
-<td><span class="deg">6̂</span>m+8</td>
-<td><span class="deg">7̂</span>°+8</td>
+<td><span class="deg">I</span>+8</td>
+<td><span class="deg">II</span>m+8</td>
+<td><span class="deg">III</span>m+8</td>
+<td><span class="deg">IV</span>+8</td>
+<td><span class="deg">V</span>+8</td>
+<td><span class="deg">VI</span>m+8</td>
+<td><span class="deg">VII</span>°+8</td>
 </tr>
 <tr class="odd">
 <td>3,3,6</td>
-<td><span class="deg">1̂</span>+8</td>
-<td><span class="deg">2̂</span>m+8</td>
-<td><span class="deg">3̂</span>m+8</td>
-<td><span class="deg">4̂</span>+8</td>
-<td><span class="deg">5̂</span>+8</td>
-<td><span class="deg">6̂</span>m+8</td>
-<td><span class="deg">7̂</span>°+8</td>
+<td><span class="deg">I</span>+8</td>
+<td><span class="deg">II</span>m+8</td>
+<td><span class="deg">III</span>m+8</td>
+<td><span class="deg">IV</span>+8</td>
+<td><span class="deg">V</span>+8</td>
+<td><span class="deg">VI</span>m+8</td>
+<td><span class="deg">VII</span>°+8</td>
 </tr>
 <tr class="even">
 <td>3,4,3</td>
-<td><span class="deg">6̂</span>m¹+8</td>
-<td><span class="deg">7̂</span>°¹+8</td>
-<td><span class="deg">1̂</span>¹+8</td>
-<td><span class="deg">2̂</span>m¹+8</td>
-<td><span class="deg">3̂</span>m¹+8</td>
-<td><span class="deg">4̂</span>¹+8</td>
-<td><span class="deg">5̂</span>¹+8</td>
+<td><span class="deg">VI</span>m¹+8</td>
+<td><span class="deg">VII</span>°¹+8</td>
+<td><span class="deg">I</span>¹+8</td>
+<td><span class="deg">II</span>m¹+8</td>
+<td><span class="deg">III</span>m¹+8</td>
+<td><span class="deg">IV</span>¹+8</td>
+<td><span class="deg">V</span>¹+8</td>
 </tr>
 <tr class="odd">
 <td>3,4,5</td>
-<td><span class="deg">6̂</span>m¹+8</td>
-<td><span class="deg">7̂</span>°¹+8</td>
-<td><span class="deg">1̂</span>¹+8</td>
-<td><span class="deg">2̂</span>m¹+8</td>
-<td><span class="deg">3̂</span>m¹+8</td>
-<td><span class="deg">4̂</span>¹+8</td>
-<td><span class="deg">5̂</span>¹+8</td>
+<td><span class="deg">VI</span>m¹+8</td>
+<td><span class="deg">VII</span>°¹+8</td>
+<td><span class="deg">I</span>¹+8</td>
+<td><span class="deg">II</span>m¹+8</td>
+<td><span class="deg">III</span>m¹+8</td>
+<td><span class="deg">IV</span>¹+8</td>
+<td><span class="deg">V</span>¹+8</td>
 </tr>
 <tr class="even">
 <td>3,6,3</td>
-<td><span class="deg">1̂</span><span class="deg">3̂</span>+8</td>
-<td><span class="deg">2̂</span><span class="deg">4̂</span>+8</td>
-<td><span class="deg">3̂</span><span class="deg">5̂</span>+8</td>
-<td><span class="deg">4̂</span><span class="deg">6̂</span>+8</td>
-<td><span class="deg">5̂</span><span class="deg">7̂</span>+8</td>
-<td><span class="deg">6̂</span><span class="deg">1̂</span>+8</td>
-<td><span class="deg">7̂</span><span class="deg">2̂</span>+8</td>
+<td><span class="deg">I</span><span class="deg">III</span>+8</td>
+<td><span class="deg">II</span><span class="deg">IV</span>+8</td>
+<td><span class="deg">III</span><span class="deg">V</span>+8</td>
+<td><span class="deg">IV</span><span class="deg">VI</span>+8</td>
+<td><span class="deg">V</span><span class="deg">VII</span>+8</td>
+<td><span class="deg">VI</span><span class="deg">I</span>+8</td>
+<td><span class="deg">VII</span><span class="deg">II</span>+8</td>
 </tr>
 <tr class="odd">
 <td>4,2,4</td>
-<td><span class="deg">1̂</span>s4+8</td>
-<td><span class="deg">2̂</span>s4+8</td>
-<td><span class="deg">3̂</span>s4+8</td>
+<td><span class="deg">I</span>s4+8</td>
+<td><span class="deg">II</span>s4+8</td>
+<td><span class="deg">III</span>s4+8</td>
 <td></td>
-<td><span class="deg">5̂</span>s4+8</td>
-<td><span class="deg">6̂</span>s4+8</td>
+<td><span class="deg">V</span>s4+8</td>
+<td><span class="deg">VI</span>s4+8</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>4,3,3</td>
-<td><span class="deg">4̂</span>²+8</td>
-<td><span class="deg">5̂</span>²+8</td>
-<td><span class="deg">6̂</span>m²+8</td>
-<td><span class="deg">7̂</span>°²+8</td>
-<td><span class="deg">1̂</span>²+8</td>
-<td><span class="deg">2̂</span>m²+8</td>
-<td><span class="deg">3̂</span>m²+8</td>
+<td><span class="deg">IV</span>²+8</td>
+<td><span class="deg">V</span>²+8</td>
+<td><span class="deg">VI</span>m²+8</td>
+<td><span class="deg">VII</span>°²+8</td>
+<td><span class="deg">I</span>²+8</td>
+<td><span class="deg">II</span>m²+8</td>
+<td><span class="deg">III</span>m²+8</td>
 </tr>
 <tr class="odd">
 <td>4,3,4</td>
-<td><span class="deg">2̂</span>m7³</td>
-<td><span class="deg">3̂</span>m7³</td>
-<td><span class="deg">4̂</span>Δ³</td>
-<td><span class="deg">5̂</span>7³</td>
-<td><span class="deg">6̂</span>m7³</td>
-<td><span class="deg">7̂</span>ø7³</td>
-<td><span class="deg">1̂</span>Δ³</td>
+<td><span class="deg">II</span>m7³</td>
+<td><span class="deg">III</span>m7³</td>
+<td><span class="deg">IV</span>Δ³</td>
+<td><span class="deg">V</span>7³</td>
+<td><span class="deg">VI</span>m7³</td>
+<td><span class="deg">VII</span>ø7³</td>
+<td><span class="deg">I</span>Δ³</td>
 </tr>
 <tr class="even">
 <td>4,3,5</td>
-<td><span class="deg">4̂</span>Δ²</td>
-<td><span class="deg">5̂</span>7²</td>
-<td><span class="deg">6̂</span>m7²</td>
-<td><span class="deg">7̂</span>ø7²</td>
-<td><span class="deg">1̂</span>Δ²</td>
-<td><span class="deg">2̂</span>m7²</td>
-<td><span class="deg">3̂</span>m7²</td>
+<td><span class="deg">IV</span>Δ²</td>
+<td><span class="deg">V</span>7²</td>
+<td><span class="deg">VI</span>m7²</td>
+<td><span class="deg">VII</span>ø7²</td>
+<td><span class="deg">I</span>Δ²</td>
+<td><span class="deg">II</span>m7²</td>
+<td><span class="deg">III</span>m7²</td>
 </tr>
 <tr class="odd">
 <td>4,4,2</td>
 <td></td>
-<td><span class="deg">2̂</span>q+8</td>
-<td><span class="deg">3̂</span>q+8</td>
+<td><span class="deg">II</span>q+8</td>
+<td><span class="deg">III</span>q+8</td>
 <td></td>
-<td><span class="deg">5̂</span>q+8</td>
-<td><span class="deg">6̂</span>q+8</td>
-<td><span class="deg">7̂</span>q+8</td>
+<td><span class="deg">V</span>q+8</td>
+<td><span class="deg">VI</span>q+8</td>
+<td><span class="deg">VII</span>q+8</td>
 </tr>
 <tr class="even">
 <td>4,4,4</td>
 <td></td>
-<td><span class="deg">2̂</span>q7</td>
-<td><span class="deg">3̂</span>q7</td>
+<td><span class="deg">II</span>q7</td>
+<td><span class="deg">III</span>q7</td>
 <td></td>
 <td></td>
-<td><span class="deg">6̂</span>q7</td>
-<td><span class="deg">7̂</span>q7</td>
+<td><span class="deg">VI</span>q7</td>
+<td><span class="deg">VII</span>q7</td>
 </tr>
 <tr class="odd">
 <td>5,2,5</td>
-<td><span class="deg">1̂</span>6</td>
-<td><span class="deg">2̂</span>m6</td>
-<td><span class="deg">1̂</span>Δ¹</td>
-<td><span class="deg">4̂</span>6</td>
-<td><span class="deg">5̂</span>6</td>
-<td><span class="deg">4̂</span>Δ¹</td>
-<td><span class="deg">5̂</span>7¹</td>
+<td><span class="deg">I</span>6</td>
+<td><span class="deg">II</span>m6</td>
+<td><span class="deg">I</span>Δ¹</td>
+<td><span class="deg">IV</span>6</td>
+<td><span class="deg">V</span>6</td>
+<td><span class="deg">IV</span>Δ¹</td>
+<td><span class="deg">V</span>7¹</td>
 </tr>
 <tr class="even">
 <td>5,3,4</td>
-<td><span class="deg">1̂</span>Δ</td>
-<td><span class="deg">2̂</span>m7</td>
-<td><span class="deg">3̂</span>m7</td>
-<td><span class="deg">4̂</span>Δ</td>
-<td><span class="deg">5̂</span>7</td>
-<td><span class="deg">6̂</span>m7</td>
-<td><span class="deg">7̂</span>ø7</td>
+<td><span class="deg">I</span>Δ</td>
+<td><span class="deg">II</span>m7</td>
+<td><span class="deg">III</span>m7</td>
+<td><span class="deg">IV</span>Δ</td>
+<td><span class="deg">V</span>7</td>
+<td><span class="deg">VI</span>m7</td>
+<td><span class="deg">VII</span>ø7</td>
 </tr>
 <tr class="odd">
 <td>5,4,2</td>
-<td><span class="deg">1̂</span>s2+8</td>
-<td><span class="deg">2̂</span>s2+8</td>
+<td><span class="deg">I</span>s2+8</td>
+<td><span class="deg">II</span>s2+8</td>
 <td></td>
-<td><span class="deg">4̂</span>s2+8</td>
-<td><span class="deg">5̂</span>s2+8</td>
-<td><span class="deg">6̂</span>s2+8</td>
+<td><span class="deg">IV</span>s2+8</td>
+<td><span class="deg">V</span>s2+8</td>
+<td><span class="deg">VI</span>s2+8</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>5,4,3</td>
-<td><span class="deg">1̂</span>+8</td>
-<td><span class="deg">2̂</span>m+8</td>
-<td><span class="deg">3̂</span>m+8</td>
-<td><span class="deg">4̂</span>+8</td>
-<td><span class="deg">5̂</span>+8</td>
-<td><span class="deg">6̂</span>m+8</td>
-<td><span class="deg">7̂</span>°+8</td>
+<td><span class="deg">I</span>+8</td>
+<td><span class="deg">II</span>m+8</td>
+<td><span class="deg">III</span>m+8</td>
+<td><span class="deg">IV</span>+8</td>
+<td><span class="deg">V</span>+8</td>
+<td><span class="deg">VI</span>m+8</td>
+<td><span class="deg">VII</span>°+8</td>
 </tr>
 <tr class="odd">
 <td>6,3,3</td>
-<td><span class="deg">6̂</span>m¹+8</td>
-<td><span class="deg">7̂</span>°¹+8</td>
-<td><span class="deg">1̂</span>¹+8</td>
-<td><span class="deg">2̂</span>m¹+8</td>
-<td><span class="deg">3̂</span>m¹+8</td>
-<td><span class="deg">4̂</span>¹+8</td>
-<td><span class="deg">5̂</span>¹+8</td>
+<td><span class="deg">VI</span>m¹+8</td>
+<td><span class="deg">VII</span>°¹+8</td>
+<td><span class="deg">I</span>¹+8</td>
+<td><span class="deg">II</span>m¹+8</td>
+<td><span class="deg">III</span>m¹+8</td>
+<td><span class="deg">IV</span>¹+8</td>
+<td><span class="deg">V</span>¹+8</td>
 </tr>
 </tbody>
 </table>
@@ -644,185 +644,185 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="deg">1̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">I</span><span class="deg">II</span></td>
 <td>2</td>
 <td>M2</td>
 <td></td>
-<td><span class="deg">7̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">VII</span><span class="deg">II</span></td>
 <td>3</td>
 <td>m3</td>
 <td></td>
-<td><span class="deg">6̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">VI</span><span class="deg">III</span></td>
 <td>7</td>
 <td>P5</td>
 <td></td>
-<td><span class="deg">5̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">V</span><span class="deg">IV</span></td>
 <td>10</td>
 <td>m7</td>
 </tr>
 <tr class="even">
-<td><span class="deg">2̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">II</span><span class="deg">III</span></td>
 <td>2</td>
 <td>M2</td>
 <td></td>
-<td><span class="deg">1̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">I</span><span class="deg">IV</span></td>
 <td>5</td>
 <td>P4</td>
 <td></td>
-<td><span class="deg">7̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">VII</span><span class="deg">IV</span></td>
 <td>6</td>
 <td>d5</td>
 <td></td>
-<td><span class="deg">6̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">VI</span><span class="deg">V</span></td>
 <td>10</td>
 <td>m7</td>
 </tr>
 <tr class="odd">
-<td><span class="deg">3̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">III</span><span class="deg">IV</span></td>
 <td>1</td>
 <td>m2</td>
 <td></td>
-<td><span class="deg">2̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">II</span><span class="deg">V</span></td>
 <td>5</td>
 <td>P4</td>
 <td></td>
-<td><span class="deg">1̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">I</span><span class="deg">VI</span></td>
 <td>9</td>
 <td>M6</td>
 <td></td>
-<td><span class="deg">7̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">VII</span><span class="deg">VI</span></td>
 <td>10</td>
 <td>m7</td>
 </tr>
 <tr class="even">
-<td><span class="deg">4̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">IV</span><span class="deg">V</span></td>
 <td>2</td>
 <td>M2</td>
 <td></td>
-<td><span class="deg">3̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">III</span><span class="deg">VI</span></td>
 <td>5</td>
 <td>P4</td>
 <td></td>
-<td><span class="deg">2̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">II</span><span class="deg">VII</span></td>
 <td>9</td>
 <td>M6</td>
 <td></td>
-<td><span class="deg">1̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">I</span><span class="deg">I</span></td>
 <td>12</td>
 <td>P8</td>
 </tr>
 <tr class="odd">
-<td><span class="deg">5̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">V</span><span class="deg">VI</span></td>
 <td>2</td>
 <td>M2</td>
 <td></td>
-<td><span class="deg">4̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">IV</span><span class="deg">VII</span></td>
 <td>6</td>
 <td>A4</td>
 <td></td>
-<td><span class="deg">3̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">III</span><span class="deg">I</span></td>
 <td>8</td>
 <td>m6</td>
 <td></td>
-<td><span class="deg">2̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">II</span><span class="deg">II</span></td>
 <td>12</td>
 <td>P8</td>
 </tr>
 <tr class="even">
-<td><span class="deg">6̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">VI</span><span class="deg">VII</span></td>
 <td>2</td>
 <td>M2</td>
 <td></td>
-<td><span class="deg">5̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">V</span><span class="deg">I</span></td>
 <td>5</td>
 <td>P4</td>
 <td></td>
-<td><span class="deg">4̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">IV</span><span class="deg">II</span></td>
 <td>9</td>
 <td>M6</td>
 <td></td>
-<td><span class="deg">3̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">III</span><span class="deg">III</span></td>
 <td>12</td>
 <td>P8</td>
 </tr>
 <tr class="odd">
-<td><span class="deg">7̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">VII</span><span class="deg">I</span></td>
 <td>1</td>
 <td>m2</td>
 <td></td>
-<td><span class="deg">6̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">VI</span><span class="deg">II</span></td>
 <td>5</td>
 <td>P4</td>
 <td></td>
-<td><span class="deg">5̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">V</span><span class="deg">III</span></td>
 <td>9</td>
 <td>M6</td>
 <td></td>
-<td><span class="deg">4̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">IV</span><span class="deg">IV</span></td>
 <td>12</td>
 <td>P8</td>
 </tr>
 <tr class="even">
-<td><span class="deg">1̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">I</span><span class="deg">III</span></td>
 <td>4</td>
 <td>M3</td>
 <td></td>
-<td><span class="deg">7̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">VII</span><span class="deg">III</span></td>
 <td>5</td>
 <td>P4</td>
 <td></td>
-<td><span class="deg">6̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">VI</span><span class="deg">IV</span></td>
 <td>8</td>
 <td>m6</td>
 <td></td>
-<td><span class="deg">5̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">V</span><span class="deg">V</span></td>
 <td>12</td>
 <td>P8</td>
 </tr>
 <tr class="odd">
-<td><span class="deg">2̂</span><span class="deg">4̂</span></td>
+<td><span class="deg">II</span><span class="deg">IV</span></td>
 <td>3</td>
 <td>m3</td>
 <td></td>
-<td><span class="deg">1̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">I</span><span class="deg">V</span></td>
 <td>7</td>
 <td>P5</td>
 <td></td>
-<td><span class="deg">7̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">VII</span><span class="deg">V</span></td>
 <td>8</td>
 <td>m6</td>
 <td></td>
-<td><span class="deg">6̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">VI</span><span class="deg">VI</span></td>
 <td>12</td>
 <td>P8</td>
 </tr>
 <tr class="even">
-<td><span class="deg">3̂</span><span class="deg">5̂</span></td>
+<td><span class="deg">III</span><span class="deg">V</span></td>
 <td>3</td>
 <td>m3</td>
 <td></td>
-<td><span class="deg">2̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">II</span><span class="deg">VI</span></td>
 <td>7</td>
 <td>P5</td>
 <td></td>
-<td><span class="deg">1̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">I</span><span class="deg">VII</span></td>
 <td>11</td>
 <td>M7</td>
 <td></td>
-<td><span class="deg">7̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">VII</span><span class="deg">VII</span></td>
 <td>12</td>
 <td>P8</td>
 </tr>
 <tr class="odd">
-<td><span class="deg">4̂</span><span class="deg">6̂</span></td>
+<td><span class="deg">IV</span><span class="deg">VI</span></td>
 <td>4</td>
 <td>M3</td>
 <td></td>
-<td><span class="deg">3̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">III</span><span class="deg">VII</span></td>
 <td>7</td>
 <td>P5</td>
 <td></td>
-<td><span class="deg">2̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">II</span><span class="deg">I</span></td>
 <td>10</td>
 <td>m7</td>
 <td></td>
@@ -831,15 +831,15 @@
 <td></td>
 </tr>
 <tr class="even">
-<td><span class="deg">5̂</span><span class="deg">7̂</span></td>
+<td><span class="deg">V</span><span class="deg">VII</span></td>
 <td>4</td>
 <td>M3</td>
 <td></td>
-<td><span class="deg">4̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">IV</span><span class="deg">I</span></td>
 <td>7</td>
 <td>P5</td>
 <td></td>
-<td><span class="deg">3̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">III</span><span class="deg">II</span></td>
 <td>10</td>
 <td>m7</td>
 <td></td>
@@ -848,15 +848,15 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td><span class="deg">6̂</span><span class="deg">1̂</span></td>
+<td><span class="deg">VI</span><span class="deg">I</span></td>
 <td>3</td>
 <td>m3</td>
 <td></td>
-<td><span class="deg">5̂</span><span class="deg">2̂</span></td>
+<td><span class="deg">V</span><span class="deg">II</span></td>
 <td>7</td>
 <td>P5</td>
 <td></td>
-<td><span class="deg">4̂</span><span class="deg">3̂</span></td>
+<td><span class="deg">IV</span><span class="deg">III</span></td>
 <td>11</td>
 <td>M7</td>
 <td></td>
@@ -868,7 +868,7 @@
 </table>
 <hr />
 <h2 id="3-diatonic-chord-fingerings--alternative-voicings">3. Diatonic chord fingerings — alternative voicings</h2>
-<p>Quick lookup: chord name → every interval-stack fingering that produces it. Format: caret digit = bottom degree, digits after = stacked intervals. Example: <strong><span class="deg">1̂</span>534</strong> = start on <span class="deg">1̂</span>, stack a 5th, then a 3rd, then a 4th. Sorted by stack length and lex order. Full table is in <code>docs/handouts/diatonic-fingerings.pdf</code> (landscape print layout); a selection of the most-played voicings:</p>
+<p>Quick lookup: chord name → every interval-stack fingering that produces it. Format: caret digit = bottom degree, digits after = stacked intervals. Example: <strong><span class="deg">I</span>534</strong> = start on <span class="deg">I</span>, stack a 5th, then a 3rd, then a 4th. Sorted by stack length and lex order. Full table is in <code>docs/handouts/diatonic-fingerings.pdf</code> (landscape print layout); a selection of the most-played voicings:</p>
 <table>
 <thead>
 <tr class="header">
@@ -880,106 +880,106 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><span class="deg">1̂</span></strong> (I triad)</td>
-<td><span class="deg">1̂</span>33 <span class="deg">1̂</span>56</td>
-<td><strong><span class="deg">4̂</span></strong> (IV triad)</td>
-<td><span class="deg">4̂</span>33 <span class="deg">4̂</span>56</td>
+<td><strong><span class="deg">I</span></strong> (I triad)</td>
+<td><span class="deg">I</span>33 <span class="deg">I</span>56</td>
+<td><strong><span class="deg">IV</span></strong> (IV triad)</td>
+<td><span class="deg">IV</span>33 <span class="deg">IV</span>56</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">2̂</span>m</strong></td>
-<td><span class="deg">2̂</span>33 <span class="deg">2̂</span>56</td>
-<td><strong><span class="deg">5̂</span></strong> (V triad)</td>
-<td><span class="deg">5̂</span>33 <span class="deg">5̂</span>56</td>
+<td><strong><span class="deg">II</span>m</strong></td>
+<td><span class="deg">II</span>33 <span class="deg">II</span>56</td>
+<td><strong><span class="deg">V</span></strong> (V triad)</td>
+<td><span class="deg">V</span>33 <span class="deg">V</span>56</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">3̂</span>m</strong></td>
-<td><span class="deg">3̂</span>33 <span class="deg">3̂</span>56</td>
-<td><strong><span class="deg">6̂</span>m</strong></td>
-<td><span class="deg">6̂</span>33 <span class="deg">6̂</span>56</td>
+<td><strong><span class="deg">III</span>m</strong></td>
+<td><span class="deg">III</span>33 <span class="deg">III</span>56</td>
+<td><strong><span class="deg">VI</span>m</strong></td>
+<td><span class="deg">VI</span>33 <span class="deg">VI</span>56</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">7̂</span>°</strong></td>
-<td><span class="deg">7̂</span>33 <span class="deg">7̂</span>56</td>
-<td><strong><span class="deg">1̂</span>Δ</strong> (Imaj7)</td>
-<td><span class="deg">1̂</span>333 <span class="deg">1̂</span>534</td>
+<td><strong><span class="deg">VII</span>°</strong></td>
+<td><span class="deg">VII</span>33 <span class="deg">VII</span>56</td>
+<td><strong><span class="deg">I</span>Δ</strong> (Imaj7)</td>
+<td><span class="deg">I</span>333 <span class="deg">I</span>534</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">2̂</span>m7</strong></td>
-<td><span class="deg">2̂</span>333 <span class="deg">2̂</span>534</td>
-<td><strong><span class="deg">3̂</span>m7</strong></td>
-<td><span class="deg">3̂</span>333 <span class="deg">3̂</span>534</td>
+<td><strong><span class="deg">II</span>m7</strong></td>
+<td><span class="deg">II</span>333 <span class="deg">II</span>534</td>
+<td><strong><span class="deg">III</span>m7</strong></td>
+<td><span class="deg">III</span>333 <span class="deg">III</span>534</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">4̂</span>Δ</strong></td>
-<td><span class="deg">4̂</span>333 <span class="deg">4̂</span>534</td>
-<td><strong><span class="deg">5̂</span>7</strong> (V7)</td>
-<td><span class="deg">5̂</span>333 <span class="deg">5̂</span>534</td>
+<td><strong><span class="deg">IV</span>Δ</strong></td>
+<td><span class="deg">IV</span>333 <span class="deg">IV</span>534</td>
+<td><strong><span class="deg">V</span>7</strong> (V7)</td>
+<td><span class="deg">V</span>333 <span class="deg">V</span>534</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">6̂</span>m7</strong></td>
-<td><span class="deg">6̂</span>333 <span class="deg">6̂</span>534</td>
-<td><strong><span class="deg">7̂</span>ø7</strong> (vii ø7)</td>
-<td><span class="deg">7̂</span>333 <span class="deg">7̂</span>534</td>
+<td><strong><span class="deg">VI</span>m7</strong></td>
+<td><span class="deg">VI</span>333 <span class="deg">VI</span>534</td>
+<td><strong><span class="deg">VII</span>ø7</strong> (vii ø7)</td>
+<td><span class="deg">VII</span>333 <span class="deg">VII</span>534</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">1̂</span>¹</strong> (I, 1st inv)</td>
-<td><span class="deg">3̂</span>34 <span class="deg">3̂</span>65</td>
-<td><strong><span class="deg">4̂</span>¹</strong> (IV, 1st inv)</td>
-<td><span class="deg">6̂</span>34 <span class="deg">6̂</span>65</td>
+<td><strong><span class="deg">I</span>¹</strong> (I, 1st inv)</td>
+<td><span class="deg">III</span>34 <span class="deg">III</span>65</td>
+<td><strong><span class="deg">IV</span>¹</strong> (IV, 1st inv)</td>
+<td><span class="deg">VI</span>34 <span class="deg">VI</span>65</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">5̂</span>¹</strong> (V, 1st inv)</td>
-<td><span class="deg">7̂</span>34 <span class="deg">7̂</span>65</td>
-<td><strong><span class="deg">4̂</span>²</strong> (IV, 2nd inv)</td>
-<td><span class="deg">1̂</span>43 <span class="deg">1̂</span>66</td>
+<td><strong><span class="deg">V</span>¹</strong> (V, 1st inv)</td>
+<td><span class="deg">VII</span>34 <span class="deg">VII</span>65</td>
+<td><strong><span class="deg">IV</span>²</strong> (IV, 2nd inv)</td>
+<td><span class="deg">I</span>43 <span class="deg">I</span>66</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">5̂</span>²</strong> (V, 2nd inv)</td>
-<td><span class="deg">2̂</span>43 <span class="deg">2̂</span>66</td>
-<td><strong><span class="deg">1̂</span>6</strong> (I add6)</td>
-<td><span class="deg">1̂</span>332 <span class="deg">1̂</span>525</td>
+<td><strong><span class="deg">V</span>²</strong> (V, 2nd inv)</td>
+<td><span class="deg">II</span>43 <span class="deg">II</span>66</td>
+<td><strong><span class="deg">I</span>6</strong> (I add6)</td>
+<td><span class="deg">I</span>332 <span class="deg">I</span>525</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">4̂</span>6</strong> (IV add6)</td>
-<td><span class="deg">4̂</span>332 <span class="deg">4̂</span>525</td>
-<td><strong><span class="deg">5̂</span>6</strong> (V add6)</td>
-<td><span class="deg">5̂</span>332 <span class="deg">5̂</span>525</td>
+<td><strong><span class="deg">IV</span>6</strong> (IV add6)</td>
+<td><span class="deg">IV</span>332 <span class="deg">IV</span>525</td>
+<td><strong><span class="deg">V</span>6</strong> (V add6)</td>
+<td><span class="deg">V</span>332 <span class="deg">V</span>525</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">1̂</span>Δ¹</strong> (Imaj7, 1st)</td>
-<td><span class="deg">3̂</span>332 <span class="deg">3̂</span>525</td>
-<td><strong><span class="deg">4̂</span>Δ¹</strong> (IVmaj7, 1st)</td>
-<td><span class="deg">6̂</span>332 <span class="deg">6̂</span>525</td>
+<td><strong><span class="deg">I</span>Δ¹</strong> (Imaj7, 1st)</td>
+<td><span class="deg">III</span>332 <span class="deg">III</span>525</td>
+<td><strong><span class="deg">IV</span>Δ¹</strong> (IVmaj7, 1st)</td>
+<td><span class="deg">VI</span>332 <span class="deg">VI</span>525</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">5̂</span>7¹</strong> (V7, 1st inv)</td>
-<td><span class="deg">7̂</span>332 <span class="deg">7̂</span>525</td>
-<td><strong><span class="deg">2̂</span>q</strong> (quartal on 2)</td>
-<td><span class="deg">2̂</span>44 <span class="deg">2̂</span>75</td>
+<td><strong><span class="deg">V</span>7¹</strong> (V7, 1st inv)</td>
+<td><span class="deg">VII</span>332 <span class="deg">VII</span>525</td>
+<td><strong><span class="deg">II</span>q</strong> (quartal on 2)</td>
+<td><span class="deg">II</span>44 <span class="deg">II</span>75</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">3̂</span>q</strong></td>
-<td><span class="deg">3̂</span>44 <span class="deg">3̂</span>75</td>
-<td><strong><span class="deg">5̂</span>q</strong></td>
-<td><span class="deg">5̂</span>44 <span class="deg">5̂</span>75</td>
+<td><strong><span class="deg">III</span>q</strong></td>
+<td><span class="deg">III</span>44 <span class="deg">III</span>75</td>
+<td><strong><span class="deg">V</span>q</strong></td>
+<td><span class="deg">V</span>44 <span class="deg">V</span>75</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">6̂</span>q</strong></td>
-<td><span class="deg">6̂</span>44 <span class="deg">6̂</span>75</td>
-<td><strong><span class="deg">7̂</span>q</strong></td>
-<td><span class="deg">7̂</span>44 <span class="deg">7̂</span>75</td>
+<td><strong><span class="deg">VI</span>q</strong></td>
+<td><span class="deg">VI</span>44 <span class="deg">VI</span>75</td>
+<td><strong><span class="deg">VII</span>q</strong></td>
+<td><span class="deg">VII</span>44 <span class="deg">VII</span>75</td>
 </tr>
 <tr class="even">
-<td><strong><span class="deg">1̂</span>s2</strong> (I sus2)</td>
-<td><span class="deg">1̂</span>24 <span class="deg">1̂</span>55</td>
-<td><strong><span class="deg">1̂</span>s4</strong> (I sus4)</td>
-<td><span class="deg">1̂</span>42 <span class="deg">1̂</span>57</td>
+<td><strong><span class="deg">I</span>s2</strong> (I sus2)</td>
+<td><span class="deg">I</span>24 <span class="deg">I</span>55</td>
+<td><strong><span class="deg">I</span>s4</strong> (I sus4)</td>
+<td><span class="deg">I</span>42 <span class="deg">I</span>57</td>
 </tr>
 <tr class="odd">
-<td><strong><span class="deg">4̂</span>s2</strong> (IV sus2)</td>
-<td><span class="deg">4̂</span>24 <span class="deg">4̂</span>55</td>
-<td><strong><span class="deg">5̂</span>s2</strong> (V sus2)</td>
-<td><span class="deg">5̂</span>24 <span class="deg">5̂</span>55</td>
+<td><strong><span class="deg">IV</span>s2</strong> (IV sus2)</td>
+<td><span class="deg">IV</span>24 <span class="deg">IV</span>55</td>
+<td><strong><span class="deg">V</span>s2</strong> (V sus2)</td>
+<td><span class="deg">V</span>24 <span class="deg">V</span>55</td>
 </tr>
 </tbody>
 </table>
@@ -987,7 +987,7 @@
 <hr />
 <h2 id="why-caret-digits-here-not-roman-numerals">Why caret digits here, not Roman numerals?</h2>
 <p>Both notations name the same scale degrees, but they answer different questions. <strong>Roman numerals</strong> assert <em>function</em> — <code>V7</code> is "the dominant seventh of the key"; <code>IV²</code> is "the subdominant in second inversion". They carry harmonic intent.</p>
-<p><strong>Caret digits</strong> assert <em>interval geometry</em> — <code><span class="deg">5̂</span>7</code> is "stack three thirds on degree 5̂"; <code><span class="deg">4̂</span>²</code> is "stack a 4th and a 3rd starting from 4̂". They're true in every key and stay silent on what the chord means <em>harmonically</em>.</p>
+<p><strong>Caret digits</strong> assert <em>interval geometry</em> — <code><span class="deg">V</span>7</code> is "stack three thirds on degree V"; <code><span class="deg">IV</span>²</code> is "stack a 4th and a 3rd starting from IV". They're true in every key and stay silent on what the chord means <em>harmonically</em>.</p>
 <p>This whole page is interval geometry: which stacks produce which sonorities, which fingerings produce which chords, what the interval quality of a diatonic diad is. Roman numerals would drag in functional baggage that isn't part of the question. Carets keep the geometry pure.</p>
 <p>When the question <em>is</em> harmonic — "what's the bar's chord function in this hymn?" — Roman numerals come back. The mapper output, lead-sheet labels, and cycle-progression tables stay RN.</p>
 </body>

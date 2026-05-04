@@ -111,7 +111,7 @@
 </tr>
 </tbody>
 </table>
-<p>To play any of these in mode 5 (Mixolydian) at octave 2, write <code>2x<span class="deg">5̂</span>&lt;pattern&gt;</code> — e.g. <code>2x<span class="deg">5̂</span>346</code> = <code>G2 B2 E3 C4</code>.</p>
+<p>To play any of these in mode 5 (Mixolydian) at octave 2, write <code>2x<span class="deg">V</span>&lt;pattern&gt;</code> — e.g. <code>2x<span class="deg">V</span>346</code> = <code>G2 B2 E3 C4</code>.</p>
 <hr />
 <h2 id="mode-conditional-gems">Mode-conditional gems</h2>
 <p>Some shapes only sing in specific modes:</p>
@@ -178,62 +178,62 @@
 <hr />
 <h2 id="common-shape-forms">Common shape forms</h2>
 <h3 id="single-notes">Single notes</h3>
-<pre><code>1x<span class="deg">1̂</span>   = C1                  (key C — bottom of the harp)
-3x<span class="deg">4̂</span>   = F3                  (mode 4 in octave 3 in key C)
-+2x<span class="deg">1̂</span>  = prior octave + 2, mode 1 (relative octave)
-1x<span class="deg">6̂</span>   = A1                  (mode 6 = Aeolian root in oct 1)
+<pre><code>1x<span class="deg">I</span>   = C1                  (key C — bottom of the harp)
+3x<span class="deg">IV</span>   = F3                  (mode 4 in octave 3 in key C)
++2x<span class="deg">I</span>  = prior octave + 2, mode 1 (relative octave)
+1x<span class="deg">VI</span>   = A1                  (mode 6 = Aeolian root in oct 1)
 </code></pre>
 <h3 id="dyads">Dyads</h3>
 <p>For dyad intervals up to a 4th, the player uses ring + middle. For wider dyads, ring + thumb (skipping middle and index entirely). The encoding itself is silent on which fingers are used — the choice falls out of the interval size.</p>
-<pre><code>3x<span class="deg">1̂</span>3   = C3 E3      (3rd, ring + middle)
-3x<span class="deg">1̂</span>5   = C3 G3      (5th, ring + thumb territory)
-3x<span class="deg">1̂</span>8   = C3 C4      (octave, ring + thumb)
-3x<span class="deg">1̂</span>d   = C3 A4      (13th, ring + thumb at full stretch)
-3x<span class="deg">1̂</span>f   = C3 C5      (double octave, max dyad)
+<pre><code>3x<span class="deg">I</span>3   = C3 E3      (3rd, ring + middle)
+3x<span class="deg">I</span>5   = C3 G3      (5th, ring + thumb territory)
+3x<span class="deg">I</span>8   = C3 C4      (octave, ring + thumb)
+3x<span class="deg">I</span>d   = C3 A4      (13th, ring + thumb at full stretch)
+3x<span class="deg">I</span>f   = C3 C5      (double octave, max dyad)
 </code></pre>
 <h3 id="universal-winner-triads-and-tetrads">Universal-winner triads and tetrads</h3>
-<pre><code>3x<span class="deg">1̂</span>35   = C3 E3 B3        (open Cmaj7-no-5)
-3x<span class="deg">2̂</span>44   = D3 F3 B3 D4     (Dm 6/9 — actually a tetrad, mode 2)
-3x<span class="deg">5̂</span>34   = G3 B3 E4 A4     (G mixolydian add-6, tetrad)
+<pre><code>3x<span class="deg">I</span>35   = C3 E3 B3        (open Cmaj7-no-5)
+3x<span class="deg">II</span>44   = D3 F3 B3 D4     (Dm 6/9 — actually a tetrad, mode 2)
+3x<span class="deg">V</span>34   = G3 B3 E4 A4     (G mixolydian add-6, tetrad)
 </code></pre>
-<pre><code>3x<span class="deg">1̂</span>335  = C3 E3 G3 D4     (Cmaj9-no-7)
-3x<span class="deg">1̂</span>344  = C3 E3 A3 D4     (Cadd6/9)
-3x<span class="deg">1̂</span>346  = C3 E3 A3 F4     (Cadd6+11)
-3x<span class="deg">1̂</span>355  = C3 E3 B3 F4     (Cmaj7+11)
-3x<span class="deg">1̂</span>356  = C3 E3 B3 G4     (Cmaj9 spread)
-3x<span class="deg">1̂</span>456  = C3 F3 B3 A4     (Cadd11+maj7+13)
+<pre><code>3x<span class="deg">I</span>335  = C3 E3 G3 D4     (Cmaj9-no-7)
+3x<span class="deg">I</span>344  = C3 E3 A3 D4     (Cadd6/9)
+3x<span class="deg">I</span>346  = C3 E3 A3 F4     (Cadd6+11)
+3x<span class="deg">I</span>355  = C3 E3 B3 F4     (Cmaj7+11)
+3x<span class="deg">I</span>356  = C3 E3 B3 G4     (Cmaj9 spread)
+3x<span class="deg">I</span>456  = C3 F3 B3 A4     (Cadd11+maj7+13)
 </code></pre>
 <hr />
 <h2 id="sequence-patterns">Sequence patterns</h2>
 <p>Sequences are written as <strong>multiple shapes separated by spaces</strong> within a row. Operators (<code>$</code>, <code>&amp;</code>) expand a single shape token into a run of shapes.</p>
 <h3 id="octave-climb--operator">Octave climb (<code>&amp;</code> operator)</h3>
 <p><code>&amp;N</code> re-stamps the whole shape one octave higher per iteration:</p>
-<pre><code>1x<span class="deg">1̂</span>35&amp;3    — Cmaj7-no-5 in octaves 1, 2, 3, 4
-1x<span class="deg">1̂</span>346&amp;3   — the 346 open tetrad in four consecutive octaves
-1x<span class="deg">4̂</span>444&amp;5   — Lydian quartal climbed octave by octave
-1x<span class="deg">1̂</span>35&amp;*    — fill the harp&#39;s range upward
-1x<span class="deg">1̂</span>35&amp;~    — climb to the top, mirror back down
+<pre><code>1x<span class="deg">I</span>35&amp;3    — Cmaj7-no-5 in octaves 1, 2, 3, 4
+1x<span class="deg">I</span>346&amp;3   — the 346 open tetrad in four consecutive octaves
+1x<span class="deg">IV</span>444&amp;5   — Lydian quartal climbed octave by octave
+1x<span class="deg">I</span>35&amp;*    — fill the harp&#39;s range upward
+1x<span class="deg">I</span>35&amp;~    — climb to the top, mirror back down
 </code></pre>
 <h3 id="repeat-back-to-back--operator">Repeat-back-to-back (<code>$</code> operator)</h3>
 <p><code>$N</code> repeats the <strong>last digit</strong> of the shape N more times as new shapes, chaining shape-after-shape across the row. Useful for self-similar climbs like all-thirds or all-fourths:</p>
-<pre><code>1x<span class="deg">1̂</span>333$3    — `1x<span class="deg">1̂</span>333 3 3 3` — stacked thirds: C1-E1-G1-B1, then D2-F2-A2-C3, then E3-G3-B3-D4, then F4-A4-C5-E5
-1x<span class="deg">1̂</span>4$5      — `1x<span class="deg">1̂</span>4 4 4 4 4 4` — quartal climb from C1 upward
-1x<span class="deg">1̂</span>333$~    — third-stack chain to top of harp, then mirror back
+<pre><code>1x<span class="deg">I</span>333$3    — `1x<span class="deg">I</span>333 3 3 3` — stacked thirds: C1-E1-G1-B1, then D2-F2-A2-C3, then E3-G3-B3-D4, then F4-A4-C5-E5
+1x<span class="deg">I</span>4$5      — `1x<span class="deg">I</span>4 4 4 4 4 4` — quartal climb from C1 upward
+1x<span class="deg">I</span>333$~    — third-stack chain to top of harp, then mirror back
 </code></pre>
 <p><code>$$N</code> and <code>$$$N</code> use the last 2 or 3 digits as the repeating unit.</p>
 <h3 id="modal-cycle-one-row-varying-mode-digit">Modal cycle (one row, varying mode digit)</h3>
 <p>Seven shapes in one octave, mode digit walking 1→7. Same intervals each shape; only the mode-color changes. Example with the <code>335</code> universal- winner pattern, in octave 3:</p>
-<pre><code>3x<span class="deg">1̂</span>335 3x<span class="deg">2̂</span>335 3x<span class="deg">3̂</span>335 3x<span class="deg">4̂</span>335 3x<span class="deg">5̂</span>335 3x<span class="deg">6̂</span>335 3x<span class="deg">7̂</span>335
+<pre><code>3x<span class="deg">I</span>335 3x<span class="deg">II</span>335 3x<span class="deg">III</span>335 3x<span class="deg">IV</span>335 3x<span class="deg">V</span>335 3x<span class="deg">VI</span>335 3x<span class="deg">VII</span>335
 </code></pre>
 <h3 id="two-hand-shapes-lh--rh-on-one-shape">Two-hand shapes (LH + RH on one shape)</h3>
 <p>When LH and RH both sit on a contiguous stack, write a <strong>single shape with a comma</strong> separating LH intervals from RH intervals:</p>
-<pre><code>1x<span class="deg">1̂</span>333,3333    — LH on C1-E1-G1-B1, RH continues on D2-F2-A2-C3.
+<pre><code>1x<span class="deg">I</span>333,3333    — LH on C1-E1-G1-B1, RH continues on D2-F2-A2-C3.
 </code></pre>
 <p>The comma marks where LH’s top finger ends and RH’s bottom finger begins.</p>
 <p>For LH-bass + RH-chord textures where the two hands sit on <strong>separate</strong> shapes, write two consecutive shapes with explicit hand letters in their octave prefixes:</p>
-<pre><code>1L<span class="deg">6̂</span> 1R<span class="deg">1̂</span>333     — LH single bass note A1 (degree 6); RH on stacked-thirds tetrad
-1L<span class="deg">4̂</span> 3R<span class="deg">4̂</span>333     — LH bass F1; RH F-rooted 7-chord tetrad in octave 3
-1L<span class="deg">5̂</span> 3R<span class="deg">5̂</span>333     — LH bass G1; RH G-rooted 7-chord tetrad
+<pre><code>1L<span class="deg">VI</span> 1R<span class="deg">I</span>333     — LH single bass note A1 (degree 6); RH on stacked-thirds tetrad
+1L<span class="deg">IV</span> 3R<span class="deg">IV</span>333     — LH bass F1; RH F-rooted 7-chord tetrad in octave 3
+1L<span class="deg">V</span> 3R<span class="deg">V</span>333     — LH bass G1; RH G-rooted 7-chord tetrad
 </code></pre>
 <p>The <code>L</code> and <code>R</code> letters in the octave prefix pin the hand. Whether the two shapes are played simultaneously or in sequence is the player’s interpretation — the encoding doesn’t enforce timing.</p>
 <hr />
@@ -248,7 +248,7 @@
 <tbody>
 <tr class="odd">
 <td><strong>Warmup / hand-spread</strong></td>
-<td><code>1x<span class="deg">1̂</span>333$~</code> — third-stack chain to the top, mirrored back</td>
+<td><code>1x<span class="deg">I</span>333$~</code> — third-stack chain to the top, mirrored back</td>
 </tr>
 <tr class="even">
 <td><strong>Calibrate reach</strong></td>
@@ -264,7 +264,7 @@
 </tr>
 <tr class="odd">
 <td><strong>Sustained color</strong></td>
-<td><code>1x<span class="deg">4̂</span>444</code> (Lydian quartal) — set, ring, listen</td>
+<td><code>1x<span class="deg">IV</span>444</code> (Lydian quartal) — set, ring, listen</td>
 </tr>
 <tr class="even">
 <td><strong>Bass + chord progression</strong></td>
@@ -288,10 +288,10 @@
 <h2 id="patterns-to-avoid">Patterns to avoid</h2>
 <p>These are setable but rarely musical:</p>
 <ul>
-<li><strong>All 2nds in the low octave</strong> — <code>1x<span class="deg">1̂</span>222</code> in oct 1 sounds muddy (stepwise clash penalty stacks).</li>
+<li><strong>All 2nds in the low octave</strong> — <code>1x<span class="deg">I</span>222</code> in oct 1 sounds muddy (stepwise clash penalty stacks).</li>
 <li><strong>Three adjacent stepwise intervals</strong> — heavy aesthetic penalty.</li>
 <li><strong>Locrian root-position voicings</strong> — the tonic instability of mode 7 makes most root-rooted Locrian shapes feel unresolved. Use mode 7 shapes as passing color, not as a home.</li>
-<li><strong>Bottom-heavy spreads</strong> — large ring–middle interval with small upper pairs (e.g., <code>1x<span class="deg">1̂</span>622</code>). Hand geometry favors open-top, not open-bottom.</li>
+<li><strong>Bottom-heavy spreads</strong> — large ring–middle interval with small upper pairs (e.g., <code>1x<span class="deg">I</span>622</code>). Hand geometry favors open-top, not open-bottom.</li>
 </ul>
 <hr />
 <h2 id="practice-tip">Practice tip</h2>

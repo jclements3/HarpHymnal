@@ -22,231 +22,243 @@ from pathlib import Path
 # Catalogs (kept in sync with shapedrills.html)
 # ---------------------------------------------------------------------------
 
+def deg_to_roman(d: int) -> str:
+    """Scale degree (1..7) -> diatonic-quality Roman numeral in C major.
+    2/3/6 are minors (lowercase). 7 is diminished (lowercase + °). Others
+    are major (uppercase)."""
+    upper = ["", "I", "II", "III", "IV", "V", "VI", "VII"][d]
+    if d in (2, 3, 6):
+        return upper.lower()
+    if d == 7:
+        return upper.lower() + "°"
+    return upper
+
+
 SECTIONS_SINGLE: list[tuple[str, list[tuple[tuple[int, ...], str, str]]]] = [
     ("Diatonic triads (root position)", [
-        ((1, 3, 5), "1̂", "tonic, the home chord ({1} {3} {5})"),
-        ((2, 4, 6), "2̂m", "supertonic minor ({2} {4} {6})"),
-        ((3, 5, 7), "3̂m", "mediant minor, tonic substitute ({3} {5} {7})"),
-        ((4, 6, 1), "4̂", "subdominant ({4} {6} {1})"),
-        ((5, 7, 2), "5̂", "dominant ({5} {7} {2})"),
-        ((6, 1, 3), "6̂m", "submediant minor, relative minor ({6} {1} {3})"),
-        ((7, 2, 4), "7̂°", "leading-tone diminished ({7} {2} {4})"),
+        ((1, 3, 5), "I", "tonic, the home chord ({1} {3} {5})"),
+        ((2, 4, 6), "ii", "supertonic minor ({2} {4} {6})"),
+        ((3, 5, 7), "iii", "mediant minor, tonic substitute ({3} {5} {7})"),
+        ((4, 6, 1), "IV", "subdominant ({4} {6} {1})"),
+        ((5, 7, 2), "V", "dominant ({5} {7} {2})"),
+        ((6, 1, 3), "vi", "submediant minor, relative minor ({6} {1} {3})"),
+        ((7, 2, 4), "vii°", "leading-tone diminished ({7} {2} {4})"),
     ]),
     ("Triad inversions (1st inv = 3rd in bass)", [
-        ((3, 5, 1), "1̂/3̂", "tonic, 3rd in bass"),
-        ((4, 6, 2), "2̂m/4̂", "supertonic minor, 3rd in bass"),
-        ((5, 7, 3), "3̂m/5̂", "mediant minor, 3rd in bass"),
-        ((6, 1, 4), "4̂/6̂", "subdominant, 3rd in bass"),
-        ((7, 2, 5), "5̂/7̂", "dominant in first inversion (smooth approach to 1̂)"),
-        ((1, 3, 6), "6̂m/1̂", "submediant minor, 3rd in bass"),
-        ((2, 4, 7), "7̂°/2̂", "leading-tone diminished, 3rd in bass"),
+        ((3, 5, 1), "I/III", "tonic, 3rd in bass"),
+        ((4, 6, 2), "ii/IV", "supertonic minor, 3rd in bass"),
+        ((5, 7, 3), "iii/V", "mediant minor, 3rd in bass"),
+        ((6, 1, 4), "IV/VI", "subdominant, 3rd in bass"),
+        ((7, 2, 5), "V/VII", "dominant in first inversion (smooth approach to I)"),
+        ((1, 3, 6), "vi/I", "submediant minor, 3rd in bass"),
+        ((2, 4, 7), "vii°/II", "leading-tone diminished, 3rd in bass"),
     ]),
     ("Triad inversions (2nd inv = 5th in bass)", [
-        ((5, 1, 3), "1̂/5̂", "tonic, 5th in bass (cadential 6/4)"),
-        ((6, 2, 4), "2̂m/6̂", "supertonic minor, 5th in bass"),
-        ((7, 3, 5), "3̂m/7̂", "mediant minor, 5th in bass"),
-        ((1, 4, 6), "4̂/1̂", "subdominant over tonic pedal"),
-        ((2, 5, 7), "5̂/2̂", "dominant, 5th in bass"),
-        ((3, 6, 1), "6̂m/3̂", "submediant minor, 5th in bass"),
-        ((4, 7, 2), "7̂°/4̂", "leading-tone diminished, 5th in bass"),
+        ((5, 1, 3), "I/V", "tonic, 5th in bass (cadential 6/4)"),
+        ((6, 2, 4), "ii/VI", "supertonic minor, 5th in bass"),
+        ((7, 3, 5), "iii/VII", "mediant minor, 5th in bass"),
+        ((1, 4, 6), "IV/I", "subdominant over tonic pedal"),
+        ((2, 5, 7), "V/II", "dominant, 5th in bass"),
+        ((3, 6, 1), "vi/III", "submediant minor, 5th in bass"),
+        ((4, 7, 2), "vii°/IV", "leading-tone diminished, 5th in bass"),
     ]),
     ("Diatonic seventh chords (root position)", [
-        ((1, 3, 5, 7), "1̂Δ", "tonic major 7"),
-        ((2, 4, 6, 1), "2̂m7", "ii7, the most common predominant"),
-        ((3, 5, 7, 2), "3̂m7", "iii7, tonic substitute"),
-        ((4, 6, 1, 3), "4̂Δ", "IV major 7"),
-        ((5, 7, 2, 4), "5̂7", "dominant 7"),
-        ((6, 1, 3, 5), "6̂m7", "vi7, relative minor 7"),
-        ((7, 2, 4, 6), "7̂⌀", "half-diminished, rootless dominant"),
+        ((1, 3, 5, 7), "IΔ", "tonic major 7"),
+        ((2, 4, 6, 1), "ii7", "ii7, the most common predominant"),
+        ((3, 5, 7, 2), "iii7", "iii7, tonic substitute"),
+        ((4, 6, 1, 3), "IVΔ", "IV major 7"),
+        ((5, 7, 2, 4), "V7", "dominant 7"),
+        ((6, 1, 3, 5), "vi7", "vi7, relative minor 7"),
+        ((7, 2, 4, 6), "VII⌀", "half-diminished, rootless dominant"),
     ]),
     ("Seventh chord inversions (3rd in bass)", [
-        ((3, 5, 7, 1), "1̂Δ/3̂", "tonic major 7, 3rd in bass"),
-        ((4, 6, 1, 2), "2̂m7/4̂", "ii7, 3rd in bass"),
-        ((6, 1, 3, 4), "4̂Δ/6̂", "IV major 7, 3rd in bass"),
-        ((7, 2, 4, 5), "5̂7/7̂", "dominant 7, 3rd in bass — common voice-leading to 1̂"),
-        ((1, 3, 5, 6), "6̂m7/1̂", "vi7, 3rd in bass (same notes as 1̂6)"),
+        ((3, 5, 7, 1), "IΔ/III", "tonic major 7, 3rd in bass"),
+        ((4, 6, 1, 2), "ii7/IV", "ii7, 3rd in bass"),
+        ((6, 1, 3, 4), "IVΔ/VI", "IV major 7, 3rd in bass"),
+        ((7, 2, 4, 5), "V7/VII", "dominant 7, 3rd in bass — common voice-leading to I"),
+        ((1, 3, 5, 6), "vi7/I", "vi7, 3rd in bass (same notes as I6)"),
     ]),
     ("Seventh chord inversions (5th and 7th in bass)", [
-        ((5, 7, 1, 3), "1̂Δ/5̂", "tonic major 7, 5th in bass"),
-        ((7, 1, 3, 5), "1̂Δ/7̂", "tonic major 7, 7th in bass — moody"),
-        ((2, 4, 5, 7), "5̂7/2̂", "dominant 7, 5th in bass"),
-        ((4, 5, 7, 2), "5̂7/4̂", "dominant 7, 7th in bass — leans hard to 3̂"),
-        ((1, 2, 4, 6), "2̂m7/1̂", "ii7, 7th in bass"),
+        ((5, 7, 1, 3), "IΔ/V", "tonic major 7, 5th in bass"),
+        ((7, 1, 3, 5), "IΔ/VII", "tonic major 7, 7th in bass — moody"),
+        ((2, 4, 5, 7), "V7/II", "dominant 7, 5th in bass"),
+        ((4, 5, 7, 2), "V7/IV", "dominant 7, 7th in bass — leans hard to III"),
+        ((1, 2, 4, 6), "ii7/I", "ii7, 7th in bass"),
     ]),
     ("Sixth chords (major triad + major 6th)", [
-        ((1, 3, 5, 6), "1̂6", "tonic 6 (same notes as 6̂m7)"),
-        ((4, 6, 1, 2), "4̂6", "IV6 (same notes as 2̂m7)"),
-        ((5, 7, 2, 3), "5̂6", "V6 — uncommon but playable"),
+        ((1, 3, 5, 6), "I6", "tonic 6 (same notes as vi7)"),
+        ((4, 6, 1, 2), "IV6", "IV6 (same notes as ii7)"),
+        ((5, 7, 2, 3), "V6", "V6 — uncommon but playable"),
     ]),
     ("Minor sixth chord", [
-        ((2, 4, 6, 7), "2̂m6", "ii minor 6 (Dorian flavor)"),
+        ((2, 4, 6, 7), "ii6", "ii minor 6 (Dorian flavor)"),
     ]),
     ("Suspended 2nd chords (sus2)", [
-        ((1, 2, 5), "1̂sus2", "tonic with 2 replacing 3"),
-        ((2, 3, 6), "2̂sus2", "supertonic sus2"),
-        ((4, 5, 1), "4̂sus2", "subdominant sus2"),
-        ((5, 6, 2), "5̂sus2", "dominant sus2"),
-        ((6, 7, 3), "6̂sus2", "submediant sus2"),
+        ((1, 2, 5), "Isus2", "tonic with 2 replacing 3"),
+        ((2, 3, 6), "IIsus2", "supertonic sus2"),
+        ((4, 5, 1), "IVsus2", "subdominant sus2"),
+        ((5, 6, 2), "Vsus2", "dominant sus2"),
+        ((6, 7, 3), "VIsus2", "submediant sus2"),
     ]),
     ("Suspended 4th chords (sus4)", [
-        ((1, 4, 5), "1̂sus", "tonic with 4 replacing 3"),
-        ((2, 5, 6), "2̂sus", "supertonic sus4"),
-        ((3, 6, 7), "3̂sus", "mediant sus4"),
-        ((5, 1, 2), "5̂sus", "dominant sus, delays resolution"),
-        ((6, 2, 3), "6̂sus", "submediant sus4"),
+        ((1, 4, 5), "Isus", "tonic with 4 replacing 3"),
+        ((2, 5, 6), "IIsus", "supertonic sus4"),
+        ((3, 6, 7), "IIIsus", "mediant sus4"),
+        ((5, 1, 2), "Vsus", "dominant sus, delays resolution"),
+        ((6, 2, 3), "VIsus", "submediant sus4"),
     ]),
     ("Power chords (root + 5th, no 3rd)", [
-        ((1, 5), "1̂5", "tonic power chord"),
-        ((2, 6), "2̂5", "supertonic power chord"),
-        ((3, 7), "3̂5", "mediant power chord"),
-        ((4, 1), "4̂5", "subdominant power chord"),
-        ((5, 2), "5̂5", "dominant power chord"),
-        ((6, 3), "6̂5", "submediant power chord"),
+        ((1, 5), "I5", "tonic power chord"),
+        ((2, 6), "II5", "supertonic power chord"),
+        ((3, 7), "III5", "mediant power chord"),
+        ((4, 1), "IV5", "subdominant power chord"),
+        ((5, 2), "V5", "dominant power chord"),
+        ((6, 3), "VI5", "submediant power chord"),
     ]),
     ("add9 chords (triad + 9, no 7)", [
-        ((1, 3, 5, 2), "1̂add9", "tonic add 9"),
-        ((2, 4, 6, 3), "2̂madd9", "ii minor add 9"),
-        ((4, 6, 1, 5), "4̂add9", "IV add 9"),
-        ((5, 7, 2, 6), "5̂add9", "V add 9"),
-        ((6, 1, 3, 7), "6̂madd9", "vi minor add 9"),
+        ((1, 3, 5, 2), "Iadd9", "tonic add 9"),
+        ((2, 4, 6, 3), "iiadd9", "ii minor add 9"),
+        ((4, 6, 1, 5), "IVadd9", "IV add 9"),
+        ((5, 7, 2, 6), "Vadd9", "V add 9"),
+        ((6, 1, 3, 7), "viadd9", "vi minor add 9"),
     ]),
     ("add11 chords (triad + 11, no 7)", [
-        ((1, 3, 5, 4), "1̂add11", "tonic add 11 (rare — 3-4 clash)"),
-        ((2, 4, 6, 5), "2̂madd11", "ii minor add 11"),
-        ((3, 5, 7, 6), "3̂madd11", "iii minor add 11"),
-        ((5, 7, 2, 1), "5̂add11", "V add 11 (clash — usually voiced sus)"),
-        ((6, 1, 3, 2), "6̂madd11", "vi minor add 11"),
-        ((7, 2, 4, 3), "7̂°add11", "vii° add 11"),
-        ((4, 6, 1, 7), "4̂add11", "IV Lydian add 11 (the diatonic 7̂ — chord-theory ♯11)"),
+        ((1, 3, 5, 4), "Iadd11", "tonic add 11 (rare — 3-4 clash)"),
+        ((2, 4, 6, 5), "iiadd11", "ii minor add 11"),
+        ((3, 5, 7, 6), "iiiadd11", "iii minor add 11"),
+        ((5, 7, 2, 1), "Vadd11", "V add 11 (clash — usually voiced sus)"),
+        ((6, 1, 3, 2), "viadd11", "vi minor add 11"),
+        ((7, 2, 4, 3), "vii°add11", "vii° add 11"),
+        ((4, 6, 1, 7), "IVadd11", "IV Lydian add 11 (the diatonic VII — chord-theory ♯11)"),
     ]),
     ("6/9 chords (major triad + 6 + 9)", [
-        ((1, 3, 5, 6, 2), "1̂6/9", "tonic 6/9, very harp-friendly"),
-        ((4, 6, 1, 2, 5), "4̂6/9", "IV 6/9"),
-        ((5, 7, 2, 3, 6), "5̂6/9", "V 6/9"),
+        ((1, 3, 5, 6, 2), "I6/9", "tonic 6/9, very harp-friendly"),
+        ((4, 6, 1, 2, 5), "IV6/9", "IV 6/9"),
+        ((5, 7, 2, 3, 6), "V6/9", "V 6/9"),
     ]),
     ("Minor 6/9", [
-        ((2, 4, 6, 7, 3), "2̂m6/9", "ii minor 6/9 — Dorian-flavored"),
+        ((2, 4, 6, 7, 3), "ii6/9", "ii minor 6/9 — Dorian-flavored"),
     ]),
     ("9th chords (7th + 9)", [
-        ((1, 3, 5, 7, 2), "1̂Δ9", "tonic major 9"),
-        ((2, 4, 6, 1, 3), "2̂m9", "ii minor 9"),
-        ((3, 5, 7, 2, 4), "3̂m9", "iii minor 9 — the diatonic 9 here is the half-step above 1̂, so it's dissonant"),
-        ((4, 6, 1, 3, 5), "4̂Δ9", "IV major 9"),
-        ((5, 7, 2, 4, 6), "5̂9", "dominant 9"),
-        ((6, 1, 3, 5, 7), "6̂m9", "vi minor 9"),
-        ((7, 2, 4, 6, 1), "7̂⌀9", "half-dim 9 — the diatonic 9 here is the half-step above 7̂"),
+        ((1, 3, 5, 7, 2), "IΔ9", "tonic major 9"),
+        ((2, 4, 6, 1, 3), "ii9", "ii minor 9"),
+        ((3, 5, 7, 2, 4), "iii9", "iii minor 9 — the diatonic 9 here is the half-step above I, so it's dissonant"),
+        ((4, 6, 1, 3, 5), "IVΔ9", "IV major 9"),
+        ((5, 7, 2, 4, 6), "V9", "dominant 9"),
+        ((6, 1, 3, 5, 7), "vi9", "vi minor 9"),
+        ((7, 2, 4, 6, 1), "VII⌀9", "half-dim 9 — the diatonic 9 here is the half-step above VII"),
     ]),
     ("11th chords", [
-        ((2, 4, 6, 1, 3, 5), "2̂m11", "ii minor 11"),
-        ((3, 5, 7, 2, 4, 6), "3̂m11", "iii minor 11 (the half-step 9 is still in the stack)"),
-        ((4, 6, 1, 3, 5, 7), "4̂Δ11", "IV Lydian — all-diatonic 11 (chord-theory ♯11)"),
-        ((5, 7, 2, 4, 6, 1), "5̂11", "dominant 11 — clashes; usually voiced as 5̂9sus"),
-        ((6, 1, 3, 5, 7, 2), "6̂m11", "vi minor 11"),
-        ((7, 2, 4, 6, 1, 3), "7̂⌀11", "half-dim 11"),
+        ((2, 4, 6, 1, 3, 5), "ii11", "ii minor 11"),
+        ((3, 5, 7, 2, 4, 6), "iii11", "iii minor 11 (the half-step 9 is still in the stack)"),
+        ((4, 6, 1, 3, 5, 7), "IVΔ11", "IV Lydian — all-diatonic 11 (chord-theory ♯11)"),
+        ((5, 7, 2, 4, 6, 1), "V11", "dominant 11 — clashes; usually voiced as V9sus"),
+        ((6, 1, 3, 5, 7, 2), "vi11", "vi minor 11"),
+        ((7, 2, 4, 6, 1, 3), "VII⌀11", "half-dim 11"),
     ]),
     ("13th chords", [
-        ((1, 3, 5, 7, 2, 6), "1̂Δ13_B", "tonic major 13 (skip 11 — would clash)"),
-        ((2, 4, 6, 1, 3, 5, 7), "2̂m13", "ii minor 13 — full diatonic Dorian stack"),
-        ((4, 6, 1, 3, 5, 7, 2), "4̂Δ13", "IV Lydian 13 — all 7 scale degrees"),
-        ((5, 7, 2, 4, 6, 3), "5̂13_B", "dominant 13 (skip the 11)"),
-        ((6, 1, 3, 5, 7, 2, 4), "6̂m13", "vi minor 13 — the 13 here is the diatonic 6, a half-step from 7̂"),
+        ((1, 3, 5, 7, 2, 6), "IΔ13_B", "tonic major 13 (skip 11 — would clash)"),
+        ((2, 4, 6, 1, 3, 5, 7), "ii13", "ii minor 13 — full diatonic Dorian stack"),
+        ((4, 6, 1, 3, 5, 7, 2), "IVΔ13", "IV Lydian 13 — all 7 scale degrees"),
+        ((5, 7, 2, 4, 6, 3), "V13_B", "dominant 13 (skip the 11)"),
+        ((6, 1, 3, 5, 7, 2, 4), "vi13", "vi minor 13 — the 13 here is the diatonic 6, a half-step from VII"),
     ]),
     ("Seventh chord suspensions", [
-        ((5, 1, 2, 4), "5̂7sus", "dominant 7 sus — classic delayed-resolution"),
-        ((1, 4, 5, 7), "1̂Δsus", "tonic major 7 sus"),
-        ((2, 5, 6, 1), "2̂m7sus", "ii sus 7"),
-        ((6, 2, 3, 5), "6̂m7sus", "vi sus 7"),
+        ((5, 1, 2, 4), "V7sus", "dominant 7 sus — classic delayed-resolution"),
+        ((1, 4, 5, 7), "IΔsus", "tonic major 7 sus"),
+        ((2, 5, 6, 1), "ii7sus", "ii sus 7"),
+        ((6, 2, 3, 5), "vi7sus", "vi sus 7"),
     ]),
     ("Pedal-tone slash chords", [
-        ((1, 4, 6, 1), "4̂/1̂", "subdominant over tonic pedal"),
-        ((5, 4, 6, 1), "4̂/5̂", "subdominant over dominant pedal"),
-        ((5, 1, 3, 5), "1̂/5̂", "tonic over dominant pedal — opening sound"),
-        ((1, 2, 4, 6), "2̂m/1̂", "ii minor over tonic pedal — moody"),
-        ((5, 2, 4, 6), "2̂m/5̂", "ii minor over dominant pedal — pre-cadential"),
-        ((1, 6, 1, 3), "6̂m/1̂", "relative minor over tonic pedal"),
-        ((1, 3, 5, 7), "3̂m/1̂", "mediant minor over tonic pedal (same notes as 1̂Δ)"),
-        ((1, 5, 7, 2, 4), "5̂7/1̂", "dominant 7 over tonic pedal — V over I drone"),
+        ((1, 4, 6, 1), "IV/I", "subdominant over tonic pedal"),
+        ((5, 4, 6, 1), "IV/V", "subdominant over dominant pedal"),
+        ((5, 1, 3, 5), "I/V", "tonic over dominant pedal — opening sound"),
+        ((1, 2, 4, 6), "ii/I", "ii minor over tonic pedal — moody"),
+        ((5, 2, 4, 6), "ii/V", "ii minor over dominant pedal — pre-cadential"),
+        ((1, 6, 1, 3), "vi/I", "relative minor over tonic pedal"),
+        ((1, 3, 5, 7), "iii/I", "mediant minor over tonic pedal (same notes as IΔ)"),
+        ((1, 5, 7, 2, 4), "V7/I", "dominant 7 over tonic pedal — V over I drone"),
     ]),
     ("Quartal three-note voicings (stacked 4ths)", [
-        ((1, 4, 7), "1̂q", "tonic quartal — contains tritone"),
-        ((2, 5, 1), "2̂q", "supertonic quartal — open sound"),
-        ((3, 6, 2), "3̂q", "mediant quartal"),
-        ((4, 7, 3), "4̂q", "subdominant quartal — contains tritone"),
-        ((5, 1, 4), "5̂q", "dominant quartal"),
-        ((6, 2, 5), "6̂q", "submediant quartal"),
-        ((7, 3, 6), "7̂q", "leading-tone quartal"),
+        ((1, 4, 7), "Iq", "tonic quartal — contains tritone"),
+        ((2, 5, 1), "IIq", "supertonic quartal — open sound"),
+        ((3, 6, 2), "IIIq", "mediant quartal"),
+        ((4, 7, 3), "IVq", "subdominant quartal — contains tritone"),
+        ((5, 1, 4), "Vq", "dominant quartal"),
+        ((6, 2, 5), "VIq", "submediant quartal"),
+        ((7, 3, 6), "VIIq", "leading-tone quartal"),
     ]),
     ("Quartal four-note voicings", [
-        ((1, 4, 7, 3), "1̂q4", "tonic quartal, 4 notes"),
-        ((2, 5, 1, 4), "2̂q4", "supertonic quartal — Dorian flavor"),
-        ((3, 6, 2, 5), "3̂q4", "mediant quartal, 4 notes"),
-        ((5, 1, 4, 7), "5̂q4", "dominant quartal, 4 notes"),
-        ((6, 2, 5, 1), "6̂q4", "submediant quartal, 4 notes"),
+        ((1, 4, 7, 3), "Iq4", "tonic quartal, 4 notes"),
+        ((2, 5, 1, 4), "IIq4", "supertonic quartal — Dorian flavor"),
+        ((3, 6, 2, 5), "IIIq4", "mediant quartal, 4 notes"),
+        ((5, 1, 4, 7), "Vq4", "dominant quartal, 4 notes"),
+        ((6, 2, 5, 1), "VIq4", "submediant quartal, 4 notes"),
     ]),
     ("Quartal five-note voicings (“So What” style)", [
-        ((2, 5, 1, 4, 7), "2̂q5", "five-note quartal — Dorian vamp voicing"),
-        ((3, 6, 2, 5, 1), "3̂q5", "five-note quartal on 3̂"),
-        ((5, 1, 4, 7, 3), "5̂q5", "five-note quartal on 5̂"),
-        ((6, 2, 5, 1, 4), "6̂q5", "five-note quartal on 6̂"),
+        ((2, 5, 1, 4, 7), "IIq5", "five-note quartal — Dorian vamp voicing"),
+        ((3, 6, 2, 5, 1), "IIIq5", "five-note quartal on III"),
+        ((5, 1, 4, 7, 3), "Vq5", "five-note quartal on V"),
+        ((6, 2, 5, 1, 4), "VIq5", "five-note quartal on VI"),
     ]),
 ]
 
 SECTIONS_POLY: list[tuple[str, str, list[tuple[int, int, str, str]]]] = [
-    ("Triads stacked over 1̂  (tonic colors)",
+    ("Triads stacked over I  (tonic colors)",
      "Lower hand holds the tonic. The upper hand selects the extension flavor — major 9, 11, 13, or 6 — depending on which triad sits above.", [
-        (1, 5, "1̂Δ9", "dominant over tonic — the open, suspended-tonic sound (1 3 5 / 5 7 2)"),
-        (1, 6, "1̂6", "submediant over tonic — the classic shimmering 6 (1 3 5 / 6 1 3)"),
-        (1, 2, "1̂13_7", "supertonic over tonic — 9, 11, 13 stacked above the triad, no 7 (1 3 5 / 2 4 6)"),
-        (1, 3, "1̂Δ", "mediant over tonic — same notes as 1̂Δ7 (1 3 5 / 3 5 7)"),
-        (1, 7, "1̂Δ11", "leading-tone diminished over tonic — Δ11 with all upper extensions (1 3 5 / 7 2 4)"),
+        (1, 5, "IΔ9", "dominant over tonic — the open, suspended-tonic sound (1 3 5 / 5 7 2)"),
+        (1, 6, "I6", "submediant over tonic — the classic shimmering 6 (1 3 5 / 6 1 3)"),
+        (1, 2, "I13_7", "supertonic over tonic — 9, 11, 13 stacked above the triad, no 7 (1 3 5 / 2 4 6)"),
+        (1, 3, "IΔ", "mediant over tonic — same notes as IΔ7 (1 3 5 / 3 5 7)"),
+        (1, 7, "IΔ11", "leading-tone diminished over tonic — Δ11 with all upper extensions (1 3 5 / 7 2 4)"),
     ]),
-    ("Triads stacked over 2̂m  (Dorian / supertonic colors)",
+    ("Triads stacked over ii  (Dorian / supertonic colors)",
      "Lower hand holds the supertonic minor. Upper triads add 9, 11, 13 — the Dorian palette.", [
-        (2, 4, "2̂m7", "subdominant over supertonic — basic m7 voicing (2 4 6 / 4 6 1)"),
-        (2, 1, "2̂m11", "tonic over supertonic — m11, full Dorian stack (2 4 6 / 1 3 5)"),
-        (2, 5, "2̂m13_7", "dominant over supertonic — m13 voicing, no 7; floats between 5̂sus and m11 (2 4 6 / 5 7 2)"),
-        (2, 3, "2̂m13_7", "mediant over supertonic — m13 voicing, no 7; layered 9 and 11 below (2 4 6 / 3 5 7)"),
-        (2, 6, "2̂m9", "submediant over supertonic — m9, no 7-9 clash above (2 4 6 / 6 1 3)"),
+        (2, 4, "ii7", "subdominant over supertonic — basic m7 voicing (2 4 6 / 4 6 1)"),
+        (2, 1, "ii11", "tonic over supertonic — m11, full Dorian stack (2 4 6 / 1 3 5)"),
+        (2, 5, "ii13_7", "dominant over supertonic — m13 voicing, no 7; floats between Vsus and m11 (2 4 6 / 5 7 2)"),
+        (2, 3, "ii13_7", "mediant over supertonic — m13 voicing, no 7; layered 9 and 11 below (2 4 6 / 3 5 7)"),
+        (2, 6, "ii9", "submediant over supertonic — m9, no 7-9 clash above (2 4 6 / 6 1 3)"),
     ]),
-    ("Triads stacked over 4̂  (subdominant / Lydian colors)",
-     "Lower hand holds the subdominant. Upper triads naturally produce Lydian-flavored 11 and major 13 voicings — the diatonic 11 from 4̂ is what chord theory calls ♯11.", [
-        (4, 5, "4̂Δ13_7", "dominant over subdominant — the bright Lydian 13 (4 6 1 / 5 7 2)"),
-        (4, 1, "4̂Δ9", "tonic over subdominant — 1̂/4̂ sound, gospel-flavored (4 6 1 / 1 3 5)"),
-        (4, 2, "4̂6", "supertonic over subdominant — 4̂6 (4 6 1 / 2 4 6)"),
-        (4, 3, "4̂Δ11", "mediant over subdominant — the floating Lydian sound (4 6 1 / 3 5 7)"),
-        (4, 6, "4̂Δ", "submediant over subdominant — same notes as 4̂Δ7 (4 6 1 / 6 1 3)"),
+    ("Triads stacked over IV  (subdominant / Lydian colors)",
+     "Lower hand holds the subdominant. Upper triads naturally produce Lydian-flavored 11 and major 13 voicings — the diatonic 11 from IV is what chord theory calls ♯11.", [
+        (4, 5, "IVΔ13_7", "dominant over subdominant — the bright Lydian 13 (4 6 1 / 5 7 2)"),
+        (4, 1, "IVΔ9", "tonic over subdominant — I/IV sound, gospel-flavored (4 6 1 / 1 3 5)"),
+        (4, 2, "IV6", "supertonic over subdominant — IV6 (4 6 1 / 2 4 6)"),
+        (4, 3, "IVΔ11", "mediant over subdominant — the floating Lydian sound (4 6 1 / 3 5 7)"),
+        (4, 6, "IVΔ", "submediant over subdominant — same notes as IVΔ7 (4 6 1 / 6 1 3)"),
     ]),
-    ("Triads stacked over 5̂  (dominant colors, fully diatonic)",
-     "Lower hand holds the dominant. Upper triads give 9, 11, 13 and sus colors. The classic jazz move 2̂m~5̂7 lives here as 4̂~5̂.", [
-        (5, 1, "5̂13_7", "tonic over dominant — the iconic suspended-dominant sound (no 7); resolves to 1̂ (5 7 2 / 1 3 5)"),
-        (5, 2, "5̂9", "supertonic over dominant — dominant 9, avoids the 11 clash (5 7 2 / 2 4 6)"),
-        (5, 4, "5̂11", "subdominant over dominant — full dominant-11 pre-cadential tension (5 7 2 / 4 6 1)"),
-        (5, 6, "5̂13_7", "submediant over dominant — 6̂m7 over 5̂ = dominant-13 sound, no 7 (5 7 2 / 6 1 3)"),
-        (5, 3, "5̂6", "mediant over dominant — triad + 13 only; the 11 (=4̂) is absent (5 7 2 / 3 5 7)"),
-        (5, 7, "5̂7", "leading-tone over dominant — basic dominant 7 voicing (5 7 2 / 7 2 4)"),
+    ("Triads stacked over V  (dominant colors, fully diatonic)",
+     "Lower hand holds the dominant. Upper triads give 9, 11, 13 and sus colors. The classic jazz move ii~V7 lives here as IV~V.", [
+        (5, 1, "V13_7", "tonic over dominant — the iconic suspended-dominant sound (no 7); resolves to I (5 7 2 / 1 3 5)"),
+        (5, 2, "V9", "supertonic over dominant — dominant 9, avoids the 11 clash (5 7 2 / 2 4 6)"),
+        (5, 4, "V11", "subdominant over dominant — full dominant-11 pre-cadential tension (5 7 2 / 4 6 1)"),
+        (5, 6, "V13_7", "submediant over dominant — vi7 over V = dominant-13 sound, no 7 (5 7 2 / 6 1 3)"),
+        (5, 3, "V6", "mediant over dominant — triad + 13 only; the 11 (=IV) is absent (5 7 2 / 3 5 7)"),
+        (5, 7, "V7", "leading-tone over dominant — basic dominant 7 voicing (5 7 2 / 7 2 4)"),
     ]),
-    ("Triads stacked over 6̂m  (relative-minor colors)",
+    ("Triads stacked over vi  (relative-minor colors)",
      "Lower hand holds the submediant minor. Upper triads color the relative minor with 9s and 11s.", [
-        (6, 1, "6̂m7", "tonic over submediant — basic m7 voicing (6 1 3 / 1 3 5)"),
-        (6, 2, "6̂m13_7", "supertonic over submediant — m13 with no 7 (6 1 3 / 2 4 6)"),
-        (6, 5, "6̂m11", "dominant over submediant — full Aeolian m11 (6 1 3 / 5 7 2)"),
-        (6, 4, "6̂m13_7", "subdominant over submediant — same notes as 4̂Δ rooted lower (6 1 3 / 4 6 1)"),
-        (6, 3, "6̂m9", "mediant over submediant — dense, contains all of 1̂Δ (6 1 3 / 3 5 7)"),
+        (6, 1, "vi7", "tonic over submediant — basic m7 voicing (6 1 3 / 1 3 5)"),
+        (6, 2, "vi13_7", "supertonic over submediant — m13 with no 7 (6 1 3 / 2 4 6)"),
+        (6, 5, "vi11", "dominant over submediant — full Aeolian m11 (6 1 3 / 5 7 2)"),
+        (6, 4, "vi13_7", "subdominant over submediant — same notes as IVΔ rooted lower (6 1 3 / 4 6 1)"),
+        (6, 3, "vi9", "mediant over submediant — dense, contains all of IΔ (6 1 3 / 3 5 7)"),
     ]),
-    ("Triads stacked over 3̂m  (mediant / Phrygian colors)",
-     "Lower hand holds the mediant minor. Upper triads add 9, 11, 13 — diatonic 9 from 3̂ is the half-step above 3̂ (Phrygian flavor); diatonic 13 from 3̂ is the half-step above 5̂.", [
-        (3, 4, "3̂m11", "subdominant over mediant — Phrygian m11 with diatonic 9 and 13 (3 5 7 / 4 6 1)"),
-        (3, 1, "3̂m13_7", "tonic over mediant — m13 with no 7, Phrygian flavor (3 5 7 / 1 3 5)"),
-        (3, 2, "3̂m11", "supertonic over mediant — Phrygian m11 with stacked extensions (3 5 7 / 2 4 6)"),
-        (3, 6, "3̂m13_7", "submediant over mediant — m13 with no 7; same notes as 1̂Δ9 rooted lower (3 5 7 / 6 1 3)"),
-        (3, 5, "3̂m7", "rare; dominant over mediant — basic m7 (3 5 7 / 5 7 2)"),
+    ("Triads stacked over iii  (mediant / Phrygian colors)",
+     "Lower hand holds the mediant minor. Upper triads add 9, 11, 13 — diatonic 9 from III is the half-step above III (Phrygian flavor); diatonic 13 from III is the half-step above V.", [
+        (3, 4, "iii11", "subdominant over mediant — Phrygian m11 with diatonic 9 and 13 (3 5 7 / 4 6 1)"),
+        (3, 1, "iii13_7", "tonic over mediant — m13 with no 7, Phrygian flavor (3 5 7 / 1 3 5)"),
+        (3, 2, "iii11", "supertonic over mediant — Phrygian m11 with stacked extensions (3 5 7 / 2 4 6)"),
+        (3, 6, "iii13_7", "submediant over mediant — m13 with no 7; same notes as IΔ9 rooted lower (3 5 7 / 6 1 3)"),
+        (3, 5, "iii7", "rare; dominant over mediant — basic m7 (3 5 7 / 5 7 2)"),
     ]),
-    ("Triads stacked over 7̂°  (leading-tone colors)",
+    ("Triads stacked over vii°  (leading-tone colors)",
      "Lower hand holds the leading-tone diminished. A tonic triad above gives the rootless dominant 9 sound.", [
-        (7, 1, "5̂9_1", "tonic over leading-tone — the classic rootless V9 (7 2 4 / 1 3 5)"),
-        (7, 2, "7̂⌀", "supertonic over leading-tone — basic half-dim 7 voicing (7 2 4 / 2 4 6)"),
-        (7, 4, "7̂⌀9", "subdominant over leading-tone — half-dim 9, Locrian flavor (7 2 4 / 4 6 1)"),
-        (7, 5, "7̂⌀13_7", "variant; dominant over leading-tone — strong pull to 1̂ (7 2 4 / 5 7 2)"),
+        (7, 1, "V9_1", "tonic over leading-tone — the classic rootless V9 (7 2 4 / 1 3 5)"),
+        (7, 2, "VII⌀", "supertonic over leading-tone — basic half-dim 7 voicing (7 2 4 / 2 4 6)"),
+        (7, 4, "VII⌀9", "subdominant over leading-tone — half-dim 9, Locrian flavor (7 2 4 / 4 6 1)"),
+        (7, 5, "VII⌀13_7", "variant; dominant over leading-tone — strong pull to I (7 2 4 / 5 7 2)"),
     ]),
 ]
 
@@ -342,43 +354,62 @@ def latex_escape_juliamono(s: str) -> str:
     return s
 
 
-_HEX_SUB = set("0123456789ABCDEFabcdef")
+# (the _<hex> subscript convention for missing chord tones was retired
+#  with the move back to traditional Roman-numeral notation.)
+
+
+_ROMAN_RE = __import__("re").compile(
+    r"^([♭♯])?(VII|III|VI|IV|II|V|I|vii|iii|vi|iv|ii|v|i)(°?)(.*)$"
+)
+
+
+def _escape_latex_chord(s: str) -> str:
+    out: list[str] = []
+    for ch in s:
+        if ch == "\\":   out.append(r"\textbackslash{}")
+        elif ch == "&":  out.append(r"\&")
+        elif ch == "%":  out.append(r"\%")
+        elif ch == "$":  out.append(r"\$")
+        elif ch == "#":  out.append(r"\#")
+        elif ch == "_":  out.append(r"\_")
+        elif ch == "{":  out.append(r"\{")
+        elif ch == "}":  out.append(r"\}")
+        elif ch == "~":  out.append(r"\textasciitilde{}")
+        elif ch == "^":  out.append(r"\textasciicircum{}")
+        else:            out.append(ch)
+    return "".join(out)
+
+
+def _bold_roman_piece(piece: str) -> str:
+    """Wrap the leading Roman-numeral (+ optional ° dim mark) of a chord
+    piece in \\textbf{} so the Roman renders bold and the suffix renders
+    regular weight. If the piece doesn't parse as a chord, it is escaped
+    and returned as-is."""
+    m = _ROMAN_RE.match(piece)
+    if not m:
+        return _escape_latex_chord(piece)
+    acc, roman, dim, suffix = m.group(1) or "", m.group(2), m.group(3) or "", m.group(4) or ""
+    return (_escape_latex_chord(acc)
+            + r"\textbf{" + roman + dim + r"}"
+            + _escape_latex_chord(suffix))
+
+
+def _split_slash(piece: str) -> str:
+    """Bold Roman on each side of a slash-bass (`V/I`)."""
+    if "/" in piece:
+        chord, _, bass = piece.partition("/")
+        return _bold_roman_piece(chord) + "/" + _bold_roman_piece(bass)
+    return _bold_roman_piece(piece)
 
 
 def render_chord_latex(sym: str) -> str:
-    """Render a chord symbol with `_<hex>` subscript markers.
-
-    `_X` where X is a hex digit (0-9, A-F) is rendered as a subscript and
-    means "subtract chord tone X" — e.g. ``_B`` (B = 11) means "no 11",
-    ``_1`` means "no root". All other characters get standard LaTeX
-    escaping for JuliaMono context."""
-    out: list[str] = []
-    i = 0
-    while i < len(sym):
-        ch = sym[i]
-        if ch == "_" and i + 1 < len(sym) and sym[i + 1] in _HEX_SUB:
-            # Greedy: consume all consecutive hex chars after `_` so multi-tone
-            # subtractions like `_79` (no 7, no 9) become a single subscript.
-            j = i + 1
-            while j < len(sym) and sym[j] in _HEX_SUB:
-                j += 1
-            out.append(r"\textsubscript{" + sym[i + 1:j] + r"}")
-            i = j
-            continue
-        if ch == "\\":
-            out.append(r"\textbackslash{}")
-        elif ch == "&": out.append(r"\&")
-        elif ch == "%": out.append(r"\%")
-        elif ch == "$": out.append(r"\$")
-        elif ch == "#": out.append(r"\#")
-        elif ch == "_": out.append(r"\_")
-        elif ch == "{": out.append(r"\{")
-        elif ch == "}": out.append(r"\}")
-        elif ch == "~": out.append(r"\textasciitilde{}")
-        elif ch == "^": out.append(r"\textasciicircum{}")
-        else: out.append(ch)
-        i += 1
-    return "".join(out)
+    """Render a chord label or polychord stack as LaTeX. The Roman
+    numeral portion (and any trailing ° dim mark) is bold; the suffix is
+    regular weight. Polychord stacks (``IV~iii``) split on tilde and
+    bold each piece; slash-bass (``V/I``) bolds both sides."""
+    if "~" in sym:
+        return r"\textasciitilde{}".join(_split_slash(p) for p in sym.split("~"))
+    return _split_slash(sym)
 
 
 def format_comment(template: str, scale_letters: list[str]) -> str:
@@ -449,7 +480,7 @@ def build_tex(font_dir: Path) -> str:
         r"\setmainfont{DejaVu Serif}",
         # JuliaMono for the harp string layout + chord notation.
         # No FakeBold — synthetic stroking distorts combining marks (the
-        # caret on 1̂, 2̂, etc.). SemiBold alone gives the weight we need.
+        # caret on I, II, etc.). SemiBold alone gives the weight we need.
         r"\newfontfamily\juliamono[",
         r"  Path=" + font_path + ",",
         r"  Extension=.ttf,",
@@ -544,7 +575,7 @@ def build_tex(font_dir: Path) -> str:
             row = render_poly_row(lh, rh, strings)
             if row is None:
                 continue
-            sym = f"{rh}̂~{lh}̂"
+            sym = f"{deg_to_roman(rh)}~{deg_to_roman(lh)}"
             sym_esc = render_chord_latex(sym)
             equiv_esc = render_chord_latex(equiv)
             lines.append(

@@ -453,14 +453,14 @@
         left hand (bass).
       </p>
       <div class="stack-demo">
-        <span class="top">2̂</span><br>
+        <span class="top">II</span><br>
         <span class="bar">─────</span><br>
-        <span class="bot">1̂</span>
+        <span class="bot">I</span>
       </div>
       <p>
         In plain text &mdash; where vertical stacking isn&rsquo;t possible &mdash; the
-        convention here is a tilde: <code>2̂~1̂</code>. This distinguishes a polychord
-        from a slash chord (<code>2̂/1̂</code>), which is a single chord with a
+        convention here is a tilde: <code>II~I</code>. This distinguishes a polychord
+        from a slash chord (<code>II/I</code>), which is a single chord with a
         specified bass note.
       </p>
     </div>
@@ -468,8 +468,8 @@
       <h3>Why two hands?</h3>
       <p>
         On the harp, polychords let each hand stay in a comfortable triadic shape while
-        producing sonorities too dense for one hand alone. <code>2̂~1̂</code> &mdash; a
-        supertonic triad over the tonic triad &mdash; is just <code>1̂Δ9</code>, but
+        producing sonorities too dense for one hand alone. <code>II~I</code> &mdash; a
+        supertonic triad over the tonic triad &mdash; is just <code>IΔ9</code>, but
         voiced so the left hand pedals a familiar tonic shape while the right hand plays
         the upper tensions.
       </p>
@@ -727,10 +727,21 @@ function escapeHTML(s) {
 }
 
 // Render a chord symbol with `_<hex>+` markers as <sub>X</sub>. Hex digits
-// after `_` mean "subtract this chord tone" (e.g. `_B` = no 11, `_79` = no 7
-// and no 9). Project convention.
+// Render a chord symbol with the Roman numeral portion bolded. Polychord
+// stacks (IV~iii) split on tilde; slash bass (V/I) bolds both sides.
+const _ROMAN_RE = /^([♭♯])?(VII|III|VI|IV|II|V|I|vii|iii|vi|iv|ii|v|i)(°?)(.*)$/;
+function _boldRomanPiece(piece) {
+  const m = piece.match(_ROMAN_RE);
+  if (!m) return escapeHTML(piece);
+  const acc = m[1] || '', roman = m[2], dim = m[3] || '', suffix = m[4] || '';
+  return escapeHTML(acc) + '<b>' + roman + dim + '</b>' + escapeHTML(suffix);
+}
 function renderChord(s) {
-  return escapeHTML(s).replace(/_([0-9A-Fa-f]+)/g, '<sub>$1</sub>');
+  return s.split('~').map(part => {
+    const slashIdx = part.indexOf('/');
+    if (slashIdx < 0) return _boldRomanPiece(part);
+    return _boldRomanPiece(part.slice(0, slashIdx)) + '/' + _boldRomanPiece(part.slice(slashIdx + 1));
+  }).join('~');
 }
 
 function colorizeLayout(strings, lhSet, rhSet) {

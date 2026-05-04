@@ -385,18 +385,18 @@ shapedrills.html, polychords.html, and drills.html. Home-laptop session.
 - **Polychord chord-name cleanup** — re-derived every chord-equivalent
   label by computing the actually-played notes. Big patterns fixed:
   - Spurious "13" claims dropped from labels where the 13th wasn't
-    played (1̂9 13, 4̂̂9 13, 5̂9 13, 6̂m11 13, 2̂m11 13).
-  - Double-caret typos (1̂̂9, 4̂̂9, 6̂m̂9) replaced with correct labels.
+    played (I9 13, IV̂9 13, V9 13, vi11 13, ii11 13).
+  - Double-caret typos (Î9, IV̂9, vî9) replaced with correct labels.
   - Diatonic-handout consistency: ♭9 / ♯11 / ♭13 stripped from chord
     labels (a strictly-diatonic-in-C voicing has no actual accidentals;
     those markers were chord-theory artifacts). Prose comments still
     note "chord-theory ♯11" etc. where the disambiguation helps.
   - Space-separated extension lists (`X̂9 13`, `X̂m9 11`) replaced with
     a single highest-extension chord name and `_<hex>` subscripts to
-    subtract missing tones — e.g. `5̂13_7` = dominant 13 minus 7,
-    `1̂Δ13_B` = major 13 minus 11 (B = 11 in hex).
-  - Parenthetical commentary moved out of the chord column ("1̂̂9 (no
-    root in RH)" → "1̂Δ" + clarified comment; "(rare)" / "(variant)"
+    subtract missing tones — e.g. `V13_7` = dominant 13 minus 7,
+    `IΔ13_B` = major 13 minus 11 (B = 11 in hex).
+  - Parenthetical commentary moved out of the chord column ("Î9 (no
+    root in RH)" → "IΔ" + clarified comment; "(rare)" / "(variant)"
     → comment prefix).
 
   ~20 of 35 polychord labels rewritten. Same fixes mirrored in
@@ -406,7 +406,7 @@ shapedrills.html, polychords.html, and drills.html. Home-laptop session.
 
 - **HTML subscript rendering** — added `renderChord()` helper to all
   three HTML files. Converts `_<hex>+` markers into `<sub>X</sub>` tags
-  so labels like `1̂Δ13_B` render visually as `1̂Δ13ᴮ` in the browser,
+  so labels like `IΔ13_B` render visually as `IΔ13ᴮ` in the browser,
   matching the PDF. The PDF generator's `render_chord_latex` was also
   bumped from single-char to multi-char greedy hex (so `_79` becomes
   one subscript with two digits).
@@ -507,7 +507,7 @@ for now.
    intermediate tiles (Diatonic Drills, Polychords) are NOT showing.
 4. Optional sanity: open `shapedrills.html`, switch to **By Shape**
    mode, confirm the shape signatures (e.g. `33`, `33~3~33`) and
-   chord rosters render with proper combining circumflex (1̂, 2̂m, …)
+   chord rosters render with proper combining circumflex (I, ii, …)
    in JuliaMono.
 
 `shape-practice.pdf` is bundled in assets but not linked from the
@@ -753,7 +753,7 @@ from yesterday's session). Home doesn't need to reinstall.
   with every chord rendered as an inline 30-string layout. Generator at
   `tablet_app/scripts/build_handout_pdf.py`. Same push fixes ~20 of 35
   polychord chord-equivalent labels by re-deriving from played notes —
-  drops spurious "13" claims, double-caret typos (1̂̂9), space-separated
+  drops spurious "13" claims, double-caret typos (Î9), space-separated
   extension lists (`X̂9 13`), and chord-theory accidentals from a
   strictly-diatonic catalog. Adds `_<hex>` subscript notation for
   "subtract this chord tone." HTML files (drills, polychords,

@@ -3,14 +3,14 @@ r"""Render the shape-encoding markdown docs into HTML.
 
 Each `^N` in the source becomes:
 
-    <span class="deg">N̂</span>
+    <span class="deg">N</span>
 
 where the inner text is the digit followed by Unicode combining
 circumflex U+0302. The hat renders via the vendored DejaVu Sans Mono
 font (style.css ships it as a webfont) — DejaVu has glyph metrics
 for combining diacritics over digits, where most system monospace
 fonts do not. The .deg span tints the hatted digit in the accent
-color for extra visual contrast. Copy-paste yields literal `1̂`,
+color for extra visual contrast. Copy-paste yields literal `I`,
 round-trippable through any Unicode-aware tool.
 """
 from __future__ import annotations

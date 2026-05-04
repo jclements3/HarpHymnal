@@ -18,6 +18,9 @@ from music21 import chord, pitch
 # Diatonic scale in C major (Tonic C, all naturals).
 SCALE = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 
+# Scale degree (1..7) -> bold-rendered Roman numeral (diatonic case in C major).
+_DEG_ROMAN = {1: 'I', 2: 'ii', 3: 'iii', 4: 'IV', 5: 'V', 6: 'vi', 7: 'vii°'}
+
 # Curated interval patterns.  Each row carries the pattern code (digits as
 # they appear in shape syntax) plus a one-word description.  Order roughly
 # moves from sparse to dense voicings.
@@ -246,7 +249,7 @@ def emit_table() -> str:
                 '<th colspan="7">Degree</th><th rowspan="2">Notes</th></tr>')
     rows.append('<tr>')
     for d in range(1, 8):
-        rows.append(f'<th><span class="deg">{d}̂</span></th>')
+        rows.append(f'<th><b class="deg">{_DEG_ROMAN[d]}</b></th>')
     rows.append('</tr></thead>')
     rows.append('<tbody>')
     for pat, note in PATTERNS:

@@ -26,19 +26,19 @@
 
 <p>Rendered HTML of the shape-encoding markdown docs. The caret marks
 the degree (mode root) in every shape token, drawn as a LaTeX-style hat
-above the digit — for example <code>1x<span class="deg">1̂</span>333</code>,
-<code>3R<span class="deg">5̂</span></code>,
-<code>+2x<span class="deg">1̂</span>55</code>. Continuation digits after
+above the digit — for example <code>1x<span class="deg">I</span>333</code>,
+<code>3R<span class="deg">V</span></code>,
+<code>+2x<span class="deg">I</span>55</code>. Continuation digits after
 the <code>$</code> operator stay bare. The markdown source keeps the
 literal <code>^N</code> form for ASCII keyboard input and
 grep-friendliness; the HTML build at <code>build_html.py</code> rewrites
-<code>^N</code> as <code>&lt;span class="deg"&gt;N̂&lt;/span&gt;</code>
+<code>^N</code> as <code>&lt;span class="deg"&gt;N&lt;/span&gt;</code>
 where the inner text is the digit followed by Unicode combining
 circumflex U+0302. The hat is rendered by the vendored
 <a href="font/JuliaMono-Medium.ttf">JuliaMono</a> webfont, which
 anchors combining diacritics correctly above digits where most
 system monospace fonts (and DejaVu Sans Mono) do not. Copy-paste
-yields literal <code>1̂</code>, round-trippable through any
+yields literal <code>I</code>, round-trippable through any
 Unicode-aware tool.</p>
 
 <ul>
@@ -76,12 +76,12 @@ rendered form on the right:</p>
 <table>
 <thead><tr><th>ASCII (<code>^N</code>)</th><th>Rendered (hat above N)</th><th>Reading</th></tr></thead>
 <tbody>
-<tr><td><code>1x^13</code></td><td><code>1x<span class="deg">1̂</span>3</code></td><td>Ionian dyad in octave 1: C1–E1</td></tr>
-<tr><td><code>3x^1333</code></td><td><code>3x<span class="deg">1̂</span>333</code></td><td>Ionian tetrad in octave 3: C3–E3–G3–B3</td></tr>
-<tr><td><code>1L^6 1R^1333</code></td><td><code>1L<span class="deg">6̂</span> 1R<span class="deg">1̂</span>333</code></td><td>LH bass A1, RH stacked-thirds tetrad on C</td></tr>
-<tr><td><code>1x^1333,3333</code></td><td><code>1x<span class="deg">1̂</span>333,3333</code></td><td>Two-hand 8-finger tower (one held configuration)</td></tr>
-<tr><td><code>1x^1333$~</code></td><td><code>1x<span class="deg">1̂</span>333$~</code></td><td>Stacked-thirds chain to top of harp, mirrored back</td></tr>
-<tr><td><code>1x^1₄3₃3₂3₁</code></td><td><code>1x<span class="deg">1̂</span>₄3₃3₂3₁</code></td><td>Top-down assembly: thumb plants first, ring last</td></tr>
+<tr><td><code>1x^13</code></td><td><code>1x<span class="deg">I</span>3</code></td><td>Ionian dyad in octave 1: C1–E1</td></tr>
+<tr><td><code>3x^1333</code></td><td><code>3x<span class="deg">I</span>333</code></td><td>Ionian tetrad in octave 3: C3–E3–G3–B3</td></tr>
+<tr><td><code>1L^6 1R^1333</code></td><td><code>1L<span class="deg">VI</span> 1R<span class="deg">I</span>333</code></td><td>LH bass A1, RH stacked-thirds tetrad on C</td></tr>
+<tr><td><code>1x^1333,3333</code></td><td><code>1x<span class="deg">I</span>333,3333</code></td><td>Two-hand 8-finger tower (one held configuration)</td></tr>
+<tr><td><code>1x^1333$~</code></td><td><code>1x<span class="deg">I</span>333$~</code></td><td>Stacked-thirds chain to top of harp, mirrored back</td></tr>
+<tr><td><code>1x^1₄3₃3₂3₁</code></td><td><code>1x<span class="deg">I</span>₄3₃3₂3₁</code></td><td>Top-down assembly: thumb plants first, ring last</td></tr>
 </tbody>
 </table>
 
