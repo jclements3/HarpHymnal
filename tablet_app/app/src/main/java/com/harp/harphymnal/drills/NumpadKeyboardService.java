@@ -28,9 +28,15 @@ import android.widget.Button;
  */
 public class NumpadKeyboardService extends InputMethodService {
 
-    private boolean shifted = false;
-    private boolean ctrl    = false;
-    private boolean alt     = false;
+    /**
+     * Caps lock state: true = next characters typed in upper case.
+     * Unlike a Shift modifier this STAYS on until the user taps the
+     * caps key again -- it does not auto-clear after one character.
+     * (Ctrl and Alt below ARE sticky-once.)
+     */
+    private boolean caps = false;
+    private boolean ctrl = false;
+    private boolean alt  = false;
     private View keyboardView;
 
     @Override
@@ -107,15 +113,14 @@ public class NumpadKeyboardService extends InputMethodService {
             case "RIGHT": sendKey(KeyEvent.KEYCODE_DPAD_RIGHT); return;
             case "UP":    sendKey(KeyEvent.KEYCODE_DPAD_UP); return;
             case "DOWN":  sendKey(KeyEvent.KEYCODE_DPAD_DOWN); return;
-            case "SHIFT": shifted = !shifted; updateLabels(); return;
+            case "SHIFT": caps = !caps; updateLabels(); return;   // Caps Lock: persistent
             case "CTRL":  ctrl = !ctrl; return;
             case "ALT":   alt = !alt; return;
             default:
                 String text = tag;
-                if (shifted) {
+                if (caps) {
                     text = shiftMap(text);
-                    shifted = false;
-                    updateLabels();
+                    // do NOT clear caps -- it persists until the user taps Shift again
                 }
                 if (ctrl || alt) {
                     int kc = keyCodeFor(text);
@@ -188,7 +193,7 @@ public class NumpadKeyboardService extends InputMethodService {
             if (!(tag instanceof String)) return;
             String t = (String) tag;
             if (t.length() == 1 && Character.isLetter(t.charAt(0))) {
-                b.setText(shifted ? t.toUpperCase() : t.toLowerCase());
+                b.setText(caps ? t.toUpperCase() : t.toLowerCase());
             }
         }
     }

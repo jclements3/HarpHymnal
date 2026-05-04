@@ -73,16 +73,18 @@
             <Button style="@style/KbdKey" android:tag="/" android:text="/" />
         </LinearLayout>
 
-        <!-- Row 4: Esc(2) + Alt(2) + Space(4) + arrows(4) = 12 -->
+        <!-- Row 4: Esc(2) + Alt(2) + Space(3) + arrows(4) + Enter(1) = 12
+             Enter sits at column 12, directly under the '/' in row 3. -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
             android:orientation="horizontal">
             <Button style="@style/KbdKeyMod" android:layout_weight="2" android:tag="ESC" android:text="Esc" />
             <Button style="@style/KbdKeyMod" android:layout_weight="2" android:tag="ALT" android:text="Alt" />
-            <Button style="@style/KbdKey"    android:layout_weight="4" android:tag="SPACE" android:text=" " />
+            <Button style="@style/KbdKey"    android:layout_weight="3" android:tag="SPACE" android:text=" " />
             <Button style="@style/KbdKey" android:tag="LEFT"  android:text="←" />
             <Button style="@style/KbdKey" android:tag="DOWN"  android:text="↓" />
             <Button style="@style/KbdKey" android:tag="UP"    android:text="↑" />
             <Button style="@style/KbdKey" android:tag="RIGHT" android:text="→" />
+            <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" />
         </LinearLayout>
     </LinearLayout>
 
