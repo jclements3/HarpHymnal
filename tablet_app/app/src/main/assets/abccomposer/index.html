@@ -82,6 +82,33 @@
     padding: 6px 10px; font-size: 14px; font-family: inherit;
   }
 
+  /* ─── Hymnal picker modal ─── */
+  #hymnal-modal { display: none; }
+  #hymnal-modal.show { display: flex; }
+  .hymnal-search {
+    width: 100%;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--muted); border-radius: 5px;
+    padding: 8px 12px; font-size: 15px; font-family: inherit;
+    margin-bottom: 10px;
+  }
+  .hymnal-search:focus { outline: none; border-color: var(--accent); }
+  .hymnal-list {
+    flex: 1; overflow-y: auto;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 5px;
+    margin-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    min-height: 300px; max-height: 60vh;
+  }
+  .hymnal-list .hy {
+    display: block; padding: 8px 12px; cursor: pointer;
+    border-bottom: 1px solid var(--bg-alt);
+    font-size: 14px; color: var(--ink);
+  }
+  .hymnal-list .hy:hover, .hymnal-list .hy:active { background: var(--line); }
+  .hymnal-list .hy.empty { color: var(--muted); cursor: default; font-style: italic; }
+  .hymnal-count { font-size: 12px; color: var(--muted); }
+
   /* ─── Print: only the active render pane, on white paper ─── */
   @media print {
     @page { margin: 12mm; }
@@ -308,6 +335,7 @@
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
     <button id="btn-open">Open</button>
+    <button id="btn-hymnal" title="Browse the bundled OpenHymnal corpus">📚 Hymnal</button>
     <select id="examples-pick" title="Load a bundled example">
       <option value="">Examples ▾</option>
     </select>
@@ -355,6 +383,20 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+<!-- ─── hymnal picker modal ─── -->
+<div class="modal-bg" id="hymnal-modal">
+  <div class="modal" style="display:flex;flex-direction:column;width:560px;max-width:92vw;height:78vh;">
+    <h2 style="margin-bottom:6px;">📚 OpenHymnal corpus</h2>
+    <div class="hymnal-count" id="hymnal-count" style="margin-bottom:8px;">loading…</div>
+    <input type="text" id="hymnal-search" class="hymnal-search"
+           placeholder="Search by title…" autocomplete="off"/>
+    <div class="hymnal-list" id="hymnal-list"></div>
+    <div class="actions">
+      <button id="btn-hymnal-cancel">Cancel</button>
+    </div>
   </div>
 </div>
 
@@ -1109,6 +1151,83 @@ document.getElementById("btn-new").onclick = () => {
 
 document.getElementById("btn-open").onclick = () =>
   document.getElementById("file-input").click();
+
+// ────────────────────────────────────────────────────────────────────
+// Hymnal picker modal -- searchable list of all bundled OpenHymnal tunes.
+// ────────────────────────────────────────────────────────────────────
+const hymnalModal = document.getElementById("hymnal-modal");
+const hymnalSearch = document.getElementById("hymnal-search");
+const hymnalList = document.getElementById("hymnal-list");
+const hymnalCount = document.getElementById("hymnal-count");
+let hymnalIndex = null;
+
+async function loadHymnalIndex() {
+  if (hymnalIndex) return hymnalIndex;
+  try {
+    const r = await fetch("examples/hymns/index.json");
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    hymnalIndex = await r.json();
+  } catch (e) {
+    hymnalIndex = [];
+    hymnalCount.textContent = "(failed to load index: " + (e && e.message || e) + ")";
+  }
+  return hymnalIndex;
+}
+
+function renderHymnalList(filter) {
+  const q = (filter || "").trim().toLowerCase();
+  const rows = (hymnalIndex || []).filter(h =>
+    !q || h.title.toLowerCase().includes(q));
+  hymnalList.innerHTML = "";
+  if (!rows.length) {
+    const div = document.createElement("div");
+    div.className = "hy empty";
+    div.textContent = q ? "no matches" : "no hymns indexed";
+    hymnalList.appendChild(div);
+  } else {
+    for (const h of rows) {
+      const div = document.createElement("div");
+      div.className = "hy";
+      div.textContent = h.title;
+      div.dataset.path = "examples/" + h.path;
+      hymnalList.appendChild(div);
+    }
+  }
+  hymnalCount.textContent = rows.length + " of " + (hymnalIndex || []).length + " hymns";
+}
+
+document.getElementById("btn-hymnal").onclick = async () => {
+  hymnalModal.classList.add("show");
+  hymnalSearch.value = "";
+  hymnalCount.textContent = "loading…";
+  hymnalList.innerHTML = "";
+  await loadHymnalIndex();
+  renderHymnalList("");
+  // Focus search but don't summon a soft keyboard on touch -- the user
+  // can tap the input themselves if they want to type.
+  // hymnalSearch.focus();
+};
+document.getElementById("btn-hymnal-cancel").onclick = () =>
+  hymnalModal.classList.remove("show");
+hymnalSearch.addEventListener("input", () => renderHymnalList(hymnalSearch.value));
+hymnalList.addEventListener("click", async (ev) => {
+  const row = ev.target.closest(".hy[data-path]");
+  if (!row) return;
+  const path = row.dataset.path;
+  try {
+    const r = await fetch(path);
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const txt = await r.text();
+    cm.setValue(txt);
+    const fn = path.split("/").pop();
+    fname.value = fn;
+    lsSet(LS.fname, fn);
+    setStatus("loaded " + fn, "ok");
+  } catch (e) {
+    setStatus("load failed: " + (e && e.message || e), "err");
+  }
+  hymnalModal.classList.remove("show");
+});
 
 // Examples dropdown -- loads bundled .abc files from APK assets via fetch.
 // Add new files to abccomposer/examples/ and reference them here.
