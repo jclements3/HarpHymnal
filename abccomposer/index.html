@@ -776,7 +776,9 @@ applyZoom(lsGet(LS.zoom, ""));
       if (Date.now() < suppressDblClickUntil) return;     // synthesized after touch
       // Don't hijack double-clicks on text inputs / textareas / buttons.
       const t = ev.target;
-      if (t && t.closest && t.closest("input, textarea, button, .CodeMirror, select")) return;
+      // Bail only for actual interactive controls; .CodeMirror is the
+      // editor surface and we want double-tap-to-zoom to work there too.
+      if (t && t.closest && t.closest("input, textarea, button, select")) return;
       toggleZoom(name);
     });
 
@@ -786,7 +788,9 @@ applyZoom(lsGet(LS.zoom, ""));
     el.addEventListener("pointerdown", (ev) => {
       if (ev.pointerType !== "touch") return;
       const t = ev.target;
-      if (t && t.closest && t.closest("input, textarea, button, .CodeMirror, select")) return;
+      // Bail only for actual interactive controls; .CodeMirror is the
+      // editor surface and we want double-tap-to-zoom to work there too.
+      if (t && t.closest && t.closest("input, textarea, button, select")) return;
       const now = Date.now();
       if (now - lastTap < 350) {
         ev.preventDefault();
