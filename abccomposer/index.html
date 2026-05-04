@@ -106,38 +106,13 @@
   .pane-render .pane-header { background: #44475a; color: #f8f8f2; }
   .pane-body { flex: 1; min-height: 0; overflow: auto; }
 
-  /* ─── on-screen vim helper bar (tablet primary, also handy on desktop) ─── */
-  .vim-bar {
-    flex: 0 0 auto;
-    display: flex; gap: 5px; padding: 6px 8px;
-    background: var(--bg-alt);
-    border-bottom: 1px solid var(--line);
-    overflow-x: auto; white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-  .vim-bar button {
-    background: #44475a; color: var(--ink);
-    border: 1px solid var(--muted); border-radius: 6px;
-    padding: 8px 12px; cursor: pointer;
-    font-size: 15px; font-weight: 600;
-    font-family: "JetBrains Mono","DejaVu Sans Mono","Liberation Mono",monospace;
-    min-width: 44px; min-height: 38px;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    flex: 0 0 auto;
-  }
-  .vim-bar button:active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
-  .vim-bar .vim-sep { flex: 0 0 12px; }
-  .vim-bar button.warn { border-color: var(--orange); color: var(--orange); }
-  .vim-bar button.go   { border-color: var(--green);  color: var(--green); }
-
   /* ─── editor ─── */
   .CodeMirror {
     height: 100% !important;
     font-family: "JetBrains Mono", "Fira Code", "DejaVu Sans Mono",
                  "Liberation Mono", "Consolas", monospace;
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.5;
   }
   .cm-abc-header { color: var(--orange); font-weight: 600; }
   .cm-abc-comment { color: var(--muted); font-style: italic; }
@@ -289,29 +264,6 @@
     <div class="pane pane-editor">
       <div class="pane-header">
         <span>Editor — vim mode</span>
-      </div>
-      <div class="vim-bar" id="vim-bar">
-        <button class="warn" data-vk="<Esc>">Esc</button>
-        <button data-vk="i">i</button>
-        <button data-vk="a">a</button>
-        <button data-vk="o">o</button>
-        <button data-vk="O">O</button>
-        <span class="vim-sep"></span>
-        <button data-vk="u">u</button>
-        <button data-vk="<C-r>">↻</button>
-        <button data-vk="dd">dd</button>
-        <button data-vk="yy">yy</button>
-        <button data-vk="p">p</button>
-        <span class="vim-sep"></span>
-        <button data-vk="/">/</button>
-        <button class="go" data-vk=":w<CR>">:w</button>
-        <button class="go" data-vk=":play<CR>">▶</button>
-        <button class="warn" data-vk=":stop<CR>">■</button>
-        <span class="vim-sep"></span>
-        <button data-vk="h">←</button>
-        <button data-vk="j">↓</button>
-        <button data-vk="k">↑</button>
-        <button data-vk="l">→</button>
       </div>
       <div class="pane-body">
         <textarea id="abc-source"></textarea>
@@ -785,31 +737,6 @@ if (CodeMirror.Vim) {
   });
   CodeMirror.Vim.defineEx("play", "play", () => play());
   CodeMirror.Vim.defineEx("stop", "stop", () => stop());
-}
-
-// ────────────────────────────────────────────────────────────────────
-// 9b.  On-screen vim helper bar (touch-friendly; also clickable on desktop)
-//
-// pointerdown + preventDefault is critical: a regular click would
-// (a) shift focus away from CodeMirror, dismissing the Android soft
-// keyboard, and (b) make synthetic key dispatch flaky.
-// ────────────────────────────────────────────────────────────────────
-{
-  const bar = document.getElementById("vim-bar");
-  function fire(e) {
-    const btn = e.target.closest("button[data-vk]");
-    if (!btn) return;
-    e.preventDefault();
-    const key = btn.dataset.vk;
-    if (CodeMirror.Vim) CodeMirror.Vim.handleKey(cm, key, "user");
-    cm.focus();
-  }
-  bar.addEventListener("pointerdown", fire);
-  // mousedown fallback for older browsers without pointer events
-  bar.addEventListener("mousedown", (e) => {
-    if (e.pointerType !== undefined) return; // pointer event already handled
-    fire(e);
-  });
 }
 
 // initial focus into editor (so vim mode is immediately active)
