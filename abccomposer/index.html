@@ -1182,7 +1182,9 @@ let myfilesCache    = [];
 
 function renderMyFiles(filter) {
   const q = (filter || "").trim().toLowerCase();
-  const rows = myfilesCache.filter(r => !q || r.name.toLowerCase().includes(q));
+  // Hide internal/diagnostic files (names starting with _).
+  const visible = myfilesCache.filter(r => !r.name.startsWith("_"));
+  const rows = visible.filter(r => !q || r.name.toLowerCase().includes(q));
   myfilesList.innerHTML = "";
   if (!rows.length) {
     const div = document.createElement("div");
@@ -1202,7 +1204,7 @@ function renderMyFiles(filter) {
       myfilesList.appendChild(div);
     }
   }
-  myfilesCount.textContent = rows.length + " of " + myfilesCache.length + " files";
+  myfilesCount.textContent = rows.length + " of " + visible.length + " files";
 }
 
 function refreshMyFiles() {
