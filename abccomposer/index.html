@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ABC Composer</title>
+
+<link rel="stylesheet" href="vendor/codemirror.css"/>
+<link rel="stylesheet" href="vendor/dracula.css"/>
+<link rel="stylesheet" href="vendor/dialog.css"/>
+
+<style>
+  :root {
+    --bg:        #1e1f29;
+    --bg-alt:    #282a36;
+    --panel:     #21222c;
+    --line:      #44475a;
+    --ink:       #f8f8f2;
+    --muted:     #6272a4;
+    --accent:    #bd93f9;
+    --green:     #50fa7b;
+    --pink:      #ff79c6;
+    --orange:    #ffb86c;
+    --red:       #ff5555;
+    --user-bg:   #44475a;
+    --asst-bg:   #2d2f3a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100vh; width: 100vw;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+    overflow: hidden;
+  }
+
+  #app { display: flex; flex-direction: column; height: 100%; width: 100%; }
+
+  /* ─── toolbar ─── */
+  #toolbar {
+    flex: 0 0 auto;
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 12px;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  #toolbar .brand {
+    font-weight: 700; color: var(--accent);
+    margin-right: 12px; letter-spacing: 0.5px;
+  }
+  #toolbar input[type=text] {
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 4px 8px; font-size: 13px; width: 220px;
+    font-family: inherit;
+  }
+  #toolbar button {
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 5px 10px; cursor: pointer; font-size: 13px;
+    font-family: inherit;
+  }
+  #toolbar button:hover { background: var(--line); }
+  #toolbar button.primary { border-color: var(--accent); color: var(--accent); }
+  #toolbar .spacer { flex: 1; }
+  #toolbar .status { color: var(--muted); font-size: 12px; }
+  #toolbar .status.ok { color: var(--green); }
+  #toolbar .status.err { color: var(--red); }
+
+  /* ─── panes ─── */
+  #panes {
+    flex: 1; display: flex; flex-direction: row;
+    min-height: 0;
+  }
+  .pane {
+    display: flex; flex-direction: column;
+    min-width: 0; min-height: 0;
+    border-right: 1px solid var(--line);
+  }
+  .pane:last-child { border-right: none; }
+  .pane-editor { flex: 0 0 40%; }
+  .pane-render { flex: 0 0 40%; background: #f8f8f2; color: #21222c; }
+  .pane-chat   { flex: 0 0 20%; background: var(--bg-alt); }
+
+  .pane-header {
+    flex: 0 0 auto;
+    padding: 4px 10px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--muted);
+  }
+  .pane-render .pane-header { background: #44475a; color: #f8f8f2; }
+  .pane-body { flex: 1; min-height: 0; overflow: auto; }
+
+  /* ─── editor ─── */
+  .CodeMirror {
+    height: 100% !important;
+    font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .cm-abc-header { color: var(--orange); font-weight: 600; }
+  .cm-abc-comment { color: var(--muted); font-style: italic; }
+  .cm-abc-bar { color: var(--pink); font-weight: 600; }
+  .cm-abc-decoration { color: var(--green); }
+  .cm-abc-chordsym { color: var(--accent); }
+  .cm-abc-bracket { color: var(--pink); }
+  .cm-abc-note { color: var(--ink); }
+  .cm-abc-accidental { color: var(--orange); }
+  .cm-fat-cursor { background: var(--green) !important; opacity: 0.6 !important; }
+
+  /* ─── render pane ─── */
+  #abcjs-target {
+    padding: 16px;
+    background: #f8f8f2;
+    min-height: 100%;
+  }
+  #abcjs-target svg { background: #f8f8f2; }
+  .render-error {
+    color: #b03030; padding: 16px; font-family: monospace;
+    background: #fff5f5; white-space: pre-wrap;
+  }
+
+  /* ─── chat pane ─── */
+  .chat-history {
+    flex: 1; overflow-y: auto; padding: 8px;
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 13px;
+  }
+  .msg {
+    padding: 8px 10px; border-radius: 6px;
+    white-space: pre-wrap; word-wrap: break-word;
+    line-height: 1.4;
+  }
+  .msg.user      { background: var(--user-bg); color: var(--ink); }
+  .msg.assistant { background: var(--asst-bg); color: var(--ink); border: 1px solid var(--line); }
+  .msg.error     { background: #4a1f1f; color: #ff8a8a; border: 1px solid #6a3030; }
+  .msg .role {
+    display: block; font-size: 10px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--muted); margin-bottom: 4px;
+  }
+  .msg pre {
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 4px; padding: 6px 8px; margin: 6px 0;
+    overflow-x: auto; font-size: 12px;
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+  }
+  .msg .apply-btn {
+    display: inline-block; margin-top: 4px; font-size: 11px;
+    padding: 3px 8px; border: 1px solid var(--green); color: var(--green);
+    background: transparent; border-radius: 3px; cursor: pointer;
+  }
+  .msg .apply-btn:hover { background: var(--green); color: var(--bg); }
+
+  .chat-input-wrap {
+    flex: 0 0 auto;
+    border-top: 1px solid var(--line);
+    padding: 8px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .chat-input {
+    width: 100%; min-height: 60px; resize: vertical;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 6px 8px; font-size: 13px;
+    font-family: inherit;
+  }
+  .chat-input:focus { outline: none; border-color: var(--accent); }
+  .chat-controls {
+    display: flex; gap: 6px; align-items: center;
+  }
+  .chat-controls button {
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 5px 10px; cursor: pointer; font-size: 12px;
+    font-family: inherit;
+  }
+  .chat-controls button.primary {
+    border-color: var(--accent); color: var(--accent);
+  }
+  .chat-controls .hint {
+    flex: 1; font-size: 10px; color: var(--muted); text-align: right;
+  }
+
+  /* ─── settings modal ─── */
+  .modal-bg {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    display: none; align-items: center; justify-content: center;
+    z-index: 100;
+  }
+  .modal-bg.show { display: flex; }
+  .modal {
+    background: var(--bg-alt); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 20px; min-width: 480px; max-width: 90vw;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .modal h2 { font-size: 16px; margin-bottom: 12px; color: var(--accent); }
+  .modal label {
+    display: block; font-size: 12px; color: var(--muted);
+    margin-top: 12px; margin-bottom: 4px; text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .modal input, .modal select, .modal textarea {
+    width: 100%; background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 6px 8px; font-size: 13px; font-family: inherit;
+  }
+  .modal textarea { min-height: 100px; resize: vertical; font-family: monospace; }
+  .modal .row { display: flex; gap: 12px; }
+  .modal .row > * { flex: 1; }
+  .modal .actions {
+    margin-top: 16px; display: flex; gap: 8px; justify-content: flex-end;
+  }
+  .modal button {
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 6px 14px; cursor: pointer; font-family: inherit;
+  }
+  .modal button.primary { border-color: var(--accent); color: var(--accent); }
+
+  /* CM dialog overrides for vim ex commands */
+  .CodeMirror-dialog {
+    background: var(--bg-alt); color: var(--ink); border-color: var(--line);
+  }
+  .CodeMirror-dialog input { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div id="app">
+
+  <div id="toolbar">
+    <span class="brand">ABC Composer</span>
+    <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
+    <button id="btn-new">New</button>
+    <button id="btn-open">Open</button>
+    <input type="file" id="file-input" accept=".abc,text/plain" style="display:none"/>
+    <button id="btn-save">Save</button>
+    <button id="btn-play" class="primary">▶ Play</button>
+    <button id="btn-stop">■ Stop</button>
+    <span class="spacer"></span>
+    <span class="status" id="render-status">ready</span>
+    <button id="btn-settings">⚙</button>
+  </div>
+
+  <div id="panes">
+
+    <div class="pane pane-editor">
+      <div class="pane-header">
+        <span>Editor — vim mode (Esc / i / : / / )</span>
+      </div>
+      <div class="pane-body">
+        <textarea id="abc-source"></textarea>
+      </div>
+    </div>
+
+    <div class="pane pane-render">
+      <div class="pane-header" style="color:#21222c;">Score (live abcjs render)</div>
+      <div class="pane-body">
+        <div id="abcjs-target"></div>
+      </div>
+    </div>
+
+    <div class="pane pane-chat">
+      <div class="pane-header">Claude</div>
+      <div class="chat-history" id="chat-history"></div>
+      <div class="chat-input-wrap">
+        <textarea id="chat-input" class="chat-input"
+          placeholder="Ask Claude to compose / fix / harmonize / explain... (Cmd+Enter to send)"></textarea>
+        <div class="chat-controls">
+          <button id="btn-clear-chat">Clear</button>
+          <span class="hint">⌘↵ send</span>
+          <button id="btn-send" class="primary">Send</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── settings modal ─── -->
+<div class="modal-bg" id="settings-modal">
+  <div class="modal">
+    <h2>Settings</h2>
+
+    <label>Anthropic API key</label>
+    <input type="password" id="cfg-api-key" placeholder="sk-ant-..." autocomplete="off"/>
+    <div style="font-size:11px;color:var(--muted);margin-top:4px">
+      Stored in this browser's localStorage only. Calls go direct to api.anthropic.com.
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Model</label>
+        <select id="cfg-model">
+          <option value="claude-opus-4-7">claude-opus-4-7 (Opus 4.7)</option>
+          <option value="claude-sonnet-4-6">claude-sonnet-4-6 (Sonnet 4.6)</option>
+          <option value="claude-haiku-4-5-20251001">claude-haiku-4-5 (Haiku 4.5)</option>
+        </select>
+      </div>
+      <div>
+        <label>Max tokens</label>
+        <input type="number" id="cfg-max-tokens" value="4096" min="256" max="64000"/>
+      </div>
+    </div>
+
+    <label>System prompt</label>
+    <textarea id="cfg-system-prompt"></textarea>
+    <div style="font-size:11px;color:var(--muted);margin-top:4px">
+      The current ABC source is appended to every request automatically as
+      &lt;current_abc&gt;...&lt;/current_abc&gt; — don't include it here.
+    </div>
+
+    <div class="actions">
+      <button id="btn-cfg-cancel">Cancel</button>
+      <button id="btn-cfg-save" class="primary">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── vendored libs ─── -->
+<script src="vendor/codemirror.js"></script>
+<script src="vendor/dialog.js"></script>
+<script src="vendor/searchcursor.js"></script>
+<script src="vendor/search.js"></script>
+<script src="vendor/matchbrackets.js"></script>
+<script src="vendor/vim.js"></script>
+<script src="vendor/abcjs-basic-min.js"></script>
+
+<script>
+"use strict";
+
+// ────────────────────────────────────────────────────────────────────
+// 1.  Inline ABC syntax mode for CodeMirror
+// ────────────────────────────────────────────────────────────────────
+CodeMirror.defineMode("abc", function () {
+  const HEADER_RE = /^[A-Za-z]:/;
+  return {
+    startState() { return { inChord: false, inString: false }; },
+    token(stream, state) {
+      if (stream.sol() && stream.match(HEADER_RE, false)) {
+        stream.skipToEnd();
+        return "abc-header";
+      }
+      const ch = stream.peek();
+      if (state.inString) {
+        while ((stream.next()) != null) {
+          if (stream.string[stream.pos - 1] === '"') { state.inString = false; break; }
+        }
+        return "abc-chordsym";
+      }
+      if (ch === "%") { stream.skipToEnd(); return "abc-comment"; }
+      if (ch === '"') { stream.next(); state.inString = true; return "abc-chordsym"; }
+      if (ch === "!") {
+        stream.next();
+        while ((stream.next()) != null) {
+          if (stream.string[stream.pos - 1] === "!") break;
+        }
+        return "abc-decoration";
+      }
+      if (ch === "[" || ch === "]") { stream.next(); return "abc-bracket"; }
+      if (ch === "|" || ch === ":") { stream.next(); return "abc-bar"; }
+      if (ch === "^" || ch === "_" || ch === "=") { stream.next(); return "abc-accidental"; }
+      if (/[A-Ga-gzZxX]/.test(ch)) { stream.next(); return "abc-note"; }
+      stream.next();
+      return null;
+    }
+  };
+});
+
+// ────────────────────────────────────────────────────────────────────
+// 2.  Defaults + localStorage
+// ────────────────────────────────────────────────────────────────────
+const DEFAULT_ABC = [
+  "X:1",
+  "T:Untitled",
+  "C:",
+  "M:4/4",
+  "L:1/8",
+  "Q:1/4=80",
+  "K:C",
+  "% type ABC here. Esc for vim normal mode. : for ex commands.",
+  "|: CDEF GABc | cBAG FEDC :|",
+  ""
+].join("\n");
+
+const DEFAULT_SYSTEM = [
+  "You are an expert ABC notation composer collaborating with a harpist on the HarpHymnal project.",
+  "You write valid ABC 2.1 — single tunes with X/T/M/L/K headers, body music code, optional V: voices, optional w: lyrics.",
+  "When the user asks for a change, return the COMPLETE updated ABC inside a single ```abc fenced code block, not a diff.",
+  "When asked to explain, answer in prose without code fences.",
+  "Default key C major / 4/4 / L:1/8 unless the user specifies otherwise.",
+  "Lever-harp range: C2..G7. Pedal-harp: same. Bass clef voices use V:2 clef=bass."
+].join(" ");
+
+const LS = {
+  abc:    "abccomposer.abc",
+  fname:  "abccomposer.filename",
+  key:    "abccomposer.apiKey",
+  model:  "abccomposer.model",
+  maxtok: "abccomposer.maxTokens",
+  sys:    "abccomposer.systemPrompt",
+  hist:   "abccomposer.chatHistory",
+};
+function lsGet(k, fallback) {
+  try { const v = localStorage.getItem(k); return v == null ? fallback : v; }
+  catch (e) { return fallback; }
+}
+function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+// ────────────────────────────────────────────────────────────────────
+// 3.  CodeMirror init
+// ────────────────────────────────────────────────────────────────────
+const ta = document.getElementById("abc-source");
+ta.value = lsGet(LS.abc, DEFAULT_ABC);
+
+const cm = CodeMirror.fromTextArea(ta, {
+  mode: "abc",
+  theme: "dracula",
+  keyMap: "vim",
+  lineNumbers: true,
+  lineWrapping: true,
+  matchBrackets: true,
+  showCursorWhenSelecting: true,
+});
+
+// ────────────────────────────────────────────────────────────────────
+// 4.  Live abcjs render (debounced)
+// ────────────────────────────────────────────────────────────────────
+const renderTarget = document.getElementById("abcjs-target");
+const renderStatus = document.getElementById("render-status");
+let visualObj = null;
+let synthControl = null;
+
+function setStatus(text, cls) {
+  renderStatus.textContent = text;
+  renderStatus.className = "status" + (cls ? " " + cls : "");
+}
+
+function render(abc) {
+  try {
+    const out = ABCJS.renderAbc(renderTarget, abc, {
+      responsive: "resize",
+      add_classes: true,
+    });
+    visualObj = out && out[0] ? out[0] : null;
+    setStatus("ok", "ok");
+  } catch (e) {
+    renderTarget.innerHTML = '<div class="render-error">' +
+      String(e && e.message || e) + '</div>';
+    visualObj = null;
+    setStatus("render error", "err");
+  }
+}
+
+let renderTimer = null;
+function scheduleRender() {
+  clearTimeout(renderTimer);
+  renderTimer = setTimeout(() => render(cm.getValue()), 250);
+}
+
+cm.on("change", () => {
+  lsSet(LS.abc, cm.getValue());
+  scheduleRender();
+});
+
+render(cm.getValue());
+
+// ────────────────────────────────────────────────────────────────────
+// 5.  Audio (abcjs synth)
+// ────────────────────────────────────────────────────────────────────
+async function play() {
+  if (!visualObj) { setStatus("nothing to play", "err"); return; }
+  if (!ABCJS.synth.supportsAudio()) {
+    setStatus("audio unsupported in this browser", "err"); return;
+  }
+  try {
+    if (synthControl) {
+      try { synthControl.pause(); } catch (e) {}
+      try { synthControl.destroy && synthControl.destroy(); } catch (e) {}
+    }
+    synthControl = new ABCJS.synth.SynthController();
+    synthControl.load("#audio-host", null, {
+      displayPlay: false, displayProgress: false, displayClock: false,
+    });
+    const createSynth = new ABCJS.synth.CreateSynth();
+    await createSynth.init({ visualObj });
+    await synthControl.setTune(visualObj, false, {});
+    synthControl.play();
+    setStatus("playing", "ok");
+  } catch (e) {
+    setStatus("audio: " + (e && e.message || e), "err");
+  }
+}
+function stop() {
+  if (synthControl) { try { synthControl.pause(); } catch (e) {} }
+  setStatus("stopped");
+}
+
+// host div for synth controller (hidden)
+{
+  const host = document.createElement("div");
+  host.id = "audio-host";
+  host.style.display = "none";
+  document.body.appendChild(host);
+}
+
+// ────────────────────────────────────────────────────────────────────
+// 6.  Toolbar wiring
+// ────────────────────────────────────────────────────────────────────
+const fname = document.getElementById("filename");
+fname.value = lsGet(LS.fname, "untitled.abc");
+fname.addEventListener("input", () => lsSet(LS.fname, fname.value));
+
+document.getElementById("btn-new").onclick = () => {
+  if (!confirm("Replace editor with a blank template?")) return;
+  cm.setValue(DEFAULT_ABC);
+  fname.value = "untitled.abc"; lsSet(LS.fname, fname.value);
+};
+
+document.getElementById("btn-open").onclick = () =>
+  document.getElementById("file-input").click();
+document.getElementById("file-input").onchange = (ev) => {
+  const f = ev.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    cm.setValue(String(r.result || ""));
+    fname.value = f.name; lsSet(LS.fname, fname.value);
+  };
+  r.readAsText(f);
+  ev.target.value = "";
+};
+
+document.getElementById("btn-save").onclick = () => {
+  const blob = new Blob([cm.getValue()], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = fname.value || "untitled.abc";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+};
+
+document.getElementById("btn-play").onclick = play;
+document.getElementById("btn-stop").onclick = stop;
+
+// ────────────────────────────────────────────────────────────────────
+// 7.  Settings modal
+// ────────────────────────────────────────────────────────────────────
+const modal = document.getElementById("settings-modal");
+const cfgKey = document.getElementById("cfg-api-key");
+const cfgModel = document.getElementById("cfg-model");
+const cfgMax = document.getElementById("cfg-max-tokens");
+const cfgSys = document.getElementById("cfg-system-prompt");
+
+function loadSettings() {
+  cfgKey.value   = lsGet(LS.key, "");
+  cfgModel.value = lsGet(LS.model, "claude-opus-4-7");
+  cfgMax.value   = lsGet(LS.maxtok, "4096");
+  cfgSys.value   = lsGet(LS.sys, DEFAULT_SYSTEM);
+}
+function saveSettings() {
+  lsSet(LS.key,    cfgKey.value.trim());
+  lsSet(LS.model,  cfgModel.value);
+  lsSet(LS.maxtok, cfgMax.value);
+  lsSet(LS.sys,    cfgSys.value);
+}
+document.getElementById("btn-settings").onclick = () => {
+  loadSettings(); modal.classList.add("show");
+};
+document.getElementById("btn-cfg-cancel").onclick = () => modal.classList.remove("show");
+document.getElementById("btn-cfg-save").onclick = () => {
+  saveSettings(); modal.classList.remove("show");
+};
+
+// ────────────────────────────────────────────────────────────────────
+// 8.  Chat
+// ────────────────────────────────────────────────────────────────────
+const chatHistory = document.getElementById("chat-history");
+const chatInput = document.getElementById("chat-input");
+
+function loadHistory() {
+  try {
+    const raw = lsGet(LS.hist, "[]");
+    return JSON.parse(raw);
+  } catch (e) { return []; }
+}
+function saveHistory(arr) {
+  lsSet(LS.hist, JSON.stringify(arr));
+}
+let history = loadHistory();
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c =>
+    ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function renderMessage(msg) {
+  const div = document.createElement("div");
+  div.className = "msg " + msg.role;
+  const role = document.createElement("span");
+  role.className = "role";
+  role.textContent = msg.role;
+  div.appendChild(role);
+
+  const body = document.createElement("div");
+  // split by ```...``` fences
+  const re = /```([a-zA-Z0-9_-]*)\n?([\s\S]*?)```/g;
+  let last = 0, m;
+  while ((m = re.exec(msg.content)) !== null) {
+    if (m.index > last) {
+      const txt = document.createElement("span");
+      txt.textContent = msg.content.slice(last, m.index);
+      body.appendChild(txt);
+    }
+    const lang = m[1] || "";
+    const code = m[2];
+    const pre = document.createElement("pre");
+    pre.textContent = code;
+    body.appendChild(pre);
+    if (msg.role === "assistant" && (lang === "abc" || lang === "" || lang === "ABC")) {
+      const btn = document.createElement("button");
+      btn.className = "apply-btn";
+      btn.textContent = "→ Apply to editor";
+      btn.onclick = () => { cm.setValue(code); cm.focus(); };
+      body.appendChild(btn);
+    }
+    last = m.index + m[0].length;
+  }
+  if (last < msg.content.length) {
+    const txt = document.createElement("span");
+    txt.textContent = msg.content.slice(last);
+    body.appendChild(txt);
+  }
+  div.appendChild(body);
+  return div;
+}
+
+function rerenderHistory() {
+  chatHistory.innerHTML = "";
+  for (const m of history) chatHistory.appendChild(renderMessage(m));
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+}
+rerenderHistory();
+
+document.getElementById("btn-clear-chat").onclick = () => {
+  if (!confirm("Clear chat history?")) return;
+  history = []; saveHistory(history); rerenderHistory();
+};
+
+async function send() {
+  const text = chatInput.value.trim();
+  if (!text) return;
+  const apiKey = lsGet(LS.key, "");
+  if (!apiKey) {
+    history.push({ role: "error",
+      content: "No API key set. Click ⚙ in the toolbar to add one." });
+    saveHistory(history); rerenderHistory();
+    return;
+  }
+  const userMsg = { role: "user", content: text };
+  history.push(userMsg);
+  chatInput.value = "";
+  saveHistory(history); rerenderHistory();
+
+  // build request
+  const sysPrompt = lsGet(LS.sys, DEFAULT_SYSTEM);
+  const fullSystem = sysPrompt +
+    "\n\n<current_abc>\n" + cm.getValue() + "\n</current_abc>";
+  const apiHistory = history
+    .filter(m => m.role === "user" || m.role === "assistant")
+    .map(m => ({ role: m.role, content: m.content }));
+  const body = {
+    model: lsGet(LS.model, "claude-opus-4-7"),
+    max_tokens: parseInt(lsGet(LS.maxtok, "4096"), 10) || 4096,
+    system: fullSystem,
+    messages: apiHistory,
+  };
+
+  setStatus("calling Claude...", "");
+  try {
+    const resp = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true",
+      },
+      body: JSON.stringify(body),
+    });
+    const data = await resp.json();
+    if (!resp.ok) {
+      throw new Error((data && data.error && data.error.message) ||
+                       ("HTTP " + resp.status));
+    }
+    const text = (data.content || [])
+      .filter(b => b.type === "text").map(b => b.text).join("\n").trim();
+    history.push({ role: "assistant", content: text || "(empty)" });
+    saveHistory(history); rerenderHistory();
+    setStatus("ok", "ok");
+  } catch (e) {
+    history.push({ role: "error", content: String(e && e.message || e) });
+    saveHistory(history); rerenderHistory();
+    setStatus("api error", "err");
+  }
+}
+
+document.getElementById("btn-send").onclick = send;
+chatInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+    e.preventDefault(); send();
+  }
+});
+
+// ────────────────────────────────────────────────────────────────────
+// 9.  Vim ex command :w → trigger save
+// ────────────────────────────────────────────────────────────────────
+if (CodeMirror.Vim) {
+  CodeMirror.Vim.defineEx("write", "w", () => {
+    document.getElementById("btn-save").click();
+  });
+  CodeMirror.Vim.defineEx("play", "play", () => play());
+  CodeMirror.Vim.defineEx("stop", "stop", () => stop());
+}
+
+// initial focus into editor (so vim mode is immediately active)
+setTimeout(() => cm.focus(), 50);
+</script>
+
+</body>
+</html>

@@ -68,6 +68,68 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-04 — abccomposer: in-browser ABC editor + Claude chat)
+
+New top-level app `abccomposer/` — single self-contained `index.html`
+with a horizontal **40 / 40 / 20** layout: vim-mode CodeMirror editor
+(40%), live abcjs render (40%), Claude chat pane (20%). No build step,
+no server (the chat pane calls `api.anthropic.com` directly with a key
+the user pastes into a settings dialog and which is stored in
+`localStorage` only).
+
+### What this push landed
+
+- `abccomposer/index.html` — toolbar (filename, New / Open / Save /
+  Play / Stop / settings) + 3 panes. Editor is CodeMirror 5.65.18 with
+  the official `vim` keymap (full motion/operator/text-object/
+  visual-block/macro/register/dot-repeat support — substantially
+  beyond the hand-rolled `easyabc_vim/` subset). Inline `abc` syntax
+  mode coloring header lines, `%` comments, `!decoration!`,
+  `"chord symbol"`, bar lines, accidentals, notes. Custom vim ex
+  commands `:w` (download `.abc`), `:play`, `:stop`.
+- `abccomposer/vendor/` — CodeMirror 5 core + dracula theme + vim
+  keymap + dialog/search/matchbrackets addons + abcjs 6.4.4
+  basic-min. All MIT/BSD, all flat files, no bundler.
+- `abccomposer/README.md` — run/setup instructions, why CM5 not CM6,
+  why a separate app rather than a tablet tile.
+
+### How the chat pane talks to Claude
+
+Each `POST /v1/messages` includes:
+- `system` = saved system prompt + `<current_abc>` ... `</current_abc>`
+  (the editor's full buffer, sent fresh each turn so Claude always
+  sees what the user is currently composing)
+- `messages` = visible user/assistant turn history (persisted in
+  `localStorage` as `abccomposer.chatHistory`)
+- header `anthropic-dangerous-direct-browser-access: true` so the API
+  accepts requests with a `*` Origin
+
+Assistant messages with fenced ` ```abc ` blocks render an
+**→ Apply to editor** button under the block — replaces the editor
+buffer in one click.
+
+### What's queued / not started
+
+- **Smoke-test on a real browser**. Was authored but not actually
+  loaded yet — first thing for whichever box opens this.
+- Optional: bundle a couple of HarpHymnal sample tunes into
+  `abccomposer/examples/` (currently the dir is empty) so you can
+  pick one with `:e examples/foo.abc` rather than only typing from
+  scratch.
+- Stripchart visualizer (queued from 2026-05-03) is now arguably
+  obsolete — abcjs already exposes timing events; if a piano-roll is
+  wanted, hang it off this composer's render pane instead of patching
+  EasyABC.
+
+### Relationship to easyabc_vim/ (2026-05-03)
+
+`easyabc_vim/` still works as a lab-box fallback if anyone wants the
+EasyABC GUI specifically. But the browser path is now the primary
+recommended editor: full vim keymap, runs anywhere with a browser,
+no wxPython/Z:-share fragility, no Python install required.
+
+---
+
 ## Current state (2026-05-03 — easyabc_vim: vim mode for EasyABC)
 
 New top-level dir `easyabc_vim/` packages an embedded vi keybinding layer
