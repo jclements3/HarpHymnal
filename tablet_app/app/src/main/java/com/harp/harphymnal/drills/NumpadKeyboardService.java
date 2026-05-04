@@ -29,14 +29,17 @@ import android.widget.Button;
 public class NumpadKeyboardService extends InputMethodService {
 
     /**
-     * Caps lock state: true = next characters typed in upper case.
-     * Unlike a Shift modifier this STAYS on until the user taps the
-     * caps key again -- it does not auto-clear after one character.
-     * (Ctrl and Alt below ARE sticky-once.)
+     * Caps lock: persistent until user taps Caps again.
+     * Shift:    sticky-once -- next char only, then auto-clears.
+     * Effective upper-case = caps XOR shift, so tapping Shift while
+     * Caps is on momentarily un-caps a single keypress (matches the
+     * behavior of a real keyboard).
+     * Ctrl and Alt below are sticky-once like Shift.
      */
-    private boolean caps = false;
-    private boolean ctrl = false;
-    private boolean alt  = false;
+    private boolean caps  = false;
+    private boolean shift = false;
+    private boolean ctrl  = false;
+    private boolean alt   = false;
     private View keyboardView;
 
     @Override
@@ -113,14 +116,18 @@ public class NumpadKeyboardService extends InputMethodService {
             case "RIGHT": sendKey(KeyEvent.KEYCODE_DPAD_RIGHT); return;
             case "UP":    sendKey(KeyEvent.KEYCODE_DPAD_UP); return;
             case "DOWN":  sendKey(KeyEvent.KEYCODE_DPAD_DOWN); return;
-            case "SHIFT": caps = !caps; updateLabels(); return;   // Caps Lock: persistent
+            case "CAPS":  caps  = !caps;  updateLabels(); return;   // persistent
+            case "SHIFT": shift = !shift; updateLabels(); return;   // sticky-once
             case "CTRL":  ctrl = !ctrl; return;
             case "ALT":   alt = !alt; return;
             default:
                 String text = tag;
-                if (caps) {
+                if (caps ^ shift) {                  // XOR: caps inverted by shift
                     text = shiftMap(text);
-                    // do NOT clear caps -- it persists until the user taps Shift again
+                }
+                if (shift) {                          // shift auto-clears after one char
+                    shift = false;
+                    updateLabels();
                 }
                 if (ctrl || alt) {
                     int kc = keyCodeFor(text);
@@ -193,7 +200,7 @@ public class NumpadKeyboardService extends InputMethodService {
             if (!(tag instanceof String)) return;
             String t = (String) tag;
             if (t.length() == 1 && Character.isLetter(t.charAt(0))) {
-                b.setText(caps ? t.toUpperCase() : t.toLowerCase());
+                b.setText((caps ^ shift) ? t.toUpperCase() : t.toLowerCase());
             }
         }
     }

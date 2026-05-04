@@ -57,10 +57,12 @@
             <Button style="@style/KbdKey" android:tag="&apos;" android:text="&apos;" />
         </LinearLayout>
 
-        <!-- Row 3: Shift(2) + zxcvbnm(7) + , . / (3) = 12 -->
+        <!-- Row 3: Caps(1) + Shift(1) + zxcvbnm(7) + , . / (3) = 12
+             Caps (⇪) is persistent; Shift (⇧) is sticky-once. -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
             android:orientation="horizontal">
-            <Button style="@style/KbdKeyMod" android:layout_weight="2" android:tag="SHIFT" android:text="⇧" />
+            <Button style="@style/KbdKeyMod" android:tag="CAPS"  android:text="⇪" />
+            <Button style="@style/KbdKeyMod" android:tag="SHIFT" android:text="⇧" />
             <Button style="@style/KbdKey" android:tag="z" android:text="z" />
             <Button style="@style/KbdKey" android:tag="x" android:text="x" />
             <Button style="@style/KbdKey" android:tag="c" android:text="c" />
