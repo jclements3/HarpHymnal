@@ -759,6 +759,11 @@ function toggleZoom(which) {
 applyZoom(lsGet(LS.zoom, ""));
 
 (function wireDoubleTap() {
+  // After a touch-detected double-tap fires, the browser will ALSO synthesize
+  // a dblclick from the same gesture. Without this guard, both handlers run
+  // and toggleZoom fires twice -- zoom-on then zoom-off, looking like a no-op.
+  let suppressDblClickUntil = 0;
+
   const map = [
     ["editor", document.querySelector(".pane-editor")],
     ["render", document.querySelector(".pane-render")],
@@ -766,13 +771,17 @@ applyZoom(lsGet(LS.zoom, ""));
   ];
   for (const [name, el] of map) {
     if (!el) continue;
+
     el.addEventListener("dblclick", (ev) => {
+      if (Date.now() < suppressDblClickUntil) return;     // synthesized after touch
       // Don't hijack double-clicks on text inputs / textareas / buttons.
       const t = ev.target;
       if (t && t.closest && t.closest("input, textarea, button, .CodeMirror, select")) return;
       toggleZoom(name);
     });
-    // Pointer-based double-tap fallback for touch (header & body backgrounds).
+
+    // Pointer-based double-tap detector for touch (works in WebView where
+    // dblclick can be delayed or unreliable).
     let lastTap = 0;
     el.addEventListener("pointerdown", (ev) => {
       if (ev.pointerType !== "touch") return;
@@ -783,6 +792,7 @@ applyZoom(lsGet(LS.zoom, ""));
         ev.preventDefault();
         toggleZoom(name);
         lastTap = 0;
+        suppressDblClickUntil = now + 600;   // swallow the synthetic dblclick
       } else {
         lastTap = now;
       }
