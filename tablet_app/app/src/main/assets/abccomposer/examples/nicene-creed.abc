@@ -121,32 +121,40 @@ w: I be- lieve _
 %   "ble" on the unresolved i°. No flourish, no chord -- one grace note, gone.
 %
 % Bar 8 -- SEGUE "Fall of the Angels": 16 sixteenth-notes by descending 4ths,
-%          F7 -> C1 (full harp range). Single monophonic line, not a chord.
+%          F7 -> C1 (full harp range). Single monophonic line split across
+%          middle C: high half (F7..F4) on V:1 treble clef beats 1-2;
+%          low half (C4..C1) on V:2 bass clef beats 3-4. The voices
+%          interlock so each clef stays in its natural register --
+%          no ledger-line spaghetti.
 % 8
-[V:1]  [Q:1/4=64] "Fall of the Angels"z4                                                              |
+[V:1]  [Q:1/4=64] "Fall of the Angels"f''/4 c''/4 g'/4 d'/4 a/4 e/4 B/4 F/4 z2 |
 w: *
-[V:2]  f''/4 c''/4 g'/4 d'/4 a/4 e/4 B/4 F/4 C/4 G,/4 D,/4 A,,/4 E,,/4 B,,,/4 F,,,/4 C,,,/4           |
+[V:2]  z2 C/4 G,/4 D,/4 A,,/4 E,,/4 B,,,/4 F,,,/4 C,,,/4                       |
 %
 % Bars 9-12 -- Phrase 1: "I believe in one God"   (i° -> bVII -> bVI -> bII)
 %   Drone B,,, (q) struck on bar 9 downbeat then i° pad (dotted-half = 3) sustains.
 %   Pads in bars 10-12 are whole notes (4) under whole/half RH lines.
+%   FLUFF LAYER: bars 9 and 12 (B4 dotted-half + beat 4 high tremolo cell above
+%   C6 on the bar's chord tones) -- 8 thirty-second-note "angel shimmer".
 % 9
-[V:1]  "i°"B4                 | "bVII"c2 B2             | "bVI"d2 c2               | "bII"B4              |
+[V:1]  "i°"B3 [b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8 | "bVII"c2 B2 | "bVI"d2 c2 | "bII"B3 [c'e'g']/8[c'e'g']/8[c'e'g']/8[c'e'g']/8[c'e'g']/8[c'e'g']/8[c'e'g']/8[c'e'g']/8 |
 w: I be- lieve in one God
-[V:2]  "drone"B,,, [B,,D,F,]3 | [A,,C,E,]4              | [G,,B,,D,]4             | [C,E,G,]4            |
+[V:2]  "drone"B,,, [B,,D,F,]3 | [A,,C,E,]4 | [G,,B,,D,]4 | [C,E,G,]4 |
 %
 % Bars 13-16 -- Phrase 2: "the Father almighty"   (bIII -> iv -> bVI -> i°)
+%   FLUFF LAYER: bar 16 (B4 dotted-half + beat 4 [b'd''f''] tremolo on i°).
 % 13
-[V:1]  "bIII"c4               | "iv"d2 e2               | "bVI"d2 c2               | "i°"B4               |
+[V:1]  "bIII"c4 | "iv"d2 e2 | "bVI"d2 c2 | "i°"B3 [b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8 |
 w: the Fa- ther al- might- y
-[V:2]  "drone"B,,, [D,F,A,]3  | [E,G,B,]4               | [G,,B,,D,]4             | [B,,D,F,]4           |
+[V:2]  "drone"B,,, [D,F,A,]3 | [E,G,B,]4 | [G,,B,,D,]4 | [B,,D,F,]4 |
 %
 % Bars 17-20 -- Phrase 3: "maker of heaven and earth"   (i° -> v° -> bIII -> bVII -> i°)
 %   Bar 17 splits LH into drone(q) + i°(q) + v°(h) so the colour shifts mid-bar.
+%   FLUFF LAYER: bar 20 (B4 dotted-half + beat 4 [b'd''f''] tremolo on i°).
 % 17
-[V:1]  "i°"c2 B2                       | "bIII"d2 c2    | "bVII"c2 B2              | "i°"B4               |
+[V:1]  "i°"c2 B2 | "bIII"d2 c2 | "bVII"c2 B2 | "i°"B3 [b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8 |
 w: ma- ker of heav- en and earth
-[V:2]  "drone"B,,, [B,,D,F,] [F,A,C]2  | [D,F,A,]4      | [A,,C,E,]4               | [B,,D,F,]4           |
+[V:2]  "drone"B,,, [B,,D,F,] [F,A,C]2 | [D,F,A,]4 | [A,,C,E,]4 | [B,,D,F,]4 |
 %
 % Bars 21-24 -- Phrase 4: "of all things visible and invisible"   (bII/iv -> bVI -> bVII -> i°)
 %   Bar 21 LH splits drone(q) + bII(q) + iv(h). RH lifts to C5..F5 (4 quarters).
@@ -154,8 +162,9 @@ w: ma- ker of heav- en and earth
 %   a single whisper in the angel-zone (C6..G7), not a flourish. Three syllables
 %   "in- vis- i-" are set q q h (q+q+h = 4 beats), with the grace decorating
 %   the first "in-" quarter. Bar 22 sets "i- ble and" as q q h.
-%   Final bar 24: i° pad whole + B,,, drone, unresolved Locrian centre.
+%   FLUFF LAYER: final bar 24 (B4 dotted-half + beat 4 [b'd''f''] tremolo on i°),
+%   the prayer fades into shimmer over the unresolved Locrian centre.
 % 21
-[V:1]  "bII"c d e f                    | "bVI"g f e2    | "bVII"{f''}c d e2        | "i°"B4              |]
+[V:1]  "bII"c d e f | "bVI"g f e2 | "bVII"{f''}c d e2 | "i°"B3 [b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8[b'd''f'']/8 |]
 w: of all things vis- i- ble and in- vis- i- ble
-[V:2]  "drone"B,,, [C,E,G,] [E,G,B,]2  | [G,,B,,D,]4   | [A,,C,E,]4               | "drone"B,,, [B,,D,F,]3 |]
+[V:2]  "drone"B,,, [C,E,G,] [E,G,B,]2 | [G,,B,,D,]4 | [A,,C,E,]4 | "drone"B,,, [B,,D,F,]3 |]
