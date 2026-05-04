@@ -75,6 +75,21 @@
   }
   #toolbar button.primary:hover { background: #d6acff; border-color: #d6acff; }
   #toolbar #btn-settings { font-size: 18px; padding: 4px 10px; }
+  #toolbar #btn-print    { font-size: 16px; padding: 4px 10px; }
+
+  /* ─── Print: only the active render pane, on white paper ─── */
+  @media print {
+    @page { margin: 12mm; }
+    html, body { background: #ffffff !important; color: #000000 !important; height: auto !important; overflow: visible !important; }
+    #toolbar, .pane-editor, .pane-chat, .pane-render .pane-header { display: none !important; }
+    #app, #panes, .pane-render { display: block !important; height: auto !important; width: 100% !important; flex: none !important; border: none !important; background: #ffffff !important; }
+    .pane-body { overflow: visible !important; height: auto !important; }
+    /* Stripchart: keep dark colors readable on paper. The page-bg gets
+       forced white above; the strip-row keeps its dark fill so notes
+       stay visible against it. */
+    #stripchart-target { background: #ffffff !important; }
+    .strip-row { page-break-inside: avoid; }
+  }
   #toolbar .spacer { flex: 1; }
   #toolbar .status { color: var(--muted); font-size: 12px; }
   #toolbar .status.ok { color: var(--green); }
@@ -289,6 +304,7 @@
     <button id="btn-play" class="primary">▶ Play</button>
     <button id="btn-stop">■ Stop</button>
     <button id="btn-view" title="Toggle score / stripchart view">♫</button>
+    <button id="btn-print" title="Print the current view">🖨</button>
     <span class="spacer"></span>
     <span class="status" id="render-status">ready</span>
     <button id="btn-settings">⚙</button>
@@ -1023,6 +1039,13 @@ document.getElementById("btn-view").onclick = () => {
   if (viewMode === "stripchart") renderStripchart(cm.getValue());
 };
 
+document.getElementById("btn-print").onclick = () => {
+  // Browsers + Android WebView both honor window.print(). The
+  // @media print CSS hides everything except the active render pane.
+  try { window.print(); }
+  catch (e) { setStatus("print: " + (e && e.message || e), "err"); }
+};
+
 // ────────────────────────────────────────────────────────────────────
 // 7.  Settings modal
 // ────────────────────────────────────────────────────────────────────
@@ -1201,6 +1224,7 @@ if (CodeMirror.Vim) {
   });
   CodeMirror.Vim.defineEx("play", "play", () => play());
   CodeMirror.Vim.defineEx("stop", "stop", () => stop());
+  CodeMirror.Vim.defineEx("print", "p", () => { try { window.print(); } catch (e) {} });
 }
 
 // initial focus into editor (so vim mode is immediately active)
