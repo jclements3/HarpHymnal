@@ -61,7 +61,7 @@
              Caps (⇪) is persistent; Shift (⇧) is sticky-once. -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
             android:orientation="horizontal">
-            <Button style="@style/KbdKeyMod" android:tag="CAPS"  android:text="⇪" />
+            <Button style="@style/KbdKeyMod" android:tag="CAPS"  android:text="⇧⇧" />
             <Button style="@style/KbdKeyMod" android:tag="SHIFT" android:text="⇧" />
             <Button style="@style/KbdKey" android:tag="z" android:text="z" />
             <Button style="@style/KbdKey" android:tag="x" android:text="x" />
@@ -86,7 +86,7 @@
             <Button style="@style/KbdKey" android:tag="DOWN"  android:text="↓" />
             <Button style="@style/KbdKey" android:tag="UP"    android:text="↑" />
             <Button style="@style/KbdKey" android:tag="RIGHT" android:text="→" />
-            <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" />
+            <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" android:textSize="26sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -129,7 +129,7 @@
             <Button style="@style/KbdKey"    android:tag="0" android:text="0" />
             <Button style="@style/KbdKey"    android:tag="=" android:text="=" />
             <Button style="@style/KbdKeyMod" android:tag="BKSP"  android:text="⌫" />
-            <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" />
+            <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" android:textSize="26sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
