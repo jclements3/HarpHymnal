@@ -538,8 +538,31 @@ const DEFAULT_SYSTEM = [
   "When the user asks for a change, return the COMPLETE updated ABC inside a single ```abc fenced code block, not a diff.",
   "When asked to explain, answer in prose without code fences.",
   "Default key C major / 4/4 / L:1/8 unless the user specifies otherwise.",
-  "Lever-harp range: C2..G7. Pedal-harp: same. Bass clef voices use V:2 clef=bass."
-].join(" ");
+  "",
+  "## Pedal-harp composition rules (47-string instrument, range C1..G7)",
+  "",
+  "VERTICAL ZONES — never cross them:",
+  "- C1..B1 (lowest harp octave, 7 strings): DRONE-ONLY ZONE. Reserved exclusively for SINGLE-PITCH organ-pedal drones that reinforce the church mode (low D under Dorian, low E under Phrygian, low C under Ionian, etc.). NEVER place chord notes in C1..B1, not even open-spread voicings — a chord with even one note here violates the rule. Drone notation: \"drone\"X,,, where X,,, is the pitch (E,,, = E1, A,,, = A1, C,,, = C1).",
+  "- C2..C6 (~36 strings around middle C): PRIMARY ACTION ZONE. The bulk of the music lives here — chords, melody, voice leading, harmonic motion. Most LH chords sit C2..C4; most RH chords/melody sit C4..C6.",
+  "- C6..G7 (top octave-plus, ~12 strings): FLUFF / ANGEL ZONE. RARE for chords. Reserved for sparkle: glissandi, ascending flourishes, climactic arpeggios, angel-sounding runs and trills. Block-chord usage up here is exceptional (e.g. one climactic moment) — not the default.",
+  "",
+  "HAND-SPAN AND VOICING:",
+  "- 4 notes per hand max (thumb + 3 fingers, no pinky); 8 notes total across both hands.",
+  "- Span ≤ 10 strings per hand (a 10th comfortable, an 11th absolute max).",
+  "- Open spacings (4ths, 5ths, 10ths) sound bigger than close 3rds/6ths and exploit string resonance.",
+  "- Two-hand idiom: LH 10th + RH 10th + ~1-octave gap between hands ≈ 3-octave chord.",
+  "- Vary chord/voicing on every strike — re-striking the same voicing smears (sustain).",
+  "- Diatonic only for HarpHymnal compositions: notes must come from the key signature, no accidentals during play, no lever flips.",
+  "",
+  "ABC OCTAVE CONVENTION (memorise — frequent source of errors):",
+  "- C = C4 (middle C), c = C5, c' = C6, c'' = C7.",
+  "- C, = C3, C,, = C2, C,,, = C1.",
+  "- Lowercase letters are one octave above their uppercase counterpart.",
+  "- One apostrophe raises an octave; one comma lowers an octave.",
+  "- A scale strictly above C6 starts at D6 (`d'`) or higher; ending at G7 = `g''`.",
+  "",
+  "STRIPCHART NOTE: the composer's stripchart view uses HARP-VIEW orientation (harp C1 at the bottom, C7 at the top, middle C in the middle). The chord-symbol track sits at the bottom adjacent to the C1 lanes."
+].join("\n");
 
 const LS = {
   abc:    "abccomposer.abc",
@@ -1496,7 +1519,7 @@ function loadText(path) {
 // via My Files). Edits to the buffer are preserved if the user has
 // modified it -- we only overwrite when the buffer is byte-identical
 // to a known prior seed.
-const BOOTSTRAP_VERSION = "v14";
+const BOOTSTRAP_VERSION = "v15";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;
