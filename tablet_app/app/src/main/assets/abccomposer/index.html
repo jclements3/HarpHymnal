@@ -1404,7 +1404,7 @@ function loadText(path) {
 // launch. Always writes a debug record to Documents/HarpHymnal/ so we
 // can see what happened via adb even if the page's status bar gets
 // overwritten by the score/stripchart render.
-const BOOTSTRAP_VERSION = "v5";
+const BOOTSTRAP_VERSION = "v6";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;

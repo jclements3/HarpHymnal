@@ -5,21 +5,22 @@
 %   - Touches each of the seven church modes across the full piece
 %       Ionian -> ... -> Locrian (and other intermediate modes)
 %   - Explores the full 47-string pedal-harp range (C1..G7) over the
-%     course of the piece.  Range policy:
+%     course of the piece. Range policy:
 %       C1-C2 : drone only, LH octave plucks, sparingly
 %       C2-G7 : regular play range
-%       >G7   : not used (would be glissando-only intros/codas)
+%       >G7   : not used
 %
 % PHASE 1 -- "I believe" anthem in C Ionian.
-%   Three iterations of "I believe", scale degrees 5-6-7-(8 implied) of
-%   C Ionian (G A B), RH rising one octave each iteration, LH descending
-%   one octave each iteration.  Iteration 3 sends the LH into the
-%   drone-only zone, so it switches from melodic descent to a C1-C2
-%   octave-pluck drone.
+%   Three iterations of "I believe", each strike a full I-chord stack:
+%       RH = [C E G c]         (4 notes, root-position triad + octave)
+%       LH = [C,, E,, G,, C,]  (same shape, two octaves lower)
+%   8 notes per strike. RH rises an octave per iteration; LH falls an
+%   octave per iteration. By iteration 3 the LH is a low-octave open
+%   drone (root + fifth in C1 and C2) and the RH is at the top of the
+%   normal play range.
 %
-%   Rhythm per iteration:  q q (half tied to half) + half rest = 8 beats
-%   = 2 bars of 4/4.  Whole note "lieve" = 4 beats, written as half-tied-
-%   to-half because q+q+whole = 6 beats won't fit one 4/4 bar alone.
+%   Rhythm per iteration:  q q (half tied to half) + half rest
+%                       =  8 beats = 2 bars of 4/4
 %
 %   Phase 2 (Locrian) follows -- TBD.
 %
@@ -33,20 +34,20 @@ K:C
 V:1 clef=treble  name="RH"
 V:2 clef=bass    name="LH"
 %
-% Iteration 1 -- mid register
-[V:1] "I"G A B2- | B2 z2 |
+% Iteration 1 -- mid register (RH C4..C5, LH C2..C3)
+[V:1] "I"[CEGc] [CEGc] [CEGc]2- | [CEGc]2 z2 |
 w: I be- lieve _
-[V:2] G, F, E,2- | E,2 z2 |
+[V:2] [C,,E,,G,,C,] [C,,E,,G,,C,] [C,,E,,G,,C,]2- | [C,,E,,G,,C,]2 z2 |
 %
-% Iteration 2 -- RH up an octave, LH down an octave
-[V:1] g a b2- | b2 z2 |
+% Iteration 2 -- RH up an octave (C5..C6), LH down an octave (C1..C2)
+[V:1] [cegc'] [cegc'] [cegc']2- | [cegc']2 z2 |
 w: I be- lieve _
-[V:2] G,, F,, E,,2- | E,,2 z2 |
+[V:2] [C,,,E,,,G,,,C,,] [C,,,E,,,G,,,C,,] [C,,,E,,,G,,,C,,]2- | [C,,,E,,,G,,,C,,]2 z2 |
 %
-% Iteration 3 -- RH at top of normal range (G6 A6 B6),
-%                LH plays C1+C2 octave-pluck drone (drone-only zone)
-[V:1] g' a' b'2- | b'2 z2 |
+% Iteration 3 -- RH at top of normal range (C6..C7),
+%                LH open drone spanning C1..G2 (root + 5th in 2 octaves)
+[V:1] [c'e'g'c''] [c'e'g'c''] [c'e'g'c'']2- | [c'e'g'c'']2 z2 |
 w: I be- lieve _
-[V:2] [C,,,C,,] [C,,,C,,] [C,,,C,,]2- | [C,,,C,,]2 z2 |
+[V:2] [C,,,G,,,C,,G,,] [C,,,G,,,C,,G,,] [C,,,G,,,C,,G,,]2- | [C,,,G,,,C,,G,,]2 z2 |
 %
 % --- Phase 2 (Locrian) below this line, to come ---
