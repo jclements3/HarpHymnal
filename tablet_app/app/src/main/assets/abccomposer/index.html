@@ -849,14 +849,25 @@ function renderStripchart(abc) {
     seps += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
             '" y2="' + ROW_H + '" stroke="#6272a4" stroke-width="0.5"/>';
   }
-  // Horizontal grid: 47 string lanes; every C (every 7 lanes) stronger.
+  // Horizontal grid: 47 string lanes. Every lane gets a faint hairline
+  // at its top edge. Octave boundaries (the strong separator lines) are
+  // drawn at the BOTTOM of each C lane so they visually delimit
+  // "everything below this line belongs to the lower octave" -- i.e.,
+  // the strong line falls below the C-x label, not above it.
   let grid = "";
   for (let s = 0; s < N_STRINGS; s++) {
     const y = (N_STRINGS - 1 - s) * LANE_H;
-    const isC = (s % 7 === 0);
     grid += '<line x1="0" y1="' + y.toFixed(1) + '" x2="' + innerW +
-            '" y2="' + y.toFixed(1) + '" stroke="' + (isC ? "#3a3d4f" : "#262833") +
-            '" stroke-width="' + (isC ? 0.5 : 0.3) + '"/>';
+            '" y2="' + y.toFixed(1) +
+            '" stroke="#262833" stroke-width="0.3"/>';
+  }
+  for (let s = 0; s < N_STRINGS; s += 7) {            // each C lane
+    const yBottom = (N_STRINGS - 1 - s) * LANE_H + LANE_H;
+    if (yBottom > 0 && yBottom < ROW_H) {
+      grid += '<line x1="0" y1="' + yBottom.toFixed(1) + '" x2="' + innerW +
+              '" y2="' + yBottom.toFixed(1) +
+              '" stroke="#3a3d4f" stroke-width="0.6"/>';
+    }
   }
   // Chord track strip
   let chordTrack = '<rect x="0" y="0" width="' + innerW + '" height="' + CHORD_H +
