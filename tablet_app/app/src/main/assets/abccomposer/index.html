@@ -793,7 +793,9 @@ function renderStripchart(abc) {
   // One row that fills the pane vertically (47 lanes stretched), and
   // scrolls horizontally for long pieces. All ABC lines are flattened
   // into one continuous beat axis.
-  const PX_PER_BEAT = 30;       // horizontal density
+  // Width sized so each measure (4 beats) holds 16 sixteenth-note
+  // columns at ~5 px each = 80 px / measure = 20 px / beat.
+  const PX_PER_BEAT = 20;
   const CHORD_H = 28;
   const BAR_NUM_H = 16;
   const GUTTER_W = 36;
@@ -850,10 +852,10 @@ function renderStripchart(abc) {
             '" y2="' + ROW_H + '" stroke="#6272a4" stroke-width="0.5"/>';
   }
   // Horizontal grid: 47 string lanes. Every lane gets a faint hairline
-  // at its top edge. Octave boundaries (the strong separator lines) are
-  // drawn at the BOTTOM of each C lane so they visually delimit
-  // "everything below this line belongs to the lower octave" -- i.e.,
-  // the strong line falls below the C-x label, not above it.
+  // at its top edge. Octave boundaries are drawn at the BOTTOM of each
+  // C and F lane (so they sit below the gutter label, reading as
+  // "everything below this line is the next group down"). C lines are
+  // red (tonic-anchor); F lines are blue (subdominant-anchor).
   let grid = "";
   for (let s = 0; s < N_STRINGS; s++) {
     const y = (N_STRINGS - 1 - s) * LANE_H;
@@ -861,14 +863,15 @@ function renderStripchart(abc) {
             '" y2="' + y.toFixed(1) +
             '" stroke="#262833" stroke-width="0.3"/>';
   }
-  for (let s = 0; s < N_STRINGS; s += 7) {            // each C lane
+  function strongLine(s, color) {
     const yBottom = (N_STRINGS - 1 - s) * LANE_H + LANE_H;
-    if (yBottom > 0 && yBottom < ROW_H) {
-      grid += '<line x1="0" y1="' + yBottom.toFixed(1) + '" x2="' + innerW +
-              '" y2="' + yBottom.toFixed(1) +
-              '" stroke="#3a3d4f" stroke-width="0.6"/>';
-    }
+    if (yBottom <= 0 || yBottom >= ROW_H) return "";
+    return '<line x1="0" y1="' + yBottom.toFixed(1) +
+           '" x2="' + innerW + '" y2="' + yBottom.toFixed(1) +
+           '" stroke="' + color + '" stroke-width="0.7" opacity="0.85"/>';
   }
+  for (let s = 0; s < N_STRINGS; s += 7) grid += strongLine(s, "#ff5555"); // C: red
+  for (let s = 3; s < N_STRINGS; s += 7) grid += strongLine(s, "#4488dd"); // F: blue
   // Chord track strip
   let chordTrack = '<rect x="0" y="0" width="' + innerW + '" height="' + CHORD_H +
                    '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
