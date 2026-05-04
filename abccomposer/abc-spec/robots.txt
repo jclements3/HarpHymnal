@@ -1,0 +1,167 @@
+User-agent: *
+Disallow: /searchTunes
+Disallow: /getResource/downloads/code_/
+Disallow: /getResource/downloads/media/
+Disallow: /getResource/downloads/text_/
+
+User-agent: *
+Disallow: /getResource/resources/media/
+
+User-agent: *
+Disallow: /searchTunes2
+
+User-agent: *
+Disallow: /test
+
+User-agent: *
+Disallow: /forwardTo
+
+User-agent: *
+Disallow: /_
+
+User-agent: *
+Disallow: /_hp
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: 008
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+
+User-agent: HTTrack
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: SiteSucker
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: sistrix
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: SemrushBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: dotbot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: BLEXBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: iZSearch
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: Riddler
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: CCBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: istellabot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: Slurp
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: MegaIndex
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: Daum
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: BUbiNG
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: FemtosearchBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: MauiBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: Seekport
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: serpstatbot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: centurybot9
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-agent: Scrapy
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-Agent: The Knowledge AI
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-Agent: PetalBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-Agent: DataForSeoBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-Agent: OAI-SearchBot
+Disallow: /searchTunes
+Disallow: /getResource
+
+User-Agent: GPTBot
+Disallow: /tunePage
+Disallow: /searchTunes
+Disallow: /getResource
+
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+User-agent: *
+Crawl-delay: 1
+
+Sitemap: https://abcnotation.com/sitemap__index.xml
+Sitemap: https://abcnotation.com/sitemap__index_mobile.xml

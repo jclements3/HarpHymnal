@@ -1,0 +1,1 @@
+{"scope":"\/wiki\/","name":"abc wiki","short_name":"abc wiki","description":"","start_url":"\/wiki\/","background_color":"#fff","theme_color":"#dee7ec","icons":[]}
