@@ -162,22 +162,25 @@
      it renders, which trumps a stylesheet `display:none` -- so the score /
      stripchart toggle needs !important to force the override. */
   #stripchart-target {
-    width: 100%; height: 100%; min-height: 100%;
+    width: 100%; height: 100%;
     background: var(--bg);          /* dark dracula bg */
     color: var(--ink);
-    overflow: auto; padding: 8px;
+    overflow-x: auto; overflow-y: hidden; padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
     display: none !important;
   }
-  #stripchart-target.show { display: block !important; }
+  #stripchart-target.show { display: flex !important; flex-direction: column; }
   #abcjs-target.hide { display: none !important; }
+  /* one full-height row -- 47 lanes vertical, music flows horizontally */
   .strip-row {
     position: relative;
-    margin-bottom: 10px;
-    border: 1px solid var(--line);
     background: var(--bg-alt);
+    height: 100%;
+    flex: 1; min-height: 0;
+    display: flex; flex-direction: column;
   }
-  .strip-row svg { display: block; width: 100%; }
+  .strip-row svg { display: block; flex: 0 0 auto; }
+  .strip-row svg.strip-main { flex: 1 1 auto; min-height: 0; }
   #toolbar #btn-view { font-family: inherit; min-width: 36px; }
 
   .pane-header {
@@ -693,23 +696,10 @@ let stripPlayheadAnchor = null;
 
 function setPlayheadBeat(beat) {
   if (!stripState) return;
-  for (let i = 0; i < stripState.lines.length; i++) {
-    const ln = stripState.lines[i];
-    const ph = stripTarget.querySelector('.strip-row[data-row="' + i + '"] .playhead');
-    if (!ph) continue;
-    if (beat >= ln.startBeat && beat < ln.endBeat) {
-      const x = (beat - ln.startBeat) * ln.xPerBeat;
-      ph.setAttribute("transform", "translate(" + x.toFixed(1) + ",0)");
-      ph.setAttribute("opacity", "1");
-    } else if (beat >= ln.endBeat) {
-      // park playhead at end of finished rows
-      ph.setAttribute("transform", "translate(" + (ln.totalBeats * ln.xPerBeat).toFixed(1) + ",0)");
-      ph.setAttribute("opacity", "0.3");
-    } else {
-      ph.setAttribute("transform", "translate(0,0)");
-      ph.setAttribute("opacity", "0.3");
-    }
-  }
+  const ph = stripTarget.querySelector('.playhead');
+  if (!ph) return;
+  const x = Math.max(0, Math.min(stripState.totalBeats, beat)) * stripState.xPerBeat;
+  ph.setAttribute("transform", "translate(" + x.toFixed(1) + ",0)");
 }
 
 function startStripchartPlayback() {
@@ -792,170 +782,164 @@ function renderStripchart(abc) {
     const pc = ((m % 12) + 12) % 12;
     let li = PC_TO_LETTER_IDX[pc];
     if (li == null) {
-      // chromatic -> snap to the nearest white-key letter
       const nearest = [0, 0, 2, 2, 4, 5, 5, 7, 7, 9, 9, 11];
       li = PC_TO_LETTER_IDX[nearest[pc]];
     }
-    const oct = Math.floor(m / 12) - 1;       // MIDI 60 -> octave 4
-    return (oct - 1) * 7 + li;                // C1 (oct 1) -> 0
+    const oct = Math.floor(m / 12) - 1;
+    return (oct - 1) * 7 + li;
   }
 
-  const LANE_H = 5;                            // px per string lane
-  const ROW_H = N_STRINGS * LANE_H;            // 47 * 5 = 235
+  // ── Full-height single timeline ─────────────────────────────────
+  // One row that fills the pane vertically (47 lanes stretched), and
+  // scrolls horizontally for long pieces. All ABC lines are flattened
+  // into one continuous beat axis.
+  const PX_PER_BEAT = 30;       // horizontal density
   const CHORD_H = 28;
   const BAR_NUM_H = 16;
-  const GUTTER_W = 32;
-  const containerW = stripTarget.clientWidth || 600;
-  const fullW = Math.max(200, containerW - 24);
-  const innerW = fullW - GUTTER_W;
+  const GUTTER_W = 36;
 
-  // Build per-row metadata for the playhead loop. Row i covers
-  // [cumBeats[i], cumBeats[i+1]) in the global timeline.
-  const rowMeta = [];
-  let cumBeats = 0;
-  let cumBars = 0;          // running bar count across all rows
+  const containerW = stripTarget.clientWidth  || 600;
+  const containerH = stripTarget.clientHeight || 500;
 
-  let html = "";
-  for (let li = 0; li < data.lines.length; li++) {
-    const ln = data.lines[li];
+  // Merge events + bar positions across all lines.
+  const allEvents = [];
+  const barPositions = [0];
+  let totalBeats = 0;
+  for (const ln of data.lines) {
     if (!ln.totalBeats) continue;
-    const xPerBeat = innerW / ln.totalBeats;
-
-    rowMeta.push({
-      startBeat: cumBeats,
-      endBeat:   cumBeats + ln.totalBeats,
-      totalBeats: ln.totalBeats,
-      xPerBeat:  xPerBeat,
-    });
-    cumBeats += ln.totalBeats;
-
-    // Note bars: each note rendered on its harp-string lane. Multiple
-    // notes from the same event (chords like [CEG]) stack on different
-    // lanes within the same x range, so chords show up as multiple
-    // simultaneous colored bars.
-    let bars = "";
     for (const ev of ln.events) {
-      if (ev.rest || !ev.midis.length) continue;
-      const x = ev.start * xPerBeat;
-      const w = Math.max(2, ev.dur * xPerBeat - 1);
-      for (const m of ev.midis) {
-        const sIdx = midiToString(m);
-        if (sIdx < 0 || sIdx >= N_STRINGS) continue;
-        const y = (N_STRINGS - 1 - sIdx) * LANE_H;
-        const fill = colorForPitch(m, data.tonicPc);
-        bars += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) +
-                '" width="' + w.toFixed(1) + '" height="' + (LANE_H - 0.5).toFixed(1) +
-                '" fill="' + fill + '" stroke="#1e1f29" stroke-width="0.3" rx="1"/>';
-      }
+      allEvents.push({ ...ev, start: ev.start + totalBeats });
     }
-    // Bar separators
-    let seps = "";
     for (const bp of ln.barPositions) {
-      const x = bp * xPerBeat;
-      seps += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
-              '" y2="' + ROW_H + '" stroke="#6272a4" stroke-width="0.5"/>';
+      const abs = bp + totalBeats;
+      if (abs > 0 && abs > barPositions[barPositions.length - 1]) barPositions.push(abs);
     }
-    // Horizontal grid: every C (every 7 lanes) gets a slightly stronger
-    // line; other lanes get a faint hairline so the eye reads octave
-    // boundaries.
-    let grid = "";
-    for (let s = 0; s < N_STRINGS; s++) {
-      const y = (N_STRINGS - 1 - s) * LANE_H;
-      const isC = (s % 7 === 0);
-      grid += '<line x1="0" y1="' + y.toFixed(1) + '" x2="' + innerW +
-              '" y2="' + y.toFixed(1) + '" stroke="' + (isC ? "#3a3d4f" : "#262833") +
-              '" stroke-width="' + (isC ? 0.5 : 0.3) + '"/>';
-    }
-    // Chord track underneath
-    let chordTrack = '<rect x="0" y="0" width="' + innerW + '" height="' + CHORD_H +
-                     '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
-    // Bar lines on chord track
-    for (const bp of ln.barPositions) {
-      const x = bp * xPerBeat;
-      chordTrack += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
-                    '" y2="' + CHORD_H + '" stroke="#44475a" stroke-width="0.5"/>';
-    }
-    // Chord labels: take first chord seen in each bar window.
-    for (let bi = 0; bi < ln.barPositions.length - 1; bi++) {
-      const a = ln.barPositions[bi], b = ln.barPositions[bi + 1];
-      let label = null;
-      for (const ev of ln.events) {
-        if (ev.start >= a && ev.start < b && ev.chord) { label = ev.chord; break; }
-      }
-      if (label) {
-        const xMid = (a + b) / 2 * xPerBeat;
-        chordTrack += '<text x="' + xMid.toFixed(1) + '" y="' + (CHORD_H - 9) +
-                      '" text-anchor="middle" font-size="12" font-weight="600" fill="#f8f8f2">' +
-                      escapeHtml(label) + '</text>';
-      }
-    }
+    totalBeats += ln.totalBeats;
+  }
+  if (barPositions[barPositions.length - 1] !== totalBeats) barPositions.push(totalBeats);
 
-    // Playhead element -- rendered at x=0; SVG transform on .playhead group
-    // animates it horizontally during playback. Opacity 0.3 when this row
-    // isn't the active one. Bright accent color on dark bg.
-    const playhead =
-      '<g class="playhead" opacity="0.3" transform="translate(0,0)">' +
-        '<polygon points="-5,-2 5,-2 0,6" fill="#ff5555"/>' +
-        '<line x1="0" y1="0" x2="0" y2="' + ROW_H +
-          '" stroke="#ff5555" stroke-width="1.5" stroke-dasharray="3,2"/>' +
-      '</g>';
+  const innerW = Math.max(containerW - GUTTER_W - 16, totalBeats * PX_PER_BEAT);
+  const fullW  = innerW + GUTTER_W;
+  // Main row height = pane height minus header + bar-num + chord-track + a little padding
+  const ROW_H  = Math.max(200, containerH - BAR_NUM_H - CHORD_H - 4);
+  const LANE_H = ROW_H / N_STRINGS;
+  const xPerBeat = innerW / Math.max(totalBeats, 1);
 
-    // Top strip: bar numbers (cumulative across rows). Each barPosition
-    // entry except the last marks the START of a bar.
-    let barNums = '<rect x="0" y="0" width="' + innerW + '" height="' + BAR_NUM_H +
-                  '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
-    for (let bi = 0; bi < ln.barPositions.length - 1; bi++) {
-      const x = ln.barPositions[bi] * xPerBeat;
-      const xNext = ln.barPositions[bi + 1] * xPerBeat;
-      const xMid = (x + xNext) / 2;
-      const num = cumBars + bi + 1;
-      barNums += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
-                 '" y2="' + BAR_NUM_H + '" stroke="#44475a" stroke-width="0.5"/>';
-      barNums += '<text x="' + xMid.toFixed(1) + '" y="' + (BAR_NUM_H - 4) +
-                 '" text-anchor="middle" font-size="10" font-weight="500" fill="#6272a4">' +
-                 num + '</text>';
+  // ── Render one timeline ─────────────────────────────────────────
+  // Note bars across the whole song.
+  let bars = "";
+  for (const ev of allEvents) {
+    if (ev.rest || !ev.midis.length) continue;
+    const x = ev.start * xPerBeat;
+    const w = Math.max(2, ev.dur * xPerBeat - 1);
+    for (const m of ev.midis) {
+      const sIdx = midiToString(m);
+      if (sIdx < 0 || sIdx >= N_STRINGS) continue;
+      const y = (N_STRINGS - 1 - sIdx) * LANE_H;
+      const fill = colorForPitch(m, data.tonicPc);
+      bars += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) +
+              '" width="' + w.toFixed(1) + '" height="' + Math.max(2, LANE_H - 1).toFixed(1) +
+              '" fill="' + fill + '" stroke="#1e1f29" stroke-width="0.3" rx="1"/>';
     }
-    cumBars += Math.max(0, ln.barPositions.length - 1);
-
-    // Left gutter: octave labels at every C (every 7 strings). C1 at
-    // bottom, C7 at top -- the harp has 47 strings = 6 full octaves +
-    // C7..G7 on top.
-    let gutter = '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + ROW_H +
-                 '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
-    for (let oct = 1; oct <= 7; oct++) {
-      const sIdx = (oct - 1) * 7;            // C of this octave
-      const y = (N_STRINGS - 1 - sIdx) * LANE_H + LANE_H / 2 + 3;
-      gutter += '<text x="' + (GUTTER_W / 2).toFixed(1) + '" y="' + y.toFixed(1) +
-                '" text-anchor="middle" font-size="9" font-weight="600" fill="#bd93f9">' +
-                'C' + oct + '</text>';
+  }
+  // Bar separators across the timeline
+  let seps = "";
+  for (const bp of barPositions) {
+    const x = bp * xPerBeat;
+    seps += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
+            '" y2="' + ROW_H + '" stroke="#6272a4" stroke-width="0.5"/>';
+  }
+  // Horizontal grid: 47 string lanes; every C (every 7 lanes) stronger.
+  let grid = "";
+  for (let s = 0; s < N_STRINGS; s++) {
+    const y = (N_STRINGS - 1 - s) * LANE_H;
+    const isC = (s % 7 === 0);
+    grid += '<line x1="0" y1="' + y.toFixed(1) + '" x2="' + innerW +
+            '" y2="' + y.toFixed(1) + '" stroke="' + (isC ? "#3a3d4f" : "#262833") +
+            '" stroke-width="' + (isC ? 0.5 : 0.3) + '"/>';
+  }
+  // Chord track strip
+  let chordTrack = '<rect x="0" y="0" width="' + innerW + '" height="' + CHORD_H +
+                   '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
+  for (const bp of barPositions) {
+    const x = bp * xPerBeat;
+    chordTrack += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
+                  '" y2="' + CHORD_H + '" stroke="#44475a" stroke-width="0.5"/>';
+  }
+  for (let bi = 0; bi < barPositions.length - 1; bi++) {
+    const a = barPositions[bi], b = barPositions[bi + 1];
+    let label = null;
+    for (const ev of allEvents) {
+      if (ev.start >= a && ev.start < b && ev.chord) { label = ev.chord; break; }
     }
+    if (label) {
+      const xMid = (a + b) / 2 * xPerBeat;
+      chordTrack += '<text x="' + xMid.toFixed(1) + '" y="' + (CHORD_H - 9) +
+                    '" text-anchor="middle" font-size="12" font-weight="600" fill="#f8f8f2">' +
+                    escapeHtml(label) + '</text>';
+    }
+  }
+  // Bar number strip
+  let barNums = '<rect x="0" y="0" width="' + innerW + '" height="' + BAR_NUM_H +
+                '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
+  for (let bi = 0; bi < barPositions.length - 1; bi++) {
+    const x = barPositions[bi] * xPerBeat;
+    const xNext = barPositions[bi + 1] * xPerBeat;
+    const xMid = (x + xNext) / 2;
+    barNums += '<line x1="' + x.toFixed(1) + '" y1="0" x2="' + x.toFixed(1) +
+               '" y2="' + BAR_NUM_H + '" stroke="#44475a" stroke-width="0.5"/>';
+    barNums += '<text x="' + xMid.toFixed(1) + '" y="' + (BAR_NUM_H - 4) +
+               '" text-anchor="middle" font-size="10" font-weight="500" fill="#6272a4">' +
+               (bi + 1) + '</text>';
+  }
+  // Left gutter
+  let gutter = '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + ROW_H +
+               '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
+  for (let oct = 1; oct <= 7; oct++) {
+    const sIdx = (oct - 1) * 7;
+    const y = (N_STRINGS - 1 - sIdx) * LANE_H + LANE_H / 2 + 3;
+    gutter += '<text x="' + (GUTTER_W / 2).toFixed(1) + '" y="' + y.toFixed(1) +
+              '" text-anchor="middle" font-size="9" font-weight="600" fill="#bd93f9">' +
+              'C' + oct + '</text>';
+  }
+  // Playhead
+  const playhead =
+    '<g class="playhead" transform="translate(0,0)">' +
+      '<line x1="0" y1="0" x2="0" y2="' + ROW_H +
+        '" stroke="#ff5555" stroke-width="1.5" stroke-dasharray="3,2"/>' +
+    '</g>';
 
-    html += '<div class="strip-row" data-row="' + (rowMeta.length - 1) + '">' +
-      // Top: bar numbers (full width including gutter offset)
-      '<svg viewBox="0 0 ' + fullW + ' ' + BAR_NUM_H + '" preserveAspectRatio="none" height="' + BAR_NUM_H + '">' +
+  // Single row markup: bar numbers (top) + main note grid + chord track,
+  // all sharing the same SVG width so vertical alignment matches.
+  const html =
+    '<div class="strip-row">' +
+      // Bar numbers
+      '<svg viewBox="0 0 ' + fullW + ' ' + BAR_NUM_H + '" width="' + fullW +
+        '" height="' + BAR_NUM_H + '" preserveAspectRatio="none">' +
         '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + BAR_NUM_H + '" fill="#1e1f29"/>' +
         '<g transform="translate(' + GUTTER_W + ',0)">' + barNums + '</g>' +
       '</svg>' +
-      // Main row: gutter + note grid
-      '<svg viewBox="0 0 ' + fullW + ' ' + ROW_H + '" preserveAspectRatio="none" height="' + ROW_H + '">' +
+      // Main: gutter + 47 lanes (this is the flex:1 row that fills remaining height)
+      '<svg class="strip-main" viewBox="0 0 ' + fullW + ' ' + ROW_H +
+        '" width="' + fullW + '" height="100%" preserveAspectRatio="none">' +
         gutter +
         '<g transform="translate(' + GUTTER_W + ',0)">' +
           grid + seps + bars + playhead +
         '</g>' +
       '</svg>' +
       // Chord track
-      '<svg viewBox="0 0 ' + fullW + ' ' + CHORD_H + '" preserveAspectRatio="none" height="' + CHORD_H + '">' +
+      '<svg viewBox="0 0 ' + fullW + ' ' + CHORD_H + '" width="' + fullW +
+        '" height="' + CHORD_H + '" preserveAspectRatio="none">' +
         '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + CHORD_H + '" fill="#1e1f29"/>' +
         '<g transform="translate(' + GUTTER_W + ',0)">' + chordTrack + '</g>' +
       '</svg>' +
     '</div>';
-  }
 
   stripTarget.innerHTML = html;
   stripState = {
-    lines: rowMeta,
-    totalBeats: cumBeats,
+    totalBeats: totalBeats,
     qpm: tempoQpmFromAbc(abc),
+    xPerBeat: xPerBeat,
   };
   setPlayheadBeat(0);
   setStatus("stripchart ok", "ok");
