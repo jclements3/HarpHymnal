@@ -163,20 +163,27 @@
      stripchart toggle needs !important to force the override. */
   #stripchart-target {
     width: 100%; height: 100%;
-    background: var(--bg);          /* dark dracula bg */
+    background: var(--bg);
     color: var(--ink);
-    overflow-x: auto; overflow-y: hidden; padding: 0;
+    position: relative; overflow: hidden; padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
     display: none !important;
   }
   #stripchart-target.show { display: flex !important; flex-direction: column; }
   #abcjs-target.hide { display: none !important; }
-  /* one full-height row -- 47 lanes vertical, music flows horizontally */
+  /* DAW-style: the inner scroller's scrollLeft is driven during playback
+     so the music slides past a fixed (but invisible) "now" position.
+     No visible playhead bar. */
+  #stripchart-target .strip-scroll {
+    flex: 1; min-height: 0;
+    overflow-x: auto; overflow-y: hidden;
+    background: var(--bg-alt);
+    -webkit-overflow-scrolling: touch;
+  }
   .strip-row {
     position: relative;
     background: var(--bg-alt);
     height: 100%;
-    flex: 1; min-height: 0;
     display: flex; flex-direction: column;
   }
   .strip-row svg { display: block; flex: 0 0 auto; }
@@ -696,10 +703,15 @@ let stripPlayheadAnchor = null;
 
 function setPlayheadBeat(beat) {
   if (!stripState) return;
-  const ph = stripTarget.querySelector('.playhead');
-  if (!ph) return;
-  const x = Math.max(0, Math.min(stripState.totalBeats, beat)) * stripState.xPerBeat;
-  ph.setAttribute("transform", "translate(" + x.toFixed(1) + ",0)");
+  const scroller = stripTarget.querySelector('.strip-scroll');
+  if (!scroller) return;
+  // No visible playhead bar; the timeline simply scrolls so the current
+  // beat sits at PH_PCT of the visible viewport.
+  const PH_PCT = 0.30;
+  const targetVpX = scroller.clientWidth * PH_PCT;
+  const beatPx = Math.max(0, Math.min(stripState.totalBeats, beat)) * stripState.xPerBeat;
+  const contentX = beatPx + (stripState.gutterW || 0);
+  scroller.scrollLeft = Math.max(0, contentX - targetVpX);
 }
 
 function startStripchartPlayback() {
@@ -923,30 +935,30 @@ function renderStripchart(abc) {
         '" stroke="#ff5555" stroke-width="1.5" stroke-dasharray="3,2"/>' +
     '</g>';
 
-  // Single row markup: bar numbers (top) + main note grid + chord track,
-  // all sharing the same SVG width so vertical alignment matches.
+  // Single row wrapped in a horizontally-scrolling container. setPlayheadBeat
+  // drives scrollLeft during playback so the timeline slides past the
+  // (invisible) playhead position.
   const html =
-    '<div class="strip-row">' +
-      // Bar numbers
-      '<svg viewBox="0 0 ' + fullW + ' ' + BAR_NUM_H + '" width="' + fullW +
-        '" height="' + BAR_NUM_H + '" preserveAspectRatio="none">' +
-        '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + BAR_NUM_H + '" fill="#1e1f29"/>' +
-        '<g transform="translate(' + GUTTER_W + ',0)">' + barNums + '</g>' +
-      '</svg>' +
-      // Main: gutter + 47 lanes (this is the flex:1 row that fills remaining height)
-      '<svg class="strip-main" viewBox="0 0 ' + fullW + ' ' + ROW_H +
-        '" width="' + fullW + '" height="100%" preserveAspectRatio="none">' +
-        gutter +
-        '<g transform="translate(' + GUTTER_W + ',0)">' +
-          grid + seps + bars + playhead +
-        '</g>' +
-      '</svg>' +
-      // Chord track
-      '<svg viewBox="0 0 ' + fullW + ' ' + CHORD_H + '" width="' + fullW +
-        '" height="' + CHORD_H + '" preserveAspectRatio="none">' +
-        '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + CHORD_H + '" fill="#1e1f29"/>' +
-        '<g transform="translate(' + GUTTER_W + ',0)">' + chordTrack + '</g>' +
-      '</svg>' +
+    '<div class="strip-scroll">' +
+      '<div class="strip-row">' +
+        '<svg viewBox="0 0 ' + fullW + ' ' + BAR_NUM_H + '" width="' + fullW +
+          '" height="' + BAR_NUM_H + '" preserveAspectRatio="none">' +
+          '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + BAR_NUM_H + '" fill="#1e1f29"/>' +
+          '<g transform="translate(' + GUTTER_W + ',0)">' + barNums + '</g>' +
+        '</svg>' +
+        '<svg class="strip-main" viewBox="0 0 ' + fullW + ' ' + ROW_H +
+          '" width="' + fullW + '" height="100%" preserveAspectRatio="none">' +
+          gutter +
+          '<g transform="translate(' + GUTTER_W + ',0)">' +
+            grid + seps + bars +
+          '</g>' +
+        '</svg>' +
+        '<svg viewBox="0 0 ' + fullW + ' ' + CHORD_H + '" width="' + fullW +
+          '" height="' + CHORD_H + '" preserveAspectRatio="none">' +
+          '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + CHORD_H + '" fill="#1e1f29"/>' +
+          '<g transform="translate(' + GUTTER_W + ',0)">' + chordTrack + '</g>' +
+        '</svg>' +
+      '</div>' +
     '</div>';
 
   stripTarget.innerHTML = html;
@@ -954,6 +966,7 @@ function renderStripchart(abc) {
     totalBeats: totalBeats,
     qpm: tempoQpmFromAbc(abc),
     xPerBeat: xPerBeat,
+    gutterW: GUTTER_W,
   };
   setPlayheadBeat(0);
   setStatus("stripchart ok", "ok");
