@@ -2,14 +2,45 @@
 %
 % Concept:
 %   - Diatonic throughout (no lever flips, no accidentals)
-%   - Touches each of the seven church modes across the full piece
-%       Ionian -> ... -> Locrian (and other intermediate modes)
+%   - Touches all 7 church modes across the full piece, mapped to the
+%     thematic arc of the Creed text (see MODAL PLAN below).
 %   - Explores the full 47-string pedal-harp range (C1..G7) over the
-%     course of the piece. Range policy (harp octave numbering, where
-%     1 = highest octave and 7 = lowest octave; harp 4 = middle C):
-%       harp 7..6  : drone only, LH octave plucks, sparingly (C1..C2)
-%       harp 6..1- : regular play range (C2..G7)
-%       above 1-   : not used (>G7)
+%     course of the piece. Range policy (SCIENTIFIC octave numbering,
+%     C1 = lowest pitch, C4 = middle C, C7 = treble):
+%       C1..B1     : drone-only zone, single pitches only (no chord notes)
+%       C2..C6     : primary action zone (chords, melody, voice leading)
+%       C6..G7     : fluff/angel zone (rare chords, used for sparkle)
+%
+% MODAL PLAN (7 church modes traverse the Creed text, framed by Ionian):
+%
+%   #  Phase / Text                                        Mode             Tonic
+%   -- --------------------------------------------------  ---------------  -----
+%   1  PROLOGUE: "I believe" anthem (3 iterations)         IONIAN           C
+%   .  SEGUE: "Fall of the Angels" (bar 8, descent run)
+%   2  CREATION: "I believe in one God ... visible and     LOCRIAN          B
+%        invisible" (void -> dark creation)
+%   3  CHRIST DIVINE: "in one Lord Jesus Christ ... God    LYDIAN           F
+%        of God, Light of Light, ... by whom all things
+%        were made" (raised 4 = "Light of Light")
+%   4  INCARNATION: "Who for us men ... came down from     MIXOLYDIAN       G
+%        heaven, And was incarnate ... made man" (b7,
+%        descent into humanity)
+%   5  PASSION: "And was crucified ... He suffered and     PHRYGIAN         E
+%        was buried" (b2, mournful, mystical)
+%   6  RESURRECTION: "the third day he rose again ...      DORIAN           D
+%        ascended into heaven, And sitteth on the right
+%        hand" (minor with bright IV, rising hope)
+%   7  JUDGMENT + SPIRIT: "shall come again with glory     AEOLIAN          A
+%        ... Holy Ghost ... Who spake by the Prophets"
+%        (natural minor, solemn)
+%   8  CODA / AMEN: "And I believe one Catholic ... life   IONIAN (return)  C
+%        of the world to come. Amen." (full circle home)
+%
+%   Open questions still to settle (TBD):
+%     - Bar count per phase (Phase 2 = 16; later phases scale similarly?
+%       longer for meatier text like Phase 3?)
+%     - Segues between every phase or only at major thematic shifts?
+%     - The Amen -- single bar or extended cadenza?
 %
 % PHASE 1 -- "I believe" anthem in C Ionian.
 %   Three iterations of "I believe" = NINE strikes total.
@@ -127,9 +158,9 @@ w: I be- lieve _
 %          interlock so each clef stays in its natural register --
 %          no ledger-line spaghetti.
 % 8
-[V:1]  [Q:1/4=64] "Fall of the Angels"f''/4 c''/4 g'/4 d'/4 a/4 e/4 B/4 F/4 z2 |
+[V:1]  [Q:1/4=64] "Fall of the Angels"f''/4c''/4g'/4d'/4 a/4e/4B/4F/4 z2 |
 w: *
-[V:2]  z2 C/4 G,/4 D,/4 A,,/4 E,,/4 B,,,/4 F,,,/4 C,,,/4                       |
+[V:2]  z2 C/4G,/4D,/4A,,/4 E,,/4B,,,/4F,,,/4C,,,/4                       |
 %
 % Bars 9-12 -- Phrase 1: "I believe in one God"   (i° -> bVII -> bVI -> bII)
 %   Drone B,,, (q) struck on bar 9 downbeat then i° pad (dotted-half = 3) sustains.
