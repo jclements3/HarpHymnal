@@ -206,8 +206,8 @@
     height: 100% !important;
     font-family: "JetBrains Mono", "Fira Code", "DejaVu Sans Mono",
                  "Liberation Mono", "Consolas", monospace;
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.45;
   }
   .cm-abc-header { color: var(--orange); font-weight: 600; }
   .cm-abc-comment { color: var(--muted); font-style: italic; }
@@ -607,16 +607,34 @@ function renderScore(abc) {
 }
 
 // --- Stripchart rendering --------------------------------------------
-// Rainbow color per scale degree (1..7). Accidentals shift hue ±15°.
-const DEGREE_HUE = { 1: 0, 2: 30, 3: 55, 4: 120, 5: 220, 6: 270, 7: 300 };
-// MIDI semitone offsets for major-scale degrees from tonic.
-const MAJOR_DEGREE_BY_SEMI = {
-  0: { deg: 1, alt: 0 },  1: { deg: 2, alt: -1 },
-  2: { deg: 2, alt: 0 },  3: { deg: 3, alt: -1 },
-  4: { deg: 3, alt: 0 },  5: { deg: 4, alt: 0 },
-  6: { deg: 4, alt: +1 }, 7: { deg: 5, alt: 0 },
-  8: { deg: 6, alt: -1 }, 9: { deg: 6, alt: 0 },
-  10:{ deg: 7, alt: -1 },11:{ deg: 7, alt: 0 },
+// Fixed Dracula-ish rainbow palette by scale degree (1..7). The lane
+// itself carries the color; every note bar on a lane uses the lane's
+// color, so two notes on the same string lane (e.g. two C5 notes a
+// beat apart) are guaranteed identical in hue/saturation/lightness.
+//
+// Mapping is anchored to C major (C = degree 1). Pitch class is
+// translated to a white-key degree (chromatic notes snap down to the
+// nearest white key) and that degree picks the color.
+const DEGREE_COLORS = {
+  1: "#ff5555",  // C  - red       (tonic)
+  2: "#ffb86c",  // D  - orange    (supertonic)
+  3: "#f1fa8c",  // E  - yellow    (mediant)
+  4: "#50fa7b",  // F  - green     (subdominant)
+  5: "#8be9fd",  // G  - cyan      (dominant)
+  6: "#bd93f9",  // A  - purple    (submediant)
+  7: "#ff79c6",  // B  - pink      (leading)
+};
+// Pitch class -> white-key degree (1..7). Chromatic pcs snap DOWN to
+// the nearest white key, matching how midiToString places them on a
+// diatonic lane (C#->C lane, D#->D lane, F#->F lane, etc).
+const PC_TO_DEGREE = {
+  0: 1, 1: 1,  // C, C# -> 1
+  2: 2, 3: 2,  // D, D# -> 2
+  4: 3,        // E     -> 3
+  5: 4, 6: 4,  // F, F# -> 4
+  7: 5, 8: 5,  // G, G# -> 5
+  9: 6, 10: 6, // A, A# -> 6
+  11: 7,       // B     -> 7
 };
 const KEY_TONIC_PC = {
   "C":0,"G":7,"D":2,"A":9,"E":4,"B":11,"F#":6,"C#":1,
@@ -625,12 +643,15 @@ const KEY_TONIC_PC = {
   "Dm":2,"Gm":7,"Cm":0,"Fm":5,"Bbm":10,"Ebm":3,"Abm":8,
 };
 
-function colorForPitch(midi, tonicPc) {
-  const semi = ((midi - tonicPc) % 12 + 12) % 12;
-  const info = MAJOR_DEGREE_BY_SEMI[semi] || { deg: 1, alt: 0 };
-  const hue = (DEGREE_HUE[info.deg] + info.alt * 15 + 360) % 360;
-  const sat = 80, lit = info.alt === 0 ? 50 : (info.alt > 0 ? 60 : 40);
-  return "hsl(" + hue + "," + sat + "%," + lit + "%)";
+// Color for a midi note based ONLY on its (white-key-snapped) pitch
+// class. tonicPc is accepted for API symmetry with the old signature
+// but intentionally unused: the lane is the source of truth, every
+// octave of the same letter gets the same hex (no chromatic hue shift,
+// no per-octave lightness drift).
+function colorForDegree(midi, tonicPc) {
+  const pc = ((midi % 12) + 12) % 12;
+  const deg = PC_TO_DEGREE[pc] || 1;
+  return DEGREE_COLORS[deg];
 }
 
 // abcjs pitch (note.pitches[i].pitch) is its own scheme: integer where
@@ -806,8 +827,8 @@ function renderStripchart(abc) {
   // scrolls horizontally for long pieces. All ABC lines are flattened
   // into one continuous beat axis.
   // Width sized so each measure (4 beats) holds 16 sixteenth-note
-  // columns at ~5 px each = 80 px / measure = 20 px / beat.
-  const PX_PER_BEAT = 20;
+  // columns at ~1.25 px each = 20 px / measure = 5 px / beat.
+  const PX_PER_BEAT = 5;
   const CHORD_H = 28;
   const BAR_NUM_H = 16;
   const GUTTER_W = 36;
@@ -850,7 +871,7 @@ function renderStripchart(abc) {
       const sIdx = midiToString(m);
       if (sIdx < 0 || sIdx >= N_STRINGS) continue;
       const y = (N_STRINGS - 1 - sIdx) * LANE_H;
-      const fill = colorForPitch(m, data.tonicPc);
+      const fill = colorForDegree(m, data.tonicPc);
       bars += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) +
               '" width="' + w.toFixed(1) + '" height="' + Math.max(2, LANE_H - 1).toFixed(1) +
               '" fill="' + fill + '" stroke="#1e1f29" stroke-width="0.3" rx="1"/>';
@@ -869,6 +890,20 @@ function renderStripchart(abc) {
   // "everything below this line is the next group down"). C lines are
   // red (tonic-anchor); F lines are blue (subdominant-anchor).
   let grid = "";
+  // Faint rainbow tint per lane: each string gets a full-width rect at
+  // ~10% alpha in its scale-degree color. String index 0 is C1 (degree
+  // 1 = red), index 1 = D (orange), ..., index 6 = B (pink); the
+  // pattern repeats every 7 strings up the harp. The note bars drawn
+  // later sit on top of these tints in the same hue, so a note's color
+  // is the lane it lives on.
+  for (let s = 0; s < N_STRINGS; s++) {
+    const y = (N_STRINGS - 1 - s) * LANE_H;
+    const deg = (s % 7) + 1;
+    const tint = DEGREE_COLORS[deg];
+    grid += '<rect x="0" y="' + y.toFixed(1) + '" width="' + innerW +
+            '" height="' + LANE_H.toFixed(2) +
+            '" fill="' + tint + '" fill-opacity="0.10"/>';
+  }
   for (let s = 0; s < N_STRINGS; s++) {
     const y = (N_STRINGS - 1 - s) * LANE_H;
     grid += '<line x1="0" y1="' + y.toFixed(1) + '" x2="' + innerW +
@@ -900,9 +935,24 @@ function renderStripchart(abc) {
     }
     if (label) {
       const xMid = (a + b) / 2 * xPerBeat;
-      chordTrack += '<text x="' + xMid.toFixed(1) + '" y="' + (CHORD_H - 9) +
-                    '" text-anchor="middle" font-size="12" font-weight="600" fill="#f8f8f2">' +
-                    escapeHtml(label) + '</text>';
+      // Polychord notation: "rh~lh" renders RH on top, LH below.
+      if (label.indexOf("~") !== -1) {
+        const parts = label.split("~");
+        const top = parts[0].trim(), bot = parts.slice(1).join("~").trim();
+        chordTrack += '<text x="' + xMid.toFixed(1) + '" y="' + (CHORD_H - 16) +
+                      '" text-anchor="middle" font-size="10" font-weight="600" fill="#f8f8f2">' +
+                      escapeHtml(top) + '</text>';
+        chordTrack += '<line x1="' + (xMid - 10).toFixed(1) + '" y1="' + (CHORD_H - 13.5) +
+                      '" x2="' + (xMid + 10).toFixed(1) + '" y2="' + (CHORD_H - 13.5) +
+                      '" stroke="#6272a4" stroke-width="0.6"/>';
+        chordTrack += '<text x="' + xMid.toFixed(1) + '" y="' + (CHORD_H - 4) +
+                      '" text-anchor="middle" font-size="10" font-weight="600" fill="#bd93f9">' +
+                      escapeHtml(bot) + '</text>';
+      } else {
+        chordTrack += '<text x="' + xMid.toFixed(1) + '" y="' + (CHORD_H - 9) +
+                      '" text-anchor="middle" font-size="12" font-weight="600" fill="#f8f8f2">' +
+                      escapeHtml(label) + '</text>';
+      }
     }
   }
   // Bar number strip
@@ -918,15 +968,22 @@ function renderStripchart(abc) {
                '" text-anchor="middle" font-size="10" font-weight="500" fill="#6272a4">' +
                (bi + 1) + '</text>';
   }
-  // Left gutter
+  // Left gutter -- HARP octave numbering (1=highest, 4=middle C / red
+  // string, 7=lowest). Internally we count strings from C1 (scientific)
+  // upwards; on the harp, that scientific octave N reads as harp octave
+  // (8 - N). Middle C (scientific C4 = harp C4) is highlighted red to
+  // match the physical instrument's red middle-C string.
   let gutter = '<rect x="0" y="0" width="' + GUTTER_W + '" height="' + ROW_H +
                '" fill="#21222c" stroke="#44475a" stroke-width="0.5"/>';
-  for (let oct = 1; oct <= 7; oct++) {
-    const sIdx = (oct - 1) * 7;
+  for (let sciOct = 1; sciOct <= 7; sciOct++) {
+    const sIdx = (sciOct - 1) * 7;
+    const harpOct = 8 - sciOct;
     const y = (N_STRINGS - 1 - sIdx) * LANE_H + LANE_H / 2 + 3;
+    const isMiddleC = (harpOct === 4);
     gutter += '<text x="' + (GUTTER_W / 2).toFixed(1) + '" y="' + y.toFixed(1) +
-              '" text-anchor="middle" font-size="9" font-weight="600" fill="#bd93f9">' +
-              'C' + oct + '</text>';
+              '" text-anchor="middle" font-size="9" font-weight="600" fill="' +
+              (isMiddleC ? "#ff5555" : "#bd93f9") + '">' +
+              'C' + harpOct + '</text>';
   }
   // Playhead
   const playhead =
@@ -1414,10 +1471,13 @@ function loadText(path) {
 }
 
 // Bootstrap: copy bundled examples into Documents/HarpHymnal/ on first
-// launch. Always writes a debug record to Documents/HarpHymnal/ so we
-// can see what happened via adb even if the page's status bar gets
-// overwritten by the score/stripchart render.
-const BOOTSTRAP_VERSION = "v6";
+// launch (or after a version bump). When the version bumps we ALSO
+// refresh the editor buffer if it matches the previous bundled version
+// (so the user sees the new content without having to manually reload
+// via My Files). Edits to the buffer are preserved if the user has
+// modified it -- we only overwrite when the buffer is byte-identical
+// to a known prior seed.
+const BOOTSTRAP_VERSION = "v11";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;
@@ -1438,6 +1498,27 @@ async function bootstrapMyFiles() {
     log.push("load:bytes=" + txt.length);
     const r2 = window.Bridge.saveAbc("nicene-creed.abc", txt);
     log.push("save:" + r2);
+    // Also refresh the editor buffer if the user is currently looking
+    // at any prior nicene-creed seed (or the default starter). Detect
+    // by comparing trimmed text to known seeds + the default ABC.
+    try {
+      const cur = (cm.getValue() || "").trim();
+      const knownSeeds = [
+        DEFAULT_ABC.trim(),
+        // Allow "any nicene-creed-shaped buffer" -- if the title matches
+        // and the user hasn't gone way off-template, refresh it.
+      ];
+      const looksLikeNicene = /^\s*%[^\n]*nicene/i.test(cur) ||
+                              /T:\s*Nicene/i.test(cur);
+      if (cur !== txt.trim() && (knownSeeds.includes(cur) || looksLikeNicene)) {
+        cm.setValue(txt);
+        log.push("editor:refreshed");
+      } else {
+        log.push("editor:kept-userbuffer");
+      }
+    } catch (e) {
+      log.push("editor-refresh-throw:" + (e && e.message || e));
+    }
   } catch (e) {
     log.push("load-throw:" + (e && e.message || e));
   }
@@ -1490,32 +1571,192 @@ document.getElementById("file-input").onchange = (ev) => {
   ev.target.value = "";
 };
 
-document.getElementById("btn-save").onclick = () => {
-  const filename = fname.value || "untitled.abc";
-  const content = cm.getValue();
-  // On the tablet (Android WebView with the Bridge), write directly to
-  // Documents/HarpHymnal/ via MediaStore so the file lands in a
-  // predictable, browseable location instead of Downloads/.
-  if (window.Bridge && typeof window.Bridge.saveAbc === "function") {
-    try {
-      const result = window.Bridge.saveAbc(filename, content);
-      if (result && result.startsWith("OK")) {
-        setStatus("saved → Documents/HarpHymnal/" + filename, "ok");
-        return;
-      }
-      setStatus("save: " + (result || "unknown error"), "err");
-      // fall through to download fallback if Bridge failed
-    } catch (e) {
-      setStatus("Bridge.saveAbc threw: " + (e && e.message || e), "err");
-    }
+// ─── Save All: write .abc + .mid + .html + .pdf ─────────────────────
+//
+// On the tablet (Bridge present) all four files land in Documents/
+// HarpHymnal/ via MediaStore. In a desktop browser we fall back to
+// individual downloads.
+//
+// File contents:
+//   .abc   editor buffer verbatim
+//   .mid   abcjs.synth.getMidiFile output (base64 → bytes)
+//   .html  standalone page with the active render's SVG embedded
+//   .pdf   single-page US-Letter wrapping a PNG snapshot of the active
+//          render (rendered via SVG → Image → Canvas → PNG → Java PDF)
+//
+// All four share a base name derived from the current filename.
+
+function baseName(fn) {
+  const s = (fn || "untitled.abc").replace(/\.[^./\\]+$/, "");
+  return s || "untitled";
+}
+
+function activeRenderSvg() {
+  const host = (viewMode === "stripchart") ? stripTarget : renderTarget;
+  return host ? host.querySelector("svg") : null;
+}
+
+function dataUrlToBase64(s) {
+  if (!s) return "";
+  const i = s.indexOf("base64,");
+  return i >= 0 ? s.slice(i + 7) : s;
+}
+
+function buildHtmlSnapshot(title, abcSrc) {
+  const svg = activeRenderSvg();
+  const svgXml = svg ? new XMLSerializer().serializeToString(svg) : "<p>(no render)</p>";
+  const safeTitle = String(title).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  const safeAbc   = String(abcSrc).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  return '<!doctype html><html><head><meta charset="utf-8"/>'
+    + '<title>' + safeTitle + '</title>'
+    + '<style>body{font-family:system-ui,sans-serif;margin:24px;color:#222;}'
+    + 'svg{max-width:100%;height:auto;}'
+    + 'pre{font-family:ui-monospace,Menlo,monospace;font-size:12px;'
+    + 'white-space:pre-wrap;background:#f5f5f5;padding:12px;border-radius:4px;}'
+    + '@media print{body{margin:0;}pre{display:none;}}</style></head><body>'
+    + '<h2>' + safeTitle + '</h2>'
+    + '<div class="render">' + svgXml + '</div>'
+    + '<h3>Source</h3><pre>' + safeAbc + '</pre>'
+    + '</body></html>';
+}
+
+async function svgToPngBase64(svgEl) {
+  if (!svgEl) return null;
+  const xml = new XMLSerializer().serializeToString(svgEl);
+  // Make sure the SVG declares its xmlns (required for <img> to render).
+  const xmlNs = xml.indexOf('xmlns="http://www.w3.org/2000/svg"') >= 0
+    ? xml
+    : xml.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"');
+  // Determine pixel size from SVG attributes / bounding box.
+  let w = parseFloat(svgEl.getAttribute("width"))  || 0;
+  let h = parseFloat(svgEl.getAttribute("height")) || 0;
+  if (!w || !h) {
+    const vb = (svgEl.getAttribute("viewBox") || "").split(/\s+/).map(Number);
+    if (vb.length === 4) { w = w || vb[2]; h = h || vb[3]; }
   }
-  // Browser / desktop fallback: trigger a download to the OS default folder.
-  const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+  if (!w) w = svgEl.clientWidth  || 1200;
+  if (!h) h = svgEl.clientHeight || 1600;
+  // Cap to a sane max so the PNG doesn't explode on very long stripcharts.
+  const MAX_W = 4000;
+  if (w > MAX_W) { h = h * (MAX_W / w); w = MAX_W; }
+  const blob = new Blob([xmlNs], { type: "image/svg+xml;charset=utf-8" });
+  const url  = URL.createObjectURL(blob);
+  try {
+    const img = new Image();
+    await new Promise((res, rej) => {
+      img.onload = () => res();
+      img.onerror = (ev) => rej(new Error("svg image load failed"));
+      img.src = url;
+    });
+    const canvas = document.createElement("canvas");
+    canvas.width  = Math.max(1, Math.round(w));
+    canvas.height = Math.max(1, Math.round(h));
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return dataUrlToBase64(canvas.toDataURL("image/png"));
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+function downloadBlob(filename, blob) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url; a.download = filename;
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function base64ToBlob(b64, mime) {
+  const bin = atob(b64);
+  const len = bin.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
+  return new Blob([bytes], { type: mime || "application/octet-stream" });
+}
+
+document.getElementById("btn-save").onclick = async () => {
+  const filename = fname.value || "untitled.abc";
+  const base     = baseName(filename);
+  const abc      = cm.getValue();
+  const hasBridge = !!(window.Bridge && typeof window.Bridge.saveAbc === "function");
+  const hasBin    = !!(window.Bridge && typeof window.Bridge.saveAbcBase64 === "function");
+  const hasPdf    = !!(window.Bridge && typeof window.Bridge.saveAbcPdfFromPng === "function");
+
+  const results = []; // [name, ok|err, msg]
+  const note = (n, ok, m) => { results.push([n, ok, m || ""]); };
+
+  setStatus("saving…", "");
+
+  // --- 1) ABC ---------------------------------------------------------
+  const abcName = base + ".abc";
+  if (hasBridge) {
+    try {
+      const r = window.Bridge.saveAbc(abcName, abc);
+      note(abcName, r && r.startsWith("OK"), r);
+    } catch (e) { note(abcName, false, String(e && e.message || e)); }
+  } else {
+    downloadBlob(abcName, new Blob([abc], { type: "text/plain;charset=utf-8" }));
+    note(abcName, true, "download");
+  }
+
+  // --- 2) MIDI --------------------------------------------------------
+  const midName = base + ".mid";
+  try {
+    const dataUri = ABCJS.synth.getMidiFile(abc, { midiOutputType: "encoded" });
+    const b64 = dataUrlToBase64(dataUri);
+    if (hasBin) {
+      const r = window.Bridge.saveAbcBase64(midName, b64);
+      note(midName, r && r.startsWith("OK"), r);
+    } else {
+      downloadBlob(midName, base64ToBlob(b64, "audio/midi"));
+      note(midName, true, "download");
+    }
+  } catch (e) { note(midName, false, String(e && e.message || e)); }
+
+  // --- 3) HTML --------------------------------------------------------
+  const htmlName = base + ".html";
+  try {
+    const html = buildHtmlSnapshot(base, abc);
+    if (hasBridge) {
+      const r = window.Bridge.saveAbc(htmlName, html);
+      note(htmlName, r && r.startsWith("OK"), r);
+    } else {
+      downloadBlob(htmlName, new Blob([html], { type: "text/html;charset=utf-8" }));
+      note(htmlName, true, "download");
+    }
+  } catch (e) { note(htmlName, false, String(e && e.message || e)); }
+
+  // --- 4) PDF (PNG snapshot of active render → Java wraps in Letter) -
+  const pdfName = base + ".pdf";
+  try {
+    const svg = activeRenderSvg();
+    if (!svg) throw new Error("no SVG in active render");
+    const pngB64 = await svgToPngBase64(svg);
+    if (!pngB64) throw new Error("png render failed");
+    if (hasPdf) {
+      const r = window.Bridge.saveAbcPdfFromPng(pdfName, pngB64);
+      note(pdfName, r && r.startsWith("OK"), r);
+    } else {
+      // Desktop fallback: download the PNG; user can print-to-PDF.
+      const altName = base + ".png";
+      downloadBlob(altName, base64ToBlob(pngB64, "image/png"));
+      note(altName, true, "download (no PDF bridge — saved as PNG)");
+    }
+  } catch (e) { note(pdfName, false, String(e && e.message || e)); }
+
+  // Summary status
+  const failed = results.filter(r => !r[1]).map(r => r[0]);
+  if (failed.length === 0) {
+    setStatus("saved → " + (hasBridge ? "Documents/HarpHymnal/" : "downloads/")
+              + base + ".{abc,mid,html,pdf}", "ok");
+  } else {
+    setStatus("saved with errors: " + failed.join(", ")
+              + " (see console)", "err");
+    console.warn("save results:", results);
+  }
 };
 
 document.getElementById("btn-play").onclick = play;

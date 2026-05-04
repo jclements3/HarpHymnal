@@ -30,6 +30,13 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.pdf.PdfDocument;
+import android.util.Base64;
 
 public class MainActivity extends Activity {
     private static final String TREFOIL_PACKAGE = "com.harp.trefoil";
@@ -219,6 +226,105 @@ public class MainActivity extends Activity {
             File f = new File(dir, filename);
             try (FileOutputStream fos = new FileOutputStream(f)) {
                 fos.write(content.getBytes(StandardCharsets.UTF_8));
+            }
+            return "OK";
+        }
+
+        /** Save a binary blob (MIDI, PDF, etc.) under Documents/HarpHymnal/.
+         *  `b64` is base64-encoded raw bytes (no data: URI prefix).
+         *  Returns "OK" or "ERR: ...". */
+        @JavascriptInterface
+        public String saveAbcBase64(String filename, String b64) {
+            if (filename == null || filename.isEmpty()) return "ERR: empty filename";
+            if (b64 == null) b64 = "";
+            try {
+                byte[] bytes = Base64.decode(b64, Base64.DEFAULT);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    return saveBytesViaMediaStore(filename, bytes);
+                } else {
+                    return saveBytesViaFile(filename, bytes);
+                }
+            } catch (Exception e) {
+                return "ERR: " + e.getClass().getSimpleName() + ": " + e.getMessage();
+            }
+        }
+
+        /** Wrap a base64-PNG in a single-page US-Letter PDF and save under
+         *  Documents/HarpHymnal/. Used by the composer's Save All button to
+         *  emit a `.pdf` snapshot of the active render view (score or
+         *  stripchart). Returns "OK" or "ERR: ...". */
+        @JavascriptInterface
+        public String saveAbcPdfFromPng(String filename, String pngB64) {
+            if (filename == null || filename.isEmpty()) return "ERR: empty filename";
+            if (pngB64 == null || pngB64.isEmpty()) return "ERR: empty png";
+            try {
+                byte[] pngBytes = Base64.decode(pngB64, Base64.DEFAULT);
+                Bitmap bmp = BitmapFactory.decodeByteArray(pngBytes, 0, pngBytes.length);
+                if (bmp == null) return "ERR: bitmap decode null";
+                // US Letter @ 72dpi = 612 x 792 points. 36-pt margins.
+                final int pageW = 612, pageH = 792, margin = 36;
+                final int boxW = pageW - margin * 2;
+                final int boxH = pageH - margin * 2;
+                float scale = Math.min(
+                    (float) boxW / bmp.getWidth(),
+                    (float) boxH / bmp.getHeight());
+                int drawW = Math.max(1, (int) (bmp.getWidth() * scale));
+                int drawH = Math.max(1, (int) (bmp.getHeight() * scale));
+                int drawX = margin + (boxW - drawW) / 2;
+                int drawY = margin;
+                PdfDocument pdf = new PdfDocument();
+                PdfDocument.PageInfo info =
+                    new PdfDocument.PageInfo.Builder(pageW, pageH, 1).create();
+                PdfDocument.Page page = pdf.startPage(info);
+                Canvas c = page.getCanvas();
+                c.drawColor(Color.WHITE);
+                c.drawBitmap(bmp, null,
+                    new Rect(drawX, drawY, drawX + drawW, drawY + drawH), null);
+                pdf.finishPage(page);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                pdf.writeTo(baos);
+                pdf.close();
+                bmp.recycle();
+                byte[] pdfBytes = baos.toByteArray();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    return saveBytesViaMediaStore(filename, pdfBytes);
+                } else {
+                    return saveBytesViaFile(filename, pdfBytes);
+                }
+            } catch (Exception e) {
+                return "ERR: " + e.getClass().getSimpleName() + ": " + e.getMessage();
+            }
+        }
+
+        private String saveBytesViaMediaStore(String filename, byte[] bytes) throws Exception {
+            ContentResolver resolver = getContentResolver();
+            Uri collection = MediaStore.Files.getContentUri("external");
+            Uri existing = findExisting(resolver, filename);
+            Uri target;
+            if (existing != null) {
+                target = existing;
+            } else {
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.MediaColumns.DISPLAY_NAME, filename);
+                values.put(MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream");
+                values.put(MediaStore.MediaColumns.RELATIVE_PATH, REL_DIR);
+                target = resolver.insert(collection, values);
+            }
+            if (target == null) return "ERR: insert returned null";
+            try (OutputStream os = resolver.openOutputStream(target, "wt")) {
+                if (os == null) return "ERR: openOutputStream null";
+                os.write(bytes);
+            }
+            return "OK";
+        }
+
+        private String saveBytesViaFile(String filename, byte[] bytes) throws Exception {
+            File dir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_DOCUMENTS), "HarpHymnal");
+            if (!dir.exists()) dir.mkdirs();
+            File f = new File(dir, filename);
+            try (FileOutputStream fos = new FileOutputStream(f)) {
+                fos.write(bytes);
             }
             return "OK";
         }

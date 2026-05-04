@@ -5,22 +5,47 @@
 %   - Touches each of the seven church modes across the full piece
 %       Ionian -> ... -> Locrian (and other intermediate modes)
 %   - Explores the full 47-string pedal-harp range (C1..G7) over the
-%     course of the piece. Range policy:
-%       C1-C2 : drone only, LH octave plucks, sparingly
-%       C2-G7 : regular play range
-%       >G7   : not used
+%     course of the piece. Range policy (harp octave numbering, where
+%     1 = highest octave and 7 = lowest octave; harp 4 = middle C):
+%       harp 7..6  : drone only, LH octave plucks, sparingly (C1..C2)
+%       harp 6..1- : regular play range (C2..G7)
+%       above 1-   : not used (>G7)
 %
 % PHASE 1 -- "I believe" anthem in C Ionian.
-%   Three iterations of "I believe", each strike a full I-chord stack:
-%       RH = [C E G c]         (4 notes, root-position triad + octave)
-%       LH = [C,, E,, G,, C,]  (same shape, two octaves lower)
-%   8 notes per strike. RH rises an octave per iteration; LH falls an
-%   octave per iteration. By iteration 3 the LH is a low-octave open
-%   drone (root + fifth in C1 and C2) and the RH is at the top of the
-%   normal play range.
+%   Three iterations of "I believe" = NINE strikes total.
+%   On a harp every string sustains, so striking the same chord nine
+%   times in a row would smear into a muddy column. Instead, every
+%   strike is a different diatonic chord -- 9 unique 4-note voicings
+%   in each hand (8 notes per strike, well inside the 10-strings-per-
+%   hand limit). The progression walks the complete diatonic family
+%   plus V7 and a final IΔ7. Inversions are mixed (root / 1st / 2nd)
+%   so adjacent strikes share tones and the voice leading stays close.
+%   RH harp 4->1 (climbing); LH harp 6->7 (descending into drone).
 %
-%   Rhythm per iteration:  q q (half tied to half) + half rest
-%                       =  8 beats = 2 bars of 4/4
+%      Iter 1 (RH harp 4..3, LH harp 6..5):    I    -> ii¹  -> iii
+%      Iter 2 (RH harp 3..2, LH harp 7..6):    IV²  -> V    -> vi¹
+%      Iter 3 (RH harp 2..1, LH harp 7..6):    vii°² -> V7  -> IΔ7
+%
+%   Iter 3 voicings live strictly above iter 2's top (D6): vii°² uses
+%   5th-in-bass (F6 B6 D7 F7), V7 keeps G6 B6 D7 F7, IΔ7 climbs to
+%   B6 C7 E7 G7 (rootless 7-1-3-5 -- harp string 1 is G7).
+%   Strike 9 (IΔ7) LH on harp 7-6 (C1 G1 C2 E2, root-5-octave-10:
+%   the climactic C1 anchor stays, and the top E2 keeps the 10-string
+%   span legal).
+%
+%   Rhythm (anthem skeleton, with C1..B1 organ-drone hits):
+%     Bar 1 (pickup, 2 beats): q q                -- "I" "be"  of iter 1
+%     Bar 2 (4 beats):         whole              -- "lieve"   of iter 1
+%     Bar 3 (4 beats):         drone-half + q q   -- drone + "I" "be" iter 2
+%     Bar 4 (4 beats):         whole              -- "lieve"   of iter 2
+%     Bar 5 (4 beats):         drone-half + q q   -- drone + "I" "be" iter 3
+%     Bar 6 (4 beats):         whole              -- "lieve"   of iter 3
+%     Bar 7 (tail, 2 beats):   drone-half          -- final drone (V:1 z2)
+%
+%   Drone pitches (LH only; V:1 rests through the drone window):
+%     after iter 1 lieve (iii)   -> E1  (root of iii on harp 7)
+%     after iter 2 lieve (vi¹)   -> A1  (root of vi  on harp 7)
+%     after iter 3 lieve (IΔ7)   -> C1  (tonic, lowest string, harp 7)
 %
 %   Phase 2 (Locrian) follows -- TBD.
 %
@@ -34,20 +59,16 @@ K:C
 V:1 clef=treble  name="RH"
 V:2 clef=bass    name="LH"
 %
-% Iteration 1 -- mid register (RH C4..C5, LH C2..C3)
-[V:1] "I"[CEGc] [CEGc] [CEGc]2- | [CEGc]2 z2 |
-w: I be- lieve _
-[V:2] [C,,E,,G,,C,] [C,,E,,G,,C,] [C,,E,,G,,C,]2- | [C,,E,,G,,C,]2 z2 |
+% Bars 1-4 -- iter 1 (I, ii¹, iii) + drone + iter 2 head (IV², V) + iter 2 tail (vi¹)
+% 1
+[V:1]  "I"[CEGc] "ii¹"[FAdf]     | "iii"[EGBe]4  | z2 "IV²"[cfac'] "V"[dgbd']                    | "vi¹"[ceac']4  |
+w: I be- lieve I be- lieve
+[V:2]  [C,,G,,C,E,] [F,,A,,D,F,] | [E,,B,,E,G,]4 | "drone"E,,,2 [F,,,A,,,C,,F,,] [G,,,D,,G,,B,,] | [C,,E,,A,,C,]4 |
 %
-% Iteration 2 -- RH up an octave (C5..C6), LH down an octave (C1..C2)
-[V:1] [cegc'] [cegc'] [cegc']2- | [cegc']2 z2 |
-w: I be- lieve _
-[V:2] [C,,,E,,,G,,,C,,] [C,,,E,,,G,,,C,,] [C,,,E,,,G,,,C,,]2- | [C,,,E,,,G,,,C,,]2 z2 |
-%
-% Iteration 3 -- RH at top of normal range (C6..C7),
-%                LH open drone spanning C1..G2 (root + 5th in 2 octaves)
-[V:1] [c'e'g'c''] [c'e'g'c''] [c'e'g'c'']2- | [c'e'g'c'']2 z2 |
-w: I be- lieve _
-[V:2] [C,,,G,,,C,,G,,] [C,,,G,,,C,,G,,] [C,,,G,,,C,,G,,]2- | [C,,,G,,,C,,G,,]2 z2 |
+% Bars 5-7 -- drone + iter 3 head (vii°², V7) + iter 3 tail (IΔ7) + final drone
+% 5
+[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f'']       | "IΔ7"[b'c''e''g'']4 | z2           |]
+w: I be- lieve
+[V:2]  "drone"A,,,2 [B,,,D,,F,,B,,] [G,,,B,,,F,,G,,] | [C,,,G,,,C,,E,,]4   | "drone"C,,,2 |]
 %
 % --- Phase 2 (Locrian) below this line, to come ---
