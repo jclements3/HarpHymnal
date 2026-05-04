@@ -1477,7 +1477,7 @@ function loadText(path) {
 // via My Files). Edits to the buffer are preserved if the user has
 // modified it -- we only overwrite when the buffer is byte-identical
 // to a known prior seed.
-const BOOTSTRAP_VERSION = "v11";
+const BOOTSTRAP_VERSION = "v12";
 async function bootstrapMyFiles() {
   if (!(window.Bridge && typeof window.Bridge.saveAbc === "function")) return;
   if (lsGet("abccomposer.bootstrap." + BOOTSTRAP_VERSION, "")) return;
@@ -1703,15 +1703,44 @@ document.getElementById("btn-save").onclick = async () => {
   }
 
   // --- 2) MIDI --------------------------------------------------------
+  // abcjs `encoded` mode returns a URL-encoded data URI (not base64);
+  // `binary` mode returns a Uint8Array. Use binary and base64 it ourselves.
   const midName = base + ".mid";
   try {
-    const dataUri = ABCJS.synth.getMidiFile(abc, { midiOutputType: "encoded" });
-    const b64 = dataUrlToBase64(dataUri);
+    const out = ABCJS.synth.getMidiFile(abc, { midiOutputType: "binary" });
+    let bytes;
+    // abcjs binary mode may return either a Uint8Array directly OR an
+    // array of per-tune Uint8Arrays (one entry per X: block). Unwrap the
+    // outer array if needed, then duck-type the inner buffer (the cross-
+    // realm `instanceof Uint8Array` check is unreliable).
+    let buf = out;
+    if (buf && typeof buf.length === "number" && buf.length > 0
+        && typeof buf[0] !== "number") {
+      buf = buf[0]; // unwrap array-of-tunes
+    }
+    if (buf && typeof buf.length === "number"
+        && (typeof buf[0] === "number" || buf.length === 0)) {
+      bytes = buf;
+    } else if (typeof buf === "string" && buf.indexOf("data:audio/midi,") === 0) {
+      // Fallback: URL-encoded form. Decode each %xx pair into a byte.
+      const enc = out.slice("data:audio/midi,".length);
+      const len = enc.length / 3;
+      bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = parseInt(enc.substr(i * 3 + 1, 2), 16);
+      }
+    } else {
+      throw new Error("unknown getMidiFile return shape: "
+        + Object.prototype.toString.call(out));
+    }
+    let bin = "";
+    for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i] & 0xff);
+    const b64 = btoa(bin);
     if (hasBin) {
       const r = window.Bridge.saveAbcBase64(midName, b64);
       note(midName, r && r.startsWith("OK"), r);
     } else {
-      downloadBlob(midName, base64ToBlob(b64, "audio/midi"));
+      downloadBlob(midName, new Blob([bytes], { type: "audio/midi" }));
       note(midName, true, "download");
     }
   } catch (e) { note(midName, false, String(e && e.message || e)); }
@@ -1747,6 +1776,16 @@ document.getElementById("btn-save").onclick = async () => {
     }
   } catch (e) { note(pdfName, false, String(e && e.message || e)); }
 
+  // Debug log — always write a save_debug.txt with the per-artifact results
+  // so we can diagnose Bridge / abcjs issues from the file system.
+  try {
+    if (hasBridge) {
+      const lines = results.map(r =>
+        (r[1] ? "OK   " : "ERR  ") + r[0] + " :: " + (r[2] || ""));
+      window.Bridge.saveAbc("_save_debug.txt",
+        new Date().toISOString() + "\n" + lines.join("\n") + "\n");
+    }
+  } catch (e) {}
   // Summary status
   const failed = results.filter(r => !r[1]).map(r => r[0]);
   if (failed.length === 0) {

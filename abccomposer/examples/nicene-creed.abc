@@ -34,13 +34,13 @@
 %   span legal).
 %
 %   Rhythm (anthem skeleton, with C1..B1 organ-drone hits):
-%     Bar 1 (pickup, 2 beats): q q                -- "I" "be"  of iter 1
-%     Bar 2 (4 beats):         whole              -- "lieve"   of iter 1
-%     Bar 3 (4 beats):         drone-half + q q   -- drone + "I" "be" iter 2
-%     Bar 4 (4 beats):         whole              -- "lieve"   of iter 2
-%     Bar 5 (4 beats):         drone-half + q q   -- drone + "I" "be" iter 3
-%     Bar 6 (4 beats):         whole              -- "lieve"   of iter 3
-%     Bar 7 (tail, 2 beats):   drone-half          -- final drone (V:1 z2)
+%     Bar 1 (pickup, 2 beats): q q                  -- "I" "be"  of iter 1
+%     Bar 2 (4 beats):         whole                -- "lieve"   of iter 1
+%     Bar 3 (4 beats):         drone-q + rest-q + q q   -- drone hit, then "I" "be" iter 2
+%     Bar 4 (4 beats):         whole                -- "lieve"   of iter 2
+%     Bar 5 (4 beats):         drone-q + rest-q + q q   -- drone hit, then "I" "be" iter 3
+%     Bar 6 (4 beats):         whole                -- "lieve"   of iter 3
+%     Bar 7 (tail, 2 beats):   drone-q + rest-q     -- final drone hit, then ring
 %
 %   Drone pitches (LH only; V:1 rests through the drone window):
 %     after iter 1 lieve (iii)   -> E1  (root of iii on harp 7)
@@ -61,14 +61,14 @@ V:2 clef=bass    name="LH"
 %
 % Bars 1-4 -- iter 1 (I, ii¹, iii) + drone + iter 2 head (IV², V) + iter 2 tail (vi¹)
 % 1
-[V:1]  "I"[CEGc] "ii¹"[FAdf]     | "iii"[EGBe]4  | z2 "IV²"[cfac'] "V"[dgbd']                    | "vi¹"[ceac']4  |
+[V:1]  "I"[CEGc] "ii¹"[FAdf]     | "iii"[EGBe]4  | z2 "IV²"[cfac'] "V"[dgbd']                     | "vi¹"[ceac']4  |
 w: I be- lieve I be- lieve
-[V:2]  [C,,G,,C,E,] [F,,A,,D,F,] | [E,,B,,E,G,]4 | "drone"E,,,2 [F,,,A,,,C,,F,,] [G,,,D,,G,,B,,] | [C,,E,,A,,C,]4 |
+[V:2]  [C,,G,,C,E,] [F,,A,,D,F,] | [E,,B,,E,G,]4 | "drone"E,,, z [F,,,A,,,C,,F,,] [G,,,D,,G,,B,,] | [C,,E,,A,,C,]4 |
 %
 % Bars 5-7 -- drone + iter 3 head (vii°², V7) + iter 3 tail (IΔ7) + final drone
 % 5
-[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f'']       | "IΔ7"[b'c''e''g'']4 | z2           |]
+[V:1]  z2 "vii°²"[f'b'd''f''] "V7"[g'b'd''f'']        | "IΔ7"[b'c''e''g'']4 | z2            |]
 w: I be- lieve
-[V:2]  "drone"A,,,2 [B,,,D,,F,,B,,] [G,,,B,,,F,,G,,] | [C,,,G,,,C,,E,,]4   | "drone"C,,,2 |]
+[V:2]  "drone"A,,, z [B,,,D,,F,,B,,] [G,,,B,,,F,,G,,] | [C,,,G,,,C,,E,,]4   | "drone"C,,, z |]
 %
 % --- Phase 2 (Locrian) below this line, to come ---
