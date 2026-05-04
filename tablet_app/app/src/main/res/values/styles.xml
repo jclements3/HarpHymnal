@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="KbdKey">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/kbd_key_text</item>
+        <item name="android:background">@drawable/key_bg</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="KbdKeyMod" parent="KbdKey">
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/key_mod_bg</item>
+    </style>
+</resources>
