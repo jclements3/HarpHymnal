@@ -68,6 +68,59 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-05 evening — giant hex pad in abccomposer + stripchart pane)
+
+The "ABC Composer" toolbar label is now a **♪ button** that toggles the
+whole dashboard into a **giant hex pad + stripchart**. The keyboard IME
+went back to its plain alpha + numpad layout — no more in-keyboard hex
+mode (`HexHarpView.java` and `hex_white.xml` deleted; `kbd_music`
+FrameLayout child gone; numpad's top-left restored to `Home`; column
+weights restored to 14:4; `kbd_alpha` row 5 lost the `♪` cell, `SPACE`
+grew to weight 9 to fill).
+
+**The hex pad lives in the composer (`abccomposer/index.html`)**, drawn
+as inline SVG. Layout is 47 strings split into LH (oct 1-3, white hex
+fill) and RH (oct 4-7, gray `#A8A8A8` fill), pressed together
+horizontally so LH's right edge butts up to RH's left edge. LH is
+shifted down by 1 row so it sits vertically centered within RH's
+8-row span.
+
+Utility hexes (dark `#333333` fill, white labels):
+- **Above LH** (row 0, cols 0-3): `⌫` `↵` `[` `]`
+- **Below LH** (row 7, cols 0-2): `z` `+` `−`
+  - `+` doubles the duration suffix immediately before the cursor
+    (e.g. `c` → `c2` → `c4` → `c8`; `c/2` → `c` → `c2`)
+  - `−` halves it (`c4` → `c2` → `c` → `c/2` → `c/4`)
+- `⌫` calls CodeMirror's `delCharBefore`; `↵` calls `newlineAndIndent`;
+  `[` `]` `z` `+`/`−` insert/edit at the cursor
+
+The right 40% of the overlay is a **stripchart pane**: when ♪ is
+pressed, `#stripchart-target` is **re-parented** out of the render
+pane and into `#hexpad-strip-wrap`, forced visible, and re-rendered
+on every `cm.change`. When ♪ is pressed again, it's parented back to
+its original spot and its `.show` class is restored to whatever it was.
+
+Both `cm.replaceSelection(tag)` and the duration math run against the
+live editor, so taps mutate the same `nicene-creed.abc` (or whatever's
+loaded) the user is composing.
+
+`abccomposer/index.html` is **mirrored** into
+`tablet_app/app/src/main/assets/abccomposer/index.html`. Changes to the
+composer must be `cp`'d across before `./gradlew assembleDebug`. (No
+sync task — the assets dir is just a literal copy.)
+
+### Outstanding / not-yet-decided
+- **Hex stagger column gap** — between LH (last col 3) and RH (first
+  col 3 in offset rows / 4 in aligned rows): they share col 3 across
+  alignment-flipped rows, so adjacent LH and RH cells touch as proper
+  hex E-W neighbors. Visually crisp.
+- **Default open behavior**: hex pad starts hidden; user must tap ♪.
+  Could be persisted in localStorage if asked.
+- **Multi-touch / swipe-to-chord**: not wired. Each cell tap is a
+  single insert. The Canvas/SVG path is in place to support it.
+
+---
+
 ## Current state (2026-05-04 evening — Nicene Creed Phase 1+2 + harp rules + composer feature pile)
 
 ### TL;DR for the home-laptop / tablet sessions

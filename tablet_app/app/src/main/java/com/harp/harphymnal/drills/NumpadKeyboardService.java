@@ -64,8 +64,8 @@ public class NumpadKeyboardService extends InputMethodService {
         return keyboardView;
     }
 
-    /** Target keyboard height in dp. */
-    private static final int KEYBOARD_HEIGHT_DP = 240;
+    /** Target keyboard height in dp (5 rows × 60dp). */
+    private static final int KEYBOARD_HEIGHT_DP = 300;
 
     /**
      * In landscape Android defaults to fullscreen-extract IME mode, which
@@ -116,6 +116,12 @@ public class NumpadKeyboardService extends InputMethodService {
             case "RIGHT": sendKey(KeyEvent.KEYCODE_DPAD_RIGHT); return;
             case "UP":    sendKey(KeyEvent.KEYCODE_DPAD_UP); return;
             case "DOWN":  sendKey(KeyEvent.KEYCODE_DPAD_DOWN); return;
+            case "HOME":  sendKey(KeyEvent.KEYCODE_MOVE_HOME); return;
+            case "END":   sendKey(KeyEvent.KEYCODE_MOVE_END); return;
+            case "INS":   sendKey(KeyEvent.KEYCODE_INSERT); return;
+            case "DEL":   sendKey(KeyEvent.KEYCODE_FORWARD_DEL); return;
+            case "PGUP":  sendKey(KeyEvent.KEYCODE_PAGE_UP); return;
+            case "PGDN":  sendKey(KeyEvent.KEYCODE_PAGE_DOWN); return;
             case "CAPS":  caps  = !caps;  updateLabels(); return;   // persistent
             case "SHIFT": shift = !shift; updateLabels(); return;   // sticky-once
             case "CTRL":  ctrl = !ctrl; return;
@@ -199,8 +205,16 @@ public class NumpadKeyboardService extends InputMethodService {
             Object tag = b.getTag();
             if (!(tag instanceof String)) return;
             String t = (String) tag;
-            if (t.length() == 1 && Character.isLetter(t.charAt(0))) {
-                b.setText((caps ^ shift) ? t.toUpperCase() : t.toLowerCase());
+            if (t.length() == 1) {
+                char c = t.charAt(0);
+                if (Character.isLetter(c)) {
+                    b.setText((caps ^ shift) ? t.toUpperCase() : t.toLowerCase());
+                } else {
+                    // Match the commit logic in handleKey(): caps^shift
+                    // applies the full shift map (digits + punctuation),
+                    // so the labels need to follow suit.
+                    b.setText((caps ^ shift) ? shiftMap(t) : t);
+                }
             }
         }
     }

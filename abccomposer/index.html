@@ -52,6 +52,29 @@
     font-weight: 700; color: var(--accent); font-size: 15px;
     margin-right: 14px; letter-spacing: 0.5px;
   }
+  #toolbar #btn-hexpad.brand-btn {
+    background: transparent; color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 5px;
+    font-size: 20px; font-weight: 700;
+    padding: 2px 12px; margin-right: 8px;
+    line-height: 1;
+  }
+  #toolbar #btn-hexpad.brand-btn:hover { background: var(--accent); color: var(--bg); }
+  #toolbar #btn-hexpad.brand-btn.active { background: var(--accent); color: var(--bg); }
+  /* ─── Hex pad overlay (replaces #panes when active) ─── */
+  #hexpad-overlay {
+    flex: 1; min-height: 0;
+    background: var(--bg-alt);
+    flex-direction: row;
+  }
+  #hexpad-svg-wrap { flex: 0 0 60%; min-width: 0; min-height: 0; }
+  #hexpad-svg-wrap svg { width: 100%; height: 100%; display: block; }
+  #hexpad-strip-wrap {
+    flex: 1 1 auto; min-width: 0; min-height: 0;
+    background: #f8f8f2; color: #21222c;
+    border-left: 2px solid var(--line);
+    overflow: hidden;
+  }
   #toolbar input[type=text] {
     background: #44475a; color: var(--ink);
     border: 1px solid var(--muted); border-radius: 5px;
@@ -341,7 +364,7 @@
 <div id="app">
 
   <div id="toolbar">
-    <span class="brand">ABC Composer</span>
+    <button id="btn-hexpad" class="brand-btn" title="Toggle giant harp hex pad">♪</button>
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
     <button id="btn-open">Open</button>
@@ -394,6 +417,14 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- ─── Hex pad overlay (giant harp keyboard, toggled by ♪) ─── -->
+  <div id="hexpad-overlay" style="display:none;">
+    <div id="hexpad-svg-wrap">
+      <svg id="hexpad-svg" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div id="hexpad-strip-wrap"></div>
   </div>
 </div>
 
@@ -2064,6 +2095,221 @@ if ("serviceWorker" in navigator &&
     });
   });
 }
+
+// ─── Hex pad overlay (giant harp keyboard) ──────────────────────────
+// 47 strings, side-by-side and pressed together: LH (oct 1-3) cols 0-3,
+// RH (oct 4-7) cols 3-6 (sharing the col-3 column boundary so adjacent
+// LH/RH cells touch as hex E-W neighbors).
+// LH (6 rows) is shifted down by 1 row so it sits centered within RH's
+// 8 rows. Each tuple: [row, col, offsetRow, label, abcTag, color, hand]
+const HEXPAD_CELLS = [
+  // Row 0 (top): utility above LH (⌫ ↵ [ ]) + RH oct 7 D-row partial (D7 F7)
+  [0, 0, false, "⌫", "BKSP",  "white", "ctrl"],
+  [0, 1, false, "↵", "ENTER", "white", "ctrl"],
+  [0, 2, false, "[", "[",     "white", "ctrl"],
+  [0, 3, false, "]", "]",     "white", "ctrl"],
+  [0, 4, false, "D7", "d''",  "black", "rh"],
+  [0, 5, false, "F7", "f''",  "blue",  "rh"],
+  // Row 1: LH oct 3 D-row + RH oct 7 C-row partial
+  [1, 0, true,  "D3", "D,",   "black", "lh"],
+  [1, 1, true,  "F3", "F,",   "blue",  "lh"],
+  [1, 2, true,  "A3", "A,",   "black", "lh"],
+  [1, 3, true,  "C7", "c''",  "red",   "rh"],
+  [1, 4, true,  "E7", "e''",  "black", "rh"],
+  [1, 5, true,  "G7", "g''",  "black", "rh"],
+  // Row 2: LH oct 3 C-row + RH oct 6 D-row
+  [2, 0, false, "C3", "C,",   "red",   "lh"],
+  [2, 1, false, "E3", "E,",   "black", "lh"],
+  [2, 2, false, "G3", "G,",   "black", "lh"],
+  [2, 3, false, "B3", "B,",   "black", "lh"],
+  [2, 4, false, "D6", "d'",   "black", "rh"],
+  [2, 5, false, "F6", "f'",   "blue",  "rh"],
+  [2, 6, false, "A6", "a'",   "black", "rh"],
+  // Row 3: LH oct 2 D-row + RH oct 6 C-row
+  [3, 0, true,  "D2", "D,,",  "black", "lh"],
+  [3, 1, true,  "F2", "F,,",  "blue",  "lh"],
+  [3, 2, true,  "A2", "A,,",  "black", "lh"],
+  [3, 3, true,  "C6", "c'",   "red",   "rh"],
+  [3, 4, true,  "E6", "e'",   "black", "rh"],
+  [3, 5, true,  "G6", "g'",   "black", "rh"],
+  [3, 6, true,  "B6", "b'",   "black", "rh"],
+  // Row 4: LH oct 2 C-row + RH oct 5 D-row
+  [4, 0, false, "C2", "C,,",  "red",   "lh"],
+  [4, 1, false, "E2", "E,,",  "black", "lh"],
+  [4, 2, false, "G2", "G,,",  "black", "lh"],
+  [4, 3, false, "B2", "B,,",  "black", "lh"],
+  [4, 4, false, "D5", "d",    "black", "rh"],
+  [4, 5, false, "F5", "f",    "blue",  "rh"],
+  [4, 6, false, "A5", "a",    "black", "rh"],
+  // Row 5: LH oct 1 D-row + RH oct 5 C-row
+  [5, 0, true,  "D1", "D,,,", "black", "lh"],
+  [5, 1, true,  "F1", "F,,,", "blue",  "lh"],
+  [5, 2, true,  "A1", "A,,,", "black", "lh"],
+  [5, 3, true,  "C5", "c",    "red",   "rh"],
+  [5, 4, true,  "E5", "e",    "black", "rh"],
+  [5, 5, true,  "G5", "g",    "black", "rh"],
+  [5, 6, true,  "B5", "b",    "black", "rh"],
+  // Row 6: LH oct 1 C-row (bottom of LH) + RH oct 4 D-row
+  [6, 0, false, "C1", "C,,,", "red",   "lh"],
+  [6, 1, false, "E1", "E,,,", "black", "lh"],
+  [6, 2, false, "G1", "G,,,", "black", "lh"],
+  [6, 3, false, "B1", "B,,,", "black", "lh"],
+  [6, 4, false, "D4", "D",    "black", "rh"],
+  [6, 5, false, "F4", "F",    "blue",  "rh"],
+  [6, 6, false, "A4", "A",    "black", "rh"],
+  // Row 7 (bottom): utility below LH (z + −) + RH oct 4 C-row (C4 E4 G4 B4).
+  // + doubles the duration of the suffix before the cursor; − halves it.
+  [7, 0, true,  "z", "z",    "white", "ctrl"],
+  [7, 1, true,  "+", "DUR+", "white", "ctrl"],
+  [7, 2, true,  "−", "DUR-", "white", "ctrl"],
+  [7, 3, true,  "C4", "C",    "red",   "rh"],
+  [7, 4, true,  "E4", "E",    "black", "rh"],
+  [7, 5, true,  "G4", "G",    "black", "rh"],
+  [7, 6, true,  "B4", "B",    "black", "rh"],
+];
+const HEXPAD_TEXT = { red: "#FF0000", blue: "#0066FF", black: "#000000", white: "#FFFFFF" };
+const HEXPAD_FILL = { lh: "#FFFFFF", rh: "#A8A8A8", ctrl: "#333333" };
+const HEXPAD_SQRT3 = Math.sqrt(3);
+
+function drawHexpad() {
+  const svg = document.getElementById("hexpad-svg");
+  const w = svg.clientWidth, h = svg.clientHeight;
+  if (w <= 0 || h <= 0) return;
+  // 7 cols × 8 rows tessellated:
+  //   horizontal extent = 7.5 * hexW (offset rows extend half a hex past aligned)
+  //   vertical extent   = 7*1.5r + 2r = 12.5r
+  const r = Math.min(w / (7.5 * HEXPAD_SQRT3), h / 12.5);
+  const hexW  = r * HEXPAD_SQRT3;
+  const halfW = hexW / 2;
+  const gridW = 7.5 * hexW;
+  const gridH = 12.5 * r;
+  const ox = (w - gridW) / 2 + halfW;
+  const oy = (h - gridH) / 2 + r;
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  const NS = "http://www.w3.org/2000/svg";
+  for (const c of HEXPAD_CELLS) {
+    const [row, col, off, label, tag, color, hand] = c;
+    const cx = ox + col * hexW + (off ? halfW : 0);
+    const cy = oy + row * 1.5 * r;
+    const pts = `${cx},${cy-r} ${cx+halfW},${cy-r/2} ${cx+halfW},${cy+r/2} ${cx},${cy+r} ${cx-halfW},${cy+r/2} ${cx-halfW},${cy-r/2}`;
+    const fill = HEXPAD_FILL[hand];
+    const g = document.createElementNS(NS, "g");
+    g.style.cursor = "pointer";
+    const poly = document.createElementNS(NS, "polygon");
+    poly.setAttribute("points", pts);
+    poly.setAttribute("fill", fill);
+    poly.setAttribute("stroke", "#222");
+    poly.setAttribute("stroke-width", "1.5");
+    g.appendChild(poly);
+    const txt = document.createElementNS(NS, "text");
+    txt.setAttribute("x", cx);
+    txt.setAttribute("y", cy);
+    txt.setAttribute("text-anchor", "middle");
+    txt.setAttribute("dominant-baseline", "central");
+    txt.setAttribute("font-family", "sans-serif");
+    txt.setAttribute("font-weight", "bold");
+    txt.setAttribute("font-size", String(Math.max(10, r * 0.5)));
+    txt.setAttribute("fill", HEXPAD_TEXT[color]);
+    txt.setAttribute("pointer-events", "none");
+    txt.textContent = label;
+    g.appendChild(txt);
+    g.addEventListener("click", () => {
+      try {
+        if (tag === "BKSP")       cm.execCommand("delCharBefore");
+        else if (tag === "ENTER") cm.execCommand("newlineAndIndent");
+        else if (tag === "DUR+")  bumpDuration(+1);
+        else if (tag === "DUR-")  bumpDuration(-1);
+        else                      cm.replaceSelection(tag);
+        cm.focus();
+      } catch (e) {}
+      poly.setAttribute("fill", "#FFFACD");
+      setTimeout(() => poly.setAttribute("fill", fill), 120);
+    });
+    svg.appendChild(g);
+  }
+}
+
+// Modify the duration suffix immediately before the cursor.
+//   delta=+1 → double  ("" → "2"  → "4"  → "8";   "/2" → ""  → "2")
+//   delta=-1 → halve   ("8" → "4" → "2"  → "";    ""   → "/2" → "/4")
+function bumpDuration(delta) {
+  const cur = cm.getCursor();
+  const line = cm.getLine(cur.line);
+  const text = line.substring(0, cur.ch);
+  // Match the duration suffix at end: optional integer + optional /integer
+  const m = text.match(/(\d*)(\/\d*)?$/);
+  if (!m) return;
+  const numStr = m[1] || "";
+  const denPart = m[2] || "";        // "" | "/" | "/2" | "/4"...
+  const denStr = denPart.length > 1 ? denPart.substring(1) : (denPart === "/" ? "2" : "");
+  const matchLen = m[0].length;
+  let num = numStr ? parseInt(numStr, 10) : 1;
+  let den = denStr ? parseInt(denStr, 10) : 1;
+  if (delta > 0) {
+    // Double: shrink den first, else grow num
+    if (den > 1) den = Math.max(1, den / 2);
+    else         num = num * 2;
+  } else {
+    // Halve: shrink num first, else grow den
+    if (num > 1) num = Math.max(1, num / 2);
+    else         den = den * 2;
+  }
+  num = Math.floor(num);
+  den = Math.floor(den);
+  let suffix = "";
+  if (num !== 1) suffix += String(num);
+  if (den !== 1) suffix += "/" + String(den);
+  cm.replaceRange(suffix,
+    { line: cur.line, ch: cur.ch - matchLen },
+    { line: cur.line, ch: cur.ch });
+}
+
+(function wireHexpad() {
+  const btn = document.getElementById("btn-hexpad");
+  const overlay = document.getElementById("hexpad-overlay");
+  const panes = document.getElementById("panes");
+  const stripWrap = document.getElementById("hexpad-strip-wrap");
+  const stripTargetEl = document.getElementById("stripchart-target");
+  if (!btn || !overlay || !panes) return;
+  let stripOriginalParent = null;
+  let stripWasShown = false;
+  btn.addEventListener("click", () => {
+    const open = overlay.style.display !== "none";
+    if (open) {
+      overlay.style.display = "none";
+      panes.style.display = "flex";
+      btn.classList.remove("active");
+      // Restore stripchart back to its original parent
+      if (stripTargetEl && stripOriginalParent) {
+        stripOriginalParent.appendChild(stripTargetEl);
+        if (!stripWasShown) stripTargetEl.classList.remove("show");
+        stripOriginalParent = null;
+      }
+    } else {
+      panes.style.display = "none";
+      overlay.style.display = "flex";
+      btn.classList.add("active");
+      // Move stripchart into the hex overlay's right pane and force visible
+      if (stripTargetEl && stripWrap) {
+        stripOriginalParent = stripTargetEl.parentElement;
+        stripWasShown = stripTargetEl.classList.contains("show");
+        stripWrap.appendChild(stripTargetEl);
+        stripTargetEl.classList.add("show");
+        try { renderStripchart(cm.getValue()); } catch (e) {}
+      }
+      requestAnimationFrame(drawHexpad);
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (overlay.style.display !== "none") drawHexpad();
+  });
+  // Re-render the stripchart on edits while the hexpad is open
+  cm.on("change", () => {
+    if (overlay.style.display !== "none") {
+      try { renderStripchart(cm.getValue()); } catch (e) {}
+    }
+  });
+})();
 </script>
 
 </body>

@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  HarpHymnal Numpad Keyboard
-  Left  : 4x12 weighted QWERTY block, no separate number row;
-          numbers live in the numpad on the right.
-  Right : 4x4 numpad block
+  HarpHymnal Soft Keyboard
+  Outer is horizontal: main QWERTY block (weight 14) + numpad (weight 4),
+  so each cell on either side is the same width.
 
-  Each key uses android:tag for the action; Service walks the tree once
-  on inflate and wires onClick handlers from those tags.
+  Main block has 5 rows × 60dp = 300dp.
+  Numpad has   5 rows × 60dp = 300dp.
 
-  Wide keys span via layout_weight > 1.
-  Total per main row = 12 weight units; numpad rows = 4 weight units.
+  Every key is exactly 1 cell wide. The space bar is composed of multiple
+  adjacent buttons all tagged SPACE — they look like one wide bar but each
+  is a single 1-cell button.
+
+  The MUSIC toggle key swaps the alpha and music layouts (FrameLayout overlay).
+
+  Tags carry the action: special tokens (BKSP/ENTER/TAB/ESC/SPACE/SHIFT/CAPS/
+  CTRL/ALT/MUSIC + arrow tags + HOME/END/INS/DEL/PGUP/PGDN) are intercepted in
+  NumpadKeyboardService; any other tag is committed verbatim to the input
+  connection.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -18,118 +25,162 @@
     android:background="@color/kbd_panel_bg"
     android:padding="4dp">
 
-    <!-- ================== MAIN KEYBOARD (weight 3) ================== -->
-    <LinearLayout
+    <!-- ================== MAIN BLOCK (weight 14) ================== -->
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:orientation="vertical">
+        android:layout_weight="14">
 
-        <!-- Row 1: Tab(2) + qwertyuiop (10) = 12 -->
-        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
-            android:orientation="horizontal">
-            <Button style="@style/KbdKeyMod" android:layout_weight="2" android:tag="TAB" android:text="Tab" />
-            <Button style="@style/KbdKey" android:tag="q" android:text="q" />
-            <Button style="@style/KbdKey" android:tag="w" android:text="w" />
-            <Button style="@style/KbdKey" android:tag="e" android:text="e" />
-            <Button style="@style/KbdKey" android:tag="r" android:text="r" />
-            <Button style="@style/KbdKey" android:tag="t" android:text="t" />
-            <Button style="@style/KbdKey" android:tag="y" android:text="y" />
-            <Button style="@style/KbdKey" android:tag="u" android:text="u" />
-            <Button style="@style/KbdKey" android:tag="i" android:text="i" />
-            <Button style="@style/KbdKey" android:tag="o" android:text="o" />
-            <Button style="@style/KbdKey" android:tag="p" android:text="p" />
+        <!-- ============ ALPHA KEYBOARD ============ -->
+        <LinearLayout
+            android:id="@+id/kbd_alpha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!-- Row 1: ` 1 2 3 4 5 6 7 8 9 0 - = ⌫  (14) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                android:orientation="horizontal">
+                <Button style="@style/KbdKey" android:tag="`" android:text="`" />
+                <Button style="@style/KbdKey" android:tag="1" android:text="1" />
+                <Button style="@style/KbdKey" android:tag="2" android:text="2" />
+                <Button style="@style/KbdKey" android:tag="3" android:text="3" />
+                <Button style="@style/KbdKey" android:tag="4" android:text="4" />
+                <Button style="@style/KbdKey" android:tag="5" android:text="5" />
+                <Button style="@style/KbdKey" android:tag="6" android:text="6" />
+                <Button style="@style/KbdKey" android:tag="7" android:text="7" />
+                <Button style="@style/KbdKey" android:tag="8" android:text="8" />
+                <Button style="@style/KbdKey" android:tag="9" android:text="9" />
+                <Button style="@style/KbdKey" android:tag="0" android:text="0" />
+                <Button style="@style/KbdKey" android:tag="-" android:text="-" />
+                <Button style="@style/KbdKey" android:tag="=" android:text="=" />
+                <Button style="@style/KbdKeyMod" android:tag="BKSP" android:text="⌫" />
+            </LinearLayout>
+
+            <!-- Row 2: Tab q w e r t y u i o p [ ] \  (14) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                android:orientation="horizontal">
+                <Button style="@style/KbdKeyMod" android:tag="TAB" android:text="Tab" />
+                <Button style="@style/KbdKey" android:tag="q" android:text="q" />
+                <Button style="@style/KbdKey" android:tag="w" android:text="w" />
+                <Button style="@style/KbdKey" android:tag="e" android:text="e" />
+                <Button style="@style/KbdKey" android:tag="r" android:text="r" />
+                <Button style="@style/KbdKey" android:tag="t" android:text="t" />
+                <Button style="@style/KbdKey" android:tag="y" android:text="y" />
+                <Button style="@style/KbdKey" android:tag="u" android:text="u" />
+                <Button style="@style/KbdKey" android:tag="i" android:text="i" />
+                <Button style="@style/KbdKey" android:tag="o" android:text="o" />
+                <Button style="@style/KbdKey" android:tag="p" android:text="p" />
+                <Button style="@style/KbdKey" android:tag="[" android:text="[" />
+                <Button style="@style/KbdKey" android:tag="]" android:text="]" />
+                <Button style="@style/KbdKey" android:tag="\\" android:text="\\" />
+            </LinearLayout>
+
+            <!-- Row 3: Caps a s d f g h j k l ; ' ↵ Ins  (14) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                android:orientation="horizontal">
+                <Button style="@style/KbdKeyMod" android:tag="CAPS" android:text="⇧⇧" />
+                <Button style="@style/KbdKey" android:tag="a" android:text="a" />
+                <Button style="@style/KbdKey" android:tag="s" android:text="s" />
+                <Button style="@style/KbdKey" android:tag="d" android:text="d" />
+                <Button style="@style/KbdKey" android:tag="f" android:text="f" />
+                <Button style="@style/KbdKey" android:tag="g" android:text="g" />
+                <Button style="@style/KbdKey" android:tag="h" android:text="h" />
+                <Button style="@style/KbdKey" android:tag="j" android:text="j" />
+                <Button style="@style/KbdKey" android:tag="k" android:text="k" />
+                <Button style="@style/KbdKey" android:tag="l" android:text="l" />
+                <Button style="@style/KbdKey" android:tag=";" android:text=";" />
+                <Button style="@style/KbdKey" android:tag="&apos;" android:text="&apos;" />
+                <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" android:textSize="22sp" />
+                <Button style="@style/KbdKeyMod" android:tag="INS" android:text="Ins" android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Row 4: Esc z x c v b n m , . / Shift Home Del  (14) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                android:orientation="horizontal">
+                <Button style="@style/KbdKeyMod" android:tag="ESC" android:text="Esc" />
+                <Button style="@style/KbdKey" android:tag="z" android:text="z" />
+                <Button style="@style/KbdKey" android:tag="x" android:text="x" />
+                <Button style="@style/KbdKey" android:tag="c" android:text="c" />
+                <Button style="@style/KbdKey" android:tag="v" android:text="v" />
+                <Button style="@style/KbdKey" android:tag="b" android:text="b" />
+                <Button style="@style/KbdKey" android:tag="n" android:text="n" />
+                <Button style="@style/KbdKey" android:tag="m" android:text="m" />
+                <Button style="@style/KbdKey" android:tag="," android:text="," />
+                <Button style="@style/KbdKey" android:tag="." android:text="." />
+                <Button style="@style/KbdKey" android:tag="/" android:text="/" />
+                <Button style="@style/KbdKeyMod" android:tag="SHIFT" android:text="⇧" />
+                <Button style="@style/KbdKey" android:tag="UP"    android:text="↑" />
+                <Button style="@style/KbdKeyMod" android:tag="DEL" android:text="Del" android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Row 5: Ctrl Alt SPACE(9) ← ↓ →  (14) -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+                android:orientation="horizontal">
+                <Button style="@style/KbdKeyMod" android:tag="CTRL"  android:text="Ctrl" />
+                <Button style="@style/KbdKeyMod" android:tag="ALT"   android:text="Alt" />
+                <Button style="@style/KbdKey" android:layout_weight="9" android:tag="SPACE" android:text=" " />
+                <Button style="@style/KbdKey" android:tag="LEFT"  android:text="←" />
+                <Button style="@style/KbdKey" android:tag="DOWN"  android:text="↓" />
+                <Button style="@style/KbdKey" android:tag="RIGHT" android:text="→" />
+            </LinearLayout>
         </LinearLayout>
+    </FrameLayout>
 
-        <!-- Row 2: Ctrl(2) + asdfghjkl (9) + ' (1) = 12 -->
-        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
-            android:orientation="horizontal">
-            <Button style="@style/KbdKeyMod" android:layout_weight="2" android:tag="CTRL" android:text="Ctrl" />
-            <Button style="@style/KbdKey" android:tag="a" android:text="a" />
-            <Button style="@style/KbdKey" android:tag="s" android:text="s" />
-            <Button style="@style/KbdKey" android:tag="d" android:text="d" />
-            <Button style="@style/KbdKey" android:tag="f" android:text="f" />
-            <Button style="@style/KbdKey" android:tag="g" android:text="g" />
-            <Button style="@style/KbdKey" android:tag="h" android:text="h" />
-            <Button style="@style/KbdKey" android:tag="j" android:text="j" />
-            <Button style="@style/KbdKey" android:tag="k" android:text="k" />
-            <Button style="@style/KbdKey" android:tag="l" android:text="l" />
-            <Button style="@style/KbdKey" android:tag="&apos;" android:text="&apos;" />
-        </LinearLayout>
-
-        <!-- Row 3: Caps(1) + Shift(1) + zxcvbnm(7) + , . / (3) = 12
-             Caps (⇪) is persistent; Shift (⇧) is sticky-once. -->
-        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
-            android:orientation="horizontal">
-            <Button style="@style/KbdKeyMod" android:tag="CAPS"  android:text="⇧⇧" />
-            <Button style="@style/KbdKeyMod" android:tag="SHIFT" android:text="⇧" />
-            <Button style="@style/KbdKey" android:tag="z" android:text="z" />
-            <Button style="@style/KbdKey" android:tag="x" android:text="x" />
-            <Button style="@style/KbdKey" android:tag="c" android:text="c" />
-            <Button style="@style/KbdKey" android:tag="v" android:text="v" />
-            <Button style="@style/KbdKey" android:tag="b" android:text="b" />
-            <Button style="@style/KbdKey" android:tag="n" android:text="n" />
-            <Button style="@style/KbdKey" android:tag="m" android:text="m" />
-            <Button style="@style/KbdKey" android:tag="," android:text="," />
-            <Button style="@style/KbdKey" android:tag="." android:text="." />
-            <Button style="@style/KbdKey" android:tag="/" android:text="/" />
-        </LinearLayout>
-
-        <!-- Row 4: Esc(2) + Alt(2) + Space(3) + arrows(4) + Enter(1) = 12
-             Enter sits at column 12, directly under the '/' in row 3. -->
-        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
-            android:orientation="horizontal">
-            <Button style="@style/KbdKeyMod" android:layout_weight="2" android:tag="ESC" android:text="Esc" />
-            <Button style="@style/KbdKeyMod" android:layout_weight="2" android:tag="ALT" android:text="Alt" />
-            <Button style="@style/KbdKey"    android:layout_weight="3" android:tag="SPACE" android:text=" " />
-            <Button style="@style/KbdKey" android:tag="LEFT"  android:text="←" />
-            <Button style="@style/KbdKey" android:tag="DOWN"  android:text="↓" />
-            <Button style="@style/KbdKey" android:tag="UP"    android:text="↑" />
-            <Button style="@style/KbdKey" android:tag="RIGHT" android:text="→" />
-            <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" android:textSize="26sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- divider -->
-    <View android:layout_width="2dp" android:layout_height="240dp"
+    <!-- divider (hidden in harp mode so the harp keyboard can span full width) -->
+    <View android:id="@+id/kbd_divider"
+          android:layout_width="2dp" android:layout_height="300dp"
           android:background="@color/kbd_separator" android:layout_marginHorizontal="4dp" />
 
-    <!-- ================== NUMPAD (weight 1) ================== -->
-    <!-- 4 rows align to the 4 main rows. Numbers live ONLY here, plus
-         operators and a dedicated bksp/enter pair. -->
+    <!-- ================== NUMPAD (weight 4) ================== -->
+    <!-- 5 rows × 60dp = 300dp; outer weight=4 paired with main weight=14
+         and 4-vs-14 inner cols means each numpad cell matches a main cell.
+         Hidden in harp mode. -->
     <LinearLayout
+        android:id="@+id/kbd_numpad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="4"
         android:orientation="vertical">
 
+        <!-- Row 1: Home End PgUp PgDn   (nav block at top of numpad) -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal">
+            <Button style="@style/KbdKeyMod" android:tag="HOME" android:text="Home" android:textSize="11sp" />
+            <Button style="@style/KbdKeyMod" android:tag="END"  android:text="End"  android:textSize="13sp" />
+            <Button style="@style/KbdKeyMod" android:tag="PGUP" android:text="PgUp" android:textSize="11sp" />
+            <Button style="@style/KbdKeyMod" android:tag="PGDN" android:text="PgDn" android:textSize="11sp" />
+        </LinearLayout>
+        <!-- Rows 2-5: digits + operators stacked on the right column (/, *, -, +) -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
             android:orientation="horizontal">
             <Button style="@style/KbdKey" android:tag="7" android:text="7" />
             <Button style="@style/KbdKey" android:tag="8" android:text="8" />
             <Button style="@style/KbdKey" android:tag="9" android:text="9" />
-            <Button style="@style/KbdKey" android:tag="+" android:text="+" />
+            <Button style="@style/KbdKey" android:tag="/" android:text="/" />
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
             android:orientation="horizontal">
             <Button style="@style/KbdKey" android:tag="4" android:text="4" />
             <Button style="@style/KbdKey" android:tag="5" android:text="5" />
             <Button style="@style/KbdKey" android:tag="6" android:text="6" />
-            <Button style="@style/KbdKey" android:tag="-" android:text="-" />
+            <Button style="@style/KbdKey" android:tag="*" android:text="*" />
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
             android:orientation="horizontal">
             <Button style="@style/KbdKey" android:tag="1" android:text="1" />
             <Button style="@style/KbdKey" android:tag="2" android:text="2" />
             <Button style="@style/KbdKey" android:tag="3" android:text="3" />
-            <Button style="@style/KbdKey" android:tag="*" android:text="*" />
+            <Button style="@style/KbdKey" android:tag="-" android:text="-" />
         </LinearLayout>
         <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
             android:orientation="horizontal">
-            <Button style="@style/KbdKey"    android:tag="0" android:text="0" />
-            <Button style="@style/KbdKey"    android:tag="=" android:text="=" />
-            <Button style="@style/KbdKeyMod" android:tag="BKSP"  android:text="⌫" />
-            <Button style="@style/KbdKeyMod" android:tag="ENTER" android:text="↵" android:textSize="26sp" />
+            <Button style="@style/KbdKey" android:tag="0" android:text="0" />
+            <Button style="@style/KbdKey" android:tag="." android:text="." />
+            <Button style="@style/KbdKey" android:tag="=" android:text="=" />
+            <Button style="@style/KbdKey" android:tag="+" android:text="+" />
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>
