@@ -87,11 +87,11 @@
   .pedal-divider { grid-column: 1 / -1; height: 6px; }
   .pedal-cell {
     display: flex; align-items: center; justify-content: center;
-    font-weight: bold; font-size: 13px;
+    font-weight: bold; font-size: 18px;
     background: #44475a; color: #f8f8f2;
     border: 1px solid #6272a4; border-radius: 4px;
     cursor: pointer; user-select: none;
-    min-height: 26px;
+    min-height: 32px;
   }
   .pedal-cell.active {
     background: #50fa7b; color: #21222c;
@@ -930,7 +930,7 @@ function renderStripchart(abc) {
   const PX_PER_BEAT = 5;
   const CHORD_H = 28;
   const BAR_NUM_H = 16;
-  const GUTTER_W = 36;
+  const GUTTER_W = 52;
 
   const containerH = stripTarget.clientHeight || 500;
 
@@ -1085,7 +1085,7 @@ function renderStripchart(abc) {
     const y = (N_STRINGS - 1 - sIdx) * LANE_H + LANE_H / 2 + 3;
     const isMiddleC = (sciOct === 4);
     gutter += '<text x="' + (GUTTER_W / 2).toFixed(1) + '" y="' + y.toFixed(1) +
-              '" text-anchor="middle" font-size="9" font-weight="600" fill="' +
+              '" text-anchor="middle" font-size="16" font-weight="700" fill="' +
               (isMiddleC ? "#ff5555" : "#bd93f9") + '">' +
               'C' + sciOct + '</text>';
   }
@@ -2240,7 +2240,7 @@ function drawHexpad() {
     txt.setAttribute("dominant-baseline", "central");
     txt.setAttribute("font-family", "sans-serif");
     txt.setAttribute("font-weight", "bold");
-    txt.setAttribute("font-size", String(Math.max(10, r * 0.5)));
+    txt.setAttribute("font-size", String(Math.max(12, r * 0.7)));
     txt.setAttribute("fill", HEXPAD_TEXT[color]);
     txt.setAttribute("pointer-events", "none");
     txt.textContent = label;
@@ -2301,7 +2301,9 @@ function bumpDuration(delta) {
 const PEDAL_LETTERS = ["D", "C", "B", "E", "F", "G", "A"];
 const PEDAL_POSITIONS = ["f", "n", "s"];
 const PEDAL_ACC_GLYPH = { f: "♭", n: "♮", s: "♯" };
-const pedalState = { D:"n", C:"n", B:"n", E:"n", F:"n", G:"n", A:"n" };
+// Pedals start in the all-flat "storage" position, matching how a real
+// pedal harp sits when packed away.
+const pedalState = { D:"f", C:"f", B:"f", E:"f", F:"f", G:"f", A:"f" };
 
 const KEY_PEDALS = {
   "C":  { D:"n", C:"n", B:"n", E:"n", F:"n", G:"n", A:"n" },
@@ -2439,7 +2441,7 @@ function drawPedals() {
         stripTargetEl.classList.add("show");
         try { renderStripchart(cm.getValue()); } catch (e) {}
       }
-      try { syncPedalsFromKey(); drawPedals(); } catch (e) {}
+      try { drawPedals(); } catch (e) {}
       requestAnimationFrame(drawHexpad);
     }
   });
