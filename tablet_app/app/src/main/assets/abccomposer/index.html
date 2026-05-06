@@ -416,6 +416,9 @@
     <button id="btn-hexpad" class="brand-btn" title="Toggle giant harp hex pad">♪</button>
     <button id="btn-undo" title="Undo (Ctrl-Z)">↶</button>
     <button id="btn-redo" title="Redo (Ctrl-Shift-Z)">↷</button>
+    <button id="btn-vim-esc" title="Vim normal mode (Esc)">Esc</button>
+    <button id="btn-vim-tests" title="Run vim regression tests">Vt</button>
+    <span id="vim-mode-display" title="CodeMirror vim mode" style="font-family:monospace;font-size:13px;color:var(--accent);padding:0 8px;">vim?</span>
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
     <button id="btn-open">Open</button>
@@ -439,7 +442,7 @@
 
     <div class="pane pane-editor">
       <div class="pane-header">
-        <span>Editor — vim mode</span>
+        <span>Editor — <span id="vim-mode-pane">vim?</span></span>
       </div>
       <div class="pane-body">
         <textarea id="abc-source"></textarea>
@@ -1466,6 +1469,107 @@ fname.addEventListener("input", () => lsSet(LS.fname, fname.value));
 
 document.getElementById("btn-undo").onclick = () => { try { cm.execCommand("undo"); cm.focus(); } catch (e) {} };
 document.getElementById("btn-redo").onclick = () => { try { cm.execCommand("redo"); cm.focus(); } catch (e) {} };
+
+// Force CodeMirror's vim plugin into normal mode. Used by:
+//   - the toolbar Esc button (always available, bypasses IME quirks)
+//   - a window-level keydown listener (catches IME Esc keystrokes that
+//     don't always reach CM's hidden input field on Android WebView)
+function vimEscape() {
+  if (!cm) return;
+  cm.focus();
+  // Approach 1: feed a synthetic keydown into CM's hidden input field.
+  // This is the most reliable path because it goes through CM's normal
+  // event pipeline (vim plugin listens for keydown on the input).
+  try {
+    const input = cm.getInputField && cm.getInputField();
+    const ev = new KeyboardEvent("keydown", {
+      key: "Escape", code: "Escape", keyCode: 27, which: 27,
+      bubbles: true, cancelable: true
+    });
+    if (input) input.dispatchEvent(ev);
+  } catch (e) {}
+  // Approach 2: also call the public Vim API as a belt-and-braces.
+  try {
+    if (typeof CodeMirror !== "undefined" && CodeMirror.Vim) {
+      CodeMirror.Vim.handleKey(cm, "<Esc>", "user");
+    }
+  } catch (e) {}
+}
+document.getElementById("btn-vim-esc").onclick = () => { vimEscape(); };
+document.getElementById("btn-vim-tests").onclick = () => {
+  const s = document.createElement("script");
+  s.src = "vim_tests.js?_t=" + Date.now();
+  document.body.appendChild(s);
+};
+
+// Live vim-mode indicator — updates the toolbar span AND the editor
+// pane header so the active mode is visible no matter where you look.
+function updateVimModeDisplay() {
+  const top  = document.getElementById("vim-mode-display");
+  const pane = document.getElementById("vim-mode-pane");
+  if (!cm) {
+    if (top)  top.textContent  = "no-cm";
+    if (pane) pane.textContent = "no-cm";
+    return;
+  }
+  const km = cm.getOption("keyMap");
+  const v  = cm.state && cm.state.vim;
+  let label, color;
+  if (!v) {
+    label = "vim:NONE (keyMap=" + km + ")"; color = "#ff5555";
+  } else if (v.insertMode) {
+    label = "-- INSERT --"; color = "#f1fa8c";
+  } else if (v.visualMode) {
+    label = "-- VISUAL --"; color = "#bd93f9";
+  } else {
+    label = "-- NORMAL --"; color = "#50fa7b";
+  }
+  if (top)  { top.textContent = label;  top.style.color = color; }
+  if (pane) { pane.textContent = label; pane.style.color = color; }
+}
+// Refresh the indicator on every CM event that could change vim state.
+["cursorActivity","change","focus","blur","keydown"].forEach(evt =>
+  cm.on(evt, updateVimModeDisplay));
+setInterval(updateVimModeDisplay, 500);  // belt+braces poll
+updateVimModeDisplay();
+// Force keyMap to vim post-init in case the textarea wasn't ready when
+// fromTextArea ran. Idempotent — safe to call even if already vim.
+try { cm.setOption("keyMap", "vim"); } catch (e) {}
+
+// Expose the editor instance so externally-loaded scripts (vim_tests.js,
+// debug consoles, etc.) can interact with it.
+window.cm = cm;
+
+// Tell the IME (Java side) whether CM has focus so it can route letter
+// taps through handleVimKey vs. commitText.
+try {
+  cm.on("focus", () => { try { Bridge.setCmFocused(true);  } catch (e) {} });
+  cm.on("blur",  () => { try { Bridge.setCmFocused(false); } catch (e) {} });
+  if (window.Bridge) Bridge.setCmFocused(cm.hasFocus());
+} catch (e) {}
+
+// Called from the IME (via MainActivity.runJsInActiveWebView) for every
+// letter / punctuation tap when CM is focused. In normal/visual mode
+// the key is dispatched to vim's command parser; in insert mode it's
+// inserted as text. This lets dd / yy / : ex commands actually work.
+window.handleVimKey = function (key) {
+  if (!cm) return;
+  cm.focus();
+  const v = cm.state && cm.state.vim;
+  if (v && !v.insertMode) {
+    if (typeof CodeMirror !== "undefined" && CodeMirror.Vim) {
+      CodeMirror.Vim.handleKey(cm, key, "user");
+      return;
+    }
+  }
+  cm.replaceSelection(key);
+};
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" || e.keyCode === 27) {
+    vimEscape();
+    e.preventDefault();
+  }
+}, true);
 
 document.getElementById("btn-new").onclick = () => {
   if (!confirm("Replace editor with a blank template?")) return;

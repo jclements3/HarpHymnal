@@ -110,7 +110,15 @@ public class NumpadKeyboardService extends InputMethodService {
             case "BKSP":  sendKey(KeyEvent.KEYCODE_DEL); return;
             case "ENTER": sendKey(KeyEvent.KEYCODE_ENTER); return;
             case "TAB":   sendKey(KeyEvent.KEYCODE_TAB); return;
-            case "ESC":   sendKey(KeyEvent.KEYCODE_ESCAPE); return;
+            case "ESC": {
+                boolean dispatched = MainActivity.runJsInActiveWebView(
+                    "if (typeof vimEscape === 'function') vimEscape();");
+                android.widget.Toast.makeText(this,
+                    dispatched ? "ESC -> JS bridge" : "ESC -> NO bridge (activity gone)",
+                    android.widget.Toast.LENGTH_SHORT).show();
+                sendKey(KeyEvent.KEYCODE_ESCAPE);
+                return;
+            }
             case "SPACE": ic.commitText(" ", 1); return;
             case "LEFT":  sendKey(KeyEvent.KEYCODE_DPAD_LEFT); return;
             case "RIGHT": sendKey(KeyEvent.KEYCODE_DPAD_RIGHT); return;
@@ -142,6 +150,16 @@ public class NumpadKeyboardService extends InputMethodService {
                         ctrl = alt = false;
                         return;
                     }
+                }
+                // If the WebView's CodeMirror editor has focus, route the
+                // tap through the JS vim handler so vim commands (dd, yy,
+                // /search, etc.) work. commitText(...) bypasses CM's
+                // keymap so vim never sees the keys in normal mode.
+                if (MainActivity.isCmFocused()) {
+                    String esc = text.replace("\\", "\\\\").replace("'", "\\'");
+                    boolean ok = MainActivity.runJsInActiveWebView(
+                        "if (window.handleVimKey) handleVimKey('" + esc + "');");
+                    if (ok) return;
                 }
                 ic.commitText(text, 1);
         }

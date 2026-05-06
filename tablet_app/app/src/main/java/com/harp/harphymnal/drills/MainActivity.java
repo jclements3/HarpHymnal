@@ -44,6 +44,41 @@ public class MainActivity extends Activity {
     private ValueCallback<Uri[]> pendingFileChooser = null;
     private WebView webView = null;
 
+    // Same-process handle for the IME so it can dispatch JS into the
+    // editor's WebView directly. InputConnection.sendKeyEvent(KEYCODE_ESCAPE)
+    // gets filtered by the WebView on Android — calling vimEscape() in JS
+    // is the reliable path.
+    private static java.lang.ref.WeakReference<MainActivity> sActiveRef =
+        new java.lang.ref.WeakReference<>(null);
+    // Track whether the WebView's CodeMirror editor currently has focus.
+    // The IME consults this to decide whether to route key taps through
+    // the JS vim handler (so dd / etc. work) vs. the normal commitText path.
+    private static volatile boolean sCmFocused = false;
+    public static boolean isCmFocused() { return sCmFocused; }
+
+    public static boolean runJsInActiveWebView(String js) {
+        final MainActivity a = sActiveRef.get();
+        if (a == null || a.webView == null) return false;
+        a.runOnUiThread(() -> {
+            try { a.webView.evaluateJavascript(js, null); } catch (Exception ignored) {}
+        });
+        return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sActiveRef = new java.lang.ref.WeakReference<>(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (sActiveRef.get() == this) {
+            sActiveRef = new java.lang.ref.WeakReference<>(null);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +188,13 @@ public class MainActivity extends Activity {
         // ─────────────────────────────────────────────────────────────────
 
         private static final String REL_DIR = "Documents/HarpHymnal/";
+
+        /** JS calls this when the CodeMirror editor gains/loses focus so
+         *  the IME knows whether to route key taps through the vim handler. */
+        @JavascriptInterface
+        public void setCmFocused(boolean focused) {
+            sCmFocused = focused;
+        }
 
         /** Save (or overwrite) a UTF-8 text file under Documents/HarpHymnal/.
          *  Returns "OK" on success, "ERR: <reason>" on failure. */
