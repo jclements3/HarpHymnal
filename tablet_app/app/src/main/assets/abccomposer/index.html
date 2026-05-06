@@ -2341,6 +2341,28 @@ function drawHexpad() {
   wireHexpadGestures(svg);
 }
 
+// Smart backspace for the hexpad ⌫ button: if the character immediately
+// before the cursor is `]`, find its matching `[` and delete the whole
+// chord token in one go. Otherwise delete one character. Works on any
+// content (not just stuff entered this session — unlike CodeMirror undo).
+function hexpadSmartBackspace() {
+  if (!cm) return;
+  const cur = cm.getCursor();
+  const line = cm.getLine(cur.line) || "";
+  const before = line.substring(0, cur.ch);
+  if (before.endsWith("]")) {
+    const open = before.lastIndexOf("[");
+    if (open >= 0) {
+      cm.replaceRange("",
+        { line: cur.line, ch: open },
+        { line: cur.line, ch: cur.ch });
+      return;
+    }
+  }
+  // Default: one-char delete.
+  cm.execCommand("delCharBefore");
+}
+
 // Multi-touch + swipe-to-chord gesture handling.
 // Single tap            -> insert that one tag (or fire control action).
 // Drag across N notes    -> insert as a chord [note1note2…].
@@ -2388,9 +2410,7 @@ function wireHexpadGestures(svg) {
       if (notes.length > 1) cm.replaceSelection("[" + notes.join("") + "]");
       else if (notes.length === 1) cm.replaceSelection(notes[0]);
       for (const tag of controls) {
-        // ⌫ on the hexpad acts as undo so one tap rolls back the last
-        // gesture (a whole chord/note insert), not just one character.
-        if      (tag === "BKSP")  cm.execCommand("undo");
+        if      (tag === "BKSP")  hexpadSmartBackspace();
         else if (tag === "ENTER") cm.execCommand("newlineAndIndent");
         else if (tag === "DUR+")  bumpDuration(+1);
         else if (tag === "DUR-")  bumpDuration(-1);
