@@ -59,19 +59,24 @@
 
 <div id="topbar">
   <a href="../index.html">&larr; Home</a>
-  <h1>Pedal Matrix</h1>
-  <span class="crumbs">28 scales × 12 tonics · braille pedal encoding</span>
+  <h1>Pedal Harp</h1>
+  <span class="crumbs">Prehn 28-scale system · 14-page improv guide + pedal matrix</span>
 </div>
 
 <nav class="tabs" id="tabs">
-  <a data-pane="pdf"    class="active">PDF</a>
+  <a data-pane="guide"  class="active">Improv Guide</a>
+  <a data-pane="pdf">Matrix (PDF)</a>
   <a data-pane="matrix">Matrix (text)</a>
   <a data-pane="single">Single tonic (C)</a>
   <a data-pane="readme">Encoding</a>
 </nav>
 
 <main>
-  <section id="pane-pdf" class="pane active">
+  <section id="pane-guide" class="pane active">
+    <embed id="guide-frame" src="improv_guide.pdf" type="application/pdf" style="width:100%;height:calc(100vh - 110px);border:0;display:block;"/>
+  </section>
+
+  <section id="pane-pdf" class="pane">
     <embed id="pdf-frame" src="pedals_matrix.pdf" type="application/pdf"/>
   </section>
 
