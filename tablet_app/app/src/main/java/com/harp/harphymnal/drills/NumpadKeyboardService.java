@@ -151,16 +151,16 @@ public class NumpadKeyboardService extends InputMethodService {
                         return;
                     }
                 }
-                // If the WebView's CodeMirror editor has focus, route the
-                // tap through the JS vim handler so vim commands (dd, yy,
-                // /search, etc.) work. commitText(...) bypasses CM's
-                // keymap so vim never sees the keys in normal mode.
-                if (MainActivity.isCmFocused()) {
-                    String esc = text.replace("\\", "\\\\").replace("'", "\\'");
-                    boolean ok = MainActivity.runJsInActiveWebView(
-                        "if (window.handleVimKey) handleVimKey('" + esc + "');");
-                    if (ok) return;
-                }
+                // Route every letter tap through the JS vim handler. The
+                // JS side checks document.activeElement and decides
+                // whether to dispatch to vim, insert into CM in insert
+                // mode, or write to whatever text field is currently
+                // focused. commitText is only used as a fallback if the
+                // bridge isn't available (no active WebView activity).
+                String esc = text.replace("\\", "\\\\").replace("'", "\\'");
+                boolean ok = MainActivity.runJsInActiveWebView(
+                    "if (window.handleVimKey) handleVimKey('" + esc + "');");
+                if (ok) return;
                 ic.commitText(text, 1);
         }
     }

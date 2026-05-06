@@ -416,9 +416,6 @@
     <button id="btn-hexpad" class="brand-btn" title="Toggle giant harp hex pad">♪</button>
     <button id="btn-undo" title="Undo (Ctrl-Z)">↶</button>
     <button id="btn-redo" title="Redo (Ctrl-Shift-Z)">↷</button>
-    <button id="btn-vim-esc" title="Vim normal mode (Esc)">Esc</button>
-    <button id="btn-vim-tests" title="Run vim regression tests">Vt</button>
-    <span id="vim-mode-display" title="CodeMirror vim mode" style="font-family:monospace;font-size:13px;color:var(--accent);padding:0 8px;">vim?</span>
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
     <button id="btn-open">Open</button>
@@ -1495,12 +1492,9 @@ function vimEscape() {
     }
   } catch (e) {}
 }
-document.getElementById("btn-vim-esc").onclick = () => { vimEscape(); };
-document.getElementById("btn-vim-tests").onclick = () => {
-  const s = document.createElement("script");
-  s.src = "vim_tests.js?_t=" + Date.now();
-  document.body.appendChild(s);
-};
+// (vim Esc + test runner buttons removed — IME's Esc key already does
+// the right thing, and the regression suite at vim_tests.js can still
+// be loaded ad-hoc by appending ?run=vim-tests in a debug session.)
 
 // Live vim-mode indicator — updates the toolbar span AND the editor
 // pane header so the active mode is visible no matter where you look.
@@ -1553,6 +1547,25 @@ try {
 // the key is dispatched to vim's command parser; in insert mode it's
 // inserted as text. This lets dd / yy / : ex commands actually work.
 window.handleVimKey = function (key) {
+  // If a non-CM text field is focused (filename, search box, chat, etc.)
+  // route the keystroke into that field as a literal character. The IME
+  // calls us for every letter tap so we have to handle these too.
+  const ae = document.activeElement;
+  const cmInput = (cm && cm.getInputField) ? cm.getInputField() : null;
+  if (ae && ae !== cmInput && (
+        ae.tagName === "INPUT" || ae.tagName === "TEXTAREA" ||
+        ae.isContentEditable)) {
+    if (typeof ae.value === "string" && typeof ae.selectionStart === "number") {
+      const s = ae.selectionStart, e = ae.selectionEnd;
+      ae.value = ae.value.substring(0, s) + key + ae.value.substring(e);
+      ae.selectionStart = ae.selectionEnd = s + key.length;
+      try { ae.dispatchEvent(new Event("input", { bubbles: true })); } catch (_) {}
+    } else {
+      try { document.execCommand("insertText", false, key); } catch (_) {}
+    }
+    return;
+  }
+
   if (!cm) return;
   cm.focus();
   const v = cm.state && cm.state.vim;
