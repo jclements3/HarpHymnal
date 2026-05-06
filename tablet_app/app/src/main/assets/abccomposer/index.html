@@ -67,7 +67,38 @@
     background: var(--bg-alt);
     flex-direction: row;
   }
-  #hexpad-svg-wrap { flex: 0 0 60%; min-width: 0; min-height: 0; }
+  #hexpad-pedals-wrap {
+    flex: 0 0 12%; min-width: 0; min-height: 0;
+    background: var(--bg-alt);
+    border-right: 2px solid var(--line);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 8px 6px; gap: 8px;
+  }
+  .pedal-glyph {
+    font-family: "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+    font-size: 22px; text-align: center; letter-spacing: 2px;
+    color: var(--accent); user-select: text;
+  }
+  .pedal-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px; flex: 1;
+  }
+  .pedal-divider { grid-column: 1 / -1; height: 6px; }
+  .pedal-cell {
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 13px;
+    background: #44475a; color: #f8f8f2;
+    border: 1px solid #6272a4; border-radius: 4px;
+    cursor: pointer; user-select: none;
+    min-height: 26px;
+  }
+  .pedal-cell.active {
+    background: #50fa7b; color: #21222c;
+    border-color: #f8f8f2;
+  }
+  .pedal-cell:active { background: #f1fa8c; }
+  #hexpad-svg-wrap { flex: 0 0 48%; min-width: 0; min-height: 0; }
   #hexpad-svg-wrap svg { width: 100%; height: 100%; display: block; }
   #hexpad-strip-wrap {
     flex: 1 1 auto; min-width: 0; min-height: 0;
@@ -364,7 +395,6 @@
 <div id="app">
 
   <div id="toolbar">
-    <a id="btn-home" href="../index.html" title="Back to HarpHymnal home" style="text-decoration:none;font:bold 18px/1 inherit;color:var(--ink);background:var(--bg-alt);border:1px solid var(--line);border-radius:4px;padding:4px 10px;display:inline-flex;align-items:center;justify-content:center;height:28px;">⌂</a>
     <button id="btn-hexpad" class="brand-btn" title="Toggle giant harp hex pad">♪</button>
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
@@ -422,6 +452,7 @@
 
   <!-- ─── Hex pad overlay (giant harp keyboard, toggled by ♪) ─── -->
   <div id="hexpad-overlay" style="display:none;">
+    <div id="hexpad-pedals-wrap"></div>
     <div id="hexpad-svg-wrap">
       <svg id="hexpad-svg" preserveAspectRatio="xMidYMid meet"></svg>
     </div>
@@ -2265,6 +2296,116 @@ function bumpDuration(delta) {
     { line: cur.line, ch: cur.ch });
 }
 
+// ─── Pedal state (left harp pane in hex overlay) ───
+// Mirrors the physical harp pedal layout: D C B (left foot), E F G A (right foot).
+const PEDAL_LETTERS = ["D", "C", "B", "E", "F", "G", "A"];
+const PEDAL_POSITIONS = ["f", "n", "s"];
+const PEDAL_ACC_GLYPH = { f: "♭", n: "♮", s: "♯" };
+const pedalState = { D:"n", C:"n", B:"n", E:"n", F:"n", G:"n", A:"n" };
+
+const KEY_PEDALS = {
+  "C":  { D:"n", C:"n", B:"n", E:"n", F:"n", G:"n", A:"n" },
+  "G":  { D:"n", C:"n", B:"n", E:"n", F:"s", G:"n", A:"n" },
+  "D":  { D:"n", C:"s", B:"n", E:"n", F:"s", G:"n", A:"n" },
+  "A":  { D:"n", C:"s", B:"n", E:"n", F:"s", G:"s", A:"n" },
+  "E":  { D:"s", C:"s", B:"n", E:"n", F:"s", G:"s", A:"n" },
+  "B":  { D:"s", C:"s", B:"n", E:"n", F:"s", G:"s", A:"s" },
+  "F#": { D:"s", C:"s", B:"n", E:"s", F:"s", G:"s", A:"s" },
+  "C#": { D:"s", C:"s", B:"s", E:"s", F:"s", G:"s", A:"s" },
+  "F":  { D:"n", C:"n", B:"f", E:"n", F:"n", G:"n", A:"n" },
+  "Bb": { D:"n", C:"n", B:"f", E:"f", F:"n", G:"n", A:"n" },
+  "Eb": { D:"n", C:"n", B:"f", E:"f", F:"n", G:"n", A:"f" },
+  "Ab": { D:"f", C:"n", B:"f", E:"f", F:"n", G:"n", A:"f" },
+  "Db": { D:"f", C:"n", B:"f", E:"f", F:"n", G:"f", A:"f" },
+  "Gb": { D:"f", C:"f", B:"f", E:"f", F:"n", G:"f", A:"f" },
+  "Cb": { D:"f", C:"f", B:"f", E:"f", F:"f", G:"f", A:"f" }
+};
+// Minor → relative-major lookup (then KEY_PEDALS).
+const MINOR_TO_MAJOR = {
+  "Am":"C","Em":"G","Bm":"D","F#m":"A","C#m":"E","G#m":"B","D#m":"F#","A#m":"C#",
+  "Dm":"F","Gm":"Bb","Cm":"Eb","Fm":"Ab","Bbm":"Db","Ebm":"Gb","Abm":"Cb"
+};
+
+const PEDAL_LEFT_DOT  = { f:0, n:1, s:2 };
+const PEDAL_RIGHT_DOT = { f:3, n:4, s:5 };
+function pedalBrailleCell(left, right, separator) {
+  let bits = 0;
+  if (left)      bits |= 1 << PEDAL_LEFT_DOT[left];
+  if (right)     bits |= 1 << PEDAL_RIGHT_DOT[right];
+  if (separator) bits |= 0x38;
+  return String.fromCharCode(0x2800 + bits);
+}
+function pedalBraille(s) {
+  return pedalBrailleCell(s.D, s.C) +
+         pedalBrailleCell(s.B, null, true) +
+         pedalBrailleCell(s.E, s.F) +
+         pedalBrailleCell(s.G, s.A);
+}
+
+function syncPedalsFromKey() {
+  if (!cm) return;
+  const m = cm.getValue().match(/^K:\s*([A-G][#b]?m?)/m);
+  if (!m) return;
+  let k = m[1];
+  if (k.endsWith("m")) k = MINOR_TO_MAJOR[k] || k;
+  const cfg = KEY_PEDALS[k];
+  if (cfg) Object.assign(pedalState, cfg);
+}
+
+function writePedalComment() {
+  if (!cm) return;
+  const labels = PEDAL_LETTERS.map(l => l + PEDAL_ACC_GLYPH[pedalState[l]]).join(" ");
+  const line = `%pedals: ${pedalBraille(pedalState)}  ${labels}`;
+  const lineCount = cm.lineCount();
+  let pedalLine = -1, kLine = -1;
+  for (let i = 0; i < lineCount; i++) {
+    const t = cm.getLine(i);
+    if (pedalLine < 0 && /^%pedals:/.test(t)) pedalLine = i;
+    if (kLine < 0     && /^K:/.test(t))       kLine = i;
+  }
+  if (pedalLine >= 0) {
+    cm.replaceRange(line,
+      { line: pedalLine, ch: 0 },
+      { line: pedalLine, ch: cm.getLine(pedalLine).length });
+  } else if (kLine >= 0) {
+    cm.replaceRange("\n" + line,
+      { line: kLine, ch: cm.getLine(kLine).length });
+  } else {
+    cm.replaceRange(line + "\n", { line: 0, ch: 0 });
+  }
+}
+
+function drawPedals() {
+  const wrap = document.getElementById("hexpad-pedals-wrap");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+  const head = document.createElement("div");
+  head.className = "pedal-glyph";
+  head.textContent = pedalBraille(pedalState);
+  wrap.appendChild(head);
+  const grid = document.createElement("div");
+  grid.className = "pedal-grid";
+  PEDAL_LETTERS.forEach((letter, i) => {
+    if (i === 3) {
+      const sp = document.createElement("div");
+      sp.className = "pedal-divider";
+      grid.appendChild(sp);
+    }
+    PEDAL_POSITIONS.forEach((pos) => {
+      const cell = document.createElement("div");
+      cell.className = "pedal-cell" + (pedalState[letter] === pos ? " active" : "");
+      cell.textContent = letter + PEDAL_ACC_GLYPH[pos];
+      cell.addEventListener("click", () => {
+        pedalState[letter] = pos;
+        drawPedals();
+        writePedalComment();
+      });
+      grid.appendChild(cell);
+    });
+  });
+  wrap.appendChild(grid);
+}
+
 (function wireHexpad() {
   const btn = document.getElementById("btn-hexpad");
   const overlay = document.getElementById("hexpad-overlay");
@@ -2298,6 +2439,7 @@ function bumpDuration(delta) {
         stripTargetEl.classList.add("show");
         try { renderStripchart(cm.getValue()); } catch (e) {}
       }
+      try { syncPedalsFromKey(); drawPedals(); } catch (e) {}
       requestAnimationFrame(drawHexpad);
     }
   });
