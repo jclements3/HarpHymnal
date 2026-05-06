@@ -1,0 +1,13 @@
+X:1
+T:Lick 90 (D natural minor)
+M:4/4
+L:1/8
+Q:1/4=80
+K:Dm
+% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
+% 4 bars cut-time. Both staves bass clef (low-register variant).
+% Grip labels: G Blues, D Penta, G Blues, D Penta, G Blues, D Pentatonic Grip
+% Repeating cell: triplet (Ab-A-D) D Penta hop. Quarter rest + 8th rest opening.
+% Pattern: z4 z2 (3 _A,=A,D F D | repeated x4
+[V:1 clef=bass] z2 z2 z2 z A,, | z4 z2 (3_A,=A,D F D2 | z2 (3_A,=A,D F (3_A,=A,D F D | (3_A,=A,D F D F (3_A,=A,D F |]
+[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]

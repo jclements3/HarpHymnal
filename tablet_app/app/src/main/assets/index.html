@@ -140,6 +140,8 @@
   .tile.pedalmatrix { border-color: #4A3A6B; }
   .tile.trefoil     .tile-banner { background: #2C5F2C; }
   .tile.trefoil     { border-color: #2C5F2C; }
+  .tile.licks       .tile-banner { background: #C0322A; }
+  .tile.licks       { border-color: #C0322A; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1344,6 +1346,16 @@
       onTap:  () => { window.location.href = 'trefoil/index.html'; },
     });
     grid.appendChild(trefoil);
+
+    // 101 Licks tile — D natural minor pentatonic / blues / step grip licks.
+    const licks = makeTile({
+      family: 'licks',
+      name:   '101 Licks',
+      rule:   'D natural minor · pent / blues / step grips · vim editor',
+      count:  101,
+      onTap:  () => { window.location.href = 'licks/index.html'; },
+    });
+    grid.appendChild(licks);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────

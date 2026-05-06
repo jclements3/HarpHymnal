@@ -1,0 +1,12 @@
+X:1
+T:Lick 85 (D natural minor)
+M:4/4
+L:1/8
+Q:1/4=80
+K:Dm
+% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
+% 4 bars cut-time. Top staff bass clef -> treble clef change mid-line
+% Triplet brackets throughout. Octave displacement visible (8va in m3/m4)
+% Swing 8ths
+[V:1 clef=bass] z2 z2 (3z A, C (3D F A | (3=BAG (3FED (3CDF (3ACd |[clef=treble] (3def (3=Bcd (3cAG F2 | (3DFA (3cd=B (3cAG F D |]
+[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]

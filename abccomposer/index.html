@@ -466,6 +466,12 @@
       <div class="pane-body">
         <div id="abcjs-target"></div>
         <div id="stripchart-target"></div>
+        <!-- Reference image (the original source notation, e.g. a lick PNG)
+             populated when the Composer is opened with ?load=lick_NNN -->
+        <div id="ref-image-wrap" style="display:none; padding:8px; border-top:2px solid var(--line); background:#fff;">
+          <div style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">reference (source)</div>
+          <img id="ref-image" src="" alt="source reference" style="max-width:100%; height:auto; display:block; box-shadow:0 1px 3px rgba(0,0,0,0.15);"/>
+        </div>
       </div>
     </div>
 
@@ -1548,6 +1554,43 @@ try { cm.setOption("keyMap", "vim"); } catch (e) {}
 // Expose the editor instance so externally-loaded scripts (vim_tests.js,
 // debug consoles, etc.) can interact with it.
 window.cm = cm;
+
+// URL-param loader: ?load=lick_042 → fetch licks/abc/lick_042.abc into the
+// editor + show licks/png/lick_042.png as a side-by-side reference image.
+(function loadFromUrlParam() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("load");
+  if (!id) return;
+  const safe = id.replace(/[^a-z0-9_-]/gi, "");
+  if (!safe) return;
+  const abcPath = "../licks/abc/" + safe + ".abc";
+  const pngPath = "../licks/png/" + safe + ".png";
+  // Show the reference image immediately (it's just a static URL).
+  const refWrap = document.getElementById("ref-image-wrap");
+  const refImg  = document.getElementById("ref-image");
+  if (refWrap && refImg) {
+    refImg.src = pngPath;
+    refImg.alt = safe + " (source)";
+    refWrap.style.display = "block";
+  }
+  // Fetch the ABC text and load into CM.
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", abcPath, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200 || xhr.status === 0) {
+      try { cm.setValue(xhr.responseText); } catch (e) {}
+      const fname = document.getElementById("filename");
+      if (fname) fname.value = safe + ".abc";
+      // Clear vim insert mode and put the cursor at the top.
+      try {
+        cm.setCursor({ line: 0, ch: 0 });
+        if (CodeMirror.Vim) CodeMirror.Vim.handleKey(cm, "<Esc>", "user");
+      } catch (e) {}
+    }
+  };
+  try { xhr.send(); } catch (e) {}
+})();
 
 // Tell the IME (Java side) whether CM has focus so it can route letter
 // taps through handleVimKey vs. commitText.

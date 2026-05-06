@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>101 Licks — D natural minor</title>
+<style>
+  :root { --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0; --panel:#ffffff;
+          --jazz:#8B5A2B; --accent:#1F4E79;
+          --easy:#2C7C5A; --med:#8B6914; --adv:#7B2121; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.45;
+    -webkit-tap-highlight-color: transparent; }
+
+  #topbar { padding: 14px 24px; background: var(--jazz); color: #fff;
+    display: flex; align-items: center; gap: 16px;
+    position: sticky; top: 0; z-index: 100; }
+  #topbar a { color: #fff; text-decoration: none; font-size: 15px; }
+  #topbar h1 { font-size: 22px; flex: 1; }
+  #topbar .crumbs { font-size: 13px; opacity: .85; }
+
+  #filters { padding: 8px 24px; background: var(--panel); border-bottom: 1px solid var(--line);
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  #filters label { font-size: 13px; color: var(--muted); margin-right: 4px; }
+  #filters select, #filters input {
+    font-family: inherit; font-size: 14px;
+    border: 1px solid var(--line); border-radius: 4px;
+    padding: 4px 10px; background: #fff;
+  }
+  #count { margin-left: auto; font-size: 13px; color: var(--muted); }
+
+  main {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px; padding: 14px;
+  }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px 12px; cursor: pointer;
+    display: flex; flex-direction: column; gap: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
+  .card:active { background: #f0ece0; }
+
+  .card-head { display: flex; align-items: baseline; gap: 8px; }
+  .card-num   { font-size: 18px; font-weight: 700; color: var(--ink); }
+  .card-level {
+    font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px;
+    color: #fff; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .card-level.easy { background: var(--easy); }
+  .card-level.medium { background: var(--med); }
+  .card-level.advanced { background: var(--adv); }
+  .card-grips {
+    font-size: 12px; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .grip-tag {
+    padding: 1px 6px; border-radius: 3px;
+    background: #f0ece0; color: var(--ink); font-weight: 500;
+  }
+  .grip-tag.pent-d { background:#d6f0d8; }
+  .grip-tag.pent-a { background:#d6f0d8; }
+  .grip-tag.blues  { background:#d8e8f0; }
+  .grip-tag.step-f { background:#f5e6cc; }
+  .grip-tag.step-c { background:#f5e6cc; }
+
+  .card-img { width: 100%; height: auto; border: 1px solid var(--line);
+    border-radius: 4px; background: #fff; display: block; }
+
+  #status { padding: 18px; text-align: center; color: var(--muted); font-style: italic; }
+</style></head><body>
+
+<div id="topbar">
+  <a href="../index.html">&larr; Home</a>
+  <h1>101 Licks · D natural minor</h1>
+  <span class="crumbs">tap a lick to edit in the Composer</span>
+</div>
+
+<div id="filters">
+  <label for="f-level">Level:</label>
+  <select id="f-level">
+    <option value="">all</option>
+    <option value="1">Easy</option>
+    <option value="2">Medium</option>
+    <option value="3">Advanced</option>
+  </select>
+  <label for="f-grip">Grip:</label>
+  <select id="f-grip">
+    <option value="">all</option>
+    <option>Pentatonic Grip on D</option>
+    <option>Pentatonic Grip on A</option>
+    <option>Blues Grip on G</option>
+    <option>Step Grip on F</option>
+    <option>Step Grip on C</option>
+  </select>
+  <label for="f-search">Search:</label>
+  <input id="f-search" type="text" placeholder="lick number..." size="6"/>
+  <span id="count">…</span>
+</div>
+
+<main id="grid"><div id="status">Loading manifest…</div></main>
+
+<a class="harp-home-fab" href="../index.html" title="Back to HarpHymnal home" aria-label="Home" style="position:fixed;bottom:8px;right:8px;z-index:99999;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font:bold 22px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:rgba(31,78,121,0.88);border:1px solid rgba(0,0,0,0.3);border-radius:8px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.25);-webkit-tap-highlight-color:transparent;">&#8962;</a>
+
+<script>
+function gripClass(name) {
+  return ({
+    "Pentatonic Grip on D":"pent-d","Pentatonic Grip on A":"pent-a",
+    "Blues Grip on G":"blues","Step Grip on F":"step-f","Step Grip on C":"step-c"
+  })[name] || "";
+}
+function gripShort(name) {
+  return ({
+    "Pentatonic Grip on D":"D Pent","Pentatonic Grip on A":"A Pent",
+    "Blues Grip on G":"G Blu","Step Grip on F":"F Step","Step Grip on C":"C Step"
+  })[name] || name;
+}
+
+function load(url, cb) {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", url, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== 4) return;
+    if (xhr.status === 200 || xhr.status === 0) cb(null, xhr.responseText);
+    else cb(new Error("HTTP " + xhr.status + " " + url));
+  };
+  xhr.onerror = function () { cb(new Error("network error " + url)); };
+  try { xhr.send(); } catch (e) { cb(e); }
+}
+
+const grid    = document.getElementById("grid");
+const status_ = document.getElementById("status");
+const fLevel  = document.getElementById("f-level");
+const fGrip   = document.getElementById("f-grip");
+const fSearch = document.getElementById("f-search");
+const count   = document.getElementById("count");
+
+let MANIFEST = [];
+
+function render() {
+  const lvl    = fLevel.value;
+  const grip   = fGrip.value;
+  const search = fSearch.value.trim();
+  const filtered = MANIFEST.filter((m) => {
+    if (lvl && String(m.level) !== lvl) return false;
+    if (grip) {
+      const active = (m.grips || []).filter(g => g.active).map(g => g.name);
+      if (!active.includes(grip)) return false;
+    }
+    if (search && !String(m.lick).includes(search)) return false;
+    return true;
+  });
+  count.textContent = filtered.length + " / " + MANIFEST.length;
+  grid.innerHTML = "";
+  for (const m of filtered) {
+    const card = document.createElement("div");
+    card.className = "card";
+    const num  = String(m.lick).padStart(3, "0");
+    const lev  = (m.level_word || "").toLowerCase();
+    const activeGrips = (m.grips || []).filter(g => g.active).map(g => g.name);
+    card.innerHTML =
+      '<div class="card-head">' +
+        '<span class="card-num">Lick ' + m.lick + '</span>' +
+        '<span class="card-level ' + lev + '">' + (m.level_word || "?") + '</span>' +
+      '</div>' +
+      '<div class="card-grips">' +
+        activeGrips.map(g =>
+          '<span class="grip-tag ' + gripClass(g) + '">' + gripShort(g) + '</span>'
+        ).join("") +
+      '</div>' +
+      '<img class="card-img" src="png/lick_' + num + '.png" alt="Lick ' + m.lick + '" loading="lazy"/>';
+    card.addEventListener("click", () => {
+      // Navigate to the Composer with this lick loaded.
+      window.location.href = "../abccomposer/index.html?load=lick_" + num;
+    });
+    grid.appendChild(card);
+  }
+  if (!filtered.length) {
+    grid.innerHTML = '<div id="status">no licks match the current filters</div>';
+  }
+}
+
+load("manifest.json", function (err, text) {
+  if (err) { status_.textContent = "Could not load manifest: " + err.message; return; }
+  try { MANIFEST = JSON.parse(text); }
+  catch (e) { status_.textContent = "Manifest parse error: " + e.message; return; }
+  fLevel.addEventListener("change", render);
+  fGrip.addEventListener("change", render);
+  fSearch.addEventListener("input", render);
+  render();
+});
+</script>
+
+</body></html>
