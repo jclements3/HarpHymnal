@@ -39,7 +39,6 @@ import android.graphics.pdf.PdfDocument;
 import android.util.Base64;
 
 public class MainActivity extends Activity {
-    private static final String TREFOIL_PACKAGE = "com.harp.trefoil";
     private static final int FILE_CHOOSER_RC = 1001;
 
     private ValueCallback<Uri[]> pendingFileChooser = null;
@@ -107,7 +106,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        // JS-side bridge so the Hymns tile can launch the sibling Trefoil app.
+        // JS-side bridge for Documents/HarpHymnal/ file I/O.
         webView.addJavascriptInterface(new Bridge(), "Bridge");
 
         webView.loadUrl("file:///android_asset/index.html");
@@ -146,21 +145,6 @@ public class MainActivity extends Activity {
     }
 
     private class Bridge {
-        @JavascriptInterface
-        public void launchHymns() {
-            Intent launch = getPackageManager().getLaunchIntentForPackage(TREFOIL_PACKAGE);
-            if (launch != null) {
-                launch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(launch);
-            } else {
-                // Trefoil not installed — notify the user on the UI thread.
-                runOnUiThread(() -> Toast.makeText(
-                    MainActivity.this,
-                    "Trefoil Hymnal app not installed",
-                    Toast.LENGTH_SHORT).show());
-            }
-        }
-
         // ─────────────────────────────────────────────────────────────────
         // Documents/HarpHymnal/ shared folder. The composer Save/Open path
         // talks to the public Documents tree via MediaStore (API 29+) so

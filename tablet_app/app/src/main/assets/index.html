@@ -138,6 +138,8 @@
   .tile.abcspec     { border-color: #2A6B6B; }
   .tile.pedalmatrix .tile-banner { background: #4A3A6B; }
   .tile.pedalmatrix { border-color: #4A3A6B; }
+  .tile.trefoil     .tile-banner { background: #2C5F2C; }
+  .tile.trefoil     { border-color: #2C5F2C; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1332,6 +1334,16 @@
       onTap:  () => { window.location.href = 'pedal-matrix/index.html'; },
     });
     grid.appendChild(pedalMatrix);
+
+    // Trefoil tile — bundled hymn player / SSAATTBB + Tch drill engine.
+    const trefoil = makeTile({
+      family: 'trefoil',
+      name:   'Trefoil',
+      rule:   'hymn player · SSAATTBB + Tch drills',
+      count:  '↗',
+      onTap:  () => { window.location.href = 'trefoil/index.html'; },
+    });
+    grid.appendChild(trefoil);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────

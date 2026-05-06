@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<title>ABC Strip Chart</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; background: #f8f6f1; font-family: sans-serif; }
+
+#controls {
+  background: #f8f6f1; border-bottom: 1px solid #ccc; padding: 4px 10px;
+}
+#controls .row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+#controls .row:last-child { margin-bottom: 0; }
+#title { font-size: 16px; font-weight: bold; color: #2a2a2a; flex: 1; }
+#counter { font-size: 13px; color: #888; }
+button {
+  font-size: 14px; padding: 6px 14px; border: 2px solid #ccc;
+  border-radius: 8px; background: #fff; color: #2a2a2a; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+button:active { background: #dbeafe; border-color: #2563eb; }
+#bpm-val { font-size: 15px; font-weight: bold; min-width: 30px; text-align: center; }
+label { font-size: 13px; color: #888; }
+
+#score-area {
+  position: relative; overflow: hidden; flex: 1;
+}
+#score-container {
+  position: absolute; top: 65px; left: 0;
+  transform-origin: 0 0;
+  overflow: visible;
+}
+#playhead-glow {
+  position: absolute; top: 0; bottom: 0; width: 6px;
+  background: rgba(37, 99, 235, 0.25); z-index: 50;
+  pointer-events: none;
+}
+#playhead-line {
+  position: absolute; top: 0; bottom: 0; width: 2px;
+  background: #2563eb; z-index: 51;
+  pointer-events: none;
+}
+
+.abcr { fill: #2563eb !important; fill-opacity: 0; z-index: 15; }
+
+#app { display: flex; flex-direction: column; height: 100vh; }
+
+/* Library browser */
+#library {
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column;
+  border-top: 2px solid #ccc;
+  background: #fff;
+}
+#lib-toolbar {
+  display: flex; align-items: center; gap: 4px;
+  padding: 6px 10px; background: #f0f4ff;
+  border-bottom: 2px solid #ddd; flex-shrink: 0;
+}
+.mode-btn {
+  font-size: 13px; padding: 5px 12px; border: 2px solid #ccc;
+  border-radius: 6px; background: #fff; color: #666; cursor: pointer;
+  font-weight: bold; -webkit-tap-highlight-color: transparent;
+}
+.mode-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.mode-btn:active { background: #dbeafe; }
+#key-filters {
+  display: flex; gap: 3px; margin: 0 4px;
+}
+.key-btn {
+  font-size: 12px; padding: 4px 8px; border: 1.5px solid #ccc;
+  border-radius: 6px; background: #fff; color: #444; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.key-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.key-btn:active { background: #dbeafe; }
+#lib-search {
+  flex: 1; min-width: 80px;
+  padding: 5px 10px; border: 1.5px solid #ccc;
+  border-radius: 6px; font-size: 14px; outline: none;
+  background: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+#lib-search::placeholder { color: #aaa; }
+#hymn-cols {
+  flex: 1; display: flex; min-height: 0;
+}
+.hymn-col {
+  flex: 1; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-right: 1px solid #eee;
+}
+.hymn-col:last-child { border-right: none; }
+#score-area { height: 45vh; margin-top: 0; }
+.lib-item {
+  padding: 10px 10px;
+  font-size: 13px;
+  color: #2a2a2a;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  break-inside: avoid;
+}
+.lib-item:active { background: #dbeafe; }
+.lib-item.active { background: #dbeafe; font-weight: bold; }
+.letter-header {
+  padding: 10px 12px;
+  font-size: 15px; font-weight: bold;
+  color: #2563eb; background: #f0f4ff;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.letter-header.collapsed::after { content: ' +'; color: #999; }
+.letter-header:not(.collapsed)::after { content: ' \2212'; color: #999; }
+.letter-items { }
+.letter-items.hidden { display: none; }
+
+/* Drill area (generated per-hymn) */
+#drill-area {
+  flex: 1; overflow-y: auto; width: 100%;
+  background: #f8f8f0;
+  display: none; min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+.drill-area-header {
+  font-size: 13px; font-weight: bold; color: #555;
+  padding: 6px 12px; background: #ece8d8; border-bottom: 1px solid #ccc;
+  position: sticky; top: 0; z-index: 10;
+}
+.drill-pattern { border-bottom: 1px solid #ddd; }
+.drill-header {
+  padding: 8px 12px; font-size: 13px; font-weight: bold;
+  color: #2a2a2a; cursor: pointer; background: #f4f0e4;
+  -webkit-tap-highlight-color: transparent;
+}
+.drill-header:active { background: #e8e0c8; }
+.drill-header.active { background: #dbeafe; font-weight: bold; }
+.drill-header .hex { color: #2563eb; }
+.drill-header .notes { color: #888; font-weight: normal; font-size: 12px; }
+.drill-body { background: #fff; }
+.drill-score {
+  display: flex; align-items: center; gap: 8px;
+  padding: 2px 8px; border-bottom: 1px solid #f0f0f0;
+  overflow-x: auto;
+}
+.drill-label {
+  font-size: 11px; font-weight: bold; color: #666;
+  min-width: 70px; flex-shrink: 0;
+}
+
+/* Chord fraction overlays */
+.chord-frac {
+  position: absolute;
+  text-align: left;
+  font-family: serif;
+  pointer-events: none;
+  z-index: 40;
+  line-height: 1.2;
+}
+.chord-frac .cf-abs {
+  font-size: 13px;
+  font-weight: normal;
+  color: #2563eb;
+  white-space: nowrap;
+}
+.chord-frac .cf-rh {
+  font-size: 8px;
+  font-weight: bold;
+  color: #2563eb;
+  white-space: nowrap;
+}
+.chord-frac .cf-lh {
+  font-size: 8px;
+  font-weight: normal;
+  color: #888;
+  white-space: nowrap;
+  border-top: 1px solid #ccc;
+}
+/* Verovio sets font-family="Times, serif" on its root <svg>, and Android
+   WebView's glyph fallback for Times breaks mid-tspan: circled digits
+   U+2460-U+2466 fall back OK but the Latin/Greek suffix that follows
+   (m7, Δ, ø, ¹²³, °) disappears. Force a single font that has full
+   coverage for everything in a chord label. */
+svg g.harm text, svg g.harm text tspan {
+  font-family: "Noto Sans", "DejaVu Sans", sans-serif !important;
+  /* Verovio's default harm-label font-size at our render scale comes out
+     ~405px — about 4x staff height. Clamp it down so labels read as
+     captions, not billboards. */
+  font-size: 220px !important;
+}
+/* Modern mode: Roman-numeral chord labels rendered in a serif face,
+   bold, with the handout's two-color scheme. The MEI emits inline @color
+   on each <harm>, but we still want the family/weight override here so
+   the label reads as a Roman numeral and not a chord symbol. */
+body.mode-modern svg g.harm text,
+body.mode-modern svg g.harm text tspan {
+  font-family: "Palatino Linotype", "Palatino", "Book Antiqua", Georgia, serif !important;
+  font-weight: bold !important;
+  font-size: 240px !important;
+}
+</style>
+</head>
+<body>
+<div id="app">
+<div id="controls">
+  <div class="row">
+    <span id="title">Select a hymn</span>
+  </div>
+  <div class="row">
+    <button id="btn-rewind" style="font-size:12px;padding:6px 8px;">|&lt;&lt;</button>
+    <button id="btn-scroll-left" style="font-size:12px;padding:6px 8px;">|&lt;</button>
+    <button id="btn-play">Play</button>
+    <button id="btn-scroll-right" style="font-size:12px;padding:6px 8px;">&gt;|</button>
+    <button id="btn-next" style="font-size:12px;padding:6px 8px;">&gt;&gt;|</button>
+    <label>BPM:</label>
+    <input type="range" id="bpm-slider" min="20" max="240" value="80" style="width:100px;vertical-align:middle;"/>
+    <span id="bpm-val" style="font-size:14px;font-weight:bold;min-width:28px;text-align:center;">80</span>
+    <label>Vol:</label>
+    <input type="range" id="vol-slider" min="0" max="100" value="0" style="width:100px;vertical-align:middle;"/>
+    <span id="vol-label" style="font-size:11px;color:#888;min-width:18px;">0</span>
+    <button id="btn-mute" style="font-size:18px;padding:4px 8px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;vertical-align:middle;">&#x1F507;</button>
+    <button id="btn-mel" style="font-size:14px;padding:6px 14px;border:2px solid #2563eb;border-radius:8px;background:#2563eb;color:#fff;cursor:pointer;">Melody</button>
+    <button id="btn-mic" style="font-size:12px;padding:6px 8px;margin-left:8px;opacity:0.5;">Mic</button>
+    <span id="mic-score" style="font-size:13px;font-weight:bold;color:#2563eb;min-width:40px;"></span>
+  </div>
+</div>
+<div id="score-area">
+  <div id="score-container"></div>
+  <div id="playhead-glow"></div>
+  <div id="playhead-line"></div>
+</div>
+<div id="library">
+  <div id="lib-toolbar">
+    <select id="sel-mode" style="font-size:13px;padding:4px 6px;border-radius:6px;border:1px solid #ccc;">
+      <option value="drills">Drills</option>
+      <option value="tch">Tch</option>
+      <option value="tch-ssaattbb" selected>Tch-SSAATTBB</option>
+      <option value="modern">Modern</option>
+      <option value="ssaattbb">SSAATTBB</option>
+    </select>
+    <div id="key-filters">
+      <button class="key-btn" data-key="All">All</button>
+      <button class="key-btn active" data-key="Eb">Eb</button>
+      <button class="key-btn" data-key="Bb">Bb</button>
+      <button class="key-btn" data-key="F">F</button>
+      <button class="key-btn" data-key="C">C</button>
+      <button class="key-btn" data-key="G">G</button>
+      <button class="key-btn" data-key="D">D</button>
+      <button class="key-btn" data-key="A">A</button>
+      <button class="key-btn" data-key="E">E</button>
+    </div>
+    <input type="text" id="lib-search" placeholder="Search..." style="flex:0.5;"/>
+    <select id="recent-select" style="flex:0.5;padding:5px 6px;border:1.5px solid #ccc;border-radius:6px;font-size:13px;background:#fff;outline:none;">
+      <option value="">Recent...</option>
+    </select>
+  </div>
+  <div id="hymn-cols">
+    <div id="hymn-col-left" class="hymn-col"></div>
+    <div id="hymn-col-right" class="hymn-col"></div>
+  </div>
+  <div id="drill-area"></div>
+</div>
+</div>
+
+<script src="abc2svg/abc2svg-1.js"></script>
+<script src="abc2svg/snd-1.js"></script>
+<script src="verovio/verovio-toolkit-wasm.js"></script>
+<script>
+  // Verovio WASM init — after script loads, attach the runtime-init callback
+  // on verovio.module per https://book.verovio.org/first-steps/javascript.html
+  window.verovioReady = false;
+  window.verovioTk = null;
+  function initVerovio() {
+    if (typeof verovio === 'undefined' || !verovio.module) {
+      console.warn('Verovio script not loaded yet, retry in 100ms');
+      setTimeout(initVerovio, 100);
+      return;
+    }
+    verovio.module.onRuntimeInitialized = function() {
+      try {
+        window.verovioTk = new verovio.toolkit();
+        window.verovioReady = true;
+        console.log('Verovio toolkit initialized');
+        if (typeof window.onVerovioReady === 'function') window.onVerovioReady();
+      } catch (e) { console.error('Verovio init error:', e); }
+    };
+  }
+  initVerovio();
+</script>
+<!-- equalbars removed — scroll sync precomputed -->
+<script>
+// Override loadjs to handle file:///android_asset/ paths correctly.
+// The default loadjs prepends jsdir which can break with file:// protocol.
+abc2svg.jsdir = '';
+abc2svg.loadjs = function(fn, relay, onerror) {
+  // sfu='abc2svg/Scc1t2' so fn will be 'abc2svg/Scc1t2/0.js'
+  console.log('loadjs: ' + fn);
+  var s = document.createElement('script');
+  s.src = fn;
+  s.onload = function() { console.log('loadjs OK: ' + fn); relay(); };
+  s.onerror = function() {
+    console.error('loadjs FAIL: ' + fn);
+    if (onerror) onerror(fn);
+  };
+  document.head.appendChild(s);
+};
+</script>
+
+<script>
+// ── Embedded drill ABC data ──
+var DRILLS = [
+];
+
+// ── Tch MIDI parser + harp synth ��─
+function parseMidi(base64) {
+  // Decode base64 MIDI → array of {time_ms, note, velocity, channel, on}
+  var raw = atob(base64);
+  var buf = new Uint8Array(raw.length);
+  for (var i = 0; i < raw.length; i++) buf[i] = raw.charCodeAt(i);
+  var pos = 0;
+  function u16() { var v = (buf[pos]<<8)|buf[pos+1]; pos+=2; return v; }
+  function u32() { var v = (buf[pos]<<24)|(buf[pos+1]<<16)|(buf[pos+2]<<8)|buf[pos+3]; pos+=4; return v>>>0; }
+  function vlq() { var v = 0; while (true) { var b = buf[pos++]; v = (v<<7)|(b&0x7f); if (!(b&0x80)) break; } return v; }
+
+  // Header
+  pos = 4; // skip "MThd"
+  u32(); // header length
+  var fmt = u16(), ntrks = u16(), division = u16();
+  var usPerTick = 500000 / division; // default 120 BPM
+
+  var events = [];
+  for (var t = 0; t < ntrks; t++) {
+    pos += 4; // skip "MTrk"
+    var trkLen = u32();
+    var trkEnd = pos + trkLen;
+    var tick = 0, running = 0;
+    while (pos < trkEnd) {
+      tick += vlq();
+      var b = buf[pos];
+      if (b === 0xFF) { // meta
+        pos++; var type = buf[pos++]; var len = vlq();
+        if (type === 0x51 && len === 3) { // tempo
+          usPerTick = ((buf[pos]<<16)|(buf[pos+1]<<8)|buf[pos+2]) / division;
+        }
+        pos += len;
+      } else if (b === 0xF0 || b === 0xF7) { // sysex
+        pos++; var len = vlq(); pos += len;
+      } else {
+        if (b & 0x80) { running = b; pos++; } // new status
+        var cmd = running & 0xF0, ch = running & 0x0F;
+        if (cmd === 0x90 || cmd === 0x80) {
+          var note = buf[pos++], vel = buf[pos++];
+          var on = (cmd === 0x90 && vel > 0);
+          events.push({tick: tick, note: note, vel: vel, ch: ch, on: on});
+        } else if (cmd === 0xC0 || cmd === 0xD0) {
+          pos++; // 1-byte
+        } else {
+          pos += 2; // 2-byte (control, pitch bend, etc)
+        }
+      }
+    }
+  }
+  // Convert ticks to ms using final tempo (simple — works for constant-tempo hymns)
+  var msPerTick = usPerTick / 1000;
+  for (var i = 0; i < events.length; i++) events[i].time_ms = events[i].tick * msPerTick;
+  events.sort(function(a,b) { return a.time_ms - b.time_ms || a.note - b.note; });
+  return {events: events, duration_ms: events.length > 0 ? events[events.length-1].time_ms + 500 : 0};
+}
+
+var tchAudioCtx = null, tchGain = null, tchScheduledNodes = [];
+function getTchAudioCtx() {
+  if (!tchAudioCtx) {
+    tchAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    tchGain = tchAudioCtx.createGain();
+    tchGain.connect(tchAudioCtx.destination);
+  }
+  if (tchAudioCtx.state === 'suspended') tchAudioCtx.resume();
+  return tchAudioCtx;
+}
+
+function playTchMidi(midiData, speedRatio, volume, curveTimes) {
+  // curveTimes = tchCurveTimes array (measure boundary timestamps in ms at native tempo).
+  // We use these as the authoritative measure boundaries for cadenza redistribution.
+  var ctx = getTchAudioCtx();
+  tchGain.gain.value = volume;
+  stopTchAudio();
+  var startTime = ctx.currentTime + 0.05;
+  var events = midiData.events;
+
+  // Pre-compute note durations from on/off pairs, separate melody from cadenza
+  var melNotes = []; // ch 0 = melody (staff 1)
+  var cadNotes = []; // ch 1,2 = cadenza (staves 2,3)
+  var onMap = {};
+  for (var i = 0; i < events.length; i++) {
+    var e = events[i];
+    var key = e.ch + ':' + e.note;
+    if (e.on) {
+      if (!onMap[key]) onMap[key] = [];
+      onMap[key].push({time_ms: e.time_ms, vel: e.vel, ch: e.ch});
+    } else {
+      if (onMap[key] && onMap[key].length > 0) {
+        var s = onMap[key].shift();
+        var dur = (e.time_ms - s.time_ms) / speedRatio / 1000;
+        var n = {time_ms: s.time_ms, note: e.note, dur_s: Math.max(dur, 0.05), vel: s.vel, ch: s.ch};
+        if (s.ch === 0) melNotes.push(n);
+        else cadNotes.push(n);
+      }
+    }
+  }
+
+  // Build measure boundaries from the scroll curve (native-tempo ms).
+  // curveTimes has one entry per measure + one end sentinel.
+  var nMeasures = curveTimes.length - 1;
+
+  // Assign each cadenza note to a measure by finding the nearest downbeat.
+  // Verovio bunches all cadenza notes at each measure's downbeat tick,
+  // so we match each note to the closest curveTimes entry.
+  cadNotes.sort(function(a,b) { return a.time_ms - b.time_ms; });
+
+  // Map MIDI melody downbeats to scroll curve measures to establish the
+  // time mapping between MIDI timeline and scroll curve timeline.
+  // Strategy: find ch-0 note-on times as measure markers, then map cadenza
+  // clusters to those. But simpler: since melody downbeats should align
+  // with curveTimes, just assign cadenza notes to measures by order.
+  var cadBuckets = []; // one array of notes per measure
+  for (var m = 0; m < nMeasures; m++) cadBuckets.push([]);
+
+  // Group consecutive cadenza notes by large time gaps (measure boundaries)
+  var clusters = [];
+  for (var i = 0; i < cadNotes.length; i++) {
+    if (clusters.length === 0 || cadNotes[i].time_ms - cadNotes[i-1].time_ms > 50) {
+      clusters.push([cadNotes[i]]);
+    } else {
+      clusters[clusters.length-1].push(cadNotes[i]);
+    }
+  }
+  // Assign clusters to measures in order (cluster 0 = first measure with cadenza, etc.)
+  // Pickup measures typically have no cadenza, so first cluster goes to measure 1 or later.
+  var mi = 0;
+  for (var c = 0; c < clusters.length; c++) {
+    // Skip pickup measures (which have no cadenza)
+    while (mi < nMeasures && cadBuckets[mi].length === 0 && mi < c + 1) mi++;
+    if (mi >= nMeasures) mi = nMeasures - 1;
+    cadBuckets[mi] = clusters[c];
+    mi++;
+  }
+
+  // Redistribute each bucket evenly across its measure in the scroll timeline
+  var allNotes = [];
+  for (var m = 0; m < nMeasures; m++) {
+    var bucket = cadBuckets[m];
+    if (bucket.length === 0) continue;
+    var mStart = curveTimes[m];
+    var mEnd = curveTimes[m + 1];
+    var mDur = mEnd - mStart;
+    for (var j = 0; j < bucket.length; j++) {
+      var n = bucket[j];
+      // Spread evenly from 0% to 95% of the measure
+      n.time_ms = mStart + (j / bucket.length) * mDur * 0.95;
+      n.dur_s = Math.max((mDur * 0.95 / bucket.length) / speedRatio / 1000, 0.03);
+      allNotes.push(n);
+    }
+  }
+
+  // Map melody notes from MIDI timeline to scroll curve timeline.
+  // Melody notes are correctly spaced in MIDI, but the MIDI tempo might
+  // differ from our scroll curve. Scale melody times proportionally.
+  melNotes.sort(function(a,b) { return a.time_ms - b.time_ms; });
+  var midiEnd = melNotes.length > 0 ? melNotes[melNotes.length-1].time_ms : 1;
+  var curveEnd = curveTimes.length > 0 ? curveTimes[curveTimes.length-1] : 1;
+  var timeScale = midiEnd > 0 ? curveEnd / midiEnd : 1;
+  for (var i = 0; i < melNotes.length; i++) {
+    melNotes[i].time_ms *= timeScale;
+    allNotes.push(melNotes[i]);
+  }
+
+  // Schedule harp-like plucked sounds
+  for (var i = 0; i < allNotes.length; i++) {
+    var n = allNotes[i];
+    var freq = 440 * Math.pow(2, (n.note - 69) / 12);
+    var t = startTime + n.time_ms / speedRatio / 1000;
+    var dur = Math.min(n.dur_s, 2.0);
+    var vel = n.vel / 127;
+    // Cadenza notes quieter than melody
+    var gain = (n.ch === 0) ? vel * 0.35 : vel * 0.12;
+
+    var osc = ctx.createOscillator();
+    osc.type = 'triangle';
+    osc.frequency.value = freq;
+    var env = ctx.createGain();
+    env.gain.setValueAtTime(0, t);
+    env.gain.linearRampToValueAtTime(gain, t + 0.003);
+    env.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    osc.connect(env);
+    env.connect(tchGain);
+    osc.start(t);
+    osc.stop(t + dur + 0.01);
+    tchScheduledNodes.push(osc);
+  }
+  console.log('Tch audio: ' + melNotes.length + ' melody + ' + cadNotes.length + ' cadenza (' + clusters.length + ' clusters) in ' + nMeasures + ' measures');
+  return {startTime: startTime, duration_s: curveEnd / speedRatio / 1000};
+}
+
+function stopTchAudio() {
+  for (var i = 0; i < tchScheduledNodes.length; i++) {
+    try { tchScheduledNodes[i].stop(); } catch(e) {}
+  }
+  tchScheduledNodes = [];
+}
+
+// ── State ──
+var currentDrill = 0, playing = false, bpm = 80, muted = true, autoAdvance = false, melodyOn = true;
+var abc = null, abcplay = null, svgScale = 1, scrollX = 0;
+var targetScrollX = 0, animId = null, playLeadPx = 0;
+var tchScrollActive = false, tchScrollStart = 0, tchScrollDur = 0;
+var tchMidiData = null; // parsed MIDI from Verovio
+var tchTimemap = null; // [{tstamp, on:[], off:[]}] from Verovio
+var tchCurveTimes = []; // ms timestamps for scroll curve
+var tchCurvePxs = []; // x-positions for scroll curve
+var tchSpeedRatio = 1.0;
+var tchMeasureMs = 0; // duration of one full measure at native tempo
+
+var $title = document.getElementById('title');
+var $container = document.getElementById('score-container');
+var $area = document.getElementById('score-area');
+var $phGlow = document.getElementById('playhead-glow');
+var $phLine = document.getElementById('playhead-line');
+var $bpmVal = document.getElementById('bpm-val');
+var $btnPlay = document.getElementById('btn-play');
+
+// ── Melody toggle ──
+function getAbc(drill) {
+  var abc = drill.abc;
+  if (!melodyOn) {
+    var lines = abc.split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      if (lines[i].indexOf('[V: M]') === 0 || lines[i].indexOf('[V:1]') === 0) {
+        var voice = lines[i].replace(/\[V:\s*(?:M|1)\]\s*/, '');
+        var result = lines[i].match(/\[V:\s*(?:M|1)\]/)[0] + ' ';
+        var pos = 0;
+        while (pos < voice.length) {
+          if (voice[pos] === '"') {
+            var end = voice.indexOf('"', pos + 1);
+            if (end >= 0) { result += voice.substring(pos, end + 1); pos = end + 1; continue; }
+          }
+          if (voice[pos] === '[' && voice[pos+1] !== 'V') {
+            var cb = voice.indexOf(']', pos);
+            if (cb >= 0) {
+              pos = cb + 1;
+              var dm = voice.substring(pos).match(/^(\d*(?:\/\d*)?)/);
+              var dur = dm ? dm[1] : '';
+              pos += dur.length;
+              result += 'z' + dur;
+              continue;
+            }
+          }
+          var nm = voice.substring(pos).match(/^[_^=]*[A-Ga-g][,']*(\d*(?:\/\d*)?)/);
+          if (nm) { result += 'z' + nm[1]; pos += nm[0].length; continue; }
+          result += voice[pos]; pos++;
+        }
+        lines[i] = result;
+      }
+    }
+    abc = lines.join('\n');
+  }
+  return abc;
+}
+document.getElementById('btn-mel').onclick = function() {
+  melodyOn = !melodyOn;
+  this.textContent = melodyOn ? 'Melody' : 'Melody Off';
+  this.style.background = melodyOn ? '#2563eb' : '#fff';
+  this.style.color = melodyOn ? '#fff' : '#444';
+  this.style.borderColor = melodyOn ? '#2563eb' : '#ccc';
+  renderDrill(currentDrill);
+};
+
+function getPlayheadX() {
+  return $area.offsetWidth * 0.20;
+}
+
+function setScroll(x) {
+  scrollX = x;
+  $container.style.transform = 'scale(' + svgScale + ') translateX(' + (x / svgScale) + 'px)';
+}
+
+// Linear scroll synced to playback duration.
+var playStartTime = 0, playStartX = 0, playEndX = 0, playTotalDuration = 0, scrollStarted = false;
+var playBarTimes = [], playBarPixels = [], playFirstNotePx = 0;
+var playNoteTimes = [], playNotePixels = [];
+var playCurveTimes = [], playCurveFracs = [], playFirstPx = 0, playPxRange = 0;
+
+function animateScroll(now) {
+  if (!now) now = performance.now();
+  if (tchScrollActive && tchScrollDur > 0 && tchCurveTimes.length > 1) {
+    var elapsed = (now - tchScrollStart) * tchSpeedRatio;
+    // Binary search in curve (same approach as abc2svg PCHIP curve)
+    var lo = 0, hi = tchCurveTimes.length - 1;
+    while (lo < hi - 1) {
+      var mid = (lo + hi) >> 1;
+      if (tchCurveTimes[mid] <= elapsed) lo = mid; else hi = mid;
+    }
+    var t0 = tchCurveTimes[lo], t1 = tchCurveTimes[hi];
+    var p0 = tchCurvePxs[lo], p1 = tchCurvePxs[hi];
+    var frac = t1 > t0 ? Math.min((elapsed - t0) / (t1 - t0), 1.0) : 1.0;
+    var px = p0 + (p1 - p0) * frac;
+    setScroll(getPlayheadX() - px * svgScale);
+
+    var done = elapsed >= tchCurveTimes[tchCurveTimes.length - 1];
+    if (!done) {
+      animId = requestAnimationFrame(animateScroll);
+    } else {
+      tchScrollActive = false;
+      stopTchAudio();
+      playing = false;
+      $btnPlay.textContent = 'Play';
+      if (autoAdvance) {
+        var next = getNextHymn(currentDrill);
+        if (next >= 0) setTimeout(function() { selectDrill(next); startPlayback(); }, 800);
+      }
+    }
+    return;
+  }
+  if (playTotalDuration > 0 && playCurveTimes.length > 1) {
+    var elapsed = now - playStartTime;
+
+    // Binary search in densely sampled scroll curve (50ms intervals)
+    var lo = 0, hi = playCurveTimes.length - 1;
+    while (lo < hi - 1) {
+      var mid = (lo + hi) >> 1;
+      if (playCurveTimes[mid] <= elapsed) lo = mid; else hi = mid;
+    }
+
+    // Linear interpolation between adjacent 50ms samples
+    var t0 = playCurveTimes[lo], t1 = playCurveTimes[hi];
+    var f0 = playCurveFracs[lo], f1 = playCurveFracs[hi];
+    var frac = t1 > t0 ? Math.min((elapsed - t0) / (t1 - t0), 1.0) : 1.0;
+    var xFrac = f0 + (f1 - f0) * frac;
+
+    // Map fraction to pixel position
+    setScroll(getPlayheadX() - (playFirstPx + playPxRange * xFrac));
+
+  } else if (playTotalDuration > 0) {
+    var elapsed = now - playStartTime;
+    var t = Math.min(elapsed / playTotalDuration, 1.0);
+    setScroll(playStartX + (playEndX - playStartX) * t);
+    // Mic scoring: sample once per beat
+    if (micEnabled && micAnalyser && micExpectedMap && micScoreData) {
+      var curBeat = Math.floor(t * micTotalBeats / 384);
+      if (curBeat !== micLastScoredBeat) {
+        micLastScoredBeat = curBeat;
+        var timeKey = curBeat * 384;
+        var expected = micExpectedMap[timeKey];
+        if (expected) {
+          var detected = getChromaFromFFT();
+          var sim = chromaSimilarity(expected, detected);
+          micScoreData.total++;
+          if (sim > 0.4) micScoreData.hits++;
+          if (micScoreData.total > 0) {
+            $micScore.textContent = Math.round(100 * micScoreData.hits / micScoreData.total) + '%';
+          }
+        }
+      }
+    }
+  }
+  // Keep animating until scroll reaches the end, even after audio stops
+  var t = playTotalDuration > 0 ? (performance.now() - playStartTime) / playTotalDuration : 1;
+  if (t < 1.0 && scrollStarted) {
+    animId = requestAnimationFrame(animateScroll);
+  }
+}
+
+function startScrollAnim() {
+  if (animId) cancelAnimationFrame(animId);
+  animId = requestAnimationFrame(animateScroll);
+}
+
+function stopScrollAnim() {
+  if (animId) { cancelAnimationFrame(animId); animId = null; }
+}
+
+function positionPlayhead() {
+  var px = getPlayheadX();
+  $phGlow.style.left = (px - 2) + 'px';
+  $phLine.style.left = px + 'px';
+}
+
+// ── Render ──
+function renderDrill(idx) {
+  if (playing) stopPlayback();
+  currentDrill = idx;
+  var drill = DRILLS[idx];
+
+  // Mode selector: tch (Verovio MEI), tch-ssaattbb (ABC block chords), modern (MEI), ssaattbb (original)
+  var mode = document.getElementById('sel-mode').value;
+  var tchMode = (mode === 'tch');
+  // Drills mode reuses the Tch-SSAATTBB MEI pipeline (same Verovio render path).
+  var tchSsaattbbMode = (mode === 'tch-ssaattbb' || mode === 'drills');
+  var modernMode = (mode === 'modern');
+  var useDrill = drill;
+  var tchMei = null;
+  if (tchMode) {
+    var cleanTitle = drill.t.replace(/^\d+\s*/, '').trim();
+    tchMei = TCHAIKOVSKY_MEI[cleanTitle] || null;
+    var tch = TCHAIKOVSKY[cleanTitle];
+    if (tch && tch.abc) {
+      useDrill = {t: drill.t + ' (Tch)', abc: tch.abc, key: tch.key, tempo: tch.tempo, npb: tch.npb, n: drill.n};
+    }
+  } else if (tchSsaattbbMode) {
+    var cleanTitle = drill.t.replace(/^\d+\s*/, '').trim();
+    // Prefer MEI (Verovio) if available, fall back to ABC
+    tchMei = TCH_SSAATTBB_MEI[cleanTitle] || null;
+    var tchSsa = TCH_SSAATTBB[cleanTitle];
+    if (!tchMei && tchSsa && tchSsa.abc) {
+      useDrill = {t: drill.t + ' (Tch-SSAATTBB)', abc: tchSsa.abc, key: tchSsa.key, tempo: tchSsa.tempo, n: drill.n};
+    }
+  } else if (modernMode) {
+    var cleanTitle = drill.t.replace(/^\d+\s*/, '').trim();
+    // Modern mode is MEI-only (no ABC fallback). If the asset is missing,
+    // tchMei stays null and we fall through to a placeholder message below.
+    tchMei = MODERN_MEI[cleanTitle] || null;
+  }
+  drill = useDrill;
+
+  // If Tch/Tch-SSAATTBB/Modern mode with MEI data, render via Verovio and return.
+  if ((tchMode || tchSsaattbbMode || modernMode) && tchMei && window.verovioReady && window.verovioTk) {
+    $title.textContent = drill.t;
+    $container.innerHTML = '';
+    bpm = tchMei.tempo || 100;
+    $bpmVal.textContent = bpm;
+    if ($bpmSlider) $bpmSlider.value = bpm;
+    try {
+      var areaH = $area.offsetHeight - 50;
+      // Force the whole hymn onto one very wide "page" so we get a continuous strip chart.
+      // 'breaks: none' disables system breaks (one system for the entire hymn).
+      window.verovioTk.setOptions({
+        inputFrom: 'mei',
+        scale: 40,
+        pageWidth: 60000,
+        pageHeight: 3000,
+        adjustPageHeight: true,
+        breaks: 'none',
+        header: 'none',
+        footer: 'none',
+        // Aggressive spacing compression so the cadenza's many notes
+        // cluster tightly together rather than stretching across the bar.
+        spacingLinear: 0.05,
+        spacingNonLinear: 0.3,
+        // Tiny left margin so cadenza notes have breathing room and the
+        // noteheads don't literally touch their neighbors.
+        leftMarginNote: 0.3,
+        rightMarginNote: 0.0,
+        // Gap between melody (staff 1) and harp grand staff (staff 2).
+        spacingBracketGroup: 6,
+        // Gap between harp treble (staff 2) and harp bass (staff 3).
+        spacingBraceGroup: 0,
+        spacingStaff: 8,
+        spacingSystem: 4,
+        // Allow beams to slope aggressively so they follow the note
+        // contour and stems stay short.
+        beamMaxSlope: 20,
+        // Ragged-right — don't stretch the system to fill page width.
+        noJustification: true
+      });
+      window.verovioTk.loadData(tchMei.mei);
+      var pages = window.verovioTk.getPageCount();
+      for (var p = 1; p <= pages; p++) {
+        var svg = window.verovioTk.renderToSVG(p);
+        $container.innerHTML += svg;
+      }
+      var svgs = $container.getElementsByTagName('svg');
+      var totalH = 0;
+      for (var i = 0; i < svgs.length; i++) totalH += parseFloat(svgs[i].getAttribute('height') || 0);
+      svgScale = (areaH > 0 && totalH > 0) ? (areaH * 0.95) / totalH : 1;
+      if (svgScale > 3) svgScale = 3;
+      $container.style.transformOrigin = '0 0';
+      $container.style.transform = 'scale(' + svgScale + ')';
+      console.log('Verovio rendered ' + pages + ' pages, svgScale=' + svgScale.toFixed(2) + ' totalH=' + totalH);
+      positionPlayhead();
+
+      // Get MIDI + timemap from Verovio for audio + scroll sync
+      try {
+        var midiBase64 = window.verovioTk.renderToMIDI();
+        tchMidiData = parseMidi(midiBase64);
+        console.log('Tch MIDI: ' + tchMidiData.events.length + ' events, dur=' + tchMidiData.duration_ms.toFixed(0) + 'ms');
+        // Debug: log first 60 note-on events with pitch names
+        var noteNames = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+        var dbg = tchMidiData.events.filter(function(e){return e.on;}).slice(0,60);
+        console.log('First 60 note-ons:');
+        var lastMs = -1;
+        for (var di = 0; di < dbg.length; di++) {
+          var e = dbg[di];
+          var gap = lastMs >= 0 ? (e.time_ms - lastMs).toFixed(0) : '-';
+          lastMs = e.time_ms;
+          console.log('  ' + di + ': ' + noteNames[e.note%12] + Math.floor(e.note/12-1) + ' @'+e.time_ms.toFixed(0)+'ms ch'+e.ch + ' gap='+gap);
+        }
+      } catch(e) {
+        console.warn('Verovio MIDI export failed:', e);
+        tchMidiData = null;
+      }
+
+      try {
+        var tmStr = window.verovioTk.renderToTimemap();
+        tchTimemap = (typeof tmStr === 'string') ? JSON.parse(tmStr) : tmStr;
+      } catch(e) {
+        console.warn('Verovio timemap failed:', e);
+        tchTimemap = null;
+      }
+
+      // Build scroll curve from measure positions — one point per measure.
+      // The timemap has events from all 3 staves (melody + harp treble + harp bass)
+      // whose x-positions can interleave non-monotonically. Measure boundaries
+      // are strictly left-to-right and each measure gets equal musical time,
+      // which gives a smooth, predictable scroll.
+      tchCurveTimes = [];
+      tchCurvePxs = [];
+      var cRect = $container.getBoundingClientRect();
+      var mGroups = $container.querySelectorAll('g.measure');
+      if (mGroups.length > 0) {
+        var tsMatch = tchMei.mei.match(/meter\.count="(\d+)"\s+meter\.unit="(\d+)"/);
+        var beatsPerMeasure = tsMatch ? parseInt(tsMatch[1]) : 4;
+        var msPerBeat = 60000 / bpm;
+
+        // Detect pickup: if measure 1 is narrower than measure 2, it's a pickup.
+        // Give pickup its proportional time based on width ratio.
+        var m1W = mGroups[0].getBoundingClientRect().width;
+        var m2W = mGroups.length > 1 ? mGroups[1].getBoundingClientRect().width : m1W;
+        var pickupRatio = (m1W < m2W * 0.7) ? m1W / m2W : 1.0;
+        var pickupMs = pickupRatio * beatsPerMeasure * msPerBeat;
+        var fullMeasureMs = beatsPerMeasure * msPerBeat;
+        tchMeasureMs = fullMeasureMs;
+
+        var t = 0;
+        for (var mi = 0; mi < mGroups.length; mi++) {
+          var mRect = mGroups[mi].getBoundingClientRect();
+          tchCurveTimes.push(t);
+          tchCurvePxs.push((mRect.left - cRect.left) / svgScale);
+          t += (mi === 0) ? pickupMs : fullMeasureMs;
+        }
+        // End sentinel: right edge of last measure
+        var lastMR = mGroups[mGroups.length - 1].getBoundingClientRect();
+        tchCurveTimes.push(t);
+        tchCurvePxs.push((lastMR.right - cRect.left) / svgScale);
+        console.log('Tch scroll curve: ' + tchCurveTimes.length + ' points, pickup=' + pickupMs.toFixed(0) + 'ms, full=' + fullMeasureMs.toFixed(0) + 'ms');
+      }
+
+      // Fallback: measure-based scroll if timemap produced nothing
+      if (tchCurveTimes.length < 2) {
+        var mGroups = $container.querySelectorAll('g.measure');
+        tchCurveTimes = [];
+        tchCurvePxs = [];
+        var tsMatch = tchMei.mei.match(/meter\.count="(\d+)"\s+meter\.unit="(\d+)"/);
+        var beatsPerMeasure = tsMatch ? parseInt(tsMatch[1]) : 4;
+        var msPerMeasure = beatsPerMeasure * (60000 / bpm);
+        for (var mi = 0; mi < mGroups.length; mi++) {
+          var mRect = mGroups[mi].getBoundingClientRect();
+          tchCurveTimes.push(mi * msPerMeasure);
+          tchCurvePxs.push((mRect.left - cRect.left) / svgScale);
+        }
+        if (mGroups.length > 0) {
+          var lastMR = mGroups[mGroups.length - 1].getBoundingClientRect();
+          tchCurveTimes.push(mGroups.length * msPerMeasure);
+          tchCurvePxs.push((lastMR.right - cRect.left) / svgScale);
+        }
+        console.log('Tch scroll curve: ' + tchCurveTimes.length + ' points from measures (fallback)');
+      }
+
+      tchScrollDur = tchCurveTimes.length > 0 ? tchCurveTimes[tchCurveTimes.length - 1] : 0;
+      abc = null; // clear so startPlayback knows we're in Tch mode
+
+      // Scroll so the first bar is at the playhead
+      setScroll(getPlayheadX());
+      return;
+    } catch (e) {
+      console.error('Verovio render error:', e);
+      // fall through to abc2svg
+    }
+  }
+
+  // Modern mode has no ABC fallback. If the MEI asset is missing (or the
+  // specific hymn isn't in it), show a friendly placeholder instead of
+  // dropping into the abc2svg path with no data.
+  if (modernMode && !tchMei) {
+    $title.textContent = drill.t;
+    var cleanT = drill.t.replace(/^\d+\s*/, '').trim();
+    $container.innerHTML = '<div style="padding:40px;text-align:center;font-size:16px;color:#666">' +
+      'Modern reharmonization for "<em>' + cleanT + '</em>" is not yet available.</div>';
+    $container.style.transform = '';
+    positionPlayhead();
+    abc = null;
+    return;
+  }
+
+  $title.textContent = drill.t;
+  $container.innerHTML = '';
+
+  // Set BPM to hymn's native tempo
+  bpm = drill.tempo || 100;
+  $bpmVal.textContent = bpm;
+  if ($bpmSlider) $bpmSlider.value = bpm;
+
+  // Track note x-positions for chord fraction placement
+  var notePositions = []; // [{x, y, w, h, beatIndex}]
+  var beatCounter = 0;
+
+  var user = {
+    img_out: function(svg) { $container.innerHTML += svg; },
+    anno_stop: function(type, start, stop, x, y, w, h) {
+      if (type !== 'note' && type !== 'rest') return;
+      notePositions.push({x: x, y: y, w: w, h: h, beat: beatCounter});
+      beatCounter++;
+      if (abc.out_sxsy && abc.sh) {
+        abc.out_svg('<rect class="abcr _' + start + '_" x="');
+        abc.out_sxsy(x, '" y="', y);
+        abc.out_svg('" width="' + w.toFixed(2) + '" height="' + abc.sh(h).toFixed(2) + '"/>\n');
+      } else {
+        abc.out_svg('<rect class="abcr _' + start + '_" x="' + x.toFixed(2) +
+          '" y="' + y.toFixed(2) + '" width="' + w.toFixed(2) + '" height="' + h.toFixed(2) + '"/>\n');
+      }
+    },
+    errmsg: function(msg) { console.warn('abc2svg:', msg); },
+    read_file: function() { return ''; }
+  };
+
+  abc = new abc2svg.Abc(user);
+  var renderAbc = getAbc(drill);
+  // Tchaikovsky mode keeps ABC chord annotations (rendered natively by abc2svg).
+  // Other modes strip them so JS fraction overlays can replace them.
+  if (!tchMode && !tchSsaattbbMode) {
+    var beforeLen = renderAbc.length;
+    renderAbc = renderAbc.replace(/"\^[^"]*"/g, '');
+    renderAbc = renderAbc.replace(/"_[^"]*"/g, '');
+    console.log('Stripped annotations: ' + (beforeLen - renderAbc.length) + ' chars');
+  }
+  abc.tosvg('drill', renderAbc);
+
+  // Scale SVG to fill viewport height
+  var svgs = $container.getElementsByTagName('svg');
+  var totalH = 0;
+  for (var i = 0; i < svgs.length; i++) totalH += parseFloat(svgs[i].getAttribute('height') || 0);
+  var areaH = $area.offsetHeight - 50;
+  svgScale = (areaH > 0 && totalH > 0) ? (areaH * 0.95) / totalH : 1;
+  if (svgScale > 3) svgScale = 3;
+  console.log('areaH=' + areaH + ' totalH=' + totalH + ' svgScale=' + svgScale.toFixed(2) + ' playheadX=' + getPlayheadX().toFixed(1));
+  $container.style.transformOrigin = '0 0';
+
+  // Build chord fraction overlays on-the-fly from ABC
+  setTimeout(function() {
+    // Tchaikovsky mode renders its own chord annotations natively via abc2svg
+    if (tchMode || tchSsaattbbMode) return;
+    var chords = extractChordAnnotations(drill.abc, drill.key || 'C');
+    if (!chords.length) return;
+    var rects = $container.querySelectorAll('.abcr');
+    if (!rects.length) return;
+    var cRect = $container.getBoundingClientRect();
+    var topY = 9999;
+    for (var i = 0; i < rects.length; i++) {
+      var br = rects[i].getBoundingClientRect();
+      var ry = (br.top - cRect.top) / svgScale;
+      if (ry < topY) topY = ry;
+    }
+    var fracContainer = document.createElement('div');
+    fracContainer.style.position = 'absolute';
+    fracContainer.style.top = '0';
+    fracContainer.style.left = '0';
+    fracContainer.style.pointerEvents = 'none';
+    $container.appendChild(fracContainer);
+
+    var npb = drill.npb || [];
+
+    if (tchMode) {
+      // Tchaikovsky mode: position fractions at each .abcr rect that starts a new measure.
+      // With block chords, each measure has ~3 rects per voice. Find the first rect of
+      // each measure by looking for rects whose x-position jumps (after a barline).
+      var rectXs = [];
+      for (var i = 0; i < rects.length; i++) {
+        var br = rects[i].getBoundingClientRect();
+        rectXs.push((br.left - cRect.left) / svgScale);
+      }
+      // Find measure-start x positions: collect unique x positions at barline boundaries
+      // Each measure's first rect is the one right after a barline (x jumps or is first)
+      var measureXs = [];
+      if (rectXs.length > 0) measureXs.push(rectXs[0]);
+      var lastX = rectXs[0] || 0;
+      for (var i = 1; i < rectXs.length; i++) {
+        // A new measure starts when x resets or jumps significantly forward
+        // With continueall, x always increases. Barlines cause a gap.
+        // Use the rect that follows a significant gap as measure start
+        if (rectXs[i] > lastX + 20) { // gap > 20px = likely barline
+          measureXs.push(rectXs[i]);
+        }
+        lastX = rectXs[i];
+      }
+      // If not enough measure starts found, fall back to evenly spacing
+      if (measureXs.length < chords.length) {
+        var totalWidth = rectXs[rectXs.length - 1] - rectXs[0];
+        measureXs = [];
+        for (var i = 0; i < chords.length; i++) {
+          measureXs.push(rectXs[0] + (totalWidth * i / chords.length));
+        }
+      }
+
+      for (var ci = 0; ci < chords.length; ci++) {
+        var ch = chords[ci];
+        if (!ch.rhn && !ch.lhn) continue;
+        var cx = ci < measureXs.length ? measureXs[ci] : (measureXs[measureXs.length-1] || 0);
+        var div = document.createElement('div');
+        div.className = 'chord-frac';
+        div.style.left = cx + 'px';
+        div.style.top = (topY - 20) + 'px';
+        div.innerHTML =
+          '<div class="cf-rh">' + (ch.rhn || '') + '</div>' +
+          '<div class="cf-lh">' + (ch.lhn || '') + '</div>';
+        fracContainer.appendChild(div);
+      }
+      console.log('Tch fractions: ' + chords.length + ' chords, ' + measureXs.length + ' measure positions');
+    } else {
+      // Regular mode: position fractions using notes-per-bar
+      var totalMelNotes = 0;
+      for (var i = 0; i < npb.length; i++) totalMelNotes += npb[i];
+      var voiceMult = totalMelNotes > 0 ? Math.round(rects.length / totalMelNotes) : 5;
+      if (voiceMult < 1) voiceMult = 1;
+
+      var prevAbs = '';
+      var cumNotes = 0;
+      for (var ci = 0; ci < chords.length; ci++) {
+        var ch = chords[ci];
+        if (!ch.abs && !ch.rhn && !ch.lhn) { cumNotes += (npb[ci] || 1); continue; }
+        var rectIdx = Math.min(cumNotes * voiceMult, rects.length - 1);
+        var br = rects[rectIdx].getBoundingClientRect();
+        var cx = (br.left - cRect.left) / svgScale;
+        var fracKey = (ch.abs || '') + '|' + (ch.rhn || '') + '|' + (ch.lhn || '');
+        if (fracKey === prevAbs) { cumNotes += (npb[ci] || 1); continue; }
+        prevAbs = fracKey;
+        var div = document.createElement('div');
+        div.className = 'chord-frac';
+        div.style.left = cx + 'px';
+        div.style.top = (topY - 50) + 'px';
+        div.innerHTML =
+          (ch.abs ? '<div class="cf-abs">' + ch.abs + '</div>' : '') +
+          '<div class="cf-rh">' + (ch.rhn || '') + '</div>' +
+          '<div class="cf-lh">' + (ch.lhn || '') + '</div>';
+        fracContainer.appendChild(div);
+        cumNotes += (npb[ci] || 1);
+      }
+      console.log('Placed fractions, voiceMult=' + voiceMult + ' totalMelNotes=' + totalMelNotes + ' rects=' + rects.length);
+    }
+  }, 150);
+
+  positionPlayhead();
+
+  // Scroll: first note at playhead (same as play start position)
+  var initNotes = $container.getElementsByClassName('abcr');
+  if (initNotes.length > 0) {
+    setScroll(0);
+    var cRect0 = $container.getBoundingClientRect();
+    var firstNoteX = initNotes[0].getBoundingClientRect().left - cRect0.left;
+    setScroll(getPlayheadX() - firstNoteX);
+  } else {
+    setScroll(getPlayheadX());
+  }
+
+}
+
+// ── Mic chroma scoring ──
+var micEnabled = false, micStream = null, micCtx = null, micAnalyser = null;
+var micScoreData = null; // {samples: [{expected: [12], detected: [12]}], hits: 0, total: 0}
+var $btnMic = document.getElementById('btn-mic');
+var $micScore = document.getElementById('mic-score');
+
+$btnMic.onclick = function() {
+  if (micEnabled) {
+    micEnabled = false;
+    $btnMic.style.opacity = '0.5';
+    $btnMic.style.borderColor = '#ccc';
+    stopMic();
+  } else {
+    navigator.mediaDevices.getUserMedia({audio: true}).then(function(stream) {
+      micStream = stream;
+      micEnabled = true;
+      $btnMic.style.opacity = '1';
+      $btnMic.style.borderColor = '#2563eb';
+    }).catch(function(e) {
+      console.log('Mic denied:', e);
+    });
+  }
+};
+
+function startMic() {
+  if (!micEnabled || !micStream) return;
+  micCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var src = micCtx.createMediaStreamSource(micStream);
+  micAnalyser = micCtx.createAnalyser();
+  micAnalyser.fftSize = 8192;
+  src.connect(micAnalyser);
+  micScoreData = {hits: 0, total: 0};
+  $micScore.textContent = '';
+}
+
+function stopMic() {
+  if (micCtx) { micCtx.close(); micCtx = null; micAnalyser = null; }
+}
+
+function getChromaFromFFT() {
+  if (!micAnalyser) return null;
+  var buf = new Float32Array(micAnalyser.frequencyBinCount);
+  micAnalyser.getFloatFrequencyData(buf);
+  var sr = micCtx.sampleRate;
+  var binHz = sr / micAnalyser.fftSize;
+  var chroma = new Float32Array(12);
+  // Sum energy per pitch class from ~C2 (65 Hz) to ~C6 (1047 Hz)
+  for (var i = 0; i < buf.length; i++) {
+    var freq = i * binHz;
+    if (freq < 60 || freq > 1100) continue;
+    var db = buf[i];
+    if (db < -60) continue; // noise floor
+    var energy = Math.pow(10, db / 20);
+    // freq to MIDI to pitch class
+    var midi = 69 + 12 * Math.log2(freq / 440);
+    var pc = Math.round(midi) % 12;
+    if (pc < 0) pc += 12;
+    chroma[pc] += energy;
+  }
+  return chroma;
+}
+
+function buildExpectedChroma(tune, timeUnit) {
+  // Build a map of time -> set of pitch classes from all voices
+  var map = {}; // time -> Set of pitch classes
+  for (var s = tune[0]; s; s = s.ts_next) {
+    if (!s.notes || s.notes.length === 0) continue;
+    var t = s.time;
+    if (!map[t]) map[t] = new Set();
+    for (var n = 0; n < s.notes.length; n++) {
+      if (s.notes[n].midi != null) {
+        map[t].add(s.notes[n].midi % 12);
+      }
+    }
+  }
+  return map;
+}
+
+function chromaSimilarity(expected, detected) {
+  // Cosine similarity between expected pitch class set and detected chroma
+  if (!detected) return 0;
+  var maxD = 0;
+  for (var i = 0; i < 12; i++) if (detected[i] > maxD) maxD = detected[i];
+  if (maxD === 0) return 0; // silence
+  // Build binary expected vector
+  var dot = 0, magE = 0, magD = 0;
+  for (var i = 0; i < 12; i++) {
+    var e = expected.has(i) ? 1 : 0;
+    var d = detected[i] / maxD;
+    dot += e * d;
+    magE += e * e;
+    magD += d * d;
+  }
+  if (magE === 0 || magD === 0) return 0;
+  return dot / (Math.sqrt(magE) * Math.sqrt(magD));
+}
+
+// ── Playback ──
+function getNextHymn(fromIdx) {
+  // Find the next visible hymn in the library after fromIdx
+  var items = document.querySelectorAll('.lib-item');
+  var found = false;
+  for (var i = 0; i < items.length; i++) {
+    var idx = parseInt(items[i].dataset.idx);
+    if (idx === fromIdx) { found = true; continue; }
+    if (found && items[i].style.display !== 'none' && items[i].offsetParent !== null) {
+      return idx;
+    }
+  }
+  return -1; // no next hymn
+}
+
+function startPlayback() {
+  autoAdvance = true;
+
+  // Tch/Verovio mode: MIDI audio + timemap scroll
+  if (!abc && tchCurveTimes.length > 1) {
+    var vol = parseInt($volSlider.value) / 100;
+    var cleanT = (DRILLS[currentDrill].t || '').replace(/^\d+\s*/, '').trim();
+    var tchMeiObj = TCHAIKOVSKY_MEI[cleanT];
+    var nativeBpm = (tchMeiObj && tchMeiObj.tempo) ? tchMeiObj.tempo : 100;
+    tchSpeedRatio = bpm / nativeBpm;
+    if (tchMidiData && vol > 0) {
+      playTchMidi(tchMidiData, tchSpeedRatio, vol, tchCurveTimes);
+    }
+    playing = true;
+    tchScrollActive = true;
+    $btnPlay.textContent = 'Pause';
+    tchScrollStart = performance.now();
+    scrollStarted = true;
+    playTotalDuration = tchScrollDur;
+    playStartTime = tchScrollStart;
+    startScrollAnim();
+    console.log('Tch playback: dur=' + tchScrollDur.toFixed(0) + 'ms, midi=' + !!tchMidiData + ', curve=' + tchCurveTimes.length + ' pts');
+    return;
+  }
+
+  console.log('startPlayback: abc=' + !!abc + ' tunes=' + (abc ? abc.tunes.length : 0));
+  if (!abc || !abc.tunes) { console.log('no abc/tunes'); return; }
+  var tune = null;
+  for (var i = 0; i < abc.tunes.length; i++) { if (abc.tunes[i]) { tune = abc.tunes[i]; break; } }
+  if (!tune) { console.log('no tune found'); return; }
+  console.log('tune found, symbols=' + !!tune[0]);
+
+  var qm = DRILLS[currentDrill].abc.match(/Q:\s*\d+\/\d+=(\d+)/);
+  var nativeBpm = qm ? parseInt(qm[1]) : 80;
+
+  var playconf = {
+    onend: function() {
+      var actualMs = performance.now() - playStartTime;
+      console.log('AUDIO ENDED: actual=' + actualMs.toFixed(0) + 'ms computed=' + playTotalDuration.toFixed(0) + 'ms ratio=' + (playTotalDuration/actualMs).toFixed(2));
+      playing = false; $btnPlay.textContent = 'Play';
+      // Don't stop scroll — let it finish to the end
+      if (micEnabled && micScoreData && micScoreData.total > 0) {
+        $micScore.textContent = Math.round(100 * micScoreData.hits / micScoreData.total) + '%';
+        stopMic();
+      }
+      if (autoAdvance) {
+        // Find next hymn in the filtered list
+        var next = getNextHymn(currentDrill);
+        if (next >= 0) {
+          setTimeout(function() { selectDrill(next); startPlayback(); }, 800);
+        }
+      }
+    },
+    onnote: function(istart, on) {
+      // Start scroll on first note-on to sync with actual audio
+      if (on && !scrollStarted) {
+        scrollStarted = true;
+        playStartTime = performance.now();
+        smoothScrollPos = scrollX;  // start from current position
+        startScrollAnim();
+      }
+    },
+    sfu: 'abc2svg/Scc1t2'
+  };
+
+  if (!abcplay) abcplay = AbcPlay(playconf);
+  abcplay.add(tune[0], tune[1], tune[3]);
+  abcplay.set_speed(bpm / nativeBpm);
+  abcplay.set_vol(parseInt($volSlider.value) / 100);
+
+  // Use precomputed duration and bar timestamps from build pipeline
+  var drill = DRILLS[currentDrill];
+  var precomputedMs = drill.dur || 0;
+  var barTimes = drill.barTimes || [];
+  var speedRatio = bpm / nativeBpm;
+
+  if (precomputedMs > 0) {
+    playTotalDuration = precomputedMs / speedRatio;
+    // Adjust barTimes for speed ratio
+    playBarTimes = barTimes.map(function(t) { return t / speedRatio; });
+  } else {
+    var melEnd = 0;
+    for (var s = tune[0]; s; s = s.ts_next) {
+      if (s.v === 0 && s.dur && s.time + s.dur > melEnd) melEnd = s.time + s.dur;
+    }
+    if (melEnd === 0) {
+      for (var s = tune[0]; s; s = s.ts_next) {
+        if (s.dur && s.time + s.dur > melEnd) melEnd = s.time + s.dur;
+      }
+    }
+    playTotalDuration = (melEnd / 384 / nativeBpm) * 60 * 1000;
+    playBarTimes = [];
+  }
+  console.log('duration: ' + playTotalDuration.toFixed(0) + 'ms bars=' + playBarTimes.length + ' speedRatio=' + speedRatio.toFixed(2));
+
+  // Load precomputed PCHIP scroll curve: sc = [[time_ms, x_fraction], ...]
+  // Sampled at 50ms — smooth monotonic cubic hermite, like Blender IPO
+  var savedScroll = scrollX;
+  setScroll(0);
+  var allNotes = $container.getElementsByClassName('abcr');
+  var scrollCurve = drill.sc || [];
+
+  playCurveTimes = [];
+  playCurveFracs = [];
+
+  if (allNotes.length > 1 && scrollCurve.length > 1) {
+    var cRect = $container.getBoundingClientRect();
+    playFirstPx = (allNotes[0].getBoundingClientRect().left - cRect.left) / svgScale * svgScale;
+    var lastPx = (allNotes[allNotes.length - 1].getBoundingClientRect().left - cRect.left) / svgScale * svgScale;
+    playPxRange = lastPx - playFirstPx;
+
+    // Load curve, adjust times for speed ratio
+    for (var i = 0; i < scrollCurve.length; i++) {
+      playCurveTimes.push(scrollCurve[i][0] / speedRatio);
+      playCurveFracs.push(scrollCurve[i][1]);
+    }
+
+    playStartX = getPlayheadX() - playFirstPx;
+    playEndX = getPlayheadX() - lastPx;
+
+    console.log('scroll: ' + scrollCurve.length + ' PCHIP points, pxRange=' + playPxRange.toFixed(0) +
+                ' dur=' + playTotalDuration.toFixed(0) + 'ms');
+  } else {
+    playStartX = getPlayheadX();
+    playEndX = getPlayheadX() - 100;
+  }
+  setScroll(savedScroll);
+
+  // Start mic scoring if enabled
+  if (micEnabled) {
+    startMic();
+    micExpectedMap = buildExpectedChroma(tune, 384);
+    micTotalBeats = totalBeats;
+    micLastScoredBeat = -1;
+  }
+
+  // Scroll starts when first note actually sounds (via onnote callback)
+  scrollStarted = false;
+  playing = true;
+  $btnPlay.textContent = 'Pause';
+  abcplay.play(tune[0], null);
+}
+var micExpectedMap = null, micTotalBeats = 0, micLastScoredBeat = -1;
+
+function stopPlayback() {
+  autoAdvance = false;
+  if (abcplay) abcplay.stop();
+  stopTchAudio();
+  playing = false;
+  scrollStarted = false;
+  tchScrollActive = false;
+  $btnPlay.textContent = 'Play';
+  stopScrollAnim();
+}
+
+// ── Drag to scroll ──
+var dragStartX = 0, dragScrollX = 0, dragging = false;
+$area.addEventListener('touchstart', function(e) {
+  if (playing) return; dragging = true;
+  dragStartX = e.touches[0].clientX; dragScrollX = scrollX;
+  $container.style.transition = 'none'; e.preventDefault();
+}, {passive: false});
+$area.addEventListener('touchmove', function(e) {
+  if (!dragging) return;
+  setScroll(dragScrollX + e.touches[0].clientX - dragStartX);
+  e.preventDefault();
+}, {passive: false});
+$area.addEventListener('touchend', function() { dragging = false; });
+$area.addEventListener('mousedown', function(e) {
+  if (playing) return; dragging = true;
+  dragStartX = e.clientX; dragScrollX = scrollX;
+  $container.style.transition = 'none';
+});
+window.addEventListener('mousemove', function(e) {
+  if (!dragging) return;
+  setScroll(dragScrollX + e.clientX - dragStartX);
+});
+window.addEventListener('mouseup', function() { dragging = false; });
+
+// ── Buttons ──
+$btnPlay.onclick = function() {
+  if (playing) stopPlayback();
+  else startPlayback();
+};
+
+// |< and >| — scroll 3/4 screen width
+document.getElementById('btn-scroll-left').onclick = function() {
+  if (playing) return;
+  var step = $area.offsetWidth * 0.75;
+  setScroll(scrollX + step);
+};
+document.getElementById('btn-scroll-right').onclick = function() {
+  if (playing) return;
+  var step = $area.offsetWidth * 0.75;
+  setScroll(scrollX - step);
+};
+
+// |<< — rewind to start
+document.getElementById('btn-rewind').onclick = function() {
+  if (playing) stopPlayback();
+  renderDrill(currentDrill);
+};
+
+// >>| — next hymn
+document.getElementById('btn-next').onclick = function() {
+  var wasPlaying = playing;
+  if (playing) stopPlayback();
+  var next = getNextHymn(currentDrill);
+  if (next >= 0) {
+    selectDrill(next);
+    if (wasPlaying) startPlayback();
+  }
+};
+var $bpmSlider = document.getElementById('bpm-slider');
+$bpmSlider.oninput = function() {
+  bpm = parseInt(this.value);
+  $bpmVal.textContent = bpm;
+  if (playing && tchScrollActive) {
+    // Tch mode: BPM change while playing. Stop audio and restart at new speed.
+    // The scroll curve uses the original MIDI timestamps; speedRatio scales elapsed time.
+    var nativeBpm = 0;
+    var cleanT = (DRILLS[currentDrill].t || '').replace(/^\d+\s*/, '').trim();
+    var tchMeiObj = TCHAIKOVSKY_MEI[cleanT];
+    if (tchMeiObj) nativeBpm = tchMeiObj.tempo || 100;
+    if (!nativeBpm) nativeBpm = 100;
+    // Record how far we are in the original MIDI timeline
+    var elapsedMidi = (performance.now() - tchScrollStart) * tchSpeedRatio;
+    tchSpeedRatio = bpm / nativeBpm;
+    // Adjust start time so elapsed * newRatio = same MIDI position
+    tchScrollStart = performance.now() - elapsedMidi / tchSpeedRatio;
+    // Restart audio at new speed from current position
+    stopTchAudio();
+    if (tchMidiData) {
+      var vol = parseInt($volSlider.value) / 100;
+      if (vol > 0) playTchMidi(tchMidiData, tchSpeedRatio, vol, tchCurveTimes);
+    }
+  } else if (playing && abcplay) {
+    var q = DRILLS[currentDrill].abc.match(/Q:\s*\d+\/\d+=(\d+)/);
+    var nativeBpm = q ? parseInt(q[1]) : 80;
+    abcplay.set_speed(bpm / nativeBpm);
+    // Recalculate scroll timing at new BPM
+    var now = performance.now();
+    var elapsed = now - playStartTime;
+    var oldT = playTotalDuration > 0 ? Math.min(elapsed / playTotalDuration, 1.0) : 0;
+    var currentPos = playStartX + (playEndX - playStartX) * oldT;
+    // New total duration
+    var totalBeats = 0;
+    var tune = null;
+    for (var i = 0; i < abc.tunes.length; i++) { if (abc.tunes[i]) { tune = abc.tunes[i]; break; } }
+    if (tune) {
+      for (var s = tune[0]; s; s = s.ts_next) {
+        if (s.dur) totalBeats = Math.max(totalBeats, (s.time + s.dur));
+      }
+    }
+    var newTotal = (totalBeats / 384 / bpm) * 60 * 1000;
+    var remaining = (1 - oldT) * newTotal;
+    playStartTime = now;
+    playStartX = currentPos;
+    playTotalDuration = remaining;
+  }
+};
+var $volSlider = document.getElementById('vol-slider');
+var $volLabel = document.getElementById('vol-label');
+var $btnMute = document.getElementById('btn-mute');
+var savedVol = 50; // remembered volume for unmute
+$volSlider.oninput = function() {
+  var vol = parseInt(this.value);
+  muted = (vol === 0);
+  $volLabel.textContent = vol;
+  $btnMute.textContent = muted ? '\u{1F507}' : '\u{1F50A}';
+  if (vol > 0) savedVol = vol;
+  if (abcplay) abcplay.set_vol(vol / 100);
+  if (tchGain) tchGain.gain.value = vol / 100;
+};
+$btnMute.onclick = function() {
+  muted = !muted;
+  if (muted) {
+    savedVol = parseInt($volSlider.value) || savedVol;
+    $volSlider.value = 0;
+    $volLabel.textContent = '0';
+    $btnMute.textContent = '\u{1F507}';
+    if (abcplay) abcplay.set_vol(0);
+    if (tchGain) tchGain.gain.value = 0;
+  } else {
+    $volSlider.value = savedVol;
+    $volLabel.textContent = savedVol;
+    $btnMute.textContent = '\u{1F50A}';
+    if (abcplay) abcplay.set_vol(savedVol / 100);
+    if (tchGain) tchGain.gain.value = savedVol / 100;
+  }
+};
+window.addEventListener('resize', function() { positionPlayhead(); });
+// Spacebar = Play/Pause
+document.addEventListener('keydown', function(e) {
+  if (e.code === 'Space' || e.keyCode === 32) {
+    e.preventDefault();
+    $btnPlay.click();
+  }
+});
+
+// ── Library browser ──
+function selectDrill(drillIdx) {
+  var all = document.querySelectorAll('.lib-item.active');
+  for (var k = 0; k < all.length; k++) all[k].classList.remove('active');
+  var el = document.querySelector('.lib-item[data-idx="' + drillIdx + '"]');
+  if (el) el.classList.add('active');
+  addRecent(drillIdx, DRILLS[drillIdx].t);
+  renderDrill(drillIdx);
+}
+
+// ── Recent selections ──
+var recentItems = JSON.parse(localStorage.getItem('trefoilRecent') || '[]');
+
+function addRecent(idx, title) {
+  recentItems = recentItems.filter(function(r) { return r.idx !== idx; });
+  recentItems.unshift({idx: idx, title: title});
+  if (recentItems.length > 20) recentItems = recentItems.slice(0, 20);
+  localStorage.setItem('trefoilRecent', JSON.stringify(recentItems));
+  updateRecentDropdown();
+}
+
+function updateRecentDropdown() {
+  var sel = document.getElementById('recent-select');
+  sel.innerHTML = '<option value="">Recent...</option>';
+  for (var i = 0; i < recentItems.length; i++) {
+    var opt = document.createElement('option');
+    opt.value = recentItems[i].idx;
+    opt.textContent = recentItems[i].title;
+    sel.appendChild(opt);
+  }
+}
+
+document.getElementById('recent-select').addEventListener('change', function() {
+  var idx = parseInt(this.value);
+  if (isNaN(idx)) return;
+  selectDrill(idx);
+  this.value = '';
+});
+updateRecentDropdown();
+
+// ── Pattern Extraction & Drill Generation ──
+var LETTER_VAL = {'C':0,'D':1,'E':2,'F':3,'G':4,'A':5,'B':6};
+function diaVal(n) { return n.oct * 7 + LETTER_VAL[n.letter]; }
+
+function parseAbcChord(bracket) {
+  var notes = [], inner = bracket.replace(/[\[\]]/g, ''), i = 0;
+  while (i < inner.length) {
+    var acc = '';
+    while (i < inner.length && '^_='.indexOf(inner[i]) >= 0) { acc += inner[i]; i++; }
+    if (i >= inner.length) break;
+    var ch = inner[i];
+    if ('CDEFGABcdefgab'.indexOf(ch) < 0) { i++; continue; }
+    var letter, oct;
+    if (ch >= 'A' && ch <= 'G') { letter = ch; oct = 4; }
+    else { letter = ch.toUpperCase(); oct = 5; }
+    i++;
+    var octMod = '';
+    while (i < inner.length) {
+      if (inner[i] === ',') { oct--; octMod += ','; i++; }
+      else if (inner[i] === "'") { oct++; octMod += "'"; i++; }
+      else break;
+    }
+    var abcStr = acc + (oct >= 5 ? letter.toLowerCase() : letter) + octMod;
+    notes.push({letter: letter, oct: oct, acc: acc, abc: abcStr});
+  }
+  return notes;
+}
+
+function extractHymnPatterns(abcText) {
+  var lines = abcText.split('\n'), rhLine = '', lhLine = '';
+  for (var i = 0; i < lines.length; i++) {
+    // Support both formats: [V: RH]/[V: LH] and [V: RH2]/[V: LH2]
+    if (lines[i].indexOf('[V: RH]') === 0 || lines[i].indexOf('[V: RH2]') === 0 || lines[i].indexOf('[V:2]') === 0) rhLine = lines[i];
+    if (lines[i].indexOf('[V: LH]') === 0 || lines[i].indexOf('[V: LH2]') === 0 || lines[i].indexOf('[V:3]') === 0) lhLine = lines[i];
+  }
+  if (!rhLine || !lhLine) return [];
+  var bracketRe = /\[[A-Ga-g^_=][^\]]*\]/g;
+  var rhBrackets = rhLine.match(bracketRe) || [];
+  var lhBrackets = lhLine.match(bracketRe) || [];
+  var seen = {}, patterns = [], len = Math.min(rhBrackets.length, lhBrackets.length);
+  for (var i = 0; i < len; i++) {
+    var pk = rhBrackets[i] + '|' + lhBrackets[i];
+    if (!seen[pk]) {
+      seen[pk] = true;
+      patterns.push({
+        rh: parseAbcChord(rhBrackets[i]), lh: parseAbcChord(lhBrackets[i]),
+        rhStr: rhBrackets[i], lhStr: lhBrackets[i]
+      });
+    }
+  }
+  return patterns;
+}
+
+function computePatternHex(rh, lh, keyStr) {
+  var rs = rh.slice().sort(function(a,b){return diaVal(b)-diaVal(a);});
+  var ls = lh.slice().sort(function(a,b){return diaVal(b)-diaVal(a);});
+  var deg = (LETTER_VAL[rs[0].letter] - LETTER_VAL[keyStr.charAt(0)] + 7) % 7 + 1;
+  var rp = '' + deg;
+  for (var i = 0; i < rs.length-1; i++) rp += '' + (diaVal(rs[i]) - diaVal(rs[i+1]) + 1);
+  var gap = diaVal(rs[rs.length-1]) - diaVal(ls[0]) + 1;
+  var lp = '' + gap;
+  for (var i = 0; i < ls.length-1; i++) lp += '' + (diaVal(ls[i]) - diaVal(ls[i+1]) + 1);
+  return rp + '-' + lp;
+}
+
+// ── Chord identification from ABC notes ──
+var KEY_SHARPS = {'C':[],'G':['F'],'D':['F','C'],'A':['F','C','G'],'E':['F','C','G','D'],'F':[],'Bb':[],'Eb':[]};
+var KEY_FLATS = {'C':[],'G':[],'D':[],'A':[],'E':[],'F':['B'],'Bb':['B','E'],'Eb':['B','E','A']};
+var PC_BASE = {'C':0,'D':2,'E':4,'F':5,'G':7,'A':9,'B':11};
+var PC_NAMES = ['C','Db','D','Eb','E','F','F#','G','Ab','A','Bb','B'];
+
+function notePc(note, keyStr) {
+  var pc = PC_BASE[note.letter];
+  if (note.acc === '^') pc = (pc + 1) % 12;
+  else if (note.acc === '_') pc = (pc + 11) % 12;
+  else {
+    // Apply key signature
+    var sharps = KEY_SHARPS[keyStr] || [];
+    var flats = KEY_FLATS[keyStr] || [];
+    if (sharps.indexOf(note.letter) >= 0) pc = (pc + 1) % 12;
+    if (flats.indexOf(note.letter) >= 0) pc = (pc + 11) % 12;
+  }
+  return pc;
+}
+
+function chordName(notes, keyStr) {
+  if (!notes || notes.length === 0) return '';
+  var pcs = [];
+  for (var i = 0; i < notes.length; i++) {
+    var pc = notePc(notes[i], keyStr);
+    if (pcs.indexOf(pc) < 0) pcs.push(pc);
+  }
+  if (pcs.length < 2) return PC_NAMES[pcs[0]] || '';
+  // Try each pitch class as root, find best match
+  var patterns = [
+    {iv:'0,4,7', q:''}, {iv:'0,3,7', q:'m'}, {iv:'0,3,6', q:'\u00b0'},
+    {iv:'0,4,8', q:'+'}, {iv:'0,4,7,10', q:'7'}, {iv:'0,4,7,11', q:'\u03947'},
+    {iv:'0,3,7,10', q:'m7'}, {iv:'0,3,6,9', q:'\u00b07'}, {iv:'0,3,6,10', q:'\u00f87'},
+    {iv:'0,5,7', q:'sus4'}, {iv:'0,2,7', q:'sus2'},
+  ];
+  for (var r = 0; r < pcs.length; r++) {
+    var root = pcs[r];
+    var ivs = [];
+    for (var j = 0; j < pcs.length; j++) ivs.push((pcs[j] - root + 12) % 12);
+    ivs.sort(function(a,b){return a-b;});
+    var sig = ivs.join(',');
+    for (var p = 0; p < patterns.length; p++) {
+      if (sig === patterns[p].iv) return PC_NAMES[root] + patterns[p].q;
+    }
+  }
+  // Fallback: just use lowest note as root, try partial match (triad from first 3 pcs)
+  var root = notePc(notes[0], keyStr);
+  return PC_NAMES[root];
+}
+
+function extractChordAnnotations(abcText, keyStr) {
+  // Parse chord annotations from RH and LH voice lines (Tchaikovsky format)
+  // Also falls back to melody annotations + bracket detection for old format
+  var lines = abcText.split('\n');
+  var melLine = '', rhLine = '', lhLine = '';
+  for (var i = 0; i < lines.length; i++) {
+    if (lines[i].indexOf('[V: M]') === 0 || lines[i].indexOf('[V:1]') === 0) melLine = lines[i];
+    if (lines[i].indexOf('[V: RH2]') === 0 || lines[i].indexOf('[V: RH]') === 0 || lines[i].indexOf('[V:2]') === 0) rhLine = lines[i];
+    if (lines[i].indexOf('[V: LH2]') === 0 || lines[i].indexOf('[V: LH]') === 0 || lines[i].indexOf('[V:3]') === 0) lhLine = lines[i];
+  }
+
+  var annRe = /"\^([^"]*)"/g;
+  var m;
+
+  // Extract annotations from RH and LH voices (new Tchaikovsky format)
+  var rhChords = [];
+  while ((m = annRe.exec(rhLine)) !== null) rhChords.push(m[1]);
+  annRe.lastIndex = 0;
+  var lhChords = [];
+  while ((m = annRe.exec(lhLine)) !== null) lhChords.push(m[1]);
+
+  // If RH/LH have annotations, use those directly (no abstract chord)
+  if (rhChords.length > 0 || lhChords.length > 0) {
+    var chords = [];
+    var len = Math.max(rhChords.length, lhChords.length);
+    for (var i = 0; i < len; i++) {
+      chords.push({
+        beat: i,
+        abs: '',
+        rhn: rhChords[i] || '',
+        lhn: lhChords[i] || ''
+      });
+    }
+    return chords;
+  }
+
+  // Fallback: melody annotations + bracket detection (old format)
+  annRe.lastIndex = 0;
+  var absChords = [];
+  while ((m = annRe.exec(melLine)) !== null) absChords.push(m[1]);
+
+  var bracketRe = /\[[A-Ga-g^_=][^\]]*\]/g;
+  var rhBrackets = rhLine.match(bracketRe) || [];
+  var lhBrackets = lhLine.match(bracketRe) || [];
+
+  var chords = [];
+  var len = Math.max(absChords.length, rhBrackets.length, lhBrackets.length);
+  for (var i = 0; i < len; i++) {
+    var abs = absChords[i] || '';
+    var rhN = i < rhBrackets.length ? parseAbcChord(rhBrackets[i]) : [];
+    var lhN = i < lhBrackets.length ? parseAbcChord(lhBrackets[i]) : [];
+    var rhn = chordName(rhN, keyStr);
+    var lhn = chordName(lhN, keyStr);
+    chords.push({beat: i, abs: abs, rhn: rhn, lhn: lhn});
+  }
+  return chords;
+}
+
+function drillAbcHeader(key) {
+  return 'X: 1\nM: 4/4\nL: 1/4\nQ: 1/4=80\n%%pagewidth 200cm\n%%continueall 1\n%%scale 0.7\n%%writefields T 0\n%%staffsep 0\nK: ' + key + '\n';
+}
+
+function generatePatternDrills(pattern, key) {
+  // Sort high to low (finger 1=thumb=highest, 4=lowest)
+  var rh = pattern.rh.slice().sort(function(a,b){return diaVal(b)-diaVal(a);});
+  var lh = pattern.lh.slice().sort(function(a,b){return diaVal(b)-diaVal(a);});
+  var allUp = lh.slice().reverse().concat(rh.slice().reverse()); // low to high
+  var allDown = rh.concat(lh); // high to low
+  var drills = [], hdr = drillAbcHeader(key);
+
+  function n(arr) { return arr.map(function(x){return x.abc;}).join(''); }
+  function ns(arr,d) { return arr.map(function(x){return x.abc+(d||'');}).join(' '); }
+  function br(arr) { return arr.length > 1 ? '['+n(arr)+']' : n(arr); }
+
+  // Block
+  var blk = br(allUp);
+  drills.push({name:'Block', abc: hdr + blk+'4 z4 | '+blk+'4 z4 |]\n'});
+
+  // Full arpeggio up then down
+  drills.push({name:'Arp \u2191\u2193', abc: hdr + ns(allUp) + ' | ' + ns(allDown) + ' |]\n'});
+
+  // RH exercises
+  if (rh.length >= 3) {
+    drills.push({name:'RH \u2193\u2191', abc: hdr + ns(rh) + ' | ' + ns(rh.slice().reverse()) + ' | ' + ns(rh) + ' | ' + ns(rh.slice().reverse()) + ' |]\n'});
+    // [1,N][middle] — outer then inner
+    drills.push({name:'RH [1'+rh.length+'][mid]', abc: hdr +
+      br([rh[0],rh[rh.length-1]])+'2 '+br(rh.slice(1,-1))+'2 | '+
+      br([rh[0],rh[rh.length-1]])+'2 '+br(rh.slice(1,-1))+'2 | '+
+      br([rh[0],rh[rh.length-1]])+'2 '+br(rh.slice(1,-1))+'2 | '+
+      br([rh[0],rh[rh.length-1]])+'2 '+br(rh.slice(1,-1))+'2 |]\n'});
+  }
+  if (rh.length >= 4) {
+    drills.push({name:'RH [12][34]', abc: hdr +
+      br([rh[0],rh[1]])+'2 '+br([rh[2],rh[3]])+'2 | '+
+      br([rh[0],rh[1]])+'2 '+br([rh[2],rh[3]])+'2 | '+
+      br([rh[0],rh[1]])+'2 '+br([rh[2],rh[3]])+'2 | '+
+      br([rh[0],rh[1]])+'2 '+br([rh[2],rh[3]])+'2 |]\n'});
+    drills.push({name:'RH [14][23]', abc: hdr +
+      br([rh[0],rh[3]])+'2 '+br([rh[1],rh[2]])+'2 | '+
+      br([rh[0],rh[3]])+'2 '+br([rh[1],rh[2]])+'2 | '+
+      br([rh[0],rh[3]])+'2 '+br([rh[1],rh[2]])+'2 | '+
+      br([rh[0],rh[3]])+'2 '+br([rh[1],rh[2]])+'2 |]\n'});
+    drills.push({name:'RH [13][24]', abc: hdr +
+      br([rh[0],rh[2]])+'2 '+br([rh[1],rh[3]])+'2 | '+
+      br([rh[0],rh[2]])+'2 '+br([rh[1],rh[3]])+'2 | '+
+      br([rh[0],rh[2]])+'2 '+br([rh[1],rh[3]])+'2 | '+
+      br([rh[0],rh[2]])+'2 '+br([rh[1],rh[3]])+'2 |]\n'});
+  }
+
+  // LH exercises
+  if (lh.length >= 3) {
+    drills.push({name:'LH \u2193\u2191', abc: hdr + 'K: ' + key + ' clef=bass\n' + ns(lh) + ' | ' + ns(lh.slice().reverse()) + ' | ' + ns(lh) + ' | ' + ns(lh.slice().reverse()) + ' |]\n'});
+    drills.push({name:'LH [1'+lh.length+'][mid]', abc: hdr + 'K: ' + key + ' clef=bass\n' +
+      br([lh[0],lh[lh.length-1]])+'2 '+br(lh.slice(1,-1))+'2 | '+
+      br([lh[0],lh[lh.length-1]])+'2 '+br(lh.slice(1,-1))+'2 | '+
+      br([lh[0],lh[lh.length-1]])+'2 '+br(lh.slice(1,-1))+'2 | '+
+      br([lh[0],lh[lh.length-1]])+'2 '+br(lh.slice(1,-1))+'2 |]\n'});
+  }
+  if (lh.length >= 4) {
+    drills.push({name:'LH [12][34]', abc: hdr + 'K: ' + key + ' clef=bass\n' +
+      br([lh[0],lh[1]])+'2 '+br([lh[2],lh[3]])+'2 | '+
+      br([lh[0],lh[1]])+'2 '+br([lh[2],lh[3]])+'2 | '+
+      br([lh[0],lh[1]])+'2 '+br([lh[2],lh[3]])+'2 | '+
+      br([lh[0],lh[1]])+'2 '+br([lh[2],lh[3]])+'2 |]\n'});
+    drills.push({name:'LH [14][23]', abc: hdr + 'K: ' + key + ' clef=bass\n' +
+      br([lh[0],lh[3]])+'2 '+br([lh[1],lh[2]])+'2 | '+
+      br([lh[0],lh[3]])+'2 '+br([lh[1],lh[2]])+'2 | '+
+      br([lh[0],lh[3]])+'2 '+br([lh[1],lh[2]])+'2 | '+
+      br([lh[0],lh[3]])+'2 '+br([lh[1],lh[2]])+'2 |]\n'});
+    drills.push({name:'LH [13][24]', abc: hdr + 'K: ' + key + ' clef=bass\n' +
+      br([lh[0],lh[2]])+'2 '+br([lh[1],lh[3]])+'2 | '+
+      br([lh[0],lh[2]])+'2 '+br([lh[1],lh[3]])+'2 | '+
+      br([lh[0],lh[2]])+'2 '+br([lh[1],lh[3]])+'2 | '+
+      br([lh[0],lh[2]])+'2 '+br([lh[1],lh[3]])+'2 |]\n'});
+  }
+  return drills;
+}
+
+// Render "All Chords" drill: compact cheat sheet
+// For each abstract chord: all voicings as blocks in one measure,
+// then eighth-note runs up/down for each voicing. No repeats.
+function renderAllChordsDrill(chordGroups, chordOrder, keyStr, drill) {
+  if (playing) stopPlayback();
+  $title.textContent = drill.t + ' \u2014 All Chords';
+  $container.innerHTML = '';
+
+  function br(arr) {
+    var sorted = arr.slice().sort(function(a,b){return diaVal(a)-diaVal(b);});
+    return sorted.length > 1 ? '[' + sorted.map(function(x){return x.abc;}).join('') + ']' : sorted[0].abc;
+  }
+
+  // Use L:1/8 so default note is an eighth
+  var rhLine = '[V: RH] ';
+  var lhLine = '[V: LH] ';
+
+  for (var ci = 0; ci < chordOrder.length; ci++) {
+    var cn = chordOrder[ci];
+    var group = chordGroups[cn];
+
+    // All voicings of this chord as block chords, one per beat
+    rhLine += '"^' + cn + '" ';
+    for (var vi = 0; vi < group.length; vi++) {
+      var v = group[vi];
+      rhLine += br(v.rh) + '2 ';
+      lhLine += br(v.lh) + '2 ';
+    }
+    rhLine += '| ';
+    lhLine += '| ';
+  }
+
+  rhLine += '|]';
+  lhLine += '|]';
+
+  // Time sig: use the longest measure's note count
+  var maxBeat = 8;
+  var abcStr = 'X: 1\nM: ' + maxBeat + '/8\nL: 1/8\nQ: 1/4=' + (drill.tempo || 100) + '\n' +
+    '%%pagewidth 200cm\n%%continueall 1\n%%scale 1.2\n%%writefields T 0\n' +
+    '%%leftmargin 0.5cm\n%%rightmargin 0.5cm\n%%topspace 0\n%%musicspace 0\n' +
+    '%%staves {RH LH}\nV: RH clef=treble\nV: LH clef=bass\nK: ' + keyStr + '\n' +
+    rhLine + '\n' + lhLine + '\n';
+
+  console.log('renderAllChordsDrill ABC:\n' + abcStr.substring(0, 500));
+  try {
+    var drillAbc = new abc2svg.Abc({
+      img_out: function(svg) { $container.innerHTML += svg; },
+      errmsg: function(msg) { console.warn('abc2svg drill:', msg); },
+      read_file: function() { return ''; }
+    });
+    drillAbc.tosvg('drill', abcStr);
+  } catch(e) {
+    console.error('Drill render error:', e);
+    $container.innerHTML = '<div style="color:red;padding:20px;">Drill render error: ' + e.message + '</div>';
+  }
+
+  var svgs = $container.getElementsByTagName('svg');
+  var totalH = 0;
+  for (var i = 0; i < svgs.length; i++) totalH += parseFloat(svgs[i].getAttribute('height') || 0);
+  var areaH = $area.offsetHeight - 50;
+  svgScale = (areaH > 0 && totalH > 0) ? (areaH * 0.95) / totalH : 1;
+  $container.style.transform = 'scale(' + svgScale + ')';
+  positionPlayhead();
+  var initNotes = $container.getElementsByClassName('abcr');
+  if (initNotes.length > 0) {
+    setScroll(0);
+    var cr = $container.getBoundingClientRect();
+    setScroll(getPlayheadX() - (initNotes[0].getBoundingClientRect().left - cr.left));
+  }
+}
+
+// Render drill for one chord group: all voicings as blocks, then runs
+function renderChordGroupDrill(group, chordN, keyStr, drill) {
+  // Reuse AllChords but with just this one group
+  var grp = {}; grp[chordN] = group;
+  renderAllChordsDrill(grp, [chordN], keyStr, drill);
+}
+
+// Build grand staff strip chart ABC with all exercises for a pattern
+function buildDrillStripAbc(pat, key, hex) {
+  // Sort each hand high to low (finger 1=thumb=highest)
+  var rh = pat.rh.slice().sort(function(a,b){return diaVal(b)-diaVal(a);});
+  var lh = pat.lh.slice().sort(function(a,b){return diaVal(b)-diaVal(a);});
+  // Use the larger hand for the measure size
+  var maxNotes = Math.max(rh.length, lh.length, 2);
+
+  function br(arr) { return arr.length > 1 ? '[' + arr.map(function(x){return x.abc;}).join('') + ']' : arr[0].abc; }
+  var rhBlock = br(rh), lhBlock = br(lh);
+  // Pad a note sequence to exactly maxNotes beats with rests
+  function pad(line, nNotes) {
+    var need = maxNotes - nNotes;
+    for (var i = 0; i < need; i++) line += 'x ';
+    return line;
+  }
+
+  var rhLine = '[V: RH] ';
+  var lhLine = '[V: LH] ';
+
+  // Block: both hands together (whole note = maxNotes beats)
+  rhLine = '[V: RH] "^Block" ' + rhBlock + maxNotes + ' | ' + rhBlock + maxNotes + ' | ';
+  lhLine = '[V: LH] ' + lhBlock + maxNotes + ' | ' + lhBlock + maxNotes + ' | ';
+
+  // Helper: build padded arpeggio measure
+  function arpMeasure(arr) {
+    var s = '';
+    for (var i = 0; i < arr.length; i++) s += arr[i].abc + ' ';
+    return pad(s, arr.length);
+  }
+
+  // Arp up (low to high): LH bottom to top, then RH bottom to top
+  var rhUp = rh.slice().reverse();
+  var lhUp = lh.slice().reverse();
+  rhLine += '"^Arp \u2191" ' + arpMeasure(rhUp) + '| ' + arpMeasure(rhUp) + '| ';
+  lhLine += arpMeasure(lhUp) + '| ' + arpMeasure(lhUp) + '| ';
+
+  // Arp down (high to low)
+  rhLine += '"^Arp \u2193" ' + arpMeasure(rh) + '| ' + arpMeasure(rh) + '| ';
+  lhLine += arpMeasure(lh) + '| ' + arpMeasure(lh) + '| ';
+
+  // RH runs
+  if (rh.length >= 3) {
+    rhLine += '"^RH \u2193\u2191" ' + arpMeasure(rh) + '| ' + arpMeasure(rh.slice().reverse()) + '| ';
+    lhLine += lhBlock + maxNotes + ' | ' + lhBlock + maxNotes + ' | ';
+  }
+
+  // LH runs
+  if (lh.length >= 3) {
+    rhLine += '"^LH \u2193\u2191" ' + rhBlock + maxNotes + ' | ' + rhBlock + maxNotes + ' | ';
+    lhLine += arpMeasure(lh) + '| ' + arpMeasure(lh.slice().reverse()) + '| ';
+  }
+
+  // Helper: half-measure duration for pair drills
+  var halfDur = Math.max(Math.floor(maxNotes / 2), 1);
+  var otherHalf = maxNotes - halfDur;
+  function pairMeasure(a, b) { return a + halfDur + ' ' + b + otherHalf; }
+
+  // RH flips
+  if (rh.length >= 3) {
+    var outer = '[' + rh[0].abc + rh[rh.length-1].abc + ']';
+    var mid = rh.length === 3 ? rh[1].abc : '[' + rh.slice(1,-1).map(function(x){return x.abc;}).join('') + ']';
+    rhLine += '"^RH [1' + rh.length + '][mid]" ' + pairMeasure(outer, mid) + ' | ' + pairMeasure(outer, mid) + ' | ';
+    lhLine += lhBlock + maxNotes + ' | ' + lhBlock + maxNotes + ' | ';
+  }
+  if (rh.length >= 4) {
+    var r12 = '[' + rh[0].abc + rh[1].abc + ']', r34 = '[' + rh[2].abc + rh[3].abc + ']';
+    var r14 = '[' + rh[0].abc + rh[3].abc + ']', r23 = '[' + rh[1].abc + rh[2].abc + ']';
+    var r13 = '[' + rh[0].abc + rh[2].abc + ']', r24 = '[' + rh[1].abc + rh[3].abc + ']';
+    rhLine += '"^RH [12][34]" ' + pairMeasure(r12, r34) + ' | ' + pairMeasure(r12, r34) + ' | ';
+    lhLine += lhBlock + maxNotes + ' | ' + lhBlock + maxNotes + ' | ';
+    rhLine += '"^RH [14][23]" ' + pairMeasure(r14, r23) + ' | ' + pairMeasure(r14, r23) + ' | ';
+    lhLine += lhBlock + maxNotes + ' | ' + lhBlock + maxNotes + ' | ';
+    rhLine += '"^RH [13][24]" ' + pairMeasure(r13, r24) + ' | ' + pairMeasure(r13, r24) + ' | ';
+    lhLine += lhBlock + maxNotes + ' | ' + lhBlock + maxNotes + ' | ';
+  }
+
+  // LH flips
+  if (lh.length >= 3) {
+    var louter = '[' + lh[0].abc + lh[lh.length-1].abc + ']';
+    var lmid = lh.length === 3 ? lh[1].abc : '[' + lh.slice(1,-1).map(function(x){return x.abc;}).join('') + ']';
+    rhLine += '"^LH [1' + lh.length + '][mid]" ' + rhBlock + maxNotes + ' | ' + rhBlock + maxNotes + ' | ';
+    lhLine += pairMeasure(louter, lmid) + ' | ' + pairMeasure(louter, lmid) + ' | ';
+  }
+  if (lh.length >= 4) {
+    var l12 = '[' + lh[0].abc + lh[1].abc + ']', l34 = '[' + lh[2].abc + lh[3].abc + ']';
+    var l14 = '[' + lh[0].abc + lh[3].abc + ']', l23 = '[' + lh[1].abc + lh[2].abc + ']';
+    var l13 = '[' + lh[0].abc + lh[2].abc + ']', l24 = '[' + lh[1].abc + lh[3].abc + ']';
+    rhLine += '"^LH [12][34]" ' + rhBlock + maxNotes + ' | ' + rhBlock + maxNotes + ' | ';
+    lhLine += pairMeasure(l12, l34) + ' | ' + pairMeasure(l12, l34) + ' | ';
+    rhLine += '"^LH [14][23]" ' + rhBlock + maxNotes + ' | ' + rhBlock + maxNotes + ' | ';
+    lhLine += pairMeasure(l14, l23) + ' | ' + pairMeasure(l14, l23) + ' | ';
+    rhLine += '"^LH [13][24]" ' + rhBlock + maxNotes + ' | ' + rhBlock + maxNotes + ' | ';
+    lhLine += pairMeasure(l13, l24) + ' | ' + pairMeasure(l13, l24) + ' | ';
+  }
+
+  rhLine += '|]';
+  lhLine += '|]';
+
+  return 'X: 1\nT: ' + hex + '\nM: ' + maxNotes + '/4\nL: 1/4\nQ: 1/4=80\n' +
+    '%%pagewidth 200cm\n%%continueall 1\n%%scale 1.2\n%%writefields T 0\n' +
+    '%%leftmargin 0.5cm\n%%rightmargin 0.5cm\n%%topspace 0\n%%musicspace 0\n' +
+    '%%staves {RH LH}\n' +
+    'V: RH clef=treble\nV: LH clef=bass\n' +
+    'K: ' + key + '\n' +
+    rhLine + '\n' + lhLine + '\n';
+}
+
+function renderPatternInScore(pat, key, hex) {
+  // Compact: block chord + eighth-note run up-down, no repeats
+  var grp = {rh: pat.rh, lh: pat.lh, rhStr: pat.rhStr, lhStr: pat.lhStr, hex: hex};
+  var fakeGroups = {};
+  fakeGroups[hex] = [grp];
+  renderAllChordsDrill(fakeGroups, [hex], key, DRILLS[currentDrill]);
+  $title.textContent = 'Drill: ' + hex + '  RH:' + pat.rhStr + '  LH:' + pat.lhStr;
+}
+
+function renderHymnDrills(drill) {
+  var $da = document.getElementById('drill-area');
+  $da.innerHTML = '';
+  if (!drill) return;
+
+  // Look up Tchaikovsky version by cleaned title
+  var cleanTitle = drill.t.replace(/^\d+\s*/, '').trim();
+  var tch = TCHAIKOVSKY[cleanTitle];
+  if (!tch || !tch.abc) {
+    $da.innerHTML = '<div class="drill-area-header">No Tchaikovsky drill for: ' + cleanTitle + '</div>';
+    console.log('renderHymnDrills: no Tchaikovsky data for title=' + cleanTitle);
+    return;
+  }
+
+  console.log('renderHymnDrills: Tchaikovsky for ' + drill.t + ', abc length=' + tch.abc.length);
+
+  // Header
+  var header = document.createElement('div');
+  header.className = 'drill-area-header';
+  header.textContent = drill.t + ' \u2014 Tchaikovsky runs';
+  $da.appendChild(header);
+
+  // Render the Tchaikovsky ABC strip chart
+  var scoreDiv = document.createElement('div');
+  scoreDiv.className = 'drill-body';
+  scoreDiv.style.overflowX = 'auto';
+  scoreDiv.style.padding = '4px';
+
+  try {
+    var target = scoreDiv;
+    var drillAbc = new abc2svg.Abc({
+      img_out: function(svg) { target.innerHTML += svg; },
+      errmsg: function(msg) { console.warn('abc2svg tchaikovsky:', msg); },
+      read_file: function() { return ''; }
+    });
+    // Keep chord annotations — abc2svg renders them as text above/below staff
+    drillAbc.tosvg('tchaikovsky', tch.abc);
+  } catch(e) {
+    scoreDiv.innerHTML = '<div style="color:red;padding:8px;">Render error: ' + e.message + '</div>';
+    console.error('Tchaikovsky render error:', e);
+  }
+
+  $da.appendChild(scoreDiv);
+}
+
+// Strip leading number prefix for sorting/grouping (e.g. "001 The Love of God" → "The Love of God")
+function hymnSortName(t) {
+  return t.replace(/^\d+\s*/, '');
+}
+
+function buildLibrary() {
+  var $colL = document.getElementById('hymn-col-left');
+  var $colR = document.getElementById('hymn-col-right');
+  $colL.innerHTML = '';
+  $colR.innerHTML = '';
+
+  // Hymns: collect and sort alphabetically by name (ignoring number prefix)
+  var hymnIndices = [];
+  for (var i = 0; i < DRILLS.length; i++) {
+    hymnIndices.push(i);
+  }
+  // In Drills mode the library is a flat list in n-order (no letter tabs).
+  var mode = document.getElementById('sel-mode').value;
+  if (mode === 'drills') {
+    hymnIndices.sort(function(a,b) { return DRILLS[a].n - DRILLS[b].n; });
+    var flat = document.createElement('div');
+    flat.className = 'letter-items';
+    for (var i = 0; i < hymnIndices.length; i++) {
+      var idx = hymnIndices[i];
+      var item = document.createElement('div');
+      item.className = 'lib-item';
+      item.dataset.idx = idx;
+      if (DRILLS[idx].key) item.dataset.key = DRILLS[idx].key;
+      var label = DRILLS[idx].t;
+      if (DRILLS[idx].subtitle) label += ' \u2014 ' + DRILLS[idx].subtitle;
+      item.textContent = label;
+      item.onclick = (function(drillIdx) {
+        return function() { selectDrill(drillIdx); };
+      })(idx);
+      flat.appendChild(item);
+    }
+    $colL.appendChild(flat);
+    return;
+  }
+
+  hymnIndices.sort(function(a,b) {
+    return hymnSortName(DRILLS[a].t).localeCompare(hymnSortName(DRILLS[b].t));
+  });
+
+  // Build alphabet bar (group by first letter of name, not number)
+  var letters = {};
+  for (var i = 0; i < hymnIndices.length; i++) {
+    var name = hymnSortName(DRILLS[hymnIndices[i]].t);
+    var first = name.charAt(0).toUpperCase();
+    if (!letters[first]) letters[first] = [];
+    letters[first].push(hymnIndices[i]);
+  }
+  // Build two-column alphabet with expandable letter tabs
+  var sortedLetters = Object.keys(letters).sort();
+  var midLetter = 'N'; // A-M left, N-Z right
+
+  function buildLetterTab(container, letter, indices) {
+    var header = document.createElement('div');
+    header.className = 'letter-header collapsed';
+    header.textContent = letter + ' (' + indices.length + ')';
+    var itemsDiv = document.createElement('div');
+    itemsDiv.className = 'letter-items hidden';
+
+    header.onclick = function() {
+      header.classList.toggle('collapsed');
+      itemsDiv.classList.toggle('hidden');
+    };
+
+    for (var j = 0; j < indices.length; j++) {
+      var idx = indices[j];
+      var item = document.createElement('div');
+      item.className = 'lib-item';
+      item.dataset.idx = idx;
+      if (DRILLS[idx].key) item.dataset.key = DRILLS[idx].key;
+      item.textContent = DRILLS[idx].t + (DRILLS[idx].key ? ' [' + DRILLS[idx].key + ']' : '');
+      item.onclick = (function(drillIdx) {
+        return function() { selectDrill(drillIdx); };
+      })(idx);
+      itemsDiv.appendChild(item);
+    }
+    container.appendChild(header);
+    container.appendChild(itemsDiv);
+  }
+
+  for (var li = 0; li < sortedLetters.length; li++) {
+    var letter = sortedLetters[li];
+    var col = letter < midLetter ? $colL : $colR;
+    buildLetterTab(col, letter, letters[letter]);
+  }
+}
+
+// Tchaikovsky checkbox — re-render current hymn when toggled
+var $hymnCols = document.getElementById('hymn-cols');
+document.getElementById('sel-mode').onchange = function() {
+  // Drills mode swaps the library entirely (cascades instead of hymns).
+  var mode = this.value;
+  if (mode === 'drills') {
+    DRILLS = CASCADES;
+  } else {
+    DRILLS = HYMNS;
+  }
+  // Tag <body> with mode-<name> so mode-specific CSS (e.g. Modern harm styling) applies.
+  document.body.className = 'mode-' + mode;
+  currentDrill = 0;
+  buildLibrary();
+  applyKeyFilter();
+  if (DRILLS.length > 0) renderDrill(0);
+};
+// Initialize body className on page load to match the default mode.
+document.body.className = 'mode-' + document.getElementById('sel-mode').value;
+
+// Search filter
+document.getElementById('lib-search').addEventListener('input', function() {
+  var q = this.value.toLowerCase().trim();
+  var $cols = document.getElementById('hymn-cols');
+
+  if (!q) {
+    var headers = $cols.querySelectorAll('.letter-header');
+    var itemDivs = $cols.querySelectorAll('.letter-items');
+    for (var i = 0; i < headers.length; i++) {
+      headers[i].style.display = '';
+      headers[i].classList.add('collapsed');
+    }
+    for (var i = 0; i < itemDivs.length; i++) {
+      itemDivs[i].classList.add('hidden');
+      var items = itemDivs[i].querySelectorAll('.lib-item');
+      for (var j = 0; j < items.length; j++) items[j].style.display = '';
+    }
+    return;
+  }
+
+  var headers = $cols.querySelectorAll('.letter-header');
+  for (var i = 0; i < headers.length; i++) headers[i].style.display = 'none';
+  var itemDivs = $cols.querySelectorAll('.letter-items');
+  for (var i = 0; i < itemDivs.length; i++) {
+    itemDivs[i].classList.remove('hidden');
+    var items = itemDivs[i].querySelectorAll('.lib-item');
+    for (var j = 0; j < items.length; j++) {
+      items[j].style.display = items[j].textContent.toLowerCase().indexOf(q) >= 0 ? '' : 'none';
+    }
+  }
+});
+
+// ── Key filter buttons ──
+var activeKey = 'Eb';
+var keyBtns = document.querySelectorAll('.key-btn');
+for (var i = 0; i < keyBtns.length; i++) {
+  keyBtns[i].onclick = function() {
+    for (var j = 0; j < keyBtns.length; j++) keyBtns[j].classList.remove('active');
+    this.classList.add('active');
+    activeKey = this.dataset.key;
+    applyKeyFilter();
+  };
+}
+function applyKeyFilter() {
+  var $cols = document.getElementById('hymn-cols');
+  var headers = $cols.querySelectorAll('.letter-header');
+  var itemDivs = $cols.querySelectorAll('.letter-items');
+
+  for (var i = 0; i < headers.length; i++) {
+    var items = itemDivs[i].querySelectorAll('.lib-item');
+    var visCount = 0;
+    for (var j = 0; j < items.length; j++) {
+      var show = (activeKey === 'All' || items[j].dataset.key === activeKey);
+      items[j].style.display = show ? '' : 'none';
+      if (show) visCount++;
+    }
+    headers[i].style.display = visCount > 0 ? '' : 'none';
+    // Update header count
+    var letter = headers[i].textContent.replace(/ \(.*/, '');
+    headers[i].textContent = letter + ' (' + visCount + ')';
+    // Keep collapsed — user expands manually
+  }
+}
+
+// ── Load hymnal and init ──
+positionPlayhead();
+
+// Load SSAATTBB data, then Tchaikovsky drills (ABC + MEI), then build library
+var TCHAIKOVSKY = {};  // keyed by cleaned title for lookup (ABC)
+var TCHAIKOVSKY_MEI = {};  // keyed by cleaned title (MEI for Verovio)
+var TCH_SSAATTBB = {};  // keyed by cleaned title (Tch-SSAATTBB ABC)
+var TCH_SSAATTBB_MEI = {};  // keyed by cleaned title (Tch-SSAATTBBP MEI for Verovio)
+var MODERN_MEI = {};  // keyed by cleaned title (Modern reharm MEI for Verovio)
+// HYMNS holds the original 287 hymns; CASCADES holds the 20 drill cascades.
+// DRILLS is the "current library" — swapped by the mode selector.
+var HYMNS = [];
+var CASCADES = [];
+var xhr2 = new XMLHttpRequest();
+xhr2.open('GET', 'ssaattbb_data.json?v=' + Date.now(), true);
+xhr2.onload = function() {
+  if (xhr2.status === 200) {
+    var data = JSON.parse(xhr2.responseText);
+    for (var i = 0; i < data.length; i++) HYMNS.push(data[i]);
+    // Default mode is 'tch-ssaattbb' so start with the hymns library.
+    DRILLS = HYMNS;
+    console.log('Loaded ' + HYMNS.length + ' hymns');
+  }
+  // Load Tchaikovsky drill data (ABC)
+  var xhr3 = new XMLHttpRequest();
+  xhr3.open('GET', 'tchaikovsky_data.json?v=' + Date.now(), true);
+  xhr3.onload = function() {
+    if (xhr3.status === 200) {
+      var tdata = JSON.parse(xhr3.responseText);
+      for (var i = 0; i < tdata.length; i++) {
+        var ct = tdata[i].t.replace(/^\d+\s*/, '').trim();
+        TCHAIKOVSKY[ct] = tdata[i];
+      }
+      console.log('Loaded ' + tdata.length + ' Tchaikovsky drills (ABC)');
+    }
+    // Load MEI version
+    var xhr4 = new XMLHttpRequest();
+    xhr4.open('GET', 'tchaikovsky_mei.json?v=' + Date.now(), true);
+    xhr4.onload = function() {
+      if (xhr4.status === 200) {
+        var mdata = JSON.parse(xhr4.responseText);
+        for (var i = 0; i < mdata.length; i++) {
+          var ct = mdata[i].t.replace(/^\d+\s*/, '').trim();
+          TCHAIKOVSKY_MEI[ct] = mdata[i];
+        }
+        console.log('Loaded ' + mdata.length + ' Tchaikovsky drills (MEI)');
+      }
+      // Load Tch-SSAATTBB data
+      var xhr5 = new XMLHttpRequest();
+      xhr5.open('GET', 'tch_ssaattbb_data.json?v=' + Date.now(), true);
+      xhr5.onload = function() {
+        if (xhr5.status === 200) {
+          var sdata = JSON.parse(xhr5.responseText);
+          for (var i = 0; i < sdata.length; i++) {
+            var ct = sdata[i].t.replace(/^\d+\s*/, '').trim();
+            TCH_SSAATTBB[ct] = sdata[i];
+          }
+          console.log('Loaded ' + sdata.length + ' Tch-SSAATTBB drills (ABC)');
+        }
+        // Load Tch-SSAATTBBP MEI data
+        var xhr6 = new XMLHttpRequest();
+        xhr6.open('GET', 'tch_ssaattbbp_mei.json?v=' + Date.now(), true);
+        xhr6.onload = function() {
+          try {
+            if (xhr6.status === 200) {
+              var mdata = JSON.parse(xhr6.responseText);
+              for (var i = 0; i < mdata.length; i++) {
+                var ct = mdata[i].t.replace(/^\d+\s*/, '').trim();
+                TCH_SSAATTBB_MEI[ct] = mdata[i];
+              }
+              console.log('Loaded ' + mdata.length + ' Tch-SSAATTBBP drills (MEI)');
+            }
+          } catch(e) { console.warn('Tch-SSAATTBBP parse error:', e); }
+          // Load Modern reharm MEI (optional; asset may be missing).
+          var xhr_modern = new XMLHttpRequest();
+          xhr_modern.open('GET', 'modern_mei.json?v=' + Date.now(), true);
+          xhr_modern.onload = function() {
+            if (xhr_modern.status === 200) {
+              try {
+                var mdata = JSON.parse(xhr_modern.responseText);
+                for (var i = 0; i < mdata.length; i++) {
+                  var ct = mdata[i].t.replace(/^\d+\s*/, '').trim();
+                  MODERN_MEI[ct] = mdata[i];
+                }
+                console.log('Loaded ' + mdata.length + ' Modern MEI');
+              } catch (e) {
+                console.warn('modern_mei.json parse failed:', e);
+              }
+            } else {
+              console.warn('modern_mei.json not found (status ' + xhr_modern.status + ')');
+            }
+          };
+          xhr_modern.onerror = function() {
+            console.warn('modern_mei.json fetch failed');
+          };
+          xhr_modern.send();
+          // Load Drills library (cascades). These are shown in "Drills" mode.
+          var xhr7 = new XMLHttpRequest();
+          xhr7.open('GET', 'cascades_data.json?v=' + Date.now(), true);
+          xhr7.onload = function() {
+            if (xhr7.status === 200) {
+              try {
+                var cdata = JSON.parse(xhr7.responseText);
+                for (var i = 0; i < cdata.length; i++) CASCADES.push(cdata[i]);
+                console.log('Loaded ' + CASCADES.length + ' cascade drills');
+              } catch(e) { console.warn('cascades_data parse error:', e); }
+            }
+            // Honor initial mode selection (drills or hymns).
+            var initMode = document.getElementById('sel-mode').value;
+            DRILLS = (initMode === 'drills') ? CASCADES : HYMNS;
+            buildLibrary();
+            applyKeyFilter();
+            if (DRILLS.length > 0) renderDrill(0);
+          };
+          xhr7.onerror = function() {
+            console.warn('No cascades_data');
+            buildLibrary();
+            applyKeyFilter();
+            if (DRILLS.length > 0) renderDrill(0);
+          };
+          xhr7.send();
+        };
+        xhr6.onerror = function() {
+          console.warn('No Tch-SSAATTBBP MEI data');
+          buildLibrary();
+          applyKeyFilter();
+          if (DRILLS.length > 0) renderDrill(0);
+        };
+        xhr6.send();
+      };
+      xhr5.onerror = function() {
+        console.warn('No Tch-SSAATTBB data');
+        buildLibrary();
+        applyKeyFilter();
+        if (DRILLS.length > 0) renderDrill(0);
+      };
+      xhr5.send();
+    };
+    xhr4.onerror = function() {
+      console.warn('No Tchaikovsky MEI data');
+      buildLibrary();
+      applyKeyFilter();
+      if (DRILLS.length > 0) renderDrill(0);
+    };
+    xhr4.send();
+  };
+  xhr3.onerror = function() {
+    console.warn('No Tchaikovsky data found, continuing without');
+    buildLibrary();
+    applyKeyFilter();
+    if (DRILLS.length > 0) renderDrill(0);
+  };
+  xhr3.send();
+};
+xhr2.onerror = function() { console.error('Failed to load data'); };
+xhr2.send();
+</script>
+<a class="harp-home-fab" href="../index.html" title="Back to HarpHymnal home" aria-label="Home" style="position:fixed;top:8px;right:8px;z-index:99999;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font:bold 22px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:rgba(31,78,121,0.88);border:1px solid rgba(0,0,0,0.3);border-radius:8px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.25);-webkit-tap-highlight-color:transparent;">&#8962;</a>
+</body>
+</html>
