@@ -102,13 +102,13 @@
   .pedal-divider { grid-column: 1 / -1; height: 6px; }
   .pedal-join {
     grid-column: 1 / -1;
-    height: 40px;
+    /* No explicit height — grid auto-rows give it the same flex share
+       as a pedal row, so it visually fills the gap with no shrink. */
     display: flex; align-items: center; justify-content: center;
     background: #44475a; color: var(--accent);
     border: 1px solid #6272a4; border-radius: 4px;
-    font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+    font-size: 16px; font-weight: 700; letter-spacing: 0.5px;
     cursor: pointer; user-select: none;
-    margin: 4px 0;
   }
   .pedal-join.active {
     background: #50fa7b; color: #21222c;
