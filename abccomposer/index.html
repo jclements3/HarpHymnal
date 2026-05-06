@@ -2341,6 +2341,47 @@ function drawHexpad() {
   wireHexpadGestures(svg);
 }
 
+// ABC source has a strict header (X: T: M: L: K: V: Q: C: ...) followed
+// by the music body. The hexpad must never insert into a header line —
+// doing so corrupts the file. Before every gesture (and on hexpad open),
+// snap the cursor to a safe body location:
+//   1. If the current cursor line is a header / comment, walk past the
+//      last header line (the K: line is the canonical "headers end here"
+//      marker in ABC) and into the body.
+//   2. If there's no body line yet, append a fresh blank line and put
+//      the cursor there.
+function isHeaderLine(text) {
+  const t = (text || "").trim();
+  if (!t) return false;
+  if (t.startsWith("%")) return true;          // comment
+  return /^[A-Za-z]:/.test(t);                 // X:, T:, K:, V:, etc.
+}
+function ensureCursorInBody() {
+  if (!cm) return;
+  const cur = cm.getCursor();
+  const lineCount = cm.lineCount();
+  if (cur.line < lineCount && !isHeaderLine(cm.getLine(cur.line))) {
+    return;  // already in body
+  }
+  // Find the K: line (canonical end-of-headers marker).
+  let kLine = -1;
+  for (let i = 0; i < lineCount; i++) {
+    if (/^K:/.test((cm.getLine(i) || "").trim())) { kLine = i; break; }
+  }
+  // Walk past any remaining header / info / comment lines after K:.
+  let bodyLine = (kLine >= 0 ? kLine + 1 : 0);
+  while (bodyLine < lineCount && isHeaderLine(cm.getLine(bodyLine))) bodyLine++;
+  if (bodyLine >= cm.lineCount()) {
+    // Body is missing — append a blank line at the end.
+    const last = cm.lineCount() - 1;
+    cm.replaceRange("\n",
+      { line: last, ch: cm.getLine(last).length },
+      { line: last, ch: cm.getLine(last).length });
+    bodyLine = cm.lineCount() - 1;
+  }
+  cm.setCursor({ line: bodyLine, ch: (cm.getLine(bodyLine) || "").length });
+}
+
 // Smart backspace for the hexpad ⌫ button: if the character immediately
 // before the cursor is `]`, find its matching `[` and delete the whole
 // chord token in one go. Otherwise delete one character. Works on any
@@ -2407,6 +2448,7 @@ function wireHexpadGestures(svg) {
     const notes    = seq.filter(x => x.hand === "lh" || x.hand === "rh").map(x => x.tag);
     const controls = seq.filter(x => x.hand !== "lh" && x.hand !== "rh").map(x => x.tag);
     try {
+      ensureCursorInBody();
       if (notes.length > 1) cm.replaceSelection("[" + notes.join("") + "]");
       else if (notes.length === 1) cm.replaceSelection(notes[0]);
       for (const tag of controls) {
@@ -2665,6 +2707,9 @@ function drawPedals() {
         try { renderStripchart(cm.getValue()); } catch (e) {}
       }
       try { drawPedals(); } catch (e) {}
+      // Park the cursor in the body so the first hex-pad gesture lands
+      // after the K: header, not on top of the X:/T:/etc. header lines.
+      try { ensureCursorInBody(); } catch (e) {}
       requestAnimationFrame(drawHexpad);
     }
   });
