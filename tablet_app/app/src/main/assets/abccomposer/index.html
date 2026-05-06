@@ -67,6 +67,20 @@
     background: var(--bg-alt);
     flex-direction: row;
   }
+  #hexpad-scale-name {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 6px 8px;
+    font-size: 22px; font-weight: 700;
+    color: var(--accent);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    letter-spacing: 0.5px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  #hexpad-scale-name .scale-tonic   { color: #50fa7b; }
+  #hexpad-scale-name .scale-popular { color: var(--muted); font-weight: 500; font-size: 13px; margin-left: 8px; }
+  #hexpad-scale-name .scale-alt     { color: #f1fa8c; font-weight: 500; font-size: 13px; margin-left: 8px; }
   #hexpad-pedals-wrap {
     flex: 0 0 12%; min-width: 0; min-height: 0;
     background: var(--bg-alt);
@@ -98,8 +112,11 @@
     border-color: #f8f8f2;
   }
   .pedal-cell:active { background: #f1fa8c; }
-  #hexpad-svg-wrap { flex: 0 0 48%; min-width: 0; min-height: 0; }
-  #hexpad-svg-wrap svg { width: 100%; height: 100%; display: block; }
+  #hexpad-svg-wrap {
+    flex: 0 0 48%; min-width: 0; min-height: 0;
+    display: flex; flex-direction: column;
+  }
+  #hexpad-svg-wrap svg { flex: 1 1 auto; width: 100%; min-height: 0; display: block; }
   #hexpad-strip-wrap {
     flex: 1 1 auto; min-width: 0; min-height: 0;
     background: #f8f8f2; color: #21222c;
@@ -395,6 +412,7 @@
 <div id="app">
 
   <div id="toolbar">
+    <a id="btn-home" href="../index.html" title="Back to HarpHymnal home" style="text-decoration:none;font:bold 18px/1 inherit;color:var(--ink);background:var(--bg-alt);border:1px solid var(--line);border-radius:4px;padding:4px 10px;display:inline-flex;align-items:center;justify-content:center;height:28px;">⌂</a>
     <button id="btn-hexpad" class="brand-btn" title="Toggle giant harp hex pad">♪</button>
     <input type="text" id="filename" value="untitled.abc" spellcheck="false"/>
     <button id="btn-new">New</button>
@@ -454,6 +472,7 @@
   <div id="hexpad-overlay" style="display:none;">
     <div id="hexpad-pedals-wrap"></div>
     <div id="hexpad-svg-wrap">
+      <div id="hexpad-scale-name">…</div>
       <svg id="hexpad-svg" preserveAspectRatio="xMidYMid meet"></svg>
     </div>
     <div id="hexpad-strip-wrap"></div>
@@ -2376,10 +2395,49 @@ function writePedalComment() {
   }
 }
 
+// Lookup table: braille string -> [{family, mode, tonic, popularName, ...}]
+// Populated lazily on first hexpad open.
+let PEDAL_LOOKUP = null;
+function loadPedalLookup() {
+  if (PEDAL_LOOKUP !== null) return;
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "pedal_lookup.json", false);
+  try {
+    xhr.send();
+    if (xhr.status === 200 || xhr.status === 0) {
+      PEDAL_LOOKUP = JSON.parse(xhr.responseText);
+    } else {
+      PEDAL_LOOKUP = {};
+    }
+  } catch (e) { PEDAL_LOOKUP = {}; }
+}
+
+function updateScaleName() {
+  const el = document.getElementById("hexpad-scale-name");
+  if (!el) return;
+  loadPedalLookup();
+  const glyph = pedalBraille(pedalState);
+  const matches = (PEDAL_LOOKUP && PEDAL_LOOKUP[glyph]) || [];
+  if (!matches.length) {
+    el.textContent = "(custom pedal setting — not a 28-scale match)";
+    return;
+  }
+  // Prefer the first match. If the user's tonic suggests a particular pick,
+  // we could refine later; for now show the first plus a note if more exist.
+  const m = matches[0];
+  const altText = matches.length > 1 ? ` · or ${matches.length - 1} more` : "";
+  el.innerHTML =
+    m.family + ' ' + m.mode +
+    ' on <span class="scale-tonic">' + (m.spelled || m.tonic) + '</span>' +
+    '<span class="scale-popular">' + m.popularName + '</span>' +
+    (altText ? '<span class="scale-alt">' + altText + '</span>' : '');
+}
+
 function drawPedals() {
   const wrap = document.getElementById("hexpad-pedals-wrap");
   if (!wrap) return;
   wrap.innerHTML = "";
+  updateScaleName();
   const head = document.createElement("div");
   head.className = "pedal-glyph";
   head.textContent = pedalBraille(pedalState);
