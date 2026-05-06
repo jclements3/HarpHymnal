@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Pedal Matrix — HarpHymnal</title>
+<style>
+  :root { --bg:#f7f3ea; --ink:#2a2a2a; --muted:#888; --line:#d8d0c0; --panel:#ffffff; --jazz:#8B5A2B; --accent:#1F4E79; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55;
+    -webkit-tap-highlight-color: transparent; }
+
+  #topbar { padding: 16px 24px; background: var(--jazz); color: #fff;
+    display: flex; align-items: center; gap: 16px; }
+  #topbar a { color: #fff; text-decoration: none; font-size: 15px; }
+  #topbar h1 { font-size: 22px; flex: 1; }
+  #topbar .crumbs { font-size: 13px; opacity: .85; }
+
+  .tabs { padding: 8px 24px; background: var(--panel); border-bottom: 1px solid var(--line);
+    display: flex; gap: 6px; position: sticky; top: 0; z-index: 10; }
+  .tabs a { color: var(--jazz); text-decoration: none; font-weight: bold;
+    padding: 6px 14px; border-radius: 4px; font-size: 14px; border: 1px solid transparent;
+    cursor: pointer; }
+  .tabs a:hover { background: var(--line); }
+  .tabs a.active { background: var(--jazz); color: #fff; border-color: var(--jazz); }
+
+  main { padding: 0; }
+
+  .pane { display: none; padding: 18px 24px 40px; }
+  .pane.active { display: block; }
+
+  /* PDF pane fills remaining viewport */
+  #pane-pdf { padding: 0; }
+  #pdf-frame { width: 100%; height: calc(100vh - 110px); border: 0; display: block; }
+
+  pre.matrix {
+    font-family: "Noto Sans Mono", "DejaVu Sans Mono", "FreeMono", "Liberation Mono", "Courier New", monospace;
+    font-size: 14px; line-height: 1.35;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 6px;
+    padding: 14px 16px; overflow-x: auto; white-space: pre;
+  }
+
+  .legend { max-width: 980px; margin: 0 auto 18px; }
+  .legend h2 { font-size: 18px; color: var(--accent); margin: 16px 0 6px; }
+  .legend p, .legend li { font-size: 14px; }
+  .legend ul { margin: 4px 0 8px 22px; }
+
+  #content h1 { font-size: 24px; color: var(--jazz); margin: 0 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }
+  #content h2 { font-size: 18px; color: var(--accent); margin: 18px 0 6px; }
+  #content p { margin: 8px 0; font-size: 15px; }
+  #content code { font-family: "Noto Sans Mono", "DejaVu Sans Mono", monospace; font-size: 13px; background: var(--panel); border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; }
+  #content pre { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; margin: 10px 0; overflow-x: auto; }
+  #content pre code { background: transparent; border: 0; padding: 0; }
+  #content table { border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+  #content th, #content td { border: 1px solid var(--line); padding: 4px 10px; text-align: left; }
+  #content th { background: var(--panel); }
+
+  #status { color: var(--muted); font-style: italic; padding: 24px; text-align: center; }
+</style></head><body>
+
+<div id="topbar">
+  <a href="../index.html">&larr; Home</a>
+  <h1>Pedal Matrix</h1>
+  <span class="crumbs">28 scales × 12 tonics · braille pedal encoding</span>
+</div>
+
+<nav class="tabs" id="tabs">
+  <a data-pane="pdf"    class="active">PDF</a>
+  <a data-pane="matrix">Matrix (text)</a>
+  <a data-pane="single">Single tonic (C)</a>
+  <a data-pane="readme">Encoding</a>
+</nav>
+
+<main>
+  <section id="pane-pdf" class="pane active">
+    <embed id="pdf-frame" src="pedals_matrix.pdf" type="application/pdf"/>
+  </section>
+
+  <section id="pane-matrix" class="pane">
+    <div class="legend">
+      <h2>How to read</h2>
+      <p>Columns are tonics in circle-of-fifths order (sharps right of C, flats left).
+      Each cell is four braille glyphs encoding the seven pedal positions:</p>
+      <ul>
+        <li><code>cell 1</code> = D (left col) + C (right col)</li>
+        <li><code>cell 2</code> = B (left col) + separator (right col, dots 4-5-6 always on)</li>
+        <li><code>cell 3</code> = E (left col) + F (right col)</li>
+        <li><code>cell 4</code> = G (left col) + A (right col)</li>
+      </ul>
+      <p>Within each cell: <code>top</code> = flat, <code>middle</code> = natural, <code>bottom</code> = sharp.
+      A trailing <code>*</code> means the column needed an enharmonic respelling
+      (e.g. F3 Locrian under C is unreachable, so it's spelled as C♯).</p>
+    </div>
+    <pre id="matrix-text" class="matrix">Loading…</pre>
+  </section>
+
+  <section id="pane-single" class="pane">
+    <div class="legend">
+      <h2>28 scales on tonic C</h2>
+      <p>Family parents: F1 Ionian (major), F2 Dorian #7 (melodic minor),
+      F3 Aeolian #7 (harmonic minor), F4 Ionian b6 (harmonic major).
+      Each row shows the four-cell pedal encoding for that mode rooted on C.</p>
+    </div>
+    <pre id="single-text" class="matrix">Loading…</pre>
+  </section>
+
+  <section id="pane-readme" class="pane">
+    <article id="content"><div id="status">Loading…</div></article>
+  </section>
+</main>
+
+<script src="../vendor/marked.min.js"></script>
+<script>
+  function load(url, cb) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200 || xhr.status === 0) cb(null, xhr.responseText);
+      else cb(new Error('HTTP ' + xhr.status + ' for ' + url));
+    };
+    xhr.onerror = function () { cb(new Error('network error for ' + url)); };
+    try { xhr.send(); } catch (e) { cb(e); }
+  }
+
+  load('pedals_matrix.txt', function (err, text) {
+    document.getElementById('matrix-text').textContent = err ? ('Could not load pedals_matrix.txt: ' + err.message) : text;
+  });
+  load('pedals.txt', function (err, text) {
+    document.getElementById('single-text').textContent = err ? ('Could not load pedals.txt: ' + err.message) : text;
+  });
+  load('README.md', function (err, text) {
+    const el = document.getElementById('content');
+    if (err) { el.innerHTML = '<div id="status">Could not load README.md: ' + err.message + '</div>'; return; }
+    el.innerHTML = (window.marked ? marked.parse(text) : ('<pre>' + text.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])) + '</pre>'));
+  });
+
+  const tabs = document.getElementById('tabs');
+  tabs.addEventListener('click', function (e) {
+    const a = e.target.closest('a[data-pane]');
+    if (!a) return;
+    e.preventDefault();
+    const want = a.dataset.pane;
+    for (const link of tabs.querySelectorAll('a')) {
+      link.classList.toggle('active', link.dataset.pane === want);
+    }
+    for (const sec of document.querySelectorAll('.pane')) {
+      sec.classList.toggle('active', sec.id === 'pane-' + want);
+    }
+    window.scrollTo(0, 0);
+  });
+</script>
+</body></html>

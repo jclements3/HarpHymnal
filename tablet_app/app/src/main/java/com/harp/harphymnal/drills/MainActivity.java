@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
     private static final int FILE_CHOOSER_RC = 1001;
 
     private ValueCallback<Uri[]> pendingFileChooser = null;
+    private WebView webView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class MainActivity extends Activity {
         // Keep the screen on during practice — tablet sits on the music stand.
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        WebView webView = new WebView(this);
+        webView = new WebView(this);
         setContentView(webView);
 
         WebSettings settings = webView.getSettings();
@@ -110,6 +111,21 @@ public class MainActivity extends Activity {
         webView.addJavascriptInterface(new Bridge(), "Bridge");
 
         webView.loadUrl("file:///android_asset/index.html");
+    }
+
+    /**
+     * Device back button: walk WebView history first (so users can navigate
+     * back from sub-pages to the home grid), and only fall through to the
+     * default Activity behavior (which finishes the app) when there's no
+     * page to go back to.
+     */
+    @Override
+    public void onBackPressed() {
+        if (webView != null && webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
