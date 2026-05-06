@@ -10,7 +10,8 @@
     -webkit-tap-highlight-color: transparent; }
 
   #topbar { padding: 16px 24px; background: var(--jazz); color: #fff;
-    display: flex; align-items: center; gap: 16px; }
+    display: flex; align-items: center; gap: 16px;
+    position: sticky; top: 0; z-index: 100; }
   #topbar a { color: #fff; text-decoration: none; font-size: 15px; }
   #topbar h1 { font-size: 22px; flex: 1; }
   #topbar .crumbs { font-size: 13px; opacity: .85; }
@@ -28,9 +29,17 @@
   .pane { display: none; padding: 18px 24px 40px; }
   .pane.active { display: block; }
 
-  /* PDF pane fills remaining viewport */
-  #pane-pdf { padding: 0; }
-  #pdf-frame { width: 100%; height: calc(100vh - 110px); border: 0; display: block; }
+  /* Page-stack panes (HTML rendering of the PDF as PNG pages) */
+  .page-stack {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 8px; padding: 12px;
+  }
+  .page-stack img {
+    width: 100%; max-width: 1100px;
+    height: auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    background: #fff;
+  }
 
   pre.matrix {
     font-family: "Noto Sans Mono", "DejaVu Sans Mono", "FreeMono", "Liberation Mono", "Courier New", monospace;
@@ -73,11 +82,29 @@
 
 <main>
   <section id="pane-guide" class="pane active">
-    <embed id="guide-frame" src="improv_guide.pdf" type="application/pdf" style="width:100%;height:calc(100vh - 110px);border:0;display:block;"/>
+    <div class="page-stack">
+      <img src="pages/guide-01.png" alt="Improv guide page 1"/>
+      <img src="pages/guide-02.png" alt="Improv guide page 2"/>
+      <img src="pages/guide-03.png" alt="Improv guide page 3"/>
+      <img src="pages/guide-04.png" alt="Improv guide page 4"/>
+      <img src="pages/guide-05.png" alt="Improv guide page 5"/>
+      <img src="pages/guide-06.png" alt="Improv guide page 6"/>
+      <img src="pages/guide-07.png" alt="Improv guide page 7"/>
+      <img src="pages/guide-08.png" alt="Improv guide page 8"/>
+      <img src="pages/guide-09.png" alt="Improv guide page 9"/>
+      <img src="pages/guide-10.png" alt="Improv guide page 10"/>
+      <img src="pages/guide-11.png" alt="Improv guide page 11"/>
+      <img src="pages/guide-12.png" alt="Improv guide page 12"/>
+      <img src="pages/guide-13.png" alt="Improv guide page 13"/>
+      <img src="pages/guide-14.png" alt="Improv guide page 14"/>
+    </div>
   </section>
 
   <section id="pane-pdf" class="pane">
-    <embed id="pdf-frame" src="pedals_matrix.pdf" type="application/pdf"/>
+    <div class="page-stack">
+      <img src="pages/matrix-1.png" alt="Pedal matrix page 1"/>
+      <img src="pages/matrix-2.png" alt="Pedal matrix page 2"/>
+    </div>
   </section>
 
   <section id="pane-matrix" class="pane">
@@ -154,4 +181,5 @@
     window.scrollTo(0, 0);
   });
 </script>
+<a class="harp-home-fab" href="../index.html" title="Back to HarpHymnal home" aria-label="Home" style="position:fixed;top:8px;left:8px;z-index:99999;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font:bold 22px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;background:rgba(31,78,121,0.88);border:1px solid rgba(0,0,0,0.3);border-radius:8px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.25);-webkit-tap-highlight-color:transparent;">&#8962;</a>
 </body></html>
