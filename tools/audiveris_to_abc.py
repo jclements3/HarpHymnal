@@ -116,7 +116,7 @@ def voice_bars(part, unit) -> list[str]:
                             t = ""
                         if t:
                             inner_toks.append(t)
-                    toks.append(f"({actual}" + " ".join(inner_toks))
+                    toks.append(f"({actual}" + "".join(inner_toks))
                     i = j
                     continue
                 for g in group:
@@ -136,7 +136,7 @@ def voice_bars(part, unit) -> list[str]:
             if t:
                 toks.append(t)
             i += 1
-        bars.append(" ".join(toks) if toks else "z4")
+        bars.append("".join(toks) if toks else "z4")
     return bars
 
 
@@ -146,10 +146,13 @@ def count_bars(part) -> int:
 
 def synth_bass_bars(num_bars: int) -> list[str]:
     """At L:1/4 the bass walks D->F (bar n) then G->A (bar n+1), repeating.
-    Octava-bassa clef so written D, sounds D2."""
+    Written one octave lower than the engraved pitches because the !8vb!
+    decoration wraps the voice — that produces the dashed-line octava-bassa
+    bracket seen in the source PDF rather than the small clef-attached '8'
+    that 'clef=bass-8' yields."""
     if num_bars <= 0:
         num_bars = 4
-    pattern = ["D,2 F,,2", "G,,2 A,,2"]
+    pattern = ["D,,2 F,,,2", "G,,,2 A,,,2"]
     return [pattern[i % 2] for i in range(num_bars)]
 
 
@@ -219,7 +222,10 @@ def convert(mxl_path: Path, lick_num: int, level: str, scale: str) -> str:
     treble_bars = voice_bars(treble_part, unit)
     n_bars = count_bars(treble_part)
     bass_bars = synth_bass_bars(n_bars)
-    v1, v2 = align_voices(treble_bars, bass_bars, "V:1", "V:2 clef=bass-8")
+    if bass_bars:
+        bass_bars[0] = "!8vb(!" + bass_bars[0]
+        bass_bars[-1] = bass_bars[-1] + "!8vb)!"
+    v1, v2 = align_voices(treble_bars, bass_bars, "V:1", "V:2 clef=bass")
 
     abc = []
     abc.append(f"X:1")
