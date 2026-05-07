@@ -68,6 +68,80 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-07 — 101-licks bundle replatformed via Audiveris OMR)
+
+The `licks/` directory is now the canonical home for the 101 D-min lick
+bundle (was scattered across `tablet_app/.../licks/abc/` +
+`abc_audiveris/`). Each lick is a pair: `licks/lick_NNN.abc` (transcription)
++ `licks/lick_NNN.jpg` (source-resolution PDF strip extracted via
+`pdfimages -j 101_licks_Dmi.pdf`). The PDF itself stays untracked at
+project root (~42 MB) matching the existing Boddie-PDF pattern.
+
+**OMR pipeline** (`tools/licks_audiveris_pipeline.sh`):
+`pdfimages -j` → 101 JPEG strips → Audiveris 5.10 (Flatpak, batch,
+MusicXML export) → `tools/audiveris_to_abc.py` (music21 + custom emitter)
+→ `licks/lick_NNN.abc`. Reproducible end-to-end. Audiveris is installed
+as a user Flatpak (`org.audiveris.audiveris`). One sandbox gotcha: the
+flatpak can't see `/tmp` even with `--filesystem=host`; put inputs/outputs
+under the project tree (`build/licks_jpg/`, `build/licks_mxl/`).
+
+**ABC format conventions** (used by both the converter and
+`build/reflow_licks.py`):
+- `M:C` / `L:1/4` / `Q:1/4=80` / `%%pagewidth 8.5in` / `%%barsperstaff 4`
+- `V:N` header on its own line (header form, not inline `[V:N ...]`)
+- Body indented 4 spaces, 4 bars per source line, backslash continuation
+- Bar widths padded so `|` separators line up vertically across V:1↔V:2
+  AND across rows of bars (each chunk-position column has the same width
+  in every chunk)
+- Triplets emit as `(3X/Y/Z/` brackets (ABC spec; abcm2ps rejects raw
+  `2/3` length divisors); triplets that span barlines fall back to
+  orphan-with-displayed-length emission
+
+**Hybrid octave marker** for the bass voice (V:2):
+- `clef=bass-8` — small "8" attached to the bass clef glyph
+  (rendered by both `abcjs` on the tablet and `abcm2ps` on desktop)
+- `!8vb(!`/`!8vb)!` — dashed octava-bassa bracket spanning the voice
+  (rendered only by `abcm2ps`; `abcjs` v6.4.4 silently ignores ottava
+  decorations)
+- Bass pitches at clef-8 register (`D, F,, G,, A,,`) — verified
+  abcm2ps does NOT double-shift when both markers are present.
+- The bass walks D→F (bar n) then G→A (bar n+1), repeating across all
+  101 licks (synthesized in the converter; same for all licks).
+
+**Visual-decoration passes** (Audiveris doesn't extract grace notes,
+fingerings, or articulations — those were added by hand from the JPEG
+strips):
+- Pass 1 (7 parallel agents, licks 4–101): ~700 fingerings (`!1!`–`!5!`),
+  some ties, fermatas, sparse graces
+- Pass 2 (7 parallel agents, licks 4–101): ~557 beam-break spaces between
+  triplet/duration boundaries, ~9 more grace notes
+- `lick_001` is the gold-standard hand-edit (intentionally untouched by
+  bulk regeneration; `build/run_conversion.sh` skips it)
+- All 101 parse cleanly through `abcm2ps`
+
+**Tablet integration:**
+- `tablet_app/.../assets/licks/abc/lick_NNN.abc` and
+  `tablet_app/.../assets/licks/png/lick_NNN.png` updated. PNGs are
+  high-resolution (2000×377) downsamples of the canonical JPEGs, replacing
+  the original blurry YouTube screenshots.
+- abccomposer (`tablet_app/.../assets/abccomposer/index.html`) tweaks:
+  CodeMirror editor font 14px → 12px; `lineWrapping: false` by default
+  (`:set wrap` / `:set nowrap` / `:set wrap!` to toggle in vim).
+- APK rebuilt + reinstalled on `P90YPDU16Y251200164` after every
+  user-visible change in this session.
+
+**Emacs ABC editing setup** (in `~/.emacs`, not in the repo): `abc-mode`
+loaded via `use-package`; `C-c C-c` runs `abcm2ps -v` to SVG and pops
+the result into a side-window using built-in `image-mode`. Auto-refresh
+on save, no "Save anyway?" prompts (before-save-hook calls
+`set-visited-file-modtime`). Native-size SVG, `i +`/`i -` to manually
+zoom.
+
+Memory: `project_audiveris_pipeline.md` records the Flatpak install
++ /tmp gotcha for future sessions.
+
+---
+
 ## Current state (2026-05-05 evening — giant hex pad in abccomposer + stripchart pane)
 
 The "ABC Composer" toolbar label is now a **♪ button** that toggles the
@@ -927,6 +1001,79 @@ from yesterday's session). Home doesn't need to reinstall.
 
 ## Recent pushes (newest first)
 
+- **2026-05-07 home** — `3f84b5e` `licks: cross-chunk pipe alignment`. Bar
+  widths padded by chunk-position (column 0..3 within a 4-bar row) across
+  all chunks AND both voices, so `|` separators line up vertically not
+  just within a chunk and between V:1/V:2, but across rows of bars too.
+- **2026-05-07 home** — `e3d5a59` `abccomposer: default lineWrapping off
+  (vim ':set wrap' to toggle)`. CodeMirror init gets
+  `lineWrapping: false`; `:set wrap`/`:set nowrap`/`:set wrap!` in vim
+  command line toggles per-buffer.
+- **2026-05-07 home** — `f6f5894` `abccomposer: shrink CodeMirror editor
+  font 14px -> 12px`.
+- **2026-05-07 home** — `a3891c6` `licks: reformat — V:N header on its own
+  line, 4-bar chunks, indented body`. Per-voice layout went from one
+  inline-bracket line to a Python-style block: header on its own line,
+  body indented 4 spaces, 4 bars per source line, `\` continuation.
+  Bar widths padded so `|` separators line up vertically across
+  V:1 ↔ V:2 within each chunk. `build/reflow_licks.py` reflows existing
+  files without re-running OMR (preserves agent edits). The converter
+  emits this format directly for new conversions.
+- **2026-05-07 home** — `010557f` `licks: hybrid octave marker —
+  clef=bass-8 + !8vb! decoration`. abcjs (tablet) ignores ottava
+  decorations, abcm2ps (desktop) draws them. Hybrid keeps both: the
+  small "8" attached to the bass clef (both renderers) AND the dashed
+  bracket spanning the voice (abcm2ps only). Verified abcm2ps doesn't
+  double-shift octave when both markers are present, so bass pitches
+  stay at clef-8 register (`D, F,, G,, A,,`).
+- **2026-05-07 home** — `8d8a61b` `tablet_app: replace lick PNG
+  thumbnails with the source PDF strips`. Card thumbnails in the licks
+  viewer were the original YouTube screen-grabs (1080×340). Replaced
+  with high-res strips extracted from `101_licks_Dmi.pdf` (5416×1020
+  @ 300 DPI) downsampled to 2000px-wide PNG.
+- **2026-05-07 home** — `8a9c009` `tablet_app: refresh licks/abc/ to
+  the latest pipeline output`. Synced 101 ABCs to the abccomposer
+  load path; dropped the stale `tablet_app/.../licks/abc_audiveris/`
+  scratch dir.
+- **2026-05-07 home** — `77ddc1f` `licks: pass-2 — beam breaks at
+  triplet/duration boundaries; ~9 graces`. 7 parallel agents rendered
+  ABC→SVG, compared semantically to the JPEG, added ~557 whitespace
+  breaks at triplet/non-triplet and quarter-eighth boundaries so
+  abcm2ps doesn't merge mismatched beam groups.
+- **2026-05-07 home** — `dd57710` `licks: add fingerings, ties, graces
+  from JPEG inspection (first pass, 4-101)`. 7 parallel agents added
+  ~700 fingerings (`!1!`–`!5!`), several ties, a few fermatas, ~3
+  graces. Audiveris doesn't extract these from the engraved source —
+  hand-added from the high-res strips.
+- **2026-05-07 home** — `de5285d` `licks: bass uses dashed-line 8vb
+  wrap; treble notes adjacent to beam`. Switched bass voice to
+  `clef=bass-8 + !8vb(!...!8vb)!` and concatenated treble tokens
+  (whitespace breaks beams in ABC).
+- **2026-05-07 home** — `c96ebdb` `licks: format licks 2-101 to match
+  the gold-standard lick_001`. M:C, L:1/4, %%pagewidth 8.5in, walking
+  D-F-G-A bass, vertically aligned bars; user-edited `lick_001`
+  preserved verbatim.
+- **2026-05-07 home** — `7492796` `licks: emit %%barsperstaff 4 so each
+  line breaks at 4 measures`.
+- **2026-05-07 home** — `073252a` `licks: emit ABC-spec triplets so
+  abcm2ps accepts every file`. Tuplet groups detected via
+  `note.duration.tuplets` and emitted as `(3X/Y/Z/` brackets with
+  power-of-2 displayed lengths; barline-split tuplets fall back to
+  orphan emission. abcm2ps pass rate 6/101 → 101/101.
+- **2026-05-07 home** — `43fead0` `licks: bundle source JPEG strips
+  alongside the ABC transcriptions`. 5416×1020 @ 300 DPI strips
+  extracted from the PDF via `pdfimages -j`, one per lick, named to
+  match the ABC basenames.
+- **2026-05-07 home** — `eef567d` `licks: relocate Audiveris-OMR ABCs
+  from tablet_app/.../abc_audiveris to ./licks`. Single canonical
+  location at the project root.
+- **2026-05-07 home** — `d8db334` `licks: re-transcribe 101 D-min licks
+  via Audiveris OMR on PDF source`. End-to-end pipeline:
+  `tools/licks_audiveris_pipeline.sh` (Audiveris Flatpak in batch mode)
+  + `tools/audiveris_to_abc.py` (music21 → ABC emitter). Replaces the
+  vision-based YouTube-screenshot transcriptions with engraved-source
+  pitches (cut time → common, 8-bar layout, chromatic accidentals,
+  preserved triplet structure).
 - **2026-05-04 home** — `70b6ba4` `nicene-creed: modal plan in ABC header +
   bar 8 beam fix`. Modal plan persisted as a comment table at the top
   of `abccomposer/examples/nicene-creed.abc` (8 phases mapped to all 7
