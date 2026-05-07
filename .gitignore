@@ -88,3 +88,6 @@ tmp/
 
 # Stripchart screen-record (reference, not source)
 stripchart.mp4
+
+# Audiveris OMR pipeline artifacts (rebuilt by tools/licks_audiveris_pipeline.sh)
+build/
