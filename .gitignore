@@ -91,3 +91,8 @@ stripchart.mp4
 
 # Audiveris OMR pipeline artifacts (rebuilt by tools/licks_audiveris_pipeline.sh)
 build/
+
+# Emacs C-c C-c output for licks (regenerated on demand from .abc)
+licks/*.ps
+licks/*.pdf
+licks/*.mid
