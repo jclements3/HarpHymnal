@@ -1,12 +1,12 @@
 X:1
 T:Lick 97 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
-% 4 bars cut-time. Treble + bass.
-% Grip labels: F Step Grip, G Blues Grip, F Step, F Penta, C Penta, F Step Grip, G Blues
-% Triplet brackets in m1/m4; straight 8ths in middle bars
-[V:1] z2 z2 (3z A _B (3=BAG F D | F G _A =A _B A G F | F C F (3GAB c F G | (3=BcA (3GFE (3DFA (3cdc |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2z/!1!F,,/(3G,,/A,,/_B,,/) | (3!3!A,,/G,,/F,,/)(3G,,/A,,/_A,,/)(3!1!G,,/_A,,/A,,/)(3!2!_A,,/G,,/_A,,/) | (3!3!A,,/_B,,/_A,,/)(3!4!F,,/_A,,/_B,,/)(3!1!C,/_E,/C,/)(3!3!_E,/F,/G,/) | (3!2!A,/_B,/A,/)(3!1!_A,/G,/_A,/)(3!3!D/_A,/G,/)(3_B,/F,/_A,/) | !1!_B,/F,,/_G,,/(3!1!E,,/_F,,/F,,/)(3!2!_G,,/G,,/A,,/)(3!3!_B,,/B,,/_C,/) | (3!4!C,/F,/C,/)(3!1!_C,/_B,,/A,,/)F,,2 | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2             | D,,2 F,,,2                                                   | G,,,2 A,,,2                                              | D,,2 F,,,2                                        | G,,,2 A,,,2                                                | D,,2 F,,,2                     | G,,,2 A,,,2!8vb)! |]

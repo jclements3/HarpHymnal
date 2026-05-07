@@ -1,11 +1,12 @@
 X:1
 T:Lick 72 (D natural minor)
 M:C
-L:1/8
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 2/3 (Medium)
-% Top staff bass clef; F Step Grip; triplet ornaments
-[V:1 clef=bass] z4 z2 (3FAc | (3dcA (3FGA c2 _Bc | (3dcA (3FGA c2 _Bc | (3FGA c2 z4 |
-[V:2 clef=bass]
-D,,4 A,,4 | D,,4 A,,4 | D,,4 A,,4 | D,,4 z4 |
+% Audiveris OMR; level=Medium; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z4          | z/!1!F,,/ (3!4!G,,/A,,/_B,,/ (3!1!C,/D,/!3!E,/ (3!1!F,/G,/!3!A,/ | (3!2!_B,/A,/!1!_A,/ (3G,/F,/D,/ (3F,/G,/_A,/ (3!3!A,/D/!2!A,/ | (3!1!_A,/G,/!2!F,/ (3D,/G,/F,/ (3!1!D,/!2!_D,/!1!C,/ (3!3!B,,/!2!_B,,/!1!A,,/ | A,,4        | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2                                  | G,,,2 A,,,2                                    | D,,2 F,,,2                                         | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

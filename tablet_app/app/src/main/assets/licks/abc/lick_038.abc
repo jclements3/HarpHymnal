@@ -1,11 +1,12 @@
 X:1
 T:Lick 38 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 2/3 (Medium)
-% Continuous triplet eighth-note line, ascending and descending
-z2 z A (3d_Bd) | (3FAd) (3FAd) (3fac') (3a_bc') | (3c'a_b) (3c'_b=B) (3c'a_b) (3afc') |
-[V:2 clef=bass]
-D,,2 A,,,2 | D,,2 A,,,2 | D,,2 A,,,2 |
+% Audiveris OMR; level=Medium; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2 z/ !1!D/ (3F/G/!4!_A/ | (3!1!A/c/A/ (3!3!c/d/f/ (3!2!d/f/g/ (3!3!_a/f/_a/ | (3!3!_B/!1!c/_e/ (3c/_e/f/ (3!2!_a/a/_a/ (3!1!g/f/d/ | (3f/g/f/ d3 | z4          | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2     | D,,2 F,,,2                         | G,,,2 A,,,2                           | D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

@@ -1,12 +1,12 @@
 X:1
 T:Lick 84 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
-% 4 bars cut-time. Treble + bass. "Swing" indicator.
-% Multiple triplet brackets - swing-feel triplet 8ths throughout
-% Treble line in upper register (above middle C)
-[V:1] z2 z2 z2 z A | (3def (3edc (3cAG (3A=BA | (3def (3cAG (3FAc (3dcA | (3GFE (3FGA (3cdc (3AGF |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2z/!1!f/ (3g/c'/!1!g/ | (3!2!f/d/!1!c/ (3g/d/c/ (3G/F/c/ (3G/F/!1!D/ | (3!2!C/G/D/ (3C/G,/F,/ (3C/G,/F,/ (3D,/C,/G,/ | (3!1!D,/C,/_A,,/ (3!2!G,,/F,,/D,,/ (3!1!F,,/G,,/_A,,/ (3!2!G,,/F,,/!1!D,,/ | !2!C,,/D,,D,,3 | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2     | D,,2 F,,,2                       | G,,,2 A,,,2                             | D,,2 F,,,2                                               | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

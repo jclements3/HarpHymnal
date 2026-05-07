@@ -1,12 +1,12 @@
 X:1
 T:Lick 86 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
-% 4 bars cut-time. Both staves bass clef.
-% Grip labels: D Pentatonic Grip, A Pentatonic Grip, G Blues Grip, D Pentatonic Grip
-% Triplet brackets in m3/m4. Pickup 8th-rest then up-line
-[V:1 clef=bass] z2 z2 z2 z A, | A, D F (3GFD (3=BAG F | (3FAc (3dcA (3GAG (3FED | A C (3DFA (3cd=B (3cAF |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z4          | z/!1!D,/F,/G,/ !4!_A,/!1!A,/C/D/ | (3!4!D/4!4!_E/4=E/4 (3!1!D/4!2!C/A,/4 !1!_A,/G,/F,/D,/ A,/G,/ | (3!2!F,/D,/_D,/ (3!1!C,/B,,/!3!_B,,/ !2!A,,/G,/ E,/C,/ | !1!A,,/!2!_A,,/G,,F,,G,,/_A,,/ | !1!=A,,/C,/D,3 | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2             | G,,,2 A,,,2                                 | D,,2 F,,,2                              | G,,,2 A,,,2              | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

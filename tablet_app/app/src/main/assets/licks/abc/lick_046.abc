@@ -1,11 +1,12 @@
 X:1
 T:Lick 46 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 2/3 (Medium)
-% Ascending eighths through both clefs
-z2 z A FAd | A2 dfAFD A, | A,DFA dfac' |
-[V:2 clef=bass]
-D,,2 A,,,2 | D,,2 A,,,2 | A,,2 E,,,2 |
+% Audiveris OMR; level=Medium; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2z/!1!F/G/c/  | !1!G/F/D/C/!2!G/D/C/A,/ | !1!_A,/G,/D/A,/!2!_A,/G,/(3G,/F,/!1!C/ | !2!(3G,/F,/D,/(3C,/G,/D,/(3C,/A,,/_A,,/(3G,,/!1!D,/!3!A,,/ | (3_A,,/G,,/G,,/(3F,,/!1!C,/!2!G,,/F,,/G,,G,, | G,,4       | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2        | G,,,2 A,,,2                   | D,,2 F,,,2                                        | G,,,2 A,,,2                            | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

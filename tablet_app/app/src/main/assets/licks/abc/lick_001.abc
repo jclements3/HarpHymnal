@@ -1,13 +1,12 @@
 X:1
 T:Lick 1 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 1/3 (Easy) - SLOOOW MOTION
-% 4 measures: same lick pattern, repeated. m1 obscured by mascot.
-% Treble: syncopated 8th-note figures around D minor scale; some grace notes / grace chord clusters
-% Bass (clef=bass-8 / octave-down): half notes alternating D-A
-% Pitches approximate; rhythm reflects 8th-rest, 8th-pair, quarter-rest, 8th-pair pattern
-[V:1] z2 {Bc}d2 c2 z A | z2 {Bc}d2 c2 z A | z2 {Bc}d2 c2 z A | z2 {Bc}d2 c2 z A |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Easy; scale=D natural minor; bars=8 Bass: synthesized D-A ostinato (uniform across all 101 licks, octava bassa)
+[V:1            ] z4       | z4        | z/  !5!c/ {!4!_A} !4!=A F D | G F/D/ F/G/ z | z/ c/  {!4!_A} !4!=A  G F/D/ | (3F/G/F/) (3D/C/A,/) C/D/-D- | D2 z2    | z4       |]
+[V:2 clef=bass  ] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2                    | G,,,2 A,,,2     | D,,2 F,,,2                     | G,,2 A,,,2                     | D,,2 G,,,2 | G,,2 A,,,2!8vb)! |]
+ 

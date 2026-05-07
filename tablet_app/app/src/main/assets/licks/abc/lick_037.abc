@@ -1,11 +1,12 @@
 X:1
 T:Lick 37 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 2/3 (Medium)
-% Low-register pickup with low D, F, A then rising pentatonic
-z2 z D, FA | _DDFA dfac' | _ec'a_ec' a_eca |
-[V:2 clef=bass]
-D,,2 A,,,2 | D,,2 A,,,2 | A,,2 E,,,2 |
+% Audiveris OMR; level=Medium; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2 z/ !1!D,/F,/G,/ | !4!_A,/!1!A,/C/D/ F/G/!3!_A/!2!A/ | {!4!d}!1!c/d/ {!4!d}e/g/ e2  | !2!!1![_Ad]/!2!!1![Gd]/ !2!F/!1!D/ C/D/D- | D4          | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2   | D,,2 F,,,2           | G,,,2 A,,,2 | D,,2 F,,,2           | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

@@ -1,11 +1,12 @@
 X:1
 T:Lick 63 (D natural minor)
 M:C
-L:1/8
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 2/3 (Medium)
-% Top staff bass clef; A Pentatonic Grip; both staves move
-[V:1 clef=bass] z4 z2 (3DFA | c2 _B2 c2 d2 | _B2 c2 _B2 A2 | F2 G2 z4 |
-[V:2 clef=bass]
-D,,2 A,,2 D,2 A,,2 | D,,2 A,,2 D,2 A,,2 | D,,2 A,,2 D,2 A,,2 | D,,4 z4 |
+% Audiveris OMR; level=Medium; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2z/!1!G,/!2!_A,/!1!A,/ | !1!CGE/D/C/!1!A,/ | !2!_A,/!1!G,/!2!_G,/!1!F,/ !2!F,/D,/ (3!2!A,/!3!F,/!1!G,/ | F,/4G,/4F,/4D,/4 C,D,/A,,/ (3!2!C,/!1!_D,/!2!D,/ | (3!3!_E,/E,/F,/ (3_G,/G,/_A,/ (3A,/D/A,/ (3_A,/G,/F,/ | D,/!2!F, F,3   | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2    | D,,2 F,,,2  | G,,,2 A,,,2                     | D,,2 F,,,2                            | G,,,2 A,,,2                                     | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

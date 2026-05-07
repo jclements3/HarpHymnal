@@ -1,12 +1,12 @@
 X:1
 T:Lick 5 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 1/3 (Easy) - SLOOOW MOTION (Swing)
-% m1 (cursor): half rest then pickup. Pattern across m2-m4:
-% z (3 8ths) quarter, z (3 8ths) quarter
-% Bass: D-A half notes
-[V:1] z2 z A B c d2 z A B c | d4 z A B c d2 z A | B c d2 z A B c d2 | z A B c d2 z A B c |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Easy; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2 z/!1!A,/C/A,/ | C/D/z z/A,/C/A,/ | C/D/z z/A,/C/!3!D/ | !2!F/G/ (3_A/G/F/ (3D/!1!C/!2!A,/ C/D/ | z/C/ (3A,/[K:bass]G,/_A,/ (3G,/F,/D,/ D,- | D,2    z2  | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2      | D,,2 F,,,2       | G,,,2 A,,,2        | D,,2 F,,,2                             | G,,,2 A,,,2                               | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

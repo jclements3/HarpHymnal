@@ -1,13 +1,12 @@
 X:1
 T:Lick 89 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
-% 4 bars cut-time. Treble + bass.
-% Grip labels: Chromatic Scale, A Pentatonic Grip, Chromatic Scale, D Pentatonic Grip, Chromatic
-% Heavy chromaticism with multiple natural signs and flats
-% Triplet brackets throughout
-[V:1] z2 z2 (3z A _B (3=BcA G F | (3FGA (3cd=B (3c_BA (3GFE | (3DEF (3GAB (3=Bcd (3c=BA | (3GFE D (3DFA (3cd_e d2 |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z4          | z/!1!F/(3_G/G/_A/)(3!1!A/c/d/)(3!4!_e/!4!e/d/) | (3!1!c/A/_A/)(3!1!G/_G/F/)(3!1!E/_E/D/)(3c/A/F/) | (3!1!D/_D/C/)(3B,/_B,/A,/)(3!3!G/E/C/)(3A,/_A,/G,/) | (3!1!_G,/F,/E,/)(3!2!_E,/D,/C/)(3!1!A,/F,/D,/)(3!2!_D,/C,/B,,/) | !1!_B,,/A,,A,,3 | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2                      | G,,,2 A,,,2                         | D,,2 F,,,2                                | G,,,2 A,,,2                                     | D,,2 F,,,2   | G,,,2 A,,,2!8vb)! |]

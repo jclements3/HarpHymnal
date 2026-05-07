@@ -1,11 +1,12 @@
 X:1
 T:Lick 32 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 1/3 (Easy)
-% Triplet figures with chromatic embellishment
-z2 z A (3_BAG) F | (3_BAG) (3FA_B) (3AGF) (3GA_B) | (3AGF) (3=B_BA) (3GFE) (3FED) |
-[V:2 clef=bass]
-D,,2 A,,,2 | D,,2 A,,,2 | D,,2 A,,,2 |
+% Audiveris OMR; level=Easy; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2 z/ {/!1!C}(3!2!_D/!1!D/F/ | (3!4!G/!4!_A/A/ (3G/F/D/ (3F/G/_A/ (3!3!F/!2!_A/_B/ | (3!1!c/!3!_e/c/ (3_e/f/d/ (3!1!f/!2!g/_a/ (3a/g/f/ | (3!1!d/!2!c/A/ c/d d2 | z4          | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2     | D,,2 F,,,2                           | G,,,2 A,,,2                         | D,,2 F,,,2    | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

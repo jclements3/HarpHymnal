@@ -1,11 +1,12 @@
 X:1
 T:Lick 29 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 1/3 (Easy)
-% Triplet fill with B-flat blue note then ascending arpeggio
-z2 z A (3F_BA) | F2 d2 (3c_Bc) d2 | A2 _B/A/F/A/ d4 |
-[V:2 clef=bass]
-D,,2 A,,,2 | D,,2 A,,,2 | D,,2 A,,,2 |
+% Audiveris OMR; level=Easy; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2z/!5!c/ !4!_A/4A/4G/4!4!F/4 | !1!DC/A,/!2!C/!5!_A,/ !4!A,/G,/4!4!F,/4 | !1!D,C,/A,,/_A,,/!2!G,,/ F,,/D,,/ | D,,2z2     | z4          | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2         | D,,2 F,,,2              | G,,,2 A,,,2                | D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

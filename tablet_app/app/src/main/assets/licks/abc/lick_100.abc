@@ -1,12 +1,12 @@
 X:1
 T:Lick 100 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
-% 4 bars cut-time. Treble + bass.
-% Grip labels: A Penta, D Penta, F Penta, G Blues, D Penta, G Blues, F Penta
-% Heavy triplet density (12 triplet 8ths per bar in inner bars)
-[V:1] z2 z2 (3z A c (3def (3edc | (3cAG (3FED (3DFA (3cd_e | (3dcA (3GFE (3DFA (3cd_e | (3dcA (3GFE (3DFA (3cdf |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z/!2!F/(3!4!D/F/G/)(3!1!_A/A/c/)(3!3!A/c/d/) | (3!2!f/d/g/)(3!1!d/f/g/)(3!2!_a/f/_a/)(3!1!a/_a/g/) | (3!2!f/d/f/)(3!1!g/_a/a/)(3!3!_a/g/_a/)(3!2!f/_a/_b/) | (3!1!c/_e/f/)(3!1!f/g/a/)(3!1!_b/a/g/)(3!2!f/e/d/) | (3!1!c/_B/A/)(3!4!_A/G/A/)(3!3!_A/G/F/)!2!D | D2z2       | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2                   | D,,2 F,,,2                          | G,,,2 A,,,2                           | D,,2 F,,,2                         | G,,,2 A,,,2                  | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

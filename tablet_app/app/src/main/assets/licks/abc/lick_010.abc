@@ -1,15 +1,12 @@
 X:1
 T:Lick 10 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 1/3 (Easy)
-% Labels visible: "C Step Grip" - "F Step Grip" - "F Pentatonic Grip" - "A Pentatonic Grip"
-% m1 obscured. m2: half rest + 8th rest + 8th pickup (C step)
-% m3: ascending/descending 8ths with flat (F step)
-% m4: F pent ascending 8ths
-% m5 (off-screen right): A pent
-% Bass: D-A half notes
-[V:1] z4 z2 z A | c d c A G2 z2 | z A c d c A G F | F A c d _e d c A |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Easy; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2 z/!1!C/D/!3!E/  | !1!F/G/A/_B/!1!A/ (3G/F/!2!_A/ | !2!F/_B/_A/!1!A/c/d/e | (3c/d/f/ !3!g/!2!_a/4a/4g/4f/4d/ f/ | d4          | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2           | G,,,2 A,,,2     | D,,2 F,,,2                  | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

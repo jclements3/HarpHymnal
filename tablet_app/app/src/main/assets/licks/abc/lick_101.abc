@@ -1,13 +1,12 @@
 X:1
 T:Lick 101 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing) - FINALE
-% 4 bars cut-time. Treble + bass with 8va dashes.
-% Grip labels: D Pentatonic Grip, A Penta, D Penta, F Penta, C Penta, F Penta, C Penta
-% Full-corpus finale - longest descending run through every grip
-% Mix of triplets and straight 8ths, ending on tonic
-[V:1] z2 z2 (3z A c (3def (3edc | (3cAG (3FED (3CDF (3ACd | (3=Bcd (3cAG (3FED (3CDF | (3GAB (3cAG (3FED (3CDF A2 |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2z/!2!f/(3!1!d/f/g/) | (3!2!a/g/f/)(3!1!d/c/A/)(3!2!d/c/A/)(3!1!G/F/D/) | (3!2!F/G/_A/)(3!1!F/_B/c/)(3!2!_e/f/_a/)!1!_b/c'/!3!_e'/ | (3!3!f'/f'/_a'/)(3!1!_b'/_a'/a'/)(3!2!_b'/a'/g'/)(3!3!f'/e'/d'/) | d'4         | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2    | D,,2 F,,,2                       | G,,,2 A,,,2                            | D,,2 F,,,2                                       | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

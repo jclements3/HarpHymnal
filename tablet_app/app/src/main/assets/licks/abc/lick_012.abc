@@ -1,14 +1,12 @@
 X:1
 T:Lick 12 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 1/3 (Easy) - SLOOOW MOTION
-% Label: "G Blues Grip"
-% Both staves bass clef
-% m1 obscured. m2-m4: continuous 8th line with triplet figures, blues scale shape on G
-% (G blues: G B♭ C D♭ D F)
-% Bass: D-A half notes
-[V:1 clef=bass] z A, z A, (3G, _B, C (3D, _D, D, F, | (3G, _B, C (3D, _D, D, F, G, _B, | (3G, _B, C (3D, _D, D, F, G, _B, | C (3D, _D, D, F, G, _B, C D, |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Easy; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2 z/!1!G,,/ (3_A,,/A,,/D,/ | (3G,,/_A,,/A,,/ (3D,/G,,/_A,,/ (3A,,/D,/G,,/ (3_A,,/A,,/D,/ | (3G,,/_A,,/A,,/ (3D,/G,,/_A,,/ (3!1!A,,/!2!_A,,/G,,/ (3F,,/D,,/F,,/ | (3G,,/F,,/D,,/ (3F,,/G,,/_A,,/ (3A,,/D,/!3!A,,/ (3!2!_A,,/G,,/_A,,/ | (3!3!A,,/C,/D,/ (3!2!A,,/C,/D,/ (3F,/G,/_A,/ (3G,/F,/D,/ | F,/D, D,3   | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2            | D,,2 F,,,2                                               | G,,,2 A,,,2                                                | D,,2 F,,,2                                                 | G,,,2 A,,,2                                     | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

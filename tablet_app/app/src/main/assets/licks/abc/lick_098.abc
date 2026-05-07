@@ -1,12 +1,12 @@
 X:1
 T:Lick 98 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION (Swing)
-% 4 bars cut-time. Treble + bass with 8va dashes (octave-up).
-% Grip labels: G Blues Grip, D Penta, G Blues Grip, D Penta, G Blues Grip
-% Repeating cell: blues lick + D-penta tag with triplets
-[V:1] z2 z2 (3z A _B (3=Bcd c A | (3GFE D F D2 z (3z A _B | (3=Bcd c A G F D2 | z A _B (3=Bcd c A G F |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2zz/!1!g/     | (3!1!_a/a/d'/)(3!2!a/_a/g/)f/dz | z/!1!g/(3!1!_a/a/d'/)(3!2!a/_a/g/)f/d | z/!2!_a/(3!1!a/_a/g/)!2!f/d/!1!c/(3!3!A/A/_A/) | (3!1!g/_a/a/)(3!2!_a/g/f/)d(3!1!f/d/c/) | (3!3!A/A/_A/)(3!1!G/F/D/)D2 | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2              | G,,,2 A,,,2                | D,,2 F,,,2                    | G,,,2 A,,,2                 | D,,2 F,,,2          | G,,,2 A,,,2!8vb)! |]

@@ -1,12 +1,12 @@
 X:1
 T:Lick 81 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 3/3 (Advanced) - SLOOOW MOTION
-% 4 bars cut-time. Treble + bass.
-% Multiple triplet brackets across m2-m4; eighth-note runs ascending and descending
-% Treble line lives mid-register (mostly above middle C)
-[V:1] z2 z2 (3z A c (3d c A | (3GFE D F (3A c d (3c A G | F (3DFA c (3d=Bc d (3cAG | (3FGA d c A F2 z |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2zz/!1!D,,/   | (3!4!F,,/G,,/_A,,/ (3!1!A,,/C,/D,/ (3E,/D,/C,/ (3A,,/C,/!3!D,/ | (3!2!F,/D,/G,/ (3D,/F,/!3!G,/ (3_A,/F,/!2!_B,/ (3F,/_A,/A,/ | (3!1!C/D/_E/ (3=E/D/C/ (3A,/_A,/G,/ (3_A,/A,/A,/ | (3C/A,/E/ (3D/F/D/ (3A/A/c/ (3!4!A/c/!1!d/ | d4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2                                         | G,,,2 A,,,2                                     | D,,2 F,,,2                                | G,,,2 A,,,2                       | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]

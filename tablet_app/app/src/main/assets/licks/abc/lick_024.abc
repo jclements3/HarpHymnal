@@ -1,13 +1,12 @@
 X:1
 T:Lick 24 (D natural minor)
-M:4/4
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
+%%pagewidth 8.5in
+%%barsperstaff 4
 K:Dm
-% LEVEL 1/3 (Easy) - SLOOOW MOTION (Swing)
-% m1 obscured/cursor: half rest, 8th rest, triplet pickup
-% m2-m3: triplet 8ths flowing through D minor pentatonic
-% m4: descending with flat (blue note A♭)
-% Bass: D-A half notes
-[V:1] z4 z2 (3A c d | (3f a c' (3a f d (3c A F (3D F A | (3c d f (3a c' d' (3c' a f (3d c A | F (3_e d c A F D2 z2 |]
-[V:2 clef=bass] D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 | D,2 A,2 D,2 A,2 |]
+% Audiveris OMR; level=Easy; scale=D natural minor; bars=8
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1          ] z4               | z2z/{/c}[Dc]/ (3_A/G/F/ | !3!D/!2!{/c}[Dc]/ (3_A/G/F/ (3D/F/G/ (3_A/F/_B/ | (3F/_A/_B/ (3!1!c/_e/f/ (3_a/a/_a/ (3!2!g/f/d/ | (3!1!c/A/c/ A3 | z4          | z4         | z4                |]
+[V:2 clef=bass] !8vb(!D,,2 F,,,2 | G,,,2 A,,,2        | D,,2 F,,,2                         | G,,,2 A,,,2                           | D,,2 F,,,2 | G,,,2 A,,,2 | D,,2 F,,,2 | G,,,2 A,,,2!8vb)! |]
