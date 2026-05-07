@@ -168,9 +168,17 @@ def align_voices(treble_bars: list[str], bass_bars: list[str],
     n = max(len(treble_bars), len(bass_bars))
     treble_bars = treble_bars + [""] * (n - len(treble_bars))
     bass_bars = bass_bars + [""] * (n - len(bass_bars))
+    # Pad each chunk-position (column within a row of bars_per_line bars)
+    # to max width across all chunks AND both voices, so the | separators
+    # line up vertically both within a chunk and across chunks.
+    col_widths = [0] * bars_per_line
+    for p in range(bars_per_line):
+        for i in range(p, n, bars_per_line):
+            col_widths[p] = max(col_widths[p], len(treble_bars[i]),
+                                len(bass_bars[i]))
     padded_t, padded_b = [], []
-    for tb, bb in zip(treble_bars, bass_bars):
-        w = max(len(tb), len(bb))
+    for i, (tb, bb) in enumerate(zip(treble_bars, bass_bars)):
+        w = col_widths[i % bars_per_line]
         padded_t.append(tb.ljust(w))
         padded_b.append(bb.ljust(w))
 
