@@ -214,6 +214,7 @@ def convert(mxl_path: Path, lick_num: int, level: str, scale: str) -> str:
     abc.append(f"L:1/8")
     abc.append(f"Q:1/4=80")
     abc.append(f"%%pagewidth 30cm")
+    abc.append(f"%%barsperstaff 4")
     abc.append(f"K:{key_str}")
     abc.append(f"% Audiveris OMR; level={level}; scale={scale}; bars={n_bars}")
     abc.append(f"% Bass: synthesized D-A ostinato (uniform across all 101 licks, octava bassa)")
