@@ -146,13 +146,15 @@ def count_bars(part) -> int:
 
 def synth_bass_bars(num_bars: int) -> list[str]:
     """At L:1/4 the bass walks D->F (bar n) then G->A (bar n+1), repeating.
-    Written one octave lower than the engraved pitches because the !8vb!
-    decoration wraps the voice — that produces the dashed-line octava-bassa
-    bracket seen in the source PDF rather than the small clef-attached '8'
-    that 'clef=bass-8' yields."""
+    The voice uses 'clef=bass-8' (octave-down clef, small '8' subscript on
+    the clef glyph — rendered by BOTH abcjs and abcm2ps) AND wraps the
+    notes in !8vb(!...!8vb)! (the dashed-line octava-bassa bracket — only
+    rendered by abcm2ps; abcjs silently ignores ottava decorations).
+    abcm2ps treats !8vb! as visual-only, so the two markers don't compound
+    the octave shift — pitches stay at the standard clef-8 register."""
     if num_bars <= 0:
         num_bars = 4
-    pattern = ["D,,2 F,,,2", "G,,,2 A,,,2"]
+    pattern = ["D,2 F,,2", "G,,2 A,,2"]
     return [pattern[i % 2] for i in range(num_bars)]
 
 
@@ -225,7 +227,7 @@ def convert(mxl_path: Path, lick_num: int, level: str, scale: str) -> str:
     if bass_bars:
         bass_bars[0] = "!8vb(!" + bass_bars[0]
         bass_bars[-1] = bass_bars[-1] + "!8vb)!"
-    v1, v2 = align_voices(treble_bars, bass_bars, "V:1", "V:2 clef=bass")
+    v1, v2 = align_voices(treble_bars, bass_bars, "V:1", "V:2 clef=bass-8")
 
     abc = []
     abc.append(f"X:1")
