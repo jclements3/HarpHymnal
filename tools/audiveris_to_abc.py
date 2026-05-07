@@ -40,15 +40,18 @@ def m21_pitch_to_abc(p) -> str:
     return pitch
 
 
-def quarter_to_abc_len(qlen: Fraction, unit: Fraction = Fraction(1, 2)) -> str:
-    """Convert quarter-length to ABC length suffix relative to L=1/8 (unit=1/2 quarter).
-    Returns the multiplier as a string ('' for 1, '2' for 2, etc.)."""
+def quarter_to_abc_len(qlen: Fraction, unit: Fraction = Fraction(1, 1)) -> str:
+    """Convert quarter-length to ABC length suffix.
+    With unit=1 quarter (L:1/4): 1 -> '' (default), 2 -> '2', 1/2 -> '/',
+    1/4 -> '//', 3/4 -> '3/4', etc."""
     qlen = Fraction(qlen).limit_denominator(48)
     n = qlen / unit
     if n == 1:
         return ""
     if n.denominator == 1:
         return str(n.numerator)
+    if n.numerator == 1 and n.denominator == 2:
+        return "/"
     if n.numerator == 1:
         return f"/{n.denominator}"
     return f"{n.numerator}/{n.denominator}"
@@ -76,11 +79,8 @@ def tuplet_of(el):
     return None
 
 
-def voice_to_abc(part, unit) -> str:
-    """Emit measures for one part: 'tok tok tok | tok tok |] '.
-    Detects tuplet groups (note.duration.tuplets) and emits them as ABC
-    (N brackets so the visible note lengths are power-of-2 — abcm2ps rejects
-    non-power-of-2 length divisors like '2/3'."""
+def voice_bars(part, unit) -> list[str]:
+    """Emit one ABC content string per measure (no '|' separators yet)."""
     bars = []
     measures = part.getElementsByClass(stream.Measure)
     for m in measures:
@@ -88,7 +88,7 @@ def voice_to_abc(part, unit) -> str:
         try:
             elements = list(m.flatten().notesAndRests)
         except Exception:
-            bars.append("z8")
+            bars.append("z4")
             continue
         i = 0
         while i < len(elements):
@@ -119,8 +119,6 @@ def voice_to_abc(part, unit) -> str:
                     toks.append(f"({actual}" + " ".join(inner_toks))
                     i = j
                     continue
-                # Incomplete tuplet group (split across barline by music21):
-                # emit each as orphan with displayed length, no bracket.
                 for g in group:
                     try:
                         displayed = Fraction(g.quarterLength) * ratio
@@ -138,23 +136,39 @@ def voice_to_abc(part, unit) -> str:
             if t:
                 toks.append(t)
             i += 1
-        bars.append(" ".join(toks) if toks else "z8")
-    if not bars:
-        return ""
-    return " | ".join(bars) + " |]"
+        bars.append(" ".join(toks) if toks else "z4")
+    return bars
 
 
 def count_bars(part) -> int:
     return len(list(part.getElementsByClass(stream.Measure)))
 
 
-def synth_bass(num_bars: int) -> str:
-    """All 101 licks share a D-A half-note ostinato in cut time, octava bassa.
-    With clef=bass-8 the written D, sounds an octave below D3 (= D2)."""
+def synth_bass_bars(num_bars: int) -> list[str]:
+    """At L:1/4 the bass walks D->F (bar n) then G->A (bar n+1), repeating.
+    Octava-bassa clef so written D, sounds D2."""
     if num_bars <= 0:
         num_bars = 4
-    one = "D,2 A,,2"
-    return " | ".join([one] * num_bars) + " |]"
+    pattern = ["D,2 F,,2", "G,,2 A,,2"]
+    return [pattern[i % 2] for i in range(num_bars)]
+
+
+def align_voices(treble_bars: list[str], bass_bars: list[str],
+                 v1_header: str, v2_header: str) -> tuple[str, str]:
+    """Pad both voices so bar separators line up vertically and the [V:N ...]
+    headers are equal-width."""
+    n = max(len(treble_bars), len(bass_bars))
+    treble_bars = treble_bars + [""] * (n - len(treble_bars))
+    bass_bars = bass_bars + [""] * (n - len(bass_bars))
+    padded_t, padded_b = [], []
+    for tb, bb in zip(treble_bars, bass_bars):
+        w = max(len(tb), len(bb))
+        padded_t.append(tb.ljust(w))
+        padded_b.append(bb.ljust(w))
+    head_w = max(len(v1_header), len(v2_header))
+    v1 = f"[{v1_header.ljust(head_w)}] " + " | ".join(padded_t) + " |]"
+    v2 = f"[{v2_header.ljust(head_w)}] " + " | ".join(padded_b) + " |]"
+    return v1, v2
 
 
 def detect_meter(score) -> str:
@@ -185,9 +199,8 @@ def convert(mxl_path: Path, lick_num: int, level: str, scale: str) -> str:
     if not parts:
         raise SystemExit(f"No parts in {mxl_path}")
 
-    meter_str = detect_meter(score)
     key_str = detect_key(score)
-    unit = Fraction(1, 2)  # L:1/8
+    unit = Fraction(1, 1)  # L:1/4
 
     if len(parts) >= 2:
         treble_part, bass_part = parts[0], parts[1]
@@ -203,23 +216,24 @@ def convert(mxl_path: Path, lick_num: int, level: str, scale: str) -> str:
             else:
                 treble_part, bass_part = only, None
 
-    treble_abc = voice_to_abc(treble_part, unit)
+    treble_bars = voice_bars(treble_part, unit)
     n_bars = count_bars(treble_part)
-    bass_abc = synth_bass(n_bars)
+    bass_bars = synth_bass_bars(n_bars)
+    v1, v2 = align_voices(treble_bars, bass_bars, "V:1", "V:2 clef=bass-8")
 
     abc = []
     abc.append(f"X:1")
     abc.append(f"T:Lick {lick_num} (D natural minor)")
-    abc.append(f"M:{meter_str}")
-    abc.append(f"L:1/8")
+    abc.append(f"M:C")
+    abc.append(f"L:1/4")
     abc.append(f"Q:1/4=80")
-    abc.append(f"%%pagewidth 30cm")
+    abc.append(f"%%pagewidth 8.5in")
     abc.append(f"%%barsperstaff 4")
     abc.append(f"K:{key_str}")
     abc.append(f"% Audiveris OMR; level={level}; scale={scale}; bars={n_bars}")
-    abc.append(f"% Bass: synthesized D-A ostinato (uniform across all 101 licks, octava bassa)")
-    abc.append(f"[V:1] {treble_abc}")
-    abc.append(f"[V:2 clef=bass-8] {bass_abc}")
+    abc.append(f"% Bass: synthesized D-F-G-A walk (octava bassa)")
+    abc.append(v1)
+    abc.append(v2)
     return "\n".join(abc) + "\n"
 
 

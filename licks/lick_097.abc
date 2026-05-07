@@ -1,12 +1,12 @@
 X:1
 T:Lick 97 (D natural minor)
-M:C|
-L:1/8
+M:C
+L:1/4
 Q:1/4=80
-%%pagewidth 30cm
+%%pagewidth 8.5in
 %%barsperstaff 4
 K:Dm
 % Audiveris OMR; level=Advanced; scale=D natural minor; bars=8
-% Bass: synthesized D-A ostinato (uniform across all 101 licks, octava bassa)
-[V:1] z8 | z4 z F,, (3G,, A,, _B,, | (3A,, G,, F,, (3G,, A,, _A,, (3G,, _A,, A,, (3_A,, G,, _A,, | (3A,, _B,, _A,, (3F,, _A,, _B,, (3C, _E, C, (3_E, F, G, | (3A, _B, A, (3_A, G, _A, (3D _A, G, (3_B, F, _A, | _B, F,, _G,, (3E,, _F,, F,, (3_G,, G,, A,, (3_B,, B,, _C, | (3C, F, C, (3_C, _B,, A,, F,,4 | z8 |]
-[V:2 clef=bass-8] D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 |]
+% Bass: synthesized D-F-G-A walk (octava bassa)
+[V:1            ] z4       | z2 z/ F,,/ (3G,,/ A,,/ _B,,/ | (3A,,/ G,,/ F,,/ (3G,,/ A,,/ _A,,/ (3G,,/ _A,,/ A,,/ (3_A,,/ G,,/ _A,,/ | (3A,,/ _B,,/ _A,,/ (3F,,/ _A,,/ _B,,/ (3C,/ _E,/ C,/ (3_E,/ F,/ G,/ | (3A,/ _B,/ A,/ (3_A,/ G,/ _A,/ (3D/ _A,/ G,/ (3_B,/ F,/ _A,/ | _B,/ F,,/ _G,,/ (3E,,/ _F,,/ F,,/ (3_G,,/ G,,/ A,,/ (3_B,,/ B,,/ _C,/ | (3C,/ F,/ C,/ (3_C,/ _B,,/ A,,/ F,,2 | z4        |]
+[V:2 clef=bass-8] D,2 F,,2 | G,,2 A,,2                    | D,2 F,,2                                                                | G,,2 A,,2                                                           | D,2 F,,2                                                     | G,,2 A,,2                                                             | D,2 F,,2                             | G,,2 A,,2 |]
