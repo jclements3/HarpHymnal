@@ -43,6 +43,16 @@ ALTERATION = {
     4: {'Ionian':' b6','Dorian':' b5','Phrygian':' b4','Lydian':' b3',
         'Mixolydian':' b2','Aeolian':' b1','Locrian':' b7'},
 }
+
+# Compact-notation digit per (family, mode): 0 = unaltered (F1),
+# else the altered scale degree relative to F1 (sharp in F2/F3, flat in F4).
+DIGIT = {
+    1: {mode: 0 for mode in MODES},
+    2: {'Ionian':1,'Dorian':7,'Phrygian':6,'Lydian':5,'Mixolydian':4,'Aeolian':3,'Locrian':2},
+    3: {'Ionian':5,'Dorian':4,'Phrygian':3,'Lydian':2,'Mixolydian':1,'Aeolian':7,'Locrian':6},
+    4: {'Ionian':6,'Dorian':5,'Phrygian':4,'Lydian':3,'Mixolydian':2,'Aeolian':1,'Locrian':7},
+}
+
 LETTERS = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 LETTER_PC = {'C': 0, 'D': 2, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'B': 11}
 ACC_OFF = {'f': -1, 'n': 0, 's': 1}
@@ -128,9 +138,10 @@ def col_label(col):
 PAGE = landscape(letter)
 W, H = PAGE
 
-out_path = '/mnt/user-data/outputs/pedals_matrix.pdf'
 import os
-os.makedirs('/mnt/user-data/outputs', exist_ok=True)
+_outdir = os.environ.get('PEDAL_OUT_DIR', '/mnt/user-data/outputs')
+os.makedirs(_outdir, exist_ok=True)
+out_path = os.path.join(_outdir, 'pedals_matrix.pdf')
 c = canvas.Canvas(out_path, pagesize=PAGE)
 
 margin = 30
@@ -178,7 +189,7 @@ def draw_page(families):
         for mode in MODES:
             rot_idx = ROTATION_INDEX[fam][mode]
             pcs = rotate(parent, rot_idx)
-            row_label = mode + ALTERATION[fam][mode]
+            row_label = f'{mode}{DIGIT[fam][mode]}'
             c.setFont('FreeMono', font_size)
             c.drawString(margin, y, row_label)
             for j, col in enumerate(COLUMNS):

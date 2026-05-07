@@ -16,7 +16,10 @@ PAGE = letter  # portrait, easier for multi-page reading
 W, H = PAGE
 MARGIN = 50
 LINE_H = 14
-out_path = '/mnt/user-data/outputs/improv_guide.pdf'
+import os as _os
+_outdir = _os.environ.get('PEDAL_OUT_DIR', '/mnt/user-data/outputs')
+_os.makedirs(_outdir, exist_ok=True)
+out_path = _os.path.join(_outdir, 'improv_guide.pdf')
 c = canvas.Canvas(out_path, pagesize=PAGE)
 
 # ============================================================
@@ -47,6 +50,13 @@ ALTERATION = {
         'Mixolydian':' #1','Aeolian':' #7','Locrian':' #6'},
     4: {'Ionian':' b6','Dorian':' b5','Phrygian':' b4','Lydian':' b3',
         'Mixolydian':' b2','Aeolian':' b1','Locrian':' b7'},
+}
+
+DIGIT = {
+    1: {m: 0 for m in ['Ionian','Dorian','Phrygian','Lydian','Mixolydian','Aeolian','Locrian']},
+    2: {'Ionian':1,'Dorian':7,'Phrygian':6,'Lydian':5,'Mixolydian':4,'Aeolian':3,'Locrian':2},
+    3: {'Ionian':5,'Dorian':4,'Phrygian':3,'Lydian':2,'Mixolydian':1,'Aeolian':7,'Locrian':6},
+    4: {'Ionian':6,'Dorian':5,'Phrygian':4,'Lydian':3,'Mixolydian':2,'Aeolian':1,'Locrian':7},
 }
 
 LEFT_DOT  = {'f': 0, 'n': 1, 's': 2}
@@ -596,7 +606,7 @@ def draw_family_overview(fam, y):
          'FreeMonoBold', 10)
     y -= 13
     for mode in BRIGHTNESS_ORDER:
-        full_name = mode + ALTERATION[fam][mode]
+        full_name = f'{mode}{DIGIT[fam][mode]}'
         rot_idx = ROTATION_INDEX[fam][mode]
         pcs = rotate(PARENTS[fam], rot_idx)
         pat = pattern_string(pcs)
@@ -614,8 +624,8 @@ def draw_mode_entry(fam, mode, y):
     Avoid orphan headers: only place the title when room exists for at least
     the title + 4 body lines."""
     desc = get_desc(fam, mode)
-    full_name = mode + ALTERATION[fam][mode]
     tonic_label, accs, pcs = best_tonic_spelling(fam, mode)
+    full_name = f'{mode}{DIGIT[fam][mode]}{tonic_label.lower()}'
     tonic_letter = tonic_label[0]
     notes = notes_for_scale(accs, tonic_letter)
     pedal = braille_pedal(accs)
@@ -771,7 +781,7 @@ def draw_matrix_page(families):
         for mode in ['Ionian','Dorian','Phrygian','Lydian','Mixolydian','Aeolian','Locrian']:
             rot_idx = ROTATION_INDEX[fam][mode]
             pcs = rotate(PARENTS[fam], rot_idx)
-            row_label = mode + ALTERATION[fam][mode]
+            row_label = f'{mode}{DIGIT[fam][mode]}'
             c.setFont('FreeMono', fs)
             c.drawString(margin_l, y, row_label)
             for j, col in enumerate(MATRIX_COLUMNS):
