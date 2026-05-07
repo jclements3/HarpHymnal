@@ -7,6 +7,15 @@ from reportlab.pdfbase.ttfonts import TTFont
 
 pdfmetrics.registerFont(TTFont('FreeMono', '/usr/share/fonts/truetype/freefont/FreeMono.ttf'))
 pdfmetrics.registerFont(TTFont('FreeMonoBold', '/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf'))
+# Braille glyphs (U+2800-283F) aren't in FreeMono on this build host;
+# JuliaMono has them and is monospace, so we register it for braille cells.
+import os.path as _osp
+_julia_path = _osp.expanduser('~/.local/share/fonts/JuliaMono-Regular.ttf')
+if _osp.isfile(_julia_path):
+    pdfmetrics.registerFont(TTFont('BrailleMono', _julia_path))
+    BRAILLE_FONT = 'BrailleMono'
+else:
+    BRAILLE_FONT = 'FreeMono'
 
 PARENTS = {
     1: [0, 2, 4, 5, 7, 9, 11],
@@ -200,7 +209,7 @@ def draw_page(families):
                     c.drawString(cx, y, '----')
                 else:
                     braille = braille_pedal(accs)
-                    c.setFont('FreeMono', braille_size)
+                    c.setFont(BRAILLE_FONT, braille_size)
                     c.drawString(cx, y, braille)
                     if (tL, tA) != col:
                         c.setFont('FreeMono', font_size)

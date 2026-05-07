@@ -11,6 +11,13 @@ from reportlab.pdfbase.ttfonts import TTFont
 pdfmetrics.registerFont(TTFont('FreeMono', '/usr/share/fonts/truetype/freefont/FreeMono.ttf'))
 pdfmetrics.registerFont(TTFont('FreeMonoBold', '/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf'))
 pdfmetrics.registerFont(TTFont('FreeMonoOblique', '/usr/share/fonts/truetype/freefont/FreeMonoOblique.ttf'))
+import os.path as _osp
+_julia_path = _osp.expanduser('~/.local/share/fonts/JuliaMono-Regular.ttf')
+if _osp.isfile(_julia_path):
+    pdfmetrics.registerFont(TTFont('BrailleMono', _julia_path))
+    BRAILLE_FONT = 'BrailleMono'
+else:
+    BRAILLE_FONT = 'FreeMono'
 
 PAGE = letter  # portrait, easier for multi-page reading
 W, H = PAGE
@@ -676,7 +683,7 @@ def draw_mode_entry(fam, mode, y):
     y -= 14
 
     text(col1_x, y, tonic_label + " pedals:", 'FreeMonoBold', 10)
-    text(val_x, y,   pedal, 'FreeMono', 16)
+    text(val_x, y,   pedal, BRAILLE_FONT, 16)
     y -= 18
 
     # Separator
@@ -792,7 +799,7 @@ def draw_matrix_page(families):
                     c.drawString(cx, y, '----')
                 else:
                     bp = matrix_braille_pedal(accs2)
-                    c.setFont('FreeMono', braille_size)
+                    c.setFont(BRAILLE_FONT, braille_size)
                     c.drawString(cx, y, bp)
                     if (tL, tA) != col:
                         c.setFont('FreeMono', fs)
