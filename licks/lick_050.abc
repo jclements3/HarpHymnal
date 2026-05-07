@@ -3,8 +3,9 @@ T:Lick 50 (D natural minor)
 M:4/4
 L:1/8
 Q:1/4=80
+%%pagewidth 30cm
 K:Dm
 % Audiveris OMR; level=Medium; scale=D natural minor; bars=8
 % Bass: synthesized D-A ostinato (uniform across all 101 licks, octava bassa)
-[V:1] z8 | z8 | z D,, F,, G,, _A,, A,, C, A,, | D, C, A,, _A,, G,, D, G,,2/3 _A,,2/3 A,,2/3 | C,2/3 D,2/3 _E,2/3 D,2/3 F,2/3 G,2/3 _A,2/3 A,2/3 C2/3 D _E E | D2/3 C2/3 A,2/3 C2/3 A,2/3 _A,2/3 G,2/3 _G,2/3 F,2/3 E,2/3 _E,2/3 D,2/3 | D,8 | z8 |]
+[V:1] z8 | z8 | z D,, F,, G,, _A,, A,, C, A,, | D, C, A,, _A,, G,, D, (3G,, _A,, A,, | (3C, D, _E, (3D, F, G, (3_A, A, C D _E E | (3D C A, (3C A, _A, (3G, _G, F, (3E, _E, D, | D,8 | z8 |]
 [V:2 clef=bass-8] D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 | D,2 A,,2 |]

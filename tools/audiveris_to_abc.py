@@ -54,42 +54,94 @@ def quarter_to_abc_len(qlen: Fraction, unit: Fraction = Fraction(1, 2)) -> str:
     return f"{n.numerator}/{n.denominator}"
 
 
-def emit_element(el, unit) -> str:
-    """One note/rest/chord -> ABC token."""
+def emit_element(el, unit, qlen_override=None) -> str:
+    """One note/rest/chord -> ABC token. qlen_override sets displayed length
+    (used when emitting inside an (N tuplet bracket so the visual length
+    becomes a power of 2 instead of e.g. 2/3)."""
+    qlen = qlen_override if qlen_override is not None else el.quarterLength
     if isinstance(el, note.Rest):
-        return f"z{quarter_to_abc_len(el.quarterLength, unit)}"
+        return f"z{quarter_to_abc_len(qlen, unit)}"
     if isinstance(el, chord.Chord) and not isinstance(el, note.Note):
         ps = sorted(el.pitches, key=lambda p: p.ps)
         body = "".join(m21_pitch_to_abc(p) for p in ps)
-        return f"[{body}]{quarter_to_abc_len(el.quarterLength, unit)}"
+        return f"[{body}]{quarter_to_abc_len(qlen, unit)}"
     if isinstance(el, note.Note):
-        return f"{m21_pitch_to_abc(el.pitch)}{quarter_to_abc_len(el.quarterLength, unit)}"
+        return f"{m21_pitch_to_abc(el.pitch)}{quarter_to_abc_len(qlen, unit)}"
     return ""
 
 
+def tuplet_of(el):
+    if hasattr(el, "duration") and el.duration.tuplets:
+        return el.duration.tuplets[0]
+    return None
+
+
 def voice_to_abc(part, unit) -> str:
-    """Emit measures for one part: 'tok tok tok | tok tok |] '."""
+    """Emit measures for one part: 'tok tok tok | tok tok |] '.
+    Detects tuplet groups (note.duration.tuplets) and emits them as ABC
+    (N brackets so the visible note lengths are power-of-2 — abcm2ps rejects
+    non-power-of-2 length divisors like '2/3'."""
     bars = []
     measures = part.getElementsByClass(stream.Measure)
     for m in measures:
         toks = []
         try:
-            flat = m.flatten().notesAndRests
+            elements = list(m.flatten().notesAndRests)
         except Exception:
             bars.append("z8")
             continue
-        for el in flat:
+        i = 0
+        while i < len(elements):
+            el = elements[i]
+            tup = tuplet_of(el)
+            if tup is not None:
+                actual = tup.numberNotesActual or 3
+                normal = tup.numberNotesNormal or 2
+                ratio = Fraction(actual, normal)
+                group = []
+                j = i
+                while j < len(elements) and len(group) < actual:
+                    if tuplet_of(elements[j]) is not None:
+                        group.append(elements[j])
+                        j += 1
+                    else:
+                        break
+                if len(group) == actual:
+                    inner_toks = []
+                    for g in group:
+                        try:
+                            displayed = Fraction(g.quarterLength) * ratio
+                            t = emit_element(g, unit, qlen_override=displayed)
+                        except Exception:
+                            t = ""
+                        if t:
+                            inner_toks.append(t)
+                    toks.append(f"({actual}" + " ".join(inner_toks))
+                    i = j
+                    continue
+                # Incomplete tuplet group (split across barline by music21):
+                # emit each as orphan with displayed length, no bracket.
+                for g in group:
+                    try:
+                        displayed = Fraction(g.quarterLength) * ratio
+                        t = emit_element(g, unit, qlen_override=displayed)
+                    except Exception:
+                        t = ""
+                    if t:
+                        toks.append(t)
+                i = j
+                continue
             try:
                 t = emit_element(el, unit)
             except Exception:
                 t = ""
             if t:
                 toks.append(t)
+            i += 1
         bars.append(" ".join(toks) if toks else "z8")
     if not bars:
         return ""
-    body = " | ".join(bars)
-    return body + " |]"
+    return " | ".join(bars) + " |]"
 
 
 def count_bars(part) -> int:
@@ -161,6 +213,7 @@ def convert(mxl_path: Path, lick_num: int, level: str, scale: str) -> str:
     abc.append(f"M:{meter_str}")
     abc.append(f"L:1/8")
     abc.append(f"Q:1/4=80")
+    abc.append(f"%%pagewidth 30cm")
     abc.append(f"K:{key_str}")
     abc.append(f"% Audiveris OMR; level={level}; scale={scale}; bars={n_bars}")
     abc.append(f"% Bass: synthesized D-A ostinato (uniform across all 101 licks, octava bassa)")
