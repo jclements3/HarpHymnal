@@ -8,5 +8,9 @@ Q:1/4=80
 K:Dm
 % Audiveris OMR; level=Easy; scale=D natural minor; bars=8
 % Bass: synthesized D-F-G-A walk (octava bassa)
-[V:1          ] z4               | z2 z/!1!G/_A/A/ | d/A/_A/!2!G/ F/D/G/F/ | !1!D/C/A,/!2!D/ C/A,/_A,/G,/ | !1!_A,/A,/D/A,/ !2!_A,/G,/F,/D,/ | !1!F,/!2!G,/ G,3   | z4         | z4                |]
-[V:2 clef=bass-8] !8vb(!D,2 F,,2 | G,,2 A,,2 | D,2 F,,2        | G,,2 A,,2           | D,2 F,,2                | G,,2 A,,2 | D,2 F,,2 | G,,2 A,,2!8vb)! |]
+V:1
+    z4             | z2 z/!1!G/_A/A/ | d/A/_A/!2!G/ F/D/G/F/ | !1!D/C/A,/!2!D/ C/A,/_A,/G,/ |\
+    !1!_A,/A,/D/A,/ !2!_A,/G,/F,/D,/ | !1!F,/!2!G,/ G,3 | z4       | z4              |]
+V:2 clef=bass-8
+    !8vb(!D,2 F,,2 | G,,2 A,,2       | D,2 F,,2              | G,,2 A,,2                    |\
+    D,2 F,,2                         | G,,2 A,,2        | D,2 F,,2 | G,,2 A,,2!8vb)! |]

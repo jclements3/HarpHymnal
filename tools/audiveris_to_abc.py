@@ -159,9 +159,12 @@ def synth_bass_bars(num_bars: int) -> list[str]:
 
 
 def align_voices(treble_bars: list[str], bass_bars: list[str],
-                 v1_header: str, v2_header: str) -> tuple[str, str]:
-    """Pad both voices so bar separators line up vertically and the [V:N ...]
-    headers are equal-width."""
+                 v1_header: str, v2_header: str,
+                 bars_per_line: int = 4,
+                 indent: str = "    ") -> tuple[str, str]:
+    """Emit each voice as 'V:N ...\\n    bar | bar | bar | bar |\\\\\\n    ...'
+    Bar widths are padded to max(treble, bass) per bar position so '|'
+    separators line up vertically across V:1 and V:2 within each chunk."""
     n = max(len(treble_bars), len(bass_bars))
     treble_bars = treble_bars + [""] * (n - len(treble_bars))
     bass_bars = bass_bars + [""] * (n - len(bass_bars))
@@ -170,10 +173,18 @@ def align_voices(treble_bars: list[str], bass_bars: list[str],
         w = max(len(tb), len(bb))
         padded_t.append(tb.ljust(w))
         padded_b.append(bb.ljust(w))
-    head_w = max(len(v1_header), len(v2_header))
-    v1 = f"[{v1_header.ljust(head_w)}] " + " | ".join(padded_t) + " |]"
-    v2 = f"[{v2_header.ljust(head_w)}] " + " | ".join(padded_b) + " |]"
-    return v1, v2
+
+    def chunked(bars: list[str]) -> str:
+        out = []
+        for start in range(0, len(bars), bars_per_line):
+            end = min(start + bars_per_line, len(bars))
+            chunk = " | ".join(bars[start:end])
+            tail = " |]" if end == len(bars) else " |\\"
+            out.append(indent + chunk + tail)
+        return "\n".join(out)
+
+    return (f"{v1_header}\n{chunked(padded_t)}",
+            f"{v2_header}\n{chunked(padded_b)}")
 
 
 def detect_meter(score) -> str:
