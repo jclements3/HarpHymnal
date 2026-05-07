@@ -13,7 +13,7 @@
 set -euo pipefail
 
 PDF="${1:-$(pwd)/101_licks_Dmi.pdf}"
-OUT="${2:-$(pwd)/tablet_app/app/src/main/assets/licks/abc_audiveris}"
+OUT="${2:-$(pwd)/licks}"
 META_DIR="$(pwd)/tablet_app/app/src/main/assets/licks"
 JPG_DIR=/tmp/licks_jpg
 MXL_DIR=/tmp/audiveris-out
