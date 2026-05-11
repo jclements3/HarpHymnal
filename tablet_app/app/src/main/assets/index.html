@@ -142,6 +142,8 @@
   .tile.trefoil     { border-color: #2C5F2C; }
   .tile.licks       .tile-banner { background: #C0322A; }
   .tile.licks       { border-color: #C0322A; }
+  .tile.creed       .tile-banner { background: #4A2545; }
+  .tile.creed       { border-color: #4A2545; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1356,6 +1358,16 @@
       onTap:  () => { window.location.href = 'licks/index.html'; },
     });
     grid.appendChild(licks);
+
+    // Nicene Creed tile — single anthem rendered live from ABC via abc2svg.
+    const creed = makeTile({
+      family: 'creed',
+      name:   'Nicene Creed',
+      rule:   'song cycling through all seven modes · ABC → SVG',
+      count:  '↗',
+      onTap:  () => { window.location.href = 'creed.html'; },
+    });
+    grid.appendChild(creed);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────
