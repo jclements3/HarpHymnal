@@ -171,15 +171,23 @@ public class MidiPlaythrough {
                 return;
             }
             openDevices.add(dev);
-            MidiOutputPort port = dev.openOutputPort(0);
-            if (port == null) {
-                Log.w(TAG, "openOutputPort failed for " + info);
-                pushStatus("openOutputPort null (" + name + ")");
-                return;
+            // Open EVERY output port. Linux ALSA showed the SMK-37 PRO
+            // emitting notes on port 0 ("Private") while ports 1 ("Master")
+            // and 2 were silent, but Android's port indexing isn't
+            // guaranteed to match — open them all so we don't miss notes.
+            int total = info.getOutputPortCount();
+            int opened = 0;
+            for (int p = 0; p < total; p++) {
+                MidiOutputPort port = dev.openOutputPort(p);
+                if (port == null) {
+                    Log.w(TAG, "openOutputPort " + p + " failed for " + name);
+                    continue;
+                }
+                port.connect(new SynthReceiver());
+                opened++;
             }
-            port.connect(new SynthReceiver());
-            Log.i(TAG, "MIDI device connected: " + name);
-            pushStatus("connected: " + name + " · " + info.getOutputPortCount() + " out-ports");
+            Log.i(TAG, "MIDI device connected: " + name + " (" + opened + "/" + total + " ports)");
+            pushStatus("connected: " + name + " · " + opened + "/" + total + " ports");
         }, new Handler(Looper.getMainLooper()));
     }
 
@@ -216,8 +224,21 @@ public class MidiPlaythrough {
         }
     }
 
+    // ─── Live diagnostics: count note-ons since startup and push the
+    // current count to the WebView banner every ~16th note. Confirms
+    // events are actually arriving at the synth (separate from device-
+    // open success).
+    private volatile int noteOnCount = 0;
+    private void noteOnReceived(int note, int vel) {
+        noteOnCount++;
+        if ((noteOnCount & 0x0F) == 1) {
+            pushStatus("playing · " + noteOnCount + " notes · last=" + note + "/" + vel);
+        }
+    }
+
     // ─── Voice allocation ─────────────────────────────────────────────────
     private void noteOn(int note, int vel) {
+        noteOnReceived(note, vel);
         // Prefer an idle voice; otherwise steal the oldest-released one;
         // otherwise just overwrite the first slot.
         Voice target = null;
