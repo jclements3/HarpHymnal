@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
 
     private ValueCallback<Uri[]> pendingFileChooser = null;
     private WebView webView = null;
+    private MidiPlaythrough midi = null;
 
     // Same-process handle for the IME so it can dispatch JS into the
     // editor's WebView directly. InputConnection.sendKeyEvent(KEYCODE_ESCAPE)
@@ -145,6 +146,26 @@ public class MainActivity extends Activity {
         webView.addJavascriptInterface(new Bridge(), "Bridge");
 
         webView.loadUrl("file:///android_asset/index.html");
+
+        // USB-MIDI keyboard playthrough — runs continuously while the app
+        // is alive. No-op until a class-compliant MIDI device is plugged
+        // into the tablet's USB-C port.
+        try {
+            midi = new MidiPlaythrough(this);
+            midi.start();
+        } catch (Throwable t) {
+            // MIDI support is non-essential; never block app launch on it.
+            android.util.Log.w("MainActivity", "MIDI start failed", t);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (midi != null) {
+            try { midi.stop(); } catch (Throwable ignored) {}
+            midi = null;
+        }
+        super.onDestroy();
     }
 
     /**

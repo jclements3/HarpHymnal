@@ -6,6 +6,10 @@
     <!-- Composer tile (abccomposer/) calls api.anthropic.com directly. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- USB-MIDI keyboard playthrough (MidiPlaythrough.java + AudioTrack
+         synth). Not required — the app still works without a MIDI device. -->
+    <uses-feature android:name="android.software.midi" android:required="false" />
+
     <application
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
