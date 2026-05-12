@@ -1,4 +1,7 @@
-// HarpHymnal — SATB → Pedal-Harp Arranger (tablet tile, static-only).
+// HarpHymnal — Somerset (tablet tile, static-only).
+//
+// SATB → 2-hand pedal-harp arrangements + 16 Deborah Henson-Conant
+// Somerset LH patterns. Pre-baked corpus, no Python at runtime.
 //
 // Reads `manifest.json` + pre-baked `abc/<NNN>__<pattern_slug>.abc` files
 // produced by `python3 -m tools.satb_to_harp.bake_all`. Renders score via

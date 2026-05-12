@@ -68,12 +68,14 @@ This file should never lag `origin/main`.
 
 ---
 
-## Current state (2026-05-12 evening — Harp Arranger tablet tile + full corpus bake)
+## Current state (2026-05-12 evening — Somerset tablet tile + full corpus bake)
 
 The SATB → pedal-harp arranger from the morning push (`90498e3`) is now
-wired into the tablet as the **Harp Arranger** tile. Static-only: no
-Flask, no Python at runtime — the entire corpus was pre-baked on the lab
-box and shipped flat inside the APK assets.
+wired into the tablet as the **Somerset** tile (named after Deborah
+Henson-Conant's Somerset 2020 PlaySheet — the source of the 16 LH
+accompaniment patterns). Static-only: no Flask, no Python at runtime —
+the entire corpus was pre-baked on the lab box and shipped flat inside
+the APK assets. **APK built + installed on the P90 this session.**
 
 ### Pre-bake
 - `tools/satb_to_harp/bake_all.py` — `ProcessPoolExecutor`-parallel
@@ -83,13 +85,13 @@ box and shipped flat inside the APK assets.
   **4777 ABC files**, all baked clean (0 failures) in ~4 min on
   `--workers 32`.
 - Output written directly into the tablet asset tree:
-  `tablet_app/app/src/main/assets/harparranger/{manifest.json,abc/*.abc}`
+  `tablet_app/app/src/main/assets/somerset/{manifest.json,abc/*.abc}`
   (~19 MB total). File naming: `<NNN>__<pattern_slug>.abc`
   (`default` for the no-pattern variant).
 - `manifest.json` carries: `hymns[{n,title}]`, `patterns[]` (ordered,
   `null` first), `pattern_slugs{}`, `stats{}`, and `failures[]` (empty).
 
-### Tablet UI (`tablet_app/app/src/main/assets/harparranger/`)
+### Tablet UI (`tablet_app/app/src/main/assets/somerset/`)
 - Pure static HTML/JS/CSS. Vendored abc2svg-1.js (+ play-1, toaudio-1
   for future audio).
 - `app.js`: loads `manifest.json` → hymn datalist + pattern dropdown.
@@ -106,17 +108,19 @@ box and shipped flat inside the APK assets.
   (`file:///android_asset/`) so localStorage is shared.
 
 ### Home grid wiring
-- New tile **Harp Arranger** (family `harparranger`, banner `#0E7A6C`
-  teal) appended after the Nicene Creed tile in `renderHome()` —
-  home grid is now **15 tiles**.
+- New tile **Somerset** (family `somerset`, banner `#0E7A6C` teal)
+  appended after the Nicene Creed tile in `renderHome()` — home grid
+  is now **15 tiles**.
 - Both the CSS rule (next to `.tile.creed`) and the
-  `makeTile({family:'harparranger', …, onTap → harparranger/index.html})`
+  `makeTile({family:'somerset', …, onTap → somerset/index.html})`
   call are inside the canonical `tablet_app/app/src/main/assets/index.html`.
 
-### Lab needs to do once
-1. `git pull`
-2. `cd tablet_app && ./gradlew installDebug` to land the new tile +
-   pre-baked corpus on the P90 (`P90YPDU16Y251200164`).
+### Install status
+- APK built + `installDebug`'d on the P90 (`P90YPDU16Y251200164`)
+  this session. Build was ~28s (assets-heavy, no Java recompile).
+- Home laptop sync: `git pull` after this push will land the
+  index.html + asset rename; an `./gradlew installDebug` from that
+  side will produce the same APK shape.
 
 ### Not in this push
 - In-tile audio playback. The vendored `play-1.js` / `toaudio-1.js`

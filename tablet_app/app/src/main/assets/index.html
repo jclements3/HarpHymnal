@@ -144,8 +144,8 @@
   .tile.licks       { border-color: #C0322A; }
   .tile.creed       .tile-banner { background: #4A2545; }
   .tile.creed       { border-color: #4A2545; }
-  .tile.harparranger .tile-banner { background: #0E7A6C; }
-  .tile.harparranger { border-color: #0E7A6C; }
+  .tile.somerset    .tile-banner { background: #0E7A6C; }
+  .tile.somerset    { border-color: #0E7A6C; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1371,16 +1371,17 @@
     });
     grid.appendChild(creed);
 
-    // Harp Arranger — pre-baked SATB → 2-hand pedal-harp arrangements,
-    // 281 hymns x 17 LH-pattern variants (default SATB + 16 Somerset LH).
-    const harparranger = makeTile({
-      family: 'harparranger',
-      name:   'Harp Arranger',
-      rule:   'SATB → 2-hand pedal-harp · Somerset LH patterns',
+    // Somerset — pre-baked SATB → 2-hand pedal-harp arrangements,
+    // 281 hymns x 17 LH-pattern variants (default SATB + 16 Somerset LH
+    // patterns from Deborah Henson-Conant's 2020 PlaySheet).
+    const somerset = makeTile({
+      family: 'somerset',
+      name:   'Somerset',
+      rule:   'SATB → 2-hand pedal-harp · DHC Somerset LH patterns',
       count:  '↗',
-      onTap:  () => { window.location.href = 'harparranger/index.html'; },
+      onTap:  () => { window.location.href = 'somerset/index.html'; },
     });
-    grid.appendChild(harparranger);
+    grid.appendChild(somerset);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────
