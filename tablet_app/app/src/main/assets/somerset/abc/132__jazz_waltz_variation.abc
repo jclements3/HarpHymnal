@@ -1,0 +1,22 @@
+X: 1
+T: Jesus, Tender Shepherd, Hear Me
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [Ac]3 [GB] | [FA]3 [EG] | "^I6" F [EG] [FA]2 | "^V6" [Gc] [FA] [EG]2 |
+"^I6" [Fc-]2 [Gc] [EB] | "^I" [FA]3 [EG] | "^vi" F- [F-G] [FA]2 | "^V7" [EB] [C-E] [CF]2 |]
+[V: LH]
+F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 |
+F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 |]
+[V: Bs]
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 | [C,,,C,,]4 |
+[F,,,F,,]4- | [F,,,F,,]4 | [D,,,D,,]4 | [C,,,C,,]4 |]

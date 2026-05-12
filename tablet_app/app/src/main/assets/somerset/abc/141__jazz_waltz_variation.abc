@@ -1,0 +1,40 @@
+X: 1
+T: Lift Up Your Heads, Ye Mighty Gates
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: A
+[V: RH]
+"^V" E- [E-c]2 | "^I" [E-A]2 [E-G] | [E-A] [E-B]2 | "^V64" [E-G] E2 |
+"^V" [B,-E]2 [B,F] | "^V62" [E-G] [EA]2 | "^IV" [DF] [CE]2 | "^V" [B,D] [A,C]2- |
+[A,C] "^I" [CE] [E-A] | [E-c] [E-B] [EG] | "^V6" [B,E] [C-A] [CF] | "^ii" [B,-^D] [B,E-]2 |
+"^iii" [C-E] [CA]2 | "^V" [E-B] [Ec]2 | "^vi" [FA] [EG]2 | "^ii" [^DF] [B,E]2 |
+"^I" [E-A] [E-G]2 | "^V42" [E-B] [E-A]2 | "^I" [E-c] [E-B]2 | "^V65" [E-d] [E-c]2 |
+"^V" E- [E-d] [E-c] | "^V64" [E-B] [E-A] [EG] | "^I64" [DF] [CE-]2 | "^V" [B,E-] [CE]2 |
+"^I" [E-e]3 | [Ec] [Fd]2 | "^V6" [E-e] [Ec]2 | "^I" [CE] [DF] [F-d] |
+"^ii6" [FB] [E-A]2 | "^I" [EG] [CA]2 |]
+[V: LH]
+E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 |
+E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 |
+A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 |
+C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 |
+A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 |
+E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 |
+A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 |
+B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 |]
+[V: Bs]
+[E,,,E,,]3 | [A,,,A,,]3- | [A,,,A,,]3 | [E,,,E,,]3- |
+[E,,,E,,]3- | [E,,,E,,]3 | [D,,,D,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3- | [A,,,A,,]3 | [E,,,E,,]3 | [B,,,B,,]3 |
+[C,,,C,,]3 | [E,,,E,,]3 | [F,,,F,,]3 | [B,,,B,,]3 |
+[A,,,A,,]3 | [E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3- |
+[E,,,E,,]3- | [E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3- | [A,,,A,,]3 | [E,,,E,,]3 | [A,,,A,,]3 |
+[B,,,B,,]3 | [A,,,A,,]3 |]

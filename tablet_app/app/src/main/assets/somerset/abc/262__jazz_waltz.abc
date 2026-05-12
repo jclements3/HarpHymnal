@@ -1,0 +1,28 @@
+X: 1
+T: Under His Wings
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Db
+[V: RH]
+"^I" [DF] [EG] [=E=G] [FA]3- | [FA] [GB] [DF] [C-A] [C-G]2 | "^V7" [CE] [DF] [EG] [GB] [FA]2- | [FA] "^I" [C-E] [C=E] [DF]3- |
+[DF] [EG] [=E=G] [FA]2 [Ad] | "^IV" [B-e] [Bd] [GB]2 [FA]2 | "^I" [G-B] [Gc] [F-d]2 [FA] [DF] | "^V7" [FA] [EG] [CE] D3 |
+"^I" [FA] [DF] [F-A] [Fd]3 | "^V7" [G-c] [G-B] [Gc] [Fd]3- | [F-d] "^I" [F-A] F [GB] [FA] [DF]- | [DF] "^V" [CE]4 D- |
+"^I" D F- [F-A] [Fd-] [Ad] [G-c] | "^ii6" [G-e] [Gd] [F-B] [FA-]2 [G-A] | "^I" [GB] [F-c] [Fd] [DA] [A,F] [C-D] | "^V7" [CE-]2 [D-E] D D z |]
+[V: LH]
+D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | A,,/2 [C,E,A,]/2 [C,E,A,]/2 A,,/2 [C,E,A,]/2 [C,E,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 |
+D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | G,,/2 [D,G,B,]/2 [D,G,B,]/2 G,,/2 [D,G,B,]/2 [D,G,B,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | A,,/2 [C,E,A,]/2 [C,E,A,]/2 A,,/2 [C,E,A,]/2 [C,E,A,]/2 |
+D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | A,,/2 [C,E,A,]/2 [C,E,A,]/2 A,,/2 [C,E,A,]/2 [C,E,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | A,,/2 [C,E,A,]/2 [C,E,A,]/2 A,,/2 [C,E,A,]/2 [C,E,A,]/2 |
+D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | E,,/2 [E,G,B,]/2 [E,G,B,]/2 E,,/2 [E,G,B,]/2 [E,G,B,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | A,,/2 [C,E,A,]/2 [C,E,A,]/2 A,,/2 [C,E,A,]/2 [C,E,A,]/2 |]
+[V: Bs]
+[D,,,D,,]6- | [D,,,D,,]6 | [A,,,A,,]6 | [D,,,D,,]6- |
+[D,,,D,,]6 | [G,,,G,,]6 | [D,,,D,,]6 | [A,,,A,,]6 |
+[D,,,D,,]6 | [A,,,A,,]6 | [D,,,D,,]6 | [A,,,A,,]6 |
+[D,,,D,,]6 | [E,,,E,,]6 | [D,,,D,,]6 | [A,,,A,,]6 |]

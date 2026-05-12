@@ -1,0 +1,22 @@
+X: 1
+T: From Heaven Above To Earth I Come
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [Fd] [E-c] [E-B] [Ec] | [FA] [DB] [Gc] [Fd]- | [Fd]2 "^vi7" [EA-] [D-A] | "^I" [DF] [B,A] [D-G] [DF-] |
+"^IV" F [GB-] [E-B] [EA] | "^vi7" [Dc] [Ed] [CB] A | "^IV62" [Gd] [Fc] [EB] [DA]- | [D-A] "^I4" [DF] E D |]
+[V: LH]
+D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 |
+G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 |]
+[V: Bs]
+[D,,,D,,]4- | [D,,,D,,]4 | [B,,,B,,]4 | [D,,,D,,]4 |
+[G,,,G,,]4 | [B,,,B,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |]

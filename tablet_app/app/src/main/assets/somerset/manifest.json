@@ -1142,7 +1142,9 @@
     "Mexican (Latin)",
     "Stride Bass",
     "Latin Broken Stride",
-    "Waltz"
+    "Waltz",
+    "Jazz Waltz",
+    "Jazz Waltz Variation"
   ],
   "pattern_slugs": {
     "__default__": "default",
@@ -1161,16 +1163,18 @@
     "Mexican (Latin)": "mexican_latin",
     "Stride Bass": "stride_bass",
     "Latin Broken Stride": "latin_broken_stride",
-    "Waltz": "waltz"
+    "Waltz": "waltz",
+    "Jazz Waltz": "jazz_waltz",
+    "Jazz Waltz Variation": "jazz_waltz_variation"
   },
   "abc_dir": "abc",
   "stats": {
     "hymns": 281,
-    "variants": 17,
-    "successes": 4777,
+    "variants": 19,
+    "successes": 5339,
     "failures": 0,
     "audits": {
-      "warn": 3097,
+      "warn": 3435,
       "info": 0,
       "error": 0
     }

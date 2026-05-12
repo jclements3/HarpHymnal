@@ -1,0 +1,40 @@
+X: 1
+T: The Comforter Has Come
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [EG]3- | [E-G]3 | [Ec-] [Fc]2- | [F-c]3 |
+"^IV" [FA] [EG]2- | [EG]3 | "^I" [C-E]3 | "^ii7" [CD-] [B,D]2 |
+"^V7" [FG-] [EG]2- | [E-G]3 | "^I6" [Ec-] [Fc]2- | [F-c]3 |
+"^IV" [FA] [E-G]2 | "^I64" [Ec] [Ge]2 | "^V7" [Fd] [Ec]2- | [Ec] "^I" [Ge]2 |
+[Ec] [Ge]2 | [Ec-] [Fc]2- | [F-c]3 | "^IV" [FA] [EG]2- |
+[EG]3 | "^I" [C-E]3 | "^ii7" [CD-] [B,D]2 | "^V7" [FG-] [EG]2- |
+[E-G]3 | "^I6" [Ec-] [Fc]2- | [F-c]3 | "^IV" [FA] [E-G]2 |
+"^I64" [Ec] [Ge]2 | "^V7" [Fd] [Ec]2 |]
+[V: LH]
+C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 |
+F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 |
+G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 |
+F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 |
+C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 |
+C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 |
+C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 |
+C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 |]
+[V: Bs]
+[C,,,C,,]3- | [C,,,C,,]3- | [C,,,C,,]3 | [F,,,F,,]3- |
+[F,,,F,,]3 | [C,,,C,,]3- | [C,,,C,,]3 | [D,,,D,,]3 |
+[G,,,G,,]3 | [C,,,C,,]3- | [C,,,C,,]3 | [F,,,F,,]3- |
+[F,,,F,,]3 | [C,,,C,,]3 | [G,,,G,,]3 | [C,,,C,,]3- |
+[C,,,C,,]3- | [C,,,C,,]3 | [F,,,F,,]3- | [F,,,F,,]3 |
+[C,,,C,,]3- | [C,,,C,,]3 | [D,,,D,,]3 | [G,,,G,,]3 |
+[C,,,C,,]3- | [C,,,C,,]3 | [F,,,F,,]3- | [F,,,F,,]3 |
+[C,,,C,,]3 | [G,,,G,,]3 |]

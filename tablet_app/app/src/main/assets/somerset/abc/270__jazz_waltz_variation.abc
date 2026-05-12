@@ -1,0 +1,28 @@
+X: 1
+T: What A Friend We Have In Jesus
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [F-c]2 [F-d] [FA] | "^IV" [DF]2 [B,D]2 | "^I" C2- [CA] [Fc] | "^V" [EG]3 F- |
+"^I" [F-c]2 [Fd] [D-A] | "^IV" [DF-] [B,-F] [B,D-] [A,-D] | "^I64" [A,C-] [CF] [C-A] [CF]- | [CF-]2 "^I" [E-F] E- |
+"^V" [EG-] G [F-G] [F-B] | "^I" [F-A]2 [F-c]2 | "^viiø7" [Fd-] [Gd] [E-c] [E-B] | "^V" [EG-] [F-G]2 F- |
+"^I" [Fc-] [D-c] [Dd] [B,-A] | "^I7" [B,F-] [A,-F] [A,D-] [DF] | "^I4" C2- [C-A] [CF-] | "^I6" F3 z |]
+[V: LH]
+F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 |
+F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 |
+C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 E,,/2 [D,E,G,B,]/2 [D,E,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 |
+F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 | F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 F,,/2 [C,E,F,A,]/2 [C,E,F,A,]/2 |]
+[V: Bs]
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4 | [C,,,C,,]4 |
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4- | [F,,,F,,]4 |
+[C,,,C,,]4 | [F,,,F,,]4 | [E,,,E,,]4 | [C,,,C,,]4 |
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 |]

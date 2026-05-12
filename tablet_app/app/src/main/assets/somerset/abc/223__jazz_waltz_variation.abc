@@ -1,0 +1,28 @@
+X: 1
+T: Stricken, Smitten, and Afflicted
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^i" [D-G] [D-A] [DB-]2 [E-B]2 | "^iv" [Ec] [D-B] [D-A]4 | "^iio6" [D-B] [DA] [B,G]2 [EA]2 | "^i" [D-G] [D-_G] [DG]4- |
+[D-G] [D-A] [DB-]2 [E-B]2 | "^iv" [Ec] [D-B] [D-A]4 | "^iio6" [D-B] [DA] [B,G]2 [EA]2 | "^i" [D-G] [D-_G] [D-G]4 |
+[DB] [F-c] [Fd-]2 [G-d]2 | "^III54" [Ge] [F-d] [F-c]4 | "^i" [F-d] [Fc] [DB-]2 [E-B]2 | "^V" [Ec] [D-B] [D-A]4 |
+"^i" [D-G] [D-_G] [D-G]2 [D-B]2 | "^V" [DA] [B,G] [D-A]4 | "^iio6" [D-B] [DA] [E-G]2 [EA]2 | "^i" [D-G] [D-_G] [DG]4 |]
+[V: LH]
+G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 |
+G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 C,,/2 [C,E,G,B,]/2 [C,E,G,B,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 |
+G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | B,,/2 [D,F,_A,B,]/2 [D,F,_A,B,]/2 B,,/2 [D,F,_A,B,]/2 [D,F,_A,B,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | D,,/2 [C,D,_G,A,]/2 [C,D,_G,A,]/2 D,,/2 [C,D,_G,A,]/2 [C,D,_G,A,]/2 |
+G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 | D,,/2 [C,D,_G,A,]/2 [C,D,_G,A,]/2 D,,/2 [C,D,_G,A,]/2 [C,D,_G,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 G,,/2 [D,F,G,B,]/2 [D,F,G,B,]/2 |]
+[V: Bs]
+[G,,,G,,]6 | [C,,,C,,]6 | [A,,,A,,]6 | [G,,,G,,]6- |
+[G,,,G,,]6 | [C,,,C,,]6 | [A,,,A,,]6 | [G,,,G,,]6- |
+[G,,,G,,]6 | [B,,,B,,]6 | [G,,,G,,]6 | [D,,,D,,]6 |
+[G,,,G,,]6 | [D,,,D,,]6 | [A,,,A,,]6 | [G,,,G,,]6 |]

@@ -59,6 +59,10 @@ def _dur(d: float) -> str:
 # higher is octave-displaced down so the LH stays in the bass clef.
 LH_TOP_MIDI = 59  # B3
 
+# Pattern functions take (t, f, s) — third/fifth/seventh semitone offsets
+# from the chord root. `s` is needed only by the Jazz Waltz Variation;
+# other patterns accept and ignore it for a uniform signature.
+
 
 def _clamp_lh(midi: int) -> int:
     while midi > LH_TOP_MIDI:
@@ -79,64 +83,79 @@ def _chord_tok(midis: list[int], key_sig: dict[str, int]) -> str:
 # ─── Pattern factories — each returns [(duration_in_quarters, [pitch_offsets_from_root]), ...] ───
 # `t` = third (3 minor, 4 major). `f` = fifth (6 dim, 7 perfect).
 
-def _p_octaves(t, f):
+def _p_octaves(t, f, s):
     return [(4.0, [-12, 0])]
 
-def _p_1_5_8_arp(t, f):
+def _p_1_5_8_arp(t, f, s):
     return [(1.0, [0]), (1.0, [f]), (2.0, [12])]
 
-def _p_1_5_10_chord(t, f):
+def _p_1_5_10_chord(t, f, s):
     return [(4.0, [0, f, 12 + t])]
 
-def _p_1_5_10_arp_44(t, f):
+def _p_1_5_10_arp_44(t, f, s):
     return [(1.0, [0]), (1.0, [f]), (2.0, [12 + t])]
 
-def _p_1_5_10_arp_34(t, f):
+def _p_1_5_10_arp_34(t, f, s):
     return [(1.0, [0]), (1.0, [f]), (1.0, [12 + t])]
 
-def _p_alberti(t, f):
+def _p_alberti(t, f, s):
     # 4/4: eight eighth notes, 1-5-3-5 repeating
     return [(0.5, [0]), (0.5, [f]), (0.5, [t]), (0.5, [f])] * 2
 
-def _p_calypso(t, f):
+def _p_calypso(t, f, s):
     return [(1.5, [0]), (0.5, [12]), (1.0, [f]), (1.0, [12])]
 
-def _p_simple_latin_1855(t, f):
+def _p_simple_latin_1855(t, f, s):
     return [(1.5, [0]), (0.5, [12]), (1.0, [f]), (1.0, [f])]
 
-def _p_simple_latin_15105(t, f):
+def _p_simple_latin_15105(t, f, s):
     return [(1.5, [0]), (0.5, [f]), (1.0, [12 + t]), (1.0, [f])]
 
-def _p_simple_latin_11055(t, f):
+def _p_simple_latin_11055(t, f, s):
     return [(1.5, [0]), (0.5, [12 + t]), (1.0, [f]), (1.0, [f])]
 
-def _p_pretty_waltz(t, f):
+def _p_pretty_waltz(t, f, s):
     # 3/4 with added 9th (14 st = octave + 2nd)
     return [(0.5, [0]), (0.5, [f]), (0.5, [14]),
             (0.5, [12]), (0.5, [14]), (0.5, [12])]
 
-def _p_slap_bass(t, f):
+def _p_slap_bass(t, f, s):
     # Simplified (no slap accent in MIDI): low root + 5 alternating
     return [(0.5, [0]), (0.5, [f]), (0.5, [0]), (0.5, [f])] * 2
 
-def _p_samba(t, f):
+def _p_samba(t, f, s):
     return [(0.5, [0]), (0.5, [12]), (0.5, [-5]), (0.5, [0])] * 2
 
-def _p_mexican(t, f):
+def _p_mexican(t, f, s):
     return [(1.5, [-12]), (0.5, [0]),
             (1.0, [0, t, f]), (1.0, [0, t, f])]
 
-def _p_stride(t, f):
+def _p_stride(t, f, s):
     return [(1.0, [-12]), (1.0, [0, t, f]),
             (1.0, [-5]),  (1.0, [0, t, f])]
 
-def _p_broken_stride(t, f):
-    return [(1.5, [-12]), (0.5, [0]),
-            (1.0, [0, t, f]), (1.0, [-5])]
+def _p_broken_stride(t, f, s):
+    # somerset16.png: two pairs of (low-bass dotted-quarter + chord eighth).
+    # Earlier shape used a held quarter on the chord and a quarter low-fifth;
+    # the PlaySheet shows the syncopated "bounce" on both halves of the bar.
+    return [(1.5, [-12]), (0.5, [0, t, f]),
+            (1.5, [-5]),  (0.5, [0, t, f])]
 
-def _p_waltz(t, f):
+def _p_waltz(t, f, s):
     # 3/4 oom-pah-pah
     return [(1.0, [-12]), (2.0, [0, t, f])]
+
+def _p_jazz_waltz(t, f, s):
+    # somerset18.png: 3/4, six eighths grouped (low-root + chord + chord) x 2.
+    return [(0.5, [-12]), (0.5, [0, t, f]), (0.5, [0, t, f]),
+            (0.5, [-12]), (0.5, [0, t, f]), (0.5, [0, t, f])]
+
+def _p_jazz_waltz_variation(t, f, s):
+    # somerset19.png: same rhythm as Jazz Waltz, but with diatonic 7th chord
+    # voicings (CΔ, A-7, FΔ, D-7, …). `s` carries the 7th in semitones —
+    # maj7 = 11 for I/IV (♭III/♭VI in minor), dom7/min7 = 10 elsewhere.
+    return [(0.5, [-12]), (0.5, [0, t, f, s]), (0.5, [0, t, f, s]),
+            (0.5, [-12]), (0.5, [0, t, f, s]), (0.5, [0, t, f, s])]
 
 
 PATTERNS: dict[str, dict[int, Callable]] = {
@@ -156,6 +175,8 @@ PATTERNS: dict[str, dict[int, Callable]] = {
     "Stride Bass":            {4: _p_stride},
     "Latin Broken Stride":    {4: _p_broken_stride},
     "Waltz":                  {3: _p_waltz},
+    "Jazz Waltz":             {3: _p_jazz_waltz},
+    "Jazz Waltz Variation":   {3: _p_jazz_waltz_variation},
 }
 
 AVAILABLE = list(PATTERNS.keys())
@@ -194,9 +215,15 @@ def render_one_bar(
     is_dim = _is_diminished(rn_str)
     third_st = 3 if (is_min or is_dim) else 4
     fifth_st = 6 if is_dim else 7
+    # 7th: maj7 = 11 st for I/IV (or ♭III/♭VI when minor RNs were
+    # translated to relative-major uppercase by the analyzer); everything
+    # else gets a b7 (10 st) — dom7 on V, m7 on minor triads, m7b5 on dim.
+    # The pool is strictly diatonic by design, so we don't worry about
+    # full-diminished 7th (9 st) here.
+    seventh_st = 11 if (head in ('I', 'IV') and not is_min and not is_dim) else 10
 
     events_fn = p_map.get(meter_beats) or next(iter(p_map.values()))
-    events = events_fn(third_st, fifth_st)
+    events = events_fn(third_st, fifth_st, seventh_st)
 
     root_midi = _root_midi(K, degree)
     tokens = []

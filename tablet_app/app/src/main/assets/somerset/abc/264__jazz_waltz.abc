@@ -1,0 +1,40 @@
+X: 1
+T: We All Believe in One True God
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Dm
+[V: RH]
+"^i" D2 [D-F] [DG] | "^III" [C-A] [CG] [A,A] [DE] | "^III6" [CF-] [D-F] [DE] [CG] | "^V" [F,F] [A,-E] [A,-D] [A,_D] |
+"^i" [DF]2 [EA-]2 | "^iv52" [GA-] [E-A] [Ed] [Cc] | "^V6" [E-=B] [EA] [F-c]2 | "^i7" [FA-] [EA] F- [F=B] |
+"^VII" [Ec] [DA]2 [_D-E] | "^III" [_DF-] [A,F] E [D-E] | "^iv7" D [C-E] [CF] [A,-G] | "^V" [A,-F] [A,-E] [A,D] [_DF-] |
+"^i" [D-F] [DG-] [Gd-]2 | "^VIø6" [Ad-] [Gd] [Ee] [F-d] | "^i" [F-e] [F-_d] [Fd-] [Gd]- | [Gd-] "^iv52" [Ed] [F-e] [F=B] |
+"^VII" [Ec] [DA]2 [_D-E] | "^III" [_DF-] [CF] E [EF-] | "^i" [FA] [E-G] [EA] [C=B] | "^V7" [E-c] [E-=B] [EA] [G-_A] |
+"^V43" [GA-] A- [A=B-] [F=B] | "^i4" [Ed]2 [CA] [A,G] | "^VI7" [=B,A] [C-E] [CF-] [DF] | "^V7" [CE]2 A,- [A,-G] |
+"^III" [A,F]2 [B,-D] [B,_D] | "^i" D [EF] [DF]2 | "^III43" [EF] G [FA] [E=B] | "^V73" [Dc-] [_Dc] [A,A-] [CA] |
+"^iv52" [D-F] [DE] [C-D] [CE] | "^iv" [B,F] [A,-G] [A,-F] [A,-E] | "^i6" [A,-D] [A,_D] D2- | D2 |]
+[V: LH]
+D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | F,,/2 [C,F,A,]/2 [C,F,A,]/2 F,,/2 [C,F,A,]/2 [C,F,A,]/2 | F,,/2 [C,F,A,]/2 [C,F,A,]/2 F,,/2 [C,F,A,]/2 [C,F,A,]/2 | A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 |
+D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | G,,/2 [D,G,B,]/2 [D,G,B,]/2 G,,/2 [D,G,B,]/2 [D,G,B,]/2 | A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 |
+C,,/2 [C,E,G,]/2 [C,E,G,]/2 C,,/2 [C,E,G,]/2 [C,E,G,]/2 | F,,/2 [C,F,A,]/2 [C,F,A,]/2 F,,/2 [C,F,A,]/2 [C,F,A,]/2 | G,,/2 [D,G,B,]/2 [D,G,B,]/2 G,,/2 [D,G,B,]/2 [D,G,B,]/2 | A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 |
+D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | B,,/2 [_D,E,B,]/2 [_D,E,B,]/2 B,,/2 [_D,E,B,]/2 [_D,E,B,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | G,,/2 [D,G,B,]/2 [D,G,B,]/2 G,,/2 [D,G,B,]/2 [D,G,B,]/2 |
+C,,/2 [C,E,G,]/2 [C,E,G,]/2 C,,/2 [C,E,G,]/2 [C,E,G,]/2 | F,,/2 [C,F,A,]/2 [C,F,A,]/2 F,,/2 [C,F,A,]/2 [C,F,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 |
+A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | B,,/2 [D,F,B,]/2 [D,F,B,]/2 B,,/2 [D,F,B,]/2 [D,F,B,]/2 | A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 |
+F,,/2 [C,F,A,]/2 [C,F,A,]/2 F,,/2 [C,F,A,]/2 [C,F,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | F,,/2 [C,F,A,]/2 [C,F,A,]/2 F,,/2 [C,F,A,]/2 [C,F,A,]/2 | A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 A,,/2 [_D,E,A,]/2 [_D,E,A,]/2 |
+G,,/2 [D,G,B,]/2 [D,G,B,]/2 G,,/2 [D,G,B,]/2 [D,G,B,]/2 | G,,/2 [D,G,B,]/2 [D,G,B,]/2 G,,/2 [D,G,B,]/2 [D,G,B,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 | D,,/2 [D,F,A,]/2 [D,F,A,]/2 D,,/2 [D,F,A,]/2 [D,F,A,]/2 |]
+[V: Bs]
+[D,,,D,,]4 | [F,,,F,,]4- | [F,,,F,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [G,,,G,,]4 | [A,,,A,,]4 | [D,,,D,,]4 |
+[C,,,C,,]4 | [F,,,F,,]4 | [G,,,G,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [B,,,B,,]4 | [D,,,D,,]4 | [G,,,G,,]4 |
+[C,,,C,,]4 | [F,,,F,,]4 | [D,,,D,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4 | [D,,,D,,]4 | [B,,,B,,]4 | [A,,,A,,]4 |
+[F,,,F,,]4 | [D,,,D,,]4 | [F,,,F,,]4 | [A,,,A,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4 | [D,,,D,,]4- | [D,,,D,,]2 |]

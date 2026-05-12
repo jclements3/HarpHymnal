@@ -68,6 +68,56 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-12 late — Somerset pattern fidelity pass (18 patterns))
+
+Visual verification of `somerset.py` against the 19 source PNGs in
+`somerset/` flagged three issues; all fixed and re-baked.
+
+### Fixes
+- **`_p_broken_stride`** (somerset16) — was `[(1.5,[-12]),(0.5,[0]),(1.0,[0,t,f]),(1.0,[-5])]`,
+  i.e. low-root dotted-q, root eighth, chord quarter, low-fifth quarter.
+  The PlaySheet shows two *pairs* of (low-bass dotted-q + chord eighth),
+  not the held-chord shape. Now:
+  `[(1.5,[-12]),(0.5,[0,t,f]),(1.5,[-5]),(0.5,[0,t,f])]`.
+- **`_p_jazz_waltz`** (somerset18) — new. 3/4, six eighths in two beamed
+  groups of (low-root + chord + chord):
+  `[(0.5,[-12]),(0.5,[0,t,f]),(0.5,[0,t,f])] * 2`.
+- **`_p_jazz_waltz_variation`** (somerset19) — new. Same rhythm as Jazz
+  Waltz, but uses diatonic *7th-chord* voicings (CΔ, A-7, FΔ, D-7, …),
+  so the chord stack is `[0,t,f,s]` instead of `[0,t,f]`.
+
+### API change (callers in this repo only)
+Pattern functions now take `(t, f, s)` instead of `(t, f)`. `s` is the
+seventh-interval in semitones: **11 (maj7)** for `I`/`IV` heads (and
+their relative-major equivalents `♭III`/`♭VI`), **10 (b7 / m7 / m7♭5)**
+elsewhere. `render_one_bar` derives `s` from the RN head; all existing
+patterns just accept-and-ignore the new arg.
+
+### Re-bake
+- 281 hymns × **19 variants** (default + 18 patterns) = **5339 ABCs**,
+  0 failures, ~5 min on `--workers 32`.
+- `tablet_app/app/src/main/assets/somerset/manifest.json` regenerated.
+
+### Tablet
+- APK rebuilt + `installDebug`'d on the P90 over USB (14 s build).
+- Stride Bass kept as straight quarters (the swing-feel hint in the
+  PNG note text says "swing or latin" — we expose latin/straight by
+  default; the swing variant would need a dotted+eighth shape, deferred).
+
+### Wireless adb status
+- Wireless debugging was enabled on the P90 this session, but `wlan0`
+  shows `NO-CARRIER ... state DOWN` (tablet not yet connected to a
+  WiFi network). Once it is, the pairing flow is:
+  P90 Settings → Developer → Wireless debugging → Pair device with
+  pairing code → read off IP:port + 6-digit code → lab box runs
+  `adb pair <ip>:<port>` (with code) then `adb connect <ip>:<port>`.
+  After that `./gradlew installDebug` works over WiFi and the
+  tablet's USB-C port is free for a class-compliant MIDI keyboard
+  (e.g. SMK-37 PRO — not currently consumed by the app, no
+  `android.media.midi` plumbing yet).
+
+---
+
 ## Current state (2026-05-12 evening — Somerset tablet tile + full corpus bake)
 
 The SATB → pedal-harp arranger from the morning push (`90498e3`) is now

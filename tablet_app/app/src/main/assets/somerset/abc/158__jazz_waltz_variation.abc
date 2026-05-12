@@ -1,0 +1,28 @@
+X: 1
+T: My Faith Looks Up To Thee
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D]2 [D-F] [DA-] | "^V6" [EA]2 [DF]2 | "^V" [CE]3 [EG]- | [EG]2 "^V65" [CE]2 |
+"^I" [DF]2 [CE] [DB] | "^V7" [CA-]4 | "^I" [D-A]2 [D-F] [D-G] | [DA]4- |
+[D-A]2 [D-F] [D-G] | [DA-]3 [EA] | "^vi" [Dd]2 [E-c] [EB] | "^I" [FA]2 [D-F] D- |
+"^V" [DE]2 [CA]2 | "^I" D4 |]
+[V: LH]
+D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 |
+D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 |
+D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 | B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 B,,/2 [D,F,A,B,]/2 [D,F,A,B,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 |
+A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 A,,/2 [C,E,G,A,]/2 [C,E,G,A,]/2 | D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 D,,/2 [C,D,F,A,]/2 [C,D,F,A,]/2 |]
+[V: Bs]
+[D,,,D,,]4 | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4 |
+[D,,,D,,]4 | [A,,,A,,]4 | [D,,,D,,]4- | [D,,,D,,]4- |
+[D,,,D,,]4- | [D,,,D,,]4 | [B,,,B,,]4 | [D,,,D,,]4 |
+[A,,,A,,]4 | [D,,,D,,]4 |]
