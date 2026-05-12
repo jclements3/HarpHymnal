@@ -93,8 +93,12 @@ public class MidiPlaythrough {
         audioThread.start();
 
         // Open every currently-connected MIDI device and listen for new ones.
+        pushStatus("scanning…");
         rescanDevices();
         midi.registerDeviceCallback(deviceCallback, new Handler(Looper.getMainLooper()));
+        // If nothing connected after the rescan, announce that explicitly so
+        // the user can tell "filter skipped everything" apart from "no devices".
+        if (openDevices.isEmpty()) pushStatus("no device");
     }
 
     public void stop() {
@@ -124,8 +128,20 @@ public class MidiPlaythrough {
                 // this was a no-op and the user got a stuck tone every
                 // time they disconnected the keyboard.)
                 allNotesOff();
+                String name = info.getProperties()
+                    .getString(MidiDeviceInfo.PROPERTY_NAME);
+                pushStatus("disconnected" + (name != null ? " (" + name + ")" : ""));
             }
         };
+
+    // ─── WebView status banner ────────────────────────────────────────────
+    private void pushStatus(String msg) {
+        // Escape ' and \ for embedding in a JS string literal.
+        String esc = msg == null ? "" :
+            msg.replace("\\", "\\\\").replace("'", "\\'");
+        String js = "if (window.onMidiStatus) window.onMidiStatus('" + esc + "');";
+        MainActivity.runJsInActiveWebView(js);
+    }
 
     private void rescanDevices() {
         MidiDeviceInfo[] infos = midi.getDevices();
@@ -149,12 +165,21 @@ public class MidiPlaythrough {
             return;
         }
         midi.openDevice(info, dev -> {
-            if (dev == null) { Log.w(TAG, "openDevice returned null for " + info); return; }
+            if (dev == null) {
+                Log.w(TAG, "openDevice returned null for " + info);
+                pushStatus("openDevice null (" + name + ")");
+                return;
+            }
             openDevices.add(dev);
             MidiOutputPort port = dev.openOutputPort(0);
-            if (port == null) { Log.w(TAG, "openOutputPort failed for " + info); return; }
+            if (port == null) {
+                Log.w(TAG, "openOutputPort failed for " + info);
+                pushStatus("openOutputPort null (" + name + ")");
+                return;
+            }
             port.connect(new SynthReceiver());
             Log.i(TAG, "MIDI device connected: " + name);
+            pushStatus("connected: " + name + " · " + info.getOutputPortCount() + " out-ports");
         }, new Handler(Looper.getMainLooper()));
     }
 

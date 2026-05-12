@@ -63,6 +63,15 @@
     font-size: 15px; font-weight: normal; color: var(--muted);
     margin-left: 12px;
   }
+  .midi-status {
+    font-size: 13px; color: #4a4a4a;
+    padding: 4px 10px; margin: 0 16px 8px 16px;
+    background: #eef0e8; border: 1px solid #d0d0c8; border-radius: 4px;
+    font-family: ui-monospace, "Consolas", "Menlo", monospace;
+  }
+  .midi-status.ok  { background: #e6f4e6; border-color: #8db78d; color: #1c4d1c; }
+  .midi-status.warn{ background: #fff2d8; border-color: #d8b060; color: #604010; }
+  .midi-status.err { background: #fde0e0; border-color: #cc7a7a; color: #6c1a1a; }
   #tile-grid {
     flex: 1; overflow-y: auto;
     display: grid;
@@ -923,6 +932,12 @@
   <!-- ════════════════ HOME ════════════════ -->
   <section id="home">
     <h1 id="home-title">HarpHymnal Drills<small>tap a tile to start</small></h1>
+    <!-- USB-MIDI status banner. Populated by MidiPlaythrough.java via
+         window.onMidiStatus(msg) — shows "no device" / "scanning…" /
+         "connected: <name>" / "disconnected (<name>)" so the user can
+         tell at-a-glance whether the SMK-37 PRO is detected without
+         needing adb / logcat. -->
+    <div id="midi-status" class="midi-status">MIDI: (waiting)</div>
     <div id="tile-grid"><!-- populated by JS --></div>
   </section>
 
@@ -1178,6 +1193,22 @@
     DATA = window.DRILL_DATA;
     renderHome();
   }
+
+  // ──────────── MIDI status banner ────────────
+  // MidiPlaythrough.java calls this whenever a USB MIDI device is added /
+  // removed / fails to open. Message conventions: "no device", "scanning…",
+  // "connected: <name> · <n> out-ports", "disconnected (<name>)",
+  // "openDevice null (<name>)", "openOutputPort null (<name>)".
+  window.onMidiStatus = function(msg) {
+    const el = document.getElementById('midi-status');
+    if (!el) return;
+    el.textContent = 'MIDI: ' + msg;
+    el.classList.remove('ok', 'warn', 'err');
+    if      (msg.startsWith('connected'))                  el.classList.add('ok');
+    else if (msg.startsWith('disconnected'))               el.classList.add('warn');
+    else if (msg.startsWith('openDevice') ||
+             msg.startsWith('openOutputPort'))             el.classList.add('err');
+  };
 
   // ──────────── Home screen ────────────
   function renderHome() {
