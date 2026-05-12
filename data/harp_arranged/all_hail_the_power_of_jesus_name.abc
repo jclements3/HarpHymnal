@@ -1,0 +1,21 @@
+X: 1
+T: All Hail The Power Of Jesus' Name
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+[DB] [E,-G,B,G-] [E,DGB] [E,GB]- | [E,GB] [F,DFA] [E,CEG] [F,DFA] | [E,GB] [F,DFA] [E,-G-] [E,GB] | [F,DFA] [E,G]3 |
+[F,DAB] [E,GB] [F,DAB] [E,G,B,G] | [E,GB] [GBdb] [E,GB]2 | [DFd-b-] [E,Gd-b-]2 [F,A-d-b] | [F,Adb] [E,Gce]2 [DFdb] |
+[CE^ca] [DFdb]3 | [D-GB-] [D-B-db] [D-GB-] [E,DGB] | [E,GB] [F,DFA]3 | [E,-G-] [E,-G-db]2 [E,Gca]- |
+[E,-G-ca] [E,-G-B]2 [E,F,-GA-] | [F,DFA] [E,G]3 |]
+[V: LH]
+[D,B,] [E,,G,-] [G,-B,] [G,DB]- | [G,D-B-] [D,DB] [E,G,B,] [D,D-B-] | [B,,DB] [D,CA] [E,G,B,] [D,-DB] | [D,CA] [G,,G,B,]3 |
+[F,,D,A,] [G,B,] [F,,D,A,] [E,,B,,G,] | [G,B,] [B,DB] [G,B,]2 | [F,,D,A,] [G,B,]2 [F,,F,-A,-] | [F,,F,A,] [E,G,B,]2 [F,,A,,A,]- |
+[F,,-A,,A,-] [F,,D,A,]3 | [E,,G,-] [G,B,] [E,,-G,,G,-] [E,,B,,G,] | [G,,DB] [D,CA]3 | [E,G,B,] [E,,-B,,G,-]2 [E,,C,G,]- |
+[E,,-C,G,-] [E,,D,-G,]2 [D,-F,] | [D,CA] [G,,G,B,]3 |]

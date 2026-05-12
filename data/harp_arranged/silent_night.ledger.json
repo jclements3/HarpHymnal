@@ -1,0 +1,1885 @@
+{
+  "title": "Silent Night",
+  "key_root": "Bb",
+  "key_mode": "major",
+  "modal_name": "ionian",
+  "meter_beats": 3,
+  "meter_unit": 4,
+  "beats_per_bar": 3,
+  "tempo_bpm": 90,
+  "beats": [
+    {
+      "index": 0,
+      "bar": 1,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "bar": 1,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "bar": 1,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "bar": 2,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "bar": 2,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "bar": 2,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 6,
+      "bar": 3,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 57,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 63,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 72,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 7,
+      "bar": 3,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 57,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 63,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 72,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 8,
+      "bar": 3,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 60,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 63,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 69,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 9,
+      "bar": 4,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 70,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 10,
+      "bar": 4,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "chord-tone"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 70,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 11,
+      "bar": 4,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "octave-fill"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 12,
+      "bar": 5,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 51,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 63,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 67,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 13,
+      "bar": 5,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 51,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 63,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 67,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 14,
+      "bar": 5,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 51,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 67,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 70,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 15,
+      "bar": 6,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 16,
+      "bar": 6,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 17,
+      "bar": 6,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "octave-fill"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 18,
+      "bar": 7,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 51,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 63,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 67,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 19,
+      "bar": 7,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 51,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 63,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 67,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 20,
+      "bar": 7,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 51,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 67,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 70,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 21,
+      "bar": 8,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 22,
+      "bar": 8,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 23,
+      "bar": 8,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "octave-fill"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 24,
+      "bar": 9,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 57,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 72,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 25,
+      "bar": 9,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 57,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 72,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 26,
+      "bar": 9,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 57,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "attack",
+          "pitch_midi": 60,
+          "source": "chord-tone"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 75,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 27,
+      "bar": 10,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 70,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 28,
+      "bar": 10,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 70,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 29,
+      "bar": 10,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "octave-fill"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 74,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 30,
+      "bar": 11,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 50,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 70,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 31,
+      "bar": 11,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 32,
+      "bar": 11,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 41,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "attack",
+          "pitch_midi": 62,
+          "source": "chord-tone"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 53,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 57,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 33,
+      "bar": 12,
+      "beat_in_bar": 1,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "attack",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "T1": {
+          "kind": "attack",
+          "pitch_midi": 50,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "A1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 34,
+      "bar": 12,
+      "beat_in_bar": 2,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "idle"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 50,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "attack",
+          "pitch_midi": 65,
+          "source": "chord-tone"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    },
+    {
+      "index": 35,
+      "bar": 12,
+      "beat_in_bar": 3,
+      "voices": {
+        "Dr": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "B": {
+          "kind": "sustain",
+          "pitch_midi": 46,
+          "source": "satb"
+        },
+        "T2": {
+          "kind": "attack",
+          "pitch_midi": 58,
+          "source": "octave-fill"
+        },
+        "T1": {
+          "kind": "sustain",
+          "pitch_midi": 50,
+          "source": "satb"
+        },
+        "A2": {
+          "kind": "attack",
+          "pitch_midi": 70,
+          "source": "octave-fill"
+        },
+        "A1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "S2": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        },
+        "S1": {
+          "kind": "sustain",
+          "pitch_midi": 58,
+          "source": "satb"
+        },
+        "Gl": {
+          "kind": "rest",
+          "pitch_midi": null,
+          "source": "satb"
+        }
+      }
+    }
+  ],
+  "audits": []
+}

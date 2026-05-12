@@ -1,0 +1,131 @@
+/* Minimal styling — dev UI only. */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: #222;
+  background: #f6f6f4;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  flex: 0 0 auto;
+  padding: 10px 16px;
+  background: #2c3e50;
+  color: #fff;
+  border-bottom: 1px solid #1a242f;
+}
+
+.topbar h1 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.controls select,
+.controls button {
+  font: inherit;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #4a5b6c;
+  background: #ecf0f1;
+  color: #222;
+  cursor: pointer;
+}
+.controls select { min-width: 260px; }
+.controls button:hover { background: #fff; }
+.controls button:active { background: #ddd; }
+
+.status {
+  color: #fdd;
+  font-style: italic;
+}
+
+.grid {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  min-height: 0;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #d0d0c8;
+  border-radius: 6px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pane h2 {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #eceae3;
+  border-bottom: 1px solid #d0d0c8;
+}
+
+#abc-source {
+  flex: 1 1 auto;
+  width: 100%;
+  font-family: ui-monospace, "Consolas", "Menlo", monospace;
+  font-size: 12px;
+  padding: 8px;
+  border: 0;
+  resize: none;
+  white-space: pre;
+  overflow: auto;
+}
+
+#score {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 8px;
+  background: #fff;
+}
+
+.audits {
+  flex: 0 0 auto;
+  max-height: 28vh;
+  overflow: auto;
+  padding: 0 10px 10px;
+}
+.audits h2 {
+  margin: 6px 0 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+#audits-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #d0d0c8;
+}
+#audits-table th,
+#audits-table td {
+  text-align: left;
+  padding: 4px 8px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+#audits-table tr.sev-warn  td { background: #fff7e0; }
+#audits-table tr.sev-error td { background: #ffe5e5; }
+#audits-table tr.sev-info  td { color: #555; }

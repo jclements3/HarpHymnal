@@ -68,6 +68,96 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-12 — SATB → pedal-harp arranger + Somerset LH patterns)
+
+New end-to-end tool at `tools/satb_to_harp/` that takes a hymn from
+`source/OpenHymnal.abc` and emits a 2-hand harp arrangement, served by a
+local Flask dev server with a browser UI.
+
+### Pipeline
+- **`analyzer.py`** — reads ABC source via `parsers/abc.py`'s SATB
+  extraction (`extract_tune`, `split_voices`, `sample_satb`), seeds the
+  4 source voices into S1/A1/T1/B slots, collapses re-pluck repeats to
+  sustains, and sets a Dr drone (one pluck per chord-root change, in
+  C1–B1). Output: `BeatLedger` with per-beat 8-voice events + bar→RN
+  map. CLI: `python -m tools.satb_to_harp.analyzer "<title>"`.
+- **`consolidator.py`** — turns the ledger into ABC. Static slot →
+  hand routing (`LH = {Dr, B, T2, T1}`, `RH = {A2, A1, S2, S1, Gl}`).
+  Emits chord stacks per beat with proper bar-line split + per-pitch
+  ties (`[B,,-B,-]` style) so abc2midi doesn't error on partial-match
+  ties. RN annotations (`"^I"`, `"^V"`, etc.) prepended to RH at bar
+  boundaries where the chord changes. Dr/B render on a third "Bs"
+  staff so the drone shows once per bar instead of in every chord.
+- **`somerset.py`** — encodes 16 left-hand accompaniment patterns from
+  Deborah Henson-Conant's Somerset 2020 PlaySheet (PNGs in
+  `somerset/somerset01..17.png`). Each pattern is a per-meter list of
+  `(duration_quarters, [pitch_offsets_from_root])`. Pitches clamp to
+  ≤ B3 so the LH stays below middle C; chord stacks de-dup and respect
+  the 10-string (16-semitone) hand-span limit. Pattern notes split
+  between T1 (5th/octave/10th) and T2 (root, octave-below).
+- **`hand_router.py`** — built but currently bypassed. Designed for
+  per-beat smart routing across hands with constraint repair (≤ 4
+  attacks/hand, span ≤ 16 st, drone-zone protection). Reverted to
+  static slot routing per user direction; the router code is still
+  present for when we want dynamic cross-hand assignment.
+- **`server.py`** — Flask app on `http://localhost:5173/`.
+  Endpoints: `/api/hymns`, `/api/patterns`, `/api/arrange`,
+  `/api/midi`, `/api/audio`. Audio synthesis: ABC → MIDI via
+  `abc2midi`, MIDI → WAV via `fluidsynth + FluidR3_GM.sf2` (browsers
+  can't decode MIDI inline). `debug=True` so Python edits auto-reload.
+- **`static/index.html` + `app.js`** — vanilla browser UI. Typeable
+  input + `<datalist>` of 281 zero-padded numbered hymn titles
+  (`001 'Take Up Thy Cross'…`). Pattern dropdown re-arranges on
+  change. Auto-loads hymn 001 on page open. ABC textarea + abc2svg
+  rendered score + audits table. Audio plays back through a hidden
+  `<audio>` element with the `/api/audio` WAV.
+
+### Arrangement modes
+- **Default (no pattern)**: RH = SATB alto + soprano, LH = SATB bass +
+  tenor, Bs = Dr drone-zone chord-root pluck.
+- **Somerset pattern**: RH unchanged. LH carries the pattern (T1
+  carries 5th/octave/10th, T2 carries root). SATB bass + tenor are
+  dropped from LH in pattern mode (pattern provides the bass-line
+  function). Bs voice stacks `[Dr B]` — Dr + chord-root one octave
+  above — so you get the open-octave bass foundation the user wants.
+
+### User-direction history this session
+1. v1 added inner-voice "fills" via chord-tone picker → cluster
+   problems (G3+A3+B3 in 012). 2. Tried phrase-level parallel-third
+   countermelodies → buried the melody. 3. Reverted to faithful SATB
+   render. 4. Added single fixed Dr drone → user called it bagpipe
+   idiom. 5. Switched Dr to chord-root-following bass; added B as
+   octave-above-Dr. 6. Added 16 Somerset LH patterns from PNGs the
+   user dropped into `somerset/`. 7. User requested strict static
+   slot routing (no cross-hand reassignment). 8. Per-pitch LH clamp
+   (≤ B3) so accompaniment stays in the bass clef.
+
+### Constraints enforced
+- LH max pitch B3 (below middle C); higher pattern pitches octave-
+  displace down.
+- Drone zone (C1–B1) reserved for Dr only.
+- Chord-stack de-duplication (no unison doublings in one chord).
+- Per-pitch ties inside chord stacks (abc2midi-safe).
+- 10-string (16-semitone) hand-span audit at info level.
+
+### Auxiliary docs
+- `docs/harprules.md` — DHC-style SATB-to-harp arrangement procedure
+  the user moved in from `~/Downloads/` (referenced by the doc set
+  alongside `HARP_RULES.md`).
+
+### Not yet wired
+- The smart `hand_router.py` is built but bypassed. Re-enabling it
+  would let voices cross hands at beats where the static slot routing
+  exceeds the 10-string span (currently flagged in audits but not
+  repaired).
+- 3/4 patterns (Waltz, Pretty Waltz +9th) running on 4/4 hymns fall
+  back to the only-available variant and don't fill the bar properly.
+- `audit_voice_leading` for the SATB+pattern combo (parallel
+  5ths/8ves between fill voices and SATB) is partially scaffolded
+  but not raising flagged-quality audits yet.
+
+---
+
 ## Current state (2026-05-07 — 101-licks bundle replatformed via Audiveris OMR)
 
 The `licks/` directory is now the canonical home for the 101 D-min lick
@@ -1000,6 +1090,17 @@ from yesterday's session). Home doesn't need to reinstall.
 ---
 
 ## Recent pushes (newest first)
+
+- **2026-05-12 home** — `tools/satb_to_harp/`: SATB → pedal-harp arranger.
+  New end-to-end tool with analyzer + consolidator + somerset patterns +
+  hand-router + Flask server + browser UI. Reads from
+  `source/OpenHymnal.abc` (281 hymns), renders RH (SATB upper) + LH
+  (SATB bass/tenor or Somerset pattern) + Bs (Dr drone). 16 Somerset LH
+  patterns encoded from `somerset/somerset01..17.png` (Deborah
+  Henson-Conant 2020). UI at http://localhost:5173/, MIDI → WAV via
+  `fluidsynth + FluidR3_GM.sf2`. Per-pitch ties in chord stacks (no
+  more abc2midi tie errors), RN annotations on RH, drone-zone separated.
+  See "Current state (2026-05-12)" above for design + open items.
 
 - **2026-05-07 home** — `3f84b5e` `licks: cross-chunk pipe alignment`. Bar
   widths padded by chunk-position (column 0..3 within a 4-bar row) across
