@@ -126,17 +126,28 @@ public class MidiPlaythrough {
     }
 
     private void openOne(MidiDeviceInfo info) {
-        // We only consume devices that have at least one OUTPUT port
-        // (sender of notes — i.e. a keyboard sending events to us).
+        // Only consume EXTERNAL USB MIDI peripherals — a real keyboard
+        // plugged into the tablet's USB-C port in host mode. Skip:
+        //   - TYPE_VIRTUAL (3rd-party virtual MIDI services — they can
+        //     emit phantom note-ons that hang as a stuck tone)
+        //   - TYPE_BLUETOOTH (lag — user explicitly bought a wired cable
+        //     to avoid this)
+        //   - The tablet's own "Android USB Peripheral Port" (the system
+        //     loopback that appears when USB Preferences is set to MIDI)
+        if (info.getType() != MidiDeviceInfo.TYPE_USB) return;
         if (info.getOutputPortCount() == 0) return;
+        String name = info.getProperties().getString(MidiDeviceInfo.PROPERTY_NAME);
+        if (name != null && name.toLowerCase().contains("peripheral")) {
+            Log.i(TAG, "skipping tablet's own USB peripheral port: " + name);
+            return;
+        }
         midi.openDevice(info, dev -> {
             if (dev == null) { Log.w(TAG, "openDevice returned null for " + info); return; }
             openDevices.add(dev);
             MidiOutputPort port = dev.openOutputPort(0);
             if (port == null) { Log.w(TAG, "openOutputPort failed for " + info); return; }
             port.connect(new SynthReceiver());
-            Log.i(TAG, "MIDI device connected: " + info.getProperties().getString(
-                MidiDeviceInfo.PROPERTY_NAME));
+            Log.i(TAG, "MIDI device connected: " + name);
         }, new Handler(Looper.getMainLooper()));
     }
 
