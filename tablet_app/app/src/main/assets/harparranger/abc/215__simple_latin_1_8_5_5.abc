@@ -1,0 +1,28 @@
+X: 1
+T: Savior, Like A Shepherd Lead Us
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [EG]4 | [G-B] [G-e] [GB] [EG] | "^V" [DF] [EG] [FA] [GB] | "^I" [E-G]3 E- |
+[EG-]3 G- | [G-B] [Ge] [EB] [DG] | "^I4" [EF] [FG] [GA] [E-B] | "^I" [EG-]2 G [AB] |
+"^IV" c- [ce-] [Be] [Gd] | "^I" [E-B] [EG-]2 [DG] | "^V7" [FA] [Gc] [FB] [E-A] | "^I" [EG-]2 G [AB] |
+"^IV" c- [ce-] [Be] [G-d] | "^I" [G-B] [Ge-] [E-e] E | G [F-B] [FA-] [E-A] | E2 E |]
+[V: LH]
+E,3/2 E,/2 B, B, | E,3/2 E,/2 B, B, | B,3/2 B,/2 F, F, | E,3/2 E,/2 B, B, |
+E,3/2 E,/2 B, B, | E,3/2 E,/2 B, B, | E,3/2 E,/2 B, B, | E,3/2 E,/2 B, B, |
+A,3/2 A,/2 E, E, | E,3/2 E,/2 B, B, | B,3/2 B,/2 F, F, | E,3/2 E,/2 B, B, |
+A,3/2 A,/2 E, E, | E,3/2 E,/2 B, B, | E,3/2 E,/2 B, B, | E,3/2 E,/2 B, B, |]
+[V: Bs]
+[E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4- |
+[E,,,E,,]4- | [E,,,E,,]4- | [E,,,E,,]4- | [E,,,E,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4- | [E,,,E,,]4- | [E,,,E,,]3 |]

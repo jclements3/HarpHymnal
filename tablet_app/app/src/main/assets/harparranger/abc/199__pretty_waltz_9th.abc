@@ -1,0 +1,25 @@
+X: 1
+T: Open Now Thy Gates of Beauty
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^I" B,2- [B,-D] B,- | [B,-D] [B,E] [CF]2 | "^vi" [B,-B] [B,-A] [B,F] [Fd] | "^I" [Gc-] [Fc] [DB]2 |
+B,2- [B,-D] B,- | [B,-D] [B,E] [CF]2 | "^vi" [B,-B] [B,-A] [B,F] [Fd] | "^I" [Gc-] [Fc] [DB]2 |
+[F-d]2 [Fc]2 | "^vi" [D-B]2 [DA]2 | "^IV" [B,G]2 [D-F] [DB] | "^ii6" [C-c] [CA] [DB]2 |]
+[V: LH]
+B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 |
+B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 |
+B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | E,/2 B,/2 F,/2 E,/2 F,/2 E,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 |]
+[V: Bs]
+[B,,,B,,]4- | [B,,,B,,]4 | [G,,,G,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4- | [B,,,B,,]4 | [G,,,G,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4 | [G,,,G,,]4 | [E,,,E,,]4 | [C,,,C,,]4 |]

@@ -1,0 +1,28 @@
+X: 1
+T: I Bind Unto Myself Today
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^iii" D G2- | G "^vi64" F D | "^iii" F B d | "^ii6" c B A- |
+A "^V" c A | F2 A | "^ii" c B2- | B "^V" A2 |
+"^V7" d G2 | "^vi" B F D | "^I4" B, B2 | F G A |
+"^vi" B d2 | "^I4" c B G | "^V6" A G2- | G2 |]
+[V: LH]
+[D,-D] [D,B,]2- | [D,-B,] [D,A,]2- | [D,A,] [F,D]2 | [E,E] [F,C]2- |
+[F,C]3- | [F,C-]3 | [C,C] [D,F]2 | [E,E] [F,-C]2 |
+[F,D] [B,E]2 | [G,B,-] [F,B,]2- | [F,B,-] [G,B,-]2 | [F,B,-] [E,B,] [F,D-] |
+[G,D-] [B,D]2 | [F,F]2 [G,E] | [A,F] [B,D]2 | [CE] [B,D] |]
+[V: Bs]
+D,,,3 | G,,,3 | D,,,3 | C,,,3 |
+F,,,3- | F,,,3 | C,,,3 | F,,,3- |
+F,,,3 | G,,,3 | B,,,3- | B,,,3 |
+G,,,3 | B,,,3 | F,,,3 | C,,,2 |]

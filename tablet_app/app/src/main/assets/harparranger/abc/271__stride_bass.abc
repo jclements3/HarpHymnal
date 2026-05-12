@@ -1,0 +1,28 @@
+X: 1
+T: What Child Is This?
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" E- [EG] [DB-] | "^III" [GB] [FA] D- | "^i" [DF] [B,G] [A,E-] | "^V" E [^DF] B, |
+"^i" E- [EG] [DB-] | "^III" [GB] [FA] D- | "^i" [DF] [B,-G] [B,-^D] | "^V" [B,-D] [B,E]2- |
+[B,E] "^i" [Fd-] [Bd] | "^III" [GB] [FA] D- | "^i" [DF] [B,G] [A,E-] | "^V" E [^DF] B,- |
+B, [Fd-] [Bd] | "^III" [GB] [FA] D- | "^i" [DF] [B,-G] [B,-^D] | "^V" [B,-D] [B,E]2 |]
+[V: LH]
+E,, [E,G,B,] B,, [E,G,B,] | G,, [D,G,B,] D, [D,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | B,, [^D,F,B,] F, [^D,F,B,] |
+E,, [E,G,B,] B,, [E,G,B,] | G,, [D,G,B,] D, [D,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | B,, [^D,F,B,] F, [^D,F,B,] |
+E,, [E,G,B,] B,, [E,G,B,] | G,, [D,G,B,] D, [D,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | B,, [^D,F,B,] F, [^D,F,B,] |
+B,, [^D,F,B,] F, [^D,F,B,] | G,, [D,G,B,] D, [D,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | B,, [^D,F,B,] F, [^D,F,B,] |]
+[V: Bs]
+[E,,,E,,]3 | [G,,,G,,]3 | [E,,,E,,]3 | [B,,,B,,]3 |
+[E,,,E,,]3 | [G,,,G,,]3 | [E,,,E,,]3 | [B,,,B,,]3 |
+[E,,,E,,]3 | [G,,,G,,]3 | [E,,,E,,]3 | [B,,,B,,]3- |
+[B,,,B,,]3 | [G,,,G,,]3 | [E,,,E,,]3 | [B,,,B,,]3 |]

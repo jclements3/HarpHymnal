@@ -1,0 +1,28 @@
+X: 1
+T: O Wondrous Type, O Vision Fair
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C#m
+[V: RH]
+"^i" [E-c]3 | "^III" [E-B] [Ec]2 | "^V" [DB-] [E-B] [EA]- | [E-A] "^i6" [E-G]2 |
+"^III6" [E-c]2 [E-B] | "^III" [EG] [C-F] [C-G] | "^i6" [C-F] [C-E] [CD-] | "^V" [=CD] C2 |
+"^i" [EG] [DB-] [EB]- | [E-B] "^III" [E-c] [EB] | "^III6" [FA] [E-G] [EF-] | "^III" [DF] [B,E-]2 |
+[CE] [B,G-] [CG]- | [C-G] "^i" [CF-] [=CF] | "^i6" [C-E]2 [CD-] | "^V" [=CD] C2 |]
+[V: LH]
+C,,3/2 C,/2 [C,E,G,] [C,E,G,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | G,,3/2 G,/2 [=C,D,G,] [=C,D,G,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] | G,,3/2 G,/2 [=C,D,G,] [=C,D,G,] |
+C,,3/2 C,/2 [C,E,G,] [C,E,G,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] | G,,3/2 G,/2 [=C,D,G,] [=C,D,G,] |]
+[V: Bs]
+[C,,,C,,]3 | [E,,,E,,]3 | [G,,,G,,]3 | [C,,,C,,]3 |
+[E,,,E,,]3- | [E,,,E,,]3 | [C,,,C,,]3 | [G,,,G,,]3 |
+[C,,,C,,]3 | [E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- |
+[E,,,E,,]3 | [C,,,C,,]3- | [C,,,C,,]3 | [G,,,G,,]3 |]

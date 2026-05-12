@@ -1,0 +1,28 @@
+X: 1
+T: Holy Spirit, Ever Dwelling
+M: 8/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Fm
+[V: RH]
+"^i" [C-F]3 [CG-] [=EG]2 F2- | [FG-]2 [=E-G] [=EA-] [FA]2 [C-F]2 | "^III" [Cc]2 [E-B] [Ec-] [Gc]2 [F-A]2 | "^i" [FB]2 [=EG]2 F4 |
+[C-F]3 [CG-] [=EG]2 F2- | [FG-]2 [=E-G] [=EA-] [FA]2 [C-F]2 | "^III" [Cc]2 [E-B] [Ec-] [Gc]2 [F-A]2 | "^i" [FB]2 [=EG]2 F4 |
+"^III" [E-c]2 [E-A] [EB]5 | "^i" [CA]2 F- [FG-]3 [=EG]2 | F2 [C-F] [CG] [FB-]2 [EB]2 | "^V" [CA]2 [F-B] [FA] [=Ec]4 |
+[A,F-]2 F- [FG-] [=EG]2 F2- | "^i" [FG-]2 [=E-G] [=EA-] [F-A]2 F2 | "^III" [E-c]2 [E-B] [Ec]3 [F-A]2 | "^i" [FB]2 [=EG]2 F4 |]
+[V: LH]
+F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | A,3/2 E,/2 C, E, | F,3/2 C,/2 A, C, |
+F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | A,3/2 E,/2 C, E, | F,3/2 C,/2 A, C, |
+A,3/2 E,/2 C, E, | F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | C,3/2 G,/2 =E, G, |
+C,3/2 G,/2 =E, G, | F,3/2 C,/2 A, C, | A,3/2 E,/2 C, E, | F,3/2 C,/2 A, C, |]
+[V: Bs]
+[F,,,F,,]8- | [F,,,F,,]8 | [A,,,A,,]8 | [F,,,F,,]8- |
+[F,,,F,,]8- | [F,,,F,,]8 | [A,,,A,,]8 | [F,,,F,,]8 |
+[A,,,A,,]8 | [F,,,F,,]8- | [F,,,F,,]8 | [C,,,C,,]8- |
+[C,,,C,,]8 | [F,,,F,,]8 | [A,,,A,,]8 | [F,,,F,,]8 |]

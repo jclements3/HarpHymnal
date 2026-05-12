@@ -1,0 +1,31 @@
+X: 1
+T: Fear Not, O Little Flock
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^i" [DG-]3 [EG] | "^III" [Dd]3 [F-c] | "^V" [Fd] [D-B] [D-A]2 | "^III52" D [EG] [=EB] [F-A] |
+"^III" [F-B]3 [Fd] | "^i52" [D-c] [D-B] [DA]2 | "^iv" E- [E-A] [Ec-] [Dc-] | "^iv7" [Cc] [F-B] [FA] [=EB] |
+"^V" [F-G]2 F [DF] | "^III7" F- F- [F-B] [F-A] | "^III" [FB-]2 [D-B] [D-d] | "^VII4" [D-c] [DB] [EA-] [=EA] |
+"^III52" F- [F-G] [F-B] [F-A] | "^III64" [FB-] [D-B]2 [Dd] | "^III" [B,c] [D-B] [DA]2 | "^V4" F [DG] [Ed-] [Dd]- |
+[D-d] "^V" [D-c] [DB] c | "^VII" A2 G2 |]
+[V: LH]
+[G,,B,]3 [C,C] | [B,,F,]3 [F,A,-] | [D,A,] G, [D,_G,]2 | G, [E,B,] [C,G,] [B,,-C] |
+[B,,D-]2 [B,D] [F,B,] | [G,A,] [D,-G,] [D,_G,]2 | C,- [C,-F,] [C,G,-] [D,G,-] | [F,G,] [B,,F,] [C,-A,] [C,D] |
+[F,,C]2 [D,A,-] [G,A,] | F, [B,,-A,] [B,,-B,] [B,,C] | [B,D-] [F,D-] [G,D] [D,-B,] | [D,A,] G, [E,_G,-] [C,_G,] |
+B,,- [B,,-B,] [B,,G,] [B,C] | [F,D-] [G,D-] [D,-D] [D,B,] | [E,A,] [B,,-G,] [B,,_G,]2 | F, G, [C,F,-] [D,F,]- |
+[D,F,] [G,,-A,] [G,,G,-] G, | _G,2 =B,2 |]
+[V: Bs]
+G,,,4 | B,,,4 | D,,,4 | B,,,4- |
+B,,,4 | G,,,4 | C,,,4- | C,,,4 |
+D,,,4 | B,,,4- | B,,,4 | F,,,4 |
+B,,,4- | B,,,4- | B,,,4 | D,,,4- |
+D,,,4 | F,,,4 |]

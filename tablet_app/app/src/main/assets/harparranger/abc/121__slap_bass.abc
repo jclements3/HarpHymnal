@@ -1,0 +1,25 @@
+X: 1
+T: Jesus Came, the Heavens Adoring
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bm
+[V: RH]
+"^i" [DF-] [CF] [DB-] [E-B] | "^III" [EA]2 [D-F] D | [EA] [D-F] [D-B] [D-A] | "^iv7" [DG-] [CG] [DF]2 |
+"^iv" [CE-]2 [B,E] [A,-C] | "^III" [A,D] E [DF]2- | [DF] "^i" [E^G] [CA] [F-B] | "^V4" [FA] [EG] F2- |
+"^V" [F-c]2 [Fd] [Gc] | [F^A] [DB] [F-c] F- | "^i" [Fd] [Ec] [F-^A] [FB-] | [GB] [F-^A] [FB]2 |]
+[V: LH]
+B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 | D,/2 A,/2 D,/2 A,/2 D,/2 A,/2 D,/2 A,/2 | D,/2 A,/2 D,/2 A,/2 D,/2 A,/2 D,/2 A,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 |
+E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 | D,/2 A,/2 D,/2 A,/2 D,/2 A,/2 D,/2 A,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 | F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 |
+F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 | F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 |]
+[V: Bs]
+[B,,,B,,]4 | [D,,,D,,]4- | [D,,,D,,]4 | [E,,,E,,]4- |
+[E,,,E,,]4 | [D,,,D,,]4 | [B,,,B,,]4 | [F,,,F,,]4- |
+[F,,,F,,]4- | [F,,,F,,]4 | [B,,,B,,]4- | [B,,,B,,]4 |]

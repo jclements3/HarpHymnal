@@ -1,0 +1,34 @@
+X: 1
+T: To Jordan Came Our Lord, The Christ
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Am
+[V: RH]
+"^iv" D2- [D-F] [DG] | "^i" [E-A] [E-G] [E-c] [EB] | [CA-]3 [DA] | "^III" [Ec] [GB] [FA] [EG] |
+"^iv" [D-F] [D-E] D2- | D2- [D-F] [DG] | "^i" [E-A] [E-G] [E-c] [EB] | [CA-]3 [DA] |
+"^III" [Ec] [GB] [FA] [EG] | "^iv" [D-F] [D-E] D2- | D [DE] [DG-] [CG] | "^i7" E [FA-] [EA] [C-G] |
+"^i" [CA-]2 [EA-] [GA] | "^iiø43" [Ad-] [^G-d] [^Ge-] [Fe] | "^iv74" [A-d] [A-B] A [CA] | "^III" E [GA] [Fc] [E-B] |
+"^i" [EA] [DG] [^C-A] [^C-F] | [^CE-] [A,E-] [D-E] D | "^iio4" F- [FG] [D-A]2 | "^iv52" [D-G] [DE] [D-F] D |
+"^i6" G- [Gd-] [Fd-] [E-d] | "^i" [Ee] [^C-d] [^C-c] [^C-B] | [^CA-] A3 |]
+[V: LH]
+[D,-F,]2 [D,A,] [B,,B,] | [A,,C] [E,B,] [C,A,] [E,^G,] | [A,,A,]3 [D,F,] | [C,G,-] [E,G,] [F,C-] [C,C] |
+[D,A,-] [A,,A,] [D,F,]2- | [D,-F,]2 [D,A,] [B,,B,] | [A,,C] [E,B,] [C,A,] [E,^G,] | [A,,A,]3 [D,F,] |
+[C,G,-] [E,G,] [F,C-] [C,C] | [D,A,-] [A,,A,] [D,-F,]2 | D, [C,F,] [B,,G,-] [C,G,-] | [A,,G,] [D,C] [E,D] [A,,-B,] |
+[A,,A,-]2 A, [G,C] | [F,B,] [E,-A,] [E,B,-] [D,B,] | [E,A,] [A,,-E] [A,,C-] [F,C] | C, [E,A,] [F,G,-] [C,G,] |
+[A,,C-] [D,C-] [A,,-C] [A,,A,]- | [A,,A,-] [D,A,-] [^A,,A,] [G,,F,] | [F,,-^A,] [F,,B,] [G,,C-] [A,,C] | [D,-^A,] [D,-A,] [D,F,-] F, |
+G, [C,A,-] [D,A,] [A,,B,] | [E,C] [A,,-A,]2 [A,,-^G,] | [A,,A,-] A,3 |]
+[V: Bs]
+D,,,4 | A,,,4- | A,,,4 | C,,,4 |
+D,,,4- | D,,,4 | A,,,4- | A,,,4 |
+C,,,4 | D,,,4- | D,,,4 | A,,,4- |
+A,,,4 | B,,,4 | D,,,4 | C,,,4 |
+A,,,4- | A,,,4 | B,,,4 | D,,,4 |
+A,,,4- | A,,,4- | A,,,4 |]

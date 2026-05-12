@@ -1,0 +1,28 @@
+X: 1
+T: 'Twas On That Dark, That Doleful Night
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Dm
+[V: RH]
+"^i" [DF]3 [EG] | "^III" [F-A]3 [F-d] | "^III64" [Fc-] [Cc] [DB-] [EB] | "^III" [FA]4- |
+[FA-]2 "^i" [EA] [DB] | "^III6" [Cc]2 F2- | "^III64" [FA]2 [EG]2 | "^III" F3 [C-A] |
+[CF]3 [D-A] | "^iiø7" [DG]2 [_DA]2 | "^i" [DF]2 [EG-] [DG] | "^V" [_DE]4 |
+"^i" D4 | "^V" A3 [D-G] | "^i64" [DF-]2 [CF]2 | "^i" D4 |]
+[V: LH]
+D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 |
+D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 |
+F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | E,/2 E,/2 =B,,/2 E,/2 E,/2 E,/2 =B,,/2 E,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 |
+D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 |]
+[V: Bs]
+[D,,,D,,]4 | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 |
+[D,,,D,,]4 | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 | [E,,,E,,]4 | [D,,,D,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [A,,,A,,]4 | [D,,,D,,]4- | [D,,,D,,]4 |]

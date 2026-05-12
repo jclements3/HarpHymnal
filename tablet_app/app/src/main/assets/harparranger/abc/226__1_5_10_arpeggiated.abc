@@ -1,0 +1,25 @@
+X: 1
+T: That Men a godly Life Might Live
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^vi" D [EG-]2 [DG-] | "^IV7" [EG-] [DG]2 [E-B] | "^IV" [Ec]2 D [=Fc] | "^V74" [Ed]2 [Dc] G- |
+"^IV52" [G-A] [GB] [=F-c]2 | "^V" =F [E-c] [Ed-] [Cd] | "^IV" [Ec] [D-G] [D-A] [DG] | "^bvii°" [A,=F-] [D=F] E- [E=F] |
+"^I52" [D-A] [DB] [G-c]2 | "^I" [G-^A] G [EB-] [D-B] | [D-^A]2 [DG-]2 | "^I6" G4 |]
+[V: LH]
+E, B, G,2 | C, G, E,2 | C, G, E,2 | D, A, F,2 |
+C, G, E,2 | D, A, F,2 | C, G, E,2 | F, C, A,2 |
+G, D, B,2 | G, D, B,2 | G, D, B,2 | G, D, B,2 |]
+[V: Bs]
+[E,,,E,,]4 | [C,,,C,,]4- | [C,,,C,,]4 | [D,,,D,,]4 |
+[C,,,C,,]4 | [D,,,D,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4 |]

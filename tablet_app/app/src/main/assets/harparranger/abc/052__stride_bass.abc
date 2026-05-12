@@ -1,0 +1,28 @@
+X: 1
+T: Come Thou Fount Of Every Blessing
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [E-G] E2- | [EG] [DF]2 | [E-G] [E-c] [E-B] | "^I64" [E-G] E2- |
+"^I" [E-G] E2- | [EG] [DF]2 | [E-G] [E-c] [E-B] | "^I64" [E-G] E2- |
+"^I6" [EB] [Ge] [Bd] | "^IV64" [Ac-] [E-c] [EG] | "^I" [GB] [Ee] [Bd] | "^IV" [Ac] [Ge]2 |
+"^I" [E-G] E2- | [EG] [DF]2 | [E-G] [E-c] [E-B] | "^I64" [E-G] E2 |]
+[V: LH]
+E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] |
+E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] |
+E,, [E,G,B,] B,, [E,G,B,] | A,, [C,E,A,] E, [C,E,A,] | E,, [E,G,B,] B,, [E,G,B,] | A,, [C,E,A,] E, [C,E,A,] |
+E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] |]
+[V: Bs]
+[E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- |
+[E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- |
+[E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 | [A,,,A,,]3 |
+[E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3 |]

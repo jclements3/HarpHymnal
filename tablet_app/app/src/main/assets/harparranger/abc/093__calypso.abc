@@ -1,0 +1,22 @@
+X: 1
+T: Holy Ghost, with Light Divine
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [E-G] [E-A] [E-B] [E-c] | [EF-] [DF] [EG]2 | "^V6" [F-B] [F-c] [Fd] [Ee] | "^V" [Gc-] [Fc] [DB]2 |
+"^I" [E-G] [E-A] [E-B] [Ec] | "^ii64" [FA] [=EG] F2- | "^V6" [F-B] [FA] [DF] E- | "^I" [EF-] [DF] E2 |]
+[V: LH]
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | B,3/2 B,/2 F, B, | B,3/2 B,/2 F, B, |
+E,3/2 E,/2 B, E, | F,3/2 F,/2 C, F, | B,3/2 B,/2 F, B, | E,3/2 E,/2 B, E, |]
+[V: Bs]
+[E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4- | [B,,,B,,]4 |
+[E,,,E,,]4 | [F,,,F,,]4 | [B,,,B,,]4 | [E,,,E,,]4 |]

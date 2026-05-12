@@ -1,0 +1,28 @@
+X: 1
+T: We Gather Together
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [DA]3- | [D-A] [D-F] [D-G] | "^I6" [D-A] [DG]2 | "^V" [CE] [D-F] D |
+"^I" [FA-] [E-A]2 | "^V6" [Ec] [Fd-] [E-d] | "^vi65" [Ec] [FB-]2 | "^V" [^GB] [EA]2- |
+[E-A]3 | "^V42" [Ec] [D-d] [DA]- | [DA]3 | "^V" [CG] [D-F] D- |
+D- "^I" [D-G]2 | "^IV" [DB] [EA]2 | "^I" [D-F] [DG] [CE]- | [CE] "^V7" D2 |]
+[V: LH]
+[D,F,]3- | [D,-F,] [D,A,-] [E,A,-] | [F,A,] [E,B,]2 | [A,C] [D,-A,] [D,-F,] |
+[D,A,-] [C,A,]2- | [C,A,-] [B,,A,] [E,^G,] | [A,,A,-] [D,A,]2 | [E,D] [A,,C-]2 |
+[A,C-] [G,-C]2 | [G,A,-] [F,A,]2- | [F,A,] [E,B,]2 | A, [D,-A,] [D,F,]- |
+[D,F,] [B,,G,-]2 | [G,,G,] [C,-E,] [C,A,-] | [D,A,] [E,G,-] [A,,G,]- | [A,,G,] [D,F,]2 |]
+[V: Bs]
+D,,,3- | D,,,3- | D,,,3 | A,,,3 |
+D,,,3 | A,,,3 | B,,,3 | A,,,3- |
+A,,,3- | A,,,3 | D,,,3 | A,,,3 |
+D,,,3 | G,,,3 | D,,,3 | A,,,3 |]

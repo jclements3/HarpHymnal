@@ -1,0 +1,22 @@
+X: 1
+T: Almighty God Your Word Is Cast
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [C-G] [C-E] [C-A] [CG] | "^vi" [Ec-] [D-c] [DB] [E-c] | "^I" [E-G] [E-c] [E-G] [EA] | "^V" [D-^F] [D-G]3 |
+[DB] [Ec] [CA] [Fd] | [DB] [E-c] [EA] [B,B] | "^I6" [CG] [FA] [Ec] [D-d] | "^I" [DB] [Ec]3 |]
+[V: LH]
+[C,-E,] [C,G,] [F,A,] [E,C-] | [A,C] [F,A,] G, [C,-G,] | [C,C-] [A,,C] [E,B,] [C,A,-] | [D,A,] [G,,B,]3 |
+G, [C,G,] [F,A,-] [D,A,] | G, [C,G,] [F,A,] [E,-^G,] | [E,G,] [D,F,] [C,G,] [F,A,] | G, [C,G,]3 |]
+[V: Bs]
+C,,,4 | A,,,4 | C,,,4 | G,,,4- |
+G,,,4- | G,,,4 | C,,,4- | C,,,4 |]

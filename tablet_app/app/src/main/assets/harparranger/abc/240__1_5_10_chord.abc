@@ -1,0 +1,28 @@
+X: 1
+T: The Lily of the Valley
+M: 6/8
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" F- [F-c] [F-d] [F-c] [F-A]2 | "^I6" F [D-G] [DF] [B,D] [A,C] [C-F] | "^I" [CG] [F-A]3 [F-d] [F-A] | "^V" F [EG]4 F- |
+"^I" [F-A] [F-c] [F-d] [F-c] [FA]2 | [CF] [D-G] [DF] [B,D] [A,C] [C-F] | "^V7" [CG] [FA] [EG] F [DG] [C-F] | "^I" [C-E] [CF]4 _E |
+"^IV" [D-F] [DB]3 [Fd]2- | [F-d] "^I" [F-c]2 [F-A] [F-c] [FA] | "^I7" [C-G] [CF-]2 F- [F-d] [FA] | "^V" [E-F] [EG]4 F- |
+"^I" [F-A] [F-c] [F-d] [F-c] [FA]2 | "^IV" [D-F] [D-G] [DF] [A,-D] [A,C] [CF] | "^IV4" [FG] [C-A] [CG] [D-F] [DG] [C-F] | "^I" [C-E] [CF]4 |]
+[V: LH]
+[C,F,A,]4 | [C,F,A,]4 | [C,F,A,]4 | [C,E,G,]4 |
+[C,F,A,]4 | [C,F,A,]4 | [C,E,G,]4 | [C,F,A,]4 |
+[D,F,B,]4 | [C,F,A,]4 | [C,F,A,]4 | [C,E,G,]4 |
+[C,F,A,]4 | [D,F,B,]4 | [D,F,B,]4 | [C,F,A,]4 |]
+[V: Bs]
+[F,,,F,,]6- | [F,,,F,,]6- | [F,,,F,,]6 | [C,,,C,,]6 |
+[F,,,F,,]6- | [F,,,F,,]6 | [C,,,C,,]6 | [F,,,F,,]6 |
+[B,,,B,,]6 | [F,,,F,,]6- | [F,,,F,,]6 | [C,,,C,,]6 |
+[F,,,F,,]6 | [B,,,B,,]6- | [B,,,B,,]6 | [F,,,F,,]5 |]

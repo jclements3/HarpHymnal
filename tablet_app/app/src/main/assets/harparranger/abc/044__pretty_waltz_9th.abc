@@ -1,0 +1,28 @@
+X: 1
+T: By Grace I'm Saved
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" F- [F-c] [F-A] [Fc] | "^V7" [Ed] [F-c] [F-B] [FA] | "^V" [EG-] [F-G] F2 | "^V7" [EA] [DG] [EF] [F-G] |
+"^IV52" [F-A] [FB] [E-A] [EG-] | "^I52" [F-G] [F-c] [F-A] [Fc] | "^V7" [Ed] [F-c] [F-B] [FA] | "^V" [EG-] [F-G] F2 |
+"^V7" [EA] [DG] [EF] [F-G] | "^IV52" [F-A] [FB] [E-A] [EG]- | [EG-] "^V" [DG-] [CG]2 | "^I4" [GA] [Fc-] [Dc] [E-=B] |
+"^V" [Ec-] [Gc-] [F-c] [F-A] | "^IV52" F [G-d] [GB] [FA]- | [FA] "^I64" [EG-] [C-G] [CF]- | [CF-]2 "^I" F |]
+[V: LH]
+F,/2 C,/2 G,/2 F,/2 G,/2 F,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 |
+B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | F,/2 C,/2 G,/2 F,/2 G,/2 F,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 |
+C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | F,/2 C,/2 G,/2 F,/2 G,/2 F,/2 |
+C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | B,/2 F,/2 C,/2 B,/2 C,/2 B,/2 | F,/2 C,/2 G,/2 F,/2 G,/2 F,/2 | F,/2 C,/2 G,/2 F,/2 G,/2 F,/2 |]
+[V: Bs]
+[F,,,F,,]4 | [C,,,C,,]4- | [C,,,C,,]4- | [C,,,C,,]4 |
+[B,,,B,,]4 | [F,,,F,,]4 | [C,,,C,,]4- | [C,,,C,,]4- |
+[C,,,C,,]4 | [B,,,B,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |
+[C,,,C,,]4 | [B,,,B,,]4 | [F,,,F,,]4- | [F,,,F,,]3 |]

@@ -1,0 +1,49 @@
+X: 1
+T: My Soul, Now Praise Thy Maker
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^vi" E- [EG]2 | "^iii" [DF] [CE]2 | "^V7" [B,-D] [B,G]2 | "^IV" [EA] [^DB-]2 |
+"^vi" [EB-]3 | "^iii" [DB-] [E-B]2 | "^ii" [EA] [DG-] [EG] | "^I" [D-F] [DG]2 |
+"^vi" E- [EG]2 | "^iii" [DF] [CE]2 | "^V7" [B,-D] [B,G]2 | "^IV" [EA] [^DB-]2 |
+"^vi" [EB-]3 | "^iii" [DB-] [E-B]2 | "^ii" [EA] [DG-] [EG] | "^I" [D-F] [DG]2- |
+[DG-] [EG]2 | [GB] [F-A]2 | "^iii" [FB] [E-G] [EF-] | [^DF] E2- |
+E- "^vi" [EA]2- | [EA] "^ii6" [D-F] [DG] | "^ii" [^CE] D2- | D- "^V" [DG-]2 |
+"^vi" [B,G] [EA-]2 | "^V" [D-A] [DB]2- | [DB] "^I" [EG-]2 | "^I6" [DG] [Cc-]2 |
+"^ii" [E-c] [EB]2- | [EB] "^vi" [^CA-]2 | "^V" [D-A] [DB]2- | [DB] "^I" [Ec-]2 |
+"^IV6" [Gc] [=Fd]2- | [=Fd] "^iiio6" [EG]2 | "^I" [GB] [FA]2 | "^iii" D- [D-F] [DE-] |
+"^ii" [^CE] D2- | D "^iii" [B,G-]2 | "^V" [^CG] [DF]2 | "^ii6" E [DA-]2 |
+"^ii" [^CA-] [D-A]2 | "^I52" [DB] [Ec]2 | "^I6" [DB] [B,G] [D-B] | "^V" [D-A] [DG]2 |]
+[V: LH]
+E,, [E,G,B,]2 | B,, [D,F,B,]2 | D,, [D,F,A,]2 | C,, [C,E,G,]2 |
+E,, [E,G,B,]2 | B,, [D,F,B,]2 | A,, [C,E,A,]2 | G,, [D,G,B,]2 |
+E,, [E,G,B,]2 | B,, [D,F,B,]2 | D,, [D,F,A,]2 | C,, [C,E,G,]2 |
+E,, [E,G,B,]2 | B,, [D,F,B,]2 | A,, [C,E,A,]2 | G,, [D,G,B,]2 |
+G,, [D,G,B,]2 | G,, [D,G,B,]2 | B,, [D,F,B,]2 | B,, [D,F,B,]2 |
+E,, [E,G,B,]2 | A,, [C,E,A,]2 | A,, [C,E,A,]2 | D,, [D,F,A,]2 |
+E,, [E,G,B,]2 | D,, [D,F,A,]2 | G,, [D,G,B,]2 | G,, [D,G,B,]2 |
+A,, [C,E,A,]2 | E,, [E,G,B,]2 | D,, [D,F,A,]2 | G,, [D,G,B,]2 |
+C,, [C,E,G,]2 | B,, [D,=F,B,]2 | G,, [D,G,B,]2 | B,, [D,F,B,]2 |
+A,, [C,E,A,]2 | B,, [D,F,B,]2 | D,, [D,F,A,]2 | A,, [C,E,A,]2 |
+A,, [C,E,A,]2 | G,, [D,G,B,]2 | G,, [D,G,B,]2 | D,, [D,F,A,]2 |]
+[V: Bs]
+[E,,,E,,]3 | [B,,,B,,]3 | [D,,,D,,]3 | [C,,,C,,]3 |
+[E,,,E,,]3 | [B,,,B,,]3 | [A,,,A,,]3 | [G,,,G,,]3 |
+[E,,,E,,]3 | [B,,,B,,]3 | [D,,,D,,]3 | [C,,,C,,]3 |
+[E,,,E,,]3 | [B,,,B,,]3 | [A,,,A,,]3 | [G,,,G,,]3- |
+[G,,,G,,]3- | [G,,,G,,]3 | [B,,,B,,]3- | [B,,,B,,]3 |
+[E,,,E,,]3 | [A,,,A,,]3- | [A,,,A,,]3 | [D,,,D,,]3 |
+[E,,,E,,]3 | [D,,,D,,]3 | [G,,,G,,]3- | [G,,,G,,]3 |
+[A,,,A,,]3 | [E,,,E,,]3 | [D,,,D,,]3 | [G,,,G,,]3 |
+[C,,,C,,]3 | [B,,,B,,]3 | [G,,,G,,]3 | [B,,,B,,]3 |
+[A,,,A,,]3 | [B,,,B,,]3 | [D,,,D,,]3 | [A,,,A,,]3- |
+[A,,,A,,]3 | [G,,,G,,]3- | [G,,,G,,]3 | [D,,,D,,]3 |]

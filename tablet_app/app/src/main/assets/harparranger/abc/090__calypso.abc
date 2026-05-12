@@ -1,0 +1,22 @@
+X: 1
+T: He Was Not Willing
+M: 6/8
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^IV" [E-G]3 [E-_A]2 [EG] | [GB]3 [_Ac] [EG] [DF] | [E-G]3 [E-_A]2 [EG] | [GB]3 E [DF] E- |
+[E-G]3 [E-_A]2 [EG] | [GB]3 E [DF] E- | "^ii" [E-c]3 [EG]3 | "^I" [DB]3 [E-F] [EA] [DB] |]
+[V: LH]
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, |
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | C,3/2 C,/2 G, C, | B,3/2 B,/2 F, B, |]
+[V: Bs]
+[E,,,E,,]6- | [E,,,E,,]6- | [E,,,E,,]6- | [E,,,E,,]6- |
+[E,,,E,,]6- | [E,,,E,,]6 | [C,,,C,,]6 | [B,,,B,,]6 |]

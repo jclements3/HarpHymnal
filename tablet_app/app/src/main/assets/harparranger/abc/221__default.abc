@@ -1,0 +1,28 @@
+X: 1
+T: Songs of Thankfulness and Praise
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-B]2 [D-d] [DB] | "^vi" [EG] [FA] [GB-]2 | "^I" [D-B]2 [D-d] [DB] | "^vi" [E-G] [EA] [^DB-]2 |
+[E-B]2 [Ec]2 | "^V" [D-A]2 [DB]2- | [DB] "^I" [E^c] [Dd] [EG] | "^V4" [DF] [^CE] D2- |
+"^V" [D-F]2 [D-A] [D-F] | "^I6" [DG] [CA] [DB]2- | [DB]2 "^I" [G-d] [G-B] | "^IV6" [Gc] [=Fd] [Ee]2- |
+[Ee-] "^vi6" [^Ge] [Ac] [EA] | "^V6" [Dd-] [Fd] [G-B]2 | "^IV6" [G-c] [G-e] [G-d] G- | "^I64" [GB] [FA] G2 |]
+[V: LH]
+G,2 [F,A,] [G,B,-] | [E,B,] [D,D-] [G,-D]2 | G,2 [F,A,] G, | [E,B,] [C,C] [B,,F,]2 |
+[E,G,]2 [A,,A,]2 | [D,F,]2 [G,,G,-]2 | G, [E,G,] [F,A,] [G,B,] | A, [A,,A,] [D,-F,]2 |
+[D,-A,]2 [D,F,] [C,A,] | [B,,G,-] [A,,G,-] [G,,G,]2- | [G,,G,]2 [G,B,] [=F,D] | [E,C-] [D,C-] [C,C]2 |
+[^G,B,] [E,E-] [A,-E] [A,C] | [F,A,] [D,D-] [G,D]2 | [E,C-] [C,C] [B,,D] [E,B,] | [D,D]2 [G,,B,]2 |]
+[V: Bs]
+G,,,4 | E,,,4 | G,,,4 | E,,,4- |
+E,,,4 | D,,,4 | G,,,4 | D,,,4- |
+D,,,4 | G,,,4- | G,,,4 | C,,,4 |
+E,,,4 | D,,,4 | C,,,4 | G,,,4 |]

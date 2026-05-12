@@ -1,0 +1,28 @@
+X: 1
+T: I'm But A Stranger Here
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [B,G-]2 [CG-] [DG-] | "^V7" [C-G] [C-F] [C-A]2 | "^V65" [C-D]3 [CE] | "^I" [B,D]4- |
+[B,-D]2 [B,B-] [^CB-] | "^iii64" [D-B] [DA] [Ed]2 | "^vii°6" [FA]2 [DF] [^CE] | "^V" D4 |
+"^V7" [C-A]2 [C-B] [CA-] | "^I64" [B,-A] [B,-G] [B,D]2 | "^V7" [Ec]2 [D-B] [DA]- | [DA] "^I" [EG] D2- |
+"^vi" [DB]2 [E-e] [Ed]- | [E-d] "^vi64" [E-c] [E-B] [EA] | "^I64" [D-G]2 [D-A] [D-F] | "^I" [DG]4 |]
+[V: LH]
+G,3/2 G,/2 D, G, | D,3/2 D,/2 A, D, | D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, |
+G,3/2 G,/2 D, G, | B,3/2 B,/2 F, B, | F,3/2 F,/2 C, F, | D,3/2 D,/2 A, D, |
+D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, | D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, |
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | G,3/2 G,/2 D, G, | G,3/2 G,/2 D, G, |]
+[V: Bs]
+[G,,,G,,]4 | [D,,,D,,]4- | [D,,,D,,]4 | [G,,,G,,]4- |
+[G,,,G,,]4 | [B,,,B,,]4 | [F,,,F,,]4 | [D,,,D,,]4- |
+[D,,,D,,]4 | [G,,,G,,]4 | [D,,,D,,]4 | [G,,,G,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |]

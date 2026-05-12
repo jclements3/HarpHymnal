@@ -1,0 +1,22 @@
+X: 1
+T: We Know Thee Who Thou Art
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [FA] [GB] A [Gc] | "^V65" [Fd] [EG]3 | "^V7" [D-F] [DE] [CB] [D-A] | "^V" [DB] [CE]3 |
+"^I" [DF-] [B,-F] [B,E] [A,D] | [Fd] [Ec] [DB] [FA] | "^I6" D- [D-G] [D-F] [DE-] | "^I" [CE] D3 |]
+[V: LH]
+D, A, F,2 | A, E, C,2 | A, E, C,2 | A, E, C,2 |
+D, A, F,2 | D, A, F,2 | D, A, F,2 | D, A, F,2 |]
+[V: Bs]
+[D,,,D,,]4 | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4 |
+[D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4 |]

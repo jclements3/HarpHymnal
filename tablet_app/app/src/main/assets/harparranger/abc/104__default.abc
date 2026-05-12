@@ -1,0 +1,28 @@
+X: 1
+T: I Know That My Redeemer Lives
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" D2- [DF] [CG] | "^I6" [D-A]2 [DB] [Gc] | "^I" [Fd]2 [Ec] [DB] | "^V" [CA-]4 |
+"^I" [D-A]4 | "^IV" [D-B]2 [DA-] [A,A] | "^ii" [B,G-] [CG] [DF]2 | "^V" [CE]4 |
+"^I" [DF]3 [CE] | [A,D] [D-F] [D-A] [D-d] | "^IV" [D-B] [DA] [CG] [DF] | "^V" [CE]4 |
+"^I6" [D-A]2 [DB] [Ec] | "^I" [Fd-]2 [Dd] [EG] | "^I64" [DF]2 [CE]2 | "^I" D4 |]
+[V: LH]
+[D,-F,]2 [D,A,-] [E,A,-] | [F,A,]2 G, [E,G,] | [D,A,-]2 [E,-A,] [E,^G,] | [A,,A,]4 |
+[D,F,]3 [F,A,] | G,2 [F,-A,] F, | [E,G,]2 [D,A,-]2 | [A,,A,-]4 |
+[D,A,]3 [A,,G,] | [D,-F,] [D,G,] [F,A,]2 | G, [F,D] [E,A,-] [D,A,-] | [A,,A,-]4 |
+[F,A,]2 G, [E,G,] | [D,F,]2 [F,A,] [G,B,] | A,2 [A,,G,]2 | [D,F,]4 |]
+[V: Bs]
+D,,,4- | D,,,4- | D,,,4 | A,,,4 |
+D,,,4 | G,,,4 | E,,,4 | A,,,4 |
+D,,,4- | D,,,4 | G,,,4 | A,,,4 |
+D,,,4- | D,,,4- | D,,,4- | D,,,4 |]

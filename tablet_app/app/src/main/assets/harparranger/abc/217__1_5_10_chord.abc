@@ -1,0 +1,28 @@
+X: 1
+T: See Amid the Winter's Snow
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [B,G-]2 [CG] [DF] | "^IV" [G,E-] [A,E] [B,D-] [CD] | "^I" [D-G] [DA] [G-c] [GB]- | [GB]2 "^I64" [FA]2 |
+"^I6" [DG-] [B,G-] [CG] [DF] | "^IV" [G,E-] [A,E] [B,D-] [A,D] | "^vi" [B,G] [CA] [DB] [Ec] | "^ii7" [CA]2 [B,G]2 |
+"^I" [G-d]2 [G-c] [GB] | "^V65" [D-A] [D-G] [D-F]2 | "^I6" [Dd]2 [G-c] [GB] | "^ii" [EA] [D-G] [DF]2 |
+"^vi" [B,G-]2 [^CG] [D-F] | "^ii" [DE-] [^CE] D2- | "^I6" [Dd]2 [EG] [Gc] | "^V" [F-B] [FA] G2 |]
+[V: LH]
+[D,G,B,]4 | [C,E,G,]4 | [D,G,B,]4 | [D,G,B,]4 |
+[D,G,B,]4 | [C,E,G,]4 | [E,G,B,]4 | [C,E,A,]4 |
+[D,G,B,]4 | [D,F,A,]4 | [D,G,B,]4 | [C,E,A,]4 |
+[E,G,B,]4 | [C,E,A,]4 | [D,G,B,]4 | [D,F,A,]4 |]
+[V: Bs]
+[G,,,G,,]4 | [C,,,C,,]4 | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4 | [C,,,C,,]4 | [E,,,E,,]4 | [A,,,A,,]4 |
+[G,,,G,,]4 | [D,,,D,,]4 | [G,,,G,,]4 | [A,,,A,,]4 |
+[E,,,E,,]4 | [A,,,A,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |]

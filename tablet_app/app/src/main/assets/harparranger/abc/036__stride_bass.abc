@@ -1,0 +1,34 @@
+X: 1
+T: Behold, A Host, Arrayed in White
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,-E] [B,B-]2 [GB] [_Gc]2 | [GB] [E-G]3 [EF]2- | [E-F] "^ii43" [EA-] [F-A] F E2- | "^vi7" [E-G] [EB-] [CB] D [B,E]2 |
+"^V" [EG] [FB]2 [Ac] [FB]2 | "^iii" [Ac] [F-B]2 [FA] [DG]2 | "^V7" E- [EG-] [B,G-] [CG] [DF-] [CF-] | [DF] [B,E]5- |
+[B,-E] "^I" [B,B-]2 [GB] [_Gc]2 | [GB] [E-G]3 [EF]2- | [E-F] "^ii43" [EA-] [F-A] F E2- | "^vi7" [E-G] [EB-] [CB] D [B,E]2 |
+"^V" [EG] [FB]2 [Ac] [FB]2 | "^iii" [Ac] [F-B]2 [FA] [DG]2 | "^V7" E- [EG-] [B,G-] [CG] [DF-] [CF-] | [DF] [B,E-]5 |
+"^IV43" E [G-c]5 | "^I" [GB] [E-G]3 [EF]2- | [E-F] "^ii" [EA-] [FA] [DF] E2- | "^vi7" [E-G] [EB-] [CB] D [B,E]2 |
+"^V" [EG] [FB]2 [Ac] [FB]2 | "^iii" [Ac] [F-B]2 [FA] [DG]2 | "^vi" E- [EG-] [B,G-] [CG] [EF-] [CF-] | "^V7" [DF] [B,E]5 |]
+[V: LH]
+E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | F,, [C,F,A,] C, [C,F,A,] | C,, [C,E,G,] G,, [C,E,G,] |
+B,, [D,F,B,] F, [D,F,B,] | G,, [D,G,B,] D, [D,G,B,] | B,, [D,F,B,] F, [D,F,B,] | B,, [D,F,B,] F, [D,F,B,] |
+E,, [E,G,B,] B,, [E,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | F,, [C,F,A,] C, [C,F,A,] | C,, [C,E,G,] G,, [C,E,G,] |
+B,, [D,F,B,] F, [D,F,B,] | G,, [D,G,B,] D, [D,G,B,] | B,, [D,F,B,] F, [D,F,B,] | B,, [D,F,B,] F, [D,F,B,] |
+A,, [C,E,A,] E, [C,E,A,] | E,, [E,G,B,] B,, [E,G,B,] | F,, [C,F,A,] C, [C,F,A,] | C,, [C,E,G,] G,, [C,E,G,] |
+B,, [D,F,B,] F, [D,F,B,] | G,, [D,G,B,] D, [D,G,B,] | C,, [C,E,G,] G,, [C,E,G,] | B,, [D,F,B,] F, [D,F,B,] |]
+[V: Bs]
+[E,,,E,,]6- | [E,,,E,,]6 | [F,,,F,,]6 | [C,,,C,,]6 |
+[B,,,B,,]6 | [G,,,G,,]6 | [B,,,B,,]6- | [B,,,B,,]6 |
+[E,,,E,,]6- | [E,,,E,,]6 | [F,,,F,,]6 | [C,,,C,,]6 |
+[B,,,B,,]6 | [G,,,G,,]6 | [B,,,B,,]6- | [B,,,B,,]6 |
+[A,,,A,,]6 | [E,,,E,,]6 | [F,,,F,,]6 | [C,,,C,,]6 |
+[B,,,B,,]6 | [G,,,G,,]6 | [C,,,C,,]6 | [B,,,B,,]6 |]

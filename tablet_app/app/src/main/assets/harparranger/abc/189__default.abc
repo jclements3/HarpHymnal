@@ -1,0 +1,28 @@
+X: 1
+T: O Sacred Head, Now Wounded
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [C-E] [C-A] [C-G] [CF] | "^I52" [DE] [CD-] [B,D] [CE] | "^vi" [DB] [Cc-] [E-c] [EB]- | [EB] [C-A]3 |
+"^I" [C-E] [C-A] [C-G] [CF] | "^I52" [DE] [CD-] [B,D] [CE] | "^vi" [DB] [Cc-] [E-c] [EB]- | [EB] [CA]3 |
+[Ec] [DB] [EG] [CA] | "^ii" [F-B] [Fc-] [E-c]2 | "^I" [EG] [FA] [E-G] [EF-] | "^vi" [DF] [^CE]3 |
+"^V" [D-c] [D-B] [Dd] [Ec] | "^V64" [G-B] [GA-] [^FA] [GB] | "^I" [CE] [A,F] [C-E] [CD] | [B,G] [CE]3 |]
+[V: LH]
+[C,G,] F, [E,G,] [A,,A,] | [C,G,] [F,,A,] [G,,G,-] [C,G,] | [B,,^G,] [A,,A,-] [C,A,-] [E,A,] | [E,,^G,] [A,,A,]3 |
+[C,G,] F, [E,G,] [A,,A,] | [C,G,] [F,,A,] [G,,G,-] [C,G,] | [B,,^G,] [A,,A,-] [C,A,-] [E,A,] | [E,,^G,] [A,,A,]3- |
+[A,,A,] [D,F,] [E,C] [F,A,] | [D,F,] [C,-A,] [C,-G,]2 | [C,C-] [F,C] [D,-^A,] [D,A,-] | [F,A,-] A,3 |
+[^F,A,] G, [^F,A,] [E,G,] | [D,B,] [^C,E] [D,D-] [G,,D] | [C,G,] [D,F,] [E,G,-] G, | [G,,G,-] [C,G,]3 |]
+[V: Bs]
+C,,,4- | C,,,4 | A,,,4- | A,,,4 |
+C,,,4- | C,,,4 | A,,,4- | A,,,4- |
+A,,,4 | D,,,4 | C,,,4 | A,,,4 |
+G,,,4- | G,,,4 | C,,,4- | C,,,4 |]

@@ -1,0 +1,22 @@
+X: 1
+T: It Came Upon A Midnight Clear
+M: 6/8
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^I" [D-F] [Dd] [E-c] [EG] [DF]2- | [DF] [EA] [=E-B] [=Ed] [F-c]2 | F [Dd] [E-c] [EG] [DF-]2 | "^V7" F [E-G] [E-A] [EF] [D-B]2 |
+"^iii" [D-d]2 D- [D-_G] [D-G] [D-B] | "^vi6" [Dd] [FB] [=EG]2 F2 | "^I" [EF] [Dd] [E-c] [EG] [DF-]2 | "^I6" F [E-G] [E-A] [EF] [DB]2 |]
+[V: LH]
+B,,3/2 B,/2 [D,F,B,] [D,F,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] |
+D,,3/2 D,/2 [D,F,A,] [D,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] |]
+[V: Bs]
+[B,,,B,,]6- | [B,,,B,,]6- | [B,,,B,,]6 | [F,,,F,,]6 |
+[D,,,D,,]6 | [G,,,G,,]6 | [B,,,B,,]6- | [B,,,B,,]6 |]

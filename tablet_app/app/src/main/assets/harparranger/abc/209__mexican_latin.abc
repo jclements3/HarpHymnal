@@ -1,0 +1,22 @@
+X: 1
+T: Rejoice, My Heart, Be Glad and Sing
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^I" [DF-]2 [CF-] [B,F] | "^vi" [DB] [C-c] [CA] [DB] | "^V6" [Fc] [=EG] [F-A] [FG-] | "^V" [=EG] [CF-]3 |
+F [DB] [F-c] [Fd] | "^IV" [GB] [Ee] [F-d] [Fc] | "^V" [DB] [F-c] [Fd] [Gc-] | "^I" [Fc] [DB]3 |]
+[V: LH]
+B,,3/2 B,/2 [D,F,B,] [D,F,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] |
+F,,3/2 F,/2 [C,F,A,] [C,F,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] |]
+[V: Bs]
+[B,,,B,,]4 | [G,,,G,,]4 | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 | [E,,,E,,]4 | [F,,,F,,]4 | [B,,,B,,]4 |]

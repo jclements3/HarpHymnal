@@ -1,0 +1,31 @@
+X: 1
+T: The Apostle Looked and Heard a Voice
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DG] [GB]2 A | "^V" [Fd] [D-c] [D-A]2 | "^V42" D- [DG] [GB] A | "^vi" [DG-] [B,G] [^CF-] [D-F] |
+"^V6" [D-A] [DB] [Ge] A | "^V7" [Fd] [EG] [^CA] [D-F] | "^V6" [D-A] [DB] [G^c] [Ad] | "^vi6" [EG] [DF] [^CE] D- |
+D- "^I" [DA-] [^CA] [DF] | "^viiø43" [A,E] [D-G] [D-A] [DB-] | "^I" [GB] [Ad-] [Fd] [Gc] | "^iiiø43" [DA] [G-c] [G-d] [G-e] |
+"^I" [G-d] [Ge] [Fd]2 | "^vi" G [Ec] [FB-] [GB] | "^I6" [DG] [EA] [D-G] [DF] | "^I" G [Ac] [GB] [FA] |
+"^I6" [Gd] [Ee] [Gd] [DF] | "^vi" [B,G] [DB] [CA] [B,G] |]
+[V: LH]
+[G,-B,] [G,D-]2 [F,D] | [D,A,] G, [G,,B,] [D,F,-] | [C,F,] [B,,G,] [G,D-] [F,D] | [D,A,] [E,G,] [A,,A,-] [D,A,] |
+[F,D-] [G,D] [E,C] [F,A,] | [D,B,] [E,G,] [A,,A,-] [D,A,-] | [F,A,] G, [E,E] [F,D] | [G,B,] A, [A,,A,] [D,F,] |
+[G,B,] [F,A,] [E,G,] [D,A,] | [C,F,] [B,,G,] [D,F,] G,- | [G,D-] [F,D-] [D,D] [G,E] | [=F,B,] [E,C] [G,B,] [C,C] |
+[G,B,] C [A,C] B, | [E,B,] A, [D,D-] [G,D-] | [B,D] C [B,D] [A,C] | [G,B,] [F,D-] [G,D-] [D,D] |
+[B,,B,] [C,G,] [B,,B,] [D,A,] | [E,G,-] [D,-G,] [D,F,] [G,,G,] |]
+[V: Bs]
+G,,,4 | D,,,4- | D,,,4 | E,,,4 |
+D,,,4- | D,,,4- | D,,,4 | E,,,4 |
+G,,,4 | F,,,4 | G,,,4 | B,,,4 |
+G,,,4 | E,,,4 | G,,,4- | G,,,4- |
+G,,,4 | E,,,4 |]

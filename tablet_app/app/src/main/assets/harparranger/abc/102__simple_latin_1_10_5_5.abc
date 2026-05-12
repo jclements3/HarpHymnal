@@ -1,0 +1,28 @@
+X: 1
+T: I Come, O Savior, To Thy Table
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" E [Gc] [FB] [E-A] | "^vi" [EG] [DA] [B,F] [C-G] | "^I" [C-E] C2 [B,-E] | "^iii7" [B,D] [DG] [E^F] [G-c] |
+"^V4" [G-B] [G-A] G [EG] | "^iii" G [Fc] [E-B] [EA] | "^ii7" [DG] [B,A] [C-F] [C-G] | "^I" [C-E] C [B,-C] [B,E] |
+"^V4" D [EG] [^FG-] [G-c] | "^V" [G-B] [GA] [DG-] [CG] | "^I" E [CG] [^Cc-] [D-c] | "^ii6" [D-A]2 [Dd]2 |
+"^V64" [CB-] [DB-] [CB] [B,c] | "^V62" [CF] [D-E] D [Ec]- | [Ec] "^vi6" B c2 |]
+[V: LH]
+C,3/2 E,/2 G, G, | A,3/2 C,/2 E, E, | C,3/2 E,/2 G, G, | E,3/2 G,/2 B, B, |
+G,3/2 B,/2 D, D, | E,3/2 G,/2 B, B, | D,3/2 F,/2 A, A, | C,3/2 E,/2 G, G, |
+G,3/2 B,/2 D, D, | G,3/2 B,/2 D, D, | C,3/2 E,/2 G, G, | D,3/2 F,/2 A, A, |
+G,3/2 B,/2 D, D, | G,3/2 B,/2 D, D, | A,3/2 C,/2 E, E, |]
+[V: Bs]
+[C,,,C,,]4 | [A,,,A,,]4 | [C,,,C,,]4 | [E,,,E,,]4 |
+[G,,,G,,]4 | [E,,,E,,]4 | [D,,,D,,]4 | [C,,,C,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4 | [C,,,C,,]4 | [D,,,D,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4 | [A,,,A,,]4 |]

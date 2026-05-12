@@ -1,0 +1,31 @@
+X: 1
+T: The Day is Surely Drawing Near
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I6" D- [DG-] G [FB] | "^vi7" [E-A] [EG] [FA-] [G-A] | "^I" [GB-] [E-B] [EG-] G- | "^vi7" [GB] [Ac] [G-d] [GB] |
+"^V" [FA-] [D-A] [D-G]2 | "^iii" D G [FG] [E-B] | "^V7" [EA] [FG] [GA]2 | "^IV7" [EB]2 G2 |
+"^iii43" [AB] [G-c] [Gd] [FB] | "^I52" [D-A]2 [DG-] G | "^V" F [EB-] [^DB] [EA] | "^ii" [^CG] [D-F] [D-G] [D-E] |
+"^V" D2 [D-E] D- | "^I4" [DG-] [B,G-] [D-G] [D-F] | "^viiø43" [DG] [E-A] [EB-] [DB] | "^vi" [EG-] [FG] [D-B] [D-c] |
+"^I" [Dd] [B,-B] [B,-A]2 | [B,G-] G3 |]
+[V: LH]
+G, D, B,2 | E, B, G,2 | G, D, B,2 | E, B, G,2 |
+D, A, F,2 | B, F, D,2 | D, A, F,2 | C, G, E,2 |
+B, F, D,2 | G, D, B,2 | D, A, F,2 | A, E, C,2 |
+D, A, F,2 | G, D, B,2 | F, C, A,2 | E, B, G,2 |
+G, D, B,2 | G, D, B,2 |]
+[V: Bs]
+[G,,,G,,]4 | [E,,,E,,]4 | [G,,,G,,]4 | [E,,,E,,]4 |
+[D,,,D,,]4 | [B,,,B,,]4 | [D,,,D,,]4 | [C,,,C,,]4 |
+[B,,,B,,]4 | [G,,,G,,]4 | [D,,,D,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [G,,,G,,]4 | [F,,,F,,]4 | [E,,,E,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4 |]

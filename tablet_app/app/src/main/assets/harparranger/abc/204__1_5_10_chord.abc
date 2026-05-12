@@ -1,0 +1,28 @@
+X: 1
+T: Pass Me Not, O Gentle Savior
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Ab
+[V: RH]
+"^I" [Ec]2 [FA]2 | [CE]2 [E-A]2 | "^V7" [E-B]2 [E-A] [E-B] | "^I" [E-c]3 E- |
+[Ec-] [F-c] [FA-] [C-A] | [CE-] E- [E-A]2 | "^V7" [EB]2 [Dc] [C-B] | "^I" [CA-]2 A- A- |
+[Ae]2 [Fc]2 | "^ii6" [DB]2 [CF]2 | "^I6" E- [E-A] [E-c] [E-A] | "^V" [EB]3 F- |
+"^IV7" [Fc-] [C-c] [CA-] [E-A] | "^I64" E2- [EA]2 | "^V7" [DB-] [C-B] [C-c] [CB] | "^I" A3 z |]
+[V: LH]
+[C,E,A,]4 | [C,E,A,]4 | [E,G,B,]4 | [C,E,A,]4 |
+[C,E,A,]4 | [C,E,A,]4 | [E,G,B,]4 | [C,E,A,]4 |
+[C,E,A,]4 | [D,F,B,]4 | [C,E,A,]4 | [E,G,B,]4 |
+[D,F,A,]4 | [C,E,A,]4 | [E,G,B,]4 | [C,E,A,]4 |]
+[V: Bs]
+[A,,,A,,]4- | [A,,,A,,]4 | [E,,,E,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4- | [A,,,A,,]4 | [E,,,E,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4 | [B,,,B,,]4 | [A,,,A,,]4 | [E,,,E,,]4 |
+[D,,,D,,]4 | [A,,,A,,]4 | [E,,,E,,]4 | [A,,,A,,]4 |]

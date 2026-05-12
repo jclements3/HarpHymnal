@@ -1,0 +1,31 @@
+X: 1
+T: Thou, Who at Thy First Eucharist
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [D-F]3 D- | [D-E] [DF]3 | "^I6" [CG] [D-A]3 | "^I" [DF] [CE] [DF] [EG]- |
+[EG]2 "^ii" [D-F] [D-A] | "^V" [DF] [CE]3 | "^I" [D-F]3 D- | "^IV4" [D-E] [D-F]3 |
+"^I6" [D-G] [D-A]3 | "^I" [D-F] [D-B] [D-A] [D^G]- | [D^G] "^iii" [CA] [FB] [Ec] | "^V" [DB] [CA]3- |
+[CA] "^V42" [D-d] [DA] [CG] | "^I" [D-F] [D-B]2 [Dd] | [GB] [FA-]3 | "^I6" [DA] [CG] [DF] [CE] |
+"^vi" D- [D-B]2 [DF] | "^I" [CE] D3 |]
+[V: LH]
+[D,-A,]3 [D,-F,] | [D,-G,] [D,A,-]3 | [E,A,-] [F,A,-]3 | [D,A,-] [G,A,-] [F,A,] [E,B,]- |
+[E,B,] [C,A,-] [D,A,-] [F,,A,]- | [F,,A,-] [A,,A,-]3 | [D,-A,]3 [D,-F,] | [D,-G,] [D,A,]2 [B,,-D,] |
+[B,,E,] [F,,F,]3 | [D,A,] G, [F,A,] [E,B,]- | [E,B,] [F,A,-] [D,A,-] [E,-A,] | [E,^G,] [A,,A,-]3 |
+[G,A,-] [F,A,-]2 [E,A,-] | [D,A,] [G,,G,-]2 [B,,G,] | [G,,D-] [D,D]3 | [F,A,-] [E,A,-] [D,A,] [A,,G,] |
+[B,,F,] [G,,G,]2 [A,,-A,] | [A,,G,] [D,F,]3 |]
+[V: Bs]
+D,,,4- | D,,,4- | D,,,4- | D,,,4 |
+E,,,4 | A,,,4 | D,,,4 | G,,,4 |
+D,,,4- | D,,,4 | F,,,4 | A,,,4- |
+A,,,4 | D,,,4- | D,,,4- | D,,,4 |
+B,,,4 | D,,,4 |]

@@ -1,0 +1,25 @@
+X: 1
+T: The Law Of God Is Good And Wise
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" [G,E]2 [E,-G] [E,E] | "^III" [F,D] [A,E] [B,-G] [B,F] | "^i" [G,E]2 [C-G]2 | "^iv" [CA-] [D-A] [DB] [C-G] |
+[CA-] [D-A] [DB-]2 | "^III" [G,-B]2 [G,-c] [G,B] | "^i" [A,d] [G,B] [CA-] [A,A] | "^III" [B,G]2 [G,-B]2 |
+"^iv" [G,G] [CA] [B,G] [A,F] | "^i" [G,E] [F,^D] [G,E]2 |]
+[V: LH]
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 |
+A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 |
+A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 |]
+[V: Bs]
+[E,,,E,,]4 | [G,,,G,,]4 | [E,,,E,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4 | [G,,,G,,]4 | [E,,,E,,]4 | [G,,,G,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4 |]

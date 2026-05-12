@@ -1,0 +1,31 @@
+X: 1
+T: Let All Mortal Flesh Keep Silence
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Dm
+[V: RH]
+"^i" [A,-D] [A,-E] [A,-F] [A,G] | [DA-]2 [FA] [EG] | "^i6" [DA-]2 [FA-]2 | "^i" [D-A]2 [D-B] [D-c] |
+"^iv7" [DB]2 [C-A] [C-G] | "^III" [CA]4 | "^bVI" D- [D-E] [D-F] [D-G] | "^i6" [D-A]3 [D-G] |
+[DA-]2 [FA]2- | [FA]2 "^i" [GB] [Ac] | "^iv6" [D-B]2 [D-A] [DG] | "^V" [_DA-]4 |
+"^i6" [D-A]2 [D-d] [DA] | "^iv" [B,-G]3 [B,F] | "^i" [A,-D] [A,-F] [A,A] [B,F] | "^V" [CE]4 |
+"^i6" [D-A]2 [Dd] [CA] | "^III6" [DG]2 [C-E] [CF] | "^i" [A,D]4 |]
+[V: LH]
+[D,F,]4- | [D,F,]2 [B,,D-]2 | [F,,D-]2 [D,,D]2 | [D,F,-]2 [C,F,-] [A,,F,-] |
+[G,,F,-]2 [C,-F,] [C,E,] | [F,,F,-]4 | [B,,F,-]4 | [F,,F,]2 [G,,B,]2 |
+[F,,A,]2 [D,,D]2 | [D,F,-]2 [C,F,-] [F,,F,-] | [B,,-F,]2 [B,,-D,] [B,,G,] | [A,,E,]4 |
+[_G,,D,-]4 | [G,,D,]4 | [D,F,]4 | [A,,E,]4 |
+[F,,D,-]4 | [G,,D,]2 [C,G,] [A,,A,] | [D,F,]4 |]
+[V: Bs]
+D,,,4- | D,,,4- | D,,,4- | D,,,4 |
+G,,,4 | F,,,4 | B,,,4 | D,,,4- |
+D,,,4- | D,,,4 | G,,,4 | A,,,4 |
+D,,,4 | G,,,4 | D,,,4 | A,,,4 |
+D,,,4 | F,,,4 | D,,,4 |]

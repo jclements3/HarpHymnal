@@ -1,0 +1,25 @@
+X: 1
+T: You Parents Hear What Jesus Taught
+M: 3/2
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [CF] [FA] [Gc] | [FA] [EG] [F-A] | "^vi" [F=B] [Ec] [F-d] | "^I" [F-c] [FA] [EG] |
+"^I6" [CF-] [DF] [C-E] | "^I" [CF] [EG] [FA]- | [FA] [E-G] [Ec-] | "^V" [D-c] [D=B] [Ec] |
+"^I" [CA] [DB] [C-A] | "^I43" [CG] [A,F-] [DF] | "^V2" [C-E] [CF] |]
+[V: LH]
+[F,-A,] [F,C-] [E,C-] | [F,C-] [C,C-] [F,C] | [D,F,] [C,G,] [B,,B,] | [F,-A,] [F,C-] [C,C] |
+[A,,F,] [B,,B,] [C,G,] | [F,,A,] [C,C-] [F,C]- | [F,C-] [C,-C] [C,G,-] | G, [G,,G,-] [C,G,] |
+F,2 [B,,F,-] | [F,,F,] [C,E,] [D,F,] | [B,,B,] [C,G,] |]
+[V: Bs]
+F,,,3- | F,,,3 | D,,,3 | F,,,3- |
+F,,,3- | F,,,3- | F,,,3 | C,,,3 |
+F,,,3- | F,,,3 | C,,,2 |]

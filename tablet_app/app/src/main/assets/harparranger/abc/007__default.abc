@@ -1,0 +1,28 @@
+X: 1
+T: Abide With Me
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [EG-]2 [D-G] [DF] | "^vi" E2- [E-B]2 | "^V" [Ec] [DB-] [EB] [FA] | "^I" [EG]4- |
+[E-G]2 [E-A] [E-B] | "^IV" [E-c]2 [E-B]2 | "^ii7" [EA] F [E-G] [E=A] | "^V" [DB]4 |
+"^I" [EG-]2 [D-G] [DF] | "^vi" E2- [EB]2- | [E-B] "^IV" [EA-] [=E-A] [=EG] | "^ii" F4 |
+"^V42" [DF]2 [EG] [DA] | "^V7" [EG] [DF] E [FA] | "^I64" [EG]2 [DF]2 | "^I" E4 |]
+[V: LH]
+[E,B,-]2 [B,,-B,] [B,,A,] | [C,G,]2 [G,,E,-]2 | [A,,E,] [B,,B,-] [C,B,-] [D,B,-] | [E,B,]4- |
+[E,B,-] [D,B,] [C,A,] [B,,G,] | [A,,A,]2 [E,G,]2 | [F,C] [D,B,-] [E,B,] [C,E,] | [B,,F,]4 |
+[E,-G,] [E,A,] [B,,-B,] [B,,A,] | [C,G,]2 [G,,-E] [G,,D] | [A,,C-]2 [C,-C] [C,B,] | [F,A,]4 |
+[A,B,-]2 [G,B,-] [F,B,-] | [E,B,] [B,,A,] [C,G,] [A,,C] | [B,,-B,]3 [B,,A,] | [E,G,]4 |]
+[V: Bs]
+E,,,4 | C,,,4 | B,,,4 | E,,,4- |
+E,,,4 | A,,,4 | F,,,4 | B,,,4 |
+E,,,4 | C,,,4 | A,,,4 | F,,,4 |
+B,,,4- | B,,,4 | E,,,4- | E,,,4 |]

@@ -1,0 +1,37 @@
+X: 1
+T: The Bridegroom Soon Will Call Us
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [B,D] [DG-]2 | "^vi" [B,G] [DA]2 | "^ii" [E-c] [EB]2- | [EB] "^vi" [^CA-]2 |
+"^V" [D-A] [DG-]2 | "^IV" [C-G] [Cc]2 | "^V" [D-B] [D-A]2 | "^V7" [DB] [B,E]2 |
+"^IV" [DF] [E-G]2 | "^ii" [EA] [DF]2- | [D-F] "^V" D2- | "^I" [D-B]3 |
+"^iii" [Dd] [Ec-]2 | "^viio6" [Cc] [DB]2- | [DB]3 | "^V" [Fd] [D-A]2 |
+"^IV" [DB] [Ec]2- | [Ec] [DB]2- | [DB]3 | "^V" [Fd] [G-c]2 |
+[GB] [FA]2 | [GB] [FA]2 | "^ii" [E-G] [EA]2 | "^V" [D-F] [DG-]2 |
+"^vi6" [EG] [FA]2 | "^I" [D-B] [D-d]2 | [DB] [Ec] [DA]- | [DA] "^V" [B,G]2 |]
+[V: LH]
+G,3/2 G,/2 D, D, | E,3/2 E,/2 B, B, | A,3/2 A,/2 E, E, | E,3/2 E,/2 B, B, |
+D,3/2 D,/2 A, A, | C,3/2 C,/2 G, G, | D,3/2 D,/2 A, A, | D,3/2 D,/2 A, A, |
+C,3/2 C,/2 G, G, | A,3/2 A,/2 E, E, | D,3/2 D,/2 A, A, | G,3/2 G,/2 D, D, |
+B,3/2 B,/2 F, F, | F,3/2 F,/2 C, C, | G,3/2 G,/2 D, D, | D,3/2 D,/2 A, A, |
+C,3/2 C,/2 G, G, | C,3/2 C,/2 G, G, | G,3/2 G,/2 D, D, | D,3/2 D,/2 A, A, |
+D,3/2 D,/2 A, A, | D,3/2 D,/2 A, A, | A,3/2 A,/2 E, E, | D,3/2 D,/2 A, A, |
+E,3/2 E,/2 B, B, | G,3/2 G,/2 D, D, | G,3/2 G,/2 D, D, | D,3/2 D,/2 A, A, |]
+[V: Bs]
+[G,,,G,,]3 | [E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[D,,,D,,]3 | [C,,,C,,]3 | [D,,,D,,]3- | [D,,,D,,]3 |
+[C,,,C,,]3 | [A,,,A,,]3 | [D,,,D,,]3 | [G,,,G,,]3 |
+[B,,,B,,]3 | [F,,,F,,]3 | [G,,,G,,]3 | [D,,,D,,]3 |
+[C,,,C,,]3- | [C,,,C,,]3 | [G,,,G,,]3 | [D,,,D,,]3- |
+[D,,,D,,]3- | [D,,,D,,]3 | [A,,,A,,]3 | [D,,,D,,]3 |
+[E,,,E,,]3 | [G,,,G,,]3- | [G,,,G,,]3 | [D,,,D,,]3 |]

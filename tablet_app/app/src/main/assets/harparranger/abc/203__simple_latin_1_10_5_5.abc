@@ -1,0 +1,31 @@
+X: 1
+T: Over Kidron Jesus Treadeth
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Fm
+[V: RH]
+"^i" [Fc] [=EB] [F-A] F- | "^i6" [FA] [DG] [C=E] [B,C] | "^i" [A,F]2 [CA] [EG] | "^III6" [Ac] [GB] [EA]2 |
+"^i6" [Fc] [GB] [=EA] F | "^iv7" [D-A] [DG] [C-=E] C | [DF]2 [EA] [DG] | "^III64" [Cc] [DB] [CA-] [E-A] |
+"^III7" [EB-] [A-B] [Ac] [GA] | "^III52" [Ad] [G-c] [GB-] [AB] | "^Vø43" [B-c]2 [Bd] [=AB] | "^i" [Be] [=Ad] [Bc-] [Gc] |
+"^V" [Fd] [Gc] [FB] [=Ec] | "^III" [CA] [B,-G] [B,-F] [B,D] | [A,C-] [CF] [FA-] A | "^iio6" [Gc-] [F-c] [F-B] [FA] |
+"^V" [=EG-]2 [C-G]2 | "^i" [CF-]2 F2 |]
+[V: LH]
+F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | A,3/2 C,/2 E, E, |
+F,3/2 A,/2 C, C, | B,3/2 D,/2 F, F, | B,3/2 D,/2 F, F, | A,3/2 C,/2 E, E, |
+A,3/2 C,/2 E, E, | A,3/2 C,/2 E, E, | C,3/2 E,/2 _G, _G, | F,3/2 A,/2 C, C, |
+C,3/2 =E,/2 G, G, | A,3/2 C,/2 E, E, | A,3/2 C,/2 E, E, | G,3/2 B,/2 D, D, |
+C,3/2 =E,/2 G, G, | F,3/2 A,/2 C, C, |]
+[V: Bs]
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 | [A,,,A,,]4 |
+[F,,,F,,]4 | [B,,,B,,]4- | [B,,,B,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4- | [A,,,A,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |
+[C,,,C,,]4 | [A,,,A,,]4- | [A,,,A,,]4 | [G,,,G,,]4 |
+[C,,,C,,]4 | [F,,,F,,]4 |]

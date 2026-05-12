@@ -1,0 +1,46 @@
+X: 1
+T: Come Holy Spirit, Lord Our God
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [G-d]2 [G-e] [G-d] | "^V" [GB] [F-d] [FA]2 | "^I" [G-B] G- [G-B] [G^c] | "^V" [Fd]2 G- [G-d] |
+"^IV" [G-e]2 [G-d] [GB] | "^V" [F-d] [FA] G- [G-c] | [GB] [FA] [B,G] [D-F] | "^I" [DG]2 G- G- |
+"^V" [GA-] [FA] [G-c]2 | "^I" [GB]2 [Fd-] [E-d] | "^ii6" [EA] [D-F] [DG] [^CE] | "^V" D2- D- D |
+"^vi" [B,G-] [C-G] [CA-] [D-A] | "^I" [D-B] [Dd]2 [Ec] | [D-B] [D-G] [D-A]2 | [DB]4 |
+[G-d]2 [G-e] [G-d] | "^V" [GB] [F-d] [FA]2 | "^I" [G-B] G- [G-B] [G^c] | "^V" [Fd]2 G- [G-d] |
+"^IV" [G-e]2 [G-d] [GB] | "^V" [F-d] [FA] G- [G-c] | [GB] [FA] [B,G] [D-F] | "^I" [DG]2 G- G- |
+"^V" [GA-] [FA] [G-c]2 | "^I" [GB]2 [Fd-] [E-d] | "^ii6" [EA] [D-F] [DG] [^CE] | "^V" D2- D- D |
+"^vi" [B,G-] [C-G] [CA-] [D-A] | "^I" [D-B] [Dd]2 [Ec] | [DB-] [GB] [EA-] [C-A] | "^IV" [C-E] [CF] [B,G]2 |
+"^V" D2- [DA-] [FA] | "^I" [DB] [^CA] [D-G] [DE] | "^V" [DF]2 [GA-] [FA] | "^iii" [D-B] [D-A] [D-G] [D-F] |
+"^I" [DG-]2 G2 |]
+[V: LH]
+[G,B,]2 [C,C] [G,-B,] | [G,D-] [D,D-]3 | [G,-D] [G,-B,] [G,D] [E,E] | [D,A,]2 [G,B,]2 |
+[C,C]2 [G,-B,] [G,D-] | [D,D]2 [E,-B,] [E,E] | [G,D-] [D,D] [E,B,] [D,A,] | [G,,B,-]2 [G,B,]2 |
+[D,D]2 [C,E-] [E,E] | [G,D] [E,E] [D,A,-] [^C,A,]- | [^C,A,-] [D,A,] [G,,B,] [A,,A,] | [D,F,]4 |
+E, [C,E,-] [A,,E,] [D,F,] | [G,,-G,] [G,,B,]2 [C,A,] | G, [B,,G,-] [D,-G,] [D,F,] | [G,,G,]4 |
+[G,B,]2 [C,C] [G,-B,] | [G,D-] [D,D-]3 | [G,-D] [G,-B,] [G,D] [E,E] | [D,A,]2 [G,B,]2 |
+[C,C]2 [G,-B,] [G,D-] | [D,D]2 [E,-B,] [E,E] | [G,D-] [D,D] [E,B,] [D,A,] | [G,,B,-]2 [G,B,]2 |
+[D,D]2 [C,E-] [E,E] | [G,D] [E,E] [D,A,-] [^C,A,]- | [^C,A,-] [D,A,] [G,,B,] [A,,A,] | [D,F,]4 |
+E, [C,E,-] [A,,E,] [D,F,] | [G,,-G,] [G,,B,]2 [C,A,] | [G,,-G,] [G,,D] [A,,-C] [A,,A,] | [C,G,] [A,,A,] [G,,B,]2 |
+D,2 [F,-A,] [D,F,] | [G,,B,] [A,,D] [D,-B,] [D,-G,] | [D,F,]2 [G,,D-] [A,,D-] | [B,,D] [D,C] [G,,-B,] [G,,-A,] |
+[G,,B,-]2 B,2 |]
+[V: Bs]
+G,,,4 | D,,,4 | G,,,4 | D,,,4 |
+C,,,4 | D,,,4- | D,,,4 | G,,,4 |
+D,,,4 | G,,,4 | A,,,4 | D,,,4 |
+E,,,4 | G,,,4- | G,,,4- | G,,,4- |
+G,,,4 | D,,,4 | G,,,4 | D,,,4 |
+C,,,4 | D,,,4- | D,,,4 | G,,,4 |
+D,,,4 | G,,,4 | A,,,4 | D,,,4 |
+E,,,4 | G,,,4- | G,,,4 | C,,,4 |
+D,,,4 | G,,,4 | D,,,4 | B,,,4 |
+G,,,4 |]

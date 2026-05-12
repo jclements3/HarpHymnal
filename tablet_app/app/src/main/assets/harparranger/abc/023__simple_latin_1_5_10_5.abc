@@ -1,0 +1,25 @@
+X: 1
+T: Angels From the Realms of Glory
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [EG] [CE] [Gc] [EG] | "^I64" [G-e]2 [G-c] G | "^IV" [C-A]2 [C-G] [Cc] | "^V6" [DG] [B,F] [CE]2 |
+"^I" [EG] [CE] [G-c] G | [E-e]2 [E-c] [E-B] | "^iii" [E-c] [E-B] [E-A] [EB-] | "^V64" [GB] [^FA] G2- |
+"^V" [G-d]2 [G-B] G- | "^I" [Ge]2 [F-c] [FA] | "^ii" [Af] [Ge] [Fd] [Ec-] | "^I" [G-c] [GB] [Ec]2 |]
+[V: LH]
+C,3/2 G,/2 E, G, | C,3/2 G,/2 E, G, | F,3/2 C,/2 A, C, | G,3/2 D,/2 B, D, |
+C,3/2 G,/2 E, G, | C,3/2 G,/2 E, G, | E,3/2 B,/2 G, B, | G,3/2 D,/2 B, D, |
+G,3/2 D,/2 B, D, | C,3/2 G,/2 E, G, | D,3/2 A,/2 F, A, | C,3/2 G,/2 E, G, |]
+[V: Bs]
+[C,,,C,,]4- | [C,,,C,,]4 | [F,,,F,,]4 | [G,,,G,,]4 |
+[C,,,C,,]4- | [C,,,C,,]4 | [E,,,E,,]4 | [G,,,G,,]4- |
+[G,,,G,,]4 | [C,,,C,,]4 | [D,,,D,,]4 | [C,,,C,,]4 |]

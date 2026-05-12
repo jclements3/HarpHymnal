@@ -1,0 +1,28 @@
+X: 1
+T: A Mighty Fortress Is Our God
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [Fd-] [Dd-] [Fd] [E-A] | "^V" [Ec] [Dd] [EB] [CA] | "^vi" [Dd] [Fc] [D-B] [D-A] | [DB] [B,G] [CE] D |
+"^I" [Fd-] [Dd-] [Fd] [E-A] | "^V" [Ec] [Dd] [EB] [CA] | "^vi" [Dd] [Fc] [D-B] [D-A] | [DB] [B,G] [CE] D- |
+D- "^I" [DF] [EA] [FB] | "^ii" [E-^G] [EA] D [EA-] | "^I" [FA] [G-B] [Gc] [F-d] | "^iii" [F-c] [Fd] [Ec] [FB-] |
+"^ii" [EB] [CA] [GB]2 | "^I" [F-A] [FB] [EG] [CF] | "^vi" [F-d] [Fc] [D-B] [DA] | "^vi6" [B,-B] [B,G] [=CE] D |]
+[V: LH]
+[D,A,-] [F,A,-] [D,A,-] [C,A,-] | [A,,A,] [B,,F,] [E,^G,] [A,,A,] | [B,,F,] [F,A,] G, [D,F,-] | [B,,F,] [E,G,] [A,,A,] [D,-F,] |
+[D,A,-] [F,A,-] [D,A,-] [C,A,-] | [A,,A,] [B,,F,] [E,^G,] [A,,A,] | [B,,F,] [F,A,] G, [D,F,-] | [B,,F,] [E,G,] [A,,A,] [D,F,]- |
+[D,-F,] [D,A,-] [C,A,] [B,,D] | [E,B,] [A,,C] [B,,F,] [C,A,] | [D,D-] [G,D] [E,E] [D,A,-] | [F,A,] [B,,F,] [C,A,-] [D,A,] |
+[E,^G,] [A,,A,] [G,,D-] [B,,D-] | [D,D] [^D,B,-] [E,B,] [F,^A,] | [B,,B,] [F,A,] G, [D,F,-] | [^D,F,] [E,G,] [A,,A,] [D,F,] |]
+[V: Bs]
+D,,,4 | A,,,4 | B,,,4- | B,,,4 |
+D,,,4 | A,,,4 | B,,,4- | B,,,4 |
+D,,,4 | E,,,4 | D,,,4 | F,,,4 |
+E,,,4 | D,,,4 | B,,,4- | B,,,4 |]

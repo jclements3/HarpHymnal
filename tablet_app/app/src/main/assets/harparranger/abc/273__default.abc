@@ -1,0 +1,28 @@
+X: 1
+T: When The Roll Is Called Up Yonder
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Ab
+[V: RH]
+"^I" [CA] [E-c]3 | "^I6" [EA] [D-B] [DA] [C-E] | "^I" [CA] [E-c]3 | "^V" [EB]4 |
+"^I" [CA] [E-c]3 | "^I6" [EA] [D-B] [DA] [C-E] | "^I" [CA] [Ec]2 [DB]- | [DB] [CA]3 |
+[Ac] [ce]3 | [Ac] [ce]2 [Ac]- | [Ac] "^V7" [Bd]3 | [GB] [Bd]2 [GB] |
+"^IV7" [Ac] [ce]3 | "^V7" [EB] [F-A]2 [Fd]- | [Fd] "^IV64" [Ec]2 [DB]- | [DB] "^I" [CA]3 |]
+[V: LH]
+[A,,A,-]4 | [C,A,] [D,F,]2 [A,,A,]- | [A,,A,-]3 A, | [G,B,] [E,G,]3 |
+[A,,A,-]4 | [C,A,] [D,F,]2 [A,,A,]- | [A,,A,-] [E,-A,]2 [E,G,]- | [E,G,] [A,,A,]3 |
+A,2- [A,E]2- | [A,E-]2 [E,-E]2 | E,2- [E,E-]2 | [A,E-]3 [D,-E] |
+D,2- [D,E-] [E,-E] | [E,D]3 [A,,A,]- | [A,,A,-]2 A, G,- | G, A,3 |]
+[V: Bs]
+A,,,4- | A,,,4- | A,,,4 | E,,,4 |
+A,,,4- | A,,,4- | A,,,4- | A,,,4- |
+A,,,4- | A,,,4 | E,,,4- | E,,,4 |
+D,,,4 | E,,,4 | D,,,4 | A,,,4 |]

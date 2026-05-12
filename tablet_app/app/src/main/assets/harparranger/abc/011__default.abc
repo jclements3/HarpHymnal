@@ -1,0 +1,28 @@
+X: 1
+T: All Glory, Laud, and Honor
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" C- [CG-] [EG] [CA] | "^V43" [F-B] [Fc-] [Ec]2 | "^I" [G-e] [G-d] [Gc] [FA] | [DB] [Ec]3 |
+C- [CG-] [EG] [CA] | "^V43" [F-B] [Fc-] [Ec]2 | "^I" [G-e] [G-d] [Gc] [FA] | [DB] [Ec-]3 |
+"^IV" [Fc] [Ee]2 [G-d] | "^iii" [Gc] [^FB-] [AB-] [GB]- | [GB] [Ec] [GB] [EA-] | "^V" [^FA] G3 |
+"^V6" [DG] [CE] [B,G] [A,A] | "^I6" [CG-] [DG] [B,F] [C-E] | [C-G] [C-F] [C-E] [CD-] | "^I" [B,D] C3 |]
+[V: LH]
+[C,-E,]2 [C,G,] F, | [D,G,-] [C,-G,]3 | [C,C] [G,B,] [E,C] [F,A,] | G, [C,-G,]3 |
+[C,-E,]2 [C,G,] F, | [D,G,-] [C,-G,]3 | [C,C] [G,B,] [E,C] [F,A,] | G, [C,G,]3 |
+[F,A,] [C,C-] [A,,C] [B,,D] | [E,G,] [D,A,] [^F,D-] [G,D] | [E,E-] [A,,E] [B,,D] [C,A,] | [D,C] [G,,B,]3 |
+[B,,G,-] [C,G,-] [E,G,] [F,C] | [E,G,-] [B,,G,-] [G,,G,-] [C,G,-] | [E,G,] [F,A,] [C,G,-] [G,,G,]- | [G,,G,] [C,E,]3 |]
+[V: Bs]
+C,,,4 | G,,,4 | C,,,4- | C,,,4- |
+C,,,4 | G,,,4 | C,,,4- | C,,,4 |
+F,,,4 | E,,,4- | E,,,4 | G,,,4- |
+G,,,4 | C,,,4- | C,,,4- | C,,,4 |]

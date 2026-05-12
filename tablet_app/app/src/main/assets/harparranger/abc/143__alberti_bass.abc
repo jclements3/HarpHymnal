@@ -1,0 +1,28 @@
+X: 1
+T: Lo, God To Heav'n Ascendeth
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^IV" [F-c] [F-d]2 [F-B] | "^V" [F-A] [FG-] [EG]2 | "^I" F- [F-B] [F-A] [FG-] | [EG] F2- F- |
+"^I7" [F-c] [F-d]2 [F-B] | "^I4" [FA] [DG-] [EG-] [F-G] | "^I" F- [FB] [EA] [FG]- | [F-G] F2- F |
+"^V7" [EA-] [DA-] [_D-A] [_D-G] | "^I7" [_DF] [EF-]3 | "^I" [FA-]2 [EA]2 | [FB] [Cc-] [Fc] [E-A] |
+"^I7" E- [EA]3 | "^I" [FB] [Dc-] [Cc] [DA] | "^V" C- [C-G] [CF]2 | "^I6" E F3 |]
+[V: LH]
+B,/2 F,/2 D,/2 F,/2 B,/2 F,/2 D,/2 F,/2 | C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 |
+F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 |
+C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 |
+F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 |]
+[V: Bs]
+[B,,,B,,]4 | [C,,,C,,]4 | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 |
+[C,,,C,,]4 | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4- | [F,,,F,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |]

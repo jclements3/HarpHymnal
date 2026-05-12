@@ -1,0 +1,28 @@
+X: 1
+T: Hark, the Voice of Jesus Calling
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [GB] A [GB] [Dd] | "^IV" [E-c] [EA] [D-G] [DF] | "^vi" [B,G] [CE] D- [DB] | "^V" [^CA] [CG] [D-A]2 |
+[D-B] [D-A] [DB] [Gd] | "^IV" [E-c] [EA] [DG] [CF] | "^vi" [B,G] [C-E] [CD] [B,B] | "^ii7" [CA]2 [B,G]2 |
+"^ii" [^CA-] [CA] [DB] [EA-] | "^V" [D-A] [Dd] [E^c] [DB] | "^ii" [^CA-] [GA-] [FA] [^Gd-] | "^V64" [Ad] [Ge] [Fd]2 |
+"^I" [GB] [FA] [GB] [E-d] | "^IV" [E-c] [EA] [DG] [CF] | "^vi" [B,G] [A,E] [B,D] [G-B] | "^ii7" [GA-] [FA] G2 |]
+[V: LH]
+[G,D-] [F,D-] [G,D] [B,,G,-] | [C,-G,] [C,C] [D,-B,] [D,A,] | [E,G,-] [C,G,] [F,A,] G, | [E,G,] [A,,A,] [D,F,]2 |
+G, [D,F,] G, [B,,G,-] | [C,-G,] [C,C] [D,-B,] [D,A,] | [E,G,-] [C,G,] [F,A,] G, | [D,-G,] [D,F,] G,2 |
+[E,G,-] [A,,G,-] [B,,G,-] [^C,G,] | [D,F,] [F,A,] [G,-^A,] [G,B,] | [A,^C] [^C,E] [D,F] [B,D] | [A,-F] [A,^C] [D,D-]2 |
+[G,D-] [D,D-] [G,D] [B,,G,-] | [C,-G,] [C,C] [D,B,] [^D,A,] | [E,G,-] [^C,G,-] [D,-G,] [D,-D] | [D,C]2 [G,,B,]2 |]
+[V: Bs]
+G,,,4 | C,,,4 | E,,,4 | D,,,4- |
+D,,,4 | C,,,4 | E,,,4 | A,,,4- |
+A,,,4 | D,,,4 | A,,,4 | D,,,4 |
+G,,,4 | C,,,4 | E,,,4 | A,,,4 |]

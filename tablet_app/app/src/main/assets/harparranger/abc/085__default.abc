@@ -1,0 +1,31 @@
+X: 1
+T: Hark! The Herald Angels Sing
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" C- [CF]3- | [CF] "^I6" [FA]2 [EG] | [Fc-] [Ec-] [Dc-] [Gc] | "^I64" [FA] [EG] [FA]2 |
+"^I" C- [CF-]3 | "^vi" [A,F] [F-A]2 [FG] | "^iii" [Ec] [DG-] [EG]2 | "^I7" [CE] [=B,D] C2- |
+"^V" [Cc]3 F | "^V65" [GB] [FA]2 [EG] | "^V" [Cc]3 F | "^V65" [GB] [FA]2 [EG] |
+"^IV" [Bd]3 [Ac] | "^ii6" [GB] [_GA] [GB]2 | "^V42" [E-G] [EA] [Fc]2 | "^I64" [CF] [EG] [FA]2 |
+"^IV" [Bd]3 [Ac] | "^ii" [GB] [_GA] [GB]2 | "^V6" [CG] [EA] [Fc]2 | "^I64" [C-F] [C-G] [CF]2 |]
+[V: LH]
+[F,A,-]3 [C,A,] | [A,,F,] [F,,C-] [C,C-]2 | [A,,C]2 [B,,D]2 | [C,C-]2 [F,-C]2 |
+[F,A,-]3 [C,A,] | [D,F,] [C,C] [=B,,D]2 | [A,,C] [=B,,D] [C,C-] [E,C] | [F,A,] [G,,F,] [C,E,]2 |
+C3 [A,C-] | [E,C-] [F,C-] [C,C-]2 | C3 [A,C-] | [E,C-] [F,C-] [C,C]2 |
+[B,,D]4- | [B,,D-] [D,D-] [G,D]2 | [B,C-]2 [A,C-] [F,C] | [C,-A,] [C,C-] [F,C]2 |
+[B,D]3 [A,C] | [G,B,] [_G,A,] [G,B,-] [F,B,] | [E,C-] [B,C-] [A,C-] [F,C] | [C,-A,] [C,B,] [F,A,]2 |]
+[V: Bs]
+F,,,4- | F,,,4- | F,,,4- | F,,,4- |
+F,,,4 | D,,,4 | A,,,4 | F,,,4 |
+C,,,4- | C,,,4- | C,,,4- | C,,,4 |
+B,,,4 | G,,,4 | C,,,4 | F,,,4 |
+B,,,4 | G,,,4 | C,,,4 | F,,,4 |]

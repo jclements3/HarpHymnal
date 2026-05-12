@@ -1,0 +1,37 @@
+X: 1
+T: Lo! He Comes With Clouds Descending
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-G]2 [D-B] [Dd] | "^vi" [B,G] [DF] [CE] D | "^IV" [CE]2 [EG] [DF] | "^V" [A,D]2 [G,B,]2 |
+[A,D-]3 D- | "^I6" [DG]2 [EA-] [FA] | "^I" [GB] [Bd] [Ac] [GB]- | [GB]2 "^I64" [FA]2 |
+"^I" [D-G]2 [D-B] [Dd] | "^vi" [B,G] [DF] [CE] D | "^IV" [CE]2 [EG] [DF] | "^V" [A,D]2 [G,B,]2 |
+[A,D-]3 D- | "^I6" [DG]2 [EA-] [FA] | "^I" [GB] [Bd] [Ac] [GB]- | [GB]2 "^I64" [FA]2- |
+[FA]3 "^V" [GB] | "^ii" [Ec-] [Fc] [GB]2 | "^I" [DG-]2 [E-G] [Ec] | "^I6" [GB] [FA] [E-G]2 |
+"^vi" [EB]3 [Dd] | "^vii°6" [Fc] [G-B] [GA-] [FA] | "^I6" [D-G]2 [D-A] [D-B] | "^V6" D2 [G-c]2 |
+"^I64" [GB]2 [FA]2 | "^I" G4 |]
+[V: LH]
+[G,B,]3 [F,A,] | [E,G,] [B,,B,] [C,G,] [G,,B,] | [C,G,]4 | [D,F,]2 [G,,G,]2 |
+[D,F,] [E,G,] [D,F,-] [C,F,] | [B,,G,]2 [A,,C]2 | [G,,B,]2 [C,E]2 | [D,D]4 |
+[G,B,]3 [F,A,] | [E,G,] [B,,B,] [C,G,] [G,,B,] | [C,G,]4 | [D,F,]2 [G,,G,]2 |
+[D,F,] [E,G,] [D,F,-] [C,F,] | [B,,G,]2 [A,,C]2 | [G,,B,]2 [C,E]2 | [D,D]4- |
+[D,D-]3 [B,,D] | [A,,C]2 [G,,D]2 | [G,B,]3 [A,,C] | [B,,D-] [D,D] [E,-B,]2 |
+[E,G,-]3 [B,,G,] | [A,,A,] [G,,B,] [D,D-]2 | [B,D]2 [A,C] [G,B,] | [F,A,]2 [E,-G,] [E,A,] |
+[D,-B,] [D,-C] [D,-D] [D,C] | [G,,B,]4 |]
+[V: Bs]
+G,,,4 | E,,,4 | C,,,4 | D,,,4- |
+D,,,4 | G,,,4- | G,,,4- | G,,,4- |
+G,,,4 | E,,,4 | C,,,4 | D,,,4- |
+D,,,4 | G,,,4- | G,,,4- | G,,,4 |
+D,,,4 | A,,,4 | G,,,4- | G,,,4 |
+E,,,4 | F,,,4 | G,,,4 | D,,,4 |
+G,,,4- | G,,,4 |]

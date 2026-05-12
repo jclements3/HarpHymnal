@@ -1,0 +1,25 @@
+X: 1
+T: Jesus Christ Who Came to Save
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Am
+[V: RH]
+"^i" [CA-] [E-A] [EG] [D-A] | "^VIo" [DB] [^FA] [EG] [^D^F] | "^V" E- [EG] [DA] [FB] | "^i" [E-A] [E-^G] [EA] [Fd] |
+"^i6" [E-A] [Ec] [FB] [DA] | "^V" [B,B] [^CA-] [D-A]2 | "^i" [DB] [E-A] [EG] [^D^F] | "^V" E- [EG] [CA] [DB] |
+"^i" [E-A] [E^G] [^CA]2 |]
+[V: LH]
+[C,E,A,]4 | [F,^G,B,]4 | [E,^G,B,]4 | [C,E,A,]4 |
+[C,E,A,]4 | [E,^G,B,]4 | [C,E,A,]4 | [E,^G,B,]4 |
+[C,E,A,]4 |]
+[V: Bs]
+[A,,,A,,]4 | [F,,,F,,]4 | [E,,,E,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4 | [E,,,E,,]4 | [A,,,A,,]4 | [E,,,E,,]4 |
+[A,,,A,,]4 |]

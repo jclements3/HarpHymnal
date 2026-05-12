@@ -1,0 +1,28 @@
+X: 1
+T: Nearer, My God, To Thee
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DB]3 [CA]2 [B,G-] | "^IV" [EG]2 [CE]4 | "^I" D3- [D-G]2 [D-B] | "^V" [D-A]5 D- |
+"^I" [DB-]2 [C-B] [CA-] [B,A] [EG]- | [EG-] "^IV" [C-G] [CE-]3 [B,-E] | "^I64" [B,D-] D- [D-G] [D-F]2 [D-A] | "^I" [DG-]4 G- G- |
+[G-d]3 [G-e]2 [Gd]- | [G-d]2 [G-B] [Gd]3- | [G-d]3 [Ge-] [D-e] [Dd]- | [D-d]2 "^I52" [D-B] [D-A]3 |
+"^I" [DB-] [CB]2 [B,A-] [E-A] [EG-] | "^IV6" [C-G]2 [CE-]2 [B,E]2 | "^I4" D2- [D-G] [D-F]2 [D-A] | "^I" [DG-]3 G2 z |]
+[V: LH]
+G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | D,/2 A,/2 E,/2 D,/2 E,/2 D,/2 |
+G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 |
+G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 |
+G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | C,/2 G,/2 D,/2 C,/2 D,/2 C,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 | G,/2 D,/2 A,/2 G,/2 A,/2 G,/2 |]
+[V: Bs]
+[G,,,G,,]6 | [C,,,C,,]6 | [G,,,G,,]6 | [D,,,D,,]6 |
+[G,,,G,,]6 | [C,,,C,,]6 | [G,,,G,,]6- | [G,,,G,,]6- |
+[G,,,G,,]6- | [G,,,G,,]6- | [G,,,G,,]6- | [G,,,G,,]6- |
+[G,,,G,,]6 | [C,,,C,,]6 | [G,,,G,,]6- | [G,,,G,,]6 |]

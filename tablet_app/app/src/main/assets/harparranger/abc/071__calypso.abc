@@ -1,0 +1,43 @@
+X: 1
+T: Gabriel's Message
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Am
+[V: RH]
+"^V" E [CA]2 | "^i" [Ec] [DB]2 | "^iv6" [Fd] [Ec]2 | "^i" [DB] [EA]2- |
+[EA] [FB]2- | [FB] "^V" [DE]2- | [DE]3- | [DE] "^V65" [CA]2 |
+"^i" [Ec] [DB]2 | "^iv64" [Fd] [Ec]2 | "^iio6" [FB] [EA]2- | [E-A]3 |
+"^i" [E-G] [EA]2- | [E-A]3 | "^III" [Ec]3 | [Fd] [Ec]2 |
+"^iv" [FB] [Gc]2 | "^iio6" [Fd] [Ee]2- | [Ee] "^III" [Ad]2- | [A-d] "^iv6" [Ac]2- |
+[A-c] "^bVII5" [AB]2- | [AB-] "^bVII" [G-B]2 | "^III6" [Gc] [D-d]2 | "^iv6" [D-c] [D-B]2 |
+[D-A] [DB]2- | [D-B] "^ii°7" [DE]2- | [DE] "^V7" [CA]2- | [CA] "^iv7" [F-c] [F-B] |
+[Fc] [EA]2- | [E-A]3 | "^i" [EG] [CA]2- | [CA]3- |
+[CA] |]
+[V: LH]
+E,3/2 E,/2 B, E, | A,3/2 A,/2 E, A, | D,3/2 D,/2 A, D, | A,3/2 A,/2 E, A, |
+A,3/2 A,/2 E, A, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, |
+A,3/2 A,/2 E, A, | D,3/2 D,/2 A, D, | B,3/2 B,/2 F, B, | A,3/2 A,/2 E, A, |
+A,3/2 A,/2 E, A, | A,3/2 A,/2 E, A, | C,3/2 C,/2 G, C, | C,3/2 C,/2 G, C, |
+D,3/2 D,/2 A, D, | B,3/2 B,/2 F, B, | C,3/2 C,/2 G, C, | D,3/2 D,/2 A, D, |
+G,3/2 G,/2 D, G, | G,3/2 G,/2 D, G, | C,3/2 C,/2 G, C, | D,3/2 D,/2 A, D, |
+D,3/2 D,/2 A, D, | B,3/2 B,/2 F, B, | E,3/2 E,/2 B, E, | D,3/2 D,/2 A, D, |
+D,3/2 D,/2 A, D, | A,3/2 A,/2 E, A, | A,3/2 A,/2 E, A, | A,3/2 A,/2 E, A, |
+A,3/2 A,/2 E, A, |]
+[V: Bs]
+[E,,,E,,]3 | [A,,,A,,]3 | [D,,,D,,]3 | [A,,,A,,]3- |
+[A,,,A,,]3 | [E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3 |
+[A,,,A,,]3 | [D,,,D,,]3 | [B,,,B,,]3 | [A,,,A,,]3- |
+[A,,,A,,]3- | [A,,,A,,]3 | [C,,,C,,]3- | [C,,,C,,]3 |
+[D,,,D,,]3 | [B,,,B,,]3 | [C,,,C,,]3 | [D,,,D,,]3 |
+[G,,,G,,]3- | [G,,,G,,]3 | [C,,,C,,]3 | [D,,,D,,]3- |
+[D,,,D,,]3 | [B,,,B,,]3 | [E,,,E,,]3 | [D,,,D,,]3- |
+[D,,,D,,]3 | [A,,,A,,]3- | [A,,,A,,]3- | [A,,,A,,]3- |
+[A,,,A,,] |]

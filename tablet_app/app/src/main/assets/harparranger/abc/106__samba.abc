@@ -1,0 +1,28 @@
+X: 1
+T: I Need Thee Every Hour
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Ab
+[V: RH]
+"^I" [CA] [Ec]2 | "^I64" [CA]3- | [CA-] "^I" [DA]2- | [DA] "^IV" [CE-]2 |
+"^V" E- [EB]2- | [E-B] [E-c]2 | "^I" [E-A] [EG]2- | [E-G] "^V64" E2 |
+"^I" [A-c]3 | "^vi6" [A-d] [Ac] [GB]- | [GB-] "^V" [E-B]2 | [E-c] [E-B] [EA]- |
+[EA-] "^I6" [FA]2- | [FA] "^IV" [CE] [EA] | [FB] [Ec]2 | "^V7" [DB] [CA]2 |]
+[V: LH]
+A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 |
+E,/2 E,/2 B,,/2 E,/2 E,/2 E,/2 B,,/2 E,/2 | E,/2 E,/2 B,,/2 E,/2 E,/2 E,/2 B,,/2 E,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | E,/2 E,/2 B,,/2 E,/2 E,/2 E,/2 B,,/2 E,/2 |
+A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | E,/2 E,/2 B,,/2 E,/2 E,/2 E,/2 B,,/2 E,/2 | E,/2 E,/2 B,,/2 E,/2 E,/2 E,/2 B,,/2 E,/2 |
+A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | E,/2 E,/2 B,,/2 E,/2 E,/2 E,/2 B,,/2 E,/2 |]
+[V: Bs]
+[A,,,A,,]3- | [A,,,A,,]3- | [A,,,A,,]3 | [D,,,D,,]3 |
+[E,,,E,,]3- | [E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3 | [F,,,F,,]3 | [E,,,E,,]3- | [E,,,E,,]3 |
+[A,,,A,,]3 | [D,,,D,,]3- | [D,,,D,,]3 | [E,,,E,,]3 |]

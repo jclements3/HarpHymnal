@@ -1,0 +1,25 @@
+X: 1
+T: Breathe on Me, Breath of God
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Fm
+[V: RH]
+"^i" [CF]2 [Fc] [GB] | "^i4" [FA] [=EG] F2 | "^III" [E-c]2 [Ee] [Fd] | "^III4" [E-c] [E-B] [Ec]2 |
+"^i" F [EA] [DG] [EF] | "^iv7" [F-c] [F-A] [FB] [=EA] | "^i6" [F-G] F [Gc] [F-B] | "^i64" [FA-] [=E-A] [=EG-] [F-G] |
+"^i" F3 F |]
+[V: LH]
+[F,A,]2 [A,,C] [B,,D] | [C,C]2 [F,A,-]2 | [A,,A,-]2 [C,A,-] [D,A,-] | [E,-A,] [E,G,] [A,,A,]2 |
+F, [C,C-] [D,C] [A,,A,-] | [D,A,-] [B,,A,] [F,D] [C,C-] | [D,C] [A,,A,] [B,,C] [C,-D] | [C,C]3 [F,,-B,] |
+[F,,A,-]3 A, |]
+[V: Bs]
+F,,,4- | F,,,4 | A,,,4- | A,,,4 |
+F,,,4 | B,,,4 | F,,,4- | F,,,4- |
+F,,,4 |]

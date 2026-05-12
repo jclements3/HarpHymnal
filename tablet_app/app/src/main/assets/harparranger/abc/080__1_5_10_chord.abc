@@ -1,0 +1,28 @@
+X: 1
+T: God, Whose Almighty Word
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [Gd] [D-B] [DG] | "^IV" [EA] [D-G] [D-F] | "^I" [DG]3- | [D-G] [DA] [GB] |
+"^V43" [Fc-] [Ac] [GB] | "^V" [FA]3 | d B G | D3 |
+[FA] [GB] [Ac] | "^I" [G-B]2 G | "^V" [FA] [GB] [Ac] | "^I" [G-B]2 G- |
+G B d | [Gd]3 | "^ii6" [Ac] [GB] [FA] | "^I" G3 |]
+[V: LH]
+[D,G,B,]4 | [C,E,G,]4 | [D,G,B,]4 | [D,G,B,]4 |
+[D,F,A,]4 | [D,F,A,]4 | [D,F,A,]4 | [D,F,A,]4 |
+[D,F,A,]4 | [D,G,B,]4 | [D,F,A,]4 | [D,G,B,]4 |
+[D,G,B,]4 | [D,G,B,]4 | [C,E,A,]4 | [D,G,B,]4 |]
+[V: Bs]
+[G,,,G,,]3 | [C,,,C,,]3 | [G,,,G,,]3- | [G,,,G,,]3 |
+[D,,,D,,]3- | [D,,,D,,]3- | [D,,,D,,]3- | [D,,,D,,]3- |
+[D,,,D,,]3 | [G,,,G,,]3 | [D,,,D,,]3 | [G,,,G,,]3- |
+[G,,,G,,]3- | [G,,,G,,]3 | [A,,,A,,]3 | [G,,,G,,]3 |]

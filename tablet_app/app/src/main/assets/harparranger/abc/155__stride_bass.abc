@@ -1,0 +1,28 @@
+X: 1
+T: Magnificat
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Fm
+[V: RH]
+"^i" [CF]2 [B,D] | [A,C]2 [C-G] | "^V6" [C-A] [C-G] [C-F] | "^V" [C-=E]3 |
+"^III" [Cc-] [E-c]2 | "^i" [EB-] [DB] [CA] | "^iv6" [DB] [B,G]2 | "^III" [CA]3 |
+[Ae]2 [Gd] | [Ac-]2 [Ec]- | [E-c] [E-B] [E-A] | "^V" [EG-]2 [=EG] |
+"^V6" [FA] [C-G] [C-F] | "^V" [C-=E]2 [C-c] | "^i64" [CA]2 [=EG] | "^i" [CF]3 |]
+[V: LH]
+F,, [C,F,A,] C, [C,F,A,] | F,, [C,F,A,] C, [C,F,A,] | C,, [C,=E,G,] G,, [C,=E,G,] | C,, [C,=E,G,] G,, [C,=E,G,] |
+A,, [C,E,A,] E, [C,E,A,] | F,, [C,F,A,] C, [C,F,A,] | B,, [D,F,B,] F, [D,F,B,] | A,, [C,E,A,] E, [C,E,A,] |
+A,, [C,E,A,] E, [C,E,A,] | A,, [C,E,A,] E, [C,E,A,] | A,, [C,E,A,] E, [C,E,A,] | C,, [C,=E,G,] G,, [C,=E,G,] |
+C,, [C,=E,G,] G,, [C,=E,G,] | C,, [C,=E,G,] G,, [C,=E,G,] | F,, [C,F,A,] C, [C,F,A,] | F,, [C,F,A,] C, [C,F,A,] |]
+[V: Bs]
+[F,,,F,,]3- | [F,,,F,,]3 | [C,,,C,,]3- | [C,,,C,,]3 |
+[A,,,A,,]3 | [F,,,F,,]3 | [B,,,B,,]3 | [A,,,A,,]3- |
+[A,,,A,,]3- | [A,,,A,,]3- | [A,,,A,,]3 | [C,,,C,,]3- |
+[C,,,C,,]3- | [C,,,C,,]3 | [F,,,F,,]3- | [F,,,F,,]3 |]

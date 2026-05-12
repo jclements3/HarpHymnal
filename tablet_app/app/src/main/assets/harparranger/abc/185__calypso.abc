@@ -1,0 +1,28 @@
+X: 1
+T: O Lord, How Shall I Meet Thee
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,E]2 [E-G] [EA] | "^V" [DB-] [EB] [CA-] [DA] | "^vi" [E-G] [E-A] [EG] [B,E] | "^ii6" [CF-] [DF] [B,E]2- |
+[B,E]2 "^I" [E-G] [EA] | "^V" [DB-] [EB] [CA-] [DA] | "^vi" [E-G] [E-A] [EG] [B,E] | "^ii6" [CF-] [DF] [B,E]2 |
+"^I" [E-B]2 [Ec] [Fd] | [Ge] [F-d] [Fc]2 | "^V" [DB] [E-G] [Ec] [DB] | "^vi" [E-A] [EG] [DF]2 |
+"^I" [B,G]2 [CE] [DF] | [E-G] [E-B] [E-A]2 | [EG] [GB] [E-A] [E-G] | [EF-] [DF] E2 |]
+[V: LH]
+E,3/2 E,/2 B, E, | B,3/2 B,/2 F, B, | C,3/2 C,/2 G, C, | F,3/2 F,/2 C, F, |
+E,3/2 E,/2 B, E, | B,3/2 B,/2 F, B, | C,3/2 C,/2 G, C, | F,3/2 F,/2 C, F, |
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | B,3/2 B,/2 F, B, | C,3/2 C,/2 G, C, |
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, |]
+[V: Bs]
+[E,,,E,,]4 | [B,,,B,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |
+[E,,,E,,]4 | [B,,,B,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4 | [C,,,C,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4- | [E,,,E,,]4- | [E,,,E,,]4 |]

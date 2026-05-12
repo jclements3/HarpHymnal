@@ -1,0 +1,25 @@
+X: 1
+T: Now Rest Beneath Night's Shadow
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [GB] [EG] [FA] [GB] | [B-d] [Bc-] [Ac] [GB]- | [G-B] "^vi" [Gd]2 [FA] | "^iii" [D-B] [DG-] [^CG] [DF] |
+"^V42" [A,D] [DG] [CA] [B,B-] | "^V" [D-B] [DA]3 | "^iii6" [FB] [EG] [D-A] [DB] | "^ii" [E-d] [Ec]2 [^GB-] |
+"^vi" [GB] [Ad-] [Gd] [EA] | "^vi52" [F-B] [FG-] [EG] [^DF] | "^iii" D- [D-G] [DA] [B,B] | "^vi" [Ec] [GB] [FA] [DG] |]
+[V: LH]
+G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | B,/2 F,/2 D,/2 F,/2 B,/2 F,/2 D,/2 F,/2 |
+D,/2 A,/2 F,/2 A,/2 D,/2 A,/2 F,/2 A,/2 | D,/2 A,/2 F,/2 A,/2 D,/2 A,/2 F,/2 A,/2 | B,/2 F,/2 D,/2 F,/2 B,/2 F,/2 D,/2 F,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 |
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | B,/2 F,/2 D,/2 F,/2 B,/2 F,/2 D,/2 F,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 |]
+[V: Bs]
+[G,,,G,,]4- | [G,,,G,,]4 | [E,,,E,,]4 | [B,,,B,,]4 |
+[D,,,D,,]4- | [D,,,D,,]4 | [B,,,B,,]4 | [A,,,A,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4 |]

@@ -1,0 +1,28 @@
+X: 1
+T: All Who Believe and Are Baptized
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [EB-]2 [FB-] [EB] | "^V53" [_D_d] [E-c] [EB] [CA] | "^I" [EB] [B,G] [CE] [E-G] | "^vi" [EA] [DB] [Cc] [DB-] |
+"^I" [EB-]2 [FB-] [EB] | "^V53" [_D_d] [E-c] [EB] [CA] | "^I" [EB] [B,G] [CE] [E-G] | "^vi" [EA] [DB] [Cc] [DB-] |
+"^I" [E-B] [Ee] [F_d] [E-c] | [E-B] [E-e] [E-c] [EB-] | "^V6" [FB] [E-e] [EB-] [_DB] | "^IV" [CE] [EG] [B,B] [EG] |
+[CE] [_DF] [E-A] [EG] | [CF] [B,E] [DF] E |]
+[V: LH]
+E, B, E,2 | B, F, B,2 | E, B, E,2 | C, G, C,2 |
+E, B, E,2 | B, F, B,2 | E, B, E,2 | C, G, C,2 |
+E, B, E,2 | E, B, E,2 | B, F, B,2 | A, E, A,2 |
+A, E, A,2 | A, E, A,2 |]
+[V: Bs]
+[E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4 | [C,,,C,,]4 |
+[E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4 | [C,,,C,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4- | [A,,,A,,]4 |]

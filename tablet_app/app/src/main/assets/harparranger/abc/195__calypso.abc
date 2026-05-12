@@ -1,0 +1,25 @@
+X: 1
+T: Oh, Blest the House
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,E]2 [EB-] [FB] | [EG] [DF] [B,G] [C=A] | "^V" [DB]2 [EG] [F-B] | "^V6" [F-A] [FB] [EG] [DF] |
+"^I" E2- [E-c]2 | [EG] [F-B] [FA]2 | "^vi" [=EG]2 [Gd] [E-c] | "^I" [E-B] [Ec] [CA] [DF] |
+E4 |]
+[V: LH]
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | B,3/2 B,/2 F, B, | B,3/2 B,/2 F, B, |
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | C,3/2 C,/2 G, C, | E,3/2 E,/2 B, E, |
+E,3/2 E,/2 B, E, |]
+[V: Bs]
+[E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4- | [B,,,B,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [C,,,C,,]4 | [E,,,E,,]4- |
+[E,,,E,,]4 |]

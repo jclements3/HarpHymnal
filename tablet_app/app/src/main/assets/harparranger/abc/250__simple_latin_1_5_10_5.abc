@@ -1,0 +1,28 @@
+X: 1
+T: There's a Great Day Coming
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [B,-D] [B,-G]3 | B, [DB]2 [B,-A] | "^vi6" [B,-E] [B,G-]2 [D-G] | "^V" [D-A]4 |
+"^I" [D-G] [D-B]3 | [Dd] [EA] [CG] [B,D]- | [B,D] [DG]2 [CA]- | [CA] [B,G]3 |
+G- [G-d]2 [G-e] | G- [GB-] [D-B] [Dc] | B, [DG-] [^CG-] [CG-] | "^I4" [D-G] [DB] [GA]2- |
+[G-A] "^vii°32" [G-d]2 [Ge] | "^iii" D- [DB-] [C-B] [Cc] | "^I" B,- [B,G]2 A- | A "^I4" G3 |]
+[V: LH]
+G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, | E,3/2 B,/2 G, B, | D,3/2 A,/2 F, A, |
+G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, |
+G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, |
+F,3/2 C,/2 A, C, | B,3/2 F,/2 D, F, | G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, |]
+[V: Bs]
+[G,,,G,,]4- | [G,,,G,,]4 | [E,,,E,,]4 | [D,,,D,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4 |
+[F,,,F,,]4 | [B,,,B,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |]

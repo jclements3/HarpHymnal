@@ -1,0 +1,28 @@
+X: 1
+T: Wilt Thou, O Man, Live Happily
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" [B,E]2 [EG-] [DG] | "^iv" [EA] [GB] [E-c] [EB] | [CA]2 [E-B]2 | "^iv6" [Ec] [DG] [C-A] [CE] |
+"^III" [DG]2 [C-E] C | [D-G] [D=F] [^CE]2 | [DB]2 [Ec] [Gd] | "^iv" [Ec] [DA] [B,^G] [CA] |
+"^i" [EB]2 [B,E]2 | "^Vo6" [DB] [Ec] [DB] [E-G] | "^iv6" [EA] [D=F] [CE] [A,C] | "^III" [DG]2 [CE-]2 |
+"^i" [B,E]4 |]
+[V: LH]
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 |
+G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 |
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | B,/2 =F,/2 D,/2 =F,/2 B,/2 =F,/2 D,/2 =F,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 |
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 |]
+[V: Bs]
+[E,,,E,,]4 | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4 | [A,,,A,,]4 |
+[E,,,E,,]4 | [B,,,B,,]4 | [A,,,A,,]4 | [G,,,G,,]4 |
+[E,,,E,,]4 |]

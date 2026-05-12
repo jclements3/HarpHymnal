@@ -1,0 +1,40 @@
+X: 1
+T: A Lamb Goes Uncomplaining Forth
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [F-c]2 [Fd] [Ec] | "^vi" [F-A]2 [F-c]2 | "^IV" [FB-] [EB] [FA]2 | "^V" [EG]2 [F-A] [F-B] |
+"^I6" [F-c]2 [F-B] [F-A] | "^I" [FG-] [EG] F2- | [F-c]2 [Fd] [Ec] | "^vi" [F-A]2 [F-c]2 |
+"^IV" [FB-] [EB] [FA]2 | "^V" [EG]2 [F-A] [F-B] | "^I6" [F-c]2 [F-B] [F-A] | "^I" [FG-] [EG] F2 |
+[CF]2 [EG] [F-A] | "^IV" [FB]2 [EG]2 | "^I" [FA] [EG] [CF-]2 | "^IV" [DF]2 [F-A] [FB] |
+"^V" [Ec]2 [F-d]2 | "^vi" [F-A] [F=B] [Ec]2 | F2- [FA]2 | "^I43" [Ec] [D-d] [D-c] [D-A] |
+"^ii64" [DB]2 [F-A]2 | "^vi" [Fd-]2 [_Ed]2 | "^V7" G2- [G-c]2 | "^ii64" [GB-] [_GB] [D-A]2 |
+"^ii" [DG]4 | "^ii7" [FB-] [EB] [D-A] [D-G] | "^vi7" [DF]2 [C-G]2 | "^V52" [CE] [=B,F] [C-D]2 |
+"^I62" C2 [C-D] [CE] | "^I" F- [FG] [E-A] [EB] | "^I52" [F-c]2 [FA] [EB] | [FG]2 F2 |]
+[V: LH]
+[C,F,A,]4 | [D,F,A,]4 | [D,F,B,]4 | [C,E,G,]4 |
+[C,F,A,]4 | [C,F,A,]4 | [C,F,A,]4 | [D,F,A,]4 |
+[D,F,B,]4 | [C,E,G,]4 | [C,F,A,]4 | [C,F,A,]4 |
+[C,F,A,]4 | [D,F,B,]4 | [C,F,A,]4 | [D,F,B,]4 |
+[C,E,G,]4 | [D,F,A,]4 | [D,F,A,]4 | [C,F,A,]4 |
+[D,G,B,]4 | [D,F,A,]4 | [C,E,G,]4 | [D,G,B,]4 |
+[D,G,B,]4 | [D,G,B,]4 | [D,F,A,]4 | [C,E,G,]4 |
+[C,F,A,]4 | [C,F,A,]4 | [C,F,A,]4 | [C,F,A,]4 |]
+[V: Bs]
+[F,,,F,,]4 | [D,,,D,,]4 | [B,,,B,,]4 | [C,,,C,,]4 |
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 | [D,,,D,,]4 |
+[B,,,B,,]4 | [C,,,C,,]4 | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4 | [B,,,B,,]4 |
+[C,,,C,,]4 | [D,,,D,,]4- | [D,,,D,,]4 | [F,,,F,,]4 |
+[G,,,G,,]4 | [D,,,D,,]4 | [C,,,C,,]4 | [G,,,G,,]4- |
+[G,,,G,,]4- | [G,,,G,,]4 | [D,,,D,,]4 | [C,,,C,,]4 |
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 |]

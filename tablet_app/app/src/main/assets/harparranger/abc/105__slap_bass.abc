@@ -1,0 +1,28 @@
+X: 1
+T: I Know Whom I Have Believed
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" E- [E-G]2 [EA] | "^V" [B,F] [E-c] [E-B]2 | "^I" [EG] [GB]2 [Ac] | "^V" [FA] [DF]3 |
+"^V7" [FA] [E-G]2 [EA] | "^V" [B,F] [E-c] [E-B]2 | "^I" [EG] [D-B]2 [D-c] | [DA] E3- |
+E "^IV" [ce]3 | "^IV52" [Bd] [Ac] [GB]2 | "^V7" [Ac] [GB] [FA]2 | [GB] [FA] [E-G]2 |
+"^IV" E [ce]3 | "^IV52" [Bd] [Ac] [GB]2- | [GB] "^I" [Fd-]2 [A-d] | [AB] [Ge]3 |]
+[V: LH]
+E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 |
+B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 |
+A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 | B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 B,/2 F,/2 |
+A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 |]
+[V: Bs]
+[E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4- | [B,,,B,,]4 | [E,,,E,,]4- | [E,,,E,,]4 |
+[A,,,A,,]4- | [A,,,A,,]4 | [B,,,B,,]4- | [B,,,B,,]4 |
+[A,,,A,,]4- | [A,,,A,,]4 | [E,,,E,,]4- | [E,,,E,,]4 |]

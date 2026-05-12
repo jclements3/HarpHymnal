@@ -1,0 +1,28 @@
+X: 1
+T: Holy, Holy, Holy
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D]2 [DF]2 | "^V" [CA-] [EA-] [DA-] [CA] | "^IV" [B,B-] [CB-] [DB-] [EB] | "^I" [FA]2 [DF]2 |
+"^V6" [EA-]2 [FA-] [EA] | "^vi" [Dd-] [E-d] [Ec] [FA] | "^vii°6" E [CA] [DB]2 | "^V" [CA]4 |
+"^I" [A,D]2 [DF]2 | "^V" [CA-] [EA-] [DA-] [CA] | "^IV" [B,B-] [CB-] [DB-] [EB] | "^I" [FA-]2 [D-A]2 |
+"^vi" [D-d]2 [D-A]2 | "^IV" [D-B]2 [DF-] [=CF] | [B,-G] [B,E-] [CE]2 | "^I" D4 |]
+[V: LH]
+[D,,D,]4 | [A,,A,]4 | [G,,G,]4 | [D,,D,]4 |
+[A,,A,]4 | [B,,B,]4 | [C,,C,]4 | [A,,A,]4 |
+[D,,D,]4 | [A,,A,]4 | [G,,G,]4 | [D,,D,]4 |
+[B,,B,]4 | [G,,G,]4 | [G,,G,]4 | [D,,D,]4 |]
+[V: Bs]
+[D,,,D,,]4 | [A,,,A,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |
+[A,,,A,,]4 | [B,,,B,,]4 | [C,,,C,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [A,,,A,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |
+[B,,,B,,]4 | [G,,,G,,]4- | [G,,,G,,]4 | [D,,,D,,]4 |]

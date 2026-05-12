@@ -1,0 +1,25 @@
+X: 1
+T: Happy the Man Who Feareth God
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: A
+[V: RH]
+"^I" D- D [EA-] [FA] | "^IV" [DF] [FA] [=GB] [Ad-] | [Fd]2 A [=Gd] | "^ii6" [FB] [=GA] [E-B] [EA] |
+"^I" [D-=G] [D-E] D [DF-] | "^IV" F [EA-] [DA] [B,=G] | "^bvii°" [DF] E [A,-B] [A,=G] | [F-=G] [FA-] A [=Gd]- |
+[=G-d] "^V" [=GB] [Fe] [Ed] | "^I" [C-e] [CB] A2 |]
+[V: LH]
+[D,A,]2 [A,,C] [D,-D] | [D,-A,] [D,D-] [=G,D] [A,E] | [D,-D]2 D, [=G,F] | [D,D-] [=G,,D-] [A,,D] [=C,=C] |
+[A,,C] [D,-A,]3 | D, [E,D-] [B,,D] [E,B,-] | [=G,B,] [E,=G,] [D,-B,] [D,D-] | [=G,D-] [D,D] A, [F,F] |
+[A,E-] [E,E-] [D,E] [E,B,] | [A,,A,-]2 A,2 |]
+[V: Bs]
+A,,,4 | D,,,4- | D,,,4 | B,,,4 |
+A,,,4 | D,,,4 | G,,,4- | G,,,4 |
+E,,,4 | A,,,4 |]

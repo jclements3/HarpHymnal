@@ -1,0 +1,28 @@
+X: 1
+T: No, Not One!
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [F-A]2 F [CF] | "^IV" [B,-D] [B,-F] [B,D] F- | "^I" [FA-] [EA] [FG] E | [F-A] [F-G] F- F |
+"^iii" [CA-] [B,-A] [B,F]2 | "^vi6" [DF-] F [DE-] E- | "^V7" [EA-] [F-A] [F-G] F- | "^I" [F-A] [F-G] F- F |
+"^V7" [EA] [F-c]2 [F-d] | "^I" [F-A]2 [FG] E- | "^V7" [EA] [F-c]2 [Fd] | "^iii" [CA-] [B,-A] [B,G]2 |
+"^I" [FA]2 [E-F]2 | "^vi4" [DE] F D z | "^V7" A2 G z | A G F z |]
+[V: LH]
+F, C, F,2 | B, F, B,2 | F, C, F,2 | F, C, F,2 |
+A, E, A,2 | D, A, D,2 | C, G, C,2 | F, C, F,2 |
+C, G, C,2 | F, C, F,2 | C, G, C,2 | A, E, A,2 |
+F, C, F,2 | D, A, D,2 | C, G, C,2 | C, G, C,2 |]
+[V: Bs]
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4- | [F,,,F,,]4 |
+[A,,,A,,]4 | [D,,,D,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |
+[C,,,C,,]4 | [F,,,F,,]4 | [C,,,C,,]4 | [A,,,A,,]4 |
+[F,,,F,,]4 | [D,,,D,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |]

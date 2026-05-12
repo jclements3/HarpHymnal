@@ -1,0 +1,28 @@
+X: 1
+T: My Jesus, As Thou Wilt
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [GB]2 [E-G] E | "^V" [DF]4 | "^I" [E-G]2 E- [EG] | "^I64" [GB]2 [EG]2 |
+"^IV64" [A-e]2 [Ac] [EA] | "^I" [GB]2 [E-G] E | "^V7" [GB] [DF] [FA] E | "^V" [D-F]2 [DB] G- |
+"^I" [GB-] [E-B] [EG] [D-E] | "^V" [DF-]3 [E-F] | "^I" [EG-] [B,G] E- [E-G] | "^I6" [E-B]2 [Ec-] [A-c] |
+"^IV" [Ae]2 [Ec] [G-A] | "^I" [GB-] [E-B] [EG] [EG] | "^I4" [E-B] [EG-] [DG] [E-F] | "^I" E3 E |]
+[V: LH]
+E, B, G,2 | B, F, D,2 | E, B, G,2 | E, B, G,2 |
+A, E, C,2 | E, B, G,2 | B, F, D,2 | B, F, D,2 |
+E, B, G,2 | B, F, D,2 | E, B, G,2 | E, B, G,2 |
+A, E, C,2 | E, B, G,2 | E, B, G,2 | E, B, G,2 |]
+[V: Bs]
+[E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4- | [E,,,E,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4 | [B,,,B,,]4- | [B,,,B,,]4 |
+[E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4- | [E,,,E,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4- | [E,,,E,,]4- | [E,,,E,,]4 |]

@@ -1,0 +1,25 @@
+X: 1
+T: Silent Night
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^I" [DF]2 [B,D] | [DF]2 [B,D] | "^V7" [E-c]2 [EA] | "^I" [D-B]2 [DF] |
+"^IV" [EG]2 [GB] | "^I" [DF]2 [B,D] | "^IV" [EG]2 [GB] | "^I" [DF]2 [B,D] |
+"^V" [F-c]2 [F-e] | "^I" [F-B]2 [Fd] | "^I6" [B,-B] [B,D] [A,F] | "^I" B,3 |]
+[V: LH]
+B,3/2 F,/2 D, F, | B,3/2 F,/2 D, F, | F,3/2 C,/2 A, C, | B,3/2 F,/2 D, F, |
+E,3/2 B,/2 G, B, | B,3/2 F,/2 D, F, | E,3/2 B,/2 G, B, | B,3/2 F,/2 D, F, |
+F,3/2 C,/2 A, C, | B,3/2 F,/2 D, F, | B,3/2 F,/2 D, F, | B,3/2 F,/2 D, F, |]
+[V: Bs]
+[B,,,B,,]3- | [B,,,B,,]3 | [F,,,F,,]3 | [B,,,B,,]3 |
+[E,,,E,,]3 | [B,,,B,,]3 | [E,,,E,,]3 | [B,,,B,,]3 |
+[F,,,F,,]3 | [B,,,B,,]3- | [B,,,B,,]3- | [B,,,B,,]3 |]

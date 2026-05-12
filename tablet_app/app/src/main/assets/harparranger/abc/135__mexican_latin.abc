@@ -1,0 +1,28 @@
+X: 1
+T: Joyful, Joyful, We Adore Thee
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-B]2 [D-c] [Dd]- | [Dd] "^V7" [Ec] [GB] [D-A] | "^I6" [DG]2 [FA] [GB]- | [GB]2 "^I64" [FA]2 |
+"^I" [GB-] [DB] [Ec] [=Fd]- | [=Fd] "^ii6" [Ec] [DB] [EA] | "^I64" [DG]2 [FA] [GB] | "^V7" [FA]2 G2 |
+"^V" [FA-] [D-A] [DB] G | "^I64" [FA] [G-B]2 G | "^V7" [F-A] [FB]2 [^DA] | "^V" [EG] [^CA] D2- |
+"^I" [DB]2 [Ec] [=Fd]- | [=Fd] "^ii6" [Ec] [DB] [EA] | "^I64" [DG]2 [FA] [GB] | "^V7" [FA]2 G2 |]
+[V: LH]
+G,,3/2 G,/2 [D,G,B,] [D,G,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+G,,3/2 G,/2 [D,G,B,] [D,G,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] |
+D,,3/2 D,/2 [D,F,A,] [D,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] |
+G,,3/2 G,/2 [D,G,B,] [D,G,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] |]
+[V: Bs]
+[G,,,G,,]4 | [D,,,D,,]4 | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4 | [A,,,A,,]4 | [G,,,G,,]4 | [D,,,D,,]4- |
+[D,,,D,,]4 | [G,,,G,,]4 | [D,,,D,,]4- | [D,,,D,,]4 |
+[G,,,G,,]4 | [A,,,A,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |]

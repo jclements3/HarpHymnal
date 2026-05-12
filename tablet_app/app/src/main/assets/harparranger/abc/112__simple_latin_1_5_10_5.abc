@@ -1,0 +1,28 @@
+X: 1
+T: Immortal, Invisible, God Only Wise
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [B,G] [C-E] C | "^ii" [EA] [D-F] D | "^vi" [B,G] [D-B]2 | "^V" [DA] [B,G-]2 |
+"^I6" [DG] [C-E] C | "^ii" [EA] [D-F] D | "^vi" [B,G] [D-B]2 | "^V" [DA] [B,G-]2 |
+"^I" [DG] [GB]2 | "^V6" [Ad] [GB] [DG-] | "^vi" [B,G] [D-B]2 | "^iii" [D-d] [D-A]2 |
+"^I" [DB] [C-G] [CE] | "^ii" [EA] [D-F] D | "^vi" [B,G] [D-B]2 | "^V" [DA] [B,G]2 |]
+[V: LH]
+G,3/2 D,/2 B, D, | A,3/2 E,/2 C, E, | E,3/2 B,/2 G, B, | D,3/2 A,/2 F, A, |
+G,3/2 D,/2 B, D, | A,3/2 E,/2 C, E, | E,3/2 B,/2 G, B, | D,3/2 A,/2 F, A, |
+G,3/2 D,/2 B, D, | D,3/2 A,/2 F, A, | E,3/2 B,/2 G, B, | B,3/2 F,/2 D, F, |
+G,3/2 D,/2 B, D, | A,3/2 E,/2 C, E, | E,3/2 B,/2 G, B, | D,3/2 A,/2 F, A, |]
+[V: Bs]
+[G,,,G,,]3 | [A,,,A,,]3 | [E,,,E,,]3 | [D,,,D,,]3 |
+[G,,,G,,]3 | [A,,,A,,]3 | [E,,,E,,]3 | [D,,,D,,]3 |
+[G,,,G,,]3 | [D,,,D,,]3 | [E,,,E,,]3 | [B,,,B,,]3 |
+[G,,,G,,]3 | [A,,,A,,]3 | [E,,,E,,]3 | [D,,,D,,]3 |]

@@ -1,0 +1,28 @@
+X: 1
+T: Crown Him With Many Crowns
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D]2 [D-F]2 | "^IV" [D-B]4 | "^I6" [D-A] D [CG] [DF] | "^V" [CE]4 |
+"^I" [DF] [EA] [D-B] [DA] | "^V6" [B,-^G] [B,F] [EA] [Dd] | "^I" [Ec] [Fd] [B,B-] [EB] | "^V" [CA-]4 |
+"^I6" [D-A] [DF] [CE] D- | "^IV" [DB-]3 [^DB-] | "^ii" [E-B] [E^G] [D-F] [DE] | "^V" [Cc-]3 [Ec] |
+"^I6" [D-d]2 [D-B] [D-A] | "^ii7" [DG] [CE] [D-F] [D-A] | "^IV" [D-G] [D-F] [DE-] [CE] | "^I" D4 |]
+[V: LH]
+D,3/2 A,/2 F, A, | G,3/2 D,/2 B, D, | D,3/2 A,/2 F, A, | A,3/2 E,/2 C, E, |
+D,3/2 A,/2 F, A, | A,3/2 E,/2 C, E, | D,3/2 A,/2 F, A, | A,3/2 E,/2 C, E, |
+D,3/2 A,/2 F, A, | G,3/2 D,/2 B, D, | E,3/2 B,/2 G, B, | A,3/2 E,/2 C, E, |
+D,3/2 A,/2 F, A, | E,3/2 B,/2 G, B, | G,3/2 D,/2 B, D, | D,3/2 A,/2 F, A, |]
+[V: Bs]
+[D,,,D,,]4 | [G,,,G,,]4 | [D,,,D,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [A,,,A,,]4 | [D,,,D,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [G,,,G,,]4 | [E,,,E,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [E,,,E,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |]

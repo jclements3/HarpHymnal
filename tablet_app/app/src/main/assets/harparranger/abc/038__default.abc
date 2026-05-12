@@ -1,0 +1,22 @@
+X: 1
+T: Blessed Assurance
+M: 9/8
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [D-F] D [FA-]3 [DA-]4 | [F-A]2 [Fd] [E-c]2 [EA]4 | [D-F] D [FA-]3 [D-A]4 | D- [DF] [EG] [B,E-]2 [CE] [A,D]3 |
+[F-A]2 [F-d] [FA]2 [GB] [FA]3- | [FA]2 [GB] [A-d]2 [Ac-]4 | [G-c] [Ge] [F-d] [FA]6 | D- [DF] [EG] [B,E]2 D [A,D]3 |]
+[V: LH]
+[D,-A,] [D,-F,] [D,-A,]3 [D,-F,]4 | [D,A,-]3 [E,-A,]2 [E,C-] [A,,C]3 | [D,-A,] [D,-F,] [D,-A,]3 [D,F,]4- | [D,-F,] [D,A,] [G,,-B,] [G,,G,-]2 [A,,G,] [D,-F,]3 |
+[D,-D]2 [D,-A,] [D,D-]2 [G,D-] [D,D]3- | [D,D-]2 [G,D-] [F,D]2 [E,E-] [A,-E]3 | A,- [A,C] [D,D]7 | [F,A,-] [D,A,] [G,,-B,] [G,,G,]2 [A,,F,-] [D,F,]3 |]
+[V: Bs]
+D,,,9- | D,,,9- | D,,,9- | D,,,9- |
+D,,,9- | D,,,9- | D,,,9- | D,,,9 |]

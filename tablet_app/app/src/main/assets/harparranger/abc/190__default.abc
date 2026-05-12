@@ -1,0 +1,28 @@
+X: 1
+T: O That The Lord Would Guide My Ways
+M: 3/2
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Ab
+[V: RH]
+"^I" [C-E]3 | [CA] [Ec]2 | "^V7" [DB]2 [CA] | "^IV" [DF] [CE]2- |
+[C-E]3 | "^I" [C-A] [C-c]2 | "^vi" [CA]2 [EB]- | [E-B]3 |
+"^V7" [E-d]2 [E-c] | "^V" [EB] [CA]2 | [E-B]2 [E-c] | "^I6" [EA] [DF]2 |
+"^V" [B,E-]2 [C-E] | "^vi" [CA] [Ec]2 | "^V7" [DB]2 [CA]- | [CA]3 |]
+[V: LH]
+[A,,A,]3- | [A,,A,]3 | [E,G,]2 [F,A,-] | [D,A,-] [A,,A,]2- |
+[A,,A,-]3 | A, [F,A,]2- | [F,A,]2 [E,G,]- | [E,-G,]3 |
+[E,B,]2 A, | [E,G,] [F,A,]2 | [E,G,]2 A, | [C,A,-] [D,A,]2 |
+[E,G,]2 [A,,A,-] | [F,A,-] [E,-A,]2 | [E,G,]2 [A,,A,]- | [A,,A,]3 |]
+[V: Bs]
+A,,,3- | A,,,3 | E,,,3 | D,,,3 |
+A,,,3- | A,,,3 | F,,,3 | E,,,3- |
+E,,,3- | E,,,3- | E,,,3 | A,,,3 |
+E,,,3 | F,,,3 | E,,,3 | A,,,3 |]

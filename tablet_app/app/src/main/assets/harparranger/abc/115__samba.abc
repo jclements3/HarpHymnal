@@ -1,0 +1,28 @@
+X: 1
+T: In The Bleak MidWinter
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" A- [F-A]2 [Fc] | "^vi7" [CA] [D-G]2 [DF]- | [D-F] "^IV7" [DG]3 | "^vi7" [CD] [B,G]3- |
+[B,G] "^I" [CA]2 [Fc] | "^vi7" [CA] [D-G]2 [DF]- | [DF] "^IV7" [F-G] [FA] [EG]- | [EG] "^I" F3- |
+F- "^vi" [FB]3 | "^iiio7" [_Ec] [Dd]2 [FA]- | [F-A] "^I6" [Fc] [EA] [D-G] | "^V" [DF] [CE]3- |
+[C-E] "^V7" [CA]2 [Fc] | "^vi7" [CA] [D-G]2 [DF]- | [DF] "^IV7" [F-G] [FA] [EG]- | [EG] "^viio7" F3 |]
+[V: LH]
+F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | B,/2 B,/2 F,/2 B,/2 B,/2 B,/2 F,/2 B,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 |
+F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | B,/2 B,/2 F,/2 B,/2 B,/2 B,/2 F,/2 B,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 |
+D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | F,/2 F,/2 C,/2 F,/2 F,/2 F,/2 C,/2 F,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 |
+C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | B,/2 B,/2 F,/2 B,/2 B,/2 B,/2 F,/2 B,/2 | E,/2 E,/2 =B,,/2 E,/2 E,/2 E,/2 =B,,/2 E,/2 |]
+[V: Bs]
+[F,,,F,,]4 | [D,,,D,,]4 | [B,,,B,,]4 | [D,,,D,,]4 |
+[F,,,F,,]4 | [D,,,D,,]4 | [B,,,B,,]4 | [F,,,F,,]4 |
+[D,,,D,,]4 | [A,,,A,,]4 | [F,,,F,,]4 | [C,,,C,,]4- |
+[C,,,C,,]4 | [D,,,D,,]4 | [B,,,B,,]4 | [E,,,E,,]4 |]

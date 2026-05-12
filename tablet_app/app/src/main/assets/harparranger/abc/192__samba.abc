@@ -1,0 +1,22 @@
+X: 1
+T: O Trinity of Blessed Light
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: A
+[V: RH]
+"^IV6" A2 F E | "^bvii°" =G B A2 | "^ii64" B =G2 F | "^I6" A B A2 |
+"^IV6" d2 A2- | A F2 A | =G2 F A | "^bvii°" B A |]
+[V: LH]
+D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | G,/2 G,/2 ^D,/2 G,/2 G,/2 G,/2 ^D,/2 G,/2 | B,/2 B,/2 F,/2 B,/2 B,/2 B,/2 F,/2 B,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 |
+D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | G,/2 G,/2 ^D,/2 G,/2 G,/2 G,/2 ^D,/2 G,/2 |]
+[V: Bs]
+[D,,,D,,]4 | [G,,,G,,]4 | [B,,,B,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4 | [G,,,G,,]2 |]

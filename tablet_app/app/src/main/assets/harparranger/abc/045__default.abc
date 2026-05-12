@@ -1,0 +1,31 @@
+X: 1
+T: Christ Arose
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [EG]3 [FA]- | [FA] [EG-]3 | "^V" [D-G]2 [DF] [FA]- | [FA]2 "^IV64" [EG]2 |
+"^IV" [FA]2 [GB] [Ac-] | "^I" [Gc] [E-G]3 | "^vi6" [EA]2 [DG] [C^F] | "^V" [B,G]4 |
+"^I" C2 E G | [Ec]4 | [G-e] [Gc] [Ad] [GB] | [EG]3 [DB] |
+"^V7" [Fd]4 | "^vi" [Ec] [FA] [EG]2 | "^IV" [FA-]2 [^F-A] [^Fd] | "^V" [GB] [Ec] [Fd] G- |
+"^I" [Ge]3 [Fd] | "^IV72" [Af]3 [Ge] | "^I" [E-c] [EG] [Ge] [Fd] | [Ec]4 |]
+[V: LH]
+[C,C]4- | [C,C]4 | [G,,B,]4 | [C,C-]4 |
+[F,C-]4 | [E,C-] [C,C]3- | [C,C]2 [D,-B,] [D,A,] | [G,,G,]4 |
+C,2 E, G, | [C,-G,]3 [C,C]- | [C,C-] [E,C-] [F,C-]2 | [C,C]3 G,- |
+G,4 | [A,C-] [F,C-] [C,C-]2 | [F,C-]2 [D,-C] [D,A,] | [G,D] [A,C] [G,B,] C- |
+C [F,-C]2 F, | G,- [G,C]3 | [C,-G,] [C,-C]2 [C,B,] | C4 |]
+[V: Bs]
+C,,,4- | C,,,4 | G,,,4 | F,,,4- |
+F,,,4 | C,,,4 | A,,,4 | G,,,4 |
+C,,,4- | C,,,4- | C,,,4- | C,,,4 |
+G,,,4 | A,,,4 | F,,,4 | G,,,4 |
+C,,,4 | F,,,4 | C,,,4- | C,,,4 |]

@@ -144,6 +144,8 @@
   .tile.licks       { border-color: #C0322A; }
   .tile.creed       .tile-banner { background: #4A2545; }
   .tile.creed       { border-color: #4A2545; }
+  .tile.harparranger .tile-banner { background: #0E7A6C; }
+  .tile.harparranger { border-color: #0E7A6C; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1368,6 +1370,17 @@
       onTap:  () => { window.location.href = 'creed.html'; },
     });
     grid.appendChild(creed);
+
+    // Harp Arranger — pre-baked SATB → 2-hand pedal-harp arrangements,
+    // 281 hymns x 17 LH-pattern variants (default SATB + 16 Somerset LH).
+    const harparranger = makeTile({
+      family: 'harparranger',
+      name:   'Harp Arranger',
+      rule:   'SATB → 2-hand pedal-harp · Somerset LH patterns',
+      count:  '↗',
+      onTap:  () => { window.location.href = 'harparranger/index.html'; },
+    });
+    grid.appendChild(harparranger);
   }
 
   // ──────────── Retab Hymnal (trefoil LH applied to hymns) ────────────

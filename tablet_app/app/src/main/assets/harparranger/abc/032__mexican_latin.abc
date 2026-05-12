@@ -1,0 +1,34 @@
+X: 1
+T: Baptized Into Thy Name Most Holy
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [C-F] [C-A] [CF] | "^V" [EG]2 [Fc] | "^IV" [DB]2 [C-A] | "^V" [C-G] [CF]2 |
+[EG-] [DG-] [EG] | "^I" [FA]2 [Cc-] | "^vi65" [D-c]2 [D=B] | "^V" [Ec]3 |
+"^I" [C-F] [C-A] [CF] | "^V" [EG]2 [Fc] | "^IV" [DB]2 [C-A] | "^V" [C-G] [CF]2 |
+[EG-] [DG-] [EG] | "^I" [FA]2 [Cc-] | "^vi65" [D-c]2 [D=B] | "^V" [Ec]3 |
+[CG-] [=B,G-] [C-G] | "^I" [CA]2 [D-F] | "^ii" [DB-] [EB] [FA] | "^V" [E-G]3 |
+[Ec-]2 [Fc] | "^ii" [DB]2 [F-A] | "^V" [FG-] [EG]2 | "^I" F3 |]
+[V: LH]
+F,,3/2 F,/2 [C,F,A,] [C,F,A,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+C,,3/2 C,/2 [C,E,G,] [C,E,G,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+F,,3/2 F,/2 [C,F,A,] [C,F,A,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+C,,3/2 C,/2 [C,E,G,] [C,E,G,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+C,,3/2 C,/2 [C,E,G,] [C,E,G,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+C,,3/2 C,/2 [C,E,G,] [C,E,G,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] |]
+[V: Bs]
+[F,,,F,,]3 | [C,,,C,,]3 | [B,,,B,,]3 | [C,,,C,,]3- |
+[C,,,C,,]3 | [F,,,F,,]3 | [D,,,D,,]3 | [C,,,C,,]3 |
+[F,,,F,,]3 | [C,,,C,,]3 | [B,,,B,,]3 | [C,,,C,,]3- |
+[C,,,C,,]3 | [F,,,F,,]3 | [D,,,D,,]3 | [C,,,C,,]3- |
+[C,,,C,,]3 | [F,,,F,,]3 | [G,,,G,,]3 | [C,,,C,,]3- |
+[C,,,C,,]3 | [G,,,G,,]3 | [C,,,C,,]3 | [F,,,F,,]3 |]

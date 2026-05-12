@@ -1,0 +1,34 @@
+X: 1
+T: Of The Father's Love Begotten
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [CF]2 [F-A] [F-B] | "^I4" [FA] [EG] [F-A]2 | "^I" F4- | [F-A] [F-B] [F-c] [Fd] |
+"^V" [Ec] [FA]2 [Ec]- | [Ec]3 [Gd]- | [Gd] "^ii" [F-f] [F-c]2 | "^IV" [F-B] [F-A]2 F- |
+F3 "^vi" [A,D]- | [A,D] [D-F] [D-G] [DF] | [A,D]2 [CF]2- | [CF]4 |
+"^I" [F-A] [F-B] [FA] [EG] | "^I6" [F-c]2 [Fd]2- | [F-d]2 "^IV" [F-c] [FA] | "^I" [DB] [C-c] [CF]2 |
+"^ii" [B,-D] [B,E] [A,-F]2 | "^I" [A,C]2 C2 | F2- [F-A] [Fc] | "^I7" [E-A] [EF] [F-G]2 |
+"^I" F2 F2 |]
+[V: LH]
+F, C, A,2 | F, C, A,2 | F, C, A,2 | F, C, A,2 |
+C, G, E,2 | C, G, E,2 | G, D, B,2 | B, F, D,2 |
+D, A, F,2 | D, A, F,2 | D, A, F,2 | F, C, A,2 |
+F, C, A,2 | F, C, A,2 | B, F, D,2 | F, C, A,2 |
+G, D, B,2 | F, C, A,2 | F, C, A,2 | F, C, A,2 |
+F, C, A,2 |]
+[V: Bs]
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 |
+[C,,,C,,]4- | [C,,,C,,]4 | [G,,,G,,]4 | [B,,,B,,]4 |
+[D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4 | [F,,,F,,]4- |
+[F,,,F,,]4- | [F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4 |
+[G,,,G,,]4 | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 |]

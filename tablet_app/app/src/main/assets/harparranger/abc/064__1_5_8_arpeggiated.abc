@@ -1,0 +1,34 @@
+X: 1
+T: Faith of Our Fathers
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-B] [D-A] [DG]- | [D-G] [D-F] [DG] | "^ii6" [E-A] E [D-F] | "^I" [DG-]3 |
+"^IV" [EG] [DF] [CE] | "^I" [B,D]2 [DG-] | "^ii" [^C-G] [^C-F] [^CG] | "^V" [D-A]3 |
+"^I" [D-B] [D-A] [DG]- | [DG] "^I64" [CF] [B,G] | "^ii6" [E-A] E [CF] | "^vi" [B,G-]3 |
+"^IV" [EG] [DF] [CE] | "^I64" [B,D-] D- [DB] | "^V7" [E-A] [EB] [FA] | "^I" G3- |
+"^IV" [G-c]3 | "^I" [GB]3 | "^V" [FA]3 | "^I" [GB-]3 |
+[B,B] [CA] [DG] | "^IV" [CE]2 [B,G] | "^V7" [DA-]2 [CA] | "^I" [B,G]3 |]
+[V: LH]
+G, D, G,2 | G, D, G,2 | A, E, A,2 | G, D, G,2 |
+C, G, C,2 | G, D, G,2 | A, E, A,2 | D, A, D,2 |
+G, D, G,2 | G, D, G,2 | A, E, A,2 | E, B, E,2 |
+C, G, C,2 | G, D, G,2 | D, A, D,2 | G, D, G,2 |
+C, G, C,2 | G, D, G,2 | D, A, D,2 | G, D, G,2 |
+G, D, G,2 | C, G, C,2 | D, A, D,2 | G, D, G,2 |]
+[V: Bs]
+[G,,,G,,]3- | [G,,,G,,]3 | [A,,,A,,]3 | [G,,,G,,]3 |
+[C,,,C,,]3 | [G,,,G,,]3 | [A,,,A,,]3 | [D,,,D,,]3 |
+[G,,,G,,]3- | [G,,,G,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[C,,,C,,]3 | [G,,,G,,]3 | [D,,,D,,]3 | [G,,,G,,]3 |
+[C,,,C,,]3 | [G,,,G,,]3 | [D,,,D,,]3 | [G,,,G,,]3- |
+[G,,,G,,]3 | [C,,,C,,]3 | [D,,,D,,]3 | [G,,,G,,]3 |]

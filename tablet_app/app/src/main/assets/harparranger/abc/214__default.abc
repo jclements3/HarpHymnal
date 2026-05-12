@@ -1,0 +1,28 @@
+X: 1
+T: Savior When In Dust To Thee
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Dm
+[V: RH]
+"^i" [A,D-] D- [DF] [FA] | "^i64" [DF] [_DE] [A,D]2 | "^i" [DF] [_DE] D [A,-_D] | "^i6" [A,D] [DF] [_DE]2 |
+"^i" [A,D]2 [DF] [FA] | "^i64" [DF] [_DE] [A,D]2 | "^V" [_DE] [DF] [FA] [EG] | "^i4" [DF] [_DE] [A,D-]2 |
+"^III" [B,D] [A,C] [B,-D] [B,E] | [CF] [EA] [CF-]2 | "^i" [DF] [_DE] [DF] [EG] | "^III" [CA] [Ec] [CA]2 |
+"^III6" [Dd-] [F-d] [Fc] [CA] | "^i" [D-F] [DG] [EA]2 | "^i6" D2- [DF] [FA] | "^i64" [DF] [_DE] [A,D]2 |]
+[V: LH]
+[D,F,] [F,,A,-] [D,A,-] [F,,A,-] | [A,,A,]2 [D,-F,]2 | [D,A,-] [E,A,-] [F,A,-] [G,A,-] | [F,A,-] [D,A,-] [A,,A,]2 |
+[D,F,] [F,A,-] [D,A,-] [F,,A,-] | [A,,-A,] [A,,E,] [D,F,]2 | [A,,A,-] [D,A,] [F,C] [G,B,] | A, [A,,A,] [D,F,-]2 |
+[B,,F,-] [F,,F,-] [B,,F,] [G,,G,] | [F,,A,] [C,C] [F,,A,-]2 | [D,A,-] [A,,A,-] [D,A,] [C,C] | F, [E,A,-] [A,,A,]2 |
+[B,,F,] B, [A,C] F, | [D,A,] [B,,D] [A,,_D]2 | [F,A,-]2 [D,A,-] [F,,A,-] | [A,,-A,] [A,,E,] [D,F,]2 |]
+[V: Bs]
+D,,,4- | D,,,4- | D,,,4- | D,,,4- |
+D,,,4- | D,,,4 | A,,,4 | D,,,4 |
+F,,,4- | F,,,4 | D,,,4 | F,,,4- |
+F,,,4 | D,,,4- | D,,,4- | D,,,4 |]

@@ -1,0 +1,28 @@
+X: 1
+T: Souls of Men! Why Will Ye Scatter
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DG] [CF] [B,-D] [B,G] | "^IV" [E-A] [EG] [GB] [DG] | "^ii7" [Ec] [DB]2 [EA] | "^viio6" [CF] [EA] [DG]2- |
+[DG] "^I" [CF] [B,-D] [B,G] | "^IV" [E-A] [EG] [GB] [DG] | "^ii7" [Ec] [DB]2 [EA] | "^viio6" [CF] [EA] [DG-]2 |
+"^vi" [B,G] [=FA] [Ec] [=FB] | "^IV6" [E-A] [E-^G] [EA-]2 | "^V" [FA] [D-B] [Dd] [EG] | "^V6" [D-A] [DG] [^CE] [CD] |
+"^I" [DG] [CF] [B,-D] [B,G] | "^IV" [E-A] [EG] [GB] [DG] | "^ii7" [Ec] [DB]2 [EA] | "^viio6" [CF] [EA] [DG]2 |]
+[V: LH]
+[G,,B,] [A,,A,] [B,,G,-] [E,G,-] | [C,G,] [D,D-] [G,,D] [B,,G,-] | [A,,G,] [D,F,] [B,,G,] [E,B,] | [A,,C] [C,A,] [G,,B,]2- |
+[G,,B,] [A,,A,] [B,,G,-] [E,G,-] | [C,G,] [D,D-] [G,,D] [B,,G,-] | [A,,G,] [D,F,] [B,,G,] [E,B,] | [A,,C] [C,A,] [G,,B,]2 |
+[E,G,] [D,=F,] [C,G,] [D,D] | [E,-C] [E,B,] [A,,C]2 | [D,D] [C,F,] [G,B,] [E,B,] | [F,,A,] [G,,B,] [A,,G,] [D,F,] |
+[G,,B,] [A,,A,] [B,,G,-] [E,G,-] | [C,G,] [D,D-] [G,,D] [B,,G,-] | [A,,G,] [D,F,] [B,,G,] [E,B,] | [A,,C] [C,A,] [G,,B,]2 |]
+[V: Bs]
+G,,,4 | C,,,4 | A,,,4 | F,,,4 |
+G,,,4 | C,,,4 | A,,,4 | F,,,4 |
+E,,,4 | C,,,4 | D,,,4- | D,,,4 |
+G,,,4 | C,,,4 | A,,,4 | F,,,4 |]

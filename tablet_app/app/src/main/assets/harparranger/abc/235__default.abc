@@ -1,0 +1,28 @@
+X: 1
+T: The Galilean Fishers Toil
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DG] [C-F] [CE] D | "^vi" [B,G] [D-B] [DA] [B,G-] | "^I6" [DG] [EA] [DB] [Cc] | "^I" [D-A] [DB]3- |
+[D-B] [DA] [B,G] [D-F] | [D-G] [DE-] [^CE] D- | D "^iii" [B,G] [D-A] [D-B] | "^I" [DA] [B,G]3 |
+"^V" D- [D-G] [D-A] [DB] | "^vi" G [Ec]2 [D-B] | "^I6" [DG] E [CF] [B,G] | "^I" [DA] [B,G-]3 |
+[DG] [G-B] [Gc] [Fd-] | "^I6" [G-d] [G-e]2 [Gd] | "^I" [D-B] [D-A] [DB] [Ec] | [DA] [B,G]3 |]
+[V: LH]
+[G,,B,] [A,,A,] [C,G,-] [B,,G,-] | [E,G,-] [B,,G,] [D,F,] [G,,G,-] | [B,,G,] [C,E,] [B,,G,] [A,,A,] | [D,F,] [G,,G,]3- |
+[G,,G,] [D,F,] [E,G,] [D,A,] | [G,,B,] [A,,-A,] [A,,E,] [D,F,-] | [B,,F,] E, [D,F,] [B,,G,] | [D,F,] [G,,G,]3 |
+[D,F,] [B,,G,] [D,F,] G, | [E,G,-] [C,G,-]2 [G,,G,-] | [B,,G,-] [C,G,] A, [G,B,] | [D,F,] G,3 |
+[G,,B,] [G,D] [E,G,] [D,A,] | [B,,G,-] [C,-G,] [C,C] [G,-B,] | G, [F,A,] G, [C,G,] | [D,F,] [G,,G,]3 |]
+[V: Bs]
+G,,,4 | E,,,4 | G,,,4- | G,,,4- |
+G,,,4- | G,,,4 | B,,,4 | G,,,4 |
+D,,,4 | E,,,4 | G,,,4- | G,,,4- |
+G,,,4- | G,,,4- | G,,,4- | G,,,4 |]

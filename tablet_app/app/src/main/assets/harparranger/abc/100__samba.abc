@@ -1,0 +1,25 @@
+X: 1
+T: I Am Jesus' Little Lamb
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [C-G] [C-c] [C-A]2 | "^I64" [C-G] [C-F] [CE]2 | "^I" [EG] [Gc] [FA-] [^DA] | "^I64" [EG] [DF] E2- |
+"^I" [EG] [C-c] [CA-] [^CA-] | "^ii" [D-A] [D-d] [DB] [B,G-] | "^I" [C-G] [C-c] [CA-] [^CA-] | "^ii" [D-A] [D-d] [DB] [B,G] |
+"^I6" [C-c] [C-G] [C-A] [C-G] | "^I74" [C-F] [CE] [B,D]2 | "^I6" [CG] [Ec] [F-A] [Fd] | "^V7" [Ec] [DB] [Ec]2 |]
+[V: LH]
+C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 |
+C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 |
+C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 |]
+[V: Bs]
+[C,,,C,,]4- | [C,,,C,,]4- | [C,,,C,,]4- | [C,,,C,,]4- |
+[C,,,C,,]4 | [D,,,D,,]4 | [C,,,C,,]4 | [D,,,D,,]4 |
+[C,,,C,,]4- | [C,,,C,,]4- | [C,,,C,,]4 | [G,,,G,,]4 |]

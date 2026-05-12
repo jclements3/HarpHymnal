@@ -1,0 +1,31 @@
+X: 1
+T: If God Had Not Been on Our Side
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F#m
+[V: RH]
+"^i" [CF]2 [F-A]2 | "^iv" [F-B] [Fc] [DB] [F-^A] | [F-B]2 F [EB] | "^iv7" [DA] F [AB] [Ec] |
+"^III" [GB-] [E-B] [EA-] [C-A] | "^i" [CF-] F- [F-A]2 | "^iv4" [FB] [Dc] [F-B] [F-^A] | "^iv" [FB]2 E [DB] |
+"^iv7" [FA] [FA] [EB] [Gc] | "^III52" [EB]2 [GA-] A | "^i7" F [EB] [Cc] [FB] | "^V7" [EG] [D-A] [DB] [CA] |
+"^i43" [EF]2 D [EF] | "^iiø43" [FB] [EA] [C-B] [C-c] | "^i" [CA] [F-G] [E-F] E | F [EF] [=FA] [F-B] |
+[F-c] [F-A] [FG-] G | "^i6" F4 |]
+[V: LH]
+[F,-A,]2 [F,C] [D,D-] | [B,,D] [F,A,] [=G,B,] [F,C] | [B,,-D]2 B,, [C,D] | [D,A,-] [B,,A,] [F,D] [G,A,] |
+[E,B,] [A,,-D] [A,,C-] [F,-C] | [F,A,]2 [D,C] [B,,D-] | [F,D] [=G,A,] [F,B,] [B,,-C] | [B,,D]2 C, [D,D] |
+[B,,A,-] [F,A,] [G,D] [E,A,] | [A,,-B,] [A,,D] [E,C-] [A,C] | B, [E,E-] [F,E] [B,,D] | [C,B,] [D,-F] [D,D] [F,C] |
+[E,A,-] [C,A,] B,, [A,,A,] | [D,G,] E, [A,,-F,] [A,,A,] | F,- [F,B,] [A,-B,] A, | F, [C,-A,] [C,C] [F,-D] |
+[F,C-]3 C | ^A,4 |]
+[V: Bs]
+F,,,4 | B,,,4- | B,,,4- | B,,,4 |
+A,,,4 | F,,,4 | B,,,4- | B,,,4- |
+B,,,4 | A,,,4 | F,,,4 | C,,,4 |
+F,,,4 | G,,,4 | F,,,4- | F,,,4- |
+F,,,4- | F,,,4 |]

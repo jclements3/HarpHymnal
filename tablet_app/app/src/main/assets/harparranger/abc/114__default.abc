@@ -1,0 +1,28 @@
+X: 1
+T: In Peace and Joy I Now Depart
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Dm
+[V: RH]
+"^i" [A,-D]2 [A,A-] [DA] | "^ii°" [=B,-G] [=B,d] [E-c] [E=B] | "^V" [CA]2 [Ec]2 | "^III" [FA] [Gc] [F=B-] [A-=B] |
+"^V" A F [Gc]2- | [Gc] "^iv64" [D-A] [DG] [_DE] | "^i" D2 [FA-] [EA] | "^III" [CF] [=B,D] C2- |
+"^i7" [CA]2 [DF] [Cc-] | [D-c] [D-A] [DG]2 | "^III" [_DA] D [CF] [A,D] | "^i52" [CD] [_DF] [DE-] [A,-E] |
+"^i" [A,D-]3 D |]
+[V: LH]
+[D,F,]2 [_D,E,] [D,F,] | [E,G,-] [=B,,G,-] [C,G,] [E,A,-] | [A,,A,]2 [A,C-]2 | [F,C] [C,E] [D,D] [E,=B,] |
+[A,C] D, [C,E-] [G,E] | [E,C-] [G,C] [D,=B,] [A,,A,-] | [D,A,-]3 [E,A,-] | [F,A,] G, [C,E,] F, |
+[E,F,] [D,A,-] [A,,A,-] [G,,A,] | D, [B,,-F,] [B,,G,] [A,,D,] | [E,F,] G, [C,A,] [D,G,] | [A,,-E,] [A,,A,-] [D,-A,]2 |
+[D,_G,-]2 _G,2 |]
+[V: Bs]
+D,,,4 | E,,,4 | A,,,4 | F,,,4 |
+A,,,4 | G,,,4 | D,,,4 | F,,,4 |
+D,,,4- | D,,,4 | F,,,4 | D,,,4- |
+D,,,4 |]

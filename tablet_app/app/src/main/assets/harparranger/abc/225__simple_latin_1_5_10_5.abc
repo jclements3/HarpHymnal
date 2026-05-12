@@ -1,0 +1,28 @@
+X: 1
+T: Take Thou My Hand and Lead Me
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [Ac] [Bd] [Fc] [DB] | [FA]3 [EG] | [F-A] [FB]2 [Gc]- | [Gc] A3- |
+[Ac] [Bd] [Fc] [DB] | [FA]3 [EG] | [F-A] [FB]2 [Gc]- | [Gc] A3- |
+A G- [Gc] [B-=B] | "^V6" [Bd] c2- [ce] | "^vi6" [df] [ce]2 [=Bd]- | [=Bd] "^V" [Gc]3- |
+[Gc] "^V42" [c-f] [ce] [Ac-] | "^I6" [Fc] [Bd]2 [Ac] | "^ii6" [GB] [F-A] [FB-] [E-B] | "^I" [EG] F3 |]
+[V: LH]
+F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, |
+F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, |
+F,3/2 C,/2 A, C, | C,3/2 G,/2 E, G, | D,3/2 A,/2 F, A, | C,3/2 G,/2 E, G, |
+C,3/2 G,/2 E, G, | F,3/2 C,/2 A, C, | G,3/2 D,/2 B, D, | F,3/2 C,/2 A, C, |]
+[V: Bs]
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 | [C,,,C,,]4 | [D,,,D,,]4 | [C,,,C,,]4- |
+[C,,,C,,]4 | [F,,,F,,]4 | [G,,,G,,]4 | [F,,,F,,]4 |]

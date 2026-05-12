@@ -1,0 +1,31 @@
+X: 1
+T: O Come O Come Emmanuel
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" E- [EG] [B,B-] [DB-] | "^III" [G-B] [G-A] [G-c] [GB] | [FA] [D-G]3 | [D-A] [D-B] [DG] [CE] |
+"^III6" [DG] [EA] [CF] [B,-E] | "^i" [B,-D] [B,E]3 | "^iv6" [EA-] [CA] [A,E-] E | "^VIIo" [^DF] [EG-] [D-G] [DF] |
+"^iv7" [^CE] D3 | "^i" [B,G] [D-A] [DB-]2 | "^III6" [G-B] [G-A] [G-c] [GB] | "^III" [FA] G3- |
+[Gd-] [Fd]3 | "^V" [GB-] [FB-]3 | "^III" [G-B] [G-A] [G-c] [GB] | "^i" [FA] G3 |
+"^III" [FA] [GB] [DG] [CE] | "^III6" [DG] [EA] [CF] [B,-E] | "^i" [B,-D] [B,E]3 |]
+[V: LH]
+[E,-G,] [E,B,] [D,F,] [B,,G,] | [G,,D] [C,E-] [A,,E] [B,,D] | [D,C] [G,B,]3 | [D,F,] [G,,G,-] [B,,G,-] [C,G,] |
+[B,,B,] [C,A,-] [A,,A,] [B,,-G,] | [B,,F,] [E,G,]3 | [C,A,-] [A,,A,] [A,C] [G,B,] | [F,A,] [E,G,-] [B,,G,] [A,,-A,] |
+[A,,G,] [D,F,]3 | [E,G,] [D,F,-] [B,,F,] [G,,G,] | [B,,D] [C,E-] [A,,E] [B,,D] | [D,C] [G,,B,-]3 |
+[G,B,] [D,A,]3 | [E,E] [B,,D-]3 | [G,,D] [C,E-] [A,,E] [B,,D] | [D,C] [E,B,]3 |
+[D,D-] [G,,D] [B,,G,-] [C,G,] | [B,,B,] [C,A,-] [A,,A,] [B,,-G,] | [B,,F,] [E,G,]3 |]
+[V: Bs]
+E,,,4 | G,,,4- | G,,,4- | G,,,4- |
+G,,,4 | E,,,4 | A,,,4 | D,,,4 |
+A,,,4 | E,,,4 | G,,,4- | G,,,4- |
+G,,,4 | B,,,4 | G,,,4 | E,,,4 |
+G,,,4- | G,,,4 | E,,,4 |]

@@ -1,0 +1,25 @@
+X: 1
+T: Sing, O Sing, This Blessed Morn
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [Ec] [DB] [C-c] [C-E] | "^IV6" [C-F] [C-A] [C-G]2 | "^IV" [C-A]2 [C-G] [CA] | "^V6" [DG] [B,F] [CE]2 |
+"^vi" [Ec]2 [DB] [E-A] | "^iii" [E-^G] [EB] [CA]2- | [CA-] "^vi" [EA] [D^F] [B,G] | "^V64" [D-B] [DA] [B,G]2 |
+"^IV" [CA]2 [Ec] [C-E] | "^IV6" [C-F] [C-A] [C-G]2 | "^I" [CE]2 [DG-] [C-G] | "^IV" [CA-] [FA] [Ec]2 |]
+[V: LH]
+[C,E,G,]4 | [C,F,A,]4 | [C,F,A,]4 | [D,G,B,]4 |
+[C,E,A,]4 | [E,G,B,]4 | [C,E,A,]4 | [D,G,B,]4 |
+[C,F,A,]4 | [C,F,A,]4 | [C,E,G,]4 | [C,F,A,]4 |]
+[V: Bs]
+[C,,,C,,]4 | [F,,,F,,]4- | [F,,,F,,]4 | [G,,,G,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4 | [A,,,A,,]4 | [G,,,G,,]4 |
+[F,,,F,,]4- | [F,,,F,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |]

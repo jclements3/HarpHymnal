@@ -1,0 +1,28 @@
+X: 1
+T: Jesus Sinners Doth Receive
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DG-] [^CG] [D-F] [DG] | "^IV" [C-E] [CF] [D-G]2 | "^I" [DB-] [GB] A [Gd] | "^ii" [Ec] [G-B] [GA-] [FA] |
+"^I" G2 [DG-] [^CG] | "^I6" [D-F] [DG] [C-E] [CF] | "^I" [D-G]2 [DB-] [GB] | "^V6" A [Gd] [Ec] [G-B] |
+"^I" [GA-] [FA] G2 | [D-B] [DA] [EG] [D-A] | [D-B]2 [DA]2 | [G-B] [Gd] [Ec] [G-B] |
+[GA-] [FA] G2 |]
+[V: LH]
+[G,B,] [E,G,] [D,A,] [B,,B,] | [C,G,] [A,,A,] [G,,B,]2 | G,- [G,D-] [F,D] [G,B,] | [A,C] [G,D-] [D,D]2 |
+[G,,B,-]2 [G,B,] [E,G,] | [D,A,] [B,,B,] [C,G,] [A,,A,] | [G,,B,]2 G,- [G,D-] | [F,D] [G,B,] [A,C] [G,D-] |
+[D,D]2 [G,,B,]2 | G, [F,A,] [E,B,] [F,A,] | G, [B,,G,] [D,F,]2 | [G,D] [G,,B,] [A,,C] [B,,D] |
+[C,E] [D,D] [G,,B,]2 |]
+[V: Bs]
+G,,,4 | C,,,4 | G,,,4 | A,,,4 |
+G,,,4- | G,,,4- | G,,,4 | D,,,4 |
+G,,,4- | G,,,4- | G,,,4- | G,,,4- |
+G,,,4 |]

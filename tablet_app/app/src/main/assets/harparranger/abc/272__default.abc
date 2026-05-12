@@ -1,0 +1,28 @@
+X: 1
+T: When I Survey the Wondrous Cross
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" E2- [EG] [DA] | "^I6" [E-B]2 [Ec] [Fd] | "^I" [Ge]2 [Fd] [Ec] | "^V" [DB-]4 |
+"^I" [E-B]4 | "^IV" [E-c]2 [EB-] [B,B] | "^ii" [CA-] [DA] [EG]2 | "^V" [DF]4 |
+"^I" [EG]3 [B,-F] | [B,E] [E-G] [E-B] [E-e] | "^IV" [E-c] [EB] [DA] [EG] | "^V" [DF]4 |
+"^I6" [E-B]2 [Ec] [Fd] | "^I" [Ge-]2 [Ee] [FA] | "^I64" [EG]2 [DF]2 | "^I" E4 |]
+[V: LH]
+[E,-G,]2 [E,B,-] [F,B,-] | [G,B,]2 A, [F,A,] | [E,-G,] [E,B,-] [F,-B,] [F,=A,] | [B,,B,]4 |
+[E,G,]3 [G,B,] | A,2 [G,-B,] G, | [F,A,]2 [E,B,-]2 | [B,,B,-]4 |
+[E,B,-]3 [D,B,] | [E,-G,] [E,B,-] [G,B,]2 | [A,C] [G,E] [F,B,-] [E,B,-] | [B,,B,-]4 |
+[G,B,]2 A, [F,A,] | [E,G,]2 [G,B,] [A,C] | B,2 [B,,A,]2 | [E,G,]4 |]
+[V: Bs]
+E,,,4- | E,,,4- | E,,,4 | B,,,4 |
+E,,,4 | A,,,4 | F,,,4 | B,,,4 |
+E,,,4- | E,,,4 | A,,,4 | B,,,4 |
+E,,,4- | E,,,4- | E,,,4- | E,,,4 |]

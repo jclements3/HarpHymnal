@@ -1,0 +1,28 @@
+X: 1
+T: Lord, Who at Cana's Wedding Feast
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [G-B] [Gd-] [Fd] [GB] | "^IV" [EG] [D-B] [D-A] [DG] | "^I" [B,D] [CE] [B,G-] [DG-] | "^V" [EG] [DF]3 |
+"^V42" [FA] [G-d]2 [GB] | "^IV" [E-e] [E-c]2 [EA] | "^iii" [^DB] [EG] [GB] [Fd-] | [Ed] [DB]3 |
+[Fd-] [G-d]2 [G-e] | "^I" [Gd-] [Ad]2 [GB]- | [GB] [E-G]2 [E-c] | "^IV64" [Ee] [DA-]3 |
+"^ii6" [EA] [G-d]2 [Ge] | "^vi" [^Gd] [A-c] [Ad] [GB] | "^V7" [FA] G2 [D-G] | "^I" [D-F] [DG]3 |]
+[V: LH]
+[G,D] [G,,B,] [A,,C] [B,,D] | [C,C-] [D,C-] [E,C] [G,B,] | [G,,G,-] [C,G,-] [E,G,-] [B,,G,] | [C,C] [D,A,]3 |
+[C,D-] [B,,D-]2 [G,,D] | [C,G,] [A,,A,-]2 [C,A,] | [B,,F,] [E,G,]2 [F,B,] | [F,,^A,] [B,,B,-]3 |
+B, [G,-B,]2 [G,-C] | [G,B,] [F,A,]2 [G,D]- | [G,D] C [B,C-] [A,C-] | [G,C] [F,D] [E,C] [D,B,] |
+[C,A,] [B,,G,]2 [C,C] | [E,B,] A, [F,A,] [G,D] | [D,C] [E,B,-]2 [D,-B,] | [D,A,] [G,,B,]3 |]
+[V: Bs]
+G,,,4 | C,,,4 | G,,,4 | D,,,4- |
+D,,,4 | C,,,4 | B,,,4- | B,,,4- |
+B,,,4 | G,,,4- | G,,,4 | C,,,4 |
+A,,,4 | E,,,4 | D,,,4 | G,,,4 |]

@@ -1,0 +1,28 @@
+X: 1
+T: Lift High The Cross
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^IV" [CG-] [DG] [Ec-] [C-c] | "^I" [C=F-] [B,=F-] [C=F] [DG] | "^IV" [C-E]2 [C-G] [C-A] | "^I" [CD-] [B,D-] [A,D-] [G,-D] |
+"^IV" [G,E] [B,G] [Cc-] [Dc-] | "^IV43" [Ec] [=FA] G [=FG-] | "^vi6" [EG] [DA] [C=F] [B,D] | "^bvii°" [G,C]4 |
+"^vi" [EG-] [DG] [CF-]2 | "^V" [D-F]2 D2 | "^IV" [G,E]2 [B,G] [EA] | "^iii" [^DB]2 [EG-] [DG] |
+"^ii" [Cc-] [Ec] [D-B] [D-A] | "^I6" [D-d]2 D2 | "^IV" [CE]2 [D-G] [D-F] | "^I" [DG]4 |]
+[V: LH]
+[C,,-E,] [C,,-=F,] [C,,G,-] [E,,G,] | [D,,A,] [G,,G,] [A,,=F,] [B,,D,] | [C,G,-] [A,,G,] [G,,E,] [F,,D,] | [G,,G,-]2 [A,,G,] [B,,=F,] |
+[C,E,] [D,=F,] [E,G,] [=F,A,] | [G,B,] [A,C] [B,D] [A,C] | [G,B,] [=F,A,-] [D,A,] [G,,=F,-] | [C,-=F,] [C,-D,] [C,E,]2 |
+[E,B,]2 [A,,A,-]2 | [D,A,-] [C,A,] [B,,-G,] [B,,F,] | [C,E,-]2 E, [C,E,] | [B,,F,]2 [E,G,]2 |
+[A,,-A,] [A,,G,] [D,F,-] [C,F,] | [B,,-G,] [B,,-A,] [B,,-G,] [B,,F,] | [C,E,]2 [D,A,]2 | [G,,B,]4 |]
+[V: Bs]
+C,,,4 | G,,,4 | C,,,4 | G,,,4 |
+C,,,4- | C,,,4 | E,,,4 | F,,,4 |
+E,,,4 | D,,,4 | C,,,4 | B,,,4 |
+A,,,4 | G,,,4 | C,,,4 | G,,,4 |]

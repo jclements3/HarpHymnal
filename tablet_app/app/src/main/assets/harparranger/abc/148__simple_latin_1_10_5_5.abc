@@ -1,0 +1,40 @@
+X: 1
+T: Lord of Glory, Who Hast Bought Us
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I6" [CF]2 [EG] | "^I" F2- [FA] | "^V65" [GB]2 [FA] | "^V" [EG] [DF] [EG] |
+"^I6" [Fc-] [Cc] [DB] | "^I" [FA]3 | "^IV" [D-G] [DF] [EG] | "^I" F3 |
+"^I6" [CF]2 [EG] | "^I" F2- [FA] | "^V65" [GB]2 [FA] | "^V" [EG] [DF] [EG] |
+"^I6" [Fc-] [Cc] [DB] | "^I" [FA]3 | "^IV" [D-G] [DF] [EG] | "^I" F3 |
+"^iii" [Ec-]3 | "^vi7" [F-c] [F-B] [F-A] | "^ii7" [FB-] [EB-] [DB-] | "^V7" [EB] [FA] [C-G] |
+"^I" [CA-]2 [FA]- | [FA] "^vi" [GB] [Ac]- | [Ac] "^IV" [GB] [F-A] | "^V" [FG-]2 [EG] |
+"^I6" [F-c] [FA] [Ac] | "^vii°7" [G-B] G- [GB] | "^I" [FA] [CF] [FA] | "^V6" G [FB] [C-G] |
+"^I" [Cc-] [Fc-] [_Ec] | "^IV" [Dd] [F-c] [F-B] | "^I64" [FA]2 [EG] | "^I" F3 |]
+[V: LH]
+F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | C,3/2 E,/2 G, G, | C,3/2 E,/2 G, G, |
+F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | B,3/2 D,/2 F, F, | F,3/2 A,/2 C, C, |
+F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | C,3/2 E,/2 G, G, | C,3/2 E,/2 G, G, |
+F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | B,3/2 D,/2 F, F, | F,3/2 A,/2 C, C, |
+A,3/2 C,/2 E, E, | D,3/2 F,/2 A, A, | G,3/2 B,/2 D, D, | C,3/2 E,/2 G, G, |
+F,3/2 A,/2 C, C, | D,3/2 F,/2 A, A, | B,3/2 D,/2 F, F, | C,3/2 E,/2 G, G, |
+F,3/2 A,/2 C, C, | E,3/2 G,/2 B, B, | F,3/2 A,/2 C, C, | C,3/2 E,/2 G, G, |
+F,3/2 A,/2 C, C, | B,3/2 D,/2 F, F, | F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, |]
+[V: Bs]
+[F,,,F,,]3- | [F,,,F,,]3 | [C,,,C,,]3- | [C,,,C,,]3 |
+[F,,,F,,]3- | [F,,,F,,]3 | [B,,,B,,]3 | [F,,,F,,]3- |
+[F,,,F,,]3- | [F,,,F,,]3 | [C,,,C,,]3- | [C,,,C,,]3 |
+[F,,,F,,]3- | [F,,,F,,]3 | [B,,,B,,]3 | [F,,,F,,]3 |
+[A,,,A,,]3 | [D,,,D,,]3 | [G,,,G,,]3 | [C,,,C,,]3 |
+[F,,,F,,]3 | [D,,,D,,]3 | [B,,,B,,]3 | [C,,,C,,]3 |
+[F,,,F,,]3 | [E,,,E,,]3 | [F,,,F,,]3 | [C,,,C,,]3 |
+[F,,,F,,]3 | [B,,,B,,]3 | [F,,,F,,]3- | [F,,,F,,]3 |]

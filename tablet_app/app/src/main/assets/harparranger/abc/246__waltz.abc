@@ -1,0 +1,25 @@
+X: 1
+T: The People That in Darkness Sat
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" F- [Fc-] [Gc-] [Fc]- | [F-c] "^I6" [Fd] [Ec] [FA]- | [F-A] "^I" [FB] [Gc] [Ad-] | "^V" [Gd] [Ec]3- |
+[Ec-] [Fc-] [Gc-] [Fc] | "^I" [CA] [Fc] [DB] [E-G] | "^V" [Ec] [CA] F- [FG-] | "^I" [EG] F2- [FA]- |
+[FA] [Cc] [D-F] [DG-] | [EG] [CF]3 |]
+[V: LH]
+F,, [C,F,A,]2 | F,, [C,F,A,]2 | F,, [C,F,A,]2 | C,, [C,E,G,]2 |
+C,, [C,E,G,]2 | F,, [C,F,A,]2 | C,, [C,E,G,]2 | F,, [C,F,A,]2 |
+F,, [C,F,A,]2 | F,, [C,F,A,]2 |]
+[V: Bs]
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 | [C,,,C,,]4- |
+[C,,,C,,]4 | [F,,,F,,]4 | [C,,,C,,]4 | [F,,,F,,]4- |
+[F,,,F,,]4- | [F,,,F,,]4 |]

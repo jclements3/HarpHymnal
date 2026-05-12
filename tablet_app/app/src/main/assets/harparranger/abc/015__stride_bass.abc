@@ -1,0 +1,25 @@
+X: 1
+T: All Praise to Jesus' Hallowed Name
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DG-] [EG]2 [CA] | "^vi" [E-G] [Ec] [Gd] [Ec]- | [Ec] "^IV" [G-B] [G-d] [Ge] | "^V" [Fd] [DB] [FA] G |
+"^IV" [EG] [G-c] [G-B] [Gd] | "^V" [FA] [EG] [^CE] D- | D [^CA-] [EA-] [D-A] | "^I6" [Dd] [Ec] [DA] [B,G] |
+[D-B] [DA] [B,G-] [DG-] | "^IV" [EG]2 z z |]
+[V: LH]
+G,, [D,G,B,] D, [D,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | C,, [C,E,G,] G,, [C,E,G,] | D,, [D,F,A,] A,, [D,F,A,] |
+C,, [C,E,G,] G,, [C,E,G,] | D,, [D,F,A,] A,, [D,F,A,] | D,, [D,F,A,] A,, [D,F,A,] | G,, [D,G,B,] D, [D,G,B,] |
+G,, [D,G,B,] D, [D,G,B,] | C,, [C,E,G,] G,, [C,E,G,] |]
+[V: Bs]
+[G,,,G,,]4 | [E,,,E,,]4 | [C,,,C,,]4 | [D,,,D,,]4 |
+[C,,,C,,]4 | [D,,,D,,]4- | [D,,,D,,]4 | [G,,,G,,]4- |
+[G,,,G,,]4 | [C,,,C,,]4 |]

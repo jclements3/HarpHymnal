@@ -1,0 +1,28 @@
+X: 1
+T: He Leadeth Me
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [FA] [DF]2 [A,D] | "^IV" [D-A] [D-B] [DG]2 | "^I" [GB] [FA]2 [D-F] | "^IV4" [D-E] [DF]2 [C-E] |
+"^I" [CA] [DF]2 [A,D] | "^IV" [D-A] [DB] G- [G-d] | "^I" [Gc] [FA] [DF]2 | "^vi" [B,D] [D-F]2 D |
+"^I" [F-A]2 [Fd] [Ec] | "^V7" [Ad]2 [Gc] [FA] | "^IV4" [GB] [FA] [DF]2 | "^vi" [B,D] [DF]2 [C-E] |
+"^V7" [CA-] [D-A] [Dd] [Ec] | "^V42" [A-e] [Ad] [Gc] [FA] | "^IV4" [GB] [FA] [DF]2 | "^vi" [B,D] [D-F]2 D |]
+[V: LH]
+[D,-A,]3 [D,F,]- | [D,F,] G,- [G,-B,]2 | [G,D-] [D,-D]2 [D,-A,] | [D,G,] [A,,A,]3- |
+[A,,A,-] [D,-A,]2 [D,F,]- | [D,F,] G,- [G,-B,]2 | [G,D-] [D,-D] [D,A,] [B,,-B,] | [B,,F,] [A,,A,]2 [D,-F,] |
+[D,-A,] [D,D] [F,A,-] A, | [G,C] [F,D-] [G,D-] [D,D]- | [D,-D]2 [D,A,] [B,,-B,] | [B,,F,] [A,,-A,]3 |
+[A,,G,] [D,F,] [F,A,-] A, | [G,C] [F,D-] [G,D-] [D,D]- | [D,-D]2 [D,A,] [B,,-B,] | [B,,F,] [A,,A,]2 [D,F,] |]
+[V: Bs]
+D,,,4 | G,,,4 | D,,,4 | G,,,4 |
+D,,,4 | G,,,4 | D,,,4 | B,,,4 |
+D,,,4 | A,,,4 | G,,,4 | B,,,4 |
+A,,,4- | A,,,4 | G,,,4 | B,,,4 |]

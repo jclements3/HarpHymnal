@@ -1,0 +1,28 @@
+X: 1
+T: Take My Life And Let It Be
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-G]3 | "^V" [D-F]2 D- | "^V7" [Dc-]2 [Fc] | "^I" [G-B]3 |
+"^I6" [G-d]2 [GB] | "^ii" [E-d] [Ec] [D-A] | "^I" [DG]2 [GB] | "^V" [FA]3 |
+"^I" G3 | "^viio6" F2 D- | "^V7" [D-c]3 | "^I" [D-B]3 |
+[Dd-] [Gd] [=FB] | "^ii" [E-A] [E-c] [Ee] | "^I64" [DG]2 [CF] | "^I" [B,G]3 |]
+[V: LH]
+G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 |
+G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 |
+G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | F,/2 F,/2 ^C,/2 F,/2 F,/2 F,/2 ^C,/2 F,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 |
+G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | A,/2 A,/2 E,/2 A,/2 A,/2 A,/2 E,/2 A,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 |]
+[V: Bs]
+[G,,,G,,]3 | [D,,,D,,]3- | [D,,,D,,]3 | [G,,,G,,]3- |
+[G,,,G,,]3 | [A,,,A,,]3 | [G,,,G,,]3 | [D,,,D,,]3 |
+[G,,,G,,]3 | [F,,,F,,]3 | [D,,,D,,]3 | [G,,,G,,]3- |
+[G,,,G,,]3 | [A,,,A,,]3 | [G,,,G,,]3- | [G,,,G,,]3 |]

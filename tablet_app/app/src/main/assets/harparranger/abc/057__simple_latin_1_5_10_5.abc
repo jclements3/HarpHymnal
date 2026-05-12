@@ -1,0 +1,28 @@
+X: 1
+T: Comfort, Comfort Ye My People
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [CF]2 [EG] [FA]2 [EG] | "^IV" [DF] [CE] [B,D]2 [A,C]2 | "^vi" [DF]2 [EG] [F-A]2 [F-B] | "^I64" [FA]2 [EG]2 [CF]2- |
+[CF]2 "^I" [EG] [FA]2 [EG] | "^IV" [DF] [CE] [B,D]2 [A,C]2 | "^vi" [DF]2 [EG] [F-A]2 [F-B] | "^I64" [FA]2 [EG]2 [CF]2 |
+"^I" [F-A]3 [F-c]2 [F-B] | [FA] [EG] [FA]2 A2 | "^IV52" [Fc]3 [Ed-] [F-d] [Fc] | "^V32" [E-B] [EA] [CG]2 _E D- |
+"^vi7" [DA-] [FA] [Dc] [EB-] [F-B] [FA] | "^IV7" [D-F] [DG] [F-A]2 F2- | "^I7" [FA-]2 [DA] [C-B]2 [C-A] | "^I6" [C-G] [CF] E2 F2 |]
+[V: LH]
+F,3/2 C,/2 A, C, | B,3/2 F,/2 D, F, | D,3/2 A,/2 F, A, | F,3/2 C,/2 A, C, |
+F,3/2 C,/2 A, C, | B,3/2 F,/2 D, F, | D,3/2 A,/2 F, A, | F,3/2 C,/2 A, C, |
+F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, | B,3/2 F,/2 D, F, | C,3/2 G,/2 E, G, |
+D,3/2 A,/2 F, A, | B,3/2 F,/2 D, F, | F,3/2 C,/2 A, C, | F,3/2 C,/2 A, C, |]
+[V: Bs]
+[F,,,F,,]6 | [B,,,B,,]6 | [D,,,D,,]6 | [F,,,F,,]6- |
+[F,,,F,,]6 | [B,,,B,,]6 | [D,,,D,,]6 | [F,,,F,,]6- |
+[F,,,F,,]6- | [F,,,F,,]6 | [B,,,B,,]6 | [C,,,C,,]6 |
+[D,,,D,,]6 | [B,,,B,,]6 | [F,,,F,,]6- | [F,,,F,,]6 |]

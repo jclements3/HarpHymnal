@@ -1,0 +1,28 @@
+X: 1
+T: Not Worthy, Lord, to Gather Up the Crumbs
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [EG-]2 [D-G] [DF] | "^vi" E2- [E-B]2 | "^V" [Ec] [DB-] [EB] [FA] | "^I" [EG]4- |
+[E-G]2 [E-A] [E-B] | "^IV" [E-c]2 [E-B]2 | "^ii7" [EA] F [E-G] [E=A] | "^V" [DB]4 |
+"^I" [EG-]2 [D-G] [DF] | "^vi" E2- [EB]2- | [E-B] "^IV" [EA-] [=E-A] [=EG] | "^ii" F4 |
+"^V42" [DF]2 [EG] [DA] | "^V7" [EG] [DF] E [FA] | "^I64" [EG]2 [DF]2 | "^I" E4 |]
+[V: LH]
+E,3/2 E,/2 B, E, | C,3/2 C,/2 G, C, | B,3/2 B,/2 F, B, | E,3/2 E,/2 B, E, |
+E,3/2 E,/2 B, E, | A,3/2 A,/2 E, A, | F,3/2 F,/2 C, F, | B,3/2 B,/2 F, B, |
+E,3/2 E,/2 B, E, | C,3/2 C,/2 G, C, | A,3/2 A,/2 E, A, | F,3/2 F,/2 C, F, |
+B,3/2 B,/2 F, B, | B,3/2 B,/2 F, B, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, |]
+[V: Bs]
+[E,,,E,,]4 | [C,,,C,,]4 | [B,,,B,,]4 | [E,,,E,,]4- |
+[E,,,E,,]4 | [A,,,A,,]4 | [F,,,F,,]4 | [B,,,B,,]4 |
+[E,,,E,,]4 | [C,,,C,,]4 | [A,,,A,,]4 | [F,,,F,,]4 |
+[B,,,B,,]4- | [B,,,B,,]4 | [E,,,E,,]4- | [E,,,E,,]4 |]

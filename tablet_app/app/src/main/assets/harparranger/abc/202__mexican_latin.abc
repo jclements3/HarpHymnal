@@ -1,0 +1,31 @@
+X: 1
+T: Out of the Deep I Cry to Thee
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" [E-B]2 E [^GB] | "^III6" [Ac] [GB] [EG] [FA] | "^i" [^GB]4 | "^III" [Ac] [Bd] c [=FA] |
+"^i" [EG] [D=F] [B,E]2 | [E-B]2 E [^GB] | "^III6" [Ac] [GB] [EG] [FA] | "^i" [^GB]4 |
+"^III" [Ac] [Bd] c [=FA] | "^i" [EG] [D=F] [B,E]2 | "^iv" [EA]2 [DG] [Ec] | "^Vo6" [GB] A [Bd] [^GB] |
+"^iv" [EA]2 [Ac]2 | "^i" [G-B] [G-c] [Gd] [EG] | "^V6" [DB] [CA] [B,G-]2 | "^iv" [E-G]2 [E-c] [EB] |
+"^V7" [C-A] [CE] [D-G] [D-=F] | "^i" [DE-] [CE-] [B,E]2 |]
+[V: LH]
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |
+G,,3/2 G,/2 [D,G,B,] [D,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | B,,3/2 B,/2 [D,=F,B,] [D,=F,B,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | B,,3/2 B,/2 [^D,F,B,] [^D,F,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+B,,3/2 B,/2 [^D,F,B,] [^D,F,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |]
+[V: Bs]
+[E,,,E,,]4 | [G,,,G,,]4 | [E,,,E,,]4 | [G,,,G,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [G,,,G,,]4 | [E,,,E,,]4 |
+[G,,,G,,]4 | [E,,,E,,]4 | [A,,,A,,]4 | [B,,,B,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4 | [B,,,B,,]4 | [A,,,A,,]4 |
+[B,,,B,,]4 | [E,,,E,,]4 |]

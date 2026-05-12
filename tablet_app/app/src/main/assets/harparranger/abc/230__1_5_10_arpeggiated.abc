@@ -1,0 +1,28 @@
+X: 1
+T: The Church's One Foundation
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [D-F]3 [D-G] | [DF]3 [CE] | "^I6" D [B,D] [D-B] [DA] | "^I" [CG] [DF]3 |
+"^V64" [CG] [D-A] [Dd-] [Fd] | "^iii7" [Ec]3 [DB] | "^V7" [FA] G [EA] [D-F] | "^V" D [CE]3- |
+[CE] [DF] [CG] [D-A] | "^IV" [D-B]3 [DA] | "^vi" [F-d]3 [F-B] | "^ii" F [E-G]3 |
+"^V6" E [D-F]2 [D-G] | "^I" [DF-] [B,-F]2 [B,-E] | "^IV" [B,-D]2 [B,-E] [B,D] | "^I" [A,-C] [A,D]3 |]
+[V: LH]
+D, A, F,2 | D, A, F,2 | D, A, F,2 | D, A, F,2 |
+A, E, C,2 | F, C, A,2 | A, E, C,2 | A, E, C,2 |
+A, E, C,2 | G, D, B,2 | B, F, D,2 | E, B, G,2 |
+A, E, C,2 | D, A, F,2 | G, D, B,2 | D, A, F,2 |]
+[V: Bs]
+[D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4 |
+[A,,,A,,]4 | [F,,,F,,]4 | [A,,,A,,]4- | [A,,,A,,]4- |
+[A,,,A,,]4 | [G,,,G,,]4 | [B,,,B,,]4 | [E,,,E,,]4 |
+[A,,,A,,]4 | [D,,,D,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |]

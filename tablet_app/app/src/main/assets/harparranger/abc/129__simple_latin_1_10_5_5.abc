@@ -1,0 +1,22 @@
+X: 1
+T: Jesus Wants All Of His Children
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I64" [DF-]2 [C-F] [CE] | "^I4" D- [D-F] [D-B] [D-A] | "^I6" D [F-d]2 [FA] | "^V" [DF] [CE] z [CE] |
+"^I4" [DF] [CG] [D-A] [DB] | "^iii7" [Ec] [Fd] [DF] [B,-E] | "^ii" [B,G] [DF] [CE] [A,D] | z |]
+[V: LH]
+D,3/2 F,/2 A, A, | D,3/2 F,/2 A, A, | D,3/2 F,/2 A, A, | A,3/2 C,/2 E, E, |
+D,3/2 F,/2 A, A, | F,3/2 A,/2 C, C, | E,3/2 G,/2 B, B, | E,3/2 G,/2 B, B, |]
+[V: Bs]
+[D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4 | [F,,,F,,]4 | [E,,,E,,]4- | [E,,,E,,] |]

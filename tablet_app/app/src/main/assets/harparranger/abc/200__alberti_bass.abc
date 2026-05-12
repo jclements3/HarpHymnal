@@ -1,0 +1,28 @@
+X: 1
+T: Our Father Thou in Heaven Above
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Cm
+[V: RH]
+"^i" [EG-]2 [B,G] [CE] | "^V" [D-F] [DG] [CE] [=B,D] | "^i" C2 [EG-]2 | "^V" [D-G] [DF] [FB] [EG] |
+[C-E] [CF] [DG-]2 | "^i" [EG]2 [DB] [Fc] | "^III" [Ge] [Fd] [Ec] [D=B] | "^i" [=Ec-]2 [F-c]2 |
+"^iv6" [F-d] [F-c] [F-B] [F=A] | "^V" [D-G] [D-_G] [DG]2 | "^iv" [F-c]2 [F-B] [F=A] | "^V" [DB] [EG]2 [DF] |
+"^III" E2 [C-G]2 | "^V" [CA] [=B,G] [C-E] [C-F] | "^i" [CE] [=B,D] C2 |]
+[V: LH]
+C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 | G,/2 D,/2 =B,/2 D,/2 G,/2 D,/2 =B,/2 D,/2 | C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 | G,/2 D,/2 =B,/2 D,/2 G,/2 D,/2 =B,/2 D,/2 |
+G,/2 D,/2 =B,/2 D,/2 G,/2 D,/2 =B,/2 D,/2 | C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 |
+F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | G,/2 D,/2 =B,/2 D,/2 G,/2 D,/2 =B,/2 D,/2 | F,/2 C,/2 A,/2 C,/2 F,/2 C,/2 A,/2 C,/2 | G,/2 D,/2 =B,/2 D,/2 G,/2 D,/2 =B,/2 D,/2 |
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | G,/2 D,/2 =B,/2 D,/2 G,/2 D,/2 =B,/2 D,/2 | C,/2 G,/2 E,/2 G,/2 C,/2 G,/2 E,/2 G,/2 |]
+[V: Bs]
+[C,,,C,,]4 | [G,,,G,,]4 | [C,,,C,,]4 | [G,,,G,,]4- |
+[G,,,G,,]4 | [C,,,C,,]4 | [E,,,E,,]4 | [C,,,C,,]4 |
+[F,,,F,,]4 | [G,,,G,,]4 | [F,,,F,,]4 | [G,,,G,,]4 |
+[E,,,E,,]4 | [G,,,G,,]4 | [C,,,C,,]4 |]

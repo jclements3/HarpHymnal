@@ -1,0 +1,28 @@
+X: 1
+T: Where He Leads Me
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" C [F-A]2 [FB]- | [F-B] "^IV64" [FA] [EG]2 | "^V7" C [EG-] [F-G] [FA-] | [EA] [C-G] [CF-] F- |
+F- "^I" [F-c]2 [Fd-] | "^IV" [D-d] [D-c] [DB-] [_DB] | "^I4" [C-F] [C-A]2 [CG]- | [C-G] "^I" [CF]3 |
+[CF-] [F-A]2 [FB-] | "^V7" [E-B] [EA] [CG-] [E-G] | [CE] [FG]2 [CA]- | [C-A] "^I" [CG] F2- |
+F- [Fc-] [_Ec] [Dd]- | [D-d] "^IV" [Dc] [C-B]2 | "^I4" [C-F] [C-A]2 [CG]- | [CG] "^I6" F3 |]
+[V: LH]
+[F,,F,]4 | [B,,B,]4 | [C,,C,]4 | [C,,C,]4 |
+[F,,F,]4 | [B,,B,]4 | [F,,F,]4 | [F,,F,]4 |
+[F,,F,]4 | [C,,C,]4 | [C,,C,]4 | [F,,F,]4 |
+[F,,F,]4 | [B,,B,]4 | [F,,F,]4 | [F,,F,]4 |]
+[V: Bs]
+[F,,,F,,]4 | [B,,,B,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 | [C,,,C,,]4- | [C,,,C,,]4 | [F,,,F,,]4- |
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4- | [F,,,F,,]4 |]

@@ -1,0 +1,25 @@
+X: 1
+T: Now Thank We All Our God
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [F-c]3 [Fd]- | [F-d] "^IV" [F-c] [F-A] [F-B] | "^ii" [FA] [DG] [C-F] [C-E] | "^I" [CF] [F-c]2 [Fd]- |
+[F-d] "^IV" [F-c] [F-A] [F-B] | "^ii" [FA] [DG] [C-F] [C-E] | "^V" [CF] [EG]3 | "^I" [FA]2 [EG]2 |
+[FA] [Gc-] [Fc] [D=B] | "^V64" [Ec-] [F-c] [F-d] [F-c] | "^I6" [F-B] [F-A] [F-B] [FA] | "^ii7" [DG] [CF-] [DF] [CE] |]
+[V: LH]
+[C,F,A,]4 | [D,F,B,]4 | [D,G,B,]4 | [C,F,A,]4 |
+[D,F,B,]4 | [D,G,B,]4 | [C,E,G,]4 | [C,F,A,]4 |
+[C,F,A,]4 | [C,E,G,]4 | [C,F,A,]4 | [D,G,B,]4 |]
+[V: Bs]
+[F,,,F,,]4 | [B,,,B,,]4 | [G,,,G,,]4 | [F,,,F,,]4 |
+[B,,,B,,]4 | [G,,,G,,]4 | [C,,,C,,]4 | [F,,,F,,]4- |
+[F,,,F,,]4 | [C,,,C,,]4 | [F,,,F,,]4 | [G,,,G,,]4 |]

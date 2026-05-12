@@ -1,0 +1,31 @@
+X: 1
+T: Come Down, O Love Divine
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,-D]2 [A,E] [D-F] | "^V" [DA-] [CA] [B,B-] [CB] | "^I" [DA-]4 | [F-A]2 [FB] [EA] |
+"^vi" [Dd] [Ec] [DB]2 | "^V" [CA-]2 [D-A]2 | [DB] [CA] [D-G] [DF] | "^IV" [B,E] D- [D-E] [D-F] |
+"^I" [DE-] [CE] D2 | "^vi" [F-d]2 [Fc] [DB] | "^I" [FA]2 [EB-] [DB] | "^V" [CA]4 |
+"^iiiø7" [E=c]2 [D-B] [DA] | "^ii" [B,G-] [CG] [DF]2 | "^V" [A,E-]2 [CE]2 | "^I6" [D-A] [DB] [CA] [DG] |
+"^I" [A,F] D- [D-E] [D-F] | [DE-] [CE] D2 |]
+[V: LH]
+[D,F,]2 [C,A,] D, | [A,,E,]2 [G,,-G,] [G,,E,] | [D,-F,]4 | [D,-A,]2 D, [C,E,] |
+[B,,F,] [C,A,-] [E,-A,] [E,^G,] | [A,,A,]2 [D,F,]2 | [G,,G,] [A,,E,] [B,,G,] [D,A,] | G, [F,A,] [G,B,-] [E,B,] |
+[A,,A,]2 [D,F,]2 | B,2 [F,A,] [G,B,] | [D,D] [F,C] [^G,B,]2 | [A,C]4 |
+[E,G,] [F,A,] [G,B,] [D,F,] | [E,G,]2 [F,A,] [G,B,] | [A,C]2 [A,,A,-] [G,,A,-] | [F,,A,] [G,,G,] [A,,E,] [B,,B,] |
+[D,A,-] [F,A,] [G,B,] [E,G,] | [A,,A,]2 [D,F,]2 |]
+[V: Bs]
+D,,,4 | A,,,4 | D,,,4- | D,,,4 |
+B,,,4 | A,,,4- | A,,,4 | G,,,4 |
+D,,,4 | B,,,4 | D,,,4 | A,,,4 |
+F,,,4 | E,,,4 | A,,,4 | D,,,4- |
+D,,,4- | D,,,4 |]

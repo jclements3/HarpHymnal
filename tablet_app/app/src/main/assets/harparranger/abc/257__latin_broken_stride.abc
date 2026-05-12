@@ -1,0 +1,40 @@
+X: 1
+T: To God Be The Glory
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Ab
+[V: RH]
+"^I" [CE-]2 E | "^V7" [DF] [C-A] [CE] | "^I6" [E-A] [EB] [DE] | "^V" [E-B] [Ec]2- |
+[Ec] "^I" [Fd] [DF] | "^IV52" [E-d] [E-c] [E-A] | "^I" [Ec-] [=Dc] [D-B] | "^ii" [DF] [EB]2 |
+"^V7" [DE-] [CE-] E | [DF] [C-A] [CE] | "^I6" [E-A] [E-B] E- | "^V" [E-B] [Ec-]2 |
+"^I" [_Gc] [F-e] [F-d] | "^ii6" [FB] [E-A] [E-G] | "^I64" [E-A] [Ec]2 | "^V7" [DB] [CA]2 |
+"^I" [E-c] [Ee]2 | [A-c] [Ae-]2 | [E-e] [E-A] [E-B] | "^V" [E-c] [EB]2- |
+[E-B] [E-d]2 | [E-B] [Ed]2- | [E-d] "^V7" [E-e]2 | "^V64" [E-d] [Ec]2 |
+"^V7" [DE-] [CE-] E | [DF] [C-A] [CE] | "^I6" [E-A] [E-B] E- | "^V" [E-B] [Ec-]2 |
+"^I" [_Gc] [F-e] [F-d] | "^ii6" [FB] [E-A] [E-G] | "^I64" [E-A] [Ec]2 | "^V7" [DB] [CA]2 |]
+[V: LH]
+A,,3/2 A,/2 [C,E,A,] E, | E,,3/2 E,/2 [E,G,B,] B,, | A,,3/2 A,/2 [C,E,A,] E, | E,,3/2 E,/2 [E,G,B,] B,, |
+A,,3/2 A,/2 [C,E,A,] E, | D,,3/2 D,/2 [D,F,A,] A,, | A,,3/2 A,/2 [C,E,A,] E, | B,,3/2 B,/2 [D,F,B,] F, |
+E,,3/2 E,/2 [E,G,B,] B,, | E,,3/2 E,/2 [E,G,B,] B,, | A,,3/2 A,/2 [C,E,A,] E, | E,,3/2 E,/2 [E,G,B,] B,, |
+A,,3/2 A,/2 [C,E,A,] E, | B,,3/2 B,/2 [D,F,B,] F, | A,,3/2 A,/2 [C,E,A,] E, | E,,3/2 E,/2 [E,G,B,] B,, |
+A,,3/2 A,/2 [C,E,A,] E, | A,,3/2 A,/2 [C,E,A,] E, | A,,3/2 A,/2 [C,E,A,] E, | E,,3/2 E,/2 [E,G,B,] B,, |
+E,,3/2 E,/2 [E,G,B,] B,, | E,,3/2 E,/2 [E,G,B,] B,, | E,,3/2 E,/2 [E,G,B,] B,, | E,,3/2 E,/2 [E,G,B,] B,, |
+E,,3/2 E,/2 [E,G,B,] B,, | E,,3/2 E,/2 [E,G,B,] B,, | A,,3/2 A,/2 [C,E,A,] E, | E,,3/2 E,/2 [E,G,B,] B,, |
+A,,3/2 A,/2 [C,E,A,] E, | B,,3/2 B,/2 [D,F,B,] F, | A,,3/2 A,/2 [C,E,A,] E, | E,,3/2 E,/2 [E,G,B,] B,, |]
+[V: Bs]
+[A,,,A,,]3 | [E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3 | [D,,,D,,]3 | [A,,,A,,]3 | [B,,,B,,]3 |
+[E,,,E,,]3- | [E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3 | [B,,,B,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3- | [A,,,A,,]3- | [A,,,A,,]3 | [E,,,E,,]3- |
+[E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3- |
+[E,,,E,,]3- | [E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3 | [B,,,B,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |]

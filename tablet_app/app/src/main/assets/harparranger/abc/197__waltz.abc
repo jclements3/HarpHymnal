@@ -1,0 +1,28 @@
+X: 1
+T: On What Has Now Been Sown
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D] [D-F] D [EA] | "^vi" F- [F-d]3 | "^I64" [Fc] [GB] [DA] [CG] | "^V" [DF] [CE]3- |
+[CE] [D-F] D [FB] | "^vii°" [E-A] [E-^G] E- [Ee] | "^I" [Fd] [E-c]2 [EB-] | "^V" [DB] [CA-]3 |
+"^I" [D-A] [DB]2 [Gc]- | [Gc] [Fd]3 | "^I6" D [CE] [D-F] [D-G] | "^I" [D-A] [DB] [Gc] [Fd] |
+"^ii6" [Ee] [Fd]2 [Gc]- | [Gc] "^I" [Fd]3 |]
+[V: LH]
+D,, [D,F,A,]2 | B,, [D,F,B,]2 | D,, [D,F,A,]2 | A,, [C,E,A,]2 |
+A,, [C,E,A,]2 | C,, [C,E,G,]2 | D,, [D,F,A,]2 | A,, [C,E,A,]2 |
+D,, [D,F,A,]2 | D,, [D,F,A,]2 | D,, [D,F,A,]2 | D,, [D,F,A,]2 |
+E,, [E,G,B,]2 | D,, [D,F,A,]2 |]
+[V: Bs]
+[D,,,D,,]4 | [B,,,B,,]4 | [D,,,D,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4 | [C,,,C,,]4 | [D,,,D,,]4 | [A,,,A,,]4 |
+[D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4 |
+[E,,,E,,]4 | [D,,,D,,]4 |]

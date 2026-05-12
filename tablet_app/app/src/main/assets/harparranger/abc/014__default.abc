@@ -1,0 +1,22 @@
+X: 1
+T: All Praise To Thee, My God, This Night
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-G]2 [DF] [B,G-] | "^I6" [DG] [EA-] [D-A] [DB] | G [Ec-] [Fc] [GB-] | "^I" [DB] [EA-] [D-A] [DG] |
+[Gd] [Ec] [D-A] [DB]- | [DB] [EA-] [FA] G | "^I6" [G,D] E [DF] [B,G] | "^iii" [DB] [CA-] [A,A] [B,G] |]
+[V: LH]
+[G,B,] [D,A,]2 [E,G,-] | [B,,G,-] [C,G,] [D,F,] [G,,G,-] | [B,,G,] [A,,A,]2 [G,,B,] | G,- [G,C-] [F,C] [G,B,]- |
+[G,B,] A, [F,A,] G, | [G,,D] [C,C] [D,A,] [G,,B,-] | [B,,B,] [C,A,-] [D,A,] [E,G,] | [B,,D,] [C,E,] [D,F,] [G,,G,] |]
+[V: Bs]
+G,,,4- | G,,,4- | G,,,4- | G,,,4- |
+G,,,4- | G,,,4- | G,,,4 | B,,,4 |]

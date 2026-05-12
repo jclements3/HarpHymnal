@@ -1,0 +1,28 @@
+X: 1
+T: More Love to Thee
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Ab
+[V: RH]
+"^I" [CE]2 [DF] [CE] | "^I6" [E-A]2 [Ec]2- | [E-c]2 "^I" [EB] [=DA] | "^V" [EB]3 C- |
+"^I" [CE-] [DE] [CF] E- | "^I6" [E-A]2 [Ec-] [F-c] | "^ii6" [FB-] [E-B] [E-A] [E-G] | "^I" [EA-]2 A- A- |
+"^IV64" [Ad]4- | [Ad]2 [Gc]2 | "^V7" [EB]4- | [EB]2 "^V" [D-A]2 |
+"^IV" [DF-]2 [E-F]2 | "^I6" [EA-] [FA]2 E- | "^V7" [E-B]2 [E-A] [EG] | "^I6" A3 z |]
+[V: LH]
+[A,,A,-]4 | [C,A,-]2 A,2- | A,2 [G,B,-] [F,B,] | [E,G,]3 A,- |
+A,3 [C,A,]- | [C,A,-] A,2 [D,-A,] | [D,D-] [E,-D] [E,C] [A,-D] | [A,-C]3 A,- |
+[A,F]4- | [A,F]2 [E,-E]2 | [E,D-]4 | [A,D]2 [D,-C]2 |
+[D,A,-]2 [C,A,]2- | [C,A,-] [B,,A,]2 E,- | [E,D-] [A,,-D] [A,,-C] [A,,B,] | C3 z |]
+[V: Bs]
+A,,,4- | A,,,4- | A,,,4 | E,,,4 |
+A,,,4- | A,,,4 | B,,,4 | A,,,4 |
+D,,,4- | D,,,4 | E,,,4- | E,,,4 |
+D,,,4 | A,,,4 | E,,,4 | A,,,4 |]

@@ -1,0 +1,40 @@
+X: 1
+T: O Holy Spirit, Enter In
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I4" B,2 [EF]2 | "^I52" [B,B]2 [CG]2 | "^I4" [EF]2 [GB-] [FB] | "^V32" [Dc]2 [EB]2 |
+"^I" F [GB] [F-c] [Fd] | "^I74" [Ee] [D-d] [Dc-] [E-c] | "^IV52" [E-B]2 E- [EB] | "^IV" [Cc-] [B,-c] [B,-B]2 |
+"^I52" [B,-A] [B,-G] [B,-F]2 | "^I" [B,E-]2 [EF]2 | "^vi" B,2 [CE]2 | "^V6" [FB]2 G [FG] |
+"^I43" [DE]2 [EB]2 | "^V52" [Fc-] [Gc] [FB]2 | "^ii7" E [D-B] [Dc] [E-d] | "^IV52" [E-e] [E-d] [Ec]2 |
+"^IV32" [CB-] [B,-B] B,- [B,-B] | "^IV6" [B,-c]2 [B,B]2 | "^I7" [D-A] [DG] [EF]2 | "^I" [DE-]2 E2 |
+"^I64" [B,B-] [E-B] [EG-] [DG] | [B,B-] [E-B] [EG-] [DG-] | "^I" [B,G-] [EG] [DF-] [EF] | "^vi" G2 [E-F]2 |
+"^IV7" [E-G]2 [E-F] E | "^IV" [Ce-] [B,-e] [B,B]2 | "^IV43" [G,-c]2 [G,B]2 | "^I" A G F2 |
+E4 |]
+[V: LH]
+E,2 [D,G,]2 | [E,F,]2 [C,G,-]2 | [D,G,]2 [E,B,-] [F,B,-] | [B,,-B,] [B,,=A,] [E,B,-] [C,B,] |
+B,, [E,G,-] [B,,G,] [F,B,-] | [F,,B,-] [B,,B,]2 [E,=A,] | [A,,B,]2 G,,- [G,,G,] | [A,,A,-] [E,,A,] [B,,B,]2 |
+[E,,-E,]3 [E,,D,] | [E,G,-]2 [D,G,]2 | E,2 [C,G,]2 | [D,F,]2 [E,G,-] [F,G,-] |
+[B,,G,]2 [E,B,-] [C,B,-] | [B,,B,] [E,=A,] [B,,B,-] [F,B,] | F,, [B,,G,]2 [E,B,-] | [A,,B,-]2 [G,,-B,] [G,,=A,] |
+[A,,B,-] [E,,B,] B,,- [B,,G,] | [E,,-A,]2 [E,,B,]2 | [E,-G,]2 E,- [D,E,] | G,2 [E,-G,]2 |
+[E,B,-] [E,,B,-] [B,,B,-]2 | [E,B,-] [E,,B,-] [B,,B,]2 | [E,,E,] [G,,B,-] [B,,B,] [E,,F,] | [C,-E,] [C,B,-] [E,-B,] [E,F,] |
+[A,,-E,] [A,,B,-] [G,,-B,] [G,,G,] | [A,,C-] [E,,C] [B,,G,]2 | [E,,-A,]2 [E,,B,]2 | E,3 D, |
+E,4 |]
+[V: Bs]
+E,,,4- | E,,,4- | E,,,4 | B,,,4 |
+E,,,4- | E,,,4 | A,,,4- | A,,,4 |
+E,,,4- | E,,,4 | C,,,4 | B,,,4 |
+E,,,4 | B,,,4 | F,,,4 | A,,,4- |
+A,,,4- | A,,,4 | E,,,4- | E,,,4- |
+E,,,4- | E,,,4- | E,,,4 | C,,,4 |
+A,,,4- | A,,,4- | A,,,4 | E,,,4- |
+E,,,4 |]

@@ -1,0 +1,40 @@
+X: 1
+T: Wake, Awake, for Night Is Flying
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [G,C]2 [CE]2 | "^V" [DG-]4 | "^iii" [E-G]2 [EA] [DG] | "^V" [EA-] [DA] [B,G]2 |
+"^I" C [EG] [Dc] [CG] | "^I52" [G-c] [G-e] [G-d] [Ge] | "^ii" [^Fd-] [D-d] [DG-] [EG]- | [E-G] "^vi7" [Ec] [C-G] [CA] |
+"^V7" [A,E] [B,F] [C-D] C- | C2 "^I" [G,C-]2 | "^vi" C- [CE-] [D-E] [DG]- | [DG-]2 "^V" [EG]2- |
+[EG] "^vi7" [DA] [EG] [DA-] | "^V" [B,-A] [B,G-] [CG] E | "^iii7" [DG] [Cc] G- [G-c] | "^I" [G-e] [Gd] [^Fe] [Dd]- |
+[Dd] "^V52" [EG]3 | "^I7" [C-c] [CG] [A,A] [B,E] | "^IV4" [C-F] [CD] [C-D] [CE-] | "^I" E- [EG-] [DG-] [CG-] |
+"^V" [B,G] [C-F] [CE] [DE] | "^I6" [CD-]2 [DG-] [CG]- | [CG-] "^I" [B,G] [C-F] [CE] | "^V" [B,D] C2 [B,D] |
+"^IV4" [C-E] [CF-] [E-F] E | "^iii72" [EF-] [FG-] [E-G] [E-A] | "^I4" [EB] [Fc-] [Gc-]2 | "^I" [E-c] [E-e] [E-d] [Ec]- |
+[E-c] "^vi" [EG-] [C-G] [C-c] | "^V7" [CG] [B,A] [C-E] [C-F] | "^I52" [C-D] C C2- | C |]
+[V: LH]
+[C,E,]2 [A,,A,]2 | [G,,B,-]3 [G,B,-] | [E,B,] [C,C-] [A,,C] [B,,G,-] | [C,G,] [D,^F,] [G,,G,]2 |
+C,- [C,E,] G, [E,B,] | [C,G,] [B,,C] [C,D] [D,-B,] | [D,A,-] [G,-A,] [G,B,-] [C,B,] | [A,,C-] [E,C] [F,B,] [C,A,] |
+[D,G,] [G,,F,] [C,-G,] [C,E,]- | [C,E,-]4 | [A,,-E,] [A,,A,-] [G,,-A,] [G,,B,]- | [G,,B,-] [G,B,-] [E,B,-] [C,B,] |
+[A,,C-] [B,,C] [C,G,-] [D,G,] | [G,,-^F,] [G,,G,-] [C,-G,] C, | [E,G,] [E,G,] [C,B,] [B,,G,] | [C,C] [D,-D] [D,B,] [G,A,]- |
+[G,A,] [C,B,-] [A,,B,] [E,C-] | [F,C] [C,B,] [D,A,] [G,,G,] | [C,-F,] [C,G,] [B,,E,-] [C,-E,] | C,- [C,G,-] [F,G,-] G, |
+[G,,G,] [C,-A,] [C,G,]2 | [G,,-E,]2 [G,,C] [A,,^A,-] | [C,^A,-] [G,,^A,] [C,-A,] [C,G,-] | [G,,G,] [C,E,-] [D,-E,] [D,G,-] |
+[C,-G,] [C,-F,]2 [C,G,-] | [F,G,] [D,C-] [A,-C]2 | [A,-D] [A,C-] [G,C-]2 | [C,-C]2 [C,-B,] [C,C-] |
+[A,,C-] [E,C-] [F,C-] [C,C] | [F,,B,] [G,,A,] [C,-G,] [C,-A,] | [C,-G,] [C,E,-] E,2- | E, |]
+[V: Bs]
+C,,,4 | G,,,4 | E,,,4 | G,,,4 |
+C,,,4- | C,,,4 | D,,,4 | A,,,4 |
+G,,,4 | C,,,4 | A,,,4 | G,,,4 |
+A,,,4 | G,,,4 | E,,,4 | C,,,4 |
+G,,,4 | C,,,4 | F,,,4 | C,,,4 |
+G,,,4 | C,,,4- | C,,,4 | G,,,4 |
+F,,,4 | E,,,4 | C,,,4- | C,,,4 |
+A,,,4 | G,,,4 | C,,,4- | C,,, |]

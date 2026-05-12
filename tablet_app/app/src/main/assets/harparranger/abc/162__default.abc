@@ -1,0 +1,28 @@
+X: 1
+T: My Song Shall Be Of Jesus
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^V" D A c B | "^ii" A G E D | "^I64" [B,D] [DA] [E-B] [EA] | "^iii" [DB]4 |
+"^I43" [DF] A [Bc] [Fd] | "^V52" [EA] [DB] [^CG] [D-E] | "^IV" [DG-] [EG] [FB] [G-A] | "^I" G2 [DG-] [EG-] |
+"^I43" [F-G] [Fc-] [D-c] [DA] | "^I64" [EB-] [DB] [EA]2 | "^iii" [D-B] [Dc-] [G-c] [GA] | "^V7" [Fd-] [Dd-] [Fd-] [Ad] |
+"^iii7" [DG] A [Gc] [EB] | "^ii7" [DA] G [EF] [DE] | "^V7" [FG-] G- [GB] A | "^I" G3 z |]
+[V: LH]
+D, A, C B, | A, G, E, D, | [D,G,] [A,B,-] B, [G,A,] | B,3 [D,B,] |
+[D,G,-] G, [F,G,] [D,F,] | [D,E,] [B,,E,] [A,,G,] [C,A,-] | [D,A,] [C,G,] [D,E,] [F,G,-] | G,2 [B,,G,-] [C,G,] |
+D, [B,,E,] [D,-A,] [D,G,]- | [D,G,]2 [C,F,-] [A,,F,-] | [B,,F,] [G,,G,] [D,-C] [D,-A,] | [D,B,-]2 [G,-B,] [G,A,] |
+[D,E,] [B,,A,] [C,C] [E,B,] | [D,A,] [A,,G,] [B,,E,] [C,D,] | [C,-D,] [G,,C,]2 D, | G,3 z |]
+[V: Bs]
+D,,,4 | A,,,4 | G,,,4 | B,,,4 |
+G,,,4 | D,,,4 | C,,,4 | G,,,4- |
+G,,,4- | G,,,4 | B,,,4 | D,,,4 |
+B,,,4 | A,,,4 | D,,,4 | G,,,4 |]

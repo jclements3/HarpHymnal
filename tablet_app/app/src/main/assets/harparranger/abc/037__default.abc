@@ -1,0 +1,28 @@
+X: 1
+T: Beneath The Cross Of Jesus
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Db
+[V: RH]
+"^I" [FA]3 [=E-=G] | [=EB] [FA]2 [D-F] | "^I6" D [CE]2 [DG-] | "^I" [CG] [DF-]3 |
+"^vi" [EF] [Dd]3 | "^vi6" [Ec] [F-B] [FA] [EG] | "^vi64" [D-F] [D-E]2 [D=E] | "^iii" [B,E] [CF-]3 |
+"^I" [D-F]3 D- | "^IV4" [D-E] [D-F] [D-G] [DA]- | [D-A] "^IV" [DB-]2 [=D-B] | "^ii" [=DF] [EG]3- |
+[EG] "^V7" [G-c]2 [GA] | "^V" [CG] [D-F]2 [D-A] | "^IV" [D-G] [DF-]2 [C-F] | "^I" [CE] D3 |]
+[V: LH]
+[D,-A,]3 [D,-B,] | [D,-=G,] [D,A,-]3 | [F,A,-] [G,A,]2 [E,B,] | [A,,A,-] [D,A,]3 |
+[C,=A,] [B,,B,]3 | [C,=A,] [D,B,-] [=D,B,-] [E,B,-] | [F,B,-] [G,B,]3- | [G,B,] [F,=A,]3 |
+[D,-A,]3 [D,-F,] | [D,-G,] [D,-A,] [D,-B,] [D,=B,] | [F,C] [G,B,-]2 [F,B,-] | [B,,B,-] [E,B,]3- |
+[E,B,] [A,,-E]2 [A,,-C] | [A,,A,-] [D,A,]2 [F,,=B,] | [G,,B,] [A,,-A,]3 | [A,,G,] [D,F,]3 |]
+[V: Bs]
+D,,,4- | D,,,4- | D,,,4- | D,,,4 |
+B,,,4- | B,,,4- | B,,,4 | F,,,4 |
+D,,,4 | G,,,4- | G,,,4 | E,,,4 |
+A,,,4- | A,,,4 | G,,,4 | D,,,4 |]

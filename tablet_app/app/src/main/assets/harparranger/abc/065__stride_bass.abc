@@ -1,0 +1,25 @@
+X: 1
+T: Far, Far Away On Judea's Plains
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" F2- [FA]2 | "^iii" [Ac]2 [FA]2 | "^V" [EG]2 [GB] [FA] | "^IV" [Bd] [GB] [FA] [EG] |
+"^I" [CF-] F- [FA-] A | "^V" [Ec]2 [FA-] A | "^IV" [F-d]2 [F-c] F | "^ii" [DB] [FA] [EG]2 |
+"^I" [CF] [A,C] [B,-D] [B,E] | "^I6" [C-F] [C-G] [CA]2 | "^V" [Ec-] [Gc-] [F-c]2 | "^I64" [FA] [EG] F2 |]
+[V: LH]
+F,, [C,F,A,] C, [C,F,A,] | A,, [C,E,A,] E, [C,E,A,] | C,, [C,E,G,] G,, [C,E,G,] | B,, [D,F,B,] F, [D,F,B,] |
+F,, [C,F,A,] C, [C,F,A,] | C,, [C,E,G,] G,, [C,E,G,] | B,, [D,F,B,] F, [D,F,B,] | G,, [D,G,B,] D, [D,G,B,] |
+F,, [C,F,A,] C, [C,F,A,] | F,, [C,F,A,] C, [C,F,A,] | C,, [C,E,G,] G,, [C,E,G,] | F,, [C,F,A,] C, [C,F,A,] |]
+[V: Bs]
+[F,,,F,,]4 | [A,,,A,,]4 | [C,,,C,,]4 | [B,,,B,,]4 |
+[F,,,F,,]4 | [C,,,C,,]4 | [B,,,B,,]4 | [G,,,G,,]4 |
+[F,,,F,,]4- | [F,,,F,,]4 | [C,,,C,,]4 | [F,,,F,,]4 |]

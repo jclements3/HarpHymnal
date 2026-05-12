@@ -1,0 +1,37 @@
+X: 1
+T: Built on the Rock
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Dm
+[V: RH]
+"^i" D2 [EA] | [D-F]2 D- | "^bVI" [D-F]2 [DG] | "^V" [_DA-]3 |
+"^i6" [D-A] [D=B] [C-c] | "^III6" [CA] [D-F] [D-G] | "^V" [DE-] [_DE]2 | "^i" D3- |
+D "^iv" [B,D] [DA] | "^III6" [CF]2 [B,D] | "^i" [A,F]2 [C-G] | "^III" [CA]3- |
+[CA] [D=B] [C-c] | [CA] [D-F] [D-G] | "^V6" [DE-] [_DE]2 | "^i" D3 |
+[Fd] [E-c] [E-=B] | "^V" [Ec]2 [FA]- | [FA]2 "^III64" [EG] | "^III" F3 |
+"^V6" [EA] [Ad] [_Af] | [Ae]2 [=Bd] | "^V64" [Ac]2 [_A=B] | "^V" A3 |
+"^V6" [EA-] [DA] [_DG] | "^iv6" [D-F] [D-G] [D-F] | "^ii°7" [DE-]2 [_DE] | "^i" D3 |]
+[V: LH]
+D, A, D,2 | D, A, D,2 | B, F, B,2 | A, E, A,2 |
+D, A, D,2 | F, C, F,2 | A, E, A,2 | D, A, D,2 |
+G, D, G,2 | F, C, F,2 | D, A, D,2 | F, C, F,2 |
+F, C, F,2 | F, C, F,2 | A, E, A,2 | D, A, D,2 |
+D, A, D,2 | A, E, A,2 | F, C, F,2 | F, C, F,2 |
+A, E, A,2 | A, E, A,2 | A, E, A,2 | A, E, A,2 |
+A, E, A,2 | G, D, G,2 | E, B, E,2 | D, A, D,2 |]
+[V: Bs]
+[D,,,D,,]3- | [D,,,D,,]3 | [B,,,B,,]3 | [A,,,A,,]3 |
+[D,,,D,,]3 | [F,,,F,,]3 | [A,,,A,,]3 | [D,,,D,,]3 |
+[G,,,G,,]3 | [F,,,F,,]3 | [D,,,D,,]3 | [F,,,F,,]3- |
+[F,,,F,,]3- | [F,,,F,,]3 | [A,,,A,,]3 | [D,,,D,,]3- |
+[D,,,D,,]3 | [A,,,A,,]3 | [F,,,F,,]3- | [F,,,F,,]3 |
+[A,,,A,,]3- | [A,,,A,,]3- | [A,,,A,,]3- | [A,,,A,,]3- |
+[A,,,A,,]3 | [G,,,G,,]3 | [E,,,E,,]3 | [D,,,D,,]3 |]

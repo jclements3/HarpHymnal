@@ -1,0 +1,22 @@
+X: 1
+T: Blest Be The Tie That Binds
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [EG] [CE] [EG] | [FA] [E-G]2 | [Ec]2 [GA-] | "^ii" [FA] G2 |
+"^I" [EG] [C-E] [CG-] | [EG] [FA] [Ec] | "^V43" [FB] [Gc] [DG-] | "^V7" [FG-] [EG]2 |]
+[V: LH]
+C,3/2 G,/2 E, G, | C,3/2 G,/2 E, G, | C,3/2 G,/2 E, G, | D,3/2 A,/2 F, A, |
+C,3/2 G,/2 E, G, | C,3/2 G,/2 E, G, | G,3/2 D,/2 B, D, | G,3/2 D,/2 B, D, |]
+[V: Bs]
+[C,,,C,,]3- | [C,,,C,,]3- | [C,,,C,,]3 | [D,,,D,,]3 |
+[C,,,C,,]3- | [C,,,C,,]3 | [G,,,G,,]3- | [G,,,G,,]3 |]

@@ -1,0 +1,22 @@
+X: 1
+T: To Shepherds As They Watched By Night
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [Fd] [E-c] [E-B] [Ec] | [FA] [DB] [Gc] [Fd]- | [Fd]2 "^vi7" [EA-] [D-A] | "^I" [DF] [B,A] [D-G] [DF-] |
+"^IV" F [GB-] [E-B] [EA] | "^vi7" [Dc] [Ed] [CB] A | "^IV62" [Gd] [Fc] [EB] [DA]- | [D-A] "^I4" [DF] E D |]
+[V: LH]
+D,, [D,F,A,] A,, [D,F,A,] | D,, [D,F,A,] A,, [D,F,A,] | B,, [D,F,B,] F, [D,F,B,] | D,, [D,F,A,] A,, [D,F,A,] |
+G,, [D,G,B,] D, [D,G,B,] | B,, [D,F,B,] F, [D,F,B,] | G,, [D,G,B,] D, [D,G,B,] | D,, [D,F,A,] A,, [D,F,A,] |]
+[V: Bs]
+[D,,,D,,]4- | [D,,,D,,]4 | [B,,,B,,]4 | [D,,,D,,]4 |
+[G,,,G,,]4 | [B,,,B,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |]

@@ -1,0 +1,28 @@
+X: 1
+T: The Old Rugged Cross
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^I" [B,D] [DF]2 [CG] [DF]2- | [DF] "^IV" [E-G]2 [E-A] [EG-]2 | "^ii" [=EG] [EA]2 [DF] [C-E] [C-F] | "^I" [CE] [B,D]5- |
+[B,D] [DF]2 [CG] [DF]2- | [DF] "^IV" [E-G]2 [E-A] [EG-]2 | "^V7" [=EG] [E-A]2 [EF] [Ge] [Fd] | "^I" [Ec] [DB]5 |
+"^V7" [CA] [E-c]4 [E-B] | "^I" [EA] [DB-] [_DB-] [EB-] [DB-]2 | "^IV" [FB] [EG]3 [GB] [FA] | "^I" [EG] [DF]5- |
+[DF] [Fd]4 [Ge] | "^IV" [Fd] [EG]5 | "^I64" [Ge] [Fd]2 [DB] [E-F] [E-A] | "^I" [Ec] [DB]5 |]
+[V: LH]
+[B,,B,]4 | [E,,E,]4 | [C,,C,]4 | [B,,B,]4 |
+[B,,B,]4 | [E,,E,]4 | [F,,F,]4 | [B,,B,]4 |
+[F,,F,]4 | [B,,B,]4 | [E,,E,]4 | [B,,B,]4 |
+[B,,B,]4 | [E,,E,]4 | [B,,B,]4 | [B,,B,]4 |]
+[V: Bs]
+[B,,,B,,]6 | [E,,,E,,]6 | [C,,,C,,]6 | [B,,,B,,]6- |
+[B,,,B,,]6 | [E,,,E,,]6 | [F,,,F,,]6 | [B,,,B,,]6 |
+[F,,,F,,]6 | [B,,,B,,]6 | [E,,,E,,]6 | [B,,,B,,]6- |
+[B,,,B,,]6 | [E,,,E,,]6 | [B,,,B,,]6- | [B,,,B,,]6 |]

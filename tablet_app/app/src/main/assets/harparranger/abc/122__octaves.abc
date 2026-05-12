@@ -1,0 +1,28 @@
+X: 1
+T: Jesus Christ Is Risen Today
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" C- [CE] [DG] C- | "^IV6" [CF] [FA]2 [EG] | "^I" [C-E] [C-G] [C-F] [CE]- | [CE] "^I64" [B,D] C2- |
+"^IV6" [C-F] [C-G] [C-A] [C-G] | "^ii7" [C-F] [CE]2 [B,D] | "^I" [C-E] [C-G] [C-F] [CE]- | [CE] "^I64" [B,D] C2 |
+"^V" [G-B] [G-c] [G-d] G- | "^I6" [Gc] [Fd] [Ee]2 | "^V" [G-B] [G-d] [G-c] [GB]- | [GB] "^V64" [^FA] G2 |
+"^V" [B,G] [DB] [C-c] [C-E] | "^IV6" [CF] [FA]2 [E-G] | "^I" [Ec-] [Gc] [FA] [Ec]- | [Ec] "^I64" [GB] [Ec]2 |]
+[V: LH]
+[C,,C,]4 | [F,,F,]4 | [C,,C,]4 | [C,,C,]4 |
+[F,,F,]4 | [D,,D,]4 | [C,,C,]4 | [C,,C,]4 |
+[G,,G,]4 | [C,,C,]4 | [G,,G,]4 | [G,,G,]4 |
+[G,,G,]4 | [F,,F,]4 | [C,,C,]4 | [C,,C,]4 |]
+[V: Bs]
+[C,,,C,,]4 | [F,,,F,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |
+[F,,,F,,]4 | [D,,,D,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |
+[G,,,G,,]4 | [C,,,C,,]4 | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4 | [F,,,F,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |]

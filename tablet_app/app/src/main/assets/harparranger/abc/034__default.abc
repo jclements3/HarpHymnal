@@ -1,0 +1,28 @@
+X: 1
+T: Be Thou My Vision
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^III64" E2 [DF] | "^III6" C B,2 | "^III64" E2 [DF] | "^bVI" [EG]3 |
+"^III" [DF]3- | [D-F] [DG] [GB] | [Ec] [FB] G | "^bVI6" [EB-]2 [GB] |
+"^bii°6" [_Ac-] [Ec] [ce] | "^III" [_Ac] [FB] [E-G] | "^bVI6" [EB] [B,-E] [B,D] | "^i" [_A,C]2 B,- |
+[B,E] [EG] [GB] | "^bii°" [_Ac] G E | "^III64" [DF] E2- | E3 |]
+[V: LH]
+[G,B,-]2 [F,B,] | [E,_A,] [D,F,]2 | [G,B,-]2 [F,B,-] | [E,B,-]3 |
+[B,,B,]3- | [B,,B,-] [G,,B,-] [E,B,] | [_A,C] [B,D] [CE] | [G,-B,] [G,E-]2 |
+[CE] [_A,-C] [_A,E]- | [_A,E] [B,D] [G,B,]- | [G,B,] [E,G,] [B,,F,] | [_A,,E,]2 [G,,G,-] |
+[B,,-G,] [B,,B,-] [G,B,] | [_A,C] [B,E] [G,B,-] | [F,B,-] [E,B,-] [B,,B,-] | [G,B,]3 |]
+[V: Bs]
+B,,,3- | B,,,3- | B,,,3 | E,,,3 |
+B,,,3- | B,,,3- | B,,,3 | E,,,3 |
+A,,,3 | B,,,3 | E,,,3 | G,,,3- |
+G,,,3 | A,,,3 | B,,,3 | E,,,3 |]

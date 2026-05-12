@@ -1,0 +1,34 @@
+X: 1
+T: God Himself is Present
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [G-B]4 | "^V" [GA-] [FA]3 | "^vi" [E-G]4 | "^iii" [EF-] [^DF-] [DF]2 |
+"^IV" E [CE] [B,D] [EG] | "^V" [FA] [G-B] [GA-] [FA] | "^I" G4- | [G-B]4 |
+"^V" [GA-] [FA]3 | "^vi" [E-G]4 | "^iii" [EF-] [^DF-] [DF]2 | "^IV" E [CE] [B,D] [EG] |
+"^V" [FA] [G-B] [GA-] [FA] | "^I" G4 | [DB]4 | "^IV" [Ec]4 |
+"^V" [FA]4 | "^I" [GB]4 | "^V" [Fd-] [G-d] [G-c] [G-B] | "^I" [GA-] [FA] [G-B]2 |
+"^I6" [Gd]2 [Ec] [G-B] | "^I" [GA-] [FA] G2 |]
+[V: LH]
+[G,D-]2 [B,D-] [G,D-] | [D,D]4 | [E,B,-]2 [G,B,-] [E,B,-] | [B,,B,]4 |
+[C,G,-] [E,G,-] G, [E,B,] | [D,D-] [G,D-] [D,D]2 | [G,,B,]4 | [G,D-]2 [B,D-] [G,D-] |
+[D,D]4 | [E,B,-]2 [G,B,-] [E,B,-] | [B,,B,]4 | [C,G,-] [E,G,-] G, [E,B,] |
+[D,D-] [G,D-] [D,D]2 | [G,,B,]4 | G,4 | [C,G,]4 |
+[D,D-]4 | [G,D-]4 | [D,D-] [B,,D] [C,E] [G,D-] | [D,D-]2 [G,D]2 |
+[B,,G,] [G,,B,] [A,,C] [B,,D] | [C,E] [D,D] [G,B,]2 |]
+[V: Bs]
+G,,,4 | D,,,4 | E,,,4 | B,,,4 |
+C,,,4 | D,,,4 | G,,,4- | G,,,4 |
+D,,,4 | E,,,4 | B,,,4 | C,,,4 |
+D,,,4 | G,,,4- | G,,,4 | C,,,4 |
+D,,,4 | G,,,4 | D,,,4 | G,,,4- |
+G,,,4- | G,,,4 |]

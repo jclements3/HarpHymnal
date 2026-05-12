@@ -1,0 +1,34 @@
+X: 1
+T: The Love of God
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Db
+[V: RH]
+"^I" [A,D]2 [DF] | [FA] [GB] [FA-] | [DA]2 [A,E] | "^V7" [EG] [DF]2 |
+"^I" [A,D]2 [DF] | [FA] [GB] [FA-] | [DA]2 [CE] | "^IV7" [D-G] [D-F] D- |
+"^I" [D-d]2 [D-B] | "^IV" [D-d]2 [DA]- | [DA-]2 "^I" [C-A] | "^V64" [CE] [EG] [D-F] |
+"^I" [D-d]2 [D-B] | "^IV" [D-d]2 [DA]- | [DA-]2 "^I" [C-A] | "^V7" [C-E] [CF] D- |
+"^I" [Dd]3- | [D-d] "^IV" [D-c] [DA]- | [DA-]2 "^I" [C-A] | "^V" [C-E] [CB] [D-A] |
+"^I" [Dd]3- | [D-d] "^IV" [D-c] [DA]- | [DA-]2 "^I" [C-A] | "^V7" [C-E] [CF] D |]
+[V: LH]
+D,3/2 D,/2 A, D, | D,3/2 D,/2 A, D, | D,3/2 D,/2 A, D, | A,3/2 A,/2 E, A, |
+D,3/2 D,/2 A, D, | D,3/2 D,/2 A, D, | D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, |
+D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, | D,3/2 D,/2 A, D, | A,3/2 A,/2 E, A, |
+D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, | D,3/2 D,/2 A, D, | A,3/2 A,/2 E, A, |
+D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, | D,3/2 D,/2 A, D, | A,3/2 A,/2 E, A, |
+D,3/2 D,/2 A, D, | G,3/2 G,/2 D, G, | D,3/2 D,/2 A, D, | A,3/2 A,/2 E, A, |]
+[V: Bs]
+[D,,,D,,]3- | [D,,,D,,]3- | [D,,,D,,]3 | [A,,,A,,]3 |
+[D,,,D,,]3- | [D,,,D,,]3- | [D,,,D,,]3 | [G,,,G,,]3 |
+[D,,,D,,]3 | [G,,,G,,]3 | [D,,,D,,]3 | [A,,,A,,]3 |
+[D,,,D,,]3 | [G,,,G,,]3 | [D,,,D,,]3 | [A,,,A,,]3 |
+[D,,,D,,]3 | [G,,,G,,]3 | [D,,,D,,]3 | [A,,,A,,]3 |
+[D,,,D,,]3 | [G,,,G,,]3 | [D,,,D,,]3 | [A,,,A,,]3 |]

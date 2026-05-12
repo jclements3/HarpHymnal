@@ -1,0 +1,28 @@
+X: 1
+T: O Little Town of Bethlehem
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [CA]3 [=B,_A] | [CA] [_Ec] [DB] [B,D] | "^ii6" [DG] [C-F] [C-E] [C-G] | "^I" C- [CA]3- |
+[CA-]2 [FA] [_G-d] | "^vi7" [_Gc-] [Gc] [DB] [B,D] | "^ii6" [DG] [C-F] [CE] [E-A] | "^I" [EG] F3- |
+[FA]3 [EG] | "^iii53" [DF] [_DE]3- | [_DE] "^iii" D [_DE] [D-F] | [DG] [_DA-]3 |
+"^I" [CA]3 [=B,_A] | [CA] [D-c] [DB] [B,D] | "^IV" [Dd] [Fc] [=B,F] [CA]- | [CA] "^I" [A,F]3 |]
+[V: LH]
+F,4- | F, [B,,-_G,] [B,,-G,]2 | [B,,B,] [C,-A,] [C,-G,] [C,B,]- | [C,B,] [F,,A,]3 |
+F,2 [_E,A,-] [D,-A,] | [D,D-] [G,D-]2 [G,,D] | [B,,B,] [C,-A,] [C,-_A,] [C,-C] | [C,B,] [F,-A,]3 |
+[F,-C]2 [F,A,] [G,B,] | [_A,=B,] [A,_D]3 | [A,,A,-] [F,A,-] [E,A,-] [D,A,] | [B,,G,] [A,,E,]3 |
+[F,,F,-]2 F,2- | F, [B,,-_G,] [B,,-G,]2 | [B,,B,] [C,A,] [D,G,] [C,F,]- | [C,F,-] [F,,F,]3 |]
+[V: Bs]
+F,,,4- | F,,,4 | G,,,4 | F,,,4- |
+F,,,4 | D,,,4 | G,,,4 | F,,,4- |
+F,,,4 | A,,,4- | A,,,4- | A,,,4 |
+F,,,4- | F,,,4 | B,,,4 | F,,,4 |]

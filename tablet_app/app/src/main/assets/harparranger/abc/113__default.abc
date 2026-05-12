@@ -1,0 +1,25 @@
+X: 1
+T: In His Temple Now Behold Him
+M: 6/8
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-B]2 [D-d] [D-B]2 [DG] | "^IV6" [E-c]2 [EA] [DF]2 [A,D] | "^I6" [DG]2 [CA] [B,B-] [DB] [^CG] | "^V" [D-F] [DE-] [^CE] D3- |
+[DF]2 [EA] [DF]2 [A,D] | "^I6" [B,G]2 [CA] [D-B]2 [DG] | "^IV6" [Ec-] [F-c] [FB] [EA]2 [B,G-] | "^ii7" [CG] [B,-F]2 [B,E]3 |
+"^vi" [E-^G]2 [E-G] [EA]3 | "^V" [D-F]3 [DG]3 | "^IV" [CE]3 [DF-] [CF] [B,G-] | "^I" [A,-G]2 [A,F] [B,G]3 |]
+[V: LH]
+G,2 [F,A,] [G,B,]3 | [E,G,]2 [C,A,-] [D,-A,]2 [D,F,] | [B,,B,]2 [A,,F,] [G,,G,]2 E, | [D,F,] [A,,-A,] [A,,G,] [D,-F,]3 |
+[D,A,-]2 [^C,A,-] [D,-A,]2 [D,F,] | [B,,D,]2 [A,,F,] [G,,G,]2 [G,B,] | [E,G,]2 [D,A,] [C,-C] [C,E,] [B,,^D,] | [A,,E,-] [B,,-E,] [B,,^D,] E,3- |
+[E,B,-]2 [D,B,] [^C,A,-]3 | [D,A,-]2 [C,A,] [B,,G,-]3 | [C,G,]2 [A,,A,-] [D,A,]2 G, | [D,-F,] D,2 [G,,D,]3 |]
+[V: Bs]
+G,,,6 | C,,,6 | G,,,6 | D,,,6- |
+D,,,6 | G,,,6 | C,,,6 | A,,,6 |
+E,,,6 | D,,,6 | C,,,6 | G,,,6 |]

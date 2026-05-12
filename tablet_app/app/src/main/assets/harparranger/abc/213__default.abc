@@ -1,0 +1,22 @@
+X: 1
+T: Savior Of The Nations Come
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^i" [DG-] [EG] [DF] [FB] | "^iio6" [EA-] [_GA] G2 | "^i" [D-G] [DB] [Ec-]2 | "^III" [F-c] [F-d] [FB-]2 |
+[DB] [F-c] [Fd] [G-B] | "^iv" [G-c] [G-B] G2 | [EG]2 [D-F] [DB] | "^V" [_GA-] [FA] G2 |]
+[V: LH]
+[G,,B,] [C,C] [D,A,] [B,,D] | [C,C] [D,A,] [G,,B,-]2 | [G,B,]2 [C,G,]2 | [F,A,] [B,,-B,] [B,,-D]2 |
+[B,,F,] [F,,A,] [B,,B,-] [E,B,] | [C,E] [D,D] [G,,B,-]2 | [E,B,] [C,C] [D,A,] [G,,B,] | [D,-D] [D,A,] [G,,B,]2 |]
+[V: Bs]
+G,,,4 | A,,,4 | G,,,4 | B,,,4- |
+B,,,4 | C,,,4- | C,,,4 | D,,,4 |]

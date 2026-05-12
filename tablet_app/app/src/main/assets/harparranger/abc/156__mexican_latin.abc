@@ -1,0 +1,37 @@
+X: 1
+T: May God Bestow on Us His Grace
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" E2- [EB]2 | [=Fc] [GB] [=F-A] [=FB] | "^III52" [Gd-] [Dd-] [E-d] [Ec] | "^#IIIo6" [DB]2 [Ed-] [Dd] |
+"^iv7" [C-c] [C-B] [Cc] [DA] | [CG] D [C-=F] [CG] | "^i" [B,E-]2 E2- | "^i6" E2 [=FB-] [GB] |
+"^Vo6" [=F-c] [=FB] [GA] [DB] | "^V" [Ed-]2 [D-d] [Dc] | "^III" [EB-] [DB] [C-d]2 | "^III6" [Cc] [DB] [Cc] [DA] |
+"^iv7" [C-G] [CD] [B,-=F] [B,G] | "^iv6" [CE]4 | "^i6" [B,G]2 [A,=F] [B,E] | "^III" [C-D] [CE] [CD-] D |
+"^i" E [CE] [GB-] [=FB] | "^ii°6" [Gc] [FA] G- [G-A] | "^III6" [G-c]2 [GB]2 | "^i62" [=Fe-] [Ce] [Ed] [DB] |
+"^iv" [^C-d] [^CA] [E-G] [E=F] | "^iv6" [CE-] E- [EG-] [=FG] | "^iv4" [E-A] [EG] [C-c] [Cd] | "^iv52" [EB]2 [CA]2 |
+"^V" D [Cc] [DB] [C-A] | "^iv7" [CG] [B,-D] [B,=F] G | "^i6" E4 |]
+[V: LH]
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | G,,3/2 G,/2 [^C,G,^A,] [^C,G,^A,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |
+B,,3/2 B,/2 [D,=F,B,] [D,=F,B,] | B,,3/2 B,/2 [^D,F,B,] [^D,F,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+B,,3/2 B,/2 [^D,F,B,] [^D,F,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |]
+[V: Bs]
+[E,,,E,,]4- | [E,,,E,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |
+[A,,,A,,]4- | [A,,,A,,]4 | [E,,,E,,]4- | [E,,,E,,]4 |
+[B,,,B,,]4- | [B,,,B,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |
+[A,,,A,,]4- | [A,,,A,,]4 | [E,,,E,,]4 | [G,,,G,,]4 |
+[E,,,E,,]4 | [F,,,F,,]4 | [G,,,G,,]4 | [E,,,E,,]4 |
+[A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4 |
+[B,,,B,,]4 | [A,,,A,,]4 | [E,,,E,,]4 |]

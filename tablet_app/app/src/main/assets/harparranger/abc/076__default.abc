@@ -1,0 +1,31 @@
+X: 1
+T: God Rest Ye Merry Gentlemen
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" E2 [GB-] [FB] | "^V" [^DA] [EG] [DF] [CE] | "^III" [B,D] E [^DF] [E-G] | "^V" [EA] [^DB]3 |
+"^i" E2 [GB-] [FB] | "^V" [^DA] [EG] [DF] [CE] | "^III" [B,D] E [^DF] [E-G] | "^V" [EA] [^DB]2 E- |
+"^i" [EB] [D-c] [DA] [GB] | "^III6" [=Fc] [Ed] [De] [^DB] | "^ii°2" [EA] [^CG] [DE] [FG] | "^iv43" [F-G] [FA-] [GA] [D-G] |
+"^III52" [D-A] [DB-] [EB] [Dc] | "^III" [GB-] [FB] [EA] [^DG] | "^i" [E-F] E [B,E] [^CG] | "^iv74" [D-E] [DA-] [EA] [FG] |
+"^i" [G-A] [G-B] [G-c] [G-d] | "^V42" [Ge] [FB] [EA] [^DG] | "^i" [E-F] E2 E |]
+[V: LH]
+E,- [E,-G,] E, [^D,F,] | [B,,B,-] [E,B,-] [B,,B,] [C,G,-] | [G,,G,-] [C,G,] [B,,B,-] [E,B,] | [C,E,] [B,,F,]3 |
+E,- [E,-G,] E, [^D,F,] | [B,,B,-] [E,B,-] [B,,B,] [C,G,-] | [G,,G,-] [C,G,] [B,,B,-] [E,B,] | [C,E,] [B,,F,]2 E, |
+[^G,A,] [F,A,-] [G,A,] [E,G,-] | [B,,G,-] [C,G,-] [G,,G,-] [B,,G,] | [E,-F,] [E,G,-] [D,G,] [B,,A,] | [D,D]2 [E,C] [F,B,] |
+[G,-A,] G, [C,G,-] G, | [G,,G,] [A,,D] [B,,-C] [B,,B,-] | [E,-B,] [E,G,-]3 | [D,G,] [C,F,] [B,,A,] [A,,D] |
+[G,,C] [E,B,] [B,,G,] [C,D] | [G,,C] [A,,D] [B,,-C] [B,,B,-] | [E,-B,] [E,G,-]2 G, |]
+[V: Bs]
+E,,,4 | B,,,4 | G,,,4 | B,,,4 |
+E,,,4 | B,,,4 | G,,,4 | B,,,4 |
+E,,,4 | G,,,4 | F,,,4 | A,,,4 |
+G,,,4- | G,,,4 | E,,,4 | A,,,4 |
+E,,,4 | B,,,4 | E,,,4 |]

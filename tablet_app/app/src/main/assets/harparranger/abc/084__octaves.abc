@@ -1,0 +1,28 @@
+X: 1
+T: Hark the Glad Sound
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [B,D] [D-G] [D-B] | "^V6" [Dd]2 [Fc] | "^vi" [GB] [Ec] [DA] | "^I" [B,G]2 [D-B] |
+"^V6" [D-A] [Dd] [EG] | "^vi6" [DF] [EG] [^CE] | "^V" D2- [D-A] | "^I4" [DB] [EA] [DG] |
+"^V7" [Ec] [GB] [FA] | "^I6" [Gd] [Ec] [GB] | "^IV" [Ee]2 [DG] | E [Fc] [GB] |
+[EA] [DG] [CF] | "^I" [B,G]3 |]
+[V: LH]
+[G,,G,]4 | [D,,D,]4 | [E,,E,]4 | [G,,G,]4 |
+[D,,D,]4 | [E,,E,]4 | [D,,D,]4 | [G,,G,]4 |
+[D,,D,]4 | [G,,G,]4 | [C,,C,]4 | [C,,C,]4 |
+[C,,C,]4 | [G,,G,]4 |]
+[V: Bs]
+[G,,,G,,]3 | [D,,,D,,]3 | [E,,,E,,]3 | [G,,,G,,]3 |
+[D,,,D,,]3 | [E,,,E,,]3 | [D,,,D,,]3 | [G,,,G,,]3 |
+[D,,,D,,]3 | [G,,,G,,]3 | [C,,,C,,]3- | [C,,,C,,]3- |
+[C,,,C,,]3 | [G,,,G,,]3 |]

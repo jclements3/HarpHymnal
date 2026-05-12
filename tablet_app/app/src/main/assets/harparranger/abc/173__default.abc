@@ -1,0 +1,28 @@
+X: 1
+T: O Chief of Cities Bethlehem
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D-] [B,D]2 | "^V" [CE] [D-F]2 | "^vi" [D-G] [DF]2 | "^V" [A,E] [F,D-]2 |
+"^IV" [B,D] [DA-] [GA-] | "^I" [FA-] [E-A] [E-B] | [Ec] [Fd-]2 | "^IV64" [Gd-] [Fd]2 |
+"^V6" [EA] [Dd-] [Fd-] | "^V" [E-d] [Ec]2 | "^I" [DA] [B,B-]2 | "^IV6" [D-B] [DA]2 |
+"^ii" [B,G] [EA]2 | "^I" [DF] [CE]2 | "^I6" [DF] [B,D]2 | "^I" [A,-C] [A,D]2 |]
+[V: LH]
+[D,F,-] [B,,F,]2 | [A,,A,-] [D,A,-] [C,A,] | [B,,D,] [A,,A,] [G,,B,] | [A,,C] [D,D-]2 |
+[G,D-] [F,D-] [E,D] | [D,A,-] [C,A,-]2 | [A,,A,-] [D,-A,]2 | [D,-B,] [D,A,-]2 |
+[C,A,] [B,,B,-] [A,,B,-] | [^G,,B,] [A,,-A,] [A,,G,] | [D,F,] [G,,G,-]2 | [B,,G,] [D,F,]2 |
+[E,G,] [C,E,]2 | [D,A,-] [A,,A,-] [G,,A,-] | [F,,A,] [G,,-G,] [G,,F,] | [A,,E,] [D,F,]2 |]
+[V: Bs]
+D,,,3 | A,,,3 | B,,,3 | A,,,3 |
+G,,,3 | D,,,3- | D,,,3 | G,,,3 |
+A,,,3- | A,,,3 | D,,,3 | G,,,3 |
+E,,,3 | D,,,3- | D,,,3- | D,,,3 |]

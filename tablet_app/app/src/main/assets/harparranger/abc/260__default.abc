@@ -1,0 +1,28 @@
+X: 1
+T: Today Thy Mercy Calls Me
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: A
+[V: RH]
+"^I" [CE] [E-A] [EG] [CA] | [E-B] [E-c]2 [EA]- | [EA] "^I6" [DF] [Fd] [E-c] | "^I" [EB] [C-A]3 |
+[CE] [E-A] [EG] [CA] | [E-B] [E-c]2 [EA]- | [EA] "^I6" [DF] [Fd] [E-c] | "^I" [EB] [CA]3 |
+[Ec] [^DB] [EG] [CA] | "^V" [^DF] [E-G]2 E | [B,-E] [B,F] [E-G] [E-A] | "^I" [E-B] [Ec]3 |
+[C-E] [CA] [EG] [DF] | [CE] [EB-] [^DB-] [E-B] | "^IV" [Ec] [F-d] [FB] [E-A] | "^I" [E-G] [EA]3 |]
+[V: LH]
+[A,,A,-] [C,A,] [E,B,] [F,A,] | [E,G,] [A,,-A,]2 [A,,C] | [C,A,-] [D,A,-] [B,,A,-] [E,-A,] | [E,G,] [A,,A,]3- |
+[A,,A,-] [C,A,] [E,B,] [F,A,] | [E,G,] [A,,-A,]2 [A,,C] | [C,A,-] [D,A,-] [B,,A,-] [E,-A,] | [E,G,] [A,,A,]3- |
+[A,,A,] [B,,F,] [C,E,] [A,,F,] | [B,,B,-] [E,-B,]2 [E,G,]- | [E,G,] [^D,F,] [D,B,] [C,A,] | [E,G,] [A,,A,]3- |
+[A,,A,-] [F,A,] [C,C] [D,A,-] | A, [G,B,] [F,A,] [E,G,] | [A,,A,-] [D,-A,] [D,B,] [E,-C] | [E,B,] [A,,C]3 |]
+[V: Bs]
+A,,,4- | A,,,4- | A,,,4- | A,,,4- |
+A,,,4- | A,,,4- | A,,,4- | A,,,4- |
+A,,,4 | E,,,4- | E,,,4 | A,,,4- |
+A,,,4- | A,,,4 | D,,,4 | A,,,4 |]

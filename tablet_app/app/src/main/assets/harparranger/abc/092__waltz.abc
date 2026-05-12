@@ -1,0 +1,28 @@
+X: 1
+T: His Gifts
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^V" [A,D] [B,G]2 [GB-] | "^I64" [DB] [Fd-] [Ad] [DB] | "^V" [FA-] [DA-] [FA-] [DA]- | [DA-] [FA]2 [A,D-] |
+"^I64" [B,D] [CG-] [EG] [GB] | "^V" [FA] [GB] [Ec] [Fd] | "^V64" [Gc] [FA-]2 [DA] | "^IV" [EG] [DA] [EG-] [DG]- |
+[DG] "^I6" [Fd]2 [GB]- | [GB]3 [EG]- | [EG] "^IV" [DB-] [GB] [Ad] | [Gc] [FA-] [DA]2 |
+"^V7" [B,D] [CG-]2 [B,G]- | [B,G] "^I64" [DB-] [B,B] [Fd] | "^IV" [Ec] [DA-] [FA] [GB]- | [GB] "^I6" [EG-] [DG]2 |]
+[V: LH]
+D,, [D,F,A,]2 | G,, [D,G,B,]2 | D,, [D,F,A,]2 | D,, [D,F,A,]2 |
+G,, [D,G,B,]2 | D,, [D,F,A,]2 | D,, [D,F,A,]2 | C,, [C,E,G,]2 |
+G,, [D,G,B,]2 | G,, [D,G,B,]2 | C,, [C,E,G,]2 | C,, [C,E,G,]2 |
+D,, [D,F,A,]2 | G,, [D,G,B,]2 | C,, [C,E,G,]2 | G,, [D,G,B,]2 |]
+[V: Bs]
+[D,,,D,,]4 | [G,,,G,,]4 | [D,,,D,,]4- | [D,,,D,,]4 |
+[G,,,G,,]4 | [D,,,D,,]4- | [D,,,D,,]4 | [C,,,C,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |
+[D,,,D,,]4 | [G,,,G,,]4 | [C,,,C,,]4 | [G,,,G,,]4 |]

@@ -1,0 +1,34 @@
+X: 1
+T: Angels We Have Heard On High
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [FA-]2 [E-A] [Ec-] | [Gc-] [Ec] [FA]2- | [FA] [EG] [F-A] [F-c] | "^I64" [FA-] [EA] F2- |
+"^I" [FA-]2 [E-A] [Ec-] | "^V74" [Gc-] [Ec] [FA]2- | [FA] "^I" [EG] [F-A] [F-c] | "^I64" [FA-] [EA] F2- |
+"^I" [Fc-] [Ac] [F-d] [FB]- | [FB-] "^ii7" [GB] [E-c] [EA]- | [EA-] "^I7" [FA] [D-B] [DG-] | "^V6" [C-G]2 C2- |
+"^I6" [CF] [EG] [F-A] [F-B] | "^I64" [FA]2 [EG] F | "^I" [Ac-] [F-c] [F-d] [FB-] | "^ii" [GB-] [E-B] [E-c] [EA-] |
+"^I" [FA-] [D-A] [DB] [CG]- | [C-G]2 "^V74" C2 | "^I43" [EF] [F-G] [F-A] [F-B] | "^I64" [FA-] [E-A] [EG-] [C-G] |
+"^I" [CF-]3 F |]
+[V: LH]
+F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, |
+F,3/2 A,/2 C, C, | C,3/2 E,/2 G, G, | F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, |
+F,3/2 A,/2 C, C, | G,3/2 B,/2 D, D, | F,3/2 A,/2 C, C, | C,3/2 E,/2 G, G, |
+F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, | G,3/2 B,/2 D, D, |
+F,3/2 A,/2 C, C, | C,3/2 E,/2 G, G, | F,3/2 A,/2 C, C, | F,3/2 A,/2 C, C, |
+F,3/2 A,/2 C, C, |]
+[V: Bs]
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 | [C,,,C,,]4 | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 | [G,,,G,,]4 | [F,,,F,,]4 | [C,,,C,,]4 |
+[F,,,F,,]4- | [F,,,F,,]4- | [F,,,F,,]4 | [G,,,G,,]4 |
+[F,,,F,,]4 | [C,,,C,,]4 | [F,,,F,,]4- | [F,,,F,,]4- |
+[F,,,F,,]4 |]

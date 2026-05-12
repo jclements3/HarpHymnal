@@ -1,0 +1,28 @@
+X: 1
+T: O The Deep, Deep Love of Jesus
+M: 8/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Fm
+[V: RH]
+"^i" [C-F]3 [CG-] [=EG]2 F2- | [FG-]2 [=E-G] [=EA-] [FA]2 [C-F]2 | "^III" [Cc]2 [E-B] [Ec-] [Gc]2 [F-A]2 | "^i" [FB]2 [=EG]2 F4 |
+[C-F]3 [CG-] [=EG]2 F2- | [FG-]2 [=E-G] [=EA-] [FA]2 [C-F]2 | "^III" [Cc]2 [E-B] [Ec-] [Gc]2 [F-A]2 | "^i" [FB]2 [=EG]2 F4 |
+"^III" [E-c]2 [E-A] [EB]5 | "^i" [CA]2 F- [FG-]3 [=EG]2 | F2 [C-F] [CG] [FB-]2 [EB]2 | "^V" [CA]2 [F-B] [FA] [=Ec]4 |
+[A,F-]2 F- [FG-] [=EG]2 F2- | "^i" [FG-]2 [=E-G] [=EA-] [F-A]2 F2 | "^III" [E-c]2 [E-B] [Ec]3 [F-A]2 | "^i" [FB]2 [=EG]2 F4 |]
+[V: LH]
+[F,,A,]2 [A,,C-]2 [C,C]2 [D,A,]2 | [B,,D]2 [C,C-]2 [F,-C]2 [F,A,]2 | [A,E]2 [G,B,]2 [=E,C-]2 [F,C]2 | [B,,D]2 [C,B,]2 [F,A,-]4 |
+[F,,A,]2 [A,,C-]2 [C,C]2 [D,A,]2 | [B,,D]2 [C,C-]2 [F,-C]2 [F,A,]2 | [A,E]2 [G,B,]2 [=E,C-]2 [F,C]2 | [B,,D]2 [C,B,]2 [F,A,-]4 |
+[A,,A,-]2 [C,A,-]2 [E,-A,]2 [E,G,]2 | [F,A,]2 [A,,C-]2 [C,C]4 | F,2 [E,A,-]2 [D,A,]2 [E,G,]2 | [F,A,-] [E,A,] [D,F,]2 [C,G,]4 |
+[D,F,]2 [A,,C-]2 [C,C]2 [D,A,]2 | [B,,D]2 [C,C-]2 [F,-C]2 [F,A,-]2 | A,2 [E,-G,] [E,A,-] [A,,A,]2 [D,F,]2 | [B,,D]2 [C,B,]2 [F,A,]4 |]
+[V: Bs]
+F,,,8- | F,,,8 | A,,,8 | F,,,8- |
+F,,,8- | F,,,8 | A,,,8 | F,,,8 |
+A,,,8 | F,,,8- | F,,,8 | C,,,8- |
+C,,,8 | F,,,8 | A,,,8 | F,,,8 |]

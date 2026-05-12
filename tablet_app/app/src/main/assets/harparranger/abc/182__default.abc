@@ -1,0 +1,22 @@
+X: 1
+T: O Lord My Soul Convicted
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [EG] [Gc] [EG] [FA]- | [FA] "^IV6" [DG] [B,F] [CE]- | [C-E] "^I" [C-F] [CE] [B,-D] | "^iii" [B,G-] [EG] [D^F] [B,G-] |
+"^V" [DG] [Gc] [Fd] [Ee] | "^I6" [Gc] [Ff] [G-e] [G-d] | "^I" [G-e] [Gc] [FA] [DG] | "^vi" [Cc-] [Dc] [FB] [Ec] |]
+[V: LH]
+[C,C-] [E,C-] [C,C-] [F,C-] | [A,,C] [B,,G,-] [G,,G,-] [C,G,]- | [C,G,] [A,,F,] [C,G,-] [G,,G,] | [E,B,] [C,A,-] [D,A,] [G,,G,] |
+[G,B,] [E,C] [D,B,] [C,C] | [E,G,] [D,A,] [C,C] [G,B,] | [C,C-] [E,C-] [F,C] [G,B,] | A, [F,A,] G, [C,G,] |]
+[V: Bs]
+C,,,4 | F,,,4 | C,,,4 | E,,,4 |
+G,,,4 | C,,,4- | C,,,4 | A,,,4 |]

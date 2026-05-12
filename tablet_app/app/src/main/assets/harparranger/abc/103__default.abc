@@ -1,0 +1,22 @@
+X: 1
+T: I Heard The Bells On Christmas Day
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" E- [EG-]3 | "^V43" [_DG] [DA]3 | "^I6" [E-=A] [EB] [G-e] [Gd] | "^vi64" [Ec-] [F-c]2 [FB-] |
+"^I6" [E-B]3 [EG] | "^iii64" [AB] [=B,G]2 [CE] | "^ii7" [E-F] [E-G] [E-A] [E-B] | "^V" [Ec] D2 E |]
+[V: LH]
+[E,-G,] [E,B,-] [B,,B,-] [E,B,-] | [=E,B,-] [F,B,-] [B,,B,-] [F,B,] | [_G,C] [G,B,-] [B,,B,-] [E,B,] | [G,E] [A,D]3 |
+[G,E] [A,C]2 [E,-B,] | E, [D,G,-]2 [C,G,] | [F,,A,] [B,,B,] [A,,C] [G,,B,] | [A,,F,-] [B,,F,]2 [E,G,] |]
+[V: Bs]
+E,,,4 | B,,,4 | E,,,4 | C,,,4 |
+E,,,4 | G,,,4 | F,,,4 | B,,,4 |]

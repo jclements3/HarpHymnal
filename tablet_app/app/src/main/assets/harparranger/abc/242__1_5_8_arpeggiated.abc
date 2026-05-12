@@ -1,0 +1,28 @@
+X: 1
+T: The Lord's Prayer (new)
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^i" [DG]2 [E-B] [Ec] | "^III" [Dd-] [G-d] [Gc-] [_Gc] | "^i6" [GB] [EA] [D-G] [D-_G] | "^i" [D-G]2 [D-A]2 |
+[DB] G [_GA]2 | "^i6" [G-d]2 [G-c]2 | [GB]2 [_GA]2 | "^i" G4 |
+"^V" [D-A]2 [DB] [F-c] | "^III" [F-d]2 [F-c]2 | "^III6" [FB] [EG] [G-c] [GB] | "^V" [_GA]2 D2- |
+"^i" [D-G] [D_G] [B,G]2 | "^iiø7" [Ec]2 [DB] [EA] | "^i64" [D-G]2 [D_G-] [C_G] | "^i" [B,G]4 |]
+[V: LH]
+G, D, G,2 | B, F, B,2 | G, D, G,2 | G, D, G,2 |
+G, D, G,2 | G, D, G,2 | G, D, G,2 | G, D, G,2 |
+D, A, D,2 | B, F, B,2 | B, F, B,2 | D, A, D,2 |
+G, D, G,2 | A, E, A,2 | G, D, G,2 | G, D, G,2 |]
+[V: Bs]
+[G,,,G,,]4 | [B,,,B,,]4 | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4 |
+[D,,,D,,]4 | [B,,,B,,]4- | [B,,,B,,]4 | [D,,,D,,]4 |
+[G,,,G,,]4 | [A,,,A,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |]

@@ -1,0 +1,28 @@
+X: 1
+T: Away In A Manger
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [Ac]2 [GB] | "^IV7" [FA]2 [CF-] | "^vi4" [DF] [CE] [B,D] | "^I" [A,C-]2 [B,-C] |
+"^IV4" [B,-D] [B,-C]2 | "^viio74" [B,-G] [B,-E] [B,D] | "^I" [A,C] [CF] [FA] | [Ac]2 [FA]- |
+[FA] [EG] [CF-] | "^vi" [DF] [CE] [B,D] | "^iii" [A,C]2 [GB] | "^vii°" [EG] [FA] [C-G] |
+"^V" [CF] [DG] [B,D] | [C-E] [CF] |]
+[V: LH]
+F,,3/2 F,/2 [C,F,A,] [C,F,A,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] |
+B,,3/2 B,/2 [D,F,B,] [D,F,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] |
+F,,3/2 F,/2 [C,F,A,] [C,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |
+C,,3/2 C,/2 [C,E,G,] [C,E,G,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |]
+[V: Bs]
+[F,,,F,,]3 | [B,,,B,,]3 | [D,,,D,,]3 | [F,,,F,,]3 |
+[B,,,B,,]3 | [E,,,E,,]3 | [F,,,F,,]3- | [F,,,F,,]3- |
+[F,,,F,,]3 | [D,,,D,,]3 | [A,,,A,,]3 | [E,,,E,,]3 |
+[C,,,C,,]3- | [C,,,C,,]2 |]

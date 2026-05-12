@@ -1,0 +1,31 @@
+X: 1
+T: Dear Christians, One and All Rejoice
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^vi" D [EG-] [DG] [FB] | "^vi7" [E-A] [EG] [FA-] [D-A] | "^I" [DB-] [E-B] [EG-] [DG] | "^I62" [EB] [D-c] [D-d] [D-B] |
+"^V7" [D-A]2 [DG]2 | "^vi" E [DG-] [FG] [E-B] | "^IV32" [EA] [FG] [DA]2 | "^vi" [EB]2 [DG-] [EG] |
+"^iii64" [D-B] [D-c] [D-d] [D-B] | "^I52" [D-A]2 [DG-] G | "^vii°6" F [EB-] [DB] [B,A] | "^IV" [CG] [B,-F] [B,-G] [B,E] |
+"^I4" D [DE] D- D | "^vi" [B,G-] [EG-] [^D-G] [^DF] | [B,G] [EA] [DB-] [A-B] | "^vii°32" [G-A] G [F-B] [Fc] |
+"^I52" [D-d] [D-B] [DA]2 | "^I6" G4 |]
+[V: LH]
+E, B, G,2 | E, B, G,2 | G, D, B,2 | G, D, B,2 |
+D, A, F,2 | E, B, G,2 | C, G, E,2 | E, B, G,2 |
+B, F, D,2 | G, D, B,2 | F, C, A,2 | C, G, E,2 |
+G, D, B,2 | E, B, G,2 | E, B, G,2 | F, C, A,2 |
+G, D, B,2 | G, D, B,2 |]
+[V: Bs]
+[E,,,E,,]4- | [E,,,E,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |
+[D,,,D,,]4 | [E,,,E,,]4 | [C,,,C,,]4 | [E,,,E,,]4 |
+[B,,,B,,]4 | [G,,,G,,]4 | [F,,,F,,]4 | [C,,,C,,]4 |
+[G,,,G,,]4 | [E,,,E,,]4- | [E,,,E,,]4 | [F,,,F,,]4 |
+[G,,,G,,]4- | [G,,,G,,]4 |]

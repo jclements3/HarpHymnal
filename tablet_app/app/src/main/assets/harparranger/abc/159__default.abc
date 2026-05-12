@@ -1,0 +1,25 @@
+X: 1
+T: My Hope Is Built
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" C- [CE]2 [EG]- | [EG] [FA]2 [EG-] | "^V6" G- [G-c] [G-d] [GB] | [D-G]2 [D-^F] [DG] |
+"^V" [B,D] [DF]2 [CE]- | [CE] "^I" [EG]2 [D^F] | "^vii°6" [^FB] [E-G] [E-^F] E- | "^vi" [E-A] [EG] [^D^F] E |
+"^iii" [B,E-] [^A,E]2 [A,F-] | "^IV" [C-F] [C^F]2 [B,G-] | "^V65" [FG-] [EG] [DA] [EG] | "^I64" [CE] [B,D]2 C |]
+[V: LH]
+[C,-E,] [C,-G,]2 [C,C]- | [C,C] [F,A,] [A,C] [CE] | [B,D] [A,C] [D,A,] [G,B,] | [B,,D] [D,A,]2 [G,-B,] |
+G, [B,,G,-]2 [C,G,]- | [C,G,] [^C,A,-]2 [D,A,] | [^D,B,-] [E,B,] [^F,A,] [G,B,] | [A,C] B, [B,,B,] [E,G,]- |
+[E,G,-] [C,G,]2 F,- | [F,A,-] [D,A,]2 G, | [B,,D] [C,C-] [^F,,C-] [G,,-C] | [G,,-G,] [G,,F,]2 [C,E,] |]
+[V: Bs]
+C,,,4- | C,,,4 | G,,,4- | G,,,4- |
+G,,,4 | C,,,4 | B,,,4 | A,,,4 |
+E,,,4 | F,,,4 | G,,,4 | C,,,4 |]

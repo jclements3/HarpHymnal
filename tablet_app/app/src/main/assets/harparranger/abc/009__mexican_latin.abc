@@ -1,0 +1,28 @@
+X: 1
+T: All Creatures of Our God and King
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D-]2 D- [D-E] [D-F] D- | "^vi" [D-F] [D-G] [DA-]2 [CA]2 | "^I6" D2 [A,D] [CE] [D-F] D- | "^vi" [D-F] [D-G] [DA-]2 [CA]2 |
+"^I6" [A-d] [A-c] [AB-] [GB] [FA]2 | "^vi" [Dd] [Ec] [FB-] [EB] [CA]2 | "^I6" [Ad-] [Gd-] [F-d] [FA]2 [EG] | "^IV6" [D-F] [D-G] [DA-]2 [CA]2 |
+"^I6" [Dd-] [Ed-] [Dd] [CA-] [D-A] [D-G] | "^I43" [D-F] [D-G] [DA-] [CA-] [FA-] [EA] | "^vi" [D-G] [D-F] [DE-] [CE] D2- | "^ii7" [D-G] [D-F] [DE-] [CE] [B,D]2 |
+"^vi" [Fd] [Ec] [FB-] [EB] [CA]2 | "^vi7" [A-d] [A-c] [AB-] [G-B] [GA-] [FA] | "^ii" [B,G] [D-F] [DE-]2 [CE]2- | [CE]2 "^I" [A,D]4 |]
+[V: LH]
+D,,3/2 D,/2 [D,F,A,] [D,F,A,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] |
+D,,3/2 D,/2 [D,F,A,] [D,F,A,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+D,,3/2 D,/2 [D,F,A,] [D,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] |
+B,,3/2 B,/2 [D,F,B,] [D,F,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] |]
+[V: Bs]
+[D,,,D,,]6 | [B,,,B,,]6 | [D,,,D,,]6 | [B,,,B,,]6 |
+[D,,,D,,]6 | [B,,,B,,]6 | [D,,,D,,]6 | [G,,,G,,]6 |
+[D,,,D,,]6- | [D,,,D,,]6 | [B,,,B,,]6 | [E,,,E,,]6 |
+[B,,,B,,]6- | [B,,,B,,]6 | [E,,,E,,]6 | [D,,,D,,]6 |]

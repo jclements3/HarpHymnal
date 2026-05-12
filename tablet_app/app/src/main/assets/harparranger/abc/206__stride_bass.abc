@@ -1,0 +1,37 @@
+X: 1
+T: Praise My Soul The King Of Heaven
+M: 2/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [EB-]2 | "^V43" [DB]2 | "^I6" [Ee] [B-d] | "^IV32" [Bc-] [Ac] |
+"^I" [GB]2 | "^IV6" [E-A] [E-G] | "^IV" [Ec] [DB] | "^vi" [EG] [FA] |
+"^V" [D-F]2 | "^iii6" [DG-] [FG-] | "^vi" [EG-] [DG] | "^vi6" [C-c] [CB-] |
+"^vi7" [E-B] [E=A] | "^iii" [DB] [Ec] | "^I6" [Fd] [E-e] | "^vi6" [E-G] [E=A] |
+"^V" [DB]2 | "^I6" [E-e] [E-d] | "^V7" [Ec] [DB] | "^vi" [Ee] [Fd] |
+"^viio" [A-c] [AB] | "^I" [Gc] [FB] | "^IV" [EA] [CF] | "^V7" [B,-E] [B,-D] |
+"^I" [B,E]2 |]
+[V: LH]
+E,, [E,G,B,] B,, [E,G,B,] | B,, [D,F,B,] F, [D,F,B,] | E,, [E,G,B,] B,, [E,G,B,] | A,, [C,E,A,] E, [C,E,A,] |
+E,, [E,G,B,] B,, [E,G,B,] | A,, [C,E,A,] E, [C,E,A,] | A,, [C,E,A,] E, [C,E,A,] | C,, [C,E,G,] G,, [C,E,G,] |
+B,, [D,F,B,] F, [D,F,B,] | G,, [D,G,B,] D, [D,G,B,] | C,, [C,E,G,] G,, [C,E,G,] | C,, [C,E,G,] G,, [C,E,G,] |
+C,, [C,E,G,] G,, [C,E,G,] | G,, [D,G,B,] D, [D,G,B,] | E,, [E,G,B,] B,, [E,G,B,] | C,, [C,E,G,] G,, [C,E,G,] |
+B,, [D,F,B,] F, [D,F,B,] | E,, [E,G,B,] B,, [E,G,B,] | B,, [D,F,B,] F, [D,F,B,] | C,, [C,E,G,] G,, [C,E,G,] |
+D,, [D,F,A,] =A,, [D,F,A,] | E,, [E,G,B,] B,, [E,G,B,] | A,, [C,E,A,] E, [C,E,A,] | B,, [D,F,B,] F, [D,F,B,] |
+E,, [E,G,B,] B,, [E,G,B,] |]
+[V: Bs]
+[E,,,E,,]2 | [B,,,B,,]2 | [E,,,E,,]2 | [A,,,A,,]2 |
+[E,,,E,,]2 | [A,,,A,,]2- | [A,,,A,,]2 | [C,,,C,,]2 |
+[B,,,B,,]2 | [G,,,G,,]2 | [C,,,C,,]2- | [C,,,C,,]2- |
+[C,,,C,,]2 | [G,,,G,,]2 | [E,,,E,,]2 | [C,,,C,,]2 |
+[B,,,B,,]2 | [E,,,E,,]2 | [B,,,B,,]2 | [C,,,C,,]2 |
+[D,,,D,,]2 | [E,,,E,,]2 | [A,,,A,,]2 | [B,,,B,,]2 |
+[E,,,E,,]2 |]

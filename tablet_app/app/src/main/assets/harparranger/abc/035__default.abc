@@ -1,0 +1,28 @@
+X: 1
+T: Beautiful Savior
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,E-]2 [C-E]2 | "^ii6" [CF] [B,-D] [B,E]2 | "^I" [EG-]3 [=EG] | "^ii6" [FA] [DF] [E-G]2 |
+"^I" [E-B]2 [E-e] [E-c] | [EB]2 [FA] [E-G] | "^ii7" [EA-] [DA] [EG]2 | "^V" [DF]4 |
+"^I6" [E-B]2 [E-c] [EB-] | "^vi7" [=E-B] [=EG] [FA]2- | [FA]2 "^V7" [GB] [FA]- | [FA] [DF] [EG]2- |
+[E-G]4 | "^I6" [E-B]3 [E-A] | "^I64" [EG]2 [DF]2 | "^I" [B,E]4 |]
+[V: LH]
+[E,G,-]2 [C,G,]2 | [A,,A,] [B,,F,] [E,-G,]2 | [E,B,-] [D,B,] [C,C-] [B,,C-] | [A,,C] [B,,B,-] [E,-B,]2 |
+[E,G,]2 [A,,C] [C,A,] | [E,-G,]2 [E,B,]2 | [F,A,]2 [E,B,-]2 | [B,,B,-]2 B, [A,B,-] |
+[G,B,]2 A, [G,B,] | [C,C-]2 [F,C]2 | [B,,-D]2 [B,,-B,] [B,,-C] | [B,,-D] [B,,B,-] [E,B,]2- |
+[E,B,-]2 [D,B,] [C,C] | [G,,-B,] [G,,-C] [G,,_D] [A,,C] | [B,,B,-] [A,,B,-] [B,,-B,] [B,,A,] | [E,G,]4 |]
+[V: Bs]
+E,,,4 | F,,,4 | E,,,4 | F,,,4 |
+E,,,4- | E,,,4 | F,,,4 | B,,,4 |
+E,,,4 | C,,,4 | B,,,4- | B,,,4 |
+E,,,4- | E,,,4- | E,,,4- | E,,,4 |]

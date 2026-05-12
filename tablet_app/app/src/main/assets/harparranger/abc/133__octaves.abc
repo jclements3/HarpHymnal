@@ -1,0 +1,34 @@
+X: 1
+T: Jesus, Thy Boundless Love To Me
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: E
+[V: RH]
+"^I" [B,-E] [B,G-]2 | [EG] [GB] [E-G] | "^I6" E- [EF]2 | "^V7" [DA-] [FA] [EG] |
+"^I" [B,E] [GB]2 | "^IV4" [Ac] [GB]2 | "^I" [E-G]3 | "^ii7" [EF-] [DF]2 |
+"^I" [B,-E] [B,G-]2 | [EG] [GB] [E-G] | "^I6" E- [EF]2 | "^V7" [DA-] [FA] [EG] |
+"^I" [B,E] [GB]2 | "^IV4" [Ac] [GB]2 | "^I" [E-G]3 | "^ii7" [EF-] [DF]2 |
+"^IV6" [E-G] [E-A]2 | "^I" [E-B] [E-c]2 | [EB-] [B,-B] [B,G] | "^vi" E- [EG] [D-F] |
+"^V" [DB] [E-e] [EB]- | [E-B] "^I6" [E-e] [Ec] | "^ii6" [FA] [EG]2 | "^V7" [DF] E2 |]
+[V: LH]
+[E,,E,]4 | [E,,E,]4 | [E,,E,]4 | [B,,B,]4 |
+[E,,E,]4 | [A,,A,]4 | [E,,E,]4 | [F,,F,]4 |
+[E,,E,]4 | [E,,E,]4 | [E,,E,]4 | [B,,B,]4 |
+[E,,E,]4 | [A,,A,]4 | [E,,E,]4 | [F,,F,]4 |
+[A,,A,]4 | [E,,E,]4 | [E,,E,]4 | [C,,C,]4 |
+[B,,B,]4 | [E,,E,]4 | [F,,F,]4 | [B,,B,]4 |]
+[V: Bs]
+[E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3 | [B,,,B,,]3 |
+[E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 | [F,,,F,,]3 |
+[E,,,E,,]3- | [E,,,E,,]3- | [E,,,E,,]3 | [B,,,B,,]3 |
+[E,,,E,,]3 | [A,,,A,,]3 | [E,,,E,,]3 | [F,,,F,,]3 |
+[A,,,A,,]3 | [E,,,E,,]3- | [E,,,E,,]3 | [C,,,C,,]3 |
+[B,,,B,,]3 | [E,,,E,,]3 | [F,,,F,,]3 | [B,,,B,,]3 |]

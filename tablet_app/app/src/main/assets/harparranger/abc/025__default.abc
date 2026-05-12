@@ -1,0 +1,25 @@
+X: 1
+T: As With Gladness Men of Old
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-G] [D-F] [D-A] [DG] | "^IV6" [Cc-] [D-c] [DB]2 | "^IV" E [D-F] [DG] [CE] | "^I64" [B,D-] [A,D-] [B,D]2 |
+"^I" [D-G] [D-F] [D-A] [DG] | "^IV6" [Cc-] [D-c] [DB]2 | "^IV" E [D-F] [DG] [CE] | "^I64" [B,D-] [A,D-] [B,D]2 |
+"^I" [D-B] [D-A] [D-G] [D-B] | "^V6" [D-d]2 [DB]2 | "^IV" E [D-F] [DG] [Cc] | "^I4" [D-B] [DA] [B,G]2 |]
+[V: LH]
+[G,B,] [A,C] [F,A,] [G,B,] | [E,G,] [F,A,] G,2 | [C,-G,] [C,A,] [B,,G,-] [C,G,-] | [D,-G,] [D,F,] [G,,G,]2 |
+[G,B,] [A,C] [F,A,] [G,B,] | [E,G,] [F,A,] G,2 | [C,-G,] [C,A,] [B,,G,-] [C,G,-] | [D,-G,] [D,F,] [G,,G,-]2 |
+G, [F,D] [G,-B,] G, | [F,A,] [D,F,] G,2 | [C,-G,] [C,A,] [B,,G,-] [E,G,-] | [D,-G,] [D,F,] [G,,G,]2 |]
+[V: Bs]
+G,,,4 | C,,,4- | C,,,4 | G,,,4- |
+G,,,4 | C,,,4- | C,,,4 | G,,,4- |
+G,,,4 | D,,,4 | C,,,4 | G,,,4 |]

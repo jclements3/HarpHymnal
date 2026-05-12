@@ -1,0 +1,25 @@
+X: 1
+T: Now Praise We Christ, the Holy One
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^bVII" [A,D]2 [D=F] [EG] | "^III" [D-A] D [B,G] [D=F] | "^iv" [^CE]2 E [=FG] | "^bVII4" A [Gc]2 [=FB] |
+"^bVI" [G-A] [G-B] [Gc-] [E-c] | "^iv5" E [=FG] [G-A] [Gc-] | "^iv" [E-c] [EB] [C-A] [C^G] | "^III52" [DA-] [=F-A] =F [DE] |
+"^iv64" [CA-] [EA] [Dc] [CA] | "^i" [B,-G] [B,-=F] [B,E]2- | [B,E-] "^i6" E3 |]
+[V: LH]
+[D,-=F,]2 [D,A,] [C,C] | [=F,A,] [G,B,] [E,G,] [D,A,-] | A,2 E, [D,B,] | [A,D] [CE-] [G,E] [D,D-] |
+[G,D-] [C,-D] [C,E-] [CE] | A, [=F,C-] [C,C] [G,A,] | [A,E] [E,D] [A,-C] [A,B,] | [G,A,-] [=F,A,] D, [C,B,] |
+[=F,C] [E,D] [D,G,] [E,-A,] | [E,-B,] [E,-A,]2 [E,^G,]- | [E,^G,-] ^G,3 |]
+[V: Bs]
+D,,,4 | G,,,4 | A,,,4 | D,,,4 |
+C,,,4 | A,,,4- | A,,,4 | G,,,4 |
+A,,,4 | E,,,4- | E,,,4 |]

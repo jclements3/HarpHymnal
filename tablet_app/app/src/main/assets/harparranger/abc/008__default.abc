@@ -1,0 +1,22 @@
+X: 1
+T: Abide, O Dearest Jesus
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,E] [EG] [DF] [E-G] | "^vi" [EA] [DB]2 [E-G] | "^I" [E-c] [E-B]2 [EG] | [DF] [E-G]2 E- |
+"^I7" [E-B] [Ec-] [Fc] [E-d] | "^IV52" [E-e] [E-c]2 [EB] | "^iii32" [CG] [B,F] [CE-] [B,-E] | "^I52" [B,-D] [B,E-]2 E |]
+[V: LH]
+[E,-G,] [E,B,-] [B,,B,-] [E,B,] | [C,E,] [B,,-F,] [B,,B,-] [E,B,] | [A,,A,] [E,-G,]2 [E,B,-] | [B,,B,-] [E,-B,]2 E, |
+[A,,G,] [C,A,] [B,,G,] [G,,B,-] | [A,,-B,] [A,,A,-] [E,A,] [E,,G,] | [F,,B,] [G,,A,] [A,,G,] [B,,F,-] | [E,,-F,] [E,,G,-]2 G, |]
+[V: Bs]
+E,,,4 | C,,,4 | E,,,4- | E,,,4- |
+E,,,4 | A,,,4 | G,,,4 | E,,,4 |]

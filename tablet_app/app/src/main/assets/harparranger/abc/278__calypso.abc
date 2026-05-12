@@ -1,0 +1,22 @@
+X: 1
+T: Within the Father's House
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,E] [DF] [E-G] [EA] | [DB] [E-G]3 | [E-B] [E-c] [Ee] [DA] | "^V" [EG] [DF]3 |
+[FB] [Ee] [Fd] [Gc] | "^iii" [DB] [Fc]2 [DB]- | [DB] "^V" E- [E-G] [EF-] | "^I" [DF] E3 |]
+[V: LH]
+E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | E,3/2 E,/2 B, E, | B,3/2 B,/2 F, B, |
+B,3/2 B,/2 F, B, | G,3/2 G,/2 D, G, | B,3/2 B,/2 F, B, | E,3/2 E,/2 B, E, |]
+[V: Bs]
+[E,,,E,,]4- | [E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4 | [G,,,G,,]4 | [B,,,B,,]4 | [E,,,E,,]4 |]

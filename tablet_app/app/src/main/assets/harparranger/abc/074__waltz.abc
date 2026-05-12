@@ -1,0 +1,25 @@
+X: 1
+T: Go To Dark Gethsemane
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,E]2 [DF] [E-G] | "^IV" [E-A]2 [EG]2 | "^I" [B,E-] [CE] [DF] [E-G] | [EF-] [DF] E2- |
+E- [EG] [FB-] [GB] | "^IV" [Ec-] [Fc] [GB]2 | "^I6" E- [EG] [FB-] [DB] | "^V" [Gc-] [Fc] [DB]2 |
+"^I6" E2 [DF] [E-G] | "^IV" [E-A]2 [E-G]2 | "^I6" E [DF] [EG] [CF] | "^V7" [B,-E] [B,-D] [B,E]2 |]
+[V: LH]
+E,, [E,G,B,]2 | A,, [C,E,A,]2 | E,, [E,G,B,]2 | E,, [E,G,B,]2 |
+E,, [E,G,B,]2 | A,, [C,E,A,]2 | E,, [E,G,B,]2 | B,, [D,F,B,]2 |
+E,, [E,G,B,]2 | A,, [C,E,A,]2 | E,, [E,G,B,]2 | B,, [D,F,B,]2 |]
+[V: Bs]
+[E,,,E,,]4 | [A,,,A,,]4 | [E,,,E,,]4- | [E,,,E,,]4- |
+[E,,,E,,]4 | [A,,,A,,]4 | [E,,,E,,]4 | [B,,,B,,]4 |
+[E,,,E,,]4 | [A,,,A,,]4 | [E,,,E,,]4 | [B,,,B,,]4 |]

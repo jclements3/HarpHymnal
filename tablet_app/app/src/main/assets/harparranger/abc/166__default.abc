@@ -1,0 +1,28 @@
+X: 1
+T: None Other Lamb
+M: 3/2
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F#m
+[V: RH]
+"^III" [D-A] [D=G-] [E-=G] | "^bVI5" [EF-]2 [D-F] | "^III" [D-A] [D=G-] [E-=G] | "^bVI5" [EF-]2 [DF]- |
+[DF]2 "^III6" [EA] | "^iv7" [Fd]2 [DB] | "^III64" [CA] [DF] [E-G] | "^III" [E-A]3 |
+[Ec] [C-B] [CA] | "^iv43" [D-B]2 [DA] | "^i6" [=GB] [FA] [E-=G] | "^iv" [EF-]2 [DF]- |
+[D-F]3 | "^bVII65" [D-E]2 [DF]- | [DF] "^III" [C=G]2 | "^bVI" [DF]3 |]
+[V: LH]
+[F,A,] [E,B,] [A,,C] | [D,A,-]3 | [F,A,] [E,B,] [A,,C] | [D,A,]3- |
+[D,A,-]2 [C,A,-] | [B,,A,]2 [E,-G,] | [E,-A,] [E,-B,] [E,D-] | [A,,-D]2 [A,,C] |
+A, [=G,A,-]2 | [F,A,]3 | [=G,D] [A,C-]2 | [^A,C]2 B,- |
+B, [A,B,-]2 | [=G,B,]2 A,- | A, [A,,A,-]2 | [D,A,]3 |]
+[V: Bs]
+A,,,3 | D,,,3 | A,,,3 | D,,,3 |
+A,,,3 | B,,,3 | A,,,3- | A,,,3- |
+A,,,3 | B,,,3 | F,,,3 | B,,,3- |
+B,,,3 | E,,,3 | A,,,3 | D,,,3 |]

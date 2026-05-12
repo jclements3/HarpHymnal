@@ -1,0 +1,28 @@
+X: 1
+T: If God Himself Be For Me
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DG-] [EG] [D-d] [DB] | "^V" G [D-F]2 [D-A] | "^I6" D- [DE] [CG-] [A,G] | "^I" [D-F] [DG]3- |
+[DG-] [EG] [D-d] [DB] | "^V" G [D-F]2 [D-A] | "^I6" D- [DE] [CG-] [A,G] | "^I" [D-F] [D-G]3 |
+[D-B] [DG] [Ad-] [G-d] | "^vi" [GB] [EA-]2 [FA] | "^IV" [Ec] [D-B] [D-A] [DB] | "^vi" [B,G] [^CA-] [D-A]2 |
+"^I6" [Dd] [Ec] [DB] [CA] | "^V" [D-G] [D-F]2 [D-A] | "^I6" D- [DE] [CG-] [A,G] | "^I" [D-F] [DG]3 |]
+[V: LH]
+[G,B,-] [E,B,] [F,A,] [G,B,] | [B,,D] [D,-A,]2 [D,F,] | [B,,G,] [C,E,] [A,,E] [D,-D] | [D,A,] [G,,-C] [G,,B,-]2 |
+[G,B,-] [E,B,] [F,A,] [G,B,] | [B,,D] [D,-A,]2 [D,F,] | [B,,G,] [C,E,] [A,,E] [D,-D] | [D,A,] [G,-B,]3 |
+G,- [G,B,] [F,D] [E,E]- | [E,E] [A,-D] [A,^C] [D,D] | [C,G,-] G, [D,F,-] [B,,F,] | [E,G,] [A,,E,] [D,F,]2 |
+[B,,G,-] [C,G,-] [G,,G,] [A,,E,] | [B,,G,] [D,-A,]2 [D,F,] | [B,,G,] [C,E,] [A,,E] [D,-D] | [D,A,] [G,,B,]3 |]
+[V: Bs]
+G,,,4 | D,,,4 | G,,,4- | G,,,4- |
+G,,,4 | D,,,4 | G,,,4- | G,,,4- |
+G,,,4 | E,,,4 | C,,,4 | E,,,4 |
+G,,,4 | D,,,4 | G,,,4- | G,,,4 |]

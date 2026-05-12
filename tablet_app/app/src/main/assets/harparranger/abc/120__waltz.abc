@@ -1,0 +1,28 @@
+X: 1
+T: Jerusalem the Golden
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: C
+[V: RH]
+"^I" [G,-C] [G,-D] [G,C] [C-F] | "^V" [C-E] [CD-] [B,D] C- | "^I" [CE] [DG] [E-c] [EB] | "^vi" [D^G] [CA-]3 |
+"^IV" [FA] [EG] [CE-] [B,-E] | "^iii6" [B,D] [A,C]2 [B,D] | "^I" [CE]3 [A,-D] | "^V" [A,C] [B,D]3- |
+[B,D] [C-F] [C-E] [CA] | "^iii" [E-B] [Ec]2 [G-d] | "^V" G- [Ge]2 [Ad] | [Fc] [GB]3 |
+"^viio64" [DA] [C-G] [CE-] [B,-E] | "^iii6" [B,D] [A,C]2 [B,D] | "^I" [CE]3 [B,D]- | [B,D] C3 |]
+[V: LH]
+C,, [C,E,G,]2 | G,, [D,G,B,]2 | C,, [C,E,G,]2 | A,, [C,E,A,]2 |
+F,, [C,F,A,]2 | E,, [E,G,B,]2 | C,, [C,E,G,]2 | G,, [D,G,B,]2 |
+G,, [D,G,B,]2 | E,, [E,G,B,]2 | G,, [D,G,B,]2 | G,, [D,G,B,]2 |
+B,, [D,F,B,]2 | E,, [E,G,B,]2 | C,, [C,E,G,]2 | C,, [C,E,G,]2 |]
+[V: Bs]
+[C,,,C,,]4 | [G,,,G,,]4 | [C,,,C,,]4 | [A,,,A,,]4 |
+[F,,,F,,]4 | [E,,,E,,]4 | [C,,,C,,]4 | [G,,,G,,]4- |
+[G,,,G,,]4 | [E,,,E,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |
+[B,,,B,,]4 | [E,,,E,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |]

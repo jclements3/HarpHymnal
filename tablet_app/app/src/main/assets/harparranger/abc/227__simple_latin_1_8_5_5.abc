@@ -1,0 +1,22 @@
+X: 1
+T: The Advent of Our God
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [B,D] [D-G]2 [D-B] | "^V" [DA]4 | "^I" [G-B] [Gd] [Fc-] [Ec] | "^V" [GB] [FA]3 |
+"^V6" [D-d] [D-B] [D-G] [D-A] | D- [DG] [GB] [Fd]- | [Fd] "^V" [G-e] [G-d] [GB] | "^I" [FA] [DG]3 |]
+[V: LH]
+G,3/2 G,/2 D, D, | D,3/2 D,/2 A, A, | G,3/2 G,/2 D, D, | D,3/2 D,/2 A, A, |
+D,3/2 D,/2 A, A, | D,3/2 D,/2 A, A, | D,3/2 D,/2 A, A, | G,3/2 G,/2 D, D, |]
+[V: Bs]
+[G,,,G,,]4 | [D,,,D,,]4 | [G,,,G,,]4 | [D,,,D,,]4- |
+[D,,,D,,]4- | [D,,,D,,]4- | [D,,,D,,]4 | [G,,,G,,]4 |]

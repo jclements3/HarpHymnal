@@ -1,0 +1,28 @@
+X: 1
+T: Lord, Enthroned in Heavenly Splendor
+M: 6/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^i" [B,D]2 [D-G]2 [D-A]2 | [DB-]2 [GB]2 [_GA]2 | [G-B]2 [G-d]2 [G-c] [G-B] | [GA-] [_GA] G4 |
+[B,D]2 [D-G]2 [D-A]2 | [DB-]2 [GB]2 [_GA]2 | [G-B]2 [G-d]2 [G-c] [G-B] | [GA-] [_GA] G4- |
+G- [G-A] [GB]2 [DG]2 | "^V6" A [G-B] [Gc]2 [_GA]2 | "^III" [DB] [F-c] [Fd]2 [DB] [Fd] | "^iv7" [Ee] [Fc] [Dd] [E-B] [E-c] [EA] |
+"^V" [_Gd]4 [G-B]2 | "^i6" [G-d]2 [G-c] [G-B] [GA-] [_GA] | "^i" G6 |]
+[V: LH]
+G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 |
+G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 |
+G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | B,/2 B,/2 F,/2 B,/2 B,/2 B,/2 F,/2 B,/2 | C,/2 C,/2 G,,/2 C,/2 C,/2 C,/2 G,,/2 C,/2 |
+D,/2 D,/2 A,,/2 D,/2 D,/2 D,/2 A,,/2 D,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 | G,/2 G,/2 D,/2 G,/2 G,/2 G,/2 D,/2 G,/2 |]
+[V: Bs]
+[G,,,G,,]6- | [G,,,G,,]6- | [G,,,G,,]6- | [G,,,G,,]6- |
+[G,,,G,,]6- | [G,,,G,,]6- | [G,,,G,,]6- | [G,,,G,,]6- |
+[G,,,G,,]6 | [D,,,D,,]6 | [B,,,B,,]6 | [C,,,C,,]6 |
+[D,,,D,,]6 | [G,,,G,,]6- | [G,,,G,,]6 |]

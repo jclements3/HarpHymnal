@@ -1,0 +1,31 @@
+X: 1
+T: Let Our Gladness Have No End
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I6" G [D-A] [DB] [Gc] | "^V" [Fd-] [Gd-] [Fd]2 | "^I" [Ec] [G-d] [Ge-] [Fe] | [G-d]3 G- |
+"^I6" [Gd-] [E-d] [Ec-] [F-c] | "^iii" [FB-] [A-B] A [G-A] | "^IV52" [G-B] [Gc] [FA-] [G-A] | "^I" G2 [D-G] D |
+"^vi" [G-B] [GA] [D-B] [Dc] | "^V6" [Ed-] [Fd-] [G-d] [Gc] | "^V7" B2 G A | "^I" [FB] A B- [Bc] |
+"^I74" [Ad-]2 [G-d] [Gc] | "^vi5" B2 D2 | "^IV7" G4- | "^IV52" G2 [Fe-] [Ge] |
+"^V62" [Ad] [FB] [D-A]2 | "^I" [DG-]2 G2 |]
+[V: LH]
+[G,,G,]4 | [D,,D,]4 | [G,,G,]4 | [G,,G,]4 |
+[G,,G,]4 | [B,,B,]4 | [C,,C,]4 | [G,,G,]4 |
+[E,,E,]4 | [D,,D,]4 | [D,,D,]4 | [G,,G,]4 |
+[G,,G,]4 | [E,,E,]4 | [C,,C,]4 | [C,,C,]4 |
+[D,,D,]4 | [G,,G,]4 |]
+[V: Bs]
+[G,,,G,,]4 | [D,,,D,,]4 | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4 | [B,,,B,,]4 | [C,,,C,,]4 | [G,,,G,,]4 |
+[E,,,E,,]4 | [D,,,D,,]4- | [D,,,D,,]4 | [G,,,G,,]4- |
+[G,,,G,,]4 | [E,,,E,,]4 | [C,,,C,,]4- | [C,,,C,,]4 |
+[D,,,D,,]4 | [G,,,G,,]4 |]

@@ -1,0 +1,37 @@
+X: 1
+T: Awake, My Heart, With Gladness
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [E-B] [E-G] [EB] | "^IV" [CA]2 [B,-G] | "^V" [B,-F]3 | "^I" [B,E]2 [E-B] |
+"^IV" [E-c]2 [Ee] | "^iii" [Gd]3 | "^vi" [E-c]3 | "^I" [E-B] [E-G] [EB] |
+"^IV" [CA]2 [B,-G] | "^V" [B,-F]3 | "^I" [B,E]2 [E-B] | "^IV" [E-c]2 [Ee] |
+"^iii" [Gd]3 | "^vi" [Ec]3 | "^I" [B,-G] [B,B] [G,E] | "^V" [B,-D]2 [B,-F] |
+"^I" [B,E]3 | "^ii" [FA] [Ec] [_DF] | "^vi" [C-=E]2 [C-G] | "^ii" [CF-]2 [DF] |
+"^I" [EG]2 [F-B] | "^ii" [F-=A]2 [Fc] | "^V" [DB-]2 [E-B] | "^IV" [E-c]2 [Ee] |
+"^V" [Fd]3 | "^I" [Ge]3 |]
+[V: LH]
+[E,,E,]4 | [A,,A,]4 | [B,,B,]4 | [E,,E,]4 |
+[A,,A,]4 | [G,,G,]4 | [C,,C,]4 | [E,,E,]4 |
+[A,,A,]4 | [B,,B,]4 | [E,,E,]4 | [A,,A,]4 |
+[G,,G,]4 | [C,,C,]4 | [E,,E,]4 | [B,,B,]4 |
+[E,,E,]4 | [F,,F,]4 | [C,,C,]4 | [F,,F,]4 |
+[E,,E,]4 | [F,,F,]4 | [B,,B,]4 | [A,,A,]4 |
+[B,,B,]4 | [E,,E,]4 |]
+[V: Bs]
+[E,,,E,,]3 | [A,,,A,,]3 | [B,,,B,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3 | [G,,,G,,]3 | [C,,,C,,]3 | [E,,,E,,]3 |
+[A,,,A,,]3 | [B,,,B,,]3 | [E,,,E,,]3 | [A,,,A,,]3 |
+[G,,,G,,]3 | [C,,,C,,]3 | [E,,,E,,]3 | [B,,,B,,]3 |
+[E,,,E,,]3 | [F,,,F,,]3 | [C,,,C,,]3 | [F,,,F,,]3 |
+[E,,,E,,]3 | [F,,,F,,]3 | [B,,,B,,]3 | [A,,,A,,]3 |
+[B,,,B,,]3 | [E,,,E,,]3 |]

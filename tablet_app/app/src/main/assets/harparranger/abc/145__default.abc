@@ -1,0 +1,28 @@
+X: 1
+T: Look Down, O Lord, From Heaven Behold
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Dm
+[V: RH]
+"^i" [D-A] [D-B] [D-A] [DG] | [_Gd-] [G-d] [GB] [_GA] | [G-c] [GB] [_GA] G- | "^iv4" [G-c] [GB] [_GA] G |
+[D-G] [D-B] [D-A] [DG] | "^i" [_Gd-] [G-d] [GB] [_GA] | [G-c] [GB] [_GA] G- | "^iv4" [G-c] [GB] [_GA] G |
+"^III" [EG] [CA] [DF] [CE] | "^i" [B,D] [A,F] [DG] [_DA] | [A,F] [CG] [DB] [CA] | "^iv" [DB] [B,G] [D-_G] [DG]- |
+[D-G] [D-d] [DB] [F-c] | "^III" [F-d] [Fc] [D-B] [DA] |]
+[V: LH]
+[D,_G,] G, [_G,A,] [G,B,] | [D,A,] [G,B,] [G,,D-] [D,D] | [C,_E] [G,D-] [D,D] [_E,B,] | [C,_E] [D,D]2 [G,,B,] |
+[D,_G,] G, [_G,A,] [G,B,] | [D,A,] [G,B,] [G,,D-] [D,D] | [C,_E] [G,D-] [D,D] [_E,B,] | [C,_E] [D,D]2 [G,,B,] |
+[C,C] [F,A,-] [D,A,-] [A,,A,] | [B,,F,-] [D,F,] [B,,D,] [A,,E,] | [D,F,] [C,E,] [B,,F,-] [F,,F,-] | [B,,F,] [_E,G,] [D,A,] [G,,B,-] |
+[G,B,] [_G,A,] [G,B,] [F,A,] | [B,,B,] [F,A,] G, [D,_G,] |]
+[V: Bs]
+D,,,4- | D,,,4- | D,,,4 | G,,,4- |
+G,,,4 | D,,,4- | D,,,4 | G,,,4 |
+F,,,4 | D,,,4- | D,,,4 | G,,,4- |
+G,,,4 | F,,,4 |]

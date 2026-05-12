@@ -1,0 +1,31 @@
+X: 1
+T: Joy to the World
+M: 2/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [Fd] [Ac] | [FA]2 | "^I64" [DF] [CE] | "^I" D2 |
+"^IV" [GB]2 | "^V" [Ec]2 | "^I" [Fd]2- | [Fd] [GB] |
+[FA] [DF] | [Fd] [GB] | [FA] [DF]- | [DF]2 |
+"^V7" [FA]2 | "^V" [CE]2 | [EG]2 | "^I" D [F-d] |
+"^I64" [FA] [DF]- | [DF] "^I" [CE] | "^I6" D2 |]
+[V: LH]
+D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, |
+G,,3/2 G,/2 [D,G,B,] D, | A,,3/2 A,/2 [C,E,A,] E, | D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, |
+D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, |
+A,,3/2 A,/2 [C,E,A,] E, | A,,3/2 A,/2 [C,E,A,] E, | A,,3/2 A,/2 [C,E,A,] E, | D,,3/2 D,/2 [D,F,A,] A,, |
+D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, | D,,3/2 D,/2 [D,F,A,] A,, |]
+[V: Bs]
+[D,,,D,,]2- | [D,,,D,,]2- | [D,,,D,,]2- | [D,,,D,,]2 |
+[G,,,G,,]2 | [A,,,A,,]2 | [D,,,D,,]2- | [D,,,D,,]2- |
+[D,,,D,,]2- | [D,,,D,,]2- | [D,,,D,,]2- | [D,,,D,,]2 |
+[A,,,A,,]2- | [A,,,A,,]2- | [A,,,A,,]2 | [D,,,D,,]2- |
+[D,,,D,,]2- | [D,,,D,,]2- | [D,,,D,,]2 |]

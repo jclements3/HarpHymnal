@@ -1,0 +1,40 @@
+X: 1
+T: Jesus Shall Reign
+M: 2/2
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [B,E]2 | [EG] [DA] | "^I6" [E-B]2 | "^V43" [Ec] [Ad] |
+"^I" [Ge]2 | "^V4" [Fd] [Ec] | "^V" [DB]2- | [DB-]2 |
+"^I" [EB]2- | [E-B]2 | "^IV" [E-c]2 | "^I6" [E-B]2 |
+"^ii7" [EA-] [DA] | "^I" [EG]2 | "^V" [DF]2- | [DF]2 |
+"^I" [EG]2- | [EG] [DF] | E- [E-G] | "^I6" [E-B] [E-e] |
+"^IV" [E-c] [EB] | "^V64" [DA] [EG] | "^V" [DF]2- | [DF]2 |
+"^I6" [E-B]2 | "^V43" [Ec] [Ad] | "^I" [Ge-]2 | "^I6" [Ee] [FA] |
+"^I64" [EG]2 | "^V" [DF]2 | "^I" E2- | E2 |]
+[V: LH]
+[E,G,B,]4 | [E,G,B,]4 | [E,G,B,]4 | [D,F,B,]4 |
+[E,G,B,]4 | [D,F,B,]4 | [D,F,B,]4 | [D,F,B,]4 |
+[E,G,B,]4 | [E,G,B,]4 | [C,E,A,]4 | [E,G,B,]4 |
+[C,F,A,]4 | [E,G,B,]4 | [D,F,B,]4 | [D,F,B,]4 |
+[E,G,B,]4 | [E,G,B,]4 | [E,G,B,]4 | [E,G,B,]4 |
+[C,E,A,]4 | [D,F,B,]4 | [D,F,B,]4 | [D,F,B,]4 |
+[E,G,B,]4 | [D,F,B,]4 | [E,G,B,]4 | [E,G,B,]4 |
+[E,G,B,]4 | [D,F,B,]4 | [E,G,B,]4 | [E,G,B,]4 |]
+[V: Bs]
+[E,,,E,,]2- | [E,,,E,,]2- | [E,,,E,,]2 | [B,,,B,,]2 |
+[E,,,E,,]2 | [B,,,B,,]2- | [B,,,B,,]2- | [B,,,B,,]2 |
+[E,,,E,,]2- | [E,,,E,,]2 | [A,,,A,,]2 | [E,,,E,,]2 |
+[F,,,F,,]2 | [E,,,E,,]2 | [B,,,B,,]2- | [B,,,B,,]2 |
+[E,,,E,,]2- | [E,,,E,,]2- | [E,,,E,,]2- | [E,,,E,,]2 |
+[A,,,A,,]2 | [B,,,B,,]2- | [B,,,B,,]2- | [B,,,B,,]2 |
+[E,,,E,,]2 | [B,,,B,,]2 | [E,,,E,,]2- | [E,,,E,,]2- |
+[E,,,E,,]2 | [B,,,B,,]2 | [E,,,E,,]2- | [E,,,E,,]2 |]

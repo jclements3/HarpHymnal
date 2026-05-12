@@ -1,0 +1,28 @@
+X: 1
+T: All My Heart This Night Rejoices
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [DG]2 [FA]2 | [GB]3 A | [G-B] [G-d] [G-e]2 | "^I6" [Gd]4- |
+[Gd] [Be] [Ac-]2 | "^ii" [Ec] [Ad] [GB]2- | [G-B] "^I" [G-d] [G-c] [GB] | "^V" [FA]2 G2 |
+"^iii" [Dd]2 [Ec-] [Fc] | "^I" [GB]3 A | [D-G] [D-F] [DE-] [^CE] | "^V" D4 |
+"^V6" [Ad] [Be] [Ac-]2 | "^IV6" [Gc] [Ad] [GB]2- | [GB] "^I" [FA] [G-c] [G-B] | [GA-] [FA] G2 |]
+[V: LH]
+[D,G,B,]4 | [D,G,B,]4 | [D,G,B,]4 | [D,G,B,]4 |
+[D,G,B,]4 | [C,E,A,]4 | [D,G,B,]4 | [D,F,A,]4 |
+[D,F,B,]4 | [D,G,B,]4 | [D,G,B,]4 | [D,F,A,]4 |
+[D,F,A,]4 | [C,E,G,]4 | [D,G,B,]4 | [D,G,B,]4 |]
+[V: Bs]
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4 | [A,,,A,,]4 | [G,,,G,,]4 | [D,,,D,,]4 |
+[B,,,B,,]4 | [G,,,G,,]4- | [G,,,G,,]4 | [D,,,D,,]4- |
+[D,,,D,,]4 | [C,,,C,,]4 | [G,,,G,,]4- | [G,,,G,,]4 |]

@@ -1,0 +1,34 @@
+X: 1
+T: Christ Returneth
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" D- [D-F] [D-E] D- | [D-A]2 [D-B] [D-F] | "^IV4" [D-E] D- [DF] [C-E] | "^V" C [D-E] [DF-] [EF] |
+"^vi7" [F-A] [Fd-]2 [Ed] | "^V4" [^Gc] [Gd] [AB]2 | "^V" A G [FA-] [G-A] | "^IV4" [GB] [F-c] [Fd-] [Ed] |
+"^V7" [G-c] [Ge-]2 [Ae] | "^I6" [Ff] [Ad-] [Bd-]2 | "^IV74" [Gd] [F-B] [FA] [Gd] | "^I" [F-c] [F-d]3 |
+[FA-] [D-A] [DF-] [CF] | "^IV52" [D-G] [D-A] [DB-]2 | "^IV" [G-B] [Gd-]2 [Bd-] | "^viio74" [Ad] [Gc] [F-B] [FA-] |
+"^I52" [EA] [F-c] [Fd-] [Gd] | "^I" [F-c] [Fd-] [A-d] [Ae] | "^I64" [Ff] [Gd] [F-c] [Fd-] | "^I4" [D-d] [DF] [EA] [CG] |
+"^I6" [D-E] D D |]
+[V: LH]
+[D,-F,] [D,-A,] [D,-G,] [D,F,]- | [D,-F,]2 [D,-G,] [D,-A,] | [D,-G,] [D,F,] [A,,-A,]2 | A,, [D,A,-]2 [C,A,-] |
+[B,,-A,] [B,,B,-] [D,B,] [E,A,]- | [E,-A,] [E,B,] [A,,-D]2 | [A,,C] A, [G,C] [E,D-] | [D,-D] [D,A,-] [E,A,-] [A,,A,]- |
+[A,,-A,] [A,,C-] [D,C]2 | [F,D-] [G,D-]3 | [A,D-]2 [A,,D] [D,A,]- | [D,-A,]4 |
+[D,D]2 [E,A,-] [F,A,-] | [G,-A,]2 [G,D]2- | [G,-D] [G,B,]3- | [G,B,] [D,-C] [D,D-] [A,D-] |
+[D,-D] [D,A,-] [A,,A,-] [D,A,]- | [D,A,-] A, [D,-A,] [D,C] | [A,,D] [D,A,-]3 | [A,,-A,]2 [A,,F,] [D,-A,] |
+[D,G,] F,2 |]
+[V: Bs]
+D,,,4- | D,,,4 | G,,,4 | A,,,4 |
+B,,,4 | A,,,4- | A,,,4 | G,,,4 |
+A,,,4 | D,,,4 | G,,,4 | D,,,4- |
+D,,,4 | G,,,4- | G,,,4 | C,,,4 |
+D,,,4- | D,,,4- | D,,,4- | D,,,4- |
+D,,,3 |]

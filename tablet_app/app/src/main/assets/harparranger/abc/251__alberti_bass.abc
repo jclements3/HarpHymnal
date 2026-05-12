@@ -1,0 +1,28 @@
+X: 1
+T: Thine Arm, O Lord, in Days of Old
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" [EG] [B,E-]2 [CE] | "^III6" [A,D] [DG-] [B,G] [D-A] | [DG] [GB]2 [EA] | "^III54" [CE] [A,D]3 |
+"^III6" [D-G] [DE-] [CE]2 | [A,D] [DG-] [^CG] [D-A] | [DG] [B,B-] [DB] [C-A] | "^i" [CE-] [B,E]3 |
+[EB] [F-d] [FB-] [GB] | "^III" [DG] [EA-] [DA] [CB] | "^III6" [DG] [GB]2 [DG] | "^III54" [CE] [A,D]3 |
+"^III6" [D-G] [DE-]2 [CE]- | [CE] "^iv" [D-G]2 [D-A] | "^III6" [DG] [B,B-] [DB] [EA] | "^i" [CE-] [B,E]3 |]
+[V: LH]
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 |
+G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 |
+E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 |
+G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | A,/2 E,/2 C,/2 E,/2 A,/2 E,/2 C,/2 E,/2 | G,/2 D,/2 B,/2 D,/2 G,/2 D,/2 B,/2 D,/2 | E,/2 B,/2 G,/2 B,/2 E,/2 B,/2 G,/2 B,/2 |]
+[V: Bs]
+[E,,,E,,]4 | [G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4 | [E,,,E,,]4- |
+[E,,,E,,]4 | [G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4- |
+[G,,,G,,]4 | [A,,,A,,]4 | [G,,,G,,]4 | [E,,,E,,]4 |]

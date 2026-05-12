@@ -1,0 +1,31 @@
+X: 1
+T: Twas In The Moon of Wintertime
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bm
+[V: RH]
+"^V" F B c [B-d] | "^i4" [B-e] [Bd] [Ac] [FB] | "^V" A B2 [A-c] | "^i6" A [F-B]3 |
+"^V" F B c [B-d] | "^i4" [B-e] [Bd] [Ac] [FB] | "^V" A B2 [A-c] | "^i6" A [FB-]3 |
+"^iv" [GB] [Bf]2 [Ac] | "^i4" [B-d] [Be]2 [Ac]- | [Ac] [Bd] [Ac] [FB-] | "^V" [GB] [Ac]2 [F-B] |
+"^V64" [FA]2 D F- | "^i" F- [FB-]2 [EB] | "^III7" [D-A] [D-G] [DF]2 | "^i74" [F-B]2 [F-A] F- |
+"^i64" [FB-] [AB-] B- [B-c] | "^i" [Bd] [Fe] [D-f] [DF] | B2 z z |]
+[V: LH]
+F, C, ^A,2 | B, F, D,2 | F, C, ^A,2 | B, F, D,2 |
+F, C, ^A,2 | B, F, D,2 | F, C, ^A,2 | B, F, D,2 |
+E, B, G,2 | B, F, D,2 | B, F, D,2 | F, C, ^A,2 |
+F, C, ^A,2 | B, F, D,2 | D, A, F,2 | B, F, D,2 |
+B, F, D,2 | B, F, D,2 | B, F, D,2 |]
+[V: Bs]
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4 | [B,,,B,,]4 |
+[F,,,F,,]4 | [B,,,B,,]4 | [F,,,F,,]4 | [B,,,B,,]4 |
+[E,,,E,,]4 | [B,,,B,,]4- | [B,,,B,,]4 | [F,,,F,,]4- |
+[F,,,F,,]4 | [B,,,B,,]4 | [D,,,D,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4- | [B,,,B,,]4- | [B,,,B,,]4 |]

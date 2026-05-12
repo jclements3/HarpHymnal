@@ -1,0 +1,28 @@
+X: 1
+T: Awake My Soul, An Offering Bring
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^i" G [D-B] [D-c] [Dd-] | "^i7" [F-d] [FA] [D-G] [D-_G] | "^i" [D-A] [D-B]2 [D-d] | "^III" [DB-] [F-B] [F-A] [FB]- |
+[F-B]3 [F-A] | "^i" [Fc] [D-B]2 [DA]- | [DA] "^III" [F-d]2 [FA] | "^i64" [D-G]2 [D-_G] [DG]- |
+[DG] "^III" [F-B]2 [F-A] | "^i" [Fc] [D-B]2 [DA]- | [DA] "^III" [F-d] [F-B] [FA] | "^i64" [D-G]2 [D_G] [=B,G]- |
+[=B,G] |]
+[V: LH]
+[D,G,B,]4 | [D,G,B,]4 | [D,G,B,]4 | [D,F,B,]4 |
+[D,F,B,]4 | [D,G,B,]4 | [D,F,B,]4 | [D,G,B,]4 |
+[D,F,B,]4 | [D,G,B,]4 | [D,F,B,]4 | [D,G,B,]4 |
+[D,G,B,]4 |]
+[V: Bs]
+[G,,,G,,]4- | [G,,,G,,]4- | [G,,,G,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4 | [G,,,G,,]4 | [B,,,B,,]4 | [G,,,G,,]4 |
+[B,,,B,,]4 | [G,,,G,,]4 | [B,,,B,,]4 | [G,,,G,,]4- |
+[G,,,G,,] |]

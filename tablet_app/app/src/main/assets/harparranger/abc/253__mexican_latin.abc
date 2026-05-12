@@ -1,0 +1,40 @@
+X: 1
+T: Though in the Midst of Life We Be
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Em
+[V: RH]
+"^i" [EG]2 [=F-A] [=FB] | "^iio6" [Ec-] [Fc] [GB] [FA] | "^i" [G-B] [Gc] [Ad] [=FA] | "^iv" [EG] [D=F] [^CE]2 |
+"^i" [EG]2 [=F-A] [=FB] | "^iio6" [Ec-] [Fc] [GB] [FA] | "^i" [G-B] [Gc] [Ad] [=FA] | "^iv" [EG] [D=F] [^CE] A, |
+[CE]2 [DG] [C-=F] | "^III" [CE] [B,D] C E | "^V2" G [=FG] [DA] [A-B] | "^iv" [Ac-] [Gc] [=FB] [DA] |
+"^i" [GB] [Ac] [=Fd] [EA] | [DG] [B,-=F] [B,E-] [C-E] | "^iv" [CA-] [DA] [CG] [A,E] | "^iv7" [D=F] [^C-G] [^CE-] E- |
+[EG-] [DG-] [CG] [A,E] | [D=F] [^C-G] [^CE-] E- | "^iv" [EA]2 [CG] [GA] | "^III64" [=FB-] [EB-]2 [GB-] |
+"^V5" [E-B] [EA] [DG] [G,-=F] | "^iv6" [G,E-] [DE] [DE-] [EA] | "^iv" [DG] [^C-=F] [^CE-] E- | "^iv64" [EA] [CG] [=FA] [EB] |
+"^III52" [Fc] [G-A] G [E-G] | "^iv64" [Ec] [=FB] [Cd] [EA] | "^iv" [DG] [^C-=F] [^CE-] [A,E] | "^iv6" [CD] [EA] [DG] [C-=F] |
+"^iv" [CE-] [B,E-]2 E |]
+[V: LH]
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | F,,3/2 F,/2 [C,F,A,] [C,F,A,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] | B,,3/2 B,/2 [^D,F,B,] [^D,F,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+B,,3/2 B,/2 [^D,F,B,] [^D,F,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+G,,3/2 G,/2 [D,G,B,] [D,G,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] |]
+[V: Bs]
+[E,,,E,,]4 | [F,,,F,,]4 | [E,,,E,,]4 | [A,,,A,,]4 |
+[E,,,E,,]4 | [F,,,F,,]4 | [E,,,E,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4 | [G,,,G,,]4 | [B,,,B,,]4 | [A,,,A,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [A,,,A,,]4- | [A,,,A,,]4- |
+[A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4 | [G,,,G,,]4 |
+[B,,,B,,]4 | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4 |
+[G,,,G,,]4 | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4- |
+[A,,,A,,]4 |]

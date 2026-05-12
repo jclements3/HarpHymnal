@@ -1,0 +1,25 @@
+X: 1
+T: 'Take Up Thy Cross', the Savior Said
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: G
+[V: RH]
+"^I" [D-G]2 [DA] [B,G] | "^iii" [D-F] [DG] [EA] [GB] | "^IV" [EG]4 | "^V6" [D-A] [DB] [Ec] [DB] |
+"^vi" [EG] [FA] [GB]2 | "^I" [D-G]2 [DA-] [FA] | "^viio6" [GB] [FA] [EG] [^DF] | "^IV" E3 [FA] |
+"^ii" [GB] [EA] [DG] [CE] | "^vi" [B,G] [DA] [B,G]2 |]
+[V: LH]
+G,, [D,G,B,] D, [D,G,B,] | B,, [D,F,B,] F, [D,F,B,] | C,, [C,E,G,] G,, [C,E,G,] | D,, [D,F,A,] A,, [D,F,A,] |
+E,, [E,G,B,] B,, [E,G,B,] | G,, [D,G,B,] D, [D,G,B,] | F,, [C,F,A,] ^C, [C,F,A,] | C,, [C,E,G,] G,, [C,E,G,] |
+A,, [C,E,A,] E, [C,E,A,] | E,, [E,G,B,] B,, [E,G,B,] |]
+[V: Bs]
+[G,,,G,,]4 | [B,,,B,,]4 | [C,,,C,,]4 | [D,,,D,,]4 |
+[E,,,E,,]4 | [G,,,G,,]4 | [F,,,F,,]4 | [C,,,C,,]4 |
+[A,,,A,,]4 | [E,,,E,,]4 |]

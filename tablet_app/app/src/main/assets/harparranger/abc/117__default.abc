@@ -1,0 +1,52 @@
+X: 1
+T: Isaiah, Mighty Seer, In Days of Old
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [EB-]2 [DB] [B,G] | "^vi" [CE] [B,G] [FB-] [E-B] | "^IV" [E-c]2 [EB-]2 | "^iii" [GB]3 [FA] |
+"^V" [DB] [CE] [FA] [E-G] | "^I" [EF-] [DF] E2 | [GB-]3 [FB] | "^IV" [Ae-]2 [G-e] [GB] |
+"^vi" [Ac] [FB] [EG]2- | [EG]2 "^I" [CA] [FB] | [EG] [CA] [EG] [B,E] | [CF-] [B,-F] [B,E-]2 |
+"^vi" [CE]2 [DG] F | [E-G] [E=A] [FB]2 | "^I" [E-G] [E=A] [DB]2 | "^IV" [Ge-]2 [Ae] [Fd] |
+"^vi" [Ec] [FB-] [GB] [FA] | "^I6" [E-B] [E-A] [EG]2 | "^V" [DF]2 [EG] [CA] | "^I6" [GB-] [FB] [Ac] [EB] |
+"^IV" [Cc] [Fd] [G-e]2 | "^I" [GB]3 [EA] | "^V" [B,G] [F-A] [FB] [CE] | "^I" [B,G] [DF] [CE]2 |
+"^vi" [EG]2 [FA] [GB] | "^I" [Ac] [GB-] [FB] [Gc] | "^V" [Bd] [=Ac] B2 | "^vi" [Ge]2 [Bd] [A-c] |
+"^ii" [Af-] [B-f] [B-d] B | "^I" [Ac] [Fd] [Ge]2- | [G-e]2 "^vi" [Gd] [E-c] | "^I" [E-B] [Ec] [Dd] [GB] |
+[FA] [DB] [EG]2 | "^vi" [G-e]2 [Gd] [E-c] | "^I" [E-B] [Ec] [Dd] [GB] | [FA] [DB] [EG]2 |
+"^vi" [G-e]2 [Gd] [E-c] | "^I" [E-B] [Ec] [Dd] [GB] | [FA] [DB] [E-G]2 | "^IV" [E-c]2 [E-B] [EA] |
+"^V" [DB] [CE] [FA] [E-G] | "^I" [EF-] [DF] E2 | "^vi" [CE]2 [DB-] [FB] | "^I" [EG] [CA] [DB] [Gc-] |
+"^ii" [F-c] [FB-] [DB-]2 | "^I" [E-B]2 [E-A] [EG] | "^ii" [CA] [DF] [EG] [CF] | "^V7" [B,-E] [B,-D] [B,E]2 |]
+[V: LH]
+[E,G,]2 [B,,F,] E, | [C,G,] E, [D,F,] [E,G,] | [A,,A,]2 [E,G,]2 | [G,D]2 [E,E] [F,C] |
+[B,,B,] [C,G,] [D,F,] [E,B,] | [A,,C] [B,,B,] [E,-G,]2 | [E,E]2 [G,D-] [B,D] | [A,C-] [A,,C-] [C,C] [E,B,] |
+[A,,E] [B,,D] [C,C]2 | [E,B,]2 [F,A,] [D,F,] | [E,B,] [F,A,] [C,C] [E,G,] | [A,,E,] [B,,D,] [E,G,]2 |
+[C,C]2 [G,B,-] [D,B,-] | [E,B,] [C,C] [B,,D] [D,B,-] | [E,B,] [C,C] [B,,-F,]2 | [B,,C-]2 [A,,C] [B,,B,] |
+[C,G,] [D,B,] [E,E] [F,C] | [G,B,] [A,C] [E,B,-]2 | [B,,B,-]2 [E,B,] [F,F] | [G,E] [B,D] [A,E] [G,B,] |
+[A,E] B, [E,-B,]2 | [E,E]3 [A,,C] | [E,E] [F,C] [B,,D] [C,G,] | E, [B,,B,] [C,-G,]2 |
+[C,C-]2 [F,C] [E,E-] | [A,,E-] [E,E] [D,B,] [C,E] | [B,,F-] [F,F] [B,,D]2 | [C,C]2 [G,B,] [A,E] |
+[F,F] [B,,D] [B,F] [G,E-] | [A,E] B, [E,B,]2 | [C,C]2 [G,=B,] [A,C] | [E,G,] [C,A,] [B,,B,] [E,G,] |
+[F,C] [B,,B,-] [E,B,]2 | [C,C]2 [G,=B,] [A,C] | [E,G,] [C,A,] [B,,B,] [E,G,] | [F,C] [B,,B,-] [E,B,]2 |
+[C,C]2 [G,=B,] [A,C] | [E,G,] [C,A,] [B,,B,] [E,G,] | [F,C] [B,,B,-] [E,B,]2 | [A,,A,]2 [E,G,] [C,A,] |
+[B,,F,] [C,A,] [_D,_D] [E,B,] | [A,,C] [B,,B,] [E,G,-]2 | [C,G,]2 [B,,B,-] [D,B,-] | [E,B,] [F,A,] [D,F,] [E,G,] |
+[F,=A,] [B,,-B,] [B,,F,]2 | [E,G,]2 [A,,C] [E,B,] | [F,A,]2 [E,B,] [A,,A,] | [B,,-G,] [B,,F,] [E,G,]2 |]
+[V: Bs]
+E,,,4 | C,,,4 | A,,,4 | G,,,4 |
+B,,,4 | E,,,4- | E,,,4 | A,,,4 |
+C,,,4 | E,,,4- | E,,,4- | E,,,4 |
+C,,,4- | C,,,4 | E,,,4 | A,,,4 |
+C,,,4 | E,,,4 | B,,,4 | E,,,4 |
+A,,,4 | E,,,4 | B,,,4 | E,,,4 |
+C,,,4 | E,,,4 | B,,,4 | C,,,4 |
+F,,,4 | E,,,4 | C,,,4 | E,,,4- |
+E,,,4 | C,,,4 | E,,,4- | E,,,4 |
+C,,,4 | E,,,4- | E,,,4 | A,,,4 |
+B,,,4 | E,,,4 | C,,,4 | E,,,4 |
+F,,,4 | E,,,4 | F,,,4 | B,,,4 |]

@@ -1,0 +1,25 @@
+X: 1
+T: Every Morning Mercies New
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^I" [DB-] [EB-] [DB] [Ge] | "^I64" [Fd]2 [DB-]2 | "^I6" [FB] [EG] [DF] [FB] | "^V" [=Ed-] [Ed] [F-c]2 |
+"^I6" [FB-]2 [G-B] [Ge] | "^iii6" [D-d]2 [DB]2 | "^ii" [=EG] [EA] [Fd-] [Ed] | "^vi6" [DB] [=EG] F2- |
+"^V65" [F-e]2 [Fd] [GB] | "^iii" [_Gd]2 [GB]2 | "^vii°6" [CA]2 [DF] [F-B] | "^vi62" [FG-] [EG] [DB]2 |]
+[V: LH]
+[B,,-F,] [B,,-G,] [B,,F,] B, | [F,B,-]2 B,2 | [D,B,-] [E,B,-] [B,,B,-] [D,B,-] | [G,B,-] [C,B,] [F,A,]2 |
+[D,B,-]2 [E,B,-] [G,B,] | [_G,A,]2 [G,B,]2 | [C,C-] [B,,C] [A,,-F,] [A,,_G,] | [B,,G,] [C,B,] [F,A,]2 |
+[A,C]2 B, [G,B,] | [D,A,]2 [G,B,-]2 | [=E,B,-]2 [F,-B,] [F,D]- | [F,-D] [F,C] [B,,B,]2 |]
+[V: Bs]
+B,,,4- | B,,,4- | B,,,4 | F,,,4 |
+B,,,4 | D,,,4 | C,,,4 | G,,,4 |
+F,,,4 | D,,,4 | A,,,4 | G,,,4 |]

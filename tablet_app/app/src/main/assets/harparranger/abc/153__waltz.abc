@@ -1,0 +1,40 @@
+X: 1
+T: Lord, Thee I Love with All My Heart
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Bb
+[V: RH]
+"^I" [F-B]2 [FA] [EG] | "^V6" [CF] [B,-E] [B,G-] [EG] | "^I" [DF]2 [GB]2 | "^iii" [FA] [EG] [CF] [B,-E] |
+"^IV" [B,G-] [CG] [DF]2 | "^ii" [E-G] [EA] [F-B] [F-d] | "^V" [Fc] [DB-] [EB] [F-A] | "^I" [FB]4- |
+[F-B]2 [FA] [EG] | "^V6" [CF] [B,-E] [B,G-] [EG] | "^I" [DF]2 [GB]2 | "^iii" [FA] [EG] [CF] [B,-E] |
+"^IV" [B,G-] [CG] [DF]2 | "^ii" [E-G] [EA] [F-B] [F-d] | "^V" [Fc] [DB-] [EB] [F-A] | "^I" [FB-]3 [DB-] |
+[F-B] [F-c] [FB] [EG] | "^vi" [DB-] [=EB] [F-A]2 | "^I" [F-B] [F-c] [FB] [EG] | "^I6" [FB-] [GB] [F-A]2 |
+[F-B] [F-d] [Fc] [GB-] | "^I" [F-B] [F-A] [FB]2- | [F-B] [FA] [D-G] [DF]- | [DF] "^V" [C-=E] [CF]2 |
+"^I64" F2- [Fd]2 | "^vii°" [Dc-] [=Ec] [FB]2 | "^viiø43" [GA] [Fd] [De] [Gc] | "^I6" [F-B] [F-c] [F-B] [FA] |
+"^IV7" [GB-] [FB]3 | "^ii6" [Gc] [F-B]2 [F-A] | "^I" [FB-]2 B2 |]
+[V: LH]
+B,, [D,F,B,]2 | F,, [C,F,A,]2 | B,, [D,F,B,]2 | D,, [D,F,A,]2 |
+E,, [E,G,B,]2 | C,, [C,E,G,]2 | F,, [C,F,A,]2 | B,, [D,F,B,]2 |
+B,, [D,F,B,]2 | F,, [C,F,A,]2 | B,, [D,F,B,]2 | D,, [D,F,A,]2 |
+E,, [E,G,B,]2 | C,, [C,E,G,]2 | F,, [C,F,A,]2 | B,, [D,F,B,]2 |
+B,, [D,F,B,]2 | G,, [D,G,B,]2 | B,, [D,F,B,]2 | B,, [D,F,B,]2 |
+B,, [D,F,B,]2 | B,, [D,F,B,]2 | B,, [D,F,B,]2 | F,, [C,F,A,]2 |
+B,, [D,F,B,]2 | A,, [C,E,A,]2 | A,, [C,E,A,]2 | B,, [D,F,B,]2 |
+E,, [E,G,B,]2 | C,, [C,E,G,]2 | B,, [D,F,B,]2 |]
+[V: Bs]
+[B,,,B,,]4 | [F,,,F,,]4 | [B,,,B,,]4 | [D,,,D,,]4 |
+[E,,,E,,]4 | [C,,,C,,]4 | [F,,,F,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4 | [F,,,F,,]4 | [B,,,B,,]4 | [D,,,D,,]4 |
+[E,,,E,,]4 | [C,,,C,,]4 | [F,,,F,,]4 | [B,,,B,,]4- |
+[B,,,B,,]4 | [G,,,G,,]4 | [B,,,B,,]4- | [B,,,B,,]4- |
+[B,,,B,,]4- | [B,,,B,,]4- | [B,,,B,,]4 | [F,,,F,,]4 |
+[B,,,B,,]4 | [A,,,A,,]4- | [A,,,A,,]4 | [B,,,B,,]4 |
+[E,,,E,,]4 | [C,,,C,,]4 | [B,,,B,,]4 |]

@@ -1,0 +1,25 @@
+X: 1
+T: O Holy, Blessed Trinity
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D] [D-F] [DG] [CA-] | [D-A] [D-B]2 [DA]- | [DA] C [DA]2 | "^I4" [Ed] [Cc] [FA] [EB-] |
+"^V" [C-B] [CA-]2 [DA-] | "^vi7" [F-A] [Fd] [D-c] [D-B] | "^IV62" [DA] [EB] [C-G] [CF-] | "^vi" [DF] F [E-F] [EB-] |
+"^IV64" [D-B] [D-A] [D-F] [D-G] | "^I52" [D-E] D D2 |]
+[V: LH]
+[D,-F,] [D,A,] [B,,D,] [A,,E,] | [D,F,] [G,,G,-] [B,,G,] [D,F,]- | [D,F,] A,, [D,E,] [B,,F,-] | [C,F,] [F,A,-] [D,A,-] [E,A,] |
+[A,,-^G,] [A,,A,-]2 [D,A,] | [B,,F,] [F,B,] [G,A,] [D,G,] | [F,G,] [E,G,] [F,-B,] [F,^A,-] | [B,,^A,] D, [E,B,-] [C,B,] |
+[D,G,] [G,,A,-] [A,,A,] [D,-B,] | [D,-A,] [D,F,-] F,2 |]
+[V: Bs]
+D,,,4- | D,,,4- | D,,,4- | D,,,4 |
+A,,,4 | B,,,4 | G,,,4 | B,,,4 |
+G,,,4 | D,,,4 |]

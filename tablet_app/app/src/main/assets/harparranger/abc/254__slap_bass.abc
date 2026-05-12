@@ -1,0 +1,28 @@
+X: 1
+T: Through the Night of Doubt and Sorrow
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: A
+[V: RH]
+"^I" [EA] [B,E] [CA] [E-B] | "^I6" [E-c]3 [E-B] | [Ee] [CA] [F-B] [Fc-] | "^I64" [E-c] [E-B] [Ec]2- |
+[E-c] "^I" [E-B] [E-c] [Ee] | "^vi" [CA] [EG]2 [DF] | "^vii°6" [FB-] [GB] [E-e] [E-G] | "^V" [EF-] [^DF] E2- |
+E2- [EG] [FB] | "^iii" [E-A] [EG] [DF] [C-E] | "^vi" [CA] [E-B] [E-c] [E-e] | "^V64" [E-d] [E-c] [E-B]2 |
+"^I6" [E-A] E- [E-A] [E-B] | "^I" [Ec-] [Ac-] [E-c] [E-B] | "^I6" [Ee] [CA] [Fd] [E-c] | "^I" [EB]2 [CA]2 |]
+[V: LH]
+A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 |
+A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 | G,/2 D,/2 G,/2 D,/2 G,/2 D,/2 G,/2 D,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 |
+E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 | C,/2 G,/2 C,/2 G,/2 C,/2 G,/2 C,/2 G,/2 | F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 F,/2 C,/2 | E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 E,/2 B,/2 |
+A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 | A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 A,/2 E,/2 |]
+[V: Bs]
+[A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4- |
+[A,,,A,,]4 | [F,,,F,,]4 | [G,,,G,,]4 | [E,,,E,,]4- |
+[E,,,E,,]4 | [C,,,C,,]4 | [F,,,F,,]4 | [E,,,E,,]4 |
+[A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4- | [A,,,A,,]4 |]

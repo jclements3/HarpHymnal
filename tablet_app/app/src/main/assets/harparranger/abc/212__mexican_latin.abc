@@ -1,0 +1,28 @@
+X: 1
+T: Salvation Unto Us Has Come
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Eb
+[V: RH]
+"^I" [EB-]2 [FB-] [EB] | "^V53" [_D_d] [E-c] [EB] [CA] | "^I" [EB] [B,G] [CE] [E-G] | "^vi" [EA] [DB] [Cc] [DB-] |
+"^I" [EB-]2 [FB-] [EB] | "^V53" [_D_d] [E-c] [EB] [CA] | "^I" [EB] [B,G] [CE] [E-G] | "^vi" [EA] [DB] [Cc] [DB-] |
+"^I" [E-B] [Ee] [F_d] [E-c] | [E-B] [E-e] [E-c] [EB-] | "^V6" [FB] [E-e] [EB-] [_DB] | "^IV" [CE] [EG] [B,B] [EG] |
+[CE] [_DF] [E-A] [EG] | [CF] [B,E] [DF] E |]
+[V: LH]
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | C,,3/2 C,/2 [C,E,G,] [C,E,G,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | E,,3/2 E,/2 [E,G,B,] [E,G,B,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |]
+[V: Bs]
+[E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4 | [C,,,C,,]4 |
+[E,,,E,,]4 | [B,,,B,,]4 | [E,,,E,,]4 | [C,,,C,,]4 |
+[E,,,E,,]4- | [E,,,E,,]4 | [B,,,B,,]4 | [A,,,A,,]4- |
+[A,,,A,,]4- | [A,,,A,,]4 |]

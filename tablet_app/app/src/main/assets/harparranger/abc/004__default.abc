@@ -1,0 +1,31 @@
+X: 1
+T: A Great and Mighty Wonder
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [Ac-]3 [F-c] | "^V" [F-d] [Fc-] [Ec]2 | "^vi" [D-A]2 [DB]2 | "^I" [C-A] [CG-] [DG] [A,F-] |
+"^I64" [C-F] [C-E] [CF]2- | [CF] "^I" [Ac-]3 | [F-c] [F-d] [Fc-] [Ec]- | [Ec] "^V" [D-A]2 [DB]- |
+[DB] "^IV" [C-A] [CG-] [DG] | "^vi" [A,F-] [C-F] [C-E] [CF]- | [CF]2 "^I" [FA] [DG] | "^iii" [C-E] [CF] [=B,D] C- |
+C2 "^V" [Ec-] [Gc-] | "^I" [F-c] [F-d] [Fc-] [Ec]- | [Ec] "^V" [D-A]2 [DB]- | [DB] "^ii" [FA] [DG-] [EG] |
+"^I64" F [C-F] [C-E] [CF]- | [CF]2 |]
+[V: LH]
+[F,-C]3 [F,A,] | B, [F,A,] [C,G,]2 | [D,F,-]2 [B,,F,]2 | [F,A,] [E,C] [D,-B,] [D,A,-] |
+[C,-A,] [C,G,] [F,A,]2- | [F,-A,] [F,-C]3 | [F,A,] B, [F,A,] [C,G,]- | [C,G,] [D,F,-]2 [B,,F,]- |
+[B,,F,] [F,A,] [E,C] [D,-B,] | [D,A,-] [C,-A,] [C,G,] [F,A,]- | [F,-A,]2 [F,C] [G,B,] | A, [F,A,] G, [C,E,]- |
+[C,-E,]2 [C,G,-] [E,G,] | [F,A,] [B,,B,] [F,A,] [C,G,]- | [C,G,] [D,_G,]2 [G,,G,]- | [G,,G,] [A,,C] [B,,B,] [C,A,]- |
+[C,-A,] [C,G,]2 [F,,A,]- | [F,,A,]2 |]
+[V: Bs]
+F,,,4 | C,,,4 | D,,,4 | F,,,4- |
+F,,,4- | F,,,4- | F,,,4 | C,,,4 |
+B,,,4 | D,,,4 | F,,,4 | A,,,4 |
+C,,,4 | F,,,4 | C,,,4 | G,,,4 |
+F,,,4- | F,,,2 |]

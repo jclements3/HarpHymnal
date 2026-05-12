@@ -1,0 +1,31 @@
+X: 1
+T: Were You There?
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: E
+[V: RH]
+"^V" B,- [B,E] [EG]2- | [EG]2 "^I" [DF] [CE] | "^V7" [DG]2 E2 | "^I" [B,E] [EG] [DB-]2 |
+[EB-] [FB] [Ec] [FB-] | [GB]2 [DF]2- | [DF]2 "^V" [EB-] [DB] | "^I6" [Ee-] [Ae] [GB-] [FB-] |
+[E-B]2 [E-c] [EB]- | [EB] "^I" [D-G]3 | "^IV" [DE-] [C-E] [CF] [=CE]- | [=CE-]2 [B,E]2 |
+"^V" [A,B,-] [F,B,]3 | "^IV6" [A,E] [CA] [B,G-] [EG]- | [EG-] "^V7" [D-G] [DF] E | "^iii" [DG]2 [B,E]2- |
+[B,E]2 |]
+[V: LH]
+B, [G,B,-] [E,B,]2- | [E,B,-]2 [B,,B,] [C,G,] | [B,,B,]2 [E,G,]2- | [E,-G,] [E,B,-] [G,B,] [F,A,] |
+[E,G,] [D,F,] [C,G,] [D,B,-] | [E,B,-]2 B,2- | B,2 [G,B,] [F,A,] | [G,B,] [A,C] [B,D-] [A,D] |
+[G,-E] [G,=D] [A,C] [E,G,]- | [E,G,] [B,,B,] [=C,A,]2 | [C,G,]2 [A,,A,]2- | [A,,-A,] [A,,E,-] [G,,E,-]2 |
+[A,,E,] [B,,D,]3 | [C,E,-] [A,,E,-] [B,,-E,] [B,,-G,] | [B,,-C] [B,,-B,] [B,,A,] [C,G,] | [G,,B,]2 [E,,E,]2- |
+[E,,E,]2 |]
+[V: Bs]
+B,,,4 | E,,,4 | B,,,4 | E,,,4- |
+E,,,4- | E,,,4 | B,,,4 | E,,,4- |
+E,,,4- | E,,,4 | A,,,4- | A,,,4 |
+B,,,4 | A,,,4 | B,,,4 | G,,,4 |
+E,,,2 |]

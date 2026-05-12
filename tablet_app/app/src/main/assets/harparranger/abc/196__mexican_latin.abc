@@ -1,0 +1,28 @@
+X: 1
+T: On Jordan's Bank the Baptist's Cry
+M: 3/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [A,D-] [B,D]2 | "^V" [CE] [D-F]2 | "^vi" [D-G] [DF]2 | "^V" [A,E] [F,D-]2 |
+"^IV" [B,D] [DA-] [GA-] | "^I" [FA-] [E-A] [E-B] | [Ec] [Fd-]2 | "^IV64" [Gd-] [Fd]2 |
+"^V6" [EA] [Dd-] [Fd-] | "^V" [E-d] [Ec]2 | "^I" [DA] [B,B-]2 | "^IV6" [D-B] [DA]2 |
+"^ii" [B,G] [EA]2 | "^I" [DF] [CE]2 | "^I6" [DF] [B,D]2 | "^I" [A,-C] [A,D]2 |]
+[V: LH]
+D,,3/2 D,/2 [D,F,A,] [D,F,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | B,,3/2 B,/2 [D,F,B,] [D,F,B,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] |
+G,,3/2 G,/2 [D,G,B,] [D,G,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+A,,3/2 A,/2 [C,E,A,] [C,E,A,] | A,,3/2 A,/2 [C,E,A,] [C,E,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | G,,3/2 G,/2 [D,G,B,] [D,G,B,] |
+E,,3/2 E,/2 [E,G,B,] [E,G,B,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] | D,,3/2 D,/2 [D,F,A,] [D,F,A,] |]
+[V: Bs]
+[D,,,D,,]3 | [A,,,A,,]3 | [B,,,B,,]3 | [A,,,A,,]3 |
+[G,,,G,,]3 | [D,,,D,,]3- | [D,,,D,,]3 | [G,,,G,,]3 |
+[A,,,A,,]3- | [A,,,A,,]3 | [D,,,D,,]3 | [G,,,G,,]3 |
+[E,,,E,,]3 | [D,,,D,,]3- | [D,,,D,,]3- | [D,,,D,,]3 |]

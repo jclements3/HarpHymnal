@@ -1,0 +1,25 @@
+X: 1
+T: Savior, Who Thy Flock Art Feeding
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: F
+[V: RH]
+"^I" [C-F] [CG] [FA] [EG] | "^V" [F-A] [FB] [Ec]2 | "^I" [CA]2 [F-d] [Fc] | "^ii" [DB] [FA] [DG]2 |
+"^iii" [E-A]4 | [Ec-]2 [Fc] A- | "^I" [Ac-] [G-c] [GA-] [FA] | "^V" [EG]2 [DF] [EG] |
+"^IV" [F-A] [F-B] [FA] [EG] | "^I" F4 |]
+[V: LH]
+[F,A,] [E,G,] [F,C] [G,B,] | [F,C] [D,F,] [C,G,]2 | [F,A,]2 [B,,B,] [F,,A,] | [G,,B,] [A,,C] [B,,D]2 |
+[A,,-_D]4 | [A,,A,] [G,,B,] [F,,A,] [F,-C] | [F,A,] [E,C-] [F,C-]2 | [C,C]2 [D,A,] [C,C-] |
+[F,C] [B,,D] [C,-C] [C,B,] | [F,,A,]4 |]
+[V: Bs]
+F,,,4 | C,,,4 | F,,,4 | G,,,4 |
+A,,,4- | A,,,4 | F,,,4 | C,,,4 |
+B,,,4 | F,,,4 |]

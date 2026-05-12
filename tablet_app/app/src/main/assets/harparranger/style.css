@@ -1,0 +1,104 @@
+:root {
+  --bg: #1b1b1f;
+  --fg: #e8e6e3;
+  --muted: #9a9a9a;
+  --pane: #232328;
+  --pane-edge: #36363d;
+  --accent: #0e7a6c;
+  --accent-hi: #1aa28e;
+  --warn: #e0a020;
+  --err: #d05050;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; height: 100%;
+  background: var(--bg); color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+body {
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px;
+  background: var(--accent);
+  border-bottom: 2px solid #0a5448;
+}
+.topbar h1 {
+  margin: 0; font-size: 20px; font-weight: 600;
+  flex: 1;
+}
+.status { font-size: 13px; opacity: 0.95; }
+.status.err { color: #ffd5d5; }
+
+.btn {
+  font: inherit; font-size: 15px;
+  background: var(--accent-hi); color: white;
+  border: 1px solid #0a5448; border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.btn:active { background: #0a5448; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.btn-secondary { background: #444; border-color: #222; }
+.btn-secondary:active { background: #222; }
+
+.controls {
+  display: flex; align-items: end; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px;
+  background: #18181c;
+  border-bottom: 1px solid var(--pane-edge);
+}
+.ctl { display: flex; flex-direction: column; gap: 4px; }
+.ctl > span {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.ctl input, .ctl select {
+  font: inherit; font-size: 15px;
+  background: #2a2a30; color: var(--fg);
+  border: 1px solid var(--pane-edge); border-radius: 5px;
+  padding: 8px 10px; min-width: 220px;
+}
+.ctl select { min-width: 240px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 10px; padding: 10px;
+  flex: 1; min-height: 0;
+}
+.pane {
+  background: var(--pane);
+  border: 1px solid var(--pane-edge); border-radius: 6px;
+  display: flex; flex-direction: column;
+  min-height: 0;
+}
+.pane h2 {
+  margin: 0; padding: 8px 12px;
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--pane-edge);
+}
+.pane-score #score {
+  flex: 1; overflow: auto;
+  padding: 12px;
+  background: #f5f3ee;
+}
+.pane-score #score svg { display: block; max-width: 100%; height: auto; }
+
+.pane-source textarea {
+  flex: 1; min-height: 0; resize: none;
+  background: #1a1a20; color: #d8d6d2;
+  border: none;
+  font: 13px/1.45 "JuliaMono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  padding: 12px;
+  white-space: pre;
+}
+
+@media (max-width: 1000px) {
+  .grid { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+}

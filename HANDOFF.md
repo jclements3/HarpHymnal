@@ -68,6 +68,67 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-12 evening — Harp Arranger tablet tile + full corpus bake)
+
+The SATB → pedal-harp arranger from the morning push (`90498e3`) is now
+wired into the tablet as the **Harp Arranger** tile. Static-only: no
+Flask, no Python at runtime — the entire corpus was pre-baked on the lab
+box and shipped flat inside the APK assets.
+
+### Pre-bake
+- `tools/satb_to_harp/bake_all.py` — `ProcessPoolExecutor`-parallel
+  driver that calls `analyze` + `consolidate` for every (hymn, pattern)
+  pair from `source/OpenHymnal.abc` × `somerset.AVAILABLE` ∪ `None`.
+- 281 hymns × 17 variants (default SATB + 16 Somerset LH patterns) =
+  **4777 ABC files**, all baked clean (0 failures) in ~4 min on
+  `--workers 32`.
+- Output written directly into the tablet asset tree:
+  `tablet_app/app/src/main/assets/harparranger/{manifest.json,abc/*.abc}`
+  (~19 MB total). File naming: `<NNN>__<pattern_slug>.abc`
+  (`default` for the no-pattern variant).
+- `manifest.json` carries: `hymns[{n,title}]`, `patterns[]` (ordered,
+  `null` first), `pattern_slugs{}`, `stats{}`, and `failures[]` (empty).
+
+### Tablet UI (`tablet_app/app/src/main/assets/harparranger/`)
+- Pure static HTML/JS/CSS. Vendored abc2svg-1.js (+ play-1, toaudio-1
+  for future audio).
+- `app.js`: loads `manifest.json` → hymn datalist + pattern dropdown.
+  Picking a hymn or changing the pattern fetches
+  `abc/NNN__slug.abc`, renders score via `Abc.tosvg`, and dumps the
+  ABC source into a read-only textarea on the right.
+- Two-pane layout (score 3fr, source 2fr), collapsing to stacked rows
+  below 1000px wide. Prev/Next buttons step through the corpus.
+- **No bundled audio** — instead, an **"Open in Composer →"** button
+  writes the current ABC into shared `localStorage`
+  (`abccomposer.abc` + `abccomposer.filename`) and navigates to the
+  Composer tile, which has its own bundled abcjs synth for playback.
+  Composer + Harp Arranger live under the same WebView origin
+  (`file:///android_asset/`) so localStorage is shared.
+
+### Home grid wiring
+- New tile **Harp Arranger** (family `harparranger`, banner `#0E7A6C`
+  teal) appended after the Nicene Creed tile in `renderHome()` —
+  home grid is now **15 tiles**.
+- Both the CSS rule (next to `.tile.creed`) and the
+  `makeTile({family:'harparranger', …, onTap → harparranger/index.html})`
+  call are inside the canonical `tablet_app/app/src/main/assets/index.html`.
+
+### Lab needs to do once
+1. `git pull`
+2. `cd tablet_app && ./gradlew installDebug` to land the new tile +
+   pre-baked corpus on the P90 (`P90YPDU16Y251200164`).
+
+### Not in this push
+- In-tile audio playback. The vendored `play-1.js` / `toaudio-1.js`
+  default to the `Scc1t2` soundfont path (network-dependent); shipping
+  audio for the tile means either (a) bundling SF2 patches, or (b)
+  vendoring the abcjs synth like the Composer does. v1 punts to the
+  Composer's existing audio path via the "Open in Composer" handoff.
+- Re-baking is a manual step. The home laptop should not re-run the
+  bake casually — same `--all` discipline as the rest of the corpus.
+
+---
+
 ## Current state (2026-05-12 — SATB → pedal-harp arranger + Somerset LH patterns)
 
 New end-to-end tool at `tools/satb_to_harp/` that takes a hymn from

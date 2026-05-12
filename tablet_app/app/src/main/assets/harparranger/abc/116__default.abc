@@ -1,0 +1,28 @@
+X: 1
+T: In These Our Days So Perilous
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: Gm
+[V: RH]
+"^i" [D-G]4 | "^iv" [DF] [=EG] [FB] [G-A] | "^i" G2- [GB]2 | "^ii°" [Ac-] [=Ec] [G-B] [G-c] |
+"^V" [Gd-] [_Gd-]3 | [F-d]2 [F-c] [Fd] | "^VIo" [G-B] [G-c] [GB] [_GA] | "^i" G2 [D-G] [D-F] |
+[DG] [GB] [Ec] [CG] | [D-_G] [DG]3 | "^bVII" [F-c]2 [Fd] [Ac] | "^i" [G-B] G [DB] [EA] |
+[DB]2 [EG-]2 | [DG]4 |]
+[V: LH]
+[G,B,-]3 [B,,B,] | [D,A,] [C,C] [B,,D-] [D,D] | [G,,B,]2 [G,D]2 | [F,F] [A,C] [G,D] [E,G,] |
+[D,-B,] [D,A,]3- | [D,A,] [B,,B,] [F,A,-] [D,A,] | [=E,G,] [C,E] [D,D]2 | [G,,B,-]2 [G,B,] [D,A,] |
+[G,B,] [E,G,-] [C,G,-] [E,G,] | [D,A,] [G,,B,]3 | [F,,A,]2 [B,,B,] [F,,A,] | [G,,D-] [G,-D] [G,B,] [C,C] |
+G,2 [E,B,] [C,C] | [G,,=B,]4 |]
+[V: Bs]
+G,,,4 | C,,,4 | G,,,4 | A,,,4 |
+D,,,4- | D,,,4 | E,,,4 | G,,,4- |
+G,,,4- | G,,,4 | F,,,4 | G,,,4- |
+G,,,4- | G,,,4 |]

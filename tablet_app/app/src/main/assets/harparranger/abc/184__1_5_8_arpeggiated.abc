@@ -1,0 +1,22 @@
+X: 1
+T: O Lord of Heav'n and Earth and Sea
+M: 4/4
+L: 1/4
+Q: 1/4=90
+%%staves {RH LH Bs}
+V: RH clef=treble
+%%MIDI program 46
+V: LH clef=bass
+%%MIDI program 46
+V: Bs clef=bass
+%%MIDI program 46
+K: D
+[V: RH]
+"^I" [D-A] [Dd] [Gc] [FA] | "^IV" [D-B] [DG] [CE] D- | "^I" [DF] A [FA] [DB] | "^ii" [Gc] [Fd-] [E-d] [Ec] |
+"^I6" [D-d] [DB] [FA] [B,G] | "^V6" E [D-F]2 [D-A] | "^vi" D- [D-F]2 [DE-] | "^I" [CE] D3 |]
+[V: LH]
+D, A, D,2 | G, D, G,2 | D, A, D,2 | E, B, E,2 |
+D, A, D,2 | A, E, A,2 | B, F, B,2 | D, A, D,2 |]
+[V: Bs]
+[D,,,D,,]4 | [G,,,G,,]4 | [D,,,D,,]4 | [E,,,E,,]4 |
+[D,,,D,,]4 | [A,,,A,,]4 | [B,,,B,,]4 | [D,,,D,,]4 |]
