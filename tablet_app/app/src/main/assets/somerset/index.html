@@ -3,45 +3,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>HarpHymnal — SATB → Pedal-Harp Arranger</title>
+  <title>HarpHymnal — Somerset</title>
   <link rel="stylesheet" href="style.css">
   <script src="vendor/abc2svg-1.js"></script>
+  <script src="vendor/toaudio-1.js"></script>
+  <script src="vendor/play-1.js"></script>
 </head>
 <body>
   <header class="topbar">
-    <button id="home-btn" class="btn btn-secondary">&larr; Home</button>
-    <h1>Harp Arranger</h1>
-    <span id="status" class="status"></span>
+    <h1>HarpHymnal &mdash; Somerset</h1>
+    <div class="controls">
+      <label>Hymn:
+        <input id="hymn-input" list="hymn-list"
+               placeholder="type number or title&hellip;" autocomplete="off">
+        <datalist id="hymn-list"></datalist>
+      </label>
+      <label>LH Pattern:
+        <select id="pattern-select">
+          <option value="">&mdash; SATB (no pattern) &mdash;</option>
+        </select>
+      </label>
+      <button id="arrange-btn">Arrange &#9654;</button>
+      <button id="play-btn">Play &#9654;</button>
+      <button id="stop-btn">Stop</button>
+      <button id="home-btn">&larr; Home</button>
+      <span id="status" class="status"></span>
+    </div>
   </header>
 
-  <section class="controls">
-    <label class="ctl">
-      <span>Hymn</span>
-      <input id="hymn-input" list="hymn-list" inputmode="search"
-             placeholder="type number or title…" autocomplete="off">
-      <datalist id="hymn-list"></datalist>
-    </label>
-    <label class="ctl">
-      <span>LH Pattern</span>
-      <select id="pattern-select">
-        <option value="__default__">— SATB (no pattern) —</option>
-      </select>
-    </label>
-    <button id="prev-btn"  class="btn btn-secondary">&laquo;</button>
-    <button id="next-btn"  class="btn btn-secondary">&raquo;</button>
-    <button id="compose-btn" class="btn">Open in Composer &rarr;</button>
-  </section>
-
   <main class="grid">
-    <section class="pane pane-score">
+    <section class="pane">
+      <h2>ABC source</h2>
+      <textarea id="abc-source" spellcheck="false" readonly
+                placeholder="ABC will appear here after Arrange."></textarea>
+    </section>
+    <section class="pane">
       <h2>Rendered score</h2>
       <div id="score"></div>
     </section>
-    <section class="pane pane-source">
-      <h2>ABC source</h2>
-      <textarea id="abc-source" spellcheck="false" readonly></textarea>
-    </section>
   </main>
+
+  <section class="audits">
+    <h2>Audits</h2>
+    <table id="audits-table">
+      <thead><tr><th>Beat</th><th>Severity</th><th>Message</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Hidden audio element used as the fallback MIDI player -->
+  <audio id="midi-audio" controls style="display:none"></audio>
 
   <script src="app.js"></script>
 </body>

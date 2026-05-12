@@ -1,227 +1,261 @@
 // HarpHymnal — Somerset (tablet tile, static-only).
 //
-// SATB → 2-hand pedal-harp arrangements + 16 Deborah Henson-Conant
-// Somerset LH patterns. Pre-baked corpus, no Python at runtime.
+// Mirrors the layout + behavior of tools/satb_to_harp/static/app.js (the
+// Flask version), adapted to read pre-baked artifacts from local assets
+// instead of hitting `/api/arrange` etc. The ABC textarea is readonly here
+// — Somerset is a viewer, not an editor.
 //
-// Reads `manifest.json` + pre-baked `abc/<NNN>__<pattern_slug>.abc` files
-// produced by `python3 -m tools.satb_to_harp.bake_all`. Renders score via
-// abc2svg. Playback is delegated to the Composer tile (sharing the WebView's
-// localStorage), which has its own bundled audio synth.
+// Static reads use XMLHttpRequest, not fetch(): Android WebView blocks
+// fetch() against file:// URLs even with setAllow*FileURLs(true).
 
-const $ = (s) => document.querySelector(s);
+const $ = (sel) => document.querySelector(sel);
+
 const els = {
-  status:    $("#status"),
-  hymnInput: $("#hymn-input"),
-  hymnList:  $("#hymn-list"),
-  pattern:   $("#pattern-select"),
-  prev:      $("#prev-btn"),
-  next:      $("#next-btn"),
-  compose:   $("#compose-btn"),
-  home:      $("#home-btn"),
-  score:     $("#score"),
-  abc:       $("#abc-source"),
+  input:    $('#hymn-input'),
+  datalist: $('#hymn-list'),
+  pattern:  $('#pattern-select'),
+  arrange:  $('#arrange-btn'),
+  play:     $('#play-btn'),
+  stop:     $('#stop-btn'),
+  home:     $('#home-btn'),
+  status:   $('#status'),
+  abc:      $('#abc-source'),
+  score:    $('#score'),
+  audits:   $('#audits-table tbody'),
+  audio:    $('#midi-audio'),
 };
 
-const state = {
-  manifest: null,
-  hymnsByLabel: new Map(),    // "001 Title" → n
-  hymnsByN:     new Map(),    // 1 → title
-  patternSlug:  new Map(),    // pattern name (or "__default__") → slug
-  patternNames: [],           // ordered, first is "__default__"
-  currentN: null,
-};
+let manifest = null;
+let hymnsByLabel = new Map();
+let hymnsByNumber = new Map();
+let patternSlugByName = new Map();   // "Calypso" → "calypso"; "" → "default"
 
-// ──────────────────────────────────────────────────────────────────────────
-//   Status
-// ──────────────────────────────────────────────────────────────────────────
-function status(msg, isErr) {
-  els.status.textContent = msg || "";
-  els.status.classList.toggle("err", !!isErr);
+// ───────────────────────────────────────────────────────────────────────────
+//   XHR helpers (fetch is blocked on file:// in Android WebView)
+// ───────────────────────────────────────────────────────────────────────────
+function xhrText(url) {
+  return new Promise((resolve, reject) => {
+    const x = new XMLHttpRequest();
+    x.open('GET', url, true);
+    x.responseType = 'text';
+    x.onload = () => {
+      const ok = x.status === 0 || (x.status >= 200 && x.status < 300);
+      if (ok) resolve(x.responseText);
+      else   reject(new Error('HTTP ' + x.status));
+    };
+    x.onerror = () => reject(new Error('network error'));
+    x.send();
+  });
 }
 
-// ──────────────────────────────────────────────────────────────────────────
-//   Manifest load
-// ──────────────────────────────────────────────────────────────────────────
-async function loadManifest() {
-  const r = await fetch("manifest.json", { cache: "no-cache" });
-  if (!r.ok) throw new Error("manifest.json: HTTP " + r.status);
-  const m = await r.json();
-  state.manifest = m;
-
-  // Hymns: build the datalist + lookup maps.
-  els.hymnList.innerHTML = "";
-  state.hymnsByLabel.clear();
-  state.hymnsByN.clear();
-  for (const h of m.hymns) {
-    const label = String(h.n).padStart(3, "0") + " " + h.title;
-    const opt = document.createElement("option");
-    opt.value = label;
-    els.hymnList.appendChild(opt);
-    state.hymnsByLabel.set(label, h.n);
-    state.hymnsByN.set(h.n, h.title);
-  }
-
-  // Patterns: dropdown options + slug lookup.
-  state.patternNames = [];
-  state.patternSlug.clear();
-  // Default goes first.
-  state.patternNames.push("__default__");
-  state.patternSlug.set("__default__", "default");
-  // existing default option already in the HTML
-  for (const [k, slug] of Object.entries(m.pattern_slugs || {})) {
-    if (k === "__default__") continue;
-    state.patternNames.push(k);
-    state.patternSlug.set(k, slug);
-    const opt = document.createElement("option");
-    opt.value = k; opt.textContent = k;
-    els.pattern.appendChild(opt);
-  }
-}
-
-// ──────────────────────────────────────────────────────────────────────────
-//   Resolve free-text input to a hymn number
-// ──────────────────────────────────────────────────────────────────────────
-function resolveN(raw) {
-  const v = (raw || "").trim();
-  if (!v) return null;
-  if (state.hymnsByLabel.has(v)) return state.hymnsByLabel.get(v);
-  // bare digits → zero-pad and find by label prefix
-  if (/^\d{1,3}$/.test(v)) {
-    const n = parseInt(v, 10);
-    if (state.hymnsByN.has(n)) return n;
-  }
-  // strip leading "NNN "
-  const m = v.match(/^(\d{1,3})\s+/);
-  if (m) {
-    const n = parseInt(m[1], 10);
-    if (state.hymnsByN.has(n)) return n;
-  }
-  // title substring (case-insensitive)
-  const lv = v.toLowerCase();
-  for (const [n, title] of state.hymnsByN.entries()) {
-    if (title.toLowerCase().includes(lv)) return n;
-  }
-  return null;
-}
-
-// ──────────────────────────────────────────────────────────────────────────
-//   abc2svg render
-// ──────────────────────────────────────────────────────────────────────────
-function renderScore(text) {
-  els.score.innerHTML = "";
+// ───────────────────────────────────────────────────────────────────────────
+//   abc2svg renderer
+// ───────────────────────────────────────────────────────────────────────────
+function renderABC(text) {
+  els.score.innerHTML = '';
   if (!text || !text.trim()) return;
-  if (typeof Abc !== "function") {
-    els.score.textContent = "(abc2svg not loaded)";
+  if (typeof Abc !== 'function') {
+    els.score.textContent = '(abc2svg not loaded)';
     return;
   }
   const chunks = [];
   try {
     const abc = new Abc({
       img_out(s) { chunks.push(s); },
-      errmsg(msg, l, c) { console.warn("abc2svg:", msg, "line", l, "col", c); },
-      read_file() { return ""; },
+      errmsg(msg, l, c) { console.warn('abc2svg:', msg, 'line', l, 'col', c); },
+      read_file() { return ''; },
       anno_stop() {},
     });
-    abc.tosvg("source.abc", text);
+    abc.tosvg('source.abc', text);
   } catch (e) {
-    els.score.textContent = "render error: " + e.message;
+    els.score.textContent = 'render error: ' + e.message;
     return;
   }
-  els.score.innerHTML = chunks.join("\n");
+  els.score.innerHTML = chunks.join('\n');
 }
 
-// ──────────────────────────────────────────────────────────────────────────
-//   Fetch + display one arrangement
-// ──────────────────────────────────────────────────────────────────────────
-async function show() {
-  const n = state.currentN;
-  if (!n) { status("pick a hymn", true); return; }
-  const patName = els.pattern.value || "__default__";
-  const slug = state.patternSlug.get(patName) || "default";
-  const file = "abc/" + String(n).padStart(3, "0") + "__" + slug + ".abc";
-  status("loading " + file + "…");
+// ───────────────────────────────────────────────────────────────────────────
+//   Audits table
+// ───────────────────────────────────────────────────────────────────────────
+function setAudits(audits) {
+  els.audits.innerHTML = '';
+  if (!audits || !audits.length) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = 3; td.style.color = '#888';
+    td.textContent = '(no audits)';
+    tr.appendChild(td); els.audits.appendChild(tr);
+    return;
+  }
+  for (const a of audits) {
+    const tr = document.createElement('tr');
+    tr.classList.add('sev-' + (a.severity || 'warn'));
+    const beat = document.createElement('td'); beat.textContent = a.beat ?? '';
+    const sev  = document.createElement('td'); sev.textContent  = a.severity ?? '';
+    const msg  = document.createElement('td'); msg.textContent  = a.message ?? '';
+    tr.append(beat, sev, msg);
+    els.audits.appendChild(tr);
+  }
+}
+
+function status(msg, isError) {
+  els.status.textContent = msg || '';
+  els.status.classList.toggle('err', !!isError);
+}
+
+// ───────────────────────────────────────────────────────────────────────────
+//   Bootstrap: load manifest, populate datalist + pattern dropdown
+// ───────────────────────────────────────────────────────────────────────────
+async function loadManifest() {
   try {
-    const r = await fetch(file, { cache: "force-cache" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    const text = await r.text();
+    const text = await xhrText('manifest.json');
+    manifest = JSON.parse(text);
+  } catch (e) {
+    status('load manifest failed: ' + e.message, true);
+    return;
+  }
+
+  // Hymns
+  els.datalist.innerHTML = '';
+  hymnsByLabel.clear(); hymnsByNumber.clear();
+  for (const h of (manifest.hymns || [])) {
+    const label = String(h.n).padStart(3, '0') + ' ' + h.title;
+    const opt = document.createElement('option');
+    opt.value = label;
+    els.datalist.appendChild(opt);
+    hymnsByLabel.set(label, h.title);
+    hymnsByNumber.set(String(h.n).padStart(3, '0'), h.title);
+  }
+  els.input.placeholder =
+    `type number or title (${(manifest.hymns || []).length} hymns)…`;
+
+  // Patterns: empty value is "default" (no pattern); other entries come
+  // from manifest.pattern_slugs (name → slug).
+  patternSlugByName.clear();
+  patternSlugByName.set('', 'default');
+  const slugs = manifest.pattern_slugs || {};
+  for (const [name, slug] of Object.entries(slugs)) {
+    if (name === '__default__') continue;
+    patternSlugByName.set(name, slug);
+    const opt = document.createElement('option');
+    opt.value = name; opt.textContent = name;
+    els.pattern.appendChild(opt);
+  }
+}
+
+function resolveHymnNumber(raw) {
+  const v = (raw || '').trim();
+  if (!v) return null;
+  if (hymnsByLabel.has(v)) {
+    return parseInt(v.slice(0, 3), 10);
+  }
+  if (/^\d{1,3}$/.test(v)) {
+    const k = v.padStart(3, '0');
+    if (hymnsByNumber.has(k)) return parseInt(k, 10);
+  }
+  const m = v.match(/^(\d{1,3})\s+/);
+  if (m) {
+    const k = m[1].padStart(3, '0');
+    if (hymnsByNumber.has(k)) return parseInt(k, 10);
+  }
+  // Title substring (case-insensitive)
+  const lv = v.toLowerCase();
+  for (const [key, title] of hymnsByNumber.entries()) {
+    if (title.toLowerCase().includes(lv)) return parseInt(key, 10);
+  }
+  return null;
+}
+
+// ───────────────────────────────────────────────────────────────────────────
+//   Arrange (= load a pre-baked ABC)
+// ───────────────────────────────────────────────────────────────────────────
+async function arrange() {
+  const n = resolveHymnNumber(els.input.value);
+  if (n == null) { status('pick a hymn first', true); return; }
+  const patName = els.pattern.value || '';
+  const slug = patternSlugByName.get(patName) || 'default';
+  const file = 'abc/' + String(n).padStart(3, '0') + '__' + slug + '.abc';
+
+  status('loading ' + file + '…');
+  els.arrange.disabled = true;
+  try {
+    const text = await xhrText(file);
     els.abc.value = text;
-    renderScore(text);
-    const title = state.hymnsByN.get(n) || "";
-    const pat = patName === "__default__" ? "default" : patName;
-    status(String(n).padStart(3, "0") + " " + title + " · " + pat);
+    renderABC(text);
+    setAudits([]);  // pre-baked corpus stripped audits to keep manifest small
+    const title = (hymnsByNumber.get(String(n).padStart(3, '0')) || '');
+    status(String(n).padStart(3, '0') + ' ' + title +
+           (patName ? ' · ' + patName : ' · default'));
   } catch (e) {
-    status("load failed: " + e.message, true);
-    els.abc.value = "";
-    els.score.innerHTML = "";
+    status('load failed: ' + e.message, true);
+    els.abc.value = '';
+    els.score.innerHTML = '';
+  } finally {
+    els.arrange.disabled = false;
   }
 }
 
-// ──────────────────────────────────────────────────────────────────────────
-//   Open the current ABC inside the Composer tile (shared localStorage).
-// ──────────────────────────────────────────────────────────────────────────
-function openInComposer() {
-  if (!els.abc.value.trim()) { status("nothing to open", true); return; }
-  const n = state.currentN;
-  const title = state.hymnsByN.get(n) || "untitled";
-  const slug = (title.replace(/[^A-Za-z0-9]+/g, "_").replace(/^_+|_+$/g, "").toLowerCase()
-                || "untitled");
-  const pat = els.pattern.value || "__default__";
-  const patSlug = state.patternSlug.get(pat) || "default";
-  const fname = String(n).padStart(3, "0") + "_" + slug + "__" + patSlug + ".abc";
+// ───────────────────────────────────────────────────────────────────────────
+//   Play / Stop  — in-browser via abc2svg's AbcPlay(). No server round-trip.
+//   On Android WebView the default soundfont URL is unreachable offline; if
+//   the synth fails we surface a status message rather than throwing.
+// ───────────────────────────────────────────────────────────────────────────
+let abcplay = null;
+async function play() {
+  const abc = els.abc.value;
+  if (!abc.trim()) { status('no ABC to play', true); return; }
+  if (typeof AbcPlay !== 'function') {
+    status('audio engine not loaded', true); return;
+  }
+  status('preparing audio…');
+  els.play.disabled = true;
   try {
-    localStorage.setItem("abccomposer.abc", els.abc.value);
-    localStorage.setItem("abccomposer.filename", fname);
+    if (!abcplay) {
+      abcplay = AbcPlay({
+        onend: () => status('done'),
+        errmsg: (m) => console.warn('AbcPlay:', m),
+      });
+    }
+    abcplay.clear();
+    const abc2 = new Abc({
+      img_out() {},
+      errmsg() {},
+      read_file() { return ''; },
+      anno_stop() {},
+      get_abcmodel(tsfirst, voice_tb) { abcplay.add(tsfirst, voice_tb); },
+    });
+    abc2.tosvg('play.abc', abc);
+    abcplay.play(0, -1);
+    status('playing');
   } catch (e) {
-    status("localStorage write failed: " + e.message, true);
-    return;
+    status('audio unavailable: ' + e.message, true);
+  } finally {
+    els.play.disabled = false;
   }
-  window.location.href = "../abccomposer/index.html";
 }
 
-// ──────────────────────────────────────────────────────────────────────────
+function stop() {
+  try { if (abcplay) abcplay.stop(); } catch {}
+  status('stopped');
+}
+
+// ───────────────────────────────────────────────────────────────────────────
 //   Wire up
-// ──────────────────────────────────────────────────────────────────────────
-function pickHymn() {
-  const n = resolveN(els.hymnInput.value);
-  if (n == null) { status("hymn not found", true); return; }
-  state.currentN = n;
-  show();
-}
+// ───────────────────────────────────────────────────────────────────────────
+els.arrange.addEventListener('click', arrange);
+els.play.addEventListener('click', play);
+els.stop.addEventListener('click', stop);
+els.home.addEventListener('click', () => { window.location.href = '../index.html'; });
+els.pattern.addEventListener('change', arrange);
+els.input.addEventListener('change', arrange);
+els.input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') arrange();
+});
 
-els.hymnInput.addEventListener("change", pickHymn);
-els.hymnInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") pickHymn();
-});
-els.pattern.addEventListener("change", show);
-els.prev.addEventListener("click", () => {
-  if (state.currentN && state.currentN > 1) {
-    state.currentN -= 1;
-    els.hymnInput.value = String(state.currentN).padStart(3, "0") + " " +
-                          state.hymnsByN.get(state.currentN);
-    show();
-  }
-});
-els.next.addEventListener("click", () => {
-  const max = state.manifest ? state.manifest.hymns.length : 0;
-  if (state.currentN && state.currentN < max) {
-    state.currentN += 1;
-    els.hymnInput.value = String(state.currentN).padStart(3, "0") + " " +
-                          state.hymnsByN.get(state.currentN);
-    show();
-  }
-});
-els.compose.addEventListener("click", openInComposer);
-els.home.addEventListener("click", () => { window.location.href = "../index.html"; });
-
-window.addEventListener("DOMContentLoaded", async () => {
-  try {
-    await loadManifest();
-    status("ready — " + state.manifest.hymns.length + " hymns × " +
-           state.patternNames.length + " variants");
-    state.currentN = 1;
-    els.hymnInput.value = "001 " + state.hymnsByN.get(1);
-    show();
-  } catch (e) {
-    status("init failed: " + e.message, true);
+window.addEventListener('DOMContentLoaded', async () => {
+  await loadManifest();
+  if (manifest) {
+    els.input.value = '001';
+    arrange();
   }
 });
