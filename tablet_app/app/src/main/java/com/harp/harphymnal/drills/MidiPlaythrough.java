@@ -2,6 +2,7 @@ package com.harp.harphymnal.drills;
 
 import android.content.Context;
 import android.media.AudioAttributes;
+import android.media.AudioDeviceInfo;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
@@ -85,6 +86,25 @@ public class MidiPlaythrough {
             .setBufferSizeInBytes(bufBytes)
             .setTransferMode(AudioTrack.MODE_STREAM)
             .build();
+
+        // Pin output to the built-in speaker. The SMK-37 PRO is a USB
+        // composite device (MIDI + audio sink); when it plugs in, Android
+        // may re-route media output TO the keyboard's audio interface,
+        // silencing the tablet speaker. Forcing the preferred device to
+        // BUILTIN_SPEAKER keeps the synth audible on the tablet.
+        try {
+            AudioManager am = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
+            AudioDeviceInfo[] outs = am.getDevices(AudioManager.GET_DEVICES_OUTPUTS);
+            for (AudioDeviceInfo d : outs) {
+                if (d.getType() == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER) {
+                    boolean ok = track.setPreferredDevice(d);
+                    Log.i(TAG, "AudioTrack pinned to built-in speaker: " + ok);
+                    break;
+                }
+            }
+        } catch (Throwable t) {
+            Log.w(TAG, "could not pin AudioTrack output", t);
+        }
 
         track.play();
         running = true;
