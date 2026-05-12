@@ -340,7 +340,16 @@ public class MidiPlaythrough {
     private enum VoiceStage { IDLE, ATTACK, SUSTAIN, RELEASE }
 
     private static final class Voice {
-        VoiceStage stage = VoiceStage.IDLE;
+        // `stage` is the synchronization handshake between the MIDI thread
+        // (which calls noteOn / noteOff) and the audio thread (which renders
+        // PCM). Marking it volatile gives the JMM happens-before edge so
+        // every write the MIDI thread performs BEFORE setting stage =
+        // ATTACK (freq, amp, phase, env, note) is visible to the audio
+        // thread when it observes the new stage. Without volatile the
+        // audio thread can read stage = ATTACK alongside freq = 0, which
+        // produces a silent DC voice — exactly the bug where notes get
+        // counted but no sound comes out.
+        volatile VoiceStage stage = VoiceStage.IDLE;
         int note = -1;
         float freq = 0f;
         float phase = 0f;
