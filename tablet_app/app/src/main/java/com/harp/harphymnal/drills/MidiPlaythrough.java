@@ -6,6 +6,7 @@ import android.media.AudioDeviceInfo;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
+import android.os.Build;
 import android.media.midi.MidiDevice;
 import android.media.midi.MidiDeviceInfo;
 import android.media.midi.MidiInputPort;
@@ -72,8 +73,12 @@ public class MidiPlaythrough {
         }
 
         int minBuf = AudioTrack.getMinBufferSize(SAMPLE_RATE, CHANNELS, ENCODING);
-        int bufBytes = Math.max(minBuf, 2048);
-        track = new AudioTrack.Builder()
+        // Low-latency mode: request the smallest viable buffer (just minBuf).
+        // The 2048-byte floor is only kept on pre-Oreo where LOW_LATENCY
+        // mode isn't available, so a tiny buffer would underrun.
+        boolean lowLat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;  // API 26
+        int bufBytes = lowLat ? minBuf : Math.max(minBuf, 2048);
+        AudioTrack.Builder b = new AudioTrack.Builder()
             .setAudioAttributes(new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_MEDIA)
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
@@ -84,8 +89,18 @@ public class MidiPlaythrough {
                 .setChannelMask(CHANNELS)
                 .build())
             .setBufferSizeInBytes(bufBytes)
-            .setTransferMode(AudioTrack.MODE_STREAM)
-            .build();
+            .setTransferMode(AudioTrack.MODE_STREAM);
+        if (lowLat) {
+            // PERFORMANCE_MODE_LOW_LATENCY hints the framework to route
+            // through the "fast mixer" path — typically halves end-to-end
+            // latency to ~10-15 ms on devices that support it. Safe to
+            // request unconditionally; framework falls back to NONE if
+            // hardware can't honor it.
+            b.setPerformanceMode(AudioTrack.PERFORMANCE_MODE_LOW_LATENCY);
+        }
+        track = b.build();
+        Log.i(TAG, "AudioTrack: minBuf=" + minBuf + " bufBytes=" + bufBytes
+            + " lowLat=" + lowLat);
 
         // Pin output to the built-in speaker. The SMK-37 PRO is a USB
         // composite device (MIDI + audio sink); when it plugs in, Android
