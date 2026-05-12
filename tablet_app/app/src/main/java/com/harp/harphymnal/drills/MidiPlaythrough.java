@@ -99,6 +99,7 @@ public class MidiPlaythrough {
 
     public void stop() {
         running = false;
+        allNotesOff();
         if (midi != null) midi.unregisterDeviceCallback(deviceCallback);
         for (MidiDevice d : openDevices) {
             try { d.close(); } catch (IOException ignored) {}
@@ -117,7 +118,13 @@ public class MidiPlaythrough {
     private final MidiManager.DeviceCallback deviceCallback =
         new MidiManager.DeviceCallback() {
             @Override public void onDeviceAdded(MidiDeviceInfo info)   { openOne(info); }
-            @Override public void onDeviceRemoved(MidiDeviceInfo info) { /* no-op */ }
+            @Override public void onDeviceRemoved(MidiDeviceInfo info) {
+                // Cable yanked mid-note → no note-off ever arrives. Kill
+                // every active voice so nothing rings forever. (Previously
+                // this was a no-op and the user got a stuck tone every
+                // time they disconnected the keyboard.)
+                allNotesOff();
+            }
         };
 
     private void rescanDevices() {
