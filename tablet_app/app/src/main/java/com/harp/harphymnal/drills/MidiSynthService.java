@@ -20,7 +20,11 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +77,26 @@ public class MidiSynthService extends Service {
             }
         } catch (Throwable t) {
             Log.w(TAG, "could not pin speaker device id", t);
+        }
+
+        // Copy the bundled SoundFont out of assets to filesDir so FluidLite
+        // can mmap/open it by absolute path. Only on first launch; the .sf2
+        // is immutable so a stale copy is fine.
+        try {
+            File sfFile = new File(getFilesDir(), "gm.sf2");
+            if (!sfFile.exists() || sfFile.length() < 1024) {
+                try (InputStream in = getAssets().open("soundfont/gm.sf2");
+                     OutputStream out = new FileOutputStream(sfFile)) {
+                    byte[] buf = new byte[64 * 1024];
+                    int n;
+                    while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+                }
+                Log.i(TAG, "extracted soundfont (" + sfFile.length() + " bytes) → " + sfFile);
+            }
+            OboeSynth.nativeSetSoundfontPath(sfFile.getAbsolutePath());
+        } catch (IOException e) {
+            Log.e(TAG, "failed to extract soundfont", e);
+            pushStatus("no soundfont");
         }
 
         if (OboeSynth.nativeStart()) {

@@ -24,4 +24,9 @@ public final class OboeSynth {
      *  Pass the BUILTIN_SPEAKER's getId() before nativeStart() so USB
      *  audio devices can't hijack the route. */
     public static native void    nativeSetSpeakerDeviceId(int id);
+    /** Set the absolute path of the .sf2 file FluidLite will load.
+     *  Must be a real filesystem path (not assets://) — the service
+     *  copies the bundled assets/soundfont/gm.sf2 to filesDir on first
+     *  launch. Call BEFORE nativeStart(). */
+    public static native void    nativeSetSoundfontPath(String path);
 }

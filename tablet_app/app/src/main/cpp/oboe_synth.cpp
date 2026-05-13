@@ -1,36 +1,42 @@
-// Native MIDI → audio synthesizer for HarpHymnal.
+// Native MIDI → SoundFont audio synthesizer for HarpHymnal.
 //
-// Replaces the Java AudioTrack synth (MidiPlaythrough.java) with a
-// C++/Oboe pipeline so we can:
-//   1. Hit sub-10 ms end-to-end latency (Oboe → AAudio Exclusive mode on
-//      API 26+, OpenSL ES fallback elsewhere).
-//   2. Render audio on a thread that's immune to Java GC pauses.
-//   3. Use a lock-free SPSC event queue between the MIDI (JNI) thread and
-//      the audio callback — eliminates the stuck-tone race where the Java
-//      synth's audio thread could overwrite the MIDI thread's RELEASE
-//      with a stale local snapshot at end-of-block.
+// Replaces the prior in-house triangle synth with FluidLite (a stripped-
+// down FluidSynth) so the keyboard sounds like a real GM acoustic grand
+// piano (or whatever bank/program is loaded). Output goes through the
+// same Oboe stream (AAudio Exclusive / LowLatency) so the latency profile
+// stays at ~5 ms/burst.
 //
-// Voice model: 16-voice polyphony, triangle wave, linear A/R envelope
-// (5 ms attack, 250 ms release). Same audible character as the Java
-// version, just routed through a tighter audio pipe.
+// Pipeline per audio callback:
+//   1. Drain SPSC event queue (note-on/off pushed from JNI MIDI thread)
+//      and apply each event via fluid_synth_noteon / fluid_synth_noteoff.
+//   2. Call fluid_synth_write_float() to render exactly `numFrames`
+//      stereo samples into Oboe's output buffer.
 //
 // JNI surface (called by OboeSynth.java):
-//   nativeStart()          — start Oboe stream
-//   nativeStop()           — stop + close
-//   nativeNoteOn(n,v)      — queue note-on event
-//   nativeNoteOff(n)       — queue note-off event
-//   nativeAllNotesOff()    — kill every active voice
-//   nativeGetLatencyMs()   — Oboe-reported end-to-end latency, for the
-//                            home-grid banner.
+//   nativeStart()                  — open Oboe + initialise FluidLite
+//   nativeStop()                   — tear both down
+//   nativeNoteOn(n,v) / NoteOff(n) — queue MIDI events
+//   nativeAllNotesOff()            — kill every active voice
+//   nativeNoteOnCount()            — counter for the home-grid banner
+//   nativeLatencyMs()              — Oboe-reported end-to-end latency
+//   nativeSetSpeakerDeviceId(id)   — pin output to BUILTIN_SPEAKER so
+//                                    USB-audio devices can't hijack
+//   nativeSetSoundfontPath(path)   — full path to the .sf2 file copied
+//                                    out of the APK to filesDir
 
 #include <atomic>
 #include <array>
-#include <cmath>
 #include <cstdint>
+#include <cstring>
+#include <string>
 #include <thread>
 #include <jni.h>
 #include <android/log.h>
 #include <oboe/Oboe.h>
+
+extern "C" {
+#include "fluidlite.h"
+}
 
 #define TAG "OboeSynth"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,  TAG, __VA_ARGS__)
@@ -39,22 +45,7 @@
 
 namespace {
 
-constexpr int   kPolyphony   = 16;
-constexpr float kMasterGain  = 0.18f;   // headroom for 16 voices
-constexpr float kAttackSec   = 0.005f;
-constexpr float kReleaseSec  = 0.25f;
-constexpr int   kQueueSize   = 256;     // must be power of two
-
-enum class Stage : uint8_t { Idle, Attack, Sustain, Release };
-
-struct Voice {
-    Stage stage = Stage::Idle;
-    int   note  = -1;
-    float freq  = 0.0f;
-    float phase = 0.0f;
-    float env   = 0.0f;
-    float amp   = 0.0f;
-};
+constexpr int kQueueSize = 256;          // power of two
 
 enum class EvKind : uint8_t { NoteOn, NoteOff, AllOff };
 struct Event {
@@ -63,17 +54,14 @@ struct Event {
     uint8_t vel;
 };
 
-// Lock-free single-producer (JNI/MIDI thread) single-consumer (audio
-// callback) ring buffer. Sized as a power of two so we can use a cheap
-// bitmask instead of modulus.
+// Lock-free single-producer / single-consumer ring buffer between the
+// JNI/MIDI thread and the audio callback.
 class EventQueue {
 public:
     bool push(const Event& e) {
         size_t w = w_.load(std::memory_order_relaxed);
         size_t r = r_.load(std::memory_order_acquire);
-        if (((w + 1) & (kQueueSize - 1)) == (r & (kQueueSize - 1))) {
-            return false;  // full
-        }
+        if (((w + 1) & (kQueueSize - 1)) == (r & (kQueueSize - 1))) return false;
         buf_[w & (kQueueSize - 1)] = e;
         w_.store(w + 1, std::memory_order_release);
         return true;
@@ -81,9 +69,7 @@ public:
     bool pop(Event& out) {
         size_t r = r_.load(std::memory_order_relaxed);
         size_t w = w_.load(std::memory_order_acquire);
-        if ((r & (kQueueSize - 1)) == (w & (kQueueSize - 1))) {
-            return false;  // empty
-        }
+        if ((r & (kQueueSize - 1)) == (w & (kQueueSize - 1))) return false;
         out = buf_[r & (kQueueSize - 1)];
         r_.store(r + 1, std::memory_order_release);
         return true;
@@ -97,27 +83,25 @@ private:
 class Synth : public oboe::AudioStreamDataCallback,
               public oboe::AudioStreamErrorCallback {
 public:
-    void setSpeakerDeviceId(int id) { speakerDeviceId_ = id; }
+    void setSpeakerDeviceId(int id)         { speakerDeviceId_ = id; }
+    void setSoundfontPath(const char* path) { soundfontPath_ = path ? path : ""; }
 
     bool start() {
         if (stream_) return true;
+
+        // ── Oboe stream first; we need its sample rate before initialising
+        //    FluidLite so the synth runs at the right rate. ───────────────
         oboe::AudioStreamBuilder b;
         b.setDirection(oboe::Direction::Output);
         b.setPerformanceMode(oboe::PerformanceMode::LowLatency);
-        b.setSharingMode(oboe::SharingMode::Exclusive);   // fall through to Shared if denied
+        b.setSharingMode(oboe::SharingMode::Exclusive);
         b.setFormat(oboe::AudioFormat::Float);
-        b.setChannelCount(oboe::ChannelCount::Mono);
+        b.setChannelCount(oboe::ChannelCount::Stereo);     // FluidLite is stereo
         b.setUsage(oboe::Usage::Media);
         b.setContentType(oboe::ContentType::Music);
         b.setDataCallback(this);
         b.setErrorCallback(this);
-        // Pin to the built-in speaker so USB-audio devices (e.g. the
-        // SMK-37 PRO's analog interface) can't hijack the route when
-        // plugged in. Caller passes 0 if it doesn't know; AAudio then
-        // falls back to default routing.
-        if (speakerDeviceId_ > 0) {
-            b.setDeviceId(speakerDeviceId_);
-        }
+        if (speakerDeviceId_ > 0) b.setDeviceId(speakerDeviceId_);
 
         oboe::Result r = b.openStream(stream_);
         if (r != oboe::Result::OK) {
@@ -125,36 +109,40 @@ public:
             stream_.reset();
             return false;
         }
-        sampleRate_   = stream_->getSampleRate();
-        invSampleRate_ = 1.0f / float(sampleRate_);
-        attackPerFrame_  = 1.0f / (kAttackSec  * float(sampleRate_));
-        releasePerFrame_ = 1.0f / (kReleaseSec * float(sampleRate_));
-
-        LOGI("Oboe stream: sr=%d, frames/burst=%d, sharing=%s, perf=%s",
+        sampleRate_ = stream_->getSampleRate();
+        LOGI("Oboe stream: sr=%d, frames/burst=%d, channels=%d, sharing=%s, perf=%s",
              sampleRate_, stream_->getFramesPerBurst(),
+             stream_->getChannelCount(),
              oboe::convertToText(stream_->getSharingMode()),
              oboe::convertToText(stream_->getPerformanceMode()));
-
-        // Buffer size: 2 bursts → typical 10 ms total at 240 Hz framerate.
         stream_->setBufferSizeInFrames(stream_->getFramesPerBurst() * 2);
+
+        // ── FluidLite synth ─────────────────────────────────────────────
+        if (!initFluid()) {
+            LOGE("FluidLite init failed");
+            stream_->close();
+            stream_.reset();
+            return false;
+        }
 
         r = stream_->requestStart();
         if (r != oboe::Result::OK) {
             LOGE("requestStart: %s", oboe::convertToText(r));
             stream_->close();
             stream_.reset();
+            destroyFluid();
             return false;
         }
         return true;
     }
 
     void stop() {
-        if (!stream_) return;
-        // Drain voices so the last buffer isn't a tone holding open.
-        for (auto& v : voices_) v.stage = Stage::Idle;
-        stream_->stop();
-        stream_->close();
-        stream_.reset();
+        if (stream_) {
+            stream_->stop();
+            stream_->close();
+            stream_.reset();
+        }
+        destroyFluid();
     }
 
     void noteOn(uint8_t note, uint8_t vel) {
@@ -172,17 +160,16 @@ public:
         return res ? res.value() : 0.0;
     }
 
-    // Oboe calls this on the audio thread *after* a disconnect (cable
-    // pulled, route change, USB device snatching the channel, ...).
-    // The old stream is already closed; we just need to reopen one.
-    // Don't reopen on the audio thread — Oboe explicitly says to use
-    // a new thread for the restart so the callback can drain.
+    // ── Oboe error callback: stream disconnected (cable, route change) ──
     void onErrorAfterClose(oboe::AudioStream* /*stream*/,
                            oboe::Result result) override {
         LOGW("stream disconnected: %s; restarting…", oboe::convertToText(result));
         std::thread([this] {
             stream_.reset();
-            for (int i = 0; i < kPolyphony; i++) voices_[i].stage = Stage::Idle;
+            // FluidLite state is per-instance and survives — but emit
+            // an all-sound-off so the new stream starts silent rather
+            // than picking up zombie voice tails.
+            if (fluid_) fluid_synth_system_reset(fluid_);
             start();
         }).detach();
     }
@@ -190,89 +177,91 @@ public:
     oboe::DataCallbackResult onAudioReady(oboe::AudioStream* /*s*/,
                                           void* audioData,
                                           int32_t numFrames) override {
-        // Drain queue at start of block (audio thread side of the SPSC).
+        // Drain queue → FluidLite (audio-thread side).
         Event e;
         while (queue_.pop(e)) {
             switch (e.kind) {
-                case EvKind::NoteOn:  handleNoteOn(e.note, e.vel); break;
-                case EvKind::NoteOff: handleNoteOff(e.note);       break;
-                case EvKind::AllOff:  handleAllOff();               break;
+                case EvKind::NoteOn:
+                    if (fluid_) fluid_synth_noteon(fluid_, 0, e.note, e.vel);
+                    break;
+                case EvKind::NoteOff:
+                    if (fluid_) fluid_synth_noteoff(fluid_, 0, e.note);
+                    break;
+                case EvKind::AllOff:
+                    if (fluid_) fluid_synth_system_reset(fluid_);
+                    break;
             }
         }
 
         float* out = static_cast<float*>(audioData);
-        for (int i = 0; i < numFrames; i++) out[i] = 0.0f;
-
-        for (auto& v : voices_) {
-            if (v.stage == Stage::Idle) continue;
-            float phase = v.phase;
-            float phaseInc = v.freq * invSampleRate_;
-            float env = v.env;
-            Stage st = v.stage;
-            for (int i = 0; i < numFrames; i++) {
-                if (st == Stage::Attack) {
-                    env += attackPerFrame_;
-                    if (env >= 1.0f) { env = 1.0f; st = Stage::Sustain; }
-                } else if (st == Stage::Release) {
-                    env -= releasePerFrame_;
-                    if (env <= 0.0f) { env = 0.0f; st = Stage::Idle; break; }
-                }
-                float tri = 4.0f * std::fabs(phase - std::floor(phase + 0.5f)) - 1.0f;
-                out[i] += tri * env * v.amp;
-                phase += phaseInc;
-                if (phase >= 1.0f) phase -= 1.0f;
-            }
-            v.phase = phase;
-            v.env = env;
-            v.stage = st;
+        if (!fluid_) {
+            std::memset(out, 0, sizeof(float) * numFrames * 2);
+            return oboe::DataCallbackResult::Continue;
         }
-
-        // Soft clip + master gain.
-        for (int i = 0; i < numFrames; i++) {
-            float s = out[i] * kMasterGain;
-            if (s >  1.0f) s =  1.0f;
-            if (s < -1.0f) s = -1.0f;
-            s = 1.5f * s - 0.5f * s * s * s;   // Chebyshev soft clip
-            out[i] = s;
-        }
+        // FluidLite writes interleaved L/R when stride args = 2.
+        fluid_synth_write_float(fluid_, numFrames,
+                                out, /*loff=*/0, /*lstride=*/2,
+                                out, /*roff=*/1, /*rstride=*/2);
         return oboe::DataCallbackResult::Continue;
     }
 
 private:
-    void handleNoteOn(uint8_t note, uint8_t vel) {
-        Voice* target = nullptr;
-        for (auto& v : voices_) if (v.stage == Stage::Idle) { target = &v; break; }
-        if (!target) for (auto& v : voices_) if (v.stage == Stage::Release) { target = &v; break; }
-        if (!target) target = &voices_[0];
+    bool initFluid() {
+        if (fluid_) return true;
+        settings_ = new_fluid_settings();
+        if (!settings_) return false;
+        fluid_settings_setnum(settings_, "synth.sample-rate", (double)sampleRate_);
+        fluid_settings_setint(settings_, "synth.polyphony", 64);
+        // Reverb / chorus off by default — they tax CPU and we want clean
+        // playthrough latency. Can be re-enabled per voice later.
+        fluid_settings_setint(settings_, "synth.reverb.active", 0);
+        fluid_settings_setint(settings_, "synth.chorus.active", 0);
 
-        target->note  = note;
-        target->freq  = 440.0f * std::pow(2.0f, (float(note) - 69.0f) / 12.0f);
-        target->phase = 0.0f;
-        target->amp   = float(vel) / 127.0f;
-        target->env   = 0.0f;
-        target->stage = Stage::Attack;
-    }
-    void handleNoteOff(uint8_t note) {
-        for (auto& v : voices_) {
-            if (v.note == note && v.stage != Stage::Idle && v.stage != Stage::Release) {
-                v.stage = Stage::Release;
-            }
+        fluid_ = new_fluid_synth(settings_);
+        if (!fluid_) {
+            delete_fluid_settings(settings_);
+            settings_ = nullptr;
+            return false;
         }
+        if (soundfontPath_.empty()) {
+            LOGW("no soundfont path set — synth will be silent");
+            return true;
+        }
+        // FLUID_OK = 0, FLUID_FAILED = -1 (per fluidsynth_priv.h, which is
+        // not in the public include path). fluid_synth_sfload returns the
+        // sfont id (positive) on success or -1 on error.
+        int sfid = fluid_synth_sfload(fluid_, soundfontPath_.c_str(), 1);
+        if (sfid < 0) {
+            LOGE("fluid_synth_sfload failed for %s", soundfontPath_.c_str());
+            return true;  // keep the synth alive, just no patches
+        }
+        LOGI("Soundfont loaded: %s (sfid=%d)", soundfontPath_.c_str(), sfid);
+        // Default to GM Acoustic Grand Piano (bank 0, program 0) on ch 0.
+        fluid_synth_program_change(fluid_, 0, 0);
+        return true;
     }
-    void handleAllOff() {
-        for (auto& v : voices_) if (v.stage != Stage::Idle) v.stage = Stage::Release;
+
+    void destroyFluid() {
+        if (fluid_) {
+            delete_fluid_synth(fluid_);
+            fluid_ = nullptr;
+        }
+        if (settings_) {
+            delete_fluid_settings(settings_);
+            settings_ = nullptr;
+        }
     }
 
     std::shared_ptr<oboe::AudioStream> stream_;
-    int   sampleRate_ = 48000;
-    float invSampleRate_ = 1.0f / 48000.0f;
-    float attackPerFrame_ = 0.0f;
-    float releasePerFrame_ = 0.0f;
+    int sampleRate_ = 48000;
+
+    fluid_synth_t*    fluid_    = nullptr;
+    fluid_settings_t* settings_ = nullptr;
 
     EventQueue queue_;
-    std::array<Voice, kPolyphony> voices_{};
     std::atomic<int> noteOnCount_{0};
     int speakerDeviceId_ = 0;
+    std::string soundfontPath_;
 };
 
 Synth g_synth;
@@ -284,12 +273,6 @@ extern "C" {
 JNIEXPORT jboolean JNICALL
 Java_com_harp_harphymnal_drills_OboeSynth_nativeStart(JNIEnv*, jclass) {
     return g_synth.start() ? JNI_TRUE : JNI_FALSE;
-}
-
-JNIEXPORT void JNICALL
-Java_com_harp_harphymnal_drills_OboeSynth_nativeSetSpeakerDeviceId(JNIEnv*, jclass,
-                                                                  jint id) {
-    g_synth.setSpeakerDeviceId((int)id);
 }
 
 JNIEXPORT void JNICALL
@@ -322,6 +305,21 @@ Java_com_harp_harphymnal_drills_OboeSynth_nativeNoteOnCount(JNIEnv*, jclass) {
 JNIEXPORT jdouble JNICALL
 Java_com_harp_harphymnal_drills_OboeSynth_nativeLatencyMs(JNIEnv*, jclass) {
     return (jdouble) g_synth.latencyMs();
+}
+
+JNIEXPORT void JNICALL
+Java_com_harp_harphymnal_drills_OboeSynth_nativeSetSpeakerDeviceId(JNIEnv*, jclass,
+                                                                  jint id) {
+    g_synth.setSpeakerDeviceId((int)id);
+}
+
+JNIEXPORT void JNICALL
+Java_com_harp_harphymnal_drills_OboeSynth_nativeSetSoundfontPath(JNIEnv* env, jclass,
+                                                                jstring jpath) {
+    if (!jpath) { g_synth.setSoundfontPath(""); return; }
+    const char* cstr = env->GetStringUTFChars(jpath, nullptr);
+    g_synth.setSoundfontPath(cstr);
+    env->ReleaseStringUTFChars(jpath, cstr);
 }
 
 }  // extern "C"
