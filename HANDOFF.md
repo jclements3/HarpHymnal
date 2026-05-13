@@ -68,6 +68,151 @@ This file should never lag `origin/main`.
 
 ---
 
+## Current state (2026-05-12 deep evening — USB-MIDI piano + Somerset UI revert)
+
+Two parallel threads landed late in the day:
+
+### A. USB-MIDI playthrough on the P90 (native, FluidLite, foreground service)
+
+Goal: plug a class-compliant USB MIDI keyboard (SMK-37 PRO) into the
+tablet's USB-C port and hear it through the tablet speakers — without
+HarpHymnal's UI needing to be open. Achieved end-to-end.
+
+**Architecture (5 new files, all under `tablet_app/app/src/main/`):**
+- `cpp/oboe_synth.cpp` — Oboe-driven C++ synth. AAudio Exclusive +
+  LowLatency performance mode (~5 ms/burst @ 48 kHz stereo). Drives
+  FluidLite via `fluid_synth_write_float()`. SPSC ring buffer between
+  the JNI MIDI thread and the audio callback — eliminates the
+  stuck-tone race the earlier Java synth had (audio thread could
+  overwrite the MIDI thread's RELEASE with a stale local snapshot at
+  end-of-block).
+- `cpp/fluidlite/` — vendored FluidLite source (stripped-down
+  FluidSynth fork, ~19 C files, no glib, no audio drivers). Built as a
+  static lib by CMake; SF3 / Ogg-Vorbis disabled because TimGM6mb.sf2
+  is uncompressed. Excludes `fluidsynth.c` (CLI main) and
+  `fluid_dsp_simple.c` (only valid when `#include`'d into a function).
+- `cpp/CMakeLists.txt` — builds `libfluidlite.a` + `libharphymnal_synth.so`.
+  Requires `prefab true` in app/build.gradle plus
+  `arguments '-DANDROID_STL=c++_shared'` (Oboe's prefab .so only matches
+  the shared STL — static blows up at link time).
+- `OboeSynth.java` — thin JNI surface: `nativeStart` / `nativeStop` /
+  `nativeNoteOn` / `nativeNoteOff` / `nativeAllNotesOff` /
+  `nativeSetSpeakerDeviceId` / `nativeSetSoundfontPath`.
+- `MidiSynthService.java` — foreground service holding the synth + the
+  `MidiManager.DeviceCallback`. Owns the WebView status banner
+  (`window.onMidiStatus(...)` via the existing
+  `MainActivity.runJsInActiveWebView` bridge). Lives independent of
+  MainActivity — even if the WebView is closed, plugging in the
+  keyboard makes sound.
+- `UsbMidiAttachActivity.java` + `res/xml/usb_midi_filter.xml` —
+  USB-attach intent filter on class 1 / subclass 3 (MIDI streaming).
+  Transparent launcher (Theme.NoDisplay, finish() in onCreate) that
+  starts the service then exits. First plug-in shows Android's
+  "Always open with HarpHymnal?" dialog; tick once and subsequent
+  plug-ins are silent / instant.
+- `assets/soundfont/gm.sf2` — TimGM6mb (5.97 MB) bundled as APK
+  asset; copied to filesDir on first launch so FluidLite can open by
+  path. GM patch bank, default to Acoustic Grand Piano on ch 0.
+
+**Manifest additions:** `android.software.midi`,
+`android.hardware.usb.host` (both `required="false"`),
+`FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_MEDIA_PLAYBACK`,
+`POST_NOTIFICATIONS`. New service declaration with
+`foregroundServiceType="mediaPlayback"`.
+
+**`MainActivity.java`** no longer holds a synth; it just starts the
+service in `onCreate`. The old `MidiPlaythrough.java` (Java AudioTrack
++ in-house triangle synth) was deleted — fully superseded.
+
+**Bug-fix lineage from the day (kept here so we remember what each
+commit was about if a regression appears):**
+- USB-audio hijack: SMK-37 PRO advertises a USB analog audio sink in
+  addition to MIDI. PulseAudio on the lab box auto-selected it as
+  default; Android would do the same to media routing. Defense:
+  `MidiSynthService.onCreate` queries `AudioManager` for
+  `BUILTIN_SPEAKER` device id and pins the Oboe stream to it via
+  `setDeviceId`. Same defense the earlier Java path had via
+  `AudioTrack.setPreferredDevice`.
+- Stream disconnects: `oboe::AudioStreamErrorCallback` reopens the
+  stream on a detached thread after disconnect; otherwise Exclusive-
+  mode streams just silently die on route changes.
+- Stuck tones on cable yank: `onDeviceRemoved` calls
+  `OboeSynth.nativeAllNotesOff` which queues an `AllOff` event into
+  the SPSC queue; the audio thread drains it next callback and
+  releases every voice via FluidLite's `fluid_synth_system_reset`.
+- Filter to external USB peripherals only — skip the tablet's own
+  "Android USB Peripheral Port" loopback (the thing that appeared
+  when USB Preferences was set to "MIDI" mode and emitted a phantom
+  note-on that hung as a tone), virtual MIDI services (a 3rd-party
+  `net.volcanomobile.midifileplayer` exposes one), and Bluetooth.
+- Open **every** output port the device advertises. SMK-37 PRO has 3
+  (Private / Master / MIDI 2-0-2); notes actually emit on port 0
+  ("Private") per the lab-box ALSA trace, but Android's port indexing
+  could reorder, so we subscribe to all of them.
+
+**Status banner** in the home grid (`#midi-status`) reflects what the
+service sees: `no device` / `connected: <name> · N/N ports` /
+`playing · N notes · last=<note>/<vel>` (updates every 16 notes) /
+`disconnected (<name>)`. Color-coded green / yellow / red.
+
+**Verified working:**
+- ALSA on the lab box: SMK-37 PRO emits clean note-on/off + velocity
+  + a CC on the mod wheel on port `External MIDI:0` (`SMK-37 Pro-
+  Private`). FluidSynth via `aconnect 24:0 128:0` produces audible
+  piano on the lab speakers (sink pinned to built-in audio with
+  `pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo`
+  to override PulseAudio's auto-pick of the SMK as default).
+- On the tablet: banner reaches `connected: SMK-37 Pro Midi · 3/3
+  ports`, note counter ticks as keys are pressed, and the GM piano
+  patch sounds through the speakers. User confirmed "sound good" with
+  FluidLite + TimGM6mb (vs. the earlier triangle synth which was
+  "rough").
+
+**Tablet caveats discovered:**
+- Media volume defaults to 0/15 on the P90 after a stuck-tone
+  scare. `adb shell input keyevent KEYCODE_VOLUME_UP` works for
+  remote adjustments; `cmd media_session volume --set` silently
+  ignores the request.
+- USB Preferences must be on **No data transfer** (or File Transfer),
+  NOT MIDI. The MIDI option there makes the **tablet** act as a MIDI
+  source for other hosts, exposing the "Android USB Peripheral Port"
+  loopback that our filter now skips but used to listen to and
+  produce stuck tones.
+- Single USB-C port means the cable goes EITHER to the lab box (for
+  `installDebug`) OR to the keyboard (for play). No way around it
+  without WiFi adb — PUBLIXGUEST has client isolation; lab WiFi
+  doesn't exist; phone hotspot is the suggested workaround when
+  iterating heavily.
+
+**To re-bake the APK from the home laptop:**
+`cd tablet_app && ./gradlew installDebug` — first compile of the
+native side downloads NDK 27.2 + builds FluidLite (~19 C files),
+~30 s cold, ~10 s incremental.
+
+### B. Somerset tile UI reverted to morning's Flask layout
+
+Earlier in the day I rewrote the Somerset tile UI with a different
+shape (3fr/2fr score-first layout, Prev/Next buttons, "Open in
+Composer" handoff, no audits table). User pushed back: that wasn't
+what they had this morning before the tablet integration. The tile
+is now byte-equivalent to `tools/satb_to_harp/static/index.html`'s
+layout — header with Hymn input + LH Pattern select + Arrange/Play/
+Stop buttons + ← Home button, 1fr/1fr ABC-source-on-left score-on-
+right two-pane main, audits table at the bottom, hidden audio
+element — with three forced deltas from the original:
+1. Title says "HarpHymnal — Somerset"
+2. ABC textarea is `readonly` (user direction: no editing in this
+   display)
+3. Static reads use `XMLHttpRequest`, not `fetch()` — Android
+   WebView blocks `fetch()` against `file://` URLs even with
+   `setAllow*FileURLs(true)` enabled. The `/api/*` Flask endpoints
+   from the dev server have static-file equivalents:
+   `/api/hymns + /api/patterns` → `manifest.json`,
+   `/api/arrange` → `abc/NNN__slug.abc`,
+   `/api/audio` → in-browser `AbcPlay()` (no Flask round-trip)
+
+---
+
 ## Current state (2026-05-12 late — Somerset pattern fidelity pass (18 patterns))
 
 Visual verification of `somerset.py` against the 19 source PNGs in
