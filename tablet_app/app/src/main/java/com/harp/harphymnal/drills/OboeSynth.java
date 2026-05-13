@@ -20,4 +20,8 @@ public final class OboeSynth {
     public static native void    nativeAllNotesOff();
     public static native int     nativeNoteOnCount();
     public static native double  nativeLatencyMs();
+    /** Pin the Oboe output stream to a specific AudioDeviceInfo ID.
+     *  Pass the BUILTIN_SPEAKER's getId() before nativeStart() so USB
+     *  audio devices can't hijack the route. */
+    public static native void    nativeSetSpeakerDeviceId(int id);
 }

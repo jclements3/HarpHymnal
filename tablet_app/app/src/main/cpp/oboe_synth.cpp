@@ -27,6 +27,7 @@
 #include <array>
 #include <cmath>
 #include <cstdint>
+#include <thread>
 #include <jni.h>
 #include <android/log.h>
 #include <oboe/Oboe.h>
@@ -93,8 +94,11 @@ private:
     std::atomic<size_t> r_{0};
 };
 
-class Synth : public oboe::AudioStreamDataCallback {
+class Synth : public oboe::AudioStreamDataCallback,
+              public oboe::AudioStreamErrorCallback {
 public:
+    void setSpeakerDeviceId(int id) { speakerDeviceId_ = id; }
+
     bool start() {
         if (stream_) return true;
         oboe::AudioStreamBuilder b;
@@ -106,6 +110,14 @@ public:
         b.setUsage(oboe::Usage::Media);
         b.setContentType(oboe::ContentType::Music);
         b.setDataCallback(this);
+        b.setErrorCallback(this);
+        // Pin to the built-in speaker so USB-audio devices (e.g. the
+        // SMK-37 PRO's analog interface) can't hijack the route when
+        // plugged in. Caller passes 0 if it doesn't know; AAudio then
+        // falls back to default routing.
+        if (speakerDeviceId_ > 0) {
+            b.setDeviceId(speakerDeviceId_);
+        }
 
         oboe::Result r = b.openStream(stream_);
         if (r != oboe::Result::OK) {
@@ -158,6 +170,21 @@ public:
         if (!stream_) return 0.0;
         auto res = stream_->calculateLatencyMillis();
         return res ? res.value() : 0.0;
+    }
+
+    // Oboe calls this on the audio thread *after* a disconnect (cable
+    // pulled, route change, USB device snatching the channel, ...).
+    // The old stream is already closed; we just need to reopen one.
+    // Don't reopen on the audio thread — Oboe explicitly says to use
+    // a new thread for the restart so the callback can drain.
+    void onErrorAfterClose(oboe::AudioStream* /*stream*/,
+                           oboe::Result result) override {
+        LOGW("stream disconnected: %s; restarting…", oboe::convertToText(result));
+        std::thread([this] {
+            stream_.reset();
+            for (int i = 0; i < kPolyphony; i++) voices_[i].stage = Stage::Idle;
+            start();
+        }).detach();
     }
 
     oboe::DataCallbackResult onAudioReady(oboe::AudioStream* /*s*/,
@@ -245,6 +272,7 @@ private:
     EventQueue queue_;
     std::array<Voice, kPolyphony> voices_{};
     std::atomic<int> noteOnCount_{0};
+    int speakerDeviceId_ = 0;
 };
 
 Synth g_synth;
@@ -256,6 +284,12 @@ extern "C" {
 JNIEXPORT jboolean JNICALL
 Java_com_harp_harphymnal_drills_OboeSynth_nativeStart(JNIEnv*, jclass) {
     return g_synth.start() ? JNI_TRUE : JNI_FALSE;
+}
+
+JNIEXPORT void JNICALL
+Java_com_harp_harphymnal_drills_OboeSynth_nativeSetSpeakerDeviceId(JNIEnv*, jclass,
+                                                                  jint id) {
+    g_synth.setSpeakerDeviceId((int)id);
 }
 
 JNIEXPORT void JNICALL

@@ -7,6 +7,8 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioDeviceInfo;
+import android.media.AudioManager;
 import android.media.midi.MidiDevice;
 import android.media.midi.MidiDeviceInfo;
 import android.media.midi.MidiManager;
@@ -55,6 +57,24 @@ public class MidiSynthService extends Service {
         super.onCreate();
         ensureChannel();
         startForeground(NOTIF_ID, buildNotification("starting…"));
+
+        // Pin Oboe's output to the built-in speaker BEFORE opening the
+        // stream — otherwise the USB-audio interface on the SMK-37 PRO
+        // (or any composite MIDI+audio device) will silently steal the
+        // route when plugged in and the synth goes inaudible.
+        try {
+            AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+            for (AudioDeviceInfo d : am.getDevices(AudioManager.GET_DEVICES_OUTPUTS)) {
+                if (d.getType() == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER) {
+                    OboeSynth.nativeSetSpeakerDeviceId(d.getId());
+                    Log.i(TAG, "pinned Oboe to BUILTIN_SPEAKER id=" + d.getId());
+                    break;
+                }
+            }
+        } catch (Throwable t) {
+            Log.w(TAG, "could not pin speaker device id", t);
+        }
+
         if (OboeSynth.nativeStart()) {
             synthRunning = true;
             Log.i(TAG, "Oboe synth started");
@@ -161,6 +181,7 @@ public class MidiSynthService extends Service {
     }
 
     // ─── MIDI receiver — parses bytes, forwards to native ───────────────────
+    private volatile int jvmNoteOnCount = 0;
     private class SynthReceiver extends MidiReceiver {
         @Override
         public void onSend(byte[] msg, int offset, int count, long timestamp) {
@@ -172,8 +193,19 @@ public class MidiSynthService extends Service {
                     if (i + 2 >= end) break;
                     int note = msg[i + 1] & 0x7F;
                     int vel  = msg[i + 2] & 0x7F;
-                    if (type == 0x90 && vel > 0) OboeSynth.nativeNoteOn(note, vel);
-                    else                          OboeSynth.nativeNoteOff(note);
+                    if (type == 0x90 && vel > 0) {
+                        OboeSynth.nativeNoteOn(note, vel);
+                        int n = ++jvmNoteOnCount;
+                        // Banner update every 16 notes — separates "events
+                        // arriving" (counter ticks) from "audio path broken"
+                        // (counter ticks but no sound).
+                        if ((n & 0x0F) == 1) {
+                            pushStatus("playing · " + n + " notes · last="
+                                + note + "/" + vel);
+                        }
+                    } else {
+                        OboeSynth.nativeNoteOff(note);
+                    }
                     i += 3;
                 } else if (type == 0xB0) {
                     if (i + 2 >= end) break;
