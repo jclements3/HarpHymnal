@@ -43,7 +43,6 @@ public class MainActivity extends Activity {
 
     private ValueCallback<Uri[]> pendingFileChooser = null;
     private WebView webView = null;
-    private MidiPlaythrough midi = null;
 
     // Same-process handle for the IME so it can dispatch JS into the
     // editor's WebView directly. InputConnection.sendKeyEvent(KEYCODE_ESCAPE)
@@ -147,25 +146,21 @@ public class MainActivity extends Activity {
 
         webView.loadUrl("file:///android_asset/index.html");
 
-        // USB-MIDI keyboard playthrough — runs continuously while the app
-        // is alive. No-op until a class-compliant MIDI device is plugged
-        // into the tablet's USB-C port.
+        // Kick off the MIDI synth foreground service. It runs independently
+        // of this Activity, so even if the user closes HarpHymnal the
+        // keyboard keeps playing. Also auto-started by UsbMidiAttachActivity
+        // when a USB MIDI device is plugged in while the app isn't open.
         try {
-            midi = new MidiPlaythrough(this);
-            midi.start();
+            Intent svc = new Intent(this, MidiSynthService.class);
+            svc.setAction(MidiSynthService.ACTION_START);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(svc);
+            } else {
+                startService(svc);
+            }
         } catch (Throwable t) {
-            // MIDI support is non-essential; never block app launch on it.
-            android.util.Log.w("MainActivity", "MIDI start failed", t);
+            android.util.Log.w("MainActivity", "MIDI service start failed", t);
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (midi != null) {
-            try { midi.stop(); } catch (Throwable ignored) {}
-            midi = null;
-        }
-        super.onDestroy();
     }
 
     /**
