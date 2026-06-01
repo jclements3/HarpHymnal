@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -144,7 +147,10 @@ public class MainActivity extends Activity {
         // JS-side bridge for Documents/HarpHymnal/ file I/O.
         webView.addJavascriptInterface(new Bridge(), "Bridge");
 
-        webView.loadUrl("file:///android_asset/index.html");
+        // Which asset page to open is determined by the launching component:
+        // the main HarpHymnal icon → index.html; the Practice launcher alias
+        // carries a `startUrl` meta-data that points straight at the hub.
+        webView.loadUrl("file:///android_asset/" + resolveStartUrl());
 
         // Kick off the MIDI synth foreground service. It runs independently
         // of this Activity, so even if the user closes HarpHymnal the
@@ -161,6 +167,29 @@ public class MainActivity extends Activity {
         } catch (Throwable t) {
             android.util.Log.w("MainActivity", "MIDI service start failed", t);
         }
+    }
+
+    /**
+     * Pick the asset page to load based on which launcher icon started us.
+     * The Practice activity-alias declares <meta-data name="startUrl"> in the
+     * manifest; the main HarpHymnal launcher has none, so we default to the
+     * home grid. Relative asset path, no leading slash.
+     */
+    private String resolveStartUrl() {
+        try {
+            ComponentName cn = getComponentName();      // the alias/activity actually launched
+            ActivityInfo ai = getPackageManager().getActivityInfo(
+                    cn, PackageManager.GET_META_DATA);
+            if (ai.metaData != null) {
+                String start = ai.metaData.getString("startUrl");
+                if (start != null && !start.isEmpty()) {
+                    return start;
+                }
+            }
+        } catch (Throwable t) {
+            android.util.Log.w("MainActivity", "startUrl resolve failed", t);
+        }
+        return "index.html";
     }
 
     /**

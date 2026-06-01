@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Practice</title>
+<!--
+  Practice — a single tabbed hub that gathers the three things you actually
+  sit down to play with:
+
+    Licks   → embeds ../licks/index.html  (the 101-licks viewer)
+    Drills  → embeds ../drills.html        (diatonic harp drills)
+    Hymnal  → native browser over window.HYMN_CATALOG (harphymnal_hymns.js):
+              292 hymns, each with a rendered SVG score + harp-timbre audio.
+              That catalog was previously orphaned (nothing loaded it).
+
+  Local-asset note: per the project's WebView gotcha, file:// blocks fetch().
+  We avoid fetch entirely — HYMN_CATALOG arrives via <script src>, scores via
+  <img src>, audio via <audio src>.  The Licks/Drills iframes are lazy-loaded
+  (src set on first tab activation) so the hub opens instantly.
+-->
+<style>
+  :root {
+    --bg:    #f7f3ea;
+    --ink:   #2a2a2a;
+    --muted: #888;
+    --line:  #d8d0c0;
+    --panel: #ffffff;
+    --panel-alt: #f0ece0;
+    --accent: #1F4E79;       /* practice family color */
+    --lhcol: #7B2B2B;
+    --rhcol: #1F4E79;
+    --tap:   rgba(37, 99, 235, 0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%; width: 100%;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  #app { display: flex; flex-direction: column; height: 100%; width: 100%; }
+
+  /* ──────── Tab bar ──────── */
+  #tabs {
+    display: flex; align-items: stretch;
+    background: var(--panel); border-bottom: 2px solid var(--line);
+    flex: 0 0 auto;
+  }
+  #tabs .brand {
+    display: flex; align-items: center;
+    font-size: 20px; font-weight: bold; color: var(--accent);
+    padding: 0 18px; border-right: 2px solid var(--line);
+    letter-spacing: 0.5px;
+  }
+  .tab {
+    flex: 1 1 0; min-height: 56px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px;
+    font-size: 18px; font-weight: 600; color: var(--muted);
+    background: transparent; border: none; border-bottom: 4px solid transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  }
+  .tab .dot { width: 12px; height: 12px; border-radius: 50%; background: currentColor; opacity: 0.55; }
+  .tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+  .tab.active .dot { opacity: 1; }
+  .tab.licks  .dot { color: #C0322A; }
+  .tab.drills .dot { color: #2C5F2C; }
+  .tab.hymnal .dot { color: #8B6914; }
+  #home-link {
+    flex: 0 0 auto; min-width: 56px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: var(--accent); text-decoration: none;
+    border-left: 2px solid var(--line);
+  }
+  #home-link:active { background: var(--tap); }
+
+  /* ──────── Panes ──────── */
+  #panes { position: relative; flex: 1 1 auto; overflow: hidden; }
+  .pane {
+    position: absolute; inset: 0;
+    display: none; flex-direction: column;
+  }
+  .pane.active { display: flex; }
+  .pane iframe { width: 100%; height: 100%; border: none; background: var(--bg); }
+
+  /* ──────── Hymnal pane ──────── */
+  #hymnal { flex-direction: row; }
+  #hy-list {
+    flex: 0 0 320px; max-width: 42%;
+    display: flex; flex-direction: column;
+    border-right: 2px solid var(--line); background: var(--panel-alt);
+  }
+  #hy-search-wrap { padding: 10px; border-bottom: 1px solid var(--line); background: var(--panel); }
+  #hy-search {
+    width: 100%; font-size: 17px; padding: 10px 12px;
+    border: 2px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink);
+  }
+  #hy-count { font-size: 12px; color: var(--muted); padding: 6px 12px 0; }
+  #hy-items { flex: 1 1 auto; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .hy-item {
+    padding: 12px 14px; border-bottom: 1px solid var(--line);
+    cursor: pointer; font-size: 16px; line-height: 1.3;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hy-item:active { background: var(--tap); }
+  .hy-item.sel { background: #e7eef6; border-left: 4px solid var(--accent); padding-left: 10px; }
+  .hy-item .meta { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  #hy-view { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; }
+  #hy-head {
+    flex: 0 0 auto; padding: 12px 18px; border-bottom: 2px solid var(--line);
+    background: var(--panel); display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  #hy-title { font-size: 22px; font-weight: bold; }
+  #hy-sub { font-size: 13px; color: var(--muted); }
+  #hy-audio { height: 40px; margin-left: auto; }
+  #hy-score-wrap {
+    flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch;
+    background: #fff; padding: 18px; text-align: center;
+  }
+  #hy-score { max-width: 100%; height: auto; }
+  .hy-empty {
+    flex: 1 1 auto; display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 18px; text-align: center; padding: 24px;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <nav id="tabs">
+    <div class="brand">Practice</div>
+    <button class="tab licks"  data-pane="licks"><span class="dot"></span>Licks</button>
+    <button class="tab drills" data-pane="drills"><span class="dot"></span>Drills</button>
+    <button class="tab hymnal active" data-pane="hymnal"><span class="dot"></span>Hymnal</button>
+    <a id="home-link" href="../index.html" title="Back to HarpHymnal home" aria-label="Home">&#8962;</a>
+  </nav>
+
+  <div id="panes">
+    <!-- Licks: lazy-loaded iframe over the existing 101-licks viewer -->
+    <section class="pane" id="licks" data-src="../licks/index.html">
+      <iframe data-lazy title="Licks"></iframe>
+    </section>
+
+    <!-- Drills: lazy-loaded iframe over the existing diatonic drills page -->
+    <section class="pane" id="drills" data-src="../drills.html">
+      <iframe data-lazy title="Drills"></iframe>
+    </section>
+
+    <!-- Hymnal: native browser over window.HYMN_CATALOG -->
+    <section class="pane active" id="hymnal">
+      <div id="hy-list">
+        <div id="hy-search-wrap">
+          <input id="hy-search" type="search" placeholder="Search hymns…" autocomplete="off" autocorrect="off" spellcheck="false">
+          <div id="hy-count"></div>
+        </div>
+        <div id="hy-items"></div>
+      </div>
+      <div id="hy-view">
+        <div class="hy-empty" id="hy-empty">Select a hymn to view its score.</div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- HYMN_CATALOG (292 hymns). Auto-generated by build_hymns_bundle.py. -->
+<script src="../harphymnal_hymns.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+
+  // ──────── Tab switching (lazy-load iframes on first activation) ────────
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var panes = {
+    licks:  $('licks'),
+    drills: $('drills'),
+    hymnal: $('hymnal'),
+  };
+
+  function activate(name) {
+    tabs.forEach(function (t) { t.classList.toggle('active', t.dataset.pane === name); });
+    Object.keys(panes).forEach(function (k) { panes[k].classList.toggle('active', k === name); });
+    var pane = panes[name];
+    var iframe = pane.querySelector('iframe[data-lazy]');
+    if (iframe && !iframe.src && pane.dataset.src) {
+      iframe.src = pane.dataset.src;   // load only when first shown
+    }
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { activate(t.dataset.pane); });
+  });
+
+  // ──────── Hymnal browser ────────
+  var CATALOG = (window.HYMN_CATALOG || []).slice().sort(function (a, b) {
+    return a.title.localeCompare(b.title);
+  });
+  var itemsEl  = $('hy-items');
+  var searchEl = $('hy-search');
+  var countEl  = $('hy-count');
+  var viewEl   = $('hy-view');
+  var selectedSlug = null;
+
+  function modeLabel(h) {
+    var bits = [];
+    if (h.key)  bits.push(h.key + (h.mode === 'minor' ? 'm' : ''));
+    return bits.join(' · ');
+  }
+
+  function renderList(filter) {
+    var q = (filter || '').trim().toLowerCase();
+    itemsEl.innerHTML = '';
+    var shown = 0;
+    CATALOG.forEach(function (h) {
+      if (q && h.title.toLowerCase().indexOf(q) === -1) return;
+      shown++;
+      var div = document.createElement('div');
+      div.className = 'hy-item' + (h.slug === selectedSlug ? ' sel' : '');
+      var meta = modeLabel(h);
+      div.innerHTML = esc(h.title) + (meta ? '<span class="meta">' + esc(meta) + '</span>' : '');
+      div.addEventListener('click', function () { showHymn(h); });
+      itemsEl.appendChild(div);
+    });
+    countEl.textContent = shown + (q ? ' of ' + CATALOG.length : '') + ' hymns';
+  }
+
+  function showHymn(h) {
+    selectedSlug = h.slug;
+    Array.prototype.forEach.call(itemsEl.children, function (c) { c.classList.remove('sel'); });
+    // re-flag the matching row
+    renderList(searchEl.value);
+
+    var hasAudio = !!h.audio;
+    viewEl.innerHTML =
+      '<div id="hy-head">' +
+        '<div>' +
+          '<div id="hy-title">' + esc(h.title) + '</div>' +
+          '<div id="hy-sub">' + esc(modeLabel(h) || '') + '</div>' +
+        '</div>' +
+        (hasAudio
+          ? '<audio id="hy-audio" controls preload="none" src="../' + esc(h.audio) + '"></audio>'
+          : '<div id="hy-sub" style="margin-left:auto">no audio</div>') +
+      '</div>' +
+      '<div id="hy-score-wrap">' +
+        '<img id="hy-score" alt="' + esc(h.title) + ' score" src="../' + esc(h.svg) + '" loading="lazy">' +
+      '</div>';
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  searchEl.addEventListener('input', function () { renderList(searchEl.value); });
+
+  if (!CATALOG.length) {
+    viewEl.innerHTML = '<div class="hy-empty">Hymn catalog not loaded — ' +
+      'check that harphymnal_hymns.js is present in the app assets.</div>';
+  }
+  renderList('');
+})();
+</script>
+</body>
+</html>

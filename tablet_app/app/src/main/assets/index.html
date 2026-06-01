@@ -155,6 +155,8 @@
   .tile.creed       { border-color: #4A2545; }
   .tile.somerset    .tile-banner { background: #0E7A6C; }
   .tile.somerset    { border-color: #0E7A6C; }
+  .tile.practice    .tile-banner { background: #1F4E79; }
+  .tile.practice    { border-color: #1F4E79; }
 
   /* ──────── Retab screen (reuses drill-section visuals) ──────── */
   #retab { display: none; flex-direction: column; height: 100%; }
@@ -1214,6 +1216,17 @@
   function renderHome() {
     const grid = $('tile-grid');
     grid.innerHTML = '';
+
+    // Practice tile — FIRST. One hub gathering the three things you sit down
+    // and play with: Licks + Drills + Hymnal (tabbed; see practice/index.html).
+    const practice = makeTile({
+      family: 'practice',
+      name:   'Practice',
+      rule:   'licks · drills · hymnal — one tabbed hub',
+      count:  '↗',
+      onTap:  () => { window.location.href = 'practice/index.html'; },
+    });
+    grid.appendChild(practice);
 
     // Retab tile — FIRST (primary content: style drills + RH pockets).
     const retabCount = (window.RETAB_DRILLS || []).length;
