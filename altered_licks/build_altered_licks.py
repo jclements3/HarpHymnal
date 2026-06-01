@@ -40,13 +40,13 @@ LICKS = {
     "D":[(53,"8"),(57,"8"),(60,"8"),(62,"8"),(64,"8"),(62,"8"),(60,"8"),(57,"8")],
     "G":[(59,"8"),(65,"8"),(70,"8"),(67,"8"),(68,"8"),(75,"8"),(71,"8"),(68,"8")],
     "C":[(74,"1")]},
- 3:{"dev":"Dm7: descending Dm7 arpeggio + scale fragment.  G7: AbMaj7 + Eb7 arpeggios.",
-    # NOTE: agent read a D-natural (62) at G-bar note 6 (low confidence); it breaks
-    # the D pedal and is out of the AbMaj7/Eb7 material -> corrected to Eb (63).
+ 3:{"dev":"Dm7: descending Dm7 arpeggio + scale fragment.  G7: AbMaj7 + Db-major over a natural-5 (D).",
+    # Re-verified from the TAB at high zoom: G-bar note 6 really is fret3/str2 = D natural
+    # (the natural 5th of G, a chord tone) -- NOT a misread. Keep it.
     "D":[(72,"8"),(69,"8"),(65,"8"),(62,"8"),(69,"8"),(70,"8"),(72,"8"),(69,"8")],
-    "G":[(72,"8"),(68,"8"),(63,"8"),(61,"8"),(65,"8"),(63,"8"),(60,"8"),(56,"8")],
+    "G":[(72,"8"),(68,"8"),(63,"8"),(61,"8"),(65,"8"),(62,"8"),(60,"8"),(56,"8")],
     "C":[(52,"1")],
-    "flag":"G-bar note 6 corrected D4->Eb4 (agent low-confidence read). Dm7 bar uses Bb (D natural minor) -> B pedal flat for bar 1."},
+    "flag":"Dm7 bar uses Bb (D natural minor) -> B pedal flat for bar 1. G7 bar has BOTH Db and D-natural -> a within-bar D pedal change (set Db, then snap to D-natural for note 6). C-natural here (AbMaj7 3rd), not Cb."},
  4:{"dev":"Dm7: D-dorian run + Fmaj7 shell.  G7: Bmaj7(b5) arpeggio + B-aug triad.",
     "D":[(50,"8"),(52,"8"),(53,"8"),(55,"8"),(53,"8"),(57,"8"),(64,"8"),(62,"8")],
     "G":[(58,"8"),(59,"8"),(63,"8"),(65,"8"),(68,"8"),(67,"8"),(71,"8"),(75,"8")],
@@ -55,12 +55,12 @@ LICKS = {
     "D":[(57,"8"),(60,"8"),(67,"8"),(64,"8"),(65,"8"),(69,"8"),(72,"8"),(76,"8")],
     "G":[(75,"8"),(71,"8"),(68,"8"),(70,"8"),(71,"8"),(73,"8"),(70,"8"),(68,"8")],
     "C":[(67,"1")]},
- 6:{"dev":"Dm7: Fmaj7 arpeggio (Dm9) then 4ths-from-D (Dm11).  G7: altered-scale sequence.",
-    # agent returned only 6 eighths in the G bar -> 2 notes likely missed; padded with z2.
+ 6:{"dev":"Dm7: Fmaj7 arpeggio (Dm9) then 4ths-from-D (Dm11).  G7: descending triad pair Eb-major + Db-major.",
+    # G bar re-read from the TAB at high zoom (the first pass missed 2 notes):
+    # frets 8,8,8 / 6,6,6 / 8,6 on strings 2,3,4 / 2,3,4 / 5,4 = two descending major triads.
     "D":[(53,"8"),(57,"8"),(60,"8"),(64,"8"),(62,"8"),(67,"8"),(72,"8"),(69,"8")],
-    "G":[(63,"8"),(67,"8"),(65,"8"),(59,"8"),(63,"8"),(61,"8")],
-    "C":[(55,"1")],
-    "flag":"G-bar transcription returned only 6 of ~8 eighths; padded to 4/4 with a rest -- VERIFY last 2 notes against the PDF."},
+    "G":[(67,"8"),(63,"8"),(58,"8"),(65,"8"),(61,"8"),(56,"8"),(53,"8"),(56,"8")],
+    "C":[(55,"1")]},
  7:{"dev":"Dm7: scalar, Dm7 triad on strong beats.  G7: tritone triads Ab-minor + Db-major.",
     "D":[(50,"8"),(52,"8"),(53,"8"),(55,"8"),(57,"8"),(60,"8"),(59,"8"),(57,"8")],
     "G":[(56,"8"),(59,"8"),(63,"8"),(61,"8"),(65,"8"),(68,"8"),(67,"8"),(65,"8")],
@@ -297,9 +297,13 @@ These are **chromatic** jazz licks and live OUTSIDE the diatonic Trefoil system
 resource, not part of the reharm engine.
 
 ## Caveats
-Transcribed from PDF images by automated readers; treat as a faithful-but-verify
-first pass. Lick 3 (one corrected note) and Lick 6 (G bar 2 notes short) are
-flagged in `HARP_NOTES.md` - check those against the PDF.
+Transcribed from the guitar TAB by automated readers. Licks 3, 5 and 6 were
+re-verified by hand against high-zoom crops of the TAB: lick 3's G bar really
+does use a natural-5 (D) -> a within-bar D pedal change (flagged in
+`HARP_NOTES.md`); lick 6's G bar is a descending Eb/Db triad pair (re-read to 8
+notes). The other 12 came back high-confidence and fit Ab melodic minor cleanly.
+Still a faithful-but-verify first pass -- spot-check against `src/` if a note
+sounds off.
 
 ## Render
 ```

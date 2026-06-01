@@ -25,9 +25,13 @@ These are **chromatic** jazz licks and live OUTSIDE the diatonic Trefoil system
 resource, not part of the reharm engine.
 
 ## Caveats
-Transcribed from PDF images by automated readers; treat as a faithful-but-verify
-first pass. Lick 3 (one corrected note) and Lick 6 (G bar 2 notes short) are
-flagged in `HARP_NOTES.md` - check those against the PDF.
+Transcribed from the guitar TAB by automated readers. Licks 3, 5 and 6 were
+re-verified by hand against high-zoom crops of the TAB: lick 3's G bar really
+does use a natural-5 (D) -> a within-bar D pedal change (flagged in
+`HARP_NOTES.md`); lick 6's G bar is a descending Eb/Db triad pair (re-read to 8
+notes). The other 12 came back high-confidence and fit Ab melodic minor cleanly.
+Still a faithful-but-verify first pass -- spot-check against `src/` if a note
+sounds off.
 
 ## Render
 ```

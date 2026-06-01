@@ -45,15 +45,16 @@ the V-I (bars 2-3) alone first.
 
 ## Lick 3
 
-*Dm7: descending Dm7 arpeggio + scale fragment.  G7: AbMaj7 + Eb7 arpeggios.*
+*Dm7: descending Dm7 arpeggio + scale fragment.  G7: AbMaj7 + Db-major over a natural-5 (D).*
 
 - **Dm7**: C5 A4 F4 D4 A4 Bb4 C5 A4
   - pedals: `D♮ C♮ Bb | E. F♮ G. A♮`
-- **G7alt**: C5 Ab4 Eb4 Db4 F4 Eb4 C4 Ab3
-  - pedals: `Db C♮ B. | Eb F♮ G. Ab`
+- **G7alt**: C5 Ab4 Eb4 Db4 F4 D4 C4 Ab3
+  - pedals: `Db/♮ C♮ B. | Eb F♮ G. Ab`
+  - WITHIN-BAR PEDAL CHANGE on: D (re-set mid-bar)
 - **Cmaj7**: E3
   - pedals: `D. C. B. | E♮ F. G. A.`
-- FLAG: G-bar note 6 corrected D4->Eb4 (agent low-confidence read). Dm7 bar uses Bb (D natural minor) -> B pedal flat for bar 1.
+- FLAG: Dm7 bar uses Bb (D natural minor) -> B pedal flat for bar 1. G7 bar has BOTH Db and D-natural -> a within-bar D pedal change (set Db, then snap to D-natural for note 6). C-natural here (AbMaj7 3rd), not Cb.
 - range: E3..C5
 
 ## Lick 4
@@ -82,15 +83,14 @@ the V-I (bars 2-3) alone first.
 
 ## Lick 6
 
-*Dm7: Fmaj7 arpeggio (Dm9) then 4ths-from-D (Dm11).  G7: altered-scale sequence.*
+*Dm7: Fmaj7 arpeggio (Dm9) then 4ths-from-D (Dm11).  G7: descending triad pair Eb-major + Db-major.*
 
 - **Dm7**: F3 A3 C4 E4 D4 G4 C5 A4
   - pedals: `D♮ C♮ B. | E♮ F♮ G♮ A♮`
-- **G7alt**: Eb4 G4 F4 B3 Eb4 Db4
-  - pedals: `Db Cb B. | Eb F♮ G♮ A.`
+- **G7alt**: G4 Eb4 Bb3 F4 Db4 Ab3 F3 Ab3
+  - pedals: `Db C. Bb | Eb F♮ G♮ Ab`
 - **Cmaj7**: G3
   - pedals: `D. C. B. | E. F. G♮ A.`
-- FLAG: G-bar transcription returned only 6 of ~8 eighths; padded to 4/4 with a rest -- VERIFY last 2 notes against the PDF.
 - range: F3..C5
 
 ## Lick 7
