@@ -41,18 +41,30 @@ def numeral_degree(numeral):
     m=re.match(r'([b#]?)([IViv]+)', numeral or "I")
     return NUM.get((m.group(2) if m else "I").upper(),0)
 
-def som_lh(key_root, numeral, B):
-    """Somerset oom-pah comp for one bar: bass root, then a 5th+10th block.
-    Uses safe durations so abcm2ps accepts any bar length."""
-    d=numeral_degree(numeral)
-    root="[%s]"%deg_to_abc(key_root,d,2)
-    block="[%s%s]"%(deg_to_abc(key_root,d+4,2), deg_to_abc(key_root,d+2,3))
-    if B>=4 and B%2==0:                              # root (1st half) | 5th+10th (2nd half), x2
-        q=B//2
-        return "%s %s %s %s"%(safe_dur(root,1), safe_dur(block,q-1),
-                              safe_dur(root,1), safe_dur(block,q-1))
-    return safe_dur("[%s%s%s]"%(deg_to_abc(key_root,d,2),deg_to_abc(key_root,d+4,2),
-                                 deg_to_abc(key_root,d+2,3)), B)   # held block fallback
+def _tones(key_root, d):
+    return (deg_to_abc(key_root,d,2),    # root (octave 2)
+            deg_to_abc(key_root,d+4,2),  # 5th
+            deg_to_abc(key_root,d+2,3),  # 10th (3rd up an octave)
+            deg_to_abc(key_root,d,3))    # root up an octave
+
+def som_lh(key_root, numeral, B, texture):
+    """Somerset LH comp for one bar in a chosen texture (all pedal-diatonic, safe durs)."""
+    d=numeral_degree(numeral); r,f,t,r2=_tones(key_root,d)
+    root="[%s]"%r; block="[%s%s]"%(f,t); full="[%s%s%s]"%(r,f,t)
+    even = (B>=4 and B%2==0)
+    if texture=="block":                 # held 1-5-10 block
+        return safe_dur(full, B)
+    if texture=="oompah" and even:       # bass | chord  x2
+        q=B//2; return "%s %s %s %s"%(safe_dur(root,1),safe_dur(block,q-1),safe_dur(root,1),safe_dur(block,q-1))
+    if texture=="stride" and B>=8 and B%4==0:   # bass chord bass chord (quarters)
+        u=B//4; return " ".join([safe_dur(root,u),safe_dur(block,u)]*2)
+    if texture=="arp" and even:          # 1-5-10-8 arpeggio across the bar
+        u=B//4 if B%4==0 else B//2
+        return " ".join(safe_dur("[%s]"%x,u) for x in [r,f,t,r2][:B//u])
+    if texture=="waltz" and B==6:        # oom-pah-pah (3/4)
+        return "%s %s %s"%(safe_dur(root,2),safe_dur(block,2),safe_dur(block,2))
+    # fallback: held block
+    return safe_dur(full, B)
 
 def arrange(hymn_path):
     h=json.load(open(hymn_path)); key=h["key"]["root"]; minor=(h["key"].get("mode")=="minor"); bars=h["bars"]
@@ -63,11 +75,18 @@ def arrange(hymn_path):
     out=["X:1","T:%s  -  jazz (Somerset LH x Larsen licks)"%h["title"],
          "C:trad., jazz arr. pedal harp","M:"+meter,"L:1/8","Q:1/4=92",
          "%%scale 0.62","%%nowrap true","%%score {1 | 2}","V:1 clef=treble name=\"RH\"","V:2 clef=bass name=\"LH\"","K:"+ksig]
+    # map each bar to its phrase so the LH texture changes phrase-to-phrase
+    bar2phr={}
+    for pi,p in enumerate(h.get("phrases") or []):
+        for ib in (p.get("ibars") or []): bar2phr[ib-1]=pi
+    TEX=["oompah","stride","block","arp"]
+    is34=(mt.get("beats")==3)
     rh=[]; lh=[]
-    for b in bars:
+    for bi,b in enumerate(bars):
         be=sum(max(1,round(e["duration"]*mult)) for e in b["melody"])
         rh.append(" ".join(mel_tok(e,mult) for e in b["melody"]))
-        lh.append(som_lh(key, (b["chord"] or {}).get("numeral","I"), be))
+        tex="waltz" if is34 else TEX[bar2phr.get(bi,bi//4)%len(TEX)]
+        lh.append(som_lh(key, (b["chord"] or {}).get("numeral","I"), be, tex))
     # group ~4 bars per system
     for i in range(0,len(bars),4):
         rg=rh[i:i+4]; lg=lh[i:i+4]
