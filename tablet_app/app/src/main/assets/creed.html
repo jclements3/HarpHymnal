@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Nicene Creed</title>
+<style>
+  :root{ --ink:#1a1612; --paper:#f6f1e7; --paper2:#efe7d4; --rule:#b8a988; --accent:#6b2c1f; --accent2:#8f3b29; }
+  *{box-sizing:border-box;} html,body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+  #bar{display:flex;align-items:center;gap:14px;padding:10px 18px;background:var(--paper2);
+       border-bottom:2px solid var(--rule);position:sticky;top:0;z-index:10;}
+  #bar a{color:var(--accent);text-decoration:none;font-weight:600;font-size:15px;}
+  #bar h1{flex:1;font-size:20px;color:var(--accent2);margin:0;}
+  #bar button{min-height:40px;border:1.5px solid var(--rule);border-radius:8px;
+              background:var(--paper);color:var(--ink);padding:6px 14px;font-size:15px;cursor:pointer;}
+  #note{padding:6px 18px 0;color:#8a7a5e;font-size:13px;font-style:italic;}
+  #score{padding:10px 14px 40px;}
+  #score > div{break-inside:avoid;page-break-inside:avoid;margin:0 auto;}
+  #score svg{display:block;overflow:visible;}
+  @media print{
+    @page{size:letter landscape;margin:0.4in;}
+    #bar,#note{display:none !important;}
+    #score{padding:0;} #score > div{break-inside:avoid;page-break-inside:avoid;}
+  }
+  .harp-home-fab{position:fixed;bottom:8px;right:8px;z-index:99;width:44px;height:44px;display:flex;
+    align-items:center;justify-content:center;font:bold 22px/1 -apple-system,sans-serif;color:#fff;
+    background:rgba(31,78,121,.88);border:1px solid rgba(0,0,0,.3);border-radius:8px;text-decoration:none;}
+</style></head><body>
+<div id="bar">
+  <a href="index.html">&larr; Home</a>
+  <h1>Nicene Creed</h1>
+  <button id="printBtn" title="Print (landscape)">&#128424; Print</button>
+</div>
+<div id="note">Diatonic harp setting of the 1662 BCP Nicene Creed — cycling the seven church modes. (Phase 1: "I believe")</div>
+<div id="score">Loading the creed…</div>
+<a class="harp-home-fab" href="index.html" title="Back to HarpHymnal home" aria-label="Home">&#8962;</a>
+
+<script src="abccomposer/vendor/abcjs-basic-min.js"></script>
+<script>
+function load(url, cb){
+  var x = new XMLHttpRequest();          // WebView blocks fetch() on file://; use XHR
+  x.open("GET", url, true);
+  x.onreadystatechange = function(){
+    if (x.readyState !== 4) return;
+    if (x.status === 200 || x.status === 0) cb(null, x.responseText);
+    else cb(new Error("HTTP " + x.status));
+  };
+  x.onerror = function(){ cb(new Error("network error")); };
+  try { x.send(); } catch(e){ cb(e); }
+}
+load("abccomposer/examples/nicene-creed.abc", function(err, abc){
+  var el = document.getElementById("score");
+  if (err){ el.textContent = "Could not load the creed: " + err.message; return; }
+  el.innerHTML = "";
+  try {
+    ABCJS.renderAbc("score", abc, {
+      responsive: "resize", oneSvgPerLine: true,
+      wrap: { minSpacing:1.8, maxSpacing:2.7, minSpacingLimit:1.0, lastLineLimit:true }
+    });
+  } catch(e){ el.textContent = "Render error: " + e.message; }
+});
+document.getElementById("printBtn").onclick = function(){
+  try { if (window.Bridge && Bridge.printPage) Bridge.printPage(); else window.print(); }
+  catch(e){ try { window.print(); } catch(_){} }
+};
+</script>
+</body></html>

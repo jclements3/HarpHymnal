@@ -29,29 +29,22 @@
   #count { margin-left: auto; font-size: 13px; color: var(--muted); }
 
   main {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 12px; padding: 14px;
+    display: grid; grid-template-columns: repeat(10, 1fr);
+    grid-auto-rows: calc((100vh - 188px) / 11);   /* 11 rows of 101 licks fill one screen, clear of the nav bar */
+    gap: 6px; padding: 10px 18px calc(14px + env(safe-area-inset-bottom));
   }
-
   .card {
-    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-    padding: 10px 12px; cursor: pointer;
-    display: flex; flex-direction: column; gap: 6px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-    transition: box-shadow 0.15s;
+    border: 1px solid var(--line); border-radius: 9px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: transform .08s;
   }
-  .card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
-  .card:active { background: #f0ece0; }
-
-  .card-head { display: flex; align-items: baseline; gap: 8px; }
-  .card-num   { font-size: 18px; font-weight: 700; color: var(--ink); }
-  .card-level {
-    font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px;
-    color: #fff; text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  .card-level.easy { background: var(--easy); }
-  .card-level.medium { background: var(--med); }
-  .card-level.advanced { background: var(--adv); }
+  .card:active { transform: scale(0.95); }
+  .card-num { font-size: 16px; font-weight: 800; line-height: 1; }
+  .card-num small { font-size: 10px; font-weight: 600; opacity: .55; margin-right: 2px; }
+  .card-lev { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; opacity: .8; }
+  .card.easy     { background:#e7f3ec; border-color:#c2e2cd; color:#235e42; }
+  .card.medium   { background:#f7edd6; border-color:#e6d2a2; color:#7a5b14; }
+  .card.advanced { background:#f6e2e2; border-color:#e3b9b9; color:#7a2121; }
   .card-grips {
     font-size: 12px; color: var(--muted);
     display: flex; flex-wrap: wrap; gap: 4px;
@@ -156,21 +149,12 @@ function render() {
   grid.innerHTML = "";
   for (const m of filtered) {
     const card = document.createElement("div");
-    card.className = "card";
     const num  = String(m.lick).padStart(3, "0");
     const lev  = (m.level_word || "").toLowerCase();
-    const activeGrips = (m.grips || []).filter(g => g.active).map(g => g.name);
+    card.className = "card " + lev;
     card.innerHTML =
-      '<div class="card-head">' +
-        '<span class="card-num">Lick ' + m.lick + '</span>' +
-        '<span class="card-level ' + lev + '">' + (m.level_word || "?") + '</span>' +
-      '</div>' +
-      '<div class="card-grips">' +
-        activeGrips.map(g =>
-          '<span class="grip-tag ' + gripClass(g) + '">' + gripShort(g) + '</span>'
-        ).join("") +
-      '</div>' +
-      '<img class="card-img" src="png/lick_' + num + '.png" alt="Lick ' + m.lick + '" loading="lazy"/>';
+      '<span class="card-num"><small>Lick</small>' + m.lick + '</span>' +
+      '<span class="card-lev">' + (m.level_word || "?") + '</span>';
     card.addEventListener("click", () => {
       // Navigate to the Composer with this lick loaded.
       window.location.href = "../abccomposer/index.html?load=lick_" + num;
