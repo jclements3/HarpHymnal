@@ -47,6 +47,15 @@ label { font-size: 13px; color: #888; }
 
 #app { display: flex; flex-direction: column; height: 100vh; }
 
+/* Harp print: keep each rendered system / drill score together on a page. */
+#score-container > div,
+#drill-area > div { break-inside: avoid; page-break-inside: avoid; }
+@media print {
+  @page { size: letter landscape; margin: 0.4in; }
+  #score-container > div,
+  #drill-area > div { break-inside: avoid; page-break-inside: avoid; margin: 0 auto 6px; }
+}
+
 /* Library browser */
 #library {
   flex: 1; min-height: 0;
@@ -265,6 +274,12 @@ body.mode-modern svg g.harm text tspan {
 </div>
 </div>
 
+<!-- abcjsharp fork: same renderer as every other harp app. Used for the static
+     drill-sheet renders below. The scrolling strip chart's primary path is
+     Verovio (MEI -> SVG + MIDI + timemap) which abcjs cannot replace, and the
+     ABC-fallback strip uses abc2svg's AbcPlay audio + anno_stop scroll rects;
+     both are kept intentionally. See report. -->
+<script src="vendor/abcjs-basic-min.js"></script>
 <script src="abc2svg/abc2svg-1.js"></script>
 <script src="abc2svg/snd-1.js"></script>
 <script src="verovio/verovio-toolkit-wasm.js"></script>
@@ -1814,12 +1829,13 @@ function renderAllChordsDrill(chordGroups, chordOrder, keyStr, drill) {
 
   console.log('renderAllChordsDrill ABC:\n' + abcStr.substring(0, 500));
   try {
-    var drillAbc = new abc2svg.Abc({
-      img_out: function(svg) { $container.innerHTML += svg; },
-      errmsg: function(msg) { console.warn('abc2svg drill:', msg); },
-      read_file: function() { return ''; }
+    // Render via the abcjsharp fork (static chord-sheet; %%nowrap keeps it on one
+    // continuous line for the horizontal layout).
+    var drillStr = abcStr.indexOf('%%nowrap') < 0
+      ? abcStr.replace(/^(X:.*\n)/m, '$1%%nowrap 1\n') : abcStr;
+    ABCJS.renderAbc($container, drillStr, {
+      responsive: 'resize', lyricsNoSpacing: true, add_classes: true
     });
-    drillAbc.tosvg('drill', abcStr);
   } catch(e) {
     console.error('Drill render error:', e);
     $container.innerHTML = '<div style="color:red;padding:20px;">Drill render error: ' + e.message + '</div>';
@@ -1993,6 +2009,10 @@ function renderHymnDrills(drill) {
   scoreDiv.style.padding = '4px';
 
   try {
+    // NOTE: this Tchaikovsky cadenza ABC uses abc2svg-specific spacer durations
+    // (x21, inline [L:1/64] micro-rests) that abcjs flags as "Duration not
+    // representable". It therefore stays on abc2svg. (renderHymnDrills is
+    // currently dead code with no caller, but is kept faithful to its source.)
     var target = scoreDiv;
     var drillAbc = new abc2svg.Abc({
       img_out: function(svg) { target.innerHTML += svg; },

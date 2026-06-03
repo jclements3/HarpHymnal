@@ -241,6 +241,28 @@ public class MainActivity extends Activity {
             sCmFocused = focused;
         }
 
+        /** Print the current WebView (the score) through the Android print
+         *  framework, landscape Letter to match the @media print CSS. JS calls
+         *  Bridge.printPage() from the topbar print button. */
+        @JavascriptInterface
+        public void printPage() {
+            runOnUiThread(() -> {
+                try {
+                    android.print.PrintManager pm = (android.print.PrintManager)
+                        getSystemService(android.content.Context.PRINT_SERVICE);
+                    String jobName = "HarpHymnal score";
+                    android.print.PrintDocumentAdapter adapter =
+                        webView.createPrintDocumentAdapter(jobName);
+                    android.print.PrintAttributes attrs = new android.print.PrintAttributes.Builder()
+                        .setMediaSize(android.print.PrintAttributes.MediaSize.NA_LETTER.asLandscape())
+                        .build();
+                    pm.print(jobName, adapter, attrs);
+                } catch (Throwable t) {
+                    android.util.Log.w("MainActivity", "printPage failed", t);
+                }
+            });
+        }
+
         /** Save (or overwrite) a UTF-8 text file under Documents/HarpHymnal/.
          *  Returns "OK" on success, "ERR: <reason>" on failure. */
         @JavascriptInterface

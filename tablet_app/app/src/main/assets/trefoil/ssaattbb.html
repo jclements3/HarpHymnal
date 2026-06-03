@@ -4,21 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 <title>Harp Score</title>
-<script src="abc2svg/abc2svg-1.js"></script>
-<script src="abc2svg/snd-1.js"></script>
-<script>
-abc2svg.jsdir = '';
-abc2svg.loadjs = function(fn, relay, onerror) {
-  var s = document.createElement('script');
-  s.src = fn;
-  s.onload = function() { if (relay) relay(); };
-  s.onerror = function() { if (onerror) onerror(fn); };
-  document.head.appendChild(s);
-};
-</script>
+<script src="vendor/abcjs-basic-min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 .abcr { fill: #2563eb !important; fill-opacity: 0; }
+
+/* Harp print: one grand staff per page-row, never split a system across pages. */
+#score-container > div { break-inside: avoid; page-break-inside: avoid; }
+@media print {
+  @page { size: letter landscape; margin: 0.4in; }
+  #score-container > div { break-inside: avoid; page-break-inside: avoid; margin: 0 auto 6px; }
+}
 body { font-family: -apple-system, sans-serif; height: 100vh; display: flex; flex-direction: column; background: #f5f5f5; }
 
 /* Top bar */
@@ -165,13 +161,248 @@ body { font-family: -apple-system, sans-serif; height: 100vh; display: flex; fle
 <script>
 var DATA = [], DRILLS = [], currentIdx = -1, isDrill = false;
 var recentItems = JSON.parse(localStorage.getItem('harpRecent') || '[]');  // [{type:'hymn'|'drill', idx:N, title:str}]
-var abcplay = null, playing = false, currentTune = null;
+var playing = false;
 var melodyOn = true, activeKey = 'All';
 var bpm = 80;
 var svgScale = 1, scrollX = 0, animId = null;
 var playStartTime = 0, playStartX = 0, playEndX = 0, playTotalDuration = 0;
 
 var $area = null, $container = null, $phGlow = null, $phLine = null;
+
+// ── Grand-staff alignment helpers (from hymnal/HarpHymnal.html + shape-chords-eb.html) ──
+// These self-noop on single-staff output, so calling them after every render is safe.
+function shiftPathY(d, yFn) {
+  const tokens = [];
+  const re = /([MmLlHhVvCcSsQqTtAaZz])|(-?\d+(?:\.\d+)?(?:e[+-]?\d+)?)/g;
+  let mm;
+  while ((mm = re.exec(d)) !== null) tokens.push(mm[1] || mm[2]);
+  const out = [];
+  let i = 0, prevCmd = '';
+  while (i < tokens.length) {
+    const tok = tokens[i];
+    if (/^[A-Za-z]$/.test(tok)) { out.push(tok); prevCmd = tok; i++; continue; }
+    const cmd = prevCmd.toUpperCase();
+    const isAbs = prevCmd === cmd;
+    let stride, yIdxs;
+    switch (cmd) {
+      case 'M': case 'L': case 'T': stride = 2; yIdxs = [1]; break;
+      case 'H': stride = 1; yIdxs = []; break;
+      case 'V': stride = 1; yIdxs = [0]; break;
+      case 'C': stride = 6; yIdxs = [1,3,5]; break;
+      case 'S': case 'Q': stride = 4; yIdxs = [1,3]; break;
+      case 'A': stride = 7; yIdxs = [6]; break;
+      default: stride = 2; yIdxs = []; break;
+    }
+    const args = tokens.slice(i, i + stride).map(Number);
+    if (args.length !== stride) break;
+    if (isAbs) yIdxs.forEach(yi => { args[yi] = yFn(args[yi]); });
+    args.forEach(n => out.push(+n.toFixed(4)));
+    i += stride;
+    if (prevCmd === 'M') prevCmd = 'L';
+    else if (prevCmd === 'm') prevCmd = 'l';
+  }
+  return out.join(' ');
+}
+
+function alignMiddleC(scoreEl) {
+  scoreEl.querySelectorAll('svg').forEach(svg => {
+    const isStaffLinePath = p => {
+      const d = p.getAttribute('d') || '';
+      const m = d.match(/^M\s+\d+(?:\.\d+)?\s+(\d+(?:\.\d+)?)\s+L\s+\d+(?:\.\d+)?\s+(\d+(?:\.\d+)?)\s+L\s+\d+(?:\.\d+)?\s+(\d+(?:\.\d+)?)/);
+      if (!m) return false;
+      const y1 = +m[1], y2 = +m[2], y3 = +m[3];
+      return y1 === y2 && Math.abs(y3 - y1) < 1.5;
+    };
+    const lineGroups = [];
+    svg.querySelectorAll('g').forEach(g => {
+      const ps = Array.from(g.children).filter(c => c.tagName.toLowerCase() === 'path');
+      if (ps.length === 5 && ps.every(isStaffLinePath)) lineGroups.push(g);
+    });
+    if (lineGroups.length < 2) return;
+    const yOf = p => parseFloat((p.getAttribute('d').match(/^M\s+\d+(?:\.\d+)?\s+(\d+(?:\.\d+)?)/) || [])[1]);
+    const NS = 'http://www.w3.org/2000/svg';
+    let totalDelta = 0;
+    const firstLineD = lineGroups[0].children[0].getAttribute('d') || '';
+    const staffOriginX = parseFloat((firstLineD.match(/^M\s+(\d+(?:\.\d+)?)/) || [])[1]) || 25;
+    const matchVerticalRect = d => {
+      const m = d.match(/^M\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s*L\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s*L\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s*L\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)/);
+      if (!m) return null;
+      const x1 = +m[1], y1 = +m[2], x2 = +m[3], y2 = +m[4], x3 = +m[5];
+      if (x1 !== x2 || Math.abs(x3 - x1) > 5) return null;
+      return { x: x1, y1, y2, width: Math.abs(x3 - x1) };
+    };
+    const isStartBarline = p => {
+      const r = matchVerticalRect(p.getAttribute('d') || '');
+      if (!r) return false;
+      return Math.abs(r.x - staffOriginX) < 2 && Math.abs(r.y2 - r.y1) > 30;
+    };
+    const thicken = (p, newWidth) => {
+      const r = matchVerticalRect(p.getAttribute('d') || '');
+      if (!r) return;
+      const yt = Math.min(r.y1, r.y2), yb = Math.max(r.y1, r.y2);
+      p.setAttribute('d',
+        'M ' + r.x + ' ' + yb + ' L ' + r.x + ' ' + yt +
+        ' L ' + (r.x + newWidth) + ' ' + yt +
+        ' L ' + (r.x + newWidth) + ' ' + yb + ' z');
+    };
+    const jobs = [];
+    for (let i = 0; i + 1 < lineGroups.length; i += 2) {
+      const trebleLG = lineGroups[i], bassLG = lineGroups[i + 1];
+      const parent = bassLG.parentNode;
+      const siblings = Array.from(parent.children);
+      const startIdx = siblings.indexOf(bassLG);
+      let endIdx = siblings.length;
+      if (i + 2 < lineGroups.length) {
+        const nextTreble = lineGroups[i + 2];
+        if (nextTreble.parentNode === parent) {
+          const nIdx = siblings.indexOf(nextTreble);
+          if (nIdx > startIdx) endIdx = nIdx;
+        }
+      }
+      const toWrap = siblings.slice(startIdx, endIdx);
+      const insertAt = siblings[endIdx] || null;
+      const trebleYs = Array.from(trebleLG.children).map(yOf).filter(y => !isNaN(y)).sort((a,b)=>a-b);
+      const bassYs   = Array.from(bassLG.children).map(yOf).filter(y => !isNaN(y)).sort((a,b)=>a-b);
+      if (trebleYs.length < 5 || bassYs.length < 5) continue;
+      const trebleBot = trebleYs[4], bassTop = bassYs[0];
+      const lineSpacing = trebleYs[1] - trebleYs[0];
+      const delta = (bassTop - trebleBot) - 2 * lineSpacing;
+      if (delta < 0.01) continue;
+      jobs.push({ parent, toWrap, insertAt, delta, threshold: (trebleBot + bassTop) / 2, trebleBot, bassTop });
+    }
+    const wrappers = [];
+    jobs.forEach(job => {
+      const toWrap = [];
+      job.toWrap.forEach(el => {
+        const dn = (el.getAttribute && el.getAttribute('data-name') || '').toLowerCase();
+        if (dn === 'bar') {
+          el.querySelectorAll('path').forEach(p => {
+            const d = p.getAttribute('d') || '';
+            p.setAttribute('d', shiftPathY(d, y => y >= job.threshold ? y - job.delta : y));
+          });
+          return;
+        }
+        if (el.tagName.toLowerCase() === 'path' && isStartBarline(el)) {
+          thicken(el, 1.8);
+          return;
+        }
+        toWrap.push(el);
+      });
+      const wrapper = svg.ownerDocument.createElementNS(NS, 'g');
+      wrapper.setAttribute('transform', 'translate(0, ' + (-job.delta).toFixed(3) + ')');
+      toWrap.forEach(el => wrapper.appendChild(el));
+      job.parent.insertBefore(wrapper, job.insertAt);
+      wrappers.push(wrapper);
+      totalDelta += job.delta;
+    });
+    svg.querySelectorAll('path').forEach(p => {
+      for (const w of wrappers) {
+        let a = p.parentNode;
+        while (a) { if (a === w) return; a = a.parentNode; }
+      }
+      let anc = p.parentNode;
+      while (anc && anc.getAttribute) {
+        if ((anc.getAttribute('data-name') || '').toLowerCase() === 'bar') return;
+        anc = anc.parentNode;
+      }
+      const d = p.getAttribute('d') || '';
+      const nums = (d.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+      if (!nums.length) return;
+      const xs = [], ys = [];
+      for (let i = 0; i < nums.length; i += 2) { xs.push(nums[i]); ys.push(nums[i + 1]); }
+      const xmin = Math.min(...xs), xmax = Math.max(...xs);
+      const ymin = Math.min(...ys), ymax = Math.max(...ys);
+      const isBrace = /[Cc]/.test(d) && xmin < staffOriginX - 2 && xmax < staffOriginX + 12;
+      const isStartBar = !isBrace && (xmax - xmin) < 5 && Math.abs(xmin - staffOriginX) < 2 && (ymax - ymin) > 30;
+      if (!isBrace && !isStartBar) return;
+      for (const job of jobs) {
+        if (ymin < job.threshold && ymax >= job.threshold
+            && ymin > job.trebleBot - 100 && ymax < job.bassTop + 400) {
+          if (isBrace) {
+            const yRange = ymax - ymin;
+            const scaleY = yRange > 0.01 ? (yRange - job.delta) / yRange : 1;
+            p.setAttribute('transform',
+              'translate(' + (staffOriginX - 2).toFixed(3) + ',' + ymin.toFixed(3) + ')'
+              + ' scale(0.5,' + scaleY.toFixed(5) + ')'
+              + ' translate(' + (-staffOriginX).toFixed(3) + ',' + (-ymin).toFixed(3) + ')');
+          } else {
+            p.setAttribute('d', shiftPathY(d, y => y >= job.threshold ? y - job.delta : y));
+          }
+          return;
+        }
+      }
+    });
+    const lastDelta = jobs.length > 0 ? jobs[jobs.length - 1].delta : 0;
+    if (lastDelta > 0) {
+      const h = parseFloat(svg.getAttribute('height') || '0');
+      if (h > 0) svg.setAttribute('height', (h - lastDelta).toFixed(3));
+      const vb = (svg.getAttribute('viewBox') || '').split(/\s+/).map(Number);
+      if (vb.length === 4 && !isNaN(vb[3])) {
+        vb[3] -= lastDelta;
+        svg.setAttribute('viewBox', vb.join(' '));
+      }
+    }
+  });
+}
+
+function shiftAbsX(d, dx) {
+  const toks = d.match(/[A-Za-z]|-?\d+(?:\.\d+)?(?:e[+-]?\d+)?/g) || [];
+  const stride = { M: 2, L: 2, T: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, A: 7, Z: 0 };
+  const xIdx = { M: [0], L: [0], T: [0], H: [0], C: [0, 2, 4], S: [0, 2], Q: [0, 2], A: [5] };
+  const out = []; let i = 0, cmd = '';
+  while (i < toks.length) {
+    const t = toks[i];
+    if (/[A-Za-z]/.test(t)) { out.push(t); cmd = t; i++; continue; }
+    const up = cmd.toUpperCase(); const st = stride[up] || 2;
+    const idxs = (cmd === up) ? (xIdx[up] || []) : [];
+    const args = toks.slice(i, i + st).map(Number);
+    if (args.length < st) { while (i < toks.length) out.push(toks[i++]); break; }
+    idxs.forEach(xi => { args[xi] += dx; });
+    args.forEach(n => out.push('' + (+n.toFixed(3))));
+    i += st;
+    if (cmd === 'M') cmd = 'L'; else if (cmd === 'm') cmd = 'l';
+  }
+  return out.join(' ');
+}
+
+function snapSystems(scoreEl) {
+  const svgs = Array.prototype.slice.call(scoreEl.querySelectorAll('svg'))
+    .filter(svg => svg.querySelectorAll('g[data-name="bar"]').length >= 7);
+  if (svgs.length < 2) return;
+  const info = svgs.map(svg => {
+    let firstBar = Infinity, maxX = 0;
+    svg.querySelectorAll('g[data-name="bar"] > path, path[data-name="bar"]').forEach(p => {
+      const mm = (p.getAttribute('d') || '').match(/-?\d+(?:\.\d+)?/);
+      if (mm) { const x = +mm[0]; if (x < firstBar) firstBar = x; }
+    });
+    svg.querySelectorAll('path').forEach(p => {
+      const nums = (p.getAttribute('d') || '').match(/-?\d+(?:\.\d+)?/g) || [];
+      for (let i = 0; i < nums.length - 1; i += 2) { const x = +nums[i]; if (x > maxX) maxX = x; }
+    });
+    return { svg, firstBar, maxX };
+  });
+  const target = Math.max.apply(null, info.map(i => i.firstBar));
+  let commonW = 0;
+  info.forEach(i => { const r = i.maxX + (target - i.firstBar); if (r > commonW) commonW = r; });
+  commonW = Math.ceil(commonW + 16);
+  info.forEach(i => {
+    const dx = target - i.firstBar;
+    if (Math.abs(dx) > 0.5) {
+      i.svg.querySelectorAll('path').forEach(p => p.setAttribute('d', shiftAbsX(p.getAttribute('d'), dx)));
+      i.svg.querySelectorAll('text').forEach(t => {
+        const x = parseFloat(t.getAttribute('x'));
+        if (!isNaN(x)) t.setAttribute('x', x + dx);
+        t.querySelectorAll('tspan').forEach(ts => {
+          const tx = parseFloat(ts.getAttribute('x'));
+          if (!isNaN(tx)) ts.setAttribute('x', tx + dx);
+        });
+      });
+    }
+    const vb = (i.svg.getAttribute('viewBox') || '').split(/\s+/).map(Number);
+    const minY = vb.length === 4 ? vb[1] : 0, h = vb.length === 4 ? vb[3] : 100;
+    i.svg.setAttribute('viewBox', '0 ' + minY + ' ' + commonW + ' ' + h);
+  });
+}
 
 function getPlayheadX() { return $area.offsetWidth * 0.05; }
 
@@ -182,13 +413,20 @@ function setScroll(x) {
 
 function animateScroll(now) {
   if (!now) now = performance.now();
+  var t = 1.0;
   if (playTotalDuration > 0) {
     var elapsed = now - playStartTime;
-    var t = Math.min(elapsed / playTotalDuration, 1.0);
+    t = Math.min(elapsed / playTotalDuration, 1.0);
     setScroll(playStartX + (playEndX - playStartX) * t);
   }
-  if (playing) {
+  if (playing && t < 1.0) {
     animId = requestAnimationFrame(animateScroll);
+  } else if (playing) {
+    // Scroll reached the end — stop audio + reset transport.
+    playing = false;
+    if (synthControl) { try { synthControl.pause(); } catch (e) {} }
+    updatePlayBtn();
+    stopScrollAnim();
   }
 }
 
@@ -461,91 +699,159 @@ function render() {
   }
 }
 
+// currentVisualObj holds the abcjs TuneObject (for synth audio + note timing).
+var currentVisualObj = null;
 function renderAbc(abcText) {
   $container.innerHTML = '';
 
-  if (abcplay && playing) { abcplay.stop(); playing = false; updatePlayBtn(); stopScrollAnim(); }
+  if (synthControl && playing) { synthControl.pause(); playing = false; updatePlayBtn(); stopScrollAnim(); }
 
-  var user = {
-    img_out: function(svg) { $container.innerHTML += svg; },
-    anno_stop: function(type, start, stop, x, y, w, h) {
-      if (type !== 'note' && type !== 'rest') return;
-      if (abc.out_sxsy && abc.sh) {
-        abc.out_svg('<rect class="abcr _' + start + '_" x="');
-        abc.out_sxsy(x, '" y="', y);
-        abc.out_svg('" width="' + w.toFixed(2) + '" height="' + abc.sh(h).toFixed(2) + '"/>\n');
-      } else {
-        abc.out_svg('<rect class="abcr _' + start + '_" x="' + x.toFixed(2) +
-          '" y="' + y.toFixed(2) + '" width="' + w.toFixed(2) + '" height="' + h.toFixed(2) + '"/>\n');
-      }
-    },
-    errmsg: function(msg) { console.warn('abc2svg:', msg); },
-    read_file: function() { return ''; },
-    get_abcmodel: function(tsfirst, voice_tb, anno_type, info) {
-      currentTune = [tsfirst, voice_tb, anno_type, info];
+  // This page is a continuous HORIZONTAL strip chart scrolled via translateX:
+  // the whole hymn must render as ONE wide SVG on a single line. The fork's
+  // %%nowrap directive (already implied by the source's %%continueall) keeps the
+  // music on one line; oneSvgPerLine/wrap would stack systems vertically and
+  // break the scroll, so they are intentionally omitted here. add_classes gives
+  // us .abcjs-note hooks for the scroll-sync overlay rects.
+  if (abcText.indexOf('%%nowrap') < 0) {
+    abcText = abcText.replace(/^(X:.*\n)/m, '$1%%nowrap 1\n');
+  }
+  var ret = ABCJS.renderAbc($container, abcText, {
+    responsive: 'resize',
+    lyricsNoSpacing: true,
+    add_classes: true
+  });
+  currentVisualObj = (ret && ret.length) ? ret[0] : null;
+
+  // Grand-staff alignment helpers (treble V:1 / bass V:2). They self-noop unless
+  // a system is exactly a treble+bass PAIR. This page's strip uses 3 staves
+  // (melody + RH grand + LH grand) on one continuous line, so they noop here —
+  // but the calls are kept for parity with the other harp apps and will engage
+  // automatically if a 2-staff drill is ever rendered. try/catch: never break render.
+  try { alignMiddleC($container); } catch (e) { console.warn('alignMiddleC:', e); }
+  try { snapSystems($container); } catch (e) { console.warn('snapSystems:', e); }
+
+  // Build scroll-sync overlay rects from abcjs note elements. The strip-chart
+  // scroll math reads `.abcr` rects (originally emitted by abc2svg's anno_stop);
+  // recreate them from abcjs's `.abcjs-note`/`.abcjs-rest` glyph bounding boxes.
+  try {
+    var notes = $container.querySelectorAll('.abcjs-note, .abcjs-rest');
+    var NS = 'http://www.w3.org/2000/svg';
+    for (var i = 0; i < notes.length; i++) {
+      var el = notes[i];
+      var bb;
+      try { bb = el.getBBox(); } catch (e) { continue; }
+      var svg = el.ownerSVGElement;
+      if (!svg) continue;
+      var r = svg.ownerDocument.createElementNS(NS, 'rect');
+      r.setAttribute('class', 'abcr');
+      r.setAttribute('x', bb.x.toFixed(2));
+      r.setAttribute('y', bb.y.toFixed(2));
+      r.setAttribute('width', Math.max(bb.width, 1).toFixed(2));
+      r.setAttribute('height', Math.max(bb.height, 1).toFixed(2));
+      el.appendChild(r);
     }
-  };
-
-  var abc = new abc2svg.Abc(user);
-  abc.tosvg('harp', abcText);
+  } catch (e) { console.warn('abcr overlay build:', e); }
 
   // Position playhead
   positionPlayhead();
   setScroll(getPlayheadX());
 }
 
-// ── Playback ──
+// ── Playback (abcjsharp fork synth) ──
+// SynthController manages its own AudioContext + tempo (setWarp) and exposes
+// play()/pause(). It is the proper audio companion to ABCJS.renderAbc, replacing
+// abc2svg's AbcPlay. Volume is applied through an AudioContext gain node, since
+// this fork build's SynthController has no setVolume().
+var synthControl = null;
+var synthAudioCtx = null, synthGain = null;
+
+function ensureSynth() {
+  if (synthControl) return synthControl;
+  synthControl = new ABCJS.synth.SynthController();
+  // SynthController.load requires a DOM element to host its (here-hidden)
+  // transport widget; create an off-screen one so audio-only playback works.
+  var host = document.getElementById('synth-host');
+  if (!host) {
+    host = document.createElement('div');
+    host.id = 'synth-host';
+    host.style.display = 'none';
+    document.body.appendChild(host);
+  }
+  try {
+    synthControl.load('#synth-host', null,
+      { displayLoop: false, displayRestart: false, displayPlay: false, displayProgress: false, displayWarp: false });
+  } catch (e) { console.warn('synth load:', e); }
+  return synthControl;
+}
+
+function applySynthVolume() {
+  var vol = parseInt(document.getElementById('vol-slider').value) / 100;
+  if (synthGain) synthGain.gain.value = vol;
+}
+
 function togglePlay() {
-  if (!currentTune) return;
+  if (!currentVisualObj) return;
   if (playing) {
-    if (abcplay) abcplay.stop();
+    if (synthControl) { try { synthControl.pause(); } catch (e) {} }
     playing = false;
     updatePlayBtn();
     stopScrollAnim();
     return;
   }
 
-  // Get native BPM from ABC Q: field
+  // Native BPM from ABC Q: field; user BPM scales playback speed via setWarp.
   var h = DATA[currentIdx];
-  var qm = h.abc.match(/Q:\s*\d+\/\d+=(\d+)/);
+  var qm = h && h.abc ? h.abc.match(/Q:\s*\d+\/\d+=(\d+)/) : null;
   var nativeBpm = qm ? parseInt(qm[1]) : 80;
   var speedRatio = bpm / nativeBpm;
 
-  // Compute total duration from abc2svg symbol chain
-  var totalBeats = 0;
-  for (var s = currentTune[0]; s; s = s.ts_next) {
-    if (s.dur) totalBeats = Math.max(totalBeats, (s.time + s.dur));
+  // Total duration: abcjs reports getTotalTime() in seconds at the tune tempo.
+  var baseSec = (currentVisualObj.getTotalTime && currentVisualObj.getTotalTime()) || 0;
+  if (!baseSec) {
+    var beats = (currentVisualObj.getTotalBeats && currentVisualObj.getTotalBeats()) || 0;
+    baseSec = beats ? (beats * 60 / nativeBpm) : 4;
   }
-  var totalBeatCount = totalBeats / 384;
-  // Duration at native tempo, then adjusted by speed ratio
-  playTotalDuration = (totalBeatCount / nativeBpm) * 60 * 1000 / speedRatio;
+  playTotalDuration = (baseSec * 1000) / speedRatio;
 
-  // Scroll range from actual note positions
+  // Scroll range from actual note positions (the .abcr rects built at render).
   var allNotes = $container.getElementsByClassName('abcr');
   var cRect = $container.getBoundingClientRect();
   var firstX = allNotes.length > 0 ? (allNotes[0].getBoundingClientRect().left - cRect.left) : 0;
   var lastX = allNotes.length > 0 ? (allNotes[allNotes.length - 1].getBoundingClientRect().left - cRect.left) : firstX + 100;
-  var beatPx = allNotes.length > 1 ? (lastX - firstX) / totalBeatCount : 0;
-  var trailPx = beatPx * 4;
+  var trailPx = allNotes.length > 1 ? ((lastX - firstX) / Math.max(allNotes.length - 1, 1)) * 4 : 0;
   playStartX = getPlayheadX() - firstX;
   playEndX = getPlayheadX() - lastX - trailPx;
 
-  var playconf = {
-    onend: function() { playing = false; updatePlayBtn(); stopScrollAnim(); },
-    onnote: function() {},
-    sfu: 'abc2svg/Scc1t2'
-  };
-  if (!abcplay) abcplay = AbcPlay(playconf);
-  abcplay.add(currentTune[0], currentTune[1], currentTune[3]);
-  abcplay.set_speed(speedRatio);
-  abcplay.set_vol(parseInt(document.getElementById('vol-slider').value) / 100);
-
   setScroll(playStartX);
-  abcplay.play(currentTune[0], null);
   playing = true;
   playStartTime = performance.now();
   updatePlayBtn();
   startScrollAnim();
+
+  if (!ABCJS.synth.supportsAudio()) {
+    // No WebAudio (e.g. headless): scroll only, no sound.
+    return;
+  }
+  // Build / reuse an AudioContext + gain so the Vol slider works.
+  if (!synthAudioCtx) {
+    synthAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    synthGain = synthAudioCtx.createGain();
+    synthGain.connect(synthAudioCtx.destination);
+    if (ABCJS.synth.registerAudioContext) ABCJS.synth.registerAudioContext(synthAudioCtx);
+  }
+  if (synthAudioCtx.state === 'suspended') synthAudioCtx.resume();
+  applySynthVolume();
+
+  var sc = ensureSynth();
+  sc.setTune(currentVisualObj, false, {
+    audioContext: synthAudioCtx,
+    program: 46,                 // 46 = Orchestral Harp (GM)
+    qpm: bpm,                    // play at the user-selected tempo
+    onEnded: function () { /* scroll loop owns transport reset */ }
+  }).then(function () {
+    if (sc.setWarp) sc.setWarp(Math.round(speedRatio * 100));
+    return sc.play();
+  }).catch(function (e) { console.warn('synth play failed:', e); });
 }
 
 function updatePlayBtn() {
@@ -568,7 +874,7 @@ function navHymn(dir) {
 }
 
 function rewind() {
-  if (abcplay && playing) { abcplay.stop(); playing = false; updatePlayBtn(); stopScrollAnim(); }
+  if (synthControl && playing) { try { synthControl.pause(); } catch (e) {} playing = false; updatePlayBtn(); stopScrollAnim(); }
   setScroll(playStartX);
 }
 
@@ -626,26 +932,28 @@ function toggleMute() {
     document.getElementById('vol-label').textContent = '0';
     btn.classList.add('active');
     btn.textContent = 'Unmute';
-    if (abcplay) abcplay.set_vol(0);
+    if (synthGain) synthGain.gain.value = 0;
   } else {
     slider.value = savedVol;
     document.getElementById('vol-label').textContent = savedVol;
     btn.classList.remove('active');
     btn.textContent = 'Mute';
-    if (abcplay) abcplay.set_vol(savedVol / 100);
+    if (synthGain) synthGain.gain.value = savedVol / 100;
   }
 }
 
 // ── BPM and Volume ──
+// BPM rescales scroll speed live; abcjs synth tempo is fixed at start() time, so
+// a BPM change mid-playback won't re-pitch audio (matches the strip-chart's
+// scroll-is-authoritative model). New tempo applies on next Play.
 document.getElementById('bpm-slider').addEventListener('input', function() {
   bpm = parseInt(this.value);
   document.getElementById('bpm-val').textContent = bpm;
-  if (abcplay) abcplay.set_speed(bpm / 80);
 });
 document.getElementById('vol-slider').addEventListener('input', function() {
   var vol = parseInt(this.value);
   document.getElementById('vol-label').textContent = vol;
-  if (abcplay) abcplay.set_vol(vol / 100);
+  if (synthGain) synthGain.gain.value = vol / 100;
 });
 
 // ── Keyboard shortcuts ──
