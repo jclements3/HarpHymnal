@@ -21,15 +21,26 @@ A **third hymn corpus** alongside reharm/retab: a **jazz arrangement of all 279 
 - Fork stem test (`hymnal/test_render.js`) passes on samples across major/minor & 4/4·3/4·6/8·2/2.
 - APK **assembleDebug succeeds** with the jazz assets.
 
+## Review + fix round (done autonomously)
+A 12-agent parallel review (`jazz-hymnal-review` workflow) scored a diverse sample and returned
+a "not shippable, fix the tag first" verdict (avg LH 2.3/5, lick integration 2.1/5). All mandatory
+findings were then applied to `jazz/arrange.py` and the whole corpus regenerated (commit `ede323ab`):
+- Tag resolves to a **real tonic chord** (I-maj7 arpeggio / i-min7), not the lick's bare 5th.
+- **V7alt** LH carries the leading tone + altered shell (root-3-b13-b7) — functions as a dominant.
+- Tag forced to `[M:4/4]` inline so the 8-eighth lick no longer overflows 3/4 hymns.
+- Minor hymns resolve to a real minor `i` (labeled correctly), not a mislabeled major.
+- Sharp-side minor keys (Em/Bm/F#m/C#m/G#m, 19 hymns) spell with sharps, not flat enharmonics.
+- LH re-articulates every bar — removed the dead held-whole-note textures.
+
+A focused re-verify workflow re-scored the 6 worst hymns to confirm the fixes landed
+(see the chat / this session's workflow output for the after scores).
+
 ## NOT done (needs you / a device)
-- **Tablet install is pending** — the tablet disconnected mid-run (you took it / it slept),
-  so `./gradlew installDebug` failed with "No connected devices." **To get it on the tablet:**
-  reconnect it, then from `tablet_app/`: `./gradlew installDebug`. Everything is already in the APK source.
-- **Quality refinement:** the arranger is a solid, reliable *baseline*. A parallel-agent review
-  pass was run (12 sampled hymns) to surface the top improvements; results land in this session's
-  workflow output and should be applied to `jazz/arrange.py`, then `python3 jazz/build_jazz_hymnal.py`
-  to regenerate, then commit. (Honest note: the Larsen lick is currently a cadential *tag*, not woven
-  into internal cadences — that was the safe choice to avoid melody/altered-dominant clashes per hymn.)
+- **Tablet install is pending** — the tablet disconnected mid-run, so `./gradlew installDebug`
+  failed with "No connected devices." Reconnect it, then from `tablet_app/`: `./gradlew installDebug`.
+  Everything is already baked into the APK source.
+- **Optional further polish:** the Larsen lick is a cadential **coda tag**, not yet woven into the
+  hymn's own final cadence (review improvement #5) — deferred as it needs per-hymn cadence detection.
 
 ## To regenerate after any change
 ```
@@ -41,3 +52,5 @@ cd tablet_app && ./gradlew installDebug  # push to a connected tablet
 ## Commits (HarpHymnal main)
 - `00a50bc3` Jazz Hymnal baseline (arranger + 279 SVGs + viewer + tile)
 - `4bf50457` vary Somerset LH texture per phrase
+- `d20a0a36` this status doc
+- `ede323ab` fix round from the 12-agent review (tag resolution, V7alt dominant, 3/4 meter, minor, spelling)

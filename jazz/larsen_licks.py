@@ -19,8 +19,12 @@ def clean_licks():
 
 _TONIC = {"C":0,"Db":1,"D":2,"Eb":3,"E":4,"F":5,"F#":6,"Gb":6,"G":7,
           "Ab":8,"A":9,"Bb":10,"B":11}
-_FLAT  = ["C","_D","D","_E","E","F","_G","G","_A","A","_B","B"]
-_SHARP = ["C","^C","D","^D","E","F","^F","G","^G","A","^A","B"]
+# Explicit accidental on EVERY pitch class (incl. "=" naturals) so a flat/sharp key
+# signature can never re-interpret a bare letter: a bare "B" under K:Ab would render
+# Bb, silently flattening the lick's leading tone / alterations.  The tag is a chromatic
+# altered passage, so explicit accidentals are expected anyway.
+_FLAT  = ["=C","_D","=D","_E","=E","=F","_G","=G","_A","=A","_B","=B"]
+_SHARP = ["=C","^C","=D","^D","=E","=F","^F","=G","^G","=A","^A","=B"]
 _FLATKEYS = {"F","Bb","Eb","Ab","Db","Gb","C"}   # melodic-minor harp keys lean flat
 
 _LET = {"C":0,"D":2,"E":4,"F":5,"G":7,"A":9,"B":11}
