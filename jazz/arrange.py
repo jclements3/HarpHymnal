@@ -3,7 +3,19 @@ with a key-agnostic Larsen altered ii-V-I lick as the cadential tag.
 Major keys only for this prototype.  Emits grand-staff ABC."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from jazz.larsen_licks import LICKS, clean_licks, render as render_lick
+from jazz.larsen_licks import LICKS, clean_licks, render as render_lick, _FLAT, _SHARP, _FLATKEYS, _tonic_pc
+
+def chord_abc(ksig, semis, octave):
+    """ABC chord from semitone offsets above the tonic of ksig, low note at `octave`."""
+    minor = ksig.endswith("m"); k = ksig[:-1] if minor else ksig
+    flat = (k not in {"E","B","F#","C#","G#"}) if minor else (k in _FLATKEYS)
+    names = _FLAT if flat else _SHARP
+    t = _tonic_pc(ksig); toks = []
+    for s in sorted(semis):
+        m = (octave + 1) * 12 + t + s; pc = m % 12; o = m // 12 - 1; nm = names[pc]; letter = nm[-1]
+        toks.append((nm[:-1] + letter.lower() + "'" * (o - 5)) if o >= 5
+                    else (nm[:-1] + letter.upper() + "," * (4 - o)))
+    return "[" + "".join(toks) + "]"
 
 LETTERS = "CDEFGAB"
 ACC = {"♯":"^","♭":"_","sharp":"^","flat":"_","natural":"=", None:""}
@@ -48,12 +60,12 @@ def _tones(key_root, d):
             deg_to_abc(key_root,d,3))    # root up an octave
 
 def som_lh(key_root, numeral, B, texture):
-    """Somerset LH comp for one bar in a chosen texture (all pedal-diatonic, safe durs)."""
+    """Somerset LH comp for one bar in a chosen texture (all pedal-diatonic, safe durs).
+    Every texture re-articulates within the bar -- no dead held whole-notes, which
+    decay to silence on a harp and violate the repo's 'sustain -> vary every chord' rule."""
     d=numeral_degree(numeral); r,f,t,r2=_tones(key_root,d)
     root="[%s]"%r; block="[%s%s]"%(f,t); full="[%s%s%s]"%(r,f,t)
     even = (B>=4 and B%2==0)
-    if texture=="block":                 # held 1-5-10 block
-        return safe_dur(full, B)
     if texture=="oompah" and even:       # bass | chord  x2
         q=B//2; return "%s %s %s %s"%(safe_dur(root,1),safe_dur(block,q-1),safe_dur(root,1),safe_dur(block,q-1))
     if texture=="stride" and B>=8 and B%4==0:   # bass chord bass chord (quarters)
@@ -63,7 +75,11 @@ def som_lh(key_root, numeral, B, texture):
         return " ".join(safe_dur("[%s]"%x,u) for x in [r,f,t,r2][:B//u])
     if texture=="waltz" and B==6:        # oom-pah-pah (3/4)
         return "%s %s %s"%(safe_dur(root,2),safe_dur(block,2),safe_dur(block,2))
-    # fallback: held block
+    if texture=="block" and even:        # 1-5-10 re-articulated on each half (not a dead whole-note)
+        h=B//2; return "%s %s"%(safe_dur(full,h),safe_dur(full,B-h))
+    # fallback: bass then chord, re-articulated -- never a held whole-note
+    if B>=2:
+        h=B//2; return "%s %s"%(safe_dur(root,h),safe_dur(block,B-h))
     return safe_dur(full, B)
 
 def arrange(hymn_path):
@@ -92,14 +108,23 @@ def arrange(hymn_path):
         rg=rh[i:i+4]; lg=lh[i:i+4]
         out.append("[V:1] "+" | ".join(rg)+" |")
         out.append("[V:2] "+" | ".join(lg)+" |")
-    # --- Larsen cadential tag: a pedal-clean lick as a ii-V-I turnaround coda ---
-    lick=clean_licks()[0]                            # Lick 1, transposed to this key
-    tag_rh=render_lick(lick, ksig)
-    out.append("%% --- Larsen ii-V-I tag ---")
-    out.append('[V:1] '+tag_rh+' |]')
-    # tag LH: ii root, rootless altered shell, I block
-    d2=deg_to_abc(key,1,2); d5=deg_to_abc(key,4,2); d1=deg_to_abc(key,0,2)
-    out.append('[V:2] [%s]8 | [%s]8 | [%s]8 |]'%(d2,d5,d1))
+    # --- Larsen cadential tag: ii7 - V7alt - I, voiced as a real turnaround coda ---
+    # RH keeps the Larsen altered ii7/V7alt line, but the resolution is a true tonic
+    # arpeggio (I-maj7 / i-min7), NOT the lick's bare 5th.  The LH gives each chord a
+    # real voicing: ii7 shell, an altered-dominant shell carrying the leading tone, and
+    # a full tonic chord.  Forced to 4/4 so the 8-eighth lick never overflows a 3/4 bar.
+    lick=clean_licks()[0]
+    cells=render_lick(lick, ksig).split(" | ")       # '"ii7" ..' / '"V7alt" ..' / '"Imaj7" ..'
+    ii_rh, v_rh = cells[0], cells[1]
+    tonic=[0,3,7,10] if minor else [0,4,7,11]        # i-min7 / I-maj7
+    lab='"i"' if minor else '"Imaj7"'
+    res_rh=lab+" "+" ".join(chord_abc(ksig,[s],4)[1:-1]+"2" for s in tonic)   # tonic arpeggio, resolves home
+    ii_lh=chord_abc(ksig,[2,5,9,12],2)               # supertonic m7  (root-b3-5-b7)
+    v_lh =chord_abc(ksig,[7,11,15,17],2)             # V7alt shell: root, 3rd(leading tone), b13, b7
+    i_lh =chord_abc(ksig,tonic,2)                    # full tonic chord under the arrival
+    out.append("%% --- Larsen ii-V-I tag (4/4 coda) ---")
+    out.append('[V:1] [M:4/4] %s | %s | %s |]'%(ii_rh, v_rh, res_rh))
+    out.append('[V:2] [M:4/4] %s4 %s4 | %s4 %s4 | %s8 |]'%(ii_lh,ii_lh,v_lh,v_lh,i_lh))
     return "\n".join(out)+"\n"
 
 if __name__=="__main__":

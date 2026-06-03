@@ -39,7 +39,7 @@ def render(lick, key, octave_shift=0):
     so it stays in a comfortable register. octave_shift moves it whole octaves."""
     minor = key.endswith("m")
     k = key[:-1] if minor else key
-    flat = k in _FLATKEYS or minor
+    flat = (k not in {"E","B","F#","C#","G#"}) if minor else (k in _FLATKEYS)
     names = _FLAT if flat else _SHARP
     t = _tonic_pc(key)
     delta = ((t - 3 + 6) % 12) - 6 + 12 * octave_shift   # Eb pc = 3; nearest shift
