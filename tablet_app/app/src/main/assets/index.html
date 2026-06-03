@@ -924,6 +924,7 @@
 <script src="retab/retab_drills.js"></script>
 <script src="retab/retab_hymns.js"></script>
 <script src="reharm/reharm_hymns.js"></script>
+<script src="jazz/jazz_hymns.js"></script>
 <script src="boddie/boddie_hymns.js"></script>
 <script src="boddie/boddie_drills.js"></script>
 <script src="eb_shapes/eb_shape_drills.js"></script>
@@ -1260,6 +1261,17 @@
       onTap:  enterReharmHymnal,
     });
     grid.appendChild(reharmHymnal);
+
+    // Jazz Hymnal tile — Somerset LH × Larsen altered licks (jazz arr. of every hymn).
+    const jazzHymnalCount = (window.JAZZ_HYMNS || []).length;
+    const jazzHymnal = makeTile({
+      family: 'jazzhymnal',
+      name:   'Jazz Hymnal',
+      rule:   'Somerset LH × Larsen licks',
+      count:  jazzHymnalCount || 279,
+      onTap:  () => { window.location.href = 'jazz/index.html'; },
+    });
+    grid.appendChild(jazzHymnal);
 
     // Chopin Hymnal tile — voice-led 4-voice pad applied to hymns (L1/L2/L3).
     const chopinHymnal = makeTile({

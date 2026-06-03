@@ -23,9 +23,14 @@ _FLAT  = ["C","_D","D","_E","E","F","_G","G","_A","A","_B","B"]
 _SHARP = ["C","^C","D","^D","E","F","^F","G","^G","A","^A","B"]
 _FLATKEYS = {"F","Bb","Eb","Ab","Db","Gb","C"}   # melodic-minor harp keys lean flat
 
+_LET = {"C":0,"D":2,"E":4,"F":5,"G":7,"A":9,"B":11}
 def _tonic_pc(key):
     k = key[:-1] if key.endswith("m") else key
-    return _TONIC[k]
+    pc = _LET[k[0]]
+    for c in k[1:]:
+        if c in "#♯": pc += 1
+        elif c in "b♭": pc -= 1
+    return pc % 12
 
 def render(lick, key, octave_shift=0):
     """Render a key-agnostic lick as an ABC 'ii7..|V7alt..|Imaj7..' phrase in `key`.

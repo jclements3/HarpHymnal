@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Jazz Hymnal</title>
+<style>
+  :root{ --ink:#1a1612; --paper:#f6f1e7; --paper2:#efe7d4; --rule:#b8a988; --accent:#6b2c1f; --accent2:#8f3b29; --hl:#e9dec1; }
+  *{box-sizing:border-box;} html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent;}
+  #bar{display:flex;align-items:center;gap:14px;padding:10px 18px;background:var(--accent);color:#fff;
+       position:sticky;top:0;z-index:10;}
+  #bar a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;}
+  #bar h1{flex:1;font-size:19px;margin:0;font-weight:700;}
+  #bar .sub{font-size:12px;opacity:.85;}
+  #bar input{font:inherit;font-size:14px;border:0;border-radius:6px;padding:7px 12px;width:220px;}
+  #count{font-size:13px;opacity:.85;min-width:62px;text-align:right;}
+  /* TOC */
+  #toc{padding:12px 16px;}
+  .toc-back{display:inline-block;margin:2px 2px 12px;padding:8px 16px;border:1.5px solid var(--rule);
+            border-radius:8px;background:var(--paper);color:var(--accent);font-weight:600;cursor:pointer;}
+  .lettergrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;}
+  .letter{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+          min-height:64px;border:1.5px solid var(--rule);border-radius:10px;background:var(--paper2);cursor:pointer;}
+  .letter .l{font-size:22px;font-weight:800;color:var(--accent);} .letter .c{font-size:12px;color:#8a7a5e;}
+  .hlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;}
+  .hitem{display:flex;align-items:baseline;gap:8px;padding:9px 12px;border:1px solid var(--rule);
+         border-radius:8px;background:#fff;cursor:pointer;}
+  .hitem .num{font-weight:700;color:var(--accent2);font-variant-numeric:tabular-nums;}
+  .hitem .meta{margin-left:auto;font-size:12px;color:#8a7a5e;}
+  /* score view */
+  #score{display:none;padding:8px;text-align:center;}
+  #score img{max-width:100%;height:auto;background:#fff;}
+  #score .head{display:flex;align-items:center;gap:14px;padding:4px 10px 10px;}
+  #score .head button{min-height:40px;border:1.5px solid var(--rule);border-radius:8px;background:var(--paper);
+                      color:var(--accent);font-weight:600;padding:6px 14px;cursor:pointer;}
+  #score .head .t{flex:1;text-align:left;font-weight:600;color:var(--accent2);}
+  @media print{ @page{size:letter landscape;margin:.4in;} #bar,#toc,#score .head{display:none !important;}
+                #score{display:block !important;padding:0;} }
+</style></head><body>
+<div id="bar">
+  <a href="../index.html">&larr; Home</a>
+  <h1>Jazz Hymnal <span class="sub">Somerset LH &times; Larsen licks</span></h1>
+  <input id="search" type="search" placeholder="title or number…" autocomplete="off"/>
+  <span id="count"></span>
+</div>
+<div id="toc"></div>
+<div id="score">
+  <div class="head"><button id="tocBtn">&larr; List</button><span class="t" id="stitle"></span>
+    <button id="printBtn">&#128424; Print</button></div>
+  <img id="simg" alt=""/>
+</div>
+<script src="jazz_hymns.js"></script>
+<script>
+var H = (window.JAZZ_HYMNS||[]).slice();
+var $=function(id){return document.getElementById(id);};
+var openLetter=null;
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+function firstLetter(t){t=(t||'').replace(/^['"]+/,'');return /[A-Za-z]/.test(t[0])?t[0].toUpperCase():'#';}
+
+function renderTOC(q){
+  q=(q||'').trim().toLowerCase();
+  var toc=$('toc'); toc.innerHTML='';
+  var list = q ? H.filter(function(h){return h.title.toLowerCase().indexOf(q)>=0||(h.num||'').indexOf(q)>=0;}) : H;
+  $('count').textContent=list.length+' / '+H.length;
+  if(q){ toc.appendChild(hlist(list)); return; }
+  if(openLetter){
+    var back=document.createElement('div'); back.className='toc-back'; back.textContent='◀ All letters';
+    back.onclick=function(){openLetter=null;renderTOC('');}; toc.appendChild(back);
+    toc.appendChild(hlist(H.filter(function(h){return firstLetter(h.title)===openLetter;})));
+    return;
+  }
+  var groups={}; H.forEach(function(h){var L=firstLetter(h.title);(groups[L]=groups[L]||[]).push(h);});
+  var grid=document.createElement('div'); grid.className='lettergrid';
+  Object.keys(groups).sort().forEach(function(L){
+    var d=document.createElement('div'); d.className='letter';
+    d.innerHTML='<span class="l">'+esc(L)+'</span><span class="c">'+groups[L].length+'</span>';
+    d.onclick=function(){openLetter=L;renderTOC('');}; grid.appendChild(d);
+  });
+  toc.appendChild(grid);
+}
+function hlist(list){
+  var w=document.createElement('div'); w.className='hlist';
+  list.sort(function(a,b){return a.title.localeCompare(b.title);}).forEach(function(h){
+    var it=document.createElement('div'); it.className='hitem';
+    var meta=[h.key,h.meter].filter(Boolean).join(' · ');
+    it.innerHTML='<span class="num">'+esc(h.num||'')+'</span>'+esc(h.title)+'<span class="meta">'+esc(meta)+'</span>';
+    it.onclick=function(){showScore(h);}; w.appendChild(it);
+  });
+  return w;
+}
+function showScore(h){
+  $('toc').style.display='none'; $('score').style.display='block';
+  $('stitle').textContent=(h.num?h.num+'  ':'')+h.title;
+  $('simg').src='hymns/'+h.slug+'.svg'; $('simg').alt=h.title;
+  window.scrollTo(0,0);
+}
+$('tocBtn').onclick=function(){$('score').style.display='none';$('toc').style.display='block';};
+$('printBtn').onclick=function(){ try{ if(window.Bridge&&Bridge.printPage)Bridge.printPage(); else window.print(); }catch(e){window.print();} };
+$('search').addEventListener('input',function(){openLetter=null;renderTOC(this.value);});
+renderTOC('');
+</script>
+</body></html>
