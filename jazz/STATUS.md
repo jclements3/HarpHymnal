@@ -32,8 +32,18 @@ findings were then applied to `jazz/arrange.py` and the whole corpus regenerated
 - Sharp-side minor keys (Em/Bm/F#m/C#m/G#m, 19 hymns) spell with sharps, not flat enharmonics.
 - LH re-articulates every bar — removed the dead held-whole-note textures.
 
-A focused re-verify workflow re-scored the 6 worst hymns to confirm the fixes landed
-(see the chat / this session's workflow output for the after scores).
+A focused 6-agent re-verify then confirmed the fixes: **4 of 6 worst hymns now "shippable"**
+(were 0), tonic resolutions real, minor labeled `i`. It caught one more real bug — in **flat
+keys** the lick's natural notes were bare letters the key signature re-flattened (`K:Ab` turned a
+bare `B` into B♭), so the V7alt lost its leading tone. Fixed by emitting **explicit accidentals**
+on every tag pitch (commit `a6dc220a`); V7alt now functions as a dominant in every key.
+
+**Current state: broadly shippable.** Remaining known items are minor/out-of-scope:
+- A few hymns have pre-existing body-meter quirks **in the parsed source data** (`blessed_assurance`
+  bar 8 overflow; `o_that_the_lord` declares 3/2 but bars hold 3/4) — not the arranger; they play
+  coherently and also affect reharm/retab. A separate `data/hymns/*.json` cleanup pass would fix them.
+- Minor hymns use a Dorian `ii7` (not `iiø7`) into the altered V — a deliberate jazz choice.
+- The lick is a cadential **coda tag**, not yet woven into the hymn's own final cadence (deferred).
 
 ## NOT done (needs you / a device)
 - **Tablet install is pending** — the tablet disconnected mid-run, so `./gradlew installDebug`
@@ -54,3 +64,4 @@ cd tablet_app && ./gradlew installDebug  # push to a connected tablet
 - `4bf50457` vary Somerset LH texture per phrase
 - `d20a0a36` this status doc
 - `ede323ab` fix round from the 12-agent review (tag resolution, V7alt dominant, 3/4 meter, minor, spelling)
+- `a6dc220a` explicit accidentals so flat keys keep the V7alt leading tone (caught by re-verify)
