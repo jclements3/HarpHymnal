@@ -177,6 +177,13 @@ public class MainActivity extends Activity {
      */
     private String resolveStartUrl() {
         try {
+            // An explicit launch can override the page via an intent extra, e.g.
+            //   adb shell am start -n <pkg>/.MainActivity --es startUrl "jazz/index.html#h=slug"
+            // (used to deep-link straight to a specific hymn). Relative asset path.
+            String extra = getIntent() != null ? getIntent().getStringExtra("startUrl") : null;
+            if (extra != null && !extra.isEmpty()) {
+                return extra;
+            }
             ComponentName cn = getComponentName();      // the alias/activity actually launched
             ActivityInfo ai = getPackageManager().getActivityInfo(
                     cn, PackageManager.GET_META_DATA);

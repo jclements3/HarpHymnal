@@ -97,5 +97,15 @@ $('tocBtn').onclick=function(){$('score').style.display='none';$('toc').style.di
 $('printBtn').onclick=function(){ try{ if(window.Bridge&&Bridge.printPage)Bridge.printPage(); else window.print(); }catch(e){window.print();} };
 $('search').addEventListener('input',function(){openLetter=null;renderTOC(this.value);});
 renderTOC('');
+// Deep link: #h=<slug> (or #h=<title substring>) opens straight to that hymn.
+function openFromHash(){
+  var m=/[#&]h=([^&]+)/.exec(location.hash||''); if(!m) return;
+  var q=decodeURIComponent(m[1]).toLowerCase();
+  var hit=H.filter(function(h){return h.slug===q;})[0]
+        ||H.filter(function(h){return h.title.toLowerCase().indexOf(q.replace(/_/g,' '))>=0;})[0];
+  if(hit) showScore(hit);
+}
+window.addEventListener('hashchange',openFromHash);
+openFromHash();
 </script>
 </body></html>
