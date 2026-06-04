@@ -29,6 +29,12 @@ for (const it of job.items) {
     // currentColor -> ink so it shows black inside an <img>; drop the live-DOM style.
     let s = svg.outerHTML.replace(/currentColor/g, '#11110d')
                          .replace(/\sstyle="[^"]*"/, '');
+    // abcjs outerHTML omits the default SVG namespace (it lives in the DOM, not the
+    // markup). rsvg tolerates that, but an <img src=*.svg> in a WebView needs it or
+    // the image is broken. Add it back so the file is a valid standalone SVG.
+    if (!/xmlns="http:\/\/www\.w3\.org\/2000\/svg"/.test(s)) {
+      s = s.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ');
+    }
     fs.writeFileSync(path.join(job.outdir, it.slug + '.svg'), s);
     ok++;
   } catch (e) { fail.push(it.slug + ': ' + e.message); }
