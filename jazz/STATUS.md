@@ -11,8 +11,12 @@ A **third hymn corpus** alongside reharm/retab: a **jazz arrangement of all 279 
 - **Lick toolkit:** `jazz/larsen_licks.py` (`render(lick, key)`, `clean_licks()` = the
   3 pedal-safe licks valid in every key), `jazz/larsen_keyagnostic.json` (built from the
   source `hymnal/altered_licks_Eb.abc` via `jazz/build_lib.py`), `jazz/audit.py` (harmonic check).
-- **Build:** `jazz/build_jazz_hymnal.py` — renders all 279 to SVG with `abcm2ps -g`
-  (matches reharm/retab) → `tablet_app/.../assets/jazz/hymns/*.svg` + `jazz_hymns.js` manifest.
+- **Build:** `jazz/build_jazz_hymnal.py` → `jazz/fork_render.js` renders all 279 to SVG
+  through the **abcjsharp fork** (headless via jsdom) so they get the harp grand-staff
+  stems (V:1 up / V:2 down) and the abcjs look — NOT abcm2ps (which looked like a PDF and
+  ignored the harp stem rules). Output → `tablet_app/.../assets/jazz/hymns/*.svg` + `jazz_hymns.js`.
+  Two fork gotchas handled in fork_render.js: inject the default SVG `xmlns` (abcjs omits it,
+  so an `<img>` would break) and no inline `[M:4/4]` coda (abcjs breaks the brace across it).
 - **Viewer + tile:** standalone `assets/jazz/index.html` (TOC + SVG, Home/Print) and a
   **"Jazz Hymnal"** tile in the hub (`assets/index.html`).
 
