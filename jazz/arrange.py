@@ -1,8 +1,14 @@
 """PROTOTYPE jazz-hymnal arranger: hymn melody (RH) + Somerset-style LH comp,
 with a key-agnostic Larsen altered ii-V-I lick as the cadential tag.
 Major keys only for this prototype.  Emits grand-staff ABC."""
-import json, os, sys
+import json, os, sys, math
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+KERN = 165   # target per-bar width in abc units; staffwidth = BPL*KERN sets the
+             # note "kerning" (density). Larger = more air between notes.
+def pick_bpl(n):
+    """Bars per system: ~aspect-match a landscape screen so fit-to-screen fills it."""
+    return max(4, round(1.55 * math.sqrt(max(1, n))))
 from jazz.larsen_licks import (LICKS, clean_licks, render as render_lick,
                                spell_flat, keysig_acc, spell_chord, spell_note)
 
@@ -71,7 +77,7 @@ def som_lh(key_root, numeral, B, texture):
         h=B//2; return "%s %s"%(safe_dur(root,h),safe_dur(block,B-h))
     return safe_dur(full, B)
 
-def arrange(hymn_path):
+def arrange(hymn_path, bpl=None):
     h=json.load(open(hymn_path)); key=h["key"]["root"]; minor=(h["key"].get("mode")=="minor"); bars=h["bars"]
     mt=h.get("meter") or {}
     meter=("%d/%d"%(mt.get("beats",4),mt.get("unit",4))) if isinstance(mt,dict) else str(mt or "4/4")
@@ -98,8 +104,7 @@ def arrange(hymn_path):
     # spreads notes apart. Bars/line is chosen so the whole block's aspect ratio
     # ~matches a landscape tablet (BPL ~ 1.3*sqrt(bars)); fit-to-screen then scales
     # it up to fill BOTH dimensions, maximizing note size on one screen.
-    import math
-    BPL = max(4, min(11, round(1.3 * math.sqrt(len(bars)))))
+    BPL = bpl or pick_bpl(len(bars))
     L = max(1, math.ceil(len(bars) / BPL))               # number of systems
     base, extra = divmod(len(bars), L)                   # spread bars EVENLY across them
     idx = 0

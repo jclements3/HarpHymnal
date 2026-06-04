@@ -20,11 +20,11 @@ let ok = 0; const fail = [];
 for (const it of job.items) {
   el.innerHTML = '';
   try {
-    // No `wrap` and no `staffwidth`: abcjs renders each source line at its NATURAL
-    // sqrt(duration) width and does NOT justify-stretch it, so notes stay tight and
-    // uniformly spaced (ragged right edge, like a lead sheet). Line breaks come from
-    // the source (one [V:1]/[V:2] pair per system); fit-to-screen scales it up.
-    abcjs.renderAbc(el, it.abc, { oneSvgPerLine: false });
+    // No `wrap`. staffwidth (per hymn = bars/line * KERN) sets the note kerning:
+    // abcjs justifies each row to it, so a small staffwidth packs notes tight and a
+    // larger one adds air. Line breaks come from the source (one [V:1]/[V:2] pair per
+    // system); fit-to-screen then scales the whole block up to fill the display.
+    abcjs.renderAbc(el, it.abc, { staffwidth: it.staffwidth || 900, oneSvgPerLine: false });
     const svg = el.querySelector('svg');
     if (!svg) { fail.push(it.slug + ': no svg'); continue; }
     // currentColor -> ink so it shows black inside an <img>; drop the live-DOM style.

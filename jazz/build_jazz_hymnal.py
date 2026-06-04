@@ -8,7 +8,7 @@ Writes:
 import json, os, subprocess, sys, tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
-from jazz.arrange import arrange
+from jazz.arrange import arrange, pick_bpl, KERN
 ASSETS = os.path.join(os.path.dirname(HERE), "tablet_app", "app", "src", "main", "assets")
 HYMN_JSON = os.path.join(os.path.dirname(HERE), "data", "hymns")
 REHARM_JS = os.path.join(ASSETS, "reharm", "reharm_hymns.js")
@@ -27,7 +27,9 @@ for rec in REHARM:
     jpath = os.path.join(HYMN_JSON, slug + ".json")
     if not os.path.exists(jpath):
         miss += 1; print("  MISSING json", slug); continue
-    items.append({"slug": slug, "abc": arrange(jpath)})
+    nb = len(json.load(open(jpath))["bars"])
+    bpl = pick_bpl(nb)
+    items.append({"slug": slug, "abc": arrange(jpath, bpl=bpl), "staffwidth": bpl * KERN})
     manifest.append({"slug": slug, "num": rec["num"], "title": rec["title"],
                      "key": rec["key"], "meter": rec["meter"], "bars": rec["bars"],
                      "svgs": {"1": "jazz/hymns/%s.svg" % slug}, "pages": 1})
