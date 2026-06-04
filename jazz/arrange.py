@@ -3,19 +3,8 @@ with a key-agnostic Larsen altered ii-V-I lick as the cadential tag.
 Major keys only for this prototype.  Emits grand-staff ABC."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from jazz.larsen_licks import LICKS, clean_licks, render as render_lick, _FLAT, _SHARP, _FLATKEYS, _tonic_pc
-
-def chord_abc(ksig, semis, octave):
-    """ABC chord from semitone offsets above the tonic of ksig, low note at `octave`."""
-    minor = ksig.endswith("m"); k = ksig[:-1] if minor else ksig
-    flat = (k not in {"E","B","F#","C#","G#"}) if minor else (k in _FLATKEYS)
-    names = _FLAT if flat else _SHARP
-    t = _tonic_pc(ksig); toks = []
-    for s in sorted(semis):
-        m = (octave + 1) * 12 + t + s; pc = m % 12; o = m // 12 - 1; nm = names[pc]; letter = nm[-1]
-        toks.append((nm[:-1] + letter.lower() + "'" * (o - 5)) if o >= 5
-                    else (nm[:-1] + letter.upper() + "," * (4 - o)))
-    return "[" + "".join(toks) + "]"
+from jazz.larsen_licks import (LICKS, clean_licks, render as render_lick,
+                               spell_flat, keysig_acc, spell_chord, spell_note)
 
 LETTERS = "CDEFGAB"
 ACC = {"♯":"^","♭":"_","sharp":"^","flat":"_","natural":"=", None:""}
@@ -118,13 +107,20 @@ def arrange(hymn_path):
     ii_rh, v_rh = cells[0], cells[1]
     tonic=[0,3,7,10] if minor else [0,4,7,11]        # i-min7 / I-maj7
     lab='"i"' if minor else '"Imaj7"'
-    res_rh=lab+" "+" ".join(chord_abc(ksig,[s],4)[1:-1]+"2" for s in tonic)   # tonic arpeggio, resolves home
-    ii_lh=chord_abc(ksig,[2,5,9,12],2)               # supertonic m7  (root-b3-5-b7)
-    v_lh =chord_abc(ksig,[7,11,15,17],2)             # V7alt shell: root, 3rd(leading tone), b13, b7
-    i_lh =chord_abc(ksig,tonic,2)                    # full tonic chord under the arrival
-    out.append("%% --- Larsen ii-V-I tag (4/4 coda) ---")
-    out.append('[V:1] [M:4/4] %s | %s | %s |]'%(ii_rh, v_rh, res_rh))
-    out.append('[V:2] [M:4/4] %s4 %s4 | %s4 %s4 | %s8 |]'%(ii_lh,ii_lh,v_lh,v_lh,i_lh))
+    flat=spell_flat(ksig); ks=keysig_acc(ksig)
+    # Each tag bar carries its own accidental state, so within a bar the repeated chord
+    # inherits the first statement's accidentals (no redundant re-spelling).
+    sr={}; res_rh=lab+" "+" ".join(spell_note(ksig,s,4,sr,ks,flat)+"2" for s in tonic)  # tonic arpeggio
+    s1={}; ii_a=spell_chord(ksig,[2,5,9,12],2,s1,ks,flat);  ii_b=spell_chord(ksig,[2,5,9,12],2,s1,ks,flat)
+    s2={}; v_a =spell_chord(ksig,[7,11,15,17],2,s2,ks,flat); v_b=spell_chord(ksig,[7,11,15,17],2,s2,ks,flat)
+    s3={}; i_a =spell_chord(ksig,tonic,2,s3,ks,flat)        # full tonic chord under the arrival
+    # Larsen ii-V-I coda. The lick cells are 8 eighths each; we DON'T emit an inline
+    # [M:4/4] meter change because the abcjsharp renderer breaks the grand-staff brace
+    # across it. abcjs renders the (technically overfull, in <4/4 hymns) tag bars fine
+    # since the barlines are explicit -- they read as a free cadenza-style coda.
+    out.append("%% --- Larsen ii-V-I tag (coda) ---")
+    out.append('[V:1] %s | %s | %s |]'%(ii_rh, v_rh, res_rh))
+    out.append('[V:2] %s4 %s4 | %s4 %s4 | %s8 |]'%(ii_a,ii_b,v_a,v_b,i_a))
     return "\n".join(out)+"\n"
 
 if __name__=="__main__":
