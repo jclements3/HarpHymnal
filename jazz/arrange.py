@@ -79,7 +79,7 @@ def arrange(hymn_path):
     mult=2                                          # eighths
     out=["X:1","T:%s  -  jazz (Somerset LH x Larsen licks)"%h["title"],
          "C:trad., jazz arr. pedal harp","M:"+meter,"L:1/8","Q:1/4=92",
-         "%%scale 0.62","%%nowrap true","%%score {1 | 2}","V:1 clef=treble name=\"RH\"","V:2 clef=bass name=\"LH\"","K:"+ksig]
+         "%%scale 0.62","%%score {1 | 2}","V:1 clef=treble name=\"RH\"","V:2 clef=bass name=\"LH\"","K:"+ksig]
     # map each bar to its phrase so the LH texture changes phrase-to-phrase
     bar2phr={}
     for pi,p in enumerate(h.get("phrases") or []):
@@ -92,11 +92,10 @@ def arrange(hymn_path):
         rh.append(" ".join(mel_tok(e,mult) for e in b["melody"]))
         tex="waltz" if is34 else TEX[bar2phr.get(bi,bi//4)%len(TEX)]
         lh.append(som_lh(key, (b["chord"] or {}).get("numeral","I"), be, tex))
-    # group ~4 bars per system
-    for i in range(0,len(bars),4):
-        rg=rh[i:i+4]; lg=lh[i:i+4]
-        out.append("[V:1] "+" | ".join(rg)+" |")
-        out.append("[V:2] "+" | ".join(lg)+" |")
+    # Emit each voice as one continuous line and let abcjs wrap to the staff width
+    # (no %%nowrap, no pre-chunking) so it fills the page instead of 4 bars/line.
+    out.append("[V:1] "+" | ".join(rh)+" |")
+    out.append("[V:2] "+" | ".join(lh)+" |")
     # --- Larsen cadential tag: ii7 - V7alt - I, voiced as a real turnaround coda ---
     # RH keeps the Larsen altered ii7/V7alt line, but the resolution is a true tonic
     # arpeggio (I-maj7 / i-min7), NOT the lick's bare 5th.  The LH gives each chord a
