@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Tunes</title>
+<script src="vendor/abcjs-basic-min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; overflow: hidden; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #f4f1ea; color: #222; }
+  #app { display: flex; height: 100%; }
+
+  /* ---- sidebar ---- */
+  #side { width: 340px; min-width: 340px; height: 100%; display: flex; flex-direction: column;
+          border-right: 1px solid #d8d2c4; background: #ece7da; }
+  #side header { padding: 10px 12px 8px; border-bottom: 1px solid #d8d2c4; background: #0B1A3A; color: #fff; }
+  #side header h1 { font-size: 18px; font-weight: 700; letter-spacing: .3px; display: flex; align-items: baseline; gap: 8px; }
+  #count { font-size: 12px; font-weight: 400; color: #aab4cc; }
+  #search { width: 100%; margin-top: 8px; padding: 9px 11px; font-size: 15px; border: none; border-radius: 8px;
+            background: #fff; color: #222; }
+  #chips { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 10px; border-bottom: 1px solid #d8d2c4; }
+  .chip { font-size: 12px; padding: 5px 11px; border-radius: 14px; border: 1px solid #b9b0a0; background: #fff;
+          color: #444; cursor: pointer; }
+  .chip.on { background: #0B1A3A; color: #fff; border-color: #0B1A3A; }
+  #list { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .item { padding: 9px 12px; border-bottom: 1px solid #e0dacc; cursor: pointer; }
+  .item:active { background: #dfd8c7; }
+  .item.sel { background: #dbe3f4; border-left: 4px solid #0B1A3A; padding-left: 8px; }
+  .item .t { font-size: 14px; font-weight: 600; color: #1a1a1a; line-height: 1.25; }
+  .item .m { font-size: 11px; color: #8a8170; margin-top: 2px; }
+
+  /* ---- score pane ---- */
+  #main { flex: 1; height: 100%; display: flex; flex-direction: column; }
+  #bar { display: flex; align-items: center; gap: 10px; padding: 8px 14px; border-bottom: 1px solid #d8d2c4;
+         background: #f8f6f1; }
+  #bar #now { font-size: 16px; font-weight: 700; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #bar button { font-size: 14px; padding: 6px 12px; border: 1px solid #b9b0a0; border-radius: 8px;
+                background: #fff; color: #222; cursor: pointer; min-width: 40px; }
+  #bar button:active { background: #dbe3f4; border-color: #0B1A3A; }
+  #bar button.on { background: #0B1A3A; color: #fff; border-color: #0B1A3A; }
+  #bar #tk { font-size: 13px; color: #777; min-width: 78px; text-align: center; }
+  #score { flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; padding: 16px 18px; background: #fff; }
+  #empty { color: #999; font-size: 15px; padding: 40px; text-align: center; }
+  svg { max-width: 100%; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="side">
+    <header>
+      <h1>Tunes <span id="count"></span></h1>
+      <input id="search" type="text" placeholder="Search title…" autocomplete="off" autocorrect="off" autocapitalize="off"/>
+    </header>
+    <div id="chips"></div>
+    <div id="list"></div>
+  </div>
+  <div id="main">
+    <div id="bar">
+      <span id="now">Select a tune</span>
+      <button id="words">Words</button>
+      <span id="tk">transpose 0</span>
+      <button id="down">&minus;</button>
+      <button id="up">+</button>
+    </div>
+    <div id="score"><div id="empty">Pick a tune from the list to render it.</div></div>
+  </div>
+</div>
+<script>
+"use strict";
+// Android WebView blocks fetch() on file:// — use XHR for local assets.
+function xhr(url, cb) {
+  var r = new XMLHttpRequest();
+  r.open("GET", url, true);
+  r.overrideMimeType("text/plain; charset=utf-8");
+  r.onreadystatechange = function () {
+    if (r.readyState === 4) cb(r.status === 0 || r.status === 200 ? r.responseText : null);
+  };
+  r.send();
+}
+
+// Decode ABC mnemonic accents (\'a -> á, \"o -> ö, \~n -> ñ, …) for display.
+var ACCENTS = {
+  "'a":"á","'e":"é","'i":"í","'o":"ó","'u":"ú","'y":"ý","'A":"Á","'E":"É","'I":"Í","'O":"Ó","'U":"Ú",
+  "`a":"à","`e":"è","`i":"ì","`o":"ò","`u":"ù","`A":"À","`E":"È","`O":"Ò","`U":"Ù",
+  '"a':"ä",'"e':"ë",'"i':"ï",'"o':"ö",'"u':"ü",'"A':"Ä",'"O':"Ö",'"U':"Ü",'"y':"ÿ",
+  "^a":"â","^e":"ê","^i":"î","^o":"ô","^u":"û","^A":"Â","^E":"Ê","^O":"Ô",
+  "~n":"ñ","~N":"Ñ","~a":"ã","~o":"õ","~A":"Ã","~O":"Õ",
+  "ca":"a","cc":"ç","cC":"Ç","ce":"e","/o":"ø","/O":"Ø","aa":"å","aA":"Å",
+  "ss":"ß","oe":"œ","OE":"Œ","ae":"æ","AE":"Æ","HO":"Ő","Hu":"ű","vs":"š","vc":"č","vz":"ž"
+};
+function decode(s) {
+  if (!s || s.indexOf("\\") === -1) return s;
+  return s.replace(/\\([`'"^~caoH\/vAOs]{1}[A-Za-z])/g, function (m, k) {
+    return ACCENTS[k] != null ? ACCENTS[k] : k;
+  }).replace(/\\([&])/g, "$1");
+}
+
+var TUNES = [], filtered = [], selId = null, transpose = 0, curAbc = null, showWords = false;
+
+// Drop lyric lines: w: (aligned syllables) and W: (free verse blocks).
+function stripWords(abc) {
+  return abc.split("\n").filter(function (ln) {
+    return !/^[wW]:/.test(ln);
+  }).join("\n");
+}
+var listEl = document.getElementById("list");
+var searchEl = document.getElementById("search");
+var chipsEl = document.getElementById("chips");
+var scoreEl = document.getElementById("score");
+var nowEl = document.getElementById("now");
+var tkEl = document.getElementById("tk");
+var collection = "All";
+
+function collections() {
+  var set = {};
+  TUNES.forEach(function (t) { set[t.collection] = (set[t.collection] || 0) + 1; });
+  return Object.keys(set).sort().map(function (k) { return { name: k, n: set[k] }; });
+}
+
+function buildChips() {
+  var cols = [{ name: "All", n: TUNES.length }].concat(collections());
+  chipsEl.innerHTML = "";
+  cols.forEach(function (c) {
+    var b = document.createElement("div");
+    b.className = "chip" + (c.name === collection ? " on" : "");
+    b.textContent = c.name + " (" + c.n + ")";
+    b.onclick = function () { collection = c.name; buildChips(); render(); };
+    chipsEl.appendChild(b);
+  });
+}
+
+function render() {
+  var q = searchEl.value.trim().toLowerCase();
+  filtered = TUNES.filter(function (t) {
+    if (collection !== "All" && t.collection !== collection) return false;
+    if (q && t.disp.toLowerCase().indexOf(q) === -1) return false;
+    return true;
+  });
+  document.getElementById("count").textContent = filtered.length + " of " + TUNES.length;
+  listEl.innerHTML = "";
+  var frag = document.createDocumentFragment();
+  filtered.forEach(function (t) {
+    var d = document.createElement("div");
+    d.className = "item" + (t.id === selId ? " sel" : "");
+    var meta = [t.collection, t.key && "key " + t.key, t.meter, t.rhythm].filter(Boolean).join(" · ");
+    d.innerHTML = '<div class="t"></div><div class="m"></div>';
+    d.querySelector(".t").textContent = t.disp;
+    d.querySelector(".m").textContent = meta;
+    d.onclick = function () { selectTune(t.id); };
+    frag.appendChild(d);
+  });
+  listEl.appendChild(frag);
+}
+
+function selectTune(id) {
+  selId = id; transpose = 0;
+  render();
+  var t = TUNES.filter(function (x) { return x.id === id; })[0];
+  nowEl.textContent = t ? t.disp : "";
+  xhr("abc/" + id + ".abc", function (txt) {
+    if (txt == null) { scoreEl.innerHTML = '<div id="empty">Could not load tune.</div>'; return; }
+    curAbc = txt;
+    draw();
+  });
+}
+
+function draw() {
+  if (curAbc == null) return;
+  tkEl.textContent = "transpose " + (transpose > 0 ? "+" : "") + transpose;
+  // Match the HarpHymnal practice/hymnal render: real pane-width staff,
+  // responsive viewBox scaling, and wrap so measures flow across multiple
+  // readable lines instead of being crushed onto one. (build_html.py)
+  scoreEl.innerHTML = "";
+  ABCJS.renderAbc("score", showWords ? curAbc : stripWords(curAbc), {
+    staffwidth: scoreEl.clientWidth - 36,
+    responsive: "resize",
+    add_classes: true,
+    visualTranspose: transpose,
+    paddingtop: 6, paddingbottom: 24,
+    wrap: { minSpacing: 1.8, maxSpacing: 2.7, minSpacingLimit: 1.0, lastLineLimit: true }
+  });
+  scoreEl.querySelectorAll("svg").forEach(function (s) { s.removeAttribute("style"); });
+}
+
+document.getElementById("up").onclick = function () { transpose++; draw(); };
+document.getElementById("down").onclick = function () { transpose--; draw(); };
+document.getElementById("words").onclick = function () {
+  showWords = !showWords;
+  this.classList.toggle("on", showWords);
+  draw();
+};
+searchEl.oninput = render;
+window.addEventListener("resize", function () { if (curAbc) draw(); });
+
+xhr("index.json", function (txt) {
+  if (txt == null) { document.getElementById("empty").textContent = "Could not load index.json"; return; }
+  TUNES = JSON.parse(txt);
+  TUNES.forEach(function (t) { t.disp = decode(t.title); });
+  buildChips();
+  render();
+});
+</script>
+</body>
+</html>
