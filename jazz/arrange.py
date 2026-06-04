@@ -92,10 +92,22 @@ def arrange(hymn_path):
         rh.append(" ".join(mel_tok(e,mult) for e in b["melody"]))
         tex="waltz" if is34 else TEX[bar2phr.get(bi,bi//4)%len(TEX)]
         lh.append(som_lh(key, (b["chord"] or {}).get("numeral","I"), be, tex))
-    # Emit each voice as one continuous line and let abcjs wrap to the staff width
-    # (no %%nowrap, no pre-chunking) so it fills the page instead of 4 bars/line.
-    out.append("[V:1] "+" | ".join(rh)+" |")
-    out.append("[V:2] "+" | ".join(lh)+" |")
+    # Group bars per system in the SOURCE (one source line = one rendered system).
+    # The renderer uses NO wrap option, so abcjs keeps its natural sqrt(duration)
+    # note spacing instead of justify-stretching each row -- that stretch is what
+    # spreads notes apart. Bars/line is chosen so the whole block's aspect ratio
+    # ~matches a landscape tablet (BPL ~ 1.3*sqrt(bars)); fit-to-screen then scales
+    # it up to fill BOTH dimensions, maximizing note size on one screen.
+    import math
+    BPL = max(4, min(11, round(1.3 * math.sqrt(len(bars)))))
+    L = max(1, math.ceil(len(bars) / BPL))               # number of systems
+    base, extra = divmod(len(bars), L)                   # spread bars EVENLY across them
+    idx = 0
+    for li in range(L):
+        n = base + (1 if li < extra else 0)
+        out.append("[V:1] " + " | ".join(rh[idx:idx+n]) + " |")
+        out.append("[V:2] " + " | ".join(lh[idx:idx+n]) + " |")
+        idx += n
     # --- Larsen cadential tag: ii7 - V7alt - I, voiced as a real turnaround coda ---
     # RH keeps the Larsen altered ii7/V7alt line, but the resolution is a true tonic
     # arpeggio (I-maj7 / i-min7), NOT the lick's bare 5th.  The LH gives each chord a

@@ -20,10 +20,11 @@ let ok = 0; const fail = [];
 for (const it of job.items) {
   el.innerHTML = '';
   try {
-    abcjs.renderAbc(el, it.abc, {
-      staffwidth: 1100, oneSvgPerLine: false,
-      wrap: { minSpacing: 1.8, maxSpacing: 2.7, minSpacingLimit: 1.0, lastLineLimit: true },
-    });
+    // No `wrap` and no `staffwidth`: abcjs renders each source line at its NATURAL
+    // sqrt(duration) width and does NOT justify-stretch it, so notes stay tight and
+    // uniformly spaced (ragged right edge, like a lead sheet). Line breaks come from
+    // the source (one [V:1]/[V:2] pair per system); fit-to-screen scales it up.
+    abcjs.renderAbc(el, it.abc, { oneSvgPerLine: false });
     const svg = el.querySelector('svg');
     if (!svg) { fail.push(it.slug + ': no svg'); continue; }
     // currentColor -> ink so it shows black inside an <img>; drop the live-DOM style.
