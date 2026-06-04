@@ -10,7 +10,7 @@ def pick_bpl(n):
     """Bars per system: ~aspect-match a landscape screen so fit-to-screen fills it."""
     return max(4, round(1.55 * math.sqrt(max(1, n))))
 from jazz.larsen_licks import (LICKS, clean_licks, render as render_lick,
-                               spell_flat, keysig_acc, spell_chord, spell_note)
+                               spell_flat, keysig_acc, spell_chord, spell_note, beam)
 
 LETTERS = "CDEFGAB"
 ACC = {"♯":"^","♭":"_","sharp":"^","flat":"_","natural":"=", None:""}
@@ -92,10 +92,15 @@ def arrange(hymn_path, bpl=None):
         for ib in (p.get("ibars") or []): bar2phr[ib-1]=pi
     TEX=["oompah","stride","block","arp"]
     is34=(mt.get("beats")==3)
+    # beat length in eighths -> beam eighth notes by beat (compound 6/8 etc. by 3)
+    unit=mt.get("unit",4) if isinstance(mt,dict) else 4
+    nbeats=mt.get("beats",4) if isinstance(mt,dict) else 4
+    mbeat=3 if (unit==8 and nbeats%3==0) else (4 if unit==2 else 2)
     rh=[]; lh=[]
     for bi,b in enumerate(bars):
         be=sum(max(1,round(e["duration"]*mult)) for e in b["melody"])
-        rh.append(" ".join(mel_tok(e,mult) for e in b["melody"]))
+        rh.append(beam([(mel_tok(e,mult), max(1,round(e["duration"]*mult)), e.get("kind")=="note")
+                        for e in b["melody"]], mbeat))
         tex="waltz" if is34 else TEX[bar2phr.get(bi,bi//4)%len(TEX)]
         lh.append(som_lh(key, (b["chord"] or {}).get("numeral","I"), be, tex))
     # Group bars per system in the SOURCE (one source line = one rendered system).

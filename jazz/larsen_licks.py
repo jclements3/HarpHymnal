@@ -85,6 +85,23 @@ def spell_chord(key, semis, octave, state, ksacc, flat):
     """One ABC chord [..] sharing the bar's accidental `state`."""
     return "[" + "".join(spell_note(key, s, octave, state, ksacc, flat) for s in sorted(semis)) + "]"
 
+def beam(pairs, beat=4):
+    """Join an ABC voice with beat-aware beaming. `pairs` is a list of
+    (token, duration_in_eighths, is_note); consecutive eighth-note tokens within the
+    same `beat`-eighth group are concatenated with NO space (one beam), everything
+    else is space-separated (a space in ABC breaks the beam -> single flags)."""
+    s = ""; pos = 0; prev = False
+    for tok, d, note in pairs:
+        beamable = note and d == 1
+        if s and prev and beamable and (pos % beat != 0):
+            s += tok                       # same beat -> beam (no space)
+        elif s:
+            s += " " + tok
+        else:
+            s = tok
+        pos += d; prev = beamable
+    return s
+
 def render(lick, key, octave_shift=0):
     """Render a key-agnostic lick as an ABC 'ii7..|V7alt..|Imaj7..' phrase in `key`.
     The library stores notes as semitones above E-flat (midi 39 = Eb2); shift the
@@ -96,9 +113,10 @@ def render(lick, key, octave_shift=0):
     delta = ((t - 3 + 6) % 12) - 6 + 12 * octave_shift   # Eb pc = 3; nearest shift
     out = []
     for c in lick["cells"]:
-        state = {}; toks = []
+        state = {}; pairs = []
         for semi, dur in c["notes"]:
             m = 39 + semi + delta
-            toks.append(_tok(m % 12, m // 12 - 1, flat, state, ksacc) + (str(dur) if dur != 1 else ""))
-        out.append('"%s"%s' % (c["func"], " ".join(toks)))
+            tok = _tok(m % 12, m // 12 - 1, flat, state, ksacc) + (str(dur) if dur != 1 else "")
+            pairs.append((tok, dur, True))
+        out.append('"%s"%s' % (c["func"], beam(pairs)))
     return " | ".join(out)
