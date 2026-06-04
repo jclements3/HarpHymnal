@@ -57,6 +57,7 @@
   <div id="main">
     <div id="bar">
       <span id="now">Select a tune</span>
+      <button id="keybtn">E&#9837;</button>
       <button id="words">Words</button>
       <span id="tk">transpose 0</span>
       <button id="down">&minus;</button>
@@ -96,6 +97,31 @@ function decode(s) {
 }
 
 var TUNES = [], filtered = [], selId = null, transpose = 0, curAbc = null, showWords = false;
+var keyEb = true, curKey = "";  // default: transpose every tune into the Eb-major signature
+
+// Semitones to move a tune's key into the Eb-major key signature (3 flats):
+// major -> Eb, minor -> Cm, Dorian -> F-dor, Mixolydian -> Bb-mix, etc. —
+// i.e. always land on the Ionian-equivalent Eb. Returns 0 if unparseable.
+var PC = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+var MODE_DEG = { ion: 0, maj: 0, dor: 2, phr: 4, lyd: 5, mix: 7, aeo: 9, min: 9, loc: 11 };
+function ebShift(key) {
+  var m = /^\s*([A-Ga-g])([#b]?)\s*(.*)$/.exec(key || "");
+  if (!m) return 0;
+  var pc = PC[m[1].toUpperCase()];
+  if (pc == null) return 0;
+  if (m[2] === "#") pc += 1; else if (m[2] === "b") pc -= 1;
+  var rest = (m[3] || "").toLowerCase();
+  var deg = 0, matched = false;
+  var keys = ["mix", "min", "maj", "dor", "phr", "lyd", "aeo", "loc", "ion"];
+  for (var i = 0; i < keys.length; i++) {
+    if (rest.indexOf(keys[i]) === 0) { deg = MODE_DEG[keys[i]]; matched = true; break; }
+  }
+  if (!matched && rest.charAt(0) === "m") deg = 9;  // bare "m" / "Em" = minor
+  var relIon = ((pc - deg) % 12 + 12) % 12;
+  var shift = ((3 - relIon) % 12 + 12) % 12;          // 3 = Eb
+  if (shift > 6) shift -= 12;                          // keep near original octave
+  return shift;
+}
 
 // Drop lyric lines: w: (aligned syllables) and W: (free verse blocks).
 function stripWords(abc) {
@@ -156,6 +182,7 @@ function selectTune(id) {
   selId = id; transpose = 0;
   render();
   var t = TUNES.filter(function (x) { return x.id === id; })[0];
+  curKey = t ? t.key : "";
   nowEl.textContent = t ? t.disp : "";
   xhr("abc/" + id + ".abc", function (txt) {
     if (txt == null) { scoreEl.innerHTML = '<div id="empty">Could not load tune.</div>'; return; }
@@ -166,6 +193,7 @@ function selectTune(id) {
 
 function draw() {
   if (curAbc == null) return;
+  var base = keyEb ? ebShift(curKey) : 0;
   tkEl.textContent = "transpose " + (transpose > 0 ? "+" : "") + transpose;
   // Match the HarpHymnal practice/hymnal render: real pane-width staff,
   // responsive viewBox scaling, and wrap so measures flow across multiple
@@ -175,7 +203,7 @@ function draw() {
     staffwidth: scoreEl.clientWidth - 36,
     responsive: "resize",
     add_classes: true,
-    visualTranspose: transpose,
+    visualTranspose: base + transpose,
     paddingtop: 6, paddingbottom: 24,
     wrap: { minSpacing: 1.8, maxSpacing: 2.7, minSpacingLimit: 1.0, lastLineLimit: true }
   });
@@ -187,6 +215,14 @@ document.getElementById("down").onclick = function () { transpose--; draw(); };
 document.getElementById("words").onclick = function () {
   showWords = !showWords;
   this.classList.toggle("on", showWords);
+  draw();
+};
+var keyBtn = document.getElementById("keybtn");
+keyBtn.classList.add("on");  // Eb is the default
+keyBtn.onclick = function () {
+  keyEb = !keyEb;
+  this.classList.toggle("on", keyEb);
+  this.innerHTML = keyEb ? "E&#9837;" : "Orig";
   draw();
 };
 searchEl.oninput = render;
