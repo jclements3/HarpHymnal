@@ -215,7 +215,14 @@ for (const it of job.items) {
     if (!/xmlns="http:\/\/www\.w3\.org\/2000\/svg"/.test(s)) {
       s = s.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ');
     }
-    fs.writeFileSync(path.join(job.outdir, it.slug + '.svg'), s);
+    if (!/viewBox=/.test(s)) {           // viewers scale by viewBox; add it from w/h
+      const wm = /width="([\d.]+)"/.exec(s), hm = /height="([\d.]+)"/.exec(s);
+      if (wm && hm) s = s.replace('<svg ', '<svg viewBox="0 0 ' + wm[1] + ' ' + hm[1] + '" ');
+    }
+    // it.out (e.g. "hymns/L1/slug.svg") overrides the default slug.svg path.
+    const outPath = path.join(job.outdir, it.out || (it.slug + '.svg'));
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.writeFileSync(outPath, s);
     ok++;
   } catch (e) { fail.push(it.slug + ': ' + e.message); }
 }
